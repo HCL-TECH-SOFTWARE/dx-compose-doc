@@ -1,6 +1,6 @@
 # System Requirements
 
-The deployment of WebEngine happens as part of the broader DX deployment using Helm for Kubernetes or Docker Compose. This topic provides the minimum system requirements for the WebEngine container in HCL Digital Experience (DX) version 9.5.
+The deployment of WebEngine happens as part of the broader DX deployment using Helm for Kubernetes or Docker Compose. This topic provides the minimum system requirements for the WebEngine container in HCL Digital Experience (DX).
 
 ## Kubernetes
 
