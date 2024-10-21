@@ -1,6 +1,6 @@
 # WebEngine Features
 
-In this topic, you can find the main scenarios supported by WebEngine:
+In this topic, you can find the main scenarios supported by WebEngine. See the following list for WebEngine features: 
 
 - Apply custom branding using an HTML theme
 - Create a website and manage it with [Site Manager](../../../manage_content/wcm_authoring/inline_editing/index.md)
@@ -8,8 +8,8 @@ In this topic, you can find the main scenarios supported by WebEngine:
 - Manage multilingual content with [Multilingual Solution](../../../manage_content/wcm_authoring/multi_lingual/index.md)
 - Create [Personalization](../../../build_sites/practitioner_studio/personalization.md) rules and use them to target content
 - [Syndicate content](../../../manage_content/wcm_delivery/syndication/index.md) from server to server
-- Use [projects](../../../build_sites/create_sites/adding_pages_content_more/projects_organizing_coord_chgs_site/index.md) to manage change
-- Change the context root
+- Use [projects](../../../build_sites/create_sites/adding_pages_content_more/projects_organizing_coord_chgs_site/index.md) to manage changes
+- Change the [context root](../../../deployment/manage/siteurl_cfg/index.md) of the URL
 - Set up [virtual portals](../../../build_sites/virtual_portal/index.md)
 - Use [Digital Asset Management](../../../manage_content/digital_assets/index.md) to manage assets
 - Use [AI features](../../../manage_content/wcm_authoring/authoring_portlet/content_management_artifacts/elements/wcm_dev_elements_ai_assistance.md) to augment content and asset
@@ -25,3 +25,5 @@ In this topic, you can find the main scenarios supported by WebEngine:
 - Federate multiple LDAPs
 - Integrate sites using [Web Application Bridge](../../../extend_dx/integration/wab/wab/index.md)
 - Use several [DXClient](../../../extend_dx/development_tools/dxclient/index.md) functions
+
+<!-- Linked to existing pages in the doc-->

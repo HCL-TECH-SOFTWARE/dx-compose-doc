@@ -1,6 +1,6 @@
 # System Requirements
 
-The deployment of WebEngine happens as part of the broader DX deployment using Helm for Kubernetes or Docker Compose.
+The deployment of WebEngine happens as part of the broader DX deployment using Helm for Kubernetes or Docker Compose. This topic provides the minimum system requirements for the WebEngine container in HCL Digital Experience (DX) version 9.5.
 
 ## Kubernetes
 
@@ -9,11 +9,11 @@ See the requirements for Kubernetes in [Kubernetes runtime](../../system_require
 ### Kubernetes platform policy
 
 - The Kubernetes platform must be hosted on x86-64 hardware.
-- The Kubernetes platform must be officially supported by Helm. For more information, see [Kubernetes Distribution Guide](https://helm.sh/docs/topics/kubernetes_distros).
+- The Kubernetes platform must be officially supported by Helm. For more information, see [Kubernetes Distribution Guide](https://helm.sh/docs/topics/kubernetes_distros){target="_blank"}.
 
 ## Java SDK
 
-HCL Digital Experience 9.5 requires JDK 11.0 or later for installation.
+HCL DX 9.5 requires JDK 11.0 or later for installation.
 
 |Prerequisite|Prerequisite minimum and supported versions|Product minimum|
 |----------|----------|----------|
@@ -27,7 +27,7 @@ HCL Digital Experience 9.5 requires JDK 11.0 or later for installation.
 |DB2 Standard and Advanced Edition|11.5** and later maintenance releases|9.5|
 
 \* Apache Derby is not supported in a product environment.  
-\* DB2 includes support for the DB2 pureScale component.  
+\** DB2 includes support for the DB2 pureScale component.  
 
 ## LDAP servers
 
