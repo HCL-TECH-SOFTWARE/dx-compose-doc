@@ -136,60 +136,6 @@ function setRichTextValue(theText)
 This example is used to create a selection list of predefined options.
 
 ```
-<%@ taglib uri="/WEB-INF/tld/portlet.tld" prefix="portletAPI" %>
-<%@ page import="com.ibm.workplace.wcm.api.authoring.CustomItemBean" %>
-
-<portletAPI:init />
-
-
-<% 
-    CustomItemBean customItem = 
-    (CustomItemBean) request.getAttribute("CustomItemBean"); 
-    customItem.setSubmitFunctionName("mysubmit");
-    String fvalue = (String)customItem.getFieldValue();
-    fvalue = fvalue.replaceAll("\"", "&quot;").replaceAll("\"","&#39;");
-%>
-
-<SELECT id='<%=customItem.getFieldName()%>_mycustom'  >
-<OPTION></OPTION>
-<OPTION 
-<% if (((String)fvalue).compareTo("Option1") == 0)  {%>
-SELECTED
-<% } %>
->Option1</OPTION>
-<OPTION 
-<% if (((String)fvalue).compareTo("Option2") == 0)  {%>
-SELECTED
-<% } %>
->Option2</OPTION>
-<OPTION 
-<% if (((String)fvalue).compareTo("Option3") == 0)  {%>
-SELECTED
-<% } %>
->Option3</OPTION>
-<OPTION 
-<% if (((String)fvalue).compareTo("Option4") == 0)  {%>
-SELECTED
-<% } %>
->Option4</OPTION>
-</SELECT>
-
-<script language='Javascript'>
-function mysubmit()
-{
-	var selIndex=document.getElementById('<%=customItem.getFieldName()%>_mycustom').selectedIndex;
-	
-	if (selIndex <= 0)
-	{
-		document.getElementById("<%=customItem.getFieldName()%>").value = "";
-	}
-	else
-	{
-		document.getElementById("<%=customItem.getFieldName()%>").value = 
-			document.getElementById('<%=customItem.getFieldName()%>_mycustom').options[selIndex].text;
-	}
-}
-</script>
 ```
 
 ## Date element example
@@ -200,55 +146,6 @@ This example is used to create a selection list of predefined dates.
     Only dates can be selected, not times.
 
 ```
-<%@ taglib uri="/WEB-INF/tld/portlet.tld" prefix="portletAPI" %>
-<%@ page import="com.ibm.workplace.wcm.api.authoring.CustomItemBean" %>
-
-<portletAPI:init />
-
-
-<% 
-    CustomItemBean customItem = 
-    (CustomItemBean) request.getAttribute("CustomItemBean"); 
-    customItem.setSubmitFunctionName("mydatesubmit");
-    String fvalue = (String)customItem.getFieldValue();
-    fvalue = fvalue.replaceAll("\"", "&quot;").replaceAll("\"","&#39;");
-%>
-
-<SELECT id='<%=customItem.getFieldName()%>_mycustomdate'  >
-<OPTION></OPTION>
-<OPTION 
-<% if (((String)fvalue).compareTo("Jul 4, 2005") == 0)  {%>
-SELECTED
-<% } %>
->Jul 4, 2005</OPTION>
-<OPTION 
-<% if (((String)fvalue).compareTo("Aug 15, 2005") == 0)  {%>
-SELECTED
-<% } %>
->Aug 15, 2005</OPTION>
-<OPTION 
-<% if (((String)fvalue).compareTo("Dec 25, 2005") == 0)  {%>
-SELECTED
-<% } %>
->Dec 25, 2005</OPTION>
-<OPTION 
-<% if (((String)fvalue).compareTo("Jan 26, 2006") == 0)  {%>
-SELECTED
-<% } %>
->Jan 26, 2006</OPTION>
-</SELECT>
-
-
-
-<script language='Javascript'>
-function mydatesubmit()
-{
-var selIndex=document.getElementById('<%=customItem.getFieldName()%>_mycustomdate').selectedIndex;
-
-document.getElementById("<%=customItem.getFieldName()%>").value = 
-document.getElementById('<%=customItem.getFieldName()%>_mycustomdate').options[selIndex].text;
-}
-</script>
 ```
 
 ## Number element example
@@ -256,56 +153,6 @@ document.getElementById('<%=customItem.getFieldName()%>_mycustomdate').options[s
 This example is used to create a selection list of predefined numbers.
 
 ```
-<%@ taglib uri="/WEB-INF/tld/portlet.tld" prefix="portletAPI" %>
-<%@ page import="com.ibm.workplace.wcm.api.authoring.CustomItemBean" %>
-
-<portletAPI:init />
-
-
-<% 
-    CustomItemBean customItem = 
-    (CustomItemBean) request.getAttribute("CustomItemBean"); 
-    customItem.setSubmitFunctionName("mynumbersubmit");
-    String fvalue = (String)customItem.getFieldValue();
-    fvalue = fvalue.replaceAll("\"", "&quot;").replaceAll("\"","&#39;");
-%>
-
-<SELECT id='<%=customItem.getFieldName()%>_mycustomnumber'  >
-<OPTION></OPTION>
-<OPTION 
-<% if (((String)fvalue).compareTo("6") == 0)  {%>
-SELECTED
-<% } %>
->6</OPTION>
-<OPTION 
-<% if (((String)fvalue).compareTo("8.5") == 0)  {%>
-SELECTED
-<% } %>
->8.5</OPTION>
-<OPTION 
-<% if (((String)fvalue).compareTo("12") == 0)  {%>
-SELECTED
-<% } %>
->12</OPTION>
-<OPTION 
-<% if (((String)fvalue).compareTo("15.45") == 0)  {%>
-SELECTED
-<% } %>
->15.45</OPTION>
-</SELECT>
-
-
-
-<script language='Javascript'>
-function mynumbersubmit()
-{
-var selIndex=document.getElementById('<%=customItem.getFieldName()%>_mycustomnumber').selectedIndex;
-
-
-document.getElementById("<%=customItem.getFieldName()%>").value = 
-document.getElementById('<%=customItem.getFieldName()%>_mycustomnumber').options[selIndex].text;
-}
-</script>
 ```
 
 ## User selection element example
