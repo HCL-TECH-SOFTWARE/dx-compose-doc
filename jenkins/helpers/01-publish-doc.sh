@@ -59,8 +59,8 @@ chmod -R 600 /root/.ssh/id_rsa
 ssh-keyscan git.cwp.pnp-hcl.com >> /root/.ssh/known_hosts
 
 # Perform clone of target repository
-git clone --depth 1 --branch gh-pages git@git.cwp.pnp-hcl.com:CWPdoc/dx-mkdocs.git 
-cd dx-mkdocs
+git clone --depth 1 --branch gh-pages git@git.cwp.pnp-hcl.com:CWPdoc/dx-next-mkdocs.git 
+cd dx-next-mkdocs
 git fetch origin $branch
 git switch -c $branch FETCH_HEAD
 
