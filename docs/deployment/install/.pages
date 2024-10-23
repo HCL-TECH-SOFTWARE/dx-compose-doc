@@ -1,6 +1,7 @@
 nav:
     - index.md
     - Kubernetes Deployment: container
+    - WebEngine Deployment: webengine
     - traditional
     - Hybrid Deployment: hybrid
     - docker-compose.md
