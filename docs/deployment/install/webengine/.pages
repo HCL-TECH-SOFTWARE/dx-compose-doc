@@ -1,0 +1,15 @@
+nav:
+    - index.md
+    - portlet_container_kube.md
+    - install_webengine.md
+    - update_properties_with_helm.md
+    - helm_upgrade_values.md
+    - cfg_parameters
+    - config_changes_using_overrides.md
+    - update_default_admin_pw.md
+    - restart_webengine_server.md
+    - monitor_metrics.md
+    - logging_webengine.md
+    - uninstall_webengine.md
+    - troubleshooting.md
+
