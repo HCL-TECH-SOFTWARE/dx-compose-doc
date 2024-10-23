@@ -15,16 +15,16 @@ See the requirements for Kubernetes in [Kubernetes runtime](../../system_require
 
 HCL DX 9.5 requires JDK 11.0 or later for installation.
 
-|Prerequisite|Prerequisite minimum and supported versions|Product minimum|
-|----------|----------|----------|
-|Apache Termurin, Java Technology Edition|11.0 and later maintenance releases|9.5|  
+|Prerequisite|Prerequisite minimum and supported versions|
+|----------|----------|
+|Apache Termurin, Java Technology Edition|11.0 and later maintenance releases|
 
 ## Databases
 
-|Supported software|Supported software minimum|Product minimum|
-|-----------|------------------|-----|
-|Apache Derby|10.11*<br/>|8.5|
-|DB2 Standard and Advanced Edition|11.5** and later maintenance releases|9.5|
+|Supported software|Supported software minimum|
+|-----------|------------------|
+|Apache Derby|10.11*<br/>|
+|DB2 Standard and Advanced Edition|11.5** and later maintenance releases|
 
 \* Apache Derby is not supported in a product environment.  
 \** DB2 includes support for the DB2 pureScale component.  
@@ -35,11 +35,11 @@ All LDAP Servers that support the LDAP V3 Specification are supported.
 
 ## Web browsers
 
-|Supported software|Supported software minimum|Product minimum|
-|-----------|------------------|-----|
-|Android default browser|Newer levels are supported|9.5|
-|Apple Safari|Newer levels are supported|9.5|
-|Google Chrome|Newer levels are supported|9.5|
-|Microsoft Edge Chromium-Based|Newer levels are supported|9.5|
-|Mozilla Firefox|Newer levels are supported|9.5|
-|Mozilla Firefox ESR|Newer levels are supported|9.5|
+|Supported software|Supported software minimum|
+|-----------|------------------|
+|Android default browser|Newer levels are supported|
+|Apple Safari|Newer levels are supported|
+|Google Chrome|Newer levels are supported|
+|Microsoft Edge Chromium-Based|Newer levels are supported|
+|Mozilla Firefox|Newer levels are supported|
+|Mozilla Firefox ESR|Newer levels are supported|
