@@ -13,3 +13,4 @@ kubectl exec -it  dx-deployment-web-engine-0  -n dxns -c core -- /opt/openlibert
 ```
 
 For continuous monitoring, provide the argument -monitor yes. To simply view the logs without continuous monitoring, use -monitor no or omit the argument altogether.
+
