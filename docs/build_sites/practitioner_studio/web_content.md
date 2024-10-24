@@ -1,7 +1,9 @@
 # Web content
 
-Learn more about managing libraries, creating, editing or cleaning up data, and setting up syndication for HCL Digital Experience web content management.
+Learn more about managing libraries, creating, editing or cleaning up data, and setting up syndication for HCL Digital Experience (DX) web content management.
 
+- [**HCL Content Composer**](../../manage_content/wcm_authoring/content_composer/index.md)<br>
+    Learn how to use the HCL Content Composer to create and manage DX site content.
 - [**Authoring portlet**](../create_sites/authoring_tools/site_auth_portlet.md)<br>
     Learn how to use authoring templates to add content to your website.
 - [**HCL Content Reporting**](../../manage_content/wcm_authoring/content_reporting/index.md)<br>
@@ -24,4 +26,3 @@ Learn more about managing libraries, creating, editing or cleaning up data, and 
 For an introduction and a demo on web content management, go to [Web Content](https://hclsoftwareu.hcltechsw.com/component/axs/?view=sso_config&id=3&forward=https%3A%2F%2Fhclsoftwareu.hcltechsw.com%2Fcourses%2Flesson%2F%3Fid%3D301){target="_blank"}. To try it out yourself, refer to [Web Content - Content Composer Lab](https://hclsoftwareu.hcltechsw.com/images/Lc4sMQCcN5uxXmL13gSlsxClNTU3Mjc3NTc4MTc2/DS_Academy/DX/Business_User/HDX-BU-100_Web_Content_-_Content_Composer_Lab.pdf){target="_blank"}.
 
 For an introduction and a demo on the development aspects of web content management, go to [Web Content](https://hclsoftwareu.hcltechsw.com/component/axs/?view=sso_config&id=3&forward=https%3A%2F%2Fhclsoftwareu.hcltechsw.com%2Fcourses%2Flesson%2F%3Fid%3D414){target="_blank"}. To try it out yourself, refer to [Web Content Developer Lab](https://hclsoftwareu.hcltechsw.com/images/Lc4sMQCcN5uxXmL13gSlsxClNTU3Mjc3NTc4MTc2/DS_Academy/DX/Developer/HDX-DEV-100_Web_Content_Development_for_Beginners.pdf){target="_blank"} and corresponding [Web Content Developer Lab Resources](https://hclsoftwareu.hcltechsw.com/images/Lc4sMQCcN5uxXmL13gSlsxClNTU3Mjc3NTc4MTc2/DS_Academy/DX/Developer/HDX-DEV-100_Web_Content_Development_Lab_Resources.zip).
-
