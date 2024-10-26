@@ -20,7 +20,7 @@ To minimize the impact of operations to configuration changes processing, consid
 
 **Direct Configuration changes in Kubernetes**
 
-Starting CF221, the Runtime Controller triggering Pod restarts for manual changes to the ConfigMaps through `kubectl edit cm` is removed. For more information, see [Deprecated features](../../../whats_new/deprecated_features.md).
+The Runtime Controller triggering Pod restarts for manual changes to the ConfigMaps through `kubectl edit cm` is removed. For more information, see [Deprecated features](../../../get_started/system_requirements/deprecated_features.md).
 
 If any changes are made to the ConfigMaps for testing configurations, the appropriate Pods must be restarted manually to apply the changes. This can be triggered using the [`kubectl rollout restart`](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_rollout/kubectl_rollout_restart/) command.
 

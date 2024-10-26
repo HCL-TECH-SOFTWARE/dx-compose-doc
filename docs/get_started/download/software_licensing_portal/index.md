@@ -72,7 +72,7 @@ Follow this installation path to deploy DX from an existing HCL Digital Experien
 3.  Stage the content to the new environment to move from an existing system to HCL Digital Experience on Kubernetes platforms.
 
 ## Configure HCL Digital Experience Cloud Native 9.5 entitlement checks
-Beginning with [HCL Digital Experience 9.5 Container Update CF207](../../../whats_new/cf20/newcf207.md), you must specify certain entitlement check parameters in your [HCL Digital Experience Cloud Native 9.5 Tier 1 – 7](../../product_overview/offerings.md#hcl-digital-experience-cloud-native) installations to accomplish entitlement checks with the HCL Software Licensing and Delivery Portal (Flexnet). See [HCL Digital Experience Cloud Native 9.5 entitlement checks](../software_licensing_portal/configure_entitlement_checks/index.md) for more information.
+You must specify certain entitlement check parameters in your [HCL Digital Experience Cloud Native 9.5 Tier 1 – 7](../../product_overview/offerings.md#hcl-digital-experience-cloud-native) installations to accomplish entitlement checks with the HCL Software Licensing and Delivery Portal (Flexnet). See [HCL Digital Experience Cloud Native 9.5 entitlement checks](../software_licensing_portal/configure_entitlement_checks/index.md) for more information.
 
 ???+ info "Related information"
     - [Locating and Downloading DX Products](../../../guide_me/tutorials/access-software/locating-downloads.md)

@@ -10,7 +10,7 @@ The remote REST service for PUMA allows you to remotely perform the following ta
 
 The first part of this documentation describes the basic interface that lists all possible operations, including their parameters and a minimum schema to describe the resources that are involved. The second part explains specific details for the current implementation of this interface for this version of HCL Portal.
 
-Beginning with [HCL DX 9.5 Container Update and CF 199](../../../../whats_new/cf19/index.md), a new API explorer is available. The new API explorer allows developers using the Portal User Interface APIs to explore and test these APIs. See the topic DX User and Groups REST API explorer below for details.
+An API explorer is available. The new API explorer allows developers using the Portal User Interface APIs to explore and test these APIs. See the topic DX User and Groups REST API explorer below for details.
 
 -   **[Structure of the remote REST service for PUMA](../remote_rest_service_for_puma/structure_of_remote_rest_svc_puma/index.md)**  
 The interface provided by the remote REST service for PUMA defines single operations that are characterized by a particular URI path, the HTTP method, the expected input or output, and a list of query parameters. With regards to the input or output format, the interface only describes a common baseline for the payload, which can be wrapped or represented individually by different implementations of the service.
