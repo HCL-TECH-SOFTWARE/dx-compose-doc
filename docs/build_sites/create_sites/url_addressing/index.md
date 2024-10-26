@@ -63,7 +63,7 @@ For more information, see [Changing your site URL](../../../deployment/manage/si
 
 #### Friendly Action URLs
 
-Starting from CF216, you can configure action URLs to be friendly.
+You can configure action URLs to be friendly.
 
 While DX allows for [friendly URLs](../../../manage_content/wcm_delivery/deliver_webcontent_on_dx/customizing_content/friendlyurl_wcmviewer/index.md), actions in portlets still trigger state information for bookmarkability and caching, therefore making the URLs unfriendly. See the following examples: 
 

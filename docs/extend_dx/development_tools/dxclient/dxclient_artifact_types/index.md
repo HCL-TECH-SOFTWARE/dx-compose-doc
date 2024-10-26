@@ -16,7 +16,7 @@ The following list shows some of the deprecated parameters and the new parameter
 -   `-targetServerProfileName` replaced by `-targetDxProfileName`
 
     !!! note
-        The attribute `-dxConnectHostname` is deprecated in CF202 and later releases. It is recommended that you start using the replacement parameter `-hostname` starting from CF202 wherever necessary.
+        The attribute `-dxConnectHostname` is deprecated. It is recommended that you start using the replacement parameter `-hostname` wherever necessary.
 
 ## HCLSoftware U learning materials
 

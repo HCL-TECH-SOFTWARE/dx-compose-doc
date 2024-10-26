@@ -1,6 +1,6 @@
 # Persisted Config Wizard Profile
 
-Starting from CF213, the profile of the Config Wizard in Helm deployments is persisted on the same persistent volume as the Core profile. This allows advanced configuration of the Config Wizard profile that are persisted through restarts.
+The profile of the Config Wizard in Helm deployments is persisted on the same persistent volume as the Core profile. This allows advanced configuration of the Config Wizard profile that are persisted through restarts.
 
 ## Volume mount points
 

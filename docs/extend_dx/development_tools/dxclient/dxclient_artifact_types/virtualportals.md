@@ -336,7 +336,7 @@ This topic describes the commands that are used in managing the virtual portal a
 
 ### Limitations & Troubleshooting
 
-1. The attribute `-dxConnectHostname` is deprecated in CF202 and later releases. It is recommended that you start using the replacement parameter `-hostname` starting from CF202 wherever necessary.
+1. The attribute `-dxConnectHostname` is deprecated. We recommended that you start using the replacement parameter `-hostname` wherever necessary.
 2. Currently, export & import virtual portal feature supports only `vpContext` and does not support `vpHostname`. Support for Virtual portal with hostname might be added in the future release.
 
 ## HCLSoftware U learning materials

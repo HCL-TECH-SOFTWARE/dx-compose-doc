@@ -4,11 +4,11 @@ title: Comments in WCM
 
 # Comments in WCM
 
-Starting from CF213, the product contains a new solution that allows users to leave comments for Web Content Manager (WCM). These comments can be used in Intranet scenarios or in controlled settings allowing external comments. 
+The product has a solution that allows users to leave comments for Web Content Manager (WCM). These comments can be used in Intranet scenarios or in controlled settings allowing external comments. 
 
 ## WCM Comments as Custom Plugin Component
 
-Starting from CF213, WCM Comments can be enabled as Custom Plugin Component for a WCM content. WCM Comments can be rendered on page and on the Web Content Viewer​ Portlet.
+WCM Comments can be enabled as Custom Plugin Component for a WCM content. WCM Comments can be rendered on page and on the Web Content Viewer​ Portlet.
 
 This section describes how to enable, configure, and disable the WCM commenting solution as as Custom Plugin Component for a WCM content.
 
@@ -80,13 +80,13 @@ After setting up the comments UI on the page, you can now add, reply, like/unlik
 
 ## Rendering WCM comments in external components
 
-Starting from CF214, WCM comments can be rendered in external components such as Page Components and Rich Text, Script applications or Custom Portlet. For these scenarios, enabling and configuring Custom Plugin Component for WCM comments as described in the [WCM Comments as Custom Plugin Component](#wcm-comments-as-custom-plugin-component) are not required.
+WCM comments can be rendered in external components such as Page Components and Rich Text, Script applications or Custom Portlet. For these scenarios, enabling and configuring Custom Plugin Component for WCM comments as described in the [WCM Comments as Custom Plugin Component](#wcm-comments-as-custom-plugin-component) are not required.
 
 This section provides an overview of the page component shipped as part of CF214. It also describes how to configure WCM comments in external components such as Rich Text Editor, Script Application, and Custom Portlet.
 
 ### Custom Page Component for WCM Comments
 
-Starting from CF214, the default WCM Comments library is shipped with a new custom page component and an additional authoring template that uses a new presentation template. This presentation template is for rendering the WCM comments HTML markup component inside the new page component.
+The default WCM Comments library is shipped with a new custom page component and an additional authoring template that uses a new presentation template. This presentation template is for rendering the WCM comments HTML markup component inside the new page component.
 
 This section provides an overview of the components related to the newly shipped page component. You can see the different components in the following images.
 
@@ -285,7 +285,7 @@ To enable CSRF tokens, go to the WAS Console and navigate to to **Resources > Re
 
 ## Cleaning up orphaned comments data stored in the library
 
-Starting from CF214, a new API is available for soft deleting all the comments that are no longer mapped to content (for example, if the content was deleted). When you soft delete, it marks a comment as no longer active without deleting it from the database.
+An API is available for soft deleting all the comments that are no longer mapped to content (for example, if the content was deleted). When you soft delete, it marks a comment as no longer active without deleting it from the database.
 
 In the libraries query parameter, pass all the library names containing the orphaned comments data. 
 The API finds all comments based on the authoring template and site area ```Comments``` of each of the defined libraries and soft deletes them. 
