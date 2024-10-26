@@ -1,4 +1,6 @@
 title: Plan Your Deployment
 nav:
-    - Kubernetes Deployment: container_deployment
-    - Development Deployment: docker
+    - architecture_overview.md
+    - kubernetes
+    - docker_workstation.md
+    - learning_materials.md

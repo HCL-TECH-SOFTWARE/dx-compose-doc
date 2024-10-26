@@ -1,11 +1,11 @@
 ---
-title: Harbor container registry
+title: hclcr.io container registry
 ---
 
-# Download and deploy HCL products from a Harbor Repository
+# Download and deploy HCL products from hclcr.io Repository
 <!-- Harbor is a project name that, as far as I can see, does not belong to HCL. Therefore, placing our company name in front of “ Harbor container repository” makes it seem as though It’s HCL’s Harbor container repository. The Harbor container repository is associated with HCL, to be sure, but we have to word items like this so there’s no confusion.  -->
 
-The HCL Digital Experience 9.5 container images and Helm charts can be accessed from the [HCL container repository on Harbor](https://hclcr.io/){:target="_blank"}. Customers with credentials to access entitled software on the HCL Software Licensing Portal can apply those credentials to optionally access these components of Digital Experience v9.5. 
+The HCL Digital Experience 9.5 container images and Helm charts can be accessed from the [HCL container repository](https://hclcr.io/){:target="_blank"}. Customers with credentials to access entitled software on the HCL Software Licensing Portal can apply those credentials to optionally access these components of Digital Experience v9.5. 
 
 With the CF216 release (November 2023), the Harbor repository provides an OCI-based registry. The Helm chart command is updated to be OCI-compliant. However, older versions of the Helm chart are still used in the non-OCI approach. Both approaches are described later.
 

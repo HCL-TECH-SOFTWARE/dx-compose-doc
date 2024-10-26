@@ -56,7 +56,7 @@ To create and publish content, users can use the [HCL Web Content Manager author
 
 ## HCL Digital Experience Help Center documentation accessibility 
 
-The [HCL Digital Experience Help Center](../product_overview/index.md) documentation includes the following features to aid accessibility:
+The [HCL Digital Experience Help Center](index.md) documentation includes the following features to aid accessibility:
 
 -	All documentation is available in HTML formats to give the maximum opportunity for users to apply screen-reader software technology.
 

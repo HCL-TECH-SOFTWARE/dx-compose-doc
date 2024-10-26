@@ -1,6 +1,4 @@
-# HCL Digital Experience Cloud Native 9.5 offerings
-
-See the latest offerings for HCL Digital Experience 9.5.
+# HCL Digital Experience Offerings
 
 ## HCL Digital Experience Cloud Native
 
