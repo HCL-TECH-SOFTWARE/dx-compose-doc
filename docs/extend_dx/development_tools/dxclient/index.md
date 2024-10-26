@@ -395,7 +395,7 @@ Refer to the list of features that were released in the following HCL DX 9.5 rel
     
     -   Retrieve feature added to the [Resource environment provider](../dxclient/dxclient_artifact_types/resourceenvironments.md).
     
-    -   [Accessing ConfigWizard in container environment](../../../deployment/manage/portal_admin_tools/cfg_wizard/configuration/cw_run.md)
+    -   [Accessing ConfigWizard in container environment](../../../deploy_dx/manage/portal_admin_tools/cfg_wizard/configuration/cw_run.md)
     
     -   Note that a few parameters are deprecated and replaced with new parameters in the DX Core configuration reports. For information, see [DX Core server configuration report](../dxclient/dxclient_artifact_types/dxcoreserver.md#dx-core-server-configuration-report).
 

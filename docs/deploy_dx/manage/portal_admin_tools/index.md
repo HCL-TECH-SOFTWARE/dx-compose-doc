@@ -20,7 +20,7 @@ HCL Digital Experience provides a flexible delegation model for administering po
 
 The delegation model is implemented by access control, which works by access control decisions, which guard the execution of administrative tasks that manipulate portal resources. Users can complete a task only if they have the access permissions that are required for that task. Access permissions are implemented as user rights on actions that are related to portal resources, not on the resources themselves. For more information, refer to the documentation about access control.
 
-The extent to which the portal delegation model and access control is tied in varies between the portal administration tools. Security might therefore influence which tool you use for a certain purpose. Refer to the [*Securing*](../../../deployment/manage/security/index.md) Help Center topics for more information.
+The extent to which the portal delegation model and access control is tied in varies between the portal administration tools. Security might therefore influence which tool you use for a certain purpose. Refer to the [*Securing*](../../../deploy_dx/manage/security/index.md) Help Center topics for more information.
 
 ## Overview of DXClient
 
@@ -74,7 +74,7 @@ Use of the XML configuration interface for the following tasks is limited:
 
 For more information, refer to the section [About the XML configuration interface](../portal_admin_tools/xml_config_interface/adxmlabt.md).
 
-The XML configuration interface is also used for release staging, that is, for staging a portal from development through test to production. For more information about staging your portal to production, refer to the topics about [Staging to production](../../../deployment/manage/staging_to_production/index.md) and [Deploy DX components using DXClient](../../../extend_dx/development_tools/dxclient/index.md) for non-containerized platforms and containerized platforms and the ReleaseBuilder.
+The XML configuration interface is also used for release staging, that is, for staging a portal from development through test to production. For more information about staging your portal to production, refer to the topics about [Staging to production](../../../deploy_dx/manage/staging_to_production/index.md) and [Deploy DX components using DXClient](../../../extend_dx/development_tools/dxclient/index.md) for non-containerized platforms and containerized platforms and the ReleaseBuilder.
 
 ## Overview of ReleaseBuilder
 

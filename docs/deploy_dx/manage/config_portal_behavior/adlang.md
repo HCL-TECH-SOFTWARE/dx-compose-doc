@@ -15,5 +15,5 @@ Specify the default language in which the portal appears with the Global Setting
 For a list of the languages that are supported by the portal, see *Language support*.
 
 ???+ info "Related information"  
-    -   [Language support](../../../deployment/manage/portal_admin_tools/language_support/index.md)
+    -   [Language support](../../../deploy_dx/manage/portal_admin_tools/language_support/index.md)
     -   [Setting service configuration properties](../config_portal_behavior/service_config_properties/index.md)

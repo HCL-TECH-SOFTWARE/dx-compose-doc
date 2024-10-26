@@ -72,8 +72,8 @@ If you make the web content available on your delivery portal by using syndicati
     In the version 8.5/9.5 user interface, the JSR 286 Web Content Viewer portlet has been renamed to Web Content Viewer.
 
 ???+ info "Related information"  
-    -   [Portlet API Web Content Viewer and Remote Web Content Viewer](../../../../../../../deployment/manage/migrate/planning_migration/migration_consideration/migrating_wcm_70_80/mig_pre_wcm_portlets.md)
+    -   [Portlet API Web Content Viewer and Remote Web Content Viewer](../../../../../../../deploy_dx/manage/migrate/planning_migration/migration_consideration/migrating_wcm_70_80/mig_pre_wcm_portlets.md)
     -   [Converting portlet instances and settings from the HCL DX API to the standard API](../../../../../../../extend_dx/portlets_development/portlet_api/converting_dx_portlets_to_java_standard_api/migrt_ptlt_api.md)
     -   [Editing the settings of a Web Content Viewer](./../../../../../../../manage_content/wcm_delivery/deliver_webcontent_on_dx/editing_wcm_viewer_setting/index.md)
-    -   [Unsupported features for HCL Digital Experience 8.5 and 9.0](../../../../../../../whatsnew/unsupported_features.md)
+    -   [Unsupported features for HCL Digital Experience 8.5 and 9.0](../../../../../../../whats_new/unsupported_features.md)
 

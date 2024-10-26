@@ -19,6 +19,6 @@ For information about the XML syntax elements for a secure HTTPS connection see 
 
 
 ???+ info "Related information"  
-    -   [Exporting UXFM dialog definitions](../../../../../../../../deployment/manage/migrate/preparing_source_env/prepare_ux_screenflow_mgr/mig_pre_uxfm_exportdialog.md)
-    -   [Removing UXFM dialog definitions](../../../../../../../../deployment/manage/migrate/preparing_source_env/prepare_ux_screenflow_mgr/mig_pre_uxfm_remove.md)
+    -   [Exporting UXFM dialog definitions](../../../../../../../../deploy_dx/manage/migrate/preparing_source_env/prepare_ux_screenflow_mgr/mig_pre_uxfm_exportdialog.md)
+    -   [Removing UXFM dialog definitions](../../../../../../../../deploy_dx/manage/migrate/preparing_source_env/prepare_ux_screenflow_mgr/mig_pre_uxfm_remove.md)
 

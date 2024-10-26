@@ -10,7 +10,7 @@ This section provides solutions that can help you solve issues with Script Appli
 
     When HCL Web Content Manager caching is turned on, the changes might not be reflected in preview pane of Script Application. Caching is likely to happen while you run Configuration Wizard to federate an LDAP.
 
-    To resolve this issue, assign no cache preprocessor to the Script Application. Follow the instructions in [Portal administration tools](../../deployment/manage/portal_admin_tools/index.md).
+    To resolve this issue, assign no cache preprocessor to the Script Application. Follow the instructions in [Portal administration tools](../../deploy_dx/manage/portal_admin_tools/index.md).
 
 - **The Script Application user interface features do not show or work for users as expected.**
 

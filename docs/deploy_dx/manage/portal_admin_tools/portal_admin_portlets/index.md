@@ -5,5 +5,5 @@ Administration portlets are supplied with HCL Digital Experience. Use them to pe
 ???+ info "Related information"  
     -   [Portal administration tools](../../portal_admin_tools/index.md)
     -   [Adding a new language to render localized content](../../portal_admin_tools/language_support/supporting_new_language/add_newlanguage.md)
-    -   [Back button limitations](../../../../deployment/manage/troubleshooting/browser_behavior_scenarios/backbut_limit.md)
+    -   [Back button limitations](../../../../deploy_dx/manage/troubleshooting/browser_behavior_scenarios/backbut_limit.md)
 

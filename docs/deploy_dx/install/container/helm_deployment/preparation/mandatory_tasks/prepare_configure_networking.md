@@ -48,7 +48,7 @@ Refer to the HCL DX 9.5 `values.yaml` detail for all possible applications that 
 
 **Configuring Hybrid Host**
 
-In a [Hybrid](../../../../../../deployment/install/hybrid/index.md) deployment, the host for the on-premise DX Core will be added in the core configuration section and the other applications host will be placed under the add-on section. See the following example:
+In a [Hybrid](../../../../../../deploy_dx/install/hybrid/index.md) deployment, the host for the on-premise DX Core will be added in the core configuration section and the other applications host will be placed under the add-on section. See the following example:
 
 ```yaml
 networking:

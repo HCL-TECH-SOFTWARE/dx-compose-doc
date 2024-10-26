@@ -2,7 +2,7 @@
 
 Review a list of all DX applications and resource definitions that constitute the application runtime and are deployed to containers by using Helm on OpenShift or Kubernetes platforms. As outlined in the overview, applications can also include ConfigMaps, Secrets, and Ingress.
 
-For more information about Helm applications, consult the [Helm documentation](https://helm.sh/docs/){:target="_blank"}. Refer to the DX 9.5 Container component image listing in the DX 9.5 Docker [Image file listing](../../../deployment/install/container/image_list.md) topic.
+For more information about Helm applications, consult the [Helm documentation](https://helm.sh/docs/){:target="_blank"}. Refer to the DX 9.5 Container component image listing in the DX 9.5 Docker [Image file listing](../../../deploy_dx/install/container/image_list.md) topic.
 
 Note that each application definition lists its next direct dependencies only. Sub-dependencies are not explicitly listed.
 
@@ -174,4 +174,4 @@ Application names are defined as follows:
     -   [HCL DX Experience API](../../../extend_dx/apis/hcl_experience_api/index.md)
     -   [Content Composer](../../../manage_content/wcm_authoring/content_composer/index.md)
     -   [Digital Asset Management](../../../manage_content/digital_assets/index.md)
-    -   [Hybrid deployment](../../../deployment/install/hybrid/index.md)
+    -   [Hybrid deployment](../../../deploy_dx/install/hybrid/index.md)

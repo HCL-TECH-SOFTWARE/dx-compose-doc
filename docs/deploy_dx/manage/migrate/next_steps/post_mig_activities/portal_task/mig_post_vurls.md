@@ -41,9 +41,9 @@ If vanity URL support is not enabled and a user tries to access a vanity URL, th
         Disable: `ConfigEngine.bat disable-vanityurl-support -DPortalAdminPwd=password -DWasPassword=password`
 
 !!!note "Remember"
-    After you run the enable-vanityurl-support or disable-vanityurl-support task, restart the server. Go to [Starting and stopping servers, deployment managers, and node agents](../../../../../../deployment/manage/stopstart.md) for specific instructions.
+    After you run the enable-vanityurl-support or disable-vanityurl-support task, restart the server. Go to [Starting and stopping servers, deployment managers, and node agents](../../../../../../deploy_dx/manage/stopstart.md) for specific instructions.
 
 
 ???+ info "Related information"  
-    -   [Migration: Enabling managed pages](../../../../../../deployment/manage/migrate/next_steps/enable_func_migrated_portal/mig_t_enable_mngpages.md)
+    -   [Migration: Enabling managed pages](../../../../../../deploy_dx/manage/migrate/next_steps/enable_func_migrated_portal/mig_t_enable_mngpages.md)
 

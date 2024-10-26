@@ -90,5 +90,5 @@ The user interface of the tag widget consists of Web Content Manager HTML compon
 
 
 ???+ info "Related information"
-    - [Properties for the tag widget](../../../../../deployment/manage/config_portal_behavior/service_config_properties/portal_svc_cfg/cp_cfg_svc/srvcfg_cpcfg4tr_dlgtag_altui.md)
+    - [Properties for the tag widget](../../../../../deploy_dx/manage/config_portal_behavior/service_config_properties/portal_svc_cfg/cp_cfg_svc/srvcfg_cpcfg4tr_dlgtag_altui.md)
 

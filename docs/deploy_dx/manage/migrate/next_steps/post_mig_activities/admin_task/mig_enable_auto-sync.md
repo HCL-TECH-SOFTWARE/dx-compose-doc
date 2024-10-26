@@ -25,5 +25,5 @@ Before you started migration, you disabled automatic synchronization to prevent 
 
 
 ???+ info "Related information"
-    -   [Disabling automatic synchronization to protect your clustered source environment](../../../../../../deployment/manage/migrate/preparing_source_env/mig_disable_auto-sync.md)
+    -   [Disabling automatic synchronization to protect your clustered source environment](../../../../../../deploy_dx/manage/migrate/preparing_source_env/mig_disable_auto-sync.md)
 

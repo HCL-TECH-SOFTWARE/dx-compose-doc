@@ -88,5 +88,5 @@ If you changed the context root during the installation or configuration of HCL 
 Next, use the **Create a Cluster** option to create a static or dynamic cluster.
 
 ???+ info "Related information"  
-    -   [Accessing the Configuration Wizard](../../../deployment/manage/portal_admin_tools/cfg_wizard/configuration/cw_run.md)
+    -   [Accessing the Configuration Wizard](../../../deploy_dx/manage/portal_admin_tools/cfg_wizard/configuration/cw_run.md)
     -   [Updating DB2 self-tuning memory manager (STMM) settings](../migrate/next_steps/post_mig_activities/db_task/mig_t_post_db2_stmm.md)

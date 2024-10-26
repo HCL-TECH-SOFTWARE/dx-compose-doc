@@ -220,7 +220,7 @@ Before starting the import, complete the Kubernetes deployment with the right CF
 Follow these steps to syndicate the source and target environments:
 
 !!!note
-    If you have larger libraries, the default database must be transferred to any of the supported databases. For information about supported databases, see [Database Management Systems](../../../deployment/manage/db_mgmt_sys/index.md). If you want to know more about transferring the default database of the DX 9.5 Container to IBM DB2, see [Transfer HCL Digital Experience 9.5 container default database to IBM DB2](https://help.hcltechsw.com/digital-experience/9.5/containerization/cw_containerdbtransfer_ibm_db2.html).
+    If you have larger libraries, the default database must be transferred to any of the supported databases. For information about supported databases, see [Database Management Systems](../../../deploy_dx/manage/db_mgmt_sys/index.md). If you want to know more about transferring the default database of the DX 9.5 Container to IBM DB2, see [Transfer HCL Digital Experience 9.5 container default database to IBM DB2](https://help.hcltechsw.com/digital-experience/9.5/containerization/cw_containerdbtransfer_ibm_db2.html).
 
 1.  Since the Kubernetes deployment typically allows only SSL traffic, you need to update the SSL Signer certificates for the Syndicator and Subscriber setups so that they can communicate with each other. To do this, log into the WAS console (`https://machine_name/ibm/console` or `https://machine_name:port/ibm/console`) and go to the **Signer certificates** page that is available in the **Security > SSL certificate and key management** menu:
 
@@ -261,7 +261,7 @@ Follow these steps to syndicate the source and target environments:
 
 ### Syndicating large libraries
 
-Syndicating large libraries, especially when syndicating all items if you need all versions and projects on the containerized environment, can be a slow process. For these scenarios, you can consider copying the JCR database from the non-container to the container system and reconnecting the container to the copied database. For details, see [Manual staging to production process](../../../deployment/manage/staging_to_production/manual_staging_prod_process). Note that these instructions are specific to DB2, but you can also apply them to MS SQL Server and Oracle.
+Syndicating large libraries, especially when syndicating all items if you need all versions and projects on the containerized environment, can be a slow process. For these scenarios, you can consider copying the JCR database from the non-container to the container system and reconnecting the container to the copied database. For details, see [Manual staging to production process](../../../deploy_dx/manage/staging_to_production/manual_staging_prod_process). Note that these instructions are specific to DB2, but you can also apply them to MS SQL Server and Oracle.
 
 ## Resource environment providers
 
@@ -269,21 +269,21 @@ HCL DX comprises a framework of configuration services to accommodate different 
 
 The configuration for each service is stored in and accessible for configuration through the WebSphere® Integrated Solutions Console. In the WebSphere Integrated Solutions Console, most of the portal configuration services are spelled as one word. Some services are abbreviated and preceded by the letters WP. For example, in the WebSphere Integrated Solutions Console, the portal Configuration Service is listed as WP ConfigService.
 
-For more information about each service, see [Service configuration](../../../deployment/manage/config_portal_behavior/service_config_properties/portal_svc_cfg).
+For more information about each service, see [Service configuration](../../../deploy_dx/manage/config_portal_behavior/service_config_properties/portal_svc_cfg).
 
 If you cannot recall all the configuration settings you usually change and also have not automated the setting using CI/CD, you can compare the configurations using the [WebSphere Configuration Comparison Tool](https://github.com/IBM/websphere-cct).
 
 When comparing configuration settings, you might notice differences in the settings that DX configures in containers. The following is a list of changes performed for Resource Environment Providers for containers/Kubernetes:
-- WCM WCMConfigService: Tuning changes as documented in the tuning task: [Portal server performance tuning tool](../../../deployment/manage/tune_servers/wp_tune_tool.md)
+- WCM WCMConfigService: Tuning changes as documented in the tuning task: [Portal server performance tuning tool](../../../deploy_dx/manage/tune_servers/wp_tune_tool.md)
 - WP ConfigService: ```use.db.cache.invalidation.table``` and ```db.cache.invalidation.read.freq``` for cache replication. ```digitalAssets.useSSLDAM``` for DAM integration.
 - WCM DigitalAssetManagerService: ```enabled``` if using DAM.
-- WP CacheManagerService: Tuning changes as documented in the tuning task: [Portal server performance tuning tool](../../../deployment/manage/tune_servers/wp_tune_tool.md)
+- WP CacheManagerService: Tuning changes as documented in the tuning task: [Portal server performance tuning tool](../../../deploy_dx/manage/tune_servers/wp_tune_tool.md)
 
 ### Configuration tasks changing resource environment providers
 
 Configuration tasks such as changing the context root, enabling features like social publishing from WCM or others can make changes to the resource environment providers. Some of the these configurations have been moved to the Helm chart. If you are performing remote search, changing the context root or admin password, doing performance tuning, or enabling WCM Artificial Intelligence, you must trigger these configuration tasks from the Helm chart. All other configurations are performed using tasks. 
 Also, a few features are enabled out-of-the-box on containers that are not enabled by default for non-containers (for example, DAM integration and WCM Multilingual).
-Additionally on containers we have disabled anonymous sign up via access control - it can be re-enabled via the config task or changing access control: [Registration/Edit My Profile and Login portlets](../../../deployment/manage/security/people/authorization/users_and_groups/sec_subman)
+Additionally on containers we have disabled anonymous sign up via access control - it can be re-enabled via the config task or changing access control: [Registration/Edit My Profile and Login portlets](../../../deploy_dx/manage/security/people/authorization/users_and_groups/sec_subman)
 If you are unsure what was performed on your non-container environment, check the `ConfigTrace.log` file.
 
 ## HCLSoftware U learning materials
@@ -293,7 +293,7 @@ For an introduction and a demo on DX staging, go to [Staging for Beginners](htt
 To learn how to use staging tools such as DXClient, Syndication, XMLAccess, ReleaseBuilder/Solution Installer, and ConfigEngine, go to [Staging for Intermediate Users](https://hclsoftwareu.hcltechsw.com/component/axs/?view=sso_config&id=3&forward=https%3A%2F%2Fhclsoftwareu.hcltechsw.com%2Fcourses%2Flesson%2F%3Fid%3D3328){target="_blank"}. You can try it out using the [Staging Lab for Intermediate Users](https://hclsoftwareu.hcltechsw.com/images/Lc4sMQCcN5uxXmL13gSlsxClNTU3Mjc3NTc4MTc2/DS_Academy/DX/Administrator/HDX-ADM-200_Staging_Lab.pdf){target="_blank"} and corresponding [Staging Lab Resources](https://hclsoftwareu.hcltechsw.com/images/Lc4sMQCcN5uxXmL13gSlsxClNTU3Mjc3NTc4MTc2/DS_Academy/DX/Administrator/HDX-ADM-200_Staging_Lab_Resources.zip){target="_blank"}.
 
 ???+ info "Related information"
-    -   [Database Management Systems](../../../deployment/manage/db_mgmt_sys/index.md)
+    -   [Database Management Systems](../../../deploy_dx/manage/db_mgmt_sys/index.md)
     -   [HCL Digital Experience 9.5 Roadmap: Container deployment](../../../get_started/plan_deployment/container_deployment/rm_container/rm_container_deployment.md)
     -   [Configuring a remote search service](../../../build_sites/search/remotesearch/cfg_remotesearch_service/index.md)
     -   [Transfer HCL Digital Experience 9.5 container default database to IBM DB2](https://help.hcltechsw.com/digital-experience/9.5/containerization/cw_containerdbtransfer_ibm_db2.html)

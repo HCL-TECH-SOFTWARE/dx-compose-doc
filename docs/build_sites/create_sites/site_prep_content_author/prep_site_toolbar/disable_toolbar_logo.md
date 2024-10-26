@@ -42,5 +42,5 @@ If you defined the property `global.wp_toolbar_logo.enabled`, it acts as a fallb
 
 
 ???+ info "Related information"
-    -   [Virtual Portal Configuration Service](../../../../deployment/manage/config_portal_behavior/service_config_properties/portal_svc_cfg/srvcfg_virtual_portal.md)
+    -   [Virtual Portal Configuration Service](../../../../deploy_dx/manage/config_portal_behavior/service_config_properties/portal_svc_cfg/srvcfg_virtual_portal.md)
 

@@ -17,7 +17,7 @@ In HCL Digital Experience, you start containers by running a runtime instance of
 
 1.  Open the Deployment topic and follow the installation steps outlined in the Docker or supported Kubernetes platform of your choice: [Deployment](./container_deployment/index.md) 
 
-2.  To migrate a Digital Experience deployment that exists on an on-premises platform to a supported Kubernetes platform, see [Staging](../../deployment/manage/container_configuration/container_staging.md).
+2.  To migrate a Digital Experience deployment that exists on an on-premises platform to a supported Kubernetes platform, see [Staging](../../deploy_dx/manage/container_configuration/container_staging.md).
 
 3.  After you deploy Digital Experience 9.5 Container, update the DX 9.5 container images to the latest container update releases. Follow the steps in Container Maintenance: [Maintenance](https://help.hcltechsw.com/digital-experience/9.5/containerization/maintenance.html)<!-- (../containerization/maintenance.md) -->
 

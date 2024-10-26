@@ -30,5 +30,5 @@ The file is in the `[PortalServer\_root](../reference/wpsdirstr.md#wp_root)/doc/
 
 
 ???+ info "Related information" 
-    -   [Syndication and staging](../../../../deployment/manage/staging_to_production/updates_with_syndication/dep_up_syn.md)
+    -   [Syndication and staging](../../../../deploy_dx/manage/staging_to_production/updates_with_syndication/dep_up_syn.md)
 

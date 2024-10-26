@@ -41,11 +41,11 @@ It is recommended that developers building solutions for HCL Digital Experience 
 The HCL Experience API is a component of the HCL Digital Experience offerings. HCL Digital Experience offering license and download packages are provided with HCL Digital Experience entitlements available to customers on the [HCL Software License Portal](https://www.hcltech.com/software/support/release){:target="_blank"}.
 
 !!!note
-    Beginning with Container Update and CF196, additional Experience APIs are introduced, which support development of [Web Content Manager](../../../deployment/manage/migrate/next_steps/post_mig_activities/portal_task/wcm_post_mig_update/index.md) functions.
+    Beginning with Container Update and CF196, additional Experience APIs are introduced, which support development of [Web Content Manager](../../../deploy_dx/manage/migrate/next_steps/post_mig_activities/portal_task/wcm_post_mig_update/index.md) functions.
 
 Video: [Using the Digital Experience V2 Web Content Manager APIs](https://www.youtube.com/watch?v=7N4yVJUjqOo&list=PLEjl4yzB6ckH2QJw886wkwqmSotdCLxdf&index=6).
 
-Installation instructions for HCL DX 9.5 image components may be viewed in the [container deployment](../../../deployment/index.md) pages.
+Installation instructions for HCL DX 9.5 image components may be viewed in the [container deployment](../../../deploy_dx/index.md) pages.
 
 Detailed API listings for the HCL Experience API, and updates, may be viewed at the [HCL Digital Experience GitHub repository](https://github.com/hcl-dx/experience-api-documentation){:target="_blank"}.
 

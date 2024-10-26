@@ -8,6 +8,6 @@ After you migrate your data, you can choose to enable the Version 8.5/9.5 toolba
 
 
 ???+ info "Related information" 
-    -   [Add the HCL DX Portal Version 8.5/9.5 site toolbar to a HCL DX Portal 8.0 theme](../../../../../deployment/manage/migrate/next_steps/enable_func_migrated_portal/enable_func_migrated_themes/add_85_toolbar/index.md)
-    -   [Removing the Portal 8.0 site toolbar from a Portal 8.0 theme](../../../../../deployment/manage/migrate/next_steps/enable_func_migrated_portal/enable_func_migrated_themes/themeopt_cust_toolbar_remove.md)
+    -   [Add the HCL DX Portal Version 8.5/9.5 site toolbar to a HCL DX Portal 8.0 theme](../../../../../deploy_dx/manage/migrate/next_steps/enable_func_migrated_portal/enable_func_migrated_themes/add_85_toolbar/index.md)
+    -   [Removing the Portal 8.0 site toolbar from a Portal 8.0 theme](../../../../../deploy_dx/manage/migrate/next_steps/enable_func_migrated_portal/enable_func_migrated_themes/themeopt_cust_toolbar_remove.md)
 

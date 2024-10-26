@@ -40,8 +40,8 @@ For an introduction and a demo on DX deployment, go to [Deployment for Beginner
 To learn how to manage multiple DX sites, go to [Multi-Site Management](https://hclsoftwareu.hcltechsw.com/component/axs/?view=sso_config&id=3&forward=https%3A%2F%2Fhclsoftwareu.hcltechsw.com%2Fcourses%2Flesson%2F%3Fid%3D3086){target="_blank"}. In this course, you will learn when and how to create and manage base, true, and virtual portals in which you may run one or more DX sites. You can also try it out using the [Multi-Site Management Lab](https://hclsoftwareu.hcltechsw.com/images/Lc4sMQCcN5uxXmL13gSlsxClNTU3Mjc3NTc4MTc2/DS_Academy/DX/Administrator/HDX-ADM-200_Multi-Site_Management_Lab.pdf){target="_blank"}.
 
 ???+ info "Related information"
-    - [Deploying the initial release](../../../../../deployment/manage/staging_to_production/creating_deploying_initial_release/dep_deploy.md)
-    - [Deploying the differential release](../../../../../deployment/manage/staging_to_production/creating_deploying_diff_release/index.md)
+    - [Deploying the initial release](../../../../../deploy_dx/manage/staging_to_production/creating_deploying_initial_release/dep_deploy.md)
+    - [Deploying the differential release](../../../../../deploy_dx/manage/staging_to_production/creating_deploying_diff_release/index.md)
     - [Administering virtual portals](../../../adm_vp_task/index.md)
     - [Planning for virtual portals](../../../vp_planning/index.md)
     - [Configuring](../../../../search/manage_search/search_collection/creating_content_source/configuring.md)

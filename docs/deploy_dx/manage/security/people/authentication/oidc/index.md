@@ -12,7 +12,7 @@ Users initiate the process by presenting their credentials to the IdP, which val
 
 HCL Digital Experience (DX) and HCL Digital Solutions (DS) products as a whole recognize the benefits and requirements of OIDC and thus support it. The following document provides an initial set of instructions to get started and enable HCL DX.
 
-HCL DX has a vast set of capabilities relating to authentication, such as [custom authentication filters](https://opensource.hcltechsw.com/digital-experience/latest/deployment/manage/config_portal_behavior/auth_filters/), [transient users](https://opensource.hcltechsw.com/digital-experience/latest/deployment/manage/security/people/authentication/integrate_oid/), [step-up authentication](https://opensource.hcltechsw.com/digital-experience/latest/deployment/manage/security/people/authentication/stepup_auth/enabling_stepup_auth/stepup_auth_prop/), a customizable login UI through portlets and more. Some of the capabilities require additional steps or are by design incompatible with standard OIDC-based authentication and access flows and may not work out of the box. This documentation will be updated and extended with additional configuration steps and strategies to get them working or outline their limitations.
+HCL DX has a vast set of capabilities relating to authentication, such as [custom authentication filters](https://opensource.hcltechsw.com/digital-experience/latest/deploy_dx/manage/config_portal_behavior/auth_filters/), [transient users](https://opensource.hcltechsw.com/digital-experience/latest/deploy_dx/manage/security/people/authentication/integrate_oid/), [step-up authentication](https://opensource.hcltechsw.com/digital-experience/latest/deploy_dx/manage/security/people/authentication/stepup_auth/enabling_stepup_auth/stepup_auth_prop/), a customizable login UI through portlets and more. Some of the capabilities require additional steps or are by design incompatible with standard OIDC-based authentication and access flows and may not work out of the box. This documentation will be updated and extended with additional configuration steps and strategies to get them working or outline their limitations.
 
 ## What implications does this have?
 
@@ -20,7 +20,7 @@ Please be aware that configuring OIDC as the authentication protocol has certain
 
 - Only repository users of the IdP can authenticate through OIDC. Users in other repositories, such as administrative users in the file registry, must bypass OIDC to authenticate.
 
-- This procedure requires that the IdP and HCL DX leverage the same user repository for authentication. Alternatively, you can use Transient Users setup to authenticate, for more details please refer to [Integrating with Transient Users with OpenID Connect](https://opensource.hcltechsw.com/digital-experience/latest/deployment/manage/security/people/authentication/integrate_oid/index.html).
+- This procedure requires that the IdP and HCL DX leverage the same user repository for authentication. Alternatively, you can use Transient Users setup to authenticate, for more details please refer to [Integrating with Transient Users with OpenID Connect](https://opensource.hcltechsw.com/digital-experience/latest/deploy_dx/manage/security/people/authentication/integrate_oid/index.html).
 
 - Creating users or allowing them to sign up through DX is blocked due to the user management being relocated to the IdP as the primary orchestrator.
 

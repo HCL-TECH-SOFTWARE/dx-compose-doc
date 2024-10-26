@@ -29,5 +29,5 @@ After the installation is complete, a message appears at the start of the page t
 
 
 ???+ info "Related information"
-    - [Administering user impersonation](../../../deployment/manage/security/people/authorization/users_and_groups/impersonation/index.md)
+    - [Administering user impersonation](../../../deploy_dx/manage/security/people/authorization/users_and_groups/impersonation/index.md)
 

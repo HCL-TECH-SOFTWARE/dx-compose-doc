@@ -96,5 +96,5 @@ To export and import your search collections, use the **Import or Export Collect
     - [Administering Portal Search](../../administer_portal_search/index.md)
     - [Resetting the default search collection](../searching_crawling_portal_sites/srtcrtprtlstecllc.md)
     - [Hints and tips for Portal Search crawls](../../hint_tips/srrhinttips_crawl.md)
-    - [Migrating web search collections](../../../../../deployment/manage/migrate/preparing_source_env/migrating_search_cmpt/migrating_websearch_collections/index.md) 
+    - [Migrating web search collections](../../../../../deploy_dx/manage/migrate/preparing_source_env/migrating_search_cmpt/migrating_websearch_collections/index.md) 
 

@@ -19,6 +19,6 @@ To learn how to do a traditional installation, go to [Deployment for Intermediat
 ???+ info "Related information"  
     -   [Configuring your own delayed deletion schedule by using the XML configuration interface](../../../config_portal_behavior/delayed_cleanup/addelclnup_cfgxml.md)
     -   [Digital Data Connector caches](../../../../../extend_dx/ddc/ddc_cache_tuning/plrf_caches.md)
-    -   [Working with the XML configuration interface](../../../../../deployment/manage/portal_admin_tools/xml_config_interface/working_xml_config_interface/index.md)
+    -   [Working with the XML configuration interface](../../../../../deploy_dx/manage/portal_admin_tools/xml_config_interface/working_xml_config_interface/index.md)
     -   [System event logging](../../../troubleshooting/logging_and_tracing/adsyslog.md)
     - [WebSphere® Integrated Solutions Console](../../../portal_admin_tools/WebSphere_Integrated_Solutions_Console.md)

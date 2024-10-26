@@ -93,7 +93,7 @@ To delete the orphaned data, proceed by the following steps. For each step, use 
 You removed all orphaned data from your portal database.
 
 ???+ info "Related information"  
-    -   [Preparing the deletion of orphaned resources](../../../deployment/manage/portal_admin_tools/xml_config_interface/working_xml_config_interface/using_xml_config_cmd_line/adxmltsk_del_orphan_res.md)
-    -   [About the XML configuration interface](../../../deployment/manage/portal_admin_tools/xml_config_interface/adxmlabt.md)
+    -   [Preparing the deletion of orphaned resources](../../../deploy_dx/manage/portal_admin_tools/xml_config_interface/working_xml_config_interface/using_xml_config_cmd_line/adxmltsk_del_orphan_res.md)
+    -   [About the XML configuration interface](../../../deploy_dx/manage/portal_admin_tools/xml_config_interface/adxmlabt.md)
     -   [Hints and tips for developers and portal administrators](../../../build_sites/tagging_rating/hints_tips_tag_rate/tag_rate_ref_hintip_4admins.md)
 

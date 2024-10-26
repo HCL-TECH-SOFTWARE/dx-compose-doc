@@ -30,5 +30,5 @@ There are different scenarios for creating a Producer definition:
         -   Passing sensitive data about your users to the Producer.
 
 ???+ info "Related information"  
-    -   [Updating a WSRP Consumer](../../../../../../../deployment/manage/migrate/next_steps/post_mig_activities/portal_task/wsrp/mig_post_wsrp_consumer.md)
+    -   [Updating a WSRP Consumer](../../../../../../../deploy_dx/manage/migrate/next_steps/post_mig_activities/portal_task/wsrp/mig_post_wsrp_consumer.md)
 

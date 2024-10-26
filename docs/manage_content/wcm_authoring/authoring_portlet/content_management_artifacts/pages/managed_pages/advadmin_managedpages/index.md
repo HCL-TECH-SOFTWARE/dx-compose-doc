@@ -20,5 +20,5 @@ Starting with version 210 it is possible to enable a synch of the Page by Title 
 
 ???+ info "Related information"  
     -   [Vanity URLs](../../../../../../wcm_delivery/vanity_url/index.md)
-    -   [Staging to production list](../../../../../../../deployment/manage/staging_to_production/overview_of_staging_to_prod/dep_stage_check.md)
+    -   [Staging to production list](../../../../../../../deploy_dx/manage/staging_to_production/overview_of_staging_to_prod/dep_stage_check.md)
 

@@ -12,7 +12,7 @@ HTTP basic authentication provides simple access control to web resources. No co
 Select an existing credential vault slot ID to specify where to pick the authentication credentials.
 
 !!!important
-    Create the credential vault slot before you configure the policy authentication. Also, make sure that the user, who would access the Web Dock application corresponding to this policy, has access to this credential slot. For more information about how to provide the access to resource in portal, see [Viewing and assigning explicit roles](../../../../deployment/manage/security/people/authorization/controlling_access/working_with_resource_permission/h_rperm_assign_roles.md).
+    Create the credential vault slot before you configure the policy authentication. Also, make sure that the user, who would access the Web Dock application corresponding to this policy, has access to this credential slot. For more information about how to provide the access to resource in portal, see [Viewing and assigning explicit roles](../../../../deploy_dx/manage/security/people/authorization/controlling_access/working_with_resource_permission/h_rperm_assign_roles.md).
 
 ## HTTP Digest
 
@@ -21,7 +21,7 @@ HTTP digest authentication provides simple, encrypted access control to web reso
 Select an existing credential vault slot ID to specify where to pick the authentication credentials.
 
 !!!important
-    Create the credential vault slot before you configure the policy authentication. Also, make sure that the user, who would access the Web Dock application corresponding to this policy, has access to this credential slot. For more information about how to provide the access to resource in portal, see [Viewing and assigning explicit roles](../../../../deployment/manage/security/people/authorization/controlling_access/working_with_resource_permission/h_rperm_assign_roles.md).
+    Create the credential vault slot before you configure the policy authentication. Also, make sure that the user, who would access the Web Dock application corresponding to this policy, has access to this credential slot. For more information about how to provide the access to resource in portal, see [Viewing and assigning explicit roles](../../../../deploy_dx/manage/security/people/authorization/controlling_access/working_with_resource_permission/h_rperm_assign_roles.md).
 
 ## Form-based authentication
 
@@ -46,7 +46,7 @@ Authenticate with the server one time. Directly access the site and observe the 
 Select an existing credential vault slot ID to specify where to pick the authentication credentials.
 
 !!!important
-    Create the credential vault slot before you configure the policy authentication. Also, make sure that the user, who would access the Web Dock application corresponding to this policy, has access to this credential slot. For more information about how to provide the access to resource in portal, see [Viewing and assigning explicit roles](../../../../deployment/manage/security/people/authorization/controlling_access/working_with_resource_permission/h_rperm_assign_roles.md).
+    Create the credential vault slot before you configure the policy authentication. Also, make sure that the user, who would access the Web Dock application corresponding to this policy, has access to this credential slot. For more information about how to provide the access to resource in portal, see [Viewing and assigning explicit roles](../../../../deploy_dx/manage/security/people/authorization/controlling_access/working_with_resource_permission/h_rperm_assign_roles.md).
 
 When a user provides the wrong credentials in personalize mode, the user sees the contents because of the session that is associated with the portal in form authentication. The user must log out and clear all the caches. Then, they must log in again. If the user goes back to the form authentication page, the user sees that the page cannot be displayed. The user must return to personalize mode and enter the correct credentials for the application. When they click submit, they can view all the contents in view mode of Web Dock portlet.
 

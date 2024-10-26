@@ -97,5 +97,5 @@ The portal State Manager Service holds the following properties:
 
 
 ???+ info "Related information" 
-    -   [Selecting and changing the language](../../../../../../deployment/manage/portal_admin_tools/language_support/adsuplang.md)
+    -   [Selecting and changing the language](../../../../../../deploy_dx/manage/portal_admin_tools/language_support/adsuplang.md)
 

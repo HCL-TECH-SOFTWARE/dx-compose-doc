@@ -61,4 +61,4 @@ To learn more about multilingual deployment options, go to [Multilingual for Adm
 ???+ info "Related information"  
     -   [Creating a virtual portal](../../../../build_sites/virtual_portal/mng_vp/h_virtual_create.md)
     -   [Dynamically changing the language during the user session](../../portal_admin_tools/language_support/adchglang_dynamic.md)
-    -   [State Manager Service](../../../../deployment/manage/config_portal_behavior/service_config_properties/portal_svc_cfg/statemanager_svc/index.md)
+    -   [State Manager Service](../../../../deploy_dx/manage/config_portal_behavior/service_config_properties/portal_svc_cfg/statemanager_svc/index.md)

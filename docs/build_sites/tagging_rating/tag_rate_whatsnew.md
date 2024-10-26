@@ -22,5 +22,5 @@ The deprecated Dojo tagging and rating menu options of the earlier default widge
     - [The tag and rating widgets](../tagging_rating/tagging_rating_ui/index.md)
     - [Enabling and disabling the tag and rating widgets for additional profiles](../tagging_rating/cfg_reference/tag_rate_nbldsbl_inline_modules.md)
     - [Enabling and disabling the Dojo tagging and rating options for additional profiles](../tagging_rating/cfg_reference/tag_rate_nbldsbl_dojo_options.md)
-    - [Enabling the new tag and rating widgets after a portal upgrade](../../deployment/manage/migrate/next_steps/enable_func_migrated_portal/mig_post_tagandrate.md)
+    - [Enabling the new tag and rating widgets after a portal upgrade](../../deploy_dx/manage/migrate/next_steps/enable_func_migrated_portal/mig_post_tagandrate.md)
 

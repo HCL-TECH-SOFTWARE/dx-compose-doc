@@ -709,7 +709,7 @@ A list of Dojo classes that are provided by each version 1.9 Dojo meta-module.
 
 
 ???+ info "Related information"
-    - [Adding an Active Site Analytics aggregator to a portal page](../../../../deployment/manage/monitoring/analyze_portal_usage/user_behavior_by_asa/collecting_analytics_data/sa_asa_add_aggr_2_page.md)
+    - [Adding an Active Site Analytics aggregator to a portal page](../../../../deploy_dx/manage/monitoring/analyze_portal_usage/user_behavior_by_asa/collecting_analytics_data/sa_asa_add_aggr_2_page.md)
     - [Themes, profiles, and skins](../../../create_sites/website_building_blocks/themes_profiles_skins/index.md)
     - [Module dependencies in portlets](../../the_module_framework/themeopt_mod_capfilters.md)
     - [Simple modules](../../the_module_framework/writing_module/simple_modules/index.md)

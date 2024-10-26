@@ -11,5 +11,5 @@ If you want to use a new host name for an existing virtual portal, you must dele
 
 ???+ info "Related information"
     - [Using the Virtual Portal Manager administration portlet](../../vp_mgr_portlet/advp_vpmgr_use.md)
-    - [Working with the XML configuration interface](../../../../deployment/manage/portal_admin_tools/xml_config_interface/working_xml_config_interface/index.md)
+    - [Working with the XML configuration interface](../../../../deploy_dx/manage/portal_admin_tools/xml_config_interface/working_xml_config_interface/index.md)
 

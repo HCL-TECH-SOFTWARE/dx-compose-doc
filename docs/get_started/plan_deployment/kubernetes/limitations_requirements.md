@@ -26,7 +26,7 @@ Your environment must meet the following file-system requirements:
 -   All DX applications require the use of symbolic links and soft links. Storage systems must support the use of symbolic links and soft links. If you use Azure Files, you must enable `mountOptions` settings of the StorageClass by using `mfsymlinks`. For more information, see the [Microsoft documentation on troubleshooting Azure Files on Linux \(SMB\)](https://docs.microsoft.com/en-us/azure/storage/files/storage-troubleshoot-linux-file-connection-problems#cannot-create-symbolic-links---ln-failed-to-create-symbolic-link-t-operation-not-supported).
 -   You can configure volume sizes individually per volume and these depend on the respective usage. For more information, see the following Help Center topics:
 
-    -   [Configuring PVCs in a Helm deployment](../../../deployment/install/container/helm_deployment/preparation/mandatory_tasks/prepare_persistent_volume_claims.md)
+    -   [Configuring PVCs in a Helm deployment](../../../deploy_dx/install/container/helm_deployment/preparation/mandatory_tasks/prepare_persistent_volume_claims.md)
     -   [Customizing the container for Operator-based deployments](https://help.hcltechsw.com/digital-experience/9.5/containerization/customizing_container_deployment.html)
 
 ## Requirements and limitations for Helm-based deployments
@@ -52,7 +52,7 @@ To deploy HCL Digital Experience 9.5 CF200 to the supported Kubernetes platforms
 
 - **Migration**:
 
-    For information about migrating from operator-based to Helm-based deployments, see [Migrating from Operator-based to Helm-based deployments](../../../deployment/install/container/operator-migration/operator_migration_preparation.md).
+    For information about migrating from operator-based to Helm-based deployments, see [Migrating from Operator-based to Helm-based deployments](../../../deploy_dx/install/container/operator-migration/operator_migration_preparation.md).
 
 - **Container platform capacity resource requirements**:
 
@@ -98,7 +98,7 @@ To deploy HCL Digital Experience 9.5 CF200 to the supported Kubernetes platforms
 | **Overall** |  |  |  | **10700m** | **20608Mi** |
 
 !!!important
-    For the recommended disk storage per PersistentVolume, refer to the `values.yaml` file. The relevant values can be found in the `volumes` section of the `values.yaml file` in the `requests.storage` parameter of each Volume. Note that the required size increases with every core upgrade from one cumulative fix to another. For best results, clean up your previous profiles after you confirm that the new profile is working. See related [Core Profile Check](../../../deployment/install/container/helm_deployment/preparation/optional_tasks/optional-core-prereqs-checker.md#core-profile-check) and [Storage Space Check](../../../deployment/install/container/helm_deployment/preparation/optional_tasks/optional-core-prereqs-checker.md#storage-space-check).
+    For the recommended disk storage per PersistentVolume, refer to the `values.yaml` file. The relevant values can be found in the `volumes` section of the `values.yaml file` in the `requests.storage` parameter of each Volume. Note that the required size increases with every core upgrade from one cumulative fix to another. For best results, clean up your previous profiles after you confirm that the new profile is working. See related [Core Profile Check](../../../deploy_dx/install/container/helm_deployment/preparation/optional_tasks/optional-core-prereqs-checker.md#core-profile-check) and [Storage Space Check](../../../deploy_dx/install/container/helm_deployment/preparation/optional_tasks/optional-core-prereqs-checker.md#storage-space-check).
 
 !!!note
     The overall sums for CPU and memory include all components of HCL DX. 
@@ -108,13 +108,13 @@ To deploy HCL Digital Experience 9.5 CF200 to the supported Kubernetes platforms
 
 HCL DX introduced a tool called Prereqs Checker that runs a number of checks to confirm whether the prerequisites for various components are met.  
 
-You can get the result of these checks from the container logs of the `prereqs-checker` container in the pod where Prereqs Checker is installed. For more information, see [Configure Prereqs Checker For DX Deployment](../../../deployment/install/container/helm_deployment/preparation/optional_tasks/optional-core-prereqs-checker.md).  
+You can get the result of these checks from the container logs of the `prereqs-checker` container in the pod where Prereqs Checker is installed. For more information, see [Configure Prereqs Checker For DX Deployment](../../../deploy_dx/install/container/helm_deployment/preparation/optional_tasks/optional-core-prereqs-checker.md).  
 
 For these checks, one separate sidecar container is deployed with the main application container. This is a lightweight container so the main application performance is not affected.
 
 The main objective of the Prereqs Checker is to learn whether the specified prerequisites are met and to inform users about the result in the logs, that is, if the checks have passed or failed. You can also use the tool to check basic information about the file system of the mounted volumes, which helps track issues related to the file systems.
 
-Starting CF213, [Core Profile Check](../../../deployment/install/container/helm_deployment/preparation/optional_tasks/optional-core-prereqs-checker.md#configure-prereqs-checker-for-dx-deployment) is introduced to check whether the file system has the minimum storage capacity available for upgrade. You can [print the logs](../../../deployment/install/container/helm_deployment/preparation/optional_tasks/optional-core-prereqs-checker.md#how-to-manually-trigger-the-checks) of the Prereqs Checker to see whether the check passed or failed. For best results, clean up the previous profile if the check failed before upgrading.
+Starting CF213, [Core Profile Check](../../../deploy_dx/install/container/helm_deployment/preparation/optional_tasks/optional-core-prereqs-checker.md#configure-prereqs-checker-for-dx-deployment) is introduced to check whether the file system has the minimum storage capacity available for upgrade. You can [print the logs](../../../deploy_dx/install/container/helm_deployment/preparation/optional_tasks/optional-core-prereqs-checker.md#how-to-manually-trigger-the-checks) of the Prereqs Checker to see whether the check passed or failed. For best results, clean up the previous profile if the check failed before upgrading.
 
 
 <!--

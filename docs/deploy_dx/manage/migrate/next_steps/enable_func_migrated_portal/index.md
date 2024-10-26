@@ -19,5 +19,5 @@ When you migrate your themes, migration moves your existing themes to the new se
 
 
 ???+ info "Related information" 
-    -   [Exploitation vs. toleration of applications and themes](../../../../../deployment/manage/migrate/planning_migration/dev_consideration/mig_plan_exp_v_tol.md)
+    -   [Exploitation vs. toleration of applications and themes](../../../../../deploy_dx/manage/migrate/planning_migration/dev_consideration/mig_plan_exp_v_tol.md)
 

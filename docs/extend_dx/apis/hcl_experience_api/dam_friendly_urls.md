@@ -89,7 +89,7 @@ self: /collections/collection-one/items/car.jpg/renditions/Desktop.
 
 
 ???+ info "Related information"
-    - [Using friendly URLs](../../../deployment/manage/portal_admin_tools/portal_user_interface/managing_pages/manage_pages_portlets/mp_friendly_url.md)
+    - [Using friendly URLs](../../../deploy_dx/manage/portal_admin_tools/portal_user_interface/managing_pages/manage_pages_portlets/mp_friendly_url.md)
     - [HCL Digital Asset Management](../../../manage_content/digital_assets/index.md)
     - [Manage collections](../../../manage_content/digital_assets/usage/managing_dam/manage_collections.md)
     - [Set unique custom URL for a media asset](../../../manage_content/digital_assets/usage/managing_dam/modify_dam/dam_set_unique_custom_URL_media_asset.md)

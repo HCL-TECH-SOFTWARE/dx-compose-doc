@@ -27,5 +27,5 @@ When you create a new page and apply the Portal 8.5 theme, the new inline custom
 
 ???+ info "Related information" 
     -   [Skins](../../../../../../build_sites/themes_skins/customizing_theme/skins/index.md)
-    -   [Sample XML configuration files](../../../../../../deployment/manage/portal_admin_tools/xml_config_interface/xml_config_ref/admxmsmp.md)
+    -   [Sample XML configuration files](../../../../../../deploy_dx/manage/portal_admin_tools/xml_config_interface/xml_config_ref/admxmsmp.md)
 

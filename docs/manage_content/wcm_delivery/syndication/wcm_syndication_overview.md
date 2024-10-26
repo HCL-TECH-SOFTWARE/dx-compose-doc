@@ -125,7 +125,7 @@ Cross-version syndication is supported between the following releases.
 
 Syndicating from a newer software level to an older software level is only supported between different fix-pack levels of the same release. When syndicating between releases, only older to newer is supported.
 
-See [Cross version syndication](../../../deployment/manage/migrate/planning_migration/migration_consideration/migrating_wcm_70_80/mig_content_options_cross-version.md) for further information.
+See [Cross version syndication](../../../deploy_dx/manage/migrate/planning_migration/migration_consideration/migrating_wcm_70_80/mig_content_options_cross-version.md) for further information.
 
 ## Web content libraries and syndication relationships
 
@@ -169,5 +169,5 @@ Although syndication can be used to keep data current between libraries on diffe
 
 
 ???+ info "Related information"
-    - [Syndication and staging](../../../deployment/manage/staging_to_production/updates_with_syndication/dep_up_syn.md)
+    - [Syndication and staging](../../../deploy_dx/manage/staging_to_production/updates_with_syndication/dep_up_syn.md)
 

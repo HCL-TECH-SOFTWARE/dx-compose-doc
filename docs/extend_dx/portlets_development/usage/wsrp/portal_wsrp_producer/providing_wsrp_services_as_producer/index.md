@@ -20,6 +20,6 @@ A WSRP Producer can provide or withdraw portlets by using the XML configuration 
 
 ???+ info "Related information"
     -   [Enabling remote rendering with WSRP and the Web Content Viewer](../../../../../../manage_content/wcm_delivery/deliver_webcontent_on_dx/enable_remote_render_wsrp/index.md)
-    -   [Working with the XML configuration interface](../../../../../../deployment/manage/portal_admin_tools/xml_config_interface/working_xml_config_interface/index.md)
-    -   [The XML configuration interface](../../../../../../deployment/manage/portal_admin_tools/xml_config_interface/index.md)
+    -   [Working with the XML configuration interface](../../../../../../deploy_dx/manage/portal_admin_tools/xml_config_interface/working_xml_config_interface/index.md)
+    -   [The XML configuration interface](../../../../../../deploy_dx/manage/portal_admin_tools/xml_config_interface/index.md)
 

@@ -54,7 +54,7 @@ To deploy portlets to the Liberty Portlet Container customers will need to creat
 
 The Liberty Portlet Container will only, by default, use persistent volumes for logging. Log output will be stored on one RWO persistent volume per pod.
 
-However, in a [similar manner](https://opensource.hcltechsw.com/digital-experience/CF213/deployment/install/container/helm_deployment/preparation/mandatory_tasks/prepare_persistent_volume_claims/#configuring-additional-core-persistent-volumes) to the current DX Core Kubernetes deployment, the Liberty Portlet Container Helm charts will allow additional custom volumes to be configured if customer applications require persistent storage.
+However, in a [similar manner](https://opensource.hcltechsw.com/digital-experience/CF213/deploy_dx/install/container/helm_deployment/preparation/mandatory_tasks/prepare_persistent_volume_claims/#configuring-additional-core-persistent-volumes) to the current DX Core Kubernetes deployment, the Liberty Portlet Container Helm charts will allow additional custom volumes to be configured if customer applications require persistent storage.
 
 ### Configuration
 

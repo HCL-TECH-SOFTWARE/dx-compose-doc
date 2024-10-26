@@ -133,7 +133,7 @@ If you click **View Step Command**, you can see the task and properties associat
 
 13. Set up your database.
 
-    (Automatic Storage Management Users only): If you have configured your database with Automatic Storage Management, you must perform additional manual instructions after you perform this step. Run the setup database script to create database schemas and users and grant privileges to database users. Then, go to [Oracle: Creating JCR table spaces (Automatic Storage Management)](../../../../deployment/manage/db_mgmt_sys/oracle_create_tablespaces.md) to perform additional manual instructions.
+    (Automatic Storage Management Users only): If you have configured your database with Automatic Storage Management, you must perform additional manual instructions after you perform this step. Run the setup database script to create database schemas and users and grant privileges to database users. Then, go to [Oracle: Creating JCR table spaces (Automatic Storage Management)](../../../../deploy_dx/manage/db_mgmt_sys/oracle_create_tablespaces.md) to perform additional manual instructions.
 
     -   **Condition**
 

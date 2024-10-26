@@ -24,7 +24,7 @@ http://www.example.com:port/products/
 2.  Log in to the Configuration Wizard with the administrative ID for the configuration wizard profile, cw_profile.
 
     !!!note
-        If the language is not currently supported for the user interface, you might see the English version. For details on supported languages and the language codes for all of the HCL Portal user interfaces, see [Language support](../../../../deployment/manage/portal_admin_tools/language_support/index.md) in the HCL Digital Experience Version 8.5 documentation.
+        If the language is not currently supported for the user interface, you might see the English version. For details on supported languages and the language codes for all of the HCL Portal user interfaces, see [Language support](../../../../deploy_dx/manage/portal_admin_tools/language_support/index.md) in the HCL Digital Experience Version 8.5 documentation.
 
 3.  Click **Set Up a Stand-alone Server > Modify Site URLs for Search Engine Optimization** or **Set Up a Cluster > Modify Site URLs for Search Engine Optimization** depending on your environment type.
 

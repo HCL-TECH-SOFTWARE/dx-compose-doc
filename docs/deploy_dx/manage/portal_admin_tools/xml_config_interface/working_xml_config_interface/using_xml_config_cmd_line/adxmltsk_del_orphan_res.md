@@ -15,5 +15,5 @@ You can use the XML configuration interface to delete orphaned data from your HC
 
 
 ???+ info "Related information"  
-    -   [Deleting orphaned data](../../../../../../deployment/manage/config_portal_behavior/adelorph.md)
+    -   [Deleting orphaned data](../../../../../../deploy_dx/manage/config_portal_behavior/adelorph.md)
 

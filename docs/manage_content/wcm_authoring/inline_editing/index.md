@@ -104,8 +104,8 @@ Click the **Portlet menu** icon to show the following actions:
 - **Maximize** - Maximizes the page.
 - **Minimize** - Minimizes the page.
 - **Help** - Opens a new window containing a help topic. 
-- **Site Promotions** - Allows you to manage site promotions. For more information on site promotions for developers, see [Site promotions](../../../deployment/manage/monitoring/analyze_portal_usage/user_behavior_by_asa/analytics_tags_site_promo/site_promo/index.md).
-- **Analytics Tags** - Allows you to manage analytics tags. For more information on analytics tags for developers, see [Analytics tags](../../../deployment/manage/monitoring/analyze_portal_usage/user_behavior_by_asa/analytics_tags_site_promo/analytics_tags/index.md).
+- **Site Promotions** - Allows you to manage site promotions. For more information on site promotions for developers, see [Site promotions](../../../deploy_dx/manage/monitoring/analyze_portal_usage/user_behavior_by_asa/analytics_tags_site_promo/site_promo/index.md).
+- **Analytics Tags** - Allows you to manage analytics tags. For more information on analytics tags for developers, see [Analytics tags](../../../deploy_dx/manage/monitoring/analyze_portal_usage/user_behavior_by_asa/analytics_tags_site_promo/analytics_tags/index.md).
 - **Delete** - Deletes the page. 
 - **Hide** - Hides the page.
 

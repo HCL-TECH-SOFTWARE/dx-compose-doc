@@ -35,7 +35,7 @@ For more information about XML exports and imports and transfers of portal confi
 
 
 ???+ info "Related information"  
-    -   [Creating the initial release](../../../../../../../deployment/manage/staging_to_production/creating_deploying_initial_release/dep_cir.md)
+    -   [Creating the initial release](../../../../../../../deploy_dx/manage/staging_to_production/creating_deploying_initial_release/dep_cir.md)
     -   [Using the XML configuration command line client](../../../../../portal_admin_tools/xml_config_interface/working_xml_config_interface/using_xml_config_cmd_line/index.md)
     -   [XML input script file structure](../../../../../portal_admin_tools/xml_config_interface/xml_config_ref/adxmlref_input_structure.md)
     -   [Types of portal resources](../../../../../portal_admin_tools/xml_config_interface/xml_config_ref/types_portal_resources/adxmlref_resrc_types.md)

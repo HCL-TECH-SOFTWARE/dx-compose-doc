@@ -38,5 +38,5 @@ You can also generate a report in HTML format by executing the `genHistoryReport
 
 
 ???+ info "Related information"  
-    -   [Data collection and symptom analysis](../../../../deployment/manage/troubleshooting/tools_for_troubleshooting_and_diagnostics/tbl_apdt_over.md)
+    -   [Data collection and symptom analysis](../../../../deploy_dx/manage/troubleshooting/tools_for_troubleshooting_and_diagnostics/tbl_apdt_over.md)
 

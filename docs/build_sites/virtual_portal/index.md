@@ -29,7 +29,7 @@ For an introduction and a demo on DX deployment, go to [Deployment for Beginner
 To learn how to manage multiple DX sites, go to [Multi-Site Management](https://hclsoftwareu.hcltechsw.com/component/axs/?view=sso_config&id=3&forward=https%3A%2F%2Fhclsoftwareu.hcltechsw.com%2Fcourses%2Flesson%2F%3Fid%3D3086){target="_blank"}. In this course, you will learn when and how to create and manage base, true, and virtual portals in which you may run one or more DX sites. You can also try it out using the [Multi-Site Management Lab](https://hclsoftwareu.hcltechsw.com/images/Lc4sMQCcN5uxXmL13gSlsxClNTU3Mjc3NTc4MTc2/DS_Academy/DX/Administrator/HDX-ADM-200_Multi-Site_Management_Lab.pdf){target="_blank"}.
 
 ???+ info "Related information"  
-    - [Migration: Virtual portals](../../deployment/manage/migrate/planning_migration/mig_plan_expectations/mig_plan_expect_vp.md)
+    - [Migration: Virtual portals](../../deploy_dx/manage/migrate/planning_migration/mig_plan_expectations/mig_plan_expect_vp.md)
 
 <!--
 [Connecting to WebDAV to work with portal pages and static content](../webdav_url.md) -->

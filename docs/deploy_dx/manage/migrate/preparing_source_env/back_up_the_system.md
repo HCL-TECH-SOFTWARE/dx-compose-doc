@@ -10,5 +10,5 @@ Before you start the migration, make a fresh backup of your environment. At a mi
 
 
 ???+ info "Related information" 
-    -   [Backup and restore](../../../../deployment/manage/backup_restore/index.md)
+    -   [Backup and restore](../../../../deploy_dx/manage/backup_restore/index.md)
 

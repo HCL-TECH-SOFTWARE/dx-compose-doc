@@ -38,4 +38,4 @@ Next steps instructions are available when you complete your configuration. If y
 ???+ info "Related information"  
     -   [Configuring a remote server to receive workflows](../../../portal_admin_tools/cfg_wizard/usage/cw_cfg_remote.md)
     -   [Configuration Wizard: Reusable wizard selections](../../../portal_admin_tools/cfg_wizard/usage/cw_save_settings.md)
-    -   [Configuration Wizard log files](../../../../../deployment/manage/troubleshooting/logging_and_tracing/cfg_wizd_logs.md)
+    -   [Configuration Wizard log files](../../../../../deploy_dx/manage/troubleshooting/logging_and_tracing/cfg_wizd_logs.md)

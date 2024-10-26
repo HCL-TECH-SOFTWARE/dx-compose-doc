@@ -8,7 +8,7 @@ HCL DX V9.5 is designed to run on any Certified Kubernetes platform with some co
 
 This section provides administrators with instructions to deploy HCL Digital Experience to supported Kubernetes platforms. This includes preparation, installation, and uninstallation of the deployments using Helm.
 
-Older versions of HCL DX shipped with an operator instead of helm charts, and shipped Ambassador for use as an ingress controller. These have been removed is CF 200 and CF 202 respectively. Please refer to documentation of prior product versions for [Operator](https://opensource.hcltechsw.com/digital-experience/CF216/deployment/install/container/operator-migration/operator_migration_preparation/) and [Ambassador](https://opensource.hcltechsw.com/digital-experience/CF216/deployment/install/container/haproxy-migration/haproxy-introduction/) migration steps. 
+Older versions of HCL DX shipped with an operator instead of helm charts, and shipped Ambassador for use as an ingress controller. These have been removed is CF 200 and CF 202 respectively. Please refer to documentation of prior product versions for [Operator](https://opensource.hcltechsw.com/digital-experience/CF216/deploy_dx/install/container/operator-migration/operator_migration_preparation/) and [Ambassador](https://opensource.hcltechsw.com/digital-experience/CF216/deploy_dx/install/container/haproxy-migration/haproxy-introduction/) migration steps. 
 
 **Before you begin:** Refer to the latest HCL DX 9.5 Update image files list provided in the [Container image list](../image_list.md) topic.
 

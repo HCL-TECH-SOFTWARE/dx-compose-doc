@@ -247,7 +247,7 @@ If you click **View Step Command**, you can see the task and properties that are
 
         upgrade-profile
 
-    **Version 7.0 Server Offering-only migration:** Do not complete the upgrade profile step using the Configuration Wizard. Instead you must run this task manually. For more information about running this task manually, see [Migration from Portal Server Offering 7.0 to Portal 8.5/9.5](../../../../deployment/manage/migrate/planning_migration/migration_consideration/mig_consider_7serveronly.md).
+    **Version 7.0 Server Offering-only migration:** Do not complete the upgrade profile step using the Configuration Wizard. Instead you must run this task manually. For more information about running this task manually, see [Migration from Portal Server Offering 7.0 to Portal 8.5/9.5](../../../../deploy_dx/manage/migrate/planning_migration/migration_consideration/mig_consider_7serveronly.md).
 
     !!!note
         When you run this step, the sub task that is named action-deploy-portlets-applyMIGStatic-wp.oob.full runs and completes successfully. However, the following error messages are shown. You can ignore these error messages: <br> -   EJPXA0161W: The web module ContactList could not be activated. Please see previous messages for reasons and possible corrective actions. <br> -   EJPPH0048W: The synchronization mode of all nodes in the portal cluster is not consistently set. The portlet application PA_ContactList will not be started in the Application Server. Manual synchronization is assumed for all nodes. Manually start the application after all nodes were synchronized. <br> -   EJPXA0067E: The following configuration data is needed to create a content-node resource: content-parentref.
@@ -264,14 +264,14 @@ If you click **View Step Command**, you can see the task and properties that are
 
 To complete migration, you must perform several post-migration tasks that depend on how you use HCL Digital Experience.
 
-1.  Review the [Migration: Next steps](../../../../deployment/manage/migrate/next_steps/index.md) section of the product documentation.
-    -   Complete the [Migration: Post-migration activities](../../../../deployment/manage/migrate/next_steps/post_mig_activities/index.md) that apply to how you are using HCL Digital Experience before you move on to the next step. For example, if you are using a virtual portal, then complete the virtual portal post-migration steps.
-    -   Start the [enabling new functionality](../../../../deployment/manage/migrate/next_steps/enable_func_migrated_portal/index.md) tasks only after you complete the post-migration tasks.
+1.  Review the [Migration: Next steps](../../../../deploy_dx/manage/migrate/next_steps/index.md) section of the product documentation.
+    -   Complete the [Migration: Post-migration activities](../../../../deploy_dx/manage/migrate/next_steps/post_mig_activities/index.md) that apply to how you are using HCL Digital Experience before you move on to the next step. For example, if you are using a virtual portal, then complete the virtual portal post-migration steps.
+    -   Start the [enabling new functionality](../../../../deploy_dx/manage/migrate/next_steps/enable_func_migrated_portal/index.md) tasks only after you complete the post-migration tasks.
 
 
 
 ???+ info "Related information"  
-    -   [Troubleshooting: Migrate the deployment manager profile for a cluster environment](../../../../deployment/manage/troubleshooting/troubleshooting_configwizard/cw_migrate_cluster1.md)
+    -   [Troubleshooting: Migrate the deployment manager profile for a cluster environment](../../../../deploy_dx/manage/troubleshooting/troubleshooting_configwizard/cw_migrate_cluster1.md)
     -   [Configuration Wizard](../../portal_admin_tools/cfg_wizard/index.md)
-    -   [Roadmap: Migrating a clustered environment](../../../../deployment/manage/migrate/planning_migration/rm_migration/rm_mig_cluster.md)
+    -   [Roadmap: Migrating a clustered environment](../../../../deploy_dx/manage/migrate/planning_migration/rm_migration/rm_mig_cluster.md)
     -   [Accessing the Configuration Wizard](../../portal_admin_tools/cfg_wizard/configuration/cw_run.md)

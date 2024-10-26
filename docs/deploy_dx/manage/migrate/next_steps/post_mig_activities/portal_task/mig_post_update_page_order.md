@@ -16,5 +16,5 @@ You can adjust the page order of your pages using the Portal Administration menu
 
 
 ???+ info "Related information" 
-    -   [Page order](../../../../../../deployment/manage/migrate/planning_migration/mig_plan_expectations/mig_expect_pages.md)
+    -   [Page order](../../../../../../deploy_dx/manage/migrate/planning_migration/mig_plan_expectations/mig_expect_pages.md)
 

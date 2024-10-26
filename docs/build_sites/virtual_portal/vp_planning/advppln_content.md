@@ -37,5 +37,5 @@ If you use the configuration task create-virtual-portal to create a virtual port
     - [The master administrator](../vp_planning/vp_roles/advppln_roles_mastr_adm.md)
     - [Preconfiguring the sub-administrators for virtual portals](../vp_mgr_portlet/preconfig_vp/advp_precfg_subadm.md)
     - [Preconfiguring the default content for virtual portals](../vp_mgr_portlet/preconfig_vp/advp_precfg_content.md)
-    - [The XML configuration interface](../../../deployment/manage/portal_admin_tools/xml_config_interface/index.md)
+    - [The XML configuration interface](../../../deploy_dx/manage/portal_admin_tools/xml_config_interface/index.md)
 

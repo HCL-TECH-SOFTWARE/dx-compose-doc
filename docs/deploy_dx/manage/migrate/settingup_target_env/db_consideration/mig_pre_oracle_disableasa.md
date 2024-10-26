@@ -28,5 +28,5 @@ When you complete migrating your data using the Configuration Wizard, complete t
 
 
 ???+ info "Related information"  
-    -   [Oracle: Enabling the auto space advisor background task](../../../../../deployment/manage/migrate/next_steps/post_mig_activities/db_task/mig_post_oracle_enableasa.md)
+    -   [Oracle: Enabling the auto space advisor background task](../../../../../deploy_dx/manage/migrate/next_steps/post_mig_activities/db_task/mig_post_oracle_enableasa.md)
 

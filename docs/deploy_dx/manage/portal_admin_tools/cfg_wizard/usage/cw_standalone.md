@@ -31,10 +31,10 @@ Use your selected roadmap and the Configuration Wizard to complete a new environ
 5. Complete each sub step in the order that is shown in the wizard. Use the Configuration Wizard in conjunction with your selected Roadmap.
 
 ???+ info "Related concepts"
-    -   [Database Management Systems](../../../../../deployment/manage/db_mgmt_sys/index.md)
-    -   [Enable federated security](../../../../../deployment/manage/security/people/authentication/user_registry/cw_ldap.md)
+    -   [Database Management Systems](../../../../../deploy_dx/manage/db_mgmt_sys/index.md)
+    -   [Enable federated security](../../../../../deploy_dx/manage/security/people/authentication/user_registry/cw_ldap.md)
 
 ???+ info "Related tasks" 
     -   [Accessing the Configuration Wizard](../../../portal_admin_tools/cfg_wizard/configuration/cw_run.md)
-    -   [Updating DB2 self-tuning memory manager (STMM) settings](../../../../../deployment/manage/migrate/next_steps/post_mig_activities/db_task/mig_t_post_db2_stmm.md)
+    -   [Updating DB2 self-tuning memory manager (STMM) settings](../../../../../deploy_dx/manage/migrate/next_steps/post_mig_activities/db_task/mig_t_post_db2_stmm.md)
 

@@ -38,5 +38,5 @@ Use the following steps as a guide if you are using GPFS as your shared file sys
 
 
 ???+ info "Related information" 
-    -   [Installing the Farm Master and setting up the support server](../../../../../deployment/manage/portalfarm_cfg/choose_portalfarm/settingup_with_sharedconfig/set_portal_farm_master.md)
+    -   [Installing the Farm Master and setting up the support server](../../../../../deploy_dx/manage/portalfarm_cfg/choose_portalfarm/settingup_with_sharedconfig/set_portal_farm_master.md)
 

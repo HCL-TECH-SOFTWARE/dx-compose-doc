@@ -50,5 +50,5 @@ The target environment initially uses the same ports as the source environment. 
 
 
 ???+ info "Related information" 
-    -   [Enabling automatic synchronization for a clustered environment](../../../../deployment/manage/migrate/next_steps/post_mig_activities/admin_task/mig_enable_auto-sync.md)
+    -   [Enabling automatic synchronization for a clustered environment](../../../../deploy_dx/manage/migrate/next_steps/post_mig_activities/admin_task/mig_enable_auto-sync.md)
 

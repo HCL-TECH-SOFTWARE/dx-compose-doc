@@ -18,5 +18,5 @@ You must remove the dialog definitions before you uninstall UXFM. If you do not 
 
 
 ???+ info "Related information" 
-    -   [Exporting UXFM dialog definitions](../../../../../deployment/manage/migrate/preparing_source_env/prepare_ux_screenflow_mgr/mig_pre_uxfm_exportdialog.md)
+    -   [Exporting UXFM dialog definitions](../../../../../deploy_dx/manage/migrate/preparing_source_env/prepare_ux_screenflow_mgr/mig_pre_uxfm_exportdialog.md)
 

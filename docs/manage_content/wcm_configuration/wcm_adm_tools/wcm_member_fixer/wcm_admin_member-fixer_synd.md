@@ -18,5 +18,5 @@ To run the member fixer during syndication add or update the following propertie
     The Member fixer, when run automatically via Syndication, preserves the dates of the updated items.
 
 ???+ info "Related information"
-    - [Staging to production process](../../../../deployment/manage/staging_to_production/overview_of_staging_to_prod/dep_ovr.md)
+    - [Staging to production process](../../../../deploy_dx/manage/staging_to_production/overview_of_staging_to_prod/dep_ovr.md)
 

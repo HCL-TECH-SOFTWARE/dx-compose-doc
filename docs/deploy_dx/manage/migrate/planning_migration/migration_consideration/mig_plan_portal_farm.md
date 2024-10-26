@@ -13,7 +13,7 @@ The Portal farm migration consists of disabling farm mode and running the stand-
         -   AIX® and Linux™: `./ConfigEngine.sh disable-farm-mode -DWasPassword=password from the wp_profile_root/ConfigEngine directory`
         -   Windows™: `ConfigEngine.bat disable-farm-mode -DWasPassword=password from the wp_profile_root\ConfigEngine directory`
 
-2.  Follow the steps that are covered in the [Roadmap: Migrating a stand-alone server environment](../../../../../deployment/manage/migrate/planning_migration/rm_migration/rm_mig_standalone.md).
+2.  Follow the steps that are covered in the [Roadmap: Migrating a stand-alone server environment](../../../../../deploy_dx/manage/migrate/planning_migration/rm_migration/rm_mig_standalone.md).
 
     !!!note
         If you are migrating a unique installation farm configuration, each farm member must be migrated. If you are migrating a clone installation farm configuration, you can migrate one farm member, and then clone the migrated instance.

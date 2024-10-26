@@ -2,7 +2,7 @@
 
 If you originally installed the remote service by using manual steps, then you must use manual steps to upgrade it after you apply the Combined Cumulative Fix on the portal server.
 
-Apply the Combined Cumulative Fix on the portal server. For more information about applying the Combined Cumulative Fix, go to [Combined cumulative fix instructions: Remote search.](../../../../deployment/install/traditional/cf_install/ccf_95_remote_search.md).
+Apply the Combined Cumulative Fix on the portal server. For more information about applying the Combined Cumulative Fix, go to [Combined cumulative fix instructions: Remote search.](../../../../deploy_dx/install/traditional/cf_install/ccf_95_remote_search.md).
 
 1.  Copy PseLibs.zip and depending on the requirements of your environment, copy one of the two files WebScannerSoap.ear or WebScannerEjbEar.ear to the directory `[AppServer\_root](../reference/wpsdirstr.md#was_root)/installableApps`.
 

@@ -36,5 +36,5 @@ The table describes each field of the log format:
 
 
 ???+ info "Related information"
-     - [Understanding the site analysis log](../../../../deployment/manage/monitoring/analyze_portal_usage/serverside_site_data/adsaundr.md)
+     - [Understanding the site analysis log](../../../../deploy_dx/manage/monitoring/analyze_portal_usage/serverside_site_data/adsaundr.md)
 

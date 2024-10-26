@@ -12,5 +12,5 @@ See the *What's new* section for details on what changed and what features are d
 
 
 ???+ info "Related information"
-    -   [Updating portlets URL](../../../../../../deployment/manage/migrate/next_steps/post_mig_activities/development_task/mig_updating_portlets_url.md)
+    -   [Updating portlets URL](../../../../../../deploy_dx/manage/migrate/next_steps/post_mig_activities/development_task/mig_updating_portlets_url.md)
 

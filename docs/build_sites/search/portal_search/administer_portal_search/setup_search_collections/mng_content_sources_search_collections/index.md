@@ -52,6 +52,6 @@ Portal Search provides a facility for applying filter rules to the crawler proce
     - [Creating and configuring search collections](../../setup_search_collections/srrcreatconfig.md)
     - [Hints and tips for using Portal Search](../../../hint_tips/index.md)
     - [The portal site search collection fails](../../../../portal_search/hint_tips/srrhinttips_crt_scoll_fails.md)
-    - [Delayed cleanup of deleted portal pages](../../../../../../deployment/manage/config_portal_behavior/delayed_cleanup/index.md)
-    - [Replacing the HCL Digital Experience administrator user ID](../../../../../../deployment/manage/security/people/authentication/updating_userid_pwd/portalid.md)
+    - [Delayed cleanup of deleted portal pages](../../../../../../deploy_dx/manage/config_portal_behavior/delayed_cleanup/index.md)
+    - [Replacing the HCL Digital Experience administrator user ID](../../../../../../deploy_dx/manage/security/people/authentication/updating_userid_pwd/portalid.md)
 

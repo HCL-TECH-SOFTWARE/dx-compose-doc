@@ -18,7 +18,7 @@ For privacy and API availability and other conditions, see the [OpenAI](https://
 
 ## Enabling AI Analysis in Helm chart
 
-The `content-ai` configurations are available in the Helm chart [values.yaml](../../../deployment/install/container/helm_deployment/preparation/mandatory_tasks/prepare_configuration.md) file as `contentAI`.
+The `content-ai` configurations are available in the Helm chart [values.yaml](../../../deploy_dx/install/container/helm_deployment/preparation/mandatory_tasks/prepare_configuration.md) file as `contentAI`.
 
 The administrator can enable AI analysis for content in the `configuration` section of the ```core``` as shown in the following example.
 
@@ -122,11 +122,11 @@ security:
 
     If a custom secret is used instead of an API key directly in the `values.yaml` file, then the custom secret must be created by using the content AI provider's API key. You must then refer to the secret name in the ```customContentAISecret``` property and you can leave the ```contentAIProviderAPIKey``` blank. 
 
-For more information, see [Guidelines for Configuring Credentials from Secrets](../../../deployment/install/container/helm_deployment/preparation/optional_tasks/optional_configure_credentials.md#guidelines-for-configuring-credentials-from-secrets).
+For more information, see [Guidelines for Configuring Credentials from Secrets](../../../deploy_dx/install/container/helm_deployment/preparation/optional_tasks/optional_configure_credentials.md#guidelines-for-configuring-credentials-from-secrets).
 
 ## Disabling AI analysis in the Helm chart
 
-The `content-ai` configurations are available in the Helm chart [values.yaml](../../../deployment/install/container/helm_deployment/preparation/mandatory_tasks/prepare_configuration.md) file as `contentAI`.
+The `content-ai` configurations are available in the Helm chart [values.yaml](../../../deploy_dx/install/container/helm_deployment/preparation/mandatory_tasks/prepare_configuration.md) file as `contentAI`.
 
 The administrator can disable AI analysis for content in the `configuration` section of the ```core```, as shown in the following example.
 

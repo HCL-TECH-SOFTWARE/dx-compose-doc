@@ -89,5 +89,5 @@ You can clear the version item history using the following ConfigEngine command:
 
 
 ???+ info "Related information"
-    - [Setting service configuration properties](../../../deployment/manage/config_portal_behavior/service_config_properties/index.md)
+    - [Setting service configuration properties](../../../deploy_dx/manage/config_portal_behavior/service_config_properties/index.md)
 

@@ -36,5 +36,5 @@ The rich text editors that are used by Web Content Manager are supplied by other
 
 
 ???+ info "Related information" 
-    -   [Setting service configuration properties](../../../../../../deployment/manage/config_portal_behavior/service_config_properties/index.md)
+    -   [Setting service configuration properties](../../../../../../deploy_dx/manage/config_portal_behavior/service_config_properties/index.md)
 

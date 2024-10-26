@@ -43,5 +43,5 @@ For more information, see [Configuring portlet applications or portlet parameter
 
 ???+ info "Related information" 
     - [Transferring content associations to the Portal Site library](../../../manage_content/wcm_authoring/authoring_portlet/content_management_artifacts/pages/managed_pages/cfg_managed_pages/wcm_config_mngpages_transfer.md)
-    - [Creating page templates](../../../deployment/manage/portal_admin_tools/portal_user_interface/managing_pages/managing_page_properties/h_mp_create_page_templates.md)
+    - [Creating page templates](../../../deploy_dx/manage/portal_admin_tools/portal_user_interface/managing_pages/managing_page_properties/h_mp_create_page_templates.md)
 

@@ -39,7 +39,7 @@ The default URL for a site is `https://mydxsample.hcl.com:443/wps/portal/[virtua
 
 Typically, the authenticated URL is different from the URL for anonymous access. This allows better caching and higher security. Using the default sample URL `https://mydxsample.hcl.com:443/wps/portal/[virtual-portal-context]/rootpage/childpage/[content]/[state]?query-params#anchor`, instead of `/portal`, the authenticated URL contains `/myportal`. This can be customized. Note that while the anonymous URL context can be completely removed, an authenticated URL context is required.
 
-For more information, see [Properties File: wkplc_comp.properties](../../../deployment/manage/cfg_property_files/wkplc_comp-dita.md)
+For more information, see [Properties File: wkplc_comp.properties](../../../deploy_dx/manage/cfg_property_files/wkplc_comp-dita.md)
 
 ## Generating Portal URLs
 
@@ -59,7 +59,7 @@ For more information, see [Virtual Portal URLs](../../virtual_portal/vp_planning
 
 DX state URLs have a complex structure and include a large compressed and encoded XML Navigation State document. The stream of random characters in a DX Site URL is the Navigation State document. Full function depends on correctly maintaining this Navigation State document during all the operations a user might perform in Portal. The state can be removed for different use cases to get a cleaner URL.
 
-For more information, see [Changing your site URL](../../../deployment/manage/siteurl_cfg/index.md).
+For more information, see [Changing your site URL](../../../deploy_dx/manage/siteurl_cfg/index.md).
 
 #### Friendly Action URLs
 

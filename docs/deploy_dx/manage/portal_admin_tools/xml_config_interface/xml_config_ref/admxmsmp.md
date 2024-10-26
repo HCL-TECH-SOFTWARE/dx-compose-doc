@@ -94,4 +94,4 @@ Some of the XML samples are listed in the following. This list is not complete. 
     -   [Removing users and groups](../../../portal_admin_tools/xml_config_interface/working_xml_config_interface/using_xml_config_cmd_line/adxmltsk_del_usrs_grps.md)
     -   [Deploying Java Platform, Enterprise Edition resources](../../../../../extend_dx/portlets_development/mng_portlets_apps_widgets/j2ee.md)
     -   [Activating and deactivating portlet applications or portlets](../../../../../extend_dx/portlets_development/mng_portlets_apps_widgets/portletapps_activate.md)
-    -   [Applying the new theme to your Portal pages](../../../../../deployment/manage/migrate/next_steps/post_mig_activities/theme_task/mig_post_apply_theme.md)
+    -   [Applying the new theme to your Portal pages](../../../../../deploy_dx/manage/migrate/next_steps/post_mig_activities/theme_task/mig_post_apply_theme.md)

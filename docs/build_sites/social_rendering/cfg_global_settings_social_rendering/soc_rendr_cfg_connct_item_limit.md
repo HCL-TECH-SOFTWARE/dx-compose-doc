@@ -28,7 +28,7 @@ To configure this maximum value, proceed by the following steps:
 
 
 ???+ info "Related information"
-    - [Cache Manager Service](../../../deployment/manage/config_portal_behavior/service_config_properties/portal_svc_cfg/srvcfgref_cach_mgr.md)
+    - [Cache Manager Service](../../../deploy_dx/manage/config_portal_behavior/service_config_properties/portal_svc_cfg/srvcfgref_cach_mgr.md)
     - [Customizing social list definitions by using inline editing](../customizing_view_definitions/soc_rendr_cust_socl_list.md)
     - [Digital Data Connector caches](../../../extend_dx/ddc/ddc_cache_tuning/plrf_caches.md)
 

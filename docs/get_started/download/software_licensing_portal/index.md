@@ -61,18 +61,18 @@ The path from an existing HCL Digital Experience 8.5 or 9.0 system to HCL Digita
 
 Afterward, users start IBM Installation Manager, configure the 9.5 repository, and then add version 9.5. Users who are using HCL Portal Enable, HCL Portal Extend, or HCL Web Content Manager must add both the HCL Portal 9.5 Server and the applicable edition via IBM Installation Manager.
 
--   Documentation resource: [Apply Combined Cumulative Fix](../../../deployment/install/traditional/cf_install/index.md)
+-   Documentation resource: [Apply Combined Cumulative Fix](../../../deploy_dx/install/traditional/cf_install/index.md)
 
 ## Deploy HCL Digital Experience to Kubernetes platforms
 
 Follow this installation path to deploy DX from an existing HCL Digital Experience 8.5 or 9.0 system:
 
 1.  Download the following HCL Digital Experience 9.5 container image file: HCL Digital Experience Docker container
-2.  Follow these [deployment steps](../../../deployment/install/container/index.md) to deploy DX to supported Kubernetes platforms.
+2.  Follow these [deployment steps](../../../deploy_dx/install/container/index.md) to deploy DX to supported Kubernetes platforms.
 3.  Stage the content to the new environment to move from an existing system to HCL Digital Experience on Kubernetes platforms.
 
 ## Configure HCL Digital Experience Cloud Native 9.5 entitlement checks
-Beginning with [HCL Digital Experience 9.5 Container Update CF207](../../../whatsnew/cf20/newcf207.md), you must specify certain entitlement check parameters in your [HCL Digital Experience Cloud Native 9.5 Tier 1 – 7](../../product_overview/offerings.md#hcl-digital-experience-cloud-native) installations to accomplish entitlement checks with the HCL Software Licensing and Delivery Portal (Flexnet). See [HCL Digital Experience Cloud Native 9.5 entitlement checks](../software_licensing_portal/configure_entitlement_checks/index.md) for more information.
+Beginning with [HCL Digital Experience 9.5 Container Update CF207](../../../whats_new/cf20/newcf207.md), you must specify certain entitlement check parameters in your [HCL Digital Experience Cloud Native 9.5 Tier 1 – 7](../../product_overview/offerings.md#hcl-digital-experience-cloud-native) installations to accomplish entitlement checks with the HCL Software Licensing and Delivery Portal (Flexnet). See [HCL Digital Experience Cloud Native 9.5 entitlement checks](../software_licensing_portal/configure_entitlement_checks/index.md) for more information.
 
 ???+ info "Related information"
     - [Locating and Downloading DX Products](../../../guide_me/tutorials/access-software/locating-downloads.md)

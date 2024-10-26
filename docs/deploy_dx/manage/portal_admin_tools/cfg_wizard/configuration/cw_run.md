@@ -4,7 +4,7 @@ The home page of the Configuration Wizard provides access to common configuratio
 
 Click **Back** and **Next** to move back or forward in the Configuration Wizard.
 
-1.  To get the latest updates for the wizard, apply the most recent Combined Cumulative Fix. For more information about applying the latest fix pack, see [Apply Combined Cumulative Fix](../../../../../deployment/install/traditional/cf_install/index.md) for more information.
+1.  To get the latest updates for the wizard, apply the most recent Combined Cumulative Fix. For more information about applying the latest fix pack, see [Apply Combined Cumulative Fix](../../../../../deploy_dx/install/traditional/cf_install/index.md) for more information.
 
 2.  Restart server1 to ensure that the Configuration Wizard uses the updated environment variables. Go to AppServer_home/profiles/cw_profile/bin and stop the server:
 
@@ -29,41 +29,41 @@ Click **Back** and **Next** to move back or forward in the Configuration Wizard.
 
 ## Accessing the Configuration Wizard admin console in a container deployment
 
-To access the Configuration Wizard admin console in a container deployment, you can directly enable it [in the custom values of the Helm deployment](../../../../../deployment/install/container/helm_deployment/preparation/optional_tasks/optional_configure_apps.md#configuration-wizard-configuration). The Configuration Wizard admin console is exposed on the TCP port number 10202. Navigate to the following URL to open the Configuration Wizard admin console: `https://<your-deployment-url>:10202/hcl/wizard`.
+To access the Configuration Wizard admin console in a container deployment, you can directly enable it [in the custom values of the Helm deployment](../../../../../deploy_dx/install/container/helm_deployment/preparation/optional_tasks/optional_configure_apps.md#configuration-wizard-configuration). The Configuration Wizard admin console is exposed on the TCP port number 10202. Navigate to the following URL to open the Configuration Wizard admin console: `https://<your-deployment-url>:10202/hcl/wizard`.
 
 !!!note
     For Docker-containerized versions, including the port number (for example, 10202) in the URL is required. For Kubernetes deployments, you can omit the port number in the URL when accessing the Configuration Wizard.
 
 ???+ info "Related information"  
-    -   [Setting up a stand-alone server](../../../../../deployment/manage/config_standalone.md)
-    -   [Setting up a cluster](../../../../../deployment/manage/config_cluster/index.md)
-    -   [Create a deployment manager](../../../../../deployment/manage/config_cluster/cw_dmgr_profile.md)
-    -   [Create a cluster](../../../../../deployment/manage/config_cluster/create_cluster/index.md)
-    -   [Static cluster](../../../../../deployment/manage/config_cluster/create_cluster/cw_create_staticcluster.md)
-    -   [Dynamic cluster](../../../../../deployment/manage/config_cluster/create_cluster/cw_create_dynamiccluster.md)
-    -   [Create an additional cluster node](../../../../../deployment/manage/config_cluster/cw_add_node.md)
-    -   [Completing the context root change started during installation](../../../../../deployment/manage/siteurl_cfg/cfg_intr_inst.md)
-    -   [Changing the portal URI after an installation](../../../../../deployment/manage/siteurl_cfg/changing_portal_uri_after_install/index.md)
-    -   [DB2: Database transfer](../../../../../deployment/manage/db_mgmt_sys/dbtransfer_db2/index.md)
-    -   [Enable federated security](../../../../../deployment/manage/security/people/authentication/user_registry/cw_ldap.md)
-    -   [Starting and stopping servers, deployment managers, and node agents](../../../../../deployment/manage/stopstart.md)
-    -   [Migrate a stand-alone server](../../../../../deployment/manage/migrate/migrate_using_cfgwizard/cw_migrate_stand_alone.md)
-    -   [Cluster Step 1: Migrate the deployment manager profile](../../../../../deployment/manage/migrate/migrate_using_cfgwizard/cw_migrate_cluster_1.md)
-    -   [Cluster Step 2: Migrate node profiles](../../../../../deployment/manage/migrate/migrate_using_cfgwizard/cw_migrate_cluster_2.md)
-    -   [Cluster Step 3: Upgrade node profiles](../../../../../deployment/manage/migrate/migrate_using_cfgwizard/cw_migrate_cluster_3.md)
-    -   [Troubleshooting the Configuration Wizard](../../../../../deployment/manage/troubleshooting/troubleshooting_configwizard/index.md)
-    -   [Troubleshooting: Database Transfer](../../../../../deployment/manage/troubleshooting/troubleshooting_configwizard/troubleshooting_db_transfer/index.md)
-    -   [DB2: Troubleshooting Database Transfer](../../../../../deployment/manage/troubleshooting/troubleshooting_configwizard/troubleshooting_db_transfer/index.md)
-    -   [SQL: Troubleshooting Database Transfer](../../../../../deployment/manage/db_mgmt_sys/dbtransfer_sql/index.md)
-    -   [Oracle: Troubleshooting Database Transfer](../../../../../deployment/manage/db_mgmt_sys/dbtransfer_oracle/index.md)
-    -   [Troubleshooting: Enable federated security option](../../../../../deployment/manage/troubleshooting/troubleshooting_configwizard/cw_ldap.md)
-    -   [Troubleshooting: Create a deployment manager](../../../../../deployment/manage/troubleshooting/troubleshooting_configwizard/cw_create_dmgr.md)
-    -   [Troubleshooting: Create a cluster option](../../../../../deployment/manage/troubleshooting/troubleshooting_configwizard/cw_create_cluster.md)
-    -   [Troubleshooting: Create an additional cluster node](../../../../../deployment/manage/troubleshooting/troubleshooting_configwizard/cw_create_addnode.md)
-    -   [Troubleshooting: Create an HCL Digital Experience profile](../../../../../deployment/manage/troubleshooting/troubleshooting_configwizard/cw_createprofile.md)
-    -   [Troubleshooting: Remove a WebSphere Portal profile](../../../../../deployment/manage/troubleshooting/troubleshooting_configwizard/cw_removeprofile.md)
-    -   [Troubleshooting: Migrate a stand-alone server](../../../../../deployment/manage/troubleshooting/troubleshooting_configwizard/cw_migrate_standalone.md)
-    -   [Troubleshooting: Migrate the deployment manager profile for a cluster environment](../../../../../deployment/manage/troubleshooting/troubleshooting_configwizard/cw_migrate_cluster1.md)
-    -   [Troubleshooting: Migrate node profiles for a cluster environment](../../../../../deployment/manage/troubleshooting/troubleshooting_configwizard/cw_migrate_cluster2.md)
-    -   [Troubleshooting: Upgrade node profiles for a cluster environment](../../../../../deployment/manage/troubleshooting/troubleshooting_configwizard/cw_migrate_cluster3.md)
+    -   [Setting up a stand-alone server](../../../../../deploy_dx/manage/config_standalone.md)
+    -   [Setting up a cluster](../../../../../deploy_dx/manage/config_cluster/index.md)
+    -   [Create a deployment manager](../../../../../deploy_dx/manage/config_cluster/cw_dmgr_profile.md)
+    -   [Create a cluster](../../../../../deploy_dx/manage/config_cluster/create_cluster/index.md)
+    -   [Static cluster](../../../../../deploy_dx/manage/config_cluster/create_cluster/cw_create_staticcluster.md)
+    -   [Dynamic cluster](../../../../../deploy_dx/manage/config_cluster/create_cluster/cw_create_dynamiccluster.md)
+    -   [Create an additional cluster node](../../../../../deploy_dx/manage/config_cluster/cw_add_node.md)
+    -   [Completing the context root change started during installation](../../../../../deploy_dx/manage/siteurl_cfg/cfg_intr_inst.md)
+    -   [Changing the portal URI after an installation](../../../../../deploy_dx/manage/siteurl_cfg/changing_portal_uri_after_install/index.md)
+    -   [DB2: Database transfer](../../../../../deploy_dx/manage/db_mgmt_sys/dbtransfer_db2/index.md)
+    -   [Enable federated security](../../../../../deploy_dx/manage/security/people/authentication/user_registry/cw_ldap.md)
+    -   [Starting and stopping servers, deployment managers, and node agents](../../../../../deploy_dx/manage/stopstart.md)
+    -   [Migrate a stand-alone server](../../../../../deploy_dx/manage/migrate/migrate_using_cfgwizard/cw_migrate_stand_alone.md)
+    -   [Cluster Step 1: Migrate the deployment manager profile](../../../../../deploy_dx/manage/migrate/migrate_using_cfgwizard/cw_migrate_cluster_1.md)
+    -   [Cluster Step 2: Migrate node profiles](../../../../../deploy_dx/manage/migrate/migrate_using_cfgwizard/cw_migrate_cluster_2.md)
+    -   [Cluster Step 3: Upgrade node profiles](../../../../../deploy_dx/manage/migrate/migrate_using_cfgwizard/cw_migrate_cluster_3.md)
+    -   [Troubleshooting the Configuration Wizard](../../../../../deploy_dx/manage/troubleshooting/troubleshooting_configwizard/index.md)
+    -   [Troubleshooting: Database Transfer](../../../../../deploy_dx/manage/troubleshooting/troubleshooting_configwizard/troubleshooting_db_transfer/index.md)
+    -   [DB2: Troubleshooting Database Transfer](../../../../../deploy_dx/manage/troubleshooting/troubleshooting_configwizard/troubleshooting_db_transfer/index.md)
+    -   [SQL: Troubleshooting Database Transfer](../../../../../deploy_dx/manage/db_mgmt_sys/dbtransfer_sql/index.md)
+    -   [Oracle: Troubleshooting Database Transfer](../../../../../deploy_dx/manage/db_mgmt_sys/dbtransfer_oracle/index.md)
+    -   [Troubleshooting: Enable federated security option](../../../../../deploy_dx/manage/troubleshooting/troubleshooting_configwizard/cw_ldap.md)
+    -   [Troubleshooting: Create a deployment manager](../../../../../deploy_dx/manage/troubleshooting/troubleshooting_configwizard/cw_create_dmgr.md)
+    -   [Troubleshooting: Create a cluster option](../../../../../deploy_dx/manage/troubleshooting/troubleshooting_configwizard/cw_create_cluster.md)
+    -   [Troubleshooting: Create an additional cluster node](../../../../../deploy_dx/manage/troubleshooting/troubleshooting_configwizard/cw_create_addnode.md)
+    -   [Troubleshooting: Create an HCL Digital Experience profile](../../../../../deploy_dx/manage/troubleshooting/troubleshooting_configwizard/cw_createprofile.md)
+    -   [Troubleshooting: Remove a WebSphere Portal profile](../../../../../deploy_dx/manage/troubleshooting/troubleshooting_configwizard/cw_removeprofile.md)
+    -   [Troubleshooting: Migrate a stand-alone server](../../../../../deploy_dx/manage/troubleshooting/troubleshooting_configwizard/cw_migrate_standalone.md)
+    -   [Troubleshooting: Migrate the deployment manager profile for a cluster environment](../../../../../deploy_dx/manage/troubleshooting/troubleshooting_configwizard/cw_migrate_cluster1.md)
+    -   [Troubleshooting: Migrate node profiles for a cluster environment](../../../../../deploy_dx/manage/troubleshooting/troubleshooting_configwizard/cw_migrate_cluster2.md)
+    -   [Troubleshooting: Upgrade node profiles for a cluster environment](../../../../../deploy_dx/manage/troubleshooting/troubleshooting_configwizard/cw_migrate_cluster3.md)
 

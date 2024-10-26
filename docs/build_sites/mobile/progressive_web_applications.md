@@ -137,7 +137,7 @@ Hidden pages are implemented via CSS included in the theme. There are two places
 
 ## Steps required to enable Progressive Web Application capabilities in a Digital Experience site
 
-1.  **Apply Stateless URLs**. In order for a PWA application to function properly in HCL DX 9.5 CF19 and higher, the site is required to use stateless, or friendly URLs. See [Defining friendly URLs without state information for pages in your site](../../deployment/manage/siteurl_cfg/changing_siteurl/cw_navstate/mp_friendly_short_url.md) to learn how to configure stateless or friendly URLs.
+1.  **Apply Stateless URLs**. In order for a PWA application to function properly in HCL DX 9.5 CF19 and higher, the site is required to use stateless, or friendly URLs. See [Defining friendly URLs without state information for pages in your site](../../deploy_dx/manage/siteurl_cfg/changing_siteurl/cw_navstate/mp_friendly_short_url.md) to learn how to configure stateless or friendly URLs.
 
     The use of friendly URLs can also be configured by doing the following steps:
 

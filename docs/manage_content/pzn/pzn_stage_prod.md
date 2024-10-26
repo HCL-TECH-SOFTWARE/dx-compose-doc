@@ -30,6 +30,6 @@ Choose one of the following methods to move rules:
 
 
 ???+ info "Related information"
-    - [Creating the initial release](../../deployment/manage/staging_to_production/creating_deploying_initial_release/dep_cir.md)
-    - [Staging to production list](../../deployment/manage/staging_to_production/overview_of_staging_to_prod/dep_stage_check.md)
+    - [Creating the initial release](../../deploy_dx/manage/staging_to_production/creating_deploying_initial_release/dep_cir.md)
+    - [Staging to production list](../../deploy_dx/manage/staging_to_production/overview_of_staging_to_prod/dep_stage_check.md)
 

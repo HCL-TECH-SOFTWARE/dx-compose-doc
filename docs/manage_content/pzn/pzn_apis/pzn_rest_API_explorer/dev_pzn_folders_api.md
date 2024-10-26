@@ -168,7 +168,7 @@ The Update a Personalization Folder REST API is used to update an existing Perso
 
         To retrieve the `parentId` for a specific workspace or existing Personalization using the JCR explorer, follow the steps below:
 
-        1.  Navigate to the [WCM Support Tools](../../../../deployment/manage/troubleshooting/wcm_support_tools.md).
+        1.  Navigate to the [WCM Support Tools](../../../../deploy_dx/manage/troubleshooting/wcm_support_tools.md).
         2.  Click **Browse Nodes**.
         3.  To get the workspace `parentID`, navigate to **Properties** section and use the value of the **jcr:uuid** field as shown below.
 

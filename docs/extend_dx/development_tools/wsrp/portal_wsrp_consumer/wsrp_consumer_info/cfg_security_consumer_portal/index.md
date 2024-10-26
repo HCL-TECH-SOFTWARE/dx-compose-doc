@@ -26,7 +26,7 @@ For both setup options, the WSRP Producer and the WSRP Consumer must be configur
 
 
 ???+ info "Related information"  
-    -   [Access permissions](../../../../../../deployment/manage/security/people/authorization/controlling_access/resources_roles/sec_acc_rights.md)
+    -   [Access permissions](../../../../../../deploy_dx/manage/security/people/authorization/controlling_access/resources_roles/sec_acc_rights.md)
     -   [Enabling remote rendering with WSRP and the Web Content Viewer](../../../../../../manage_content/wcm_delivery/deliver_webcontent_on_dx/enable_remote_render_wsrp/index.md)
-    -   [Updating a WSRP Consumer](../../../../../../deployment/manage/migrate/next_steps/post_mig_activities/portal_task/wsrp/mig_post_wsrp_consumer.md)
+    -   [Updating a WSRP Consumer](../../../../../../deploy_dx/manage/migrate/next_steps/post_mig_activities/portal_task/wsrp/mig_post_wsrp_consumer.md)
 

@@ -20,7 +20,7 @@ Manually run the two following ConfigEngine tasks from the wp_profile_root/Confi
         If you encounter any problems when you run the upgrade-profile task and you need to restart the task with `-Dwp.migration.framework.resume=parameter`, then ensure that you continue to use the `-Dprevious.family.WPFamilyName=server` parameter.
 
 ???+ info "Related information"  
-    -   [Roadmaps for migration](../../../../../deployment/manage/migrate/planning_migration/rm_migration/index.md)
-    -   [Migrate data using the configuration wizard](../../../../../deployment/manage/migrate/migrate_using_cfgwizard/index.md)
+    -   [Roadmaps for migration](../../../../../deploy_dx/manage/migrate/planning_migration/rm_migration/index.md)
+    -   [Migrate data using the configuration wizard](../../../../../deploy_dx/manage/migrate/migrate_using_cfgwizard/index.md)
     -   [HCL Digital Experience 9.5 Overview](../../../../../get_started/product_overview/index.md#hcl-digital-experience-cloud-native)
 

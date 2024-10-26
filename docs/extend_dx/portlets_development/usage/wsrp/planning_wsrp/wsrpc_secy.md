@@ -48,8 +48,8 @@ For more detailed information about Portal Access Control, read the sections abo
 
 ???+ info "Related information"
     - [Configuring Portal Access Control for a WSRP Producer portal](../portal_wsrp_producer/securing_wsrp_prod_portal/wsrpt_prod_sec_pac.md)
-    - [Managing Access Control](../../../../../deployment/manage/security/people/authorization/controlling_access/sec_ac_adm.md)
+    - [Managing Access Control](../../../../../deploy_dx/manage/security/people/authorization/controlling_access/sec_ac_adm.md)
     - [WebSphere Application Server product documentation version 8.5](https://www.ibm.com/products/websphere-application-server)
-    - [Updating a WSRP Producer](../../../../../deployment/manage/migrate/next_steps/post_mig_activities/portal_task/wsrp/mig_post_wsrp_producer.md)
-    - [Updating a WSRP Consumer](../../../../../deployment/manage/migrate/next_steps/post_mig_activities/portal_task/wsrp/mig_post_wsrp_consumer.md)
+    - [Updating a WSRP Producer](../../../../../deploy_dx/manage/migrate/next_steps/post_mig_activities/portal_task/wsrp/mig_post_wsrp_producer.md)
+    - [Updating a WSRP Consumer](../../../../../deploy_dx/manage/migrate/next_steps/post_mig_activities/portal_task/wsrp/mig_post_wsrp_consumer.md)
 

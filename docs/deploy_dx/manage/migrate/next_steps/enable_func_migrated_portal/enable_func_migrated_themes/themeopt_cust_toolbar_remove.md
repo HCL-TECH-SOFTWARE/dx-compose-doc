@@ -46,5 +46,5 @@ All of the theme modules providing functions for editing and managing the site, 
 
 
 ???+ info "Related information"
-    -   [Supported toolbar customization](./../../../../../../deployment/manage/migrate/planning_migration/dev_consideration/mig_plan_toolbar_customize.md)
+    -   [Supported toolbar customization](./../../../../../../deploy_dx/manage/migrate/planning_migration/dev_consideration/mig_plan_toolbar_customize.md)
 

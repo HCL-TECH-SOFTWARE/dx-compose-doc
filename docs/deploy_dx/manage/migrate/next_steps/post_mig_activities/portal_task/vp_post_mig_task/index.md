@@ -17,7 +17,7 @@ When you migrate to HCL Digital Experience 8.5/9.5, the migration process does n
 
 
 ???+ info "Related information" 
-    -   [Removing Person Tag hidden pages](../../.././../../../../deployment/manage/migrate/next_steps/post_mig_activities/portal_task/mig_post_person_tag.md)
+    -   [Removing Person Tag hidden pages](../../.././../../../../deploy_dx/manage/migrate/next_steps/post_mig_activities/portal_task/mig_post_person_tag.md)
     -   [Administering virtual portals](../../../../../../../build_sites/virtual_portal/adm_vp_task/index.md)
     -   [Tasks for administering virtual portals](../../../../../../../build_sites/virtual_portal/adm_vp_task/vp_adm_task/index.md)
 

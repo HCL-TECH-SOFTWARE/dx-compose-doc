@@ -114,7 +114,7 @@ The following parameters are optional for the tag widget. They correspond to sim
 
 
 ???+ info "Related information"
-    - [Properties for the tag widget](../../../../deployment/manage/config_portal_behavior/service_config_properties/portal_svc_cfg/cp_cfg_svc/srvcfg_cpcfg4tr_dlgtag_altui.md)
+    - [Properties for the tag widget](../../../../deploy_dx/manage/config_portal_behavior/service_config_properties/portal_svc_cfg/cp_cfg_svc/srvcfg_cpcfg4tr_dlgtag_altui.md)
     - [The tag and rating widgets](../../tagging_rating_ui/tagging_rating_widget/index.md)
     - [The rating widget](../../tagging_rating_ui/tagging_rating_widget/rating_widget/index.md)
     - [Customizing the tag widget](../../tagging_rating_ui/tagging_rating_widget/tag_widget/tag_rate_cust_inltag_lite.md)

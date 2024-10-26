@@ -26,5 +26,5 @@ If you already use only the JSR 286 version, then you do not need to plan for an
 
 
 ???+ info "Related information" 
-    -   [Converting a Portal API Web Content Viewer to the JSR 286 API](../../../../../../deployment/manage/migrate/next_steps/post_mig_activities/portal_task/wcm_post_mig_update/migrt_ptlt_api_wcm.md)
+    -   [Converting a Portal API Web Content Viewer to the JSR 286 API](../../../../../../deploy_dx/manage/migrate/next_steps/post_mig_activities/portal_task/wcm_post_mig_update/migrt_ptlt_api_wcm.md)
 

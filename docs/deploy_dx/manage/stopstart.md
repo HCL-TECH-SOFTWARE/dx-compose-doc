@@ -55,7 +55,7 @@ Various installation and configuration tasks require you to start and stop IBM W
     -   [Updating federated repositories](../manage/security/people/authentication/customer_user_repo/create_update_fed_repo/add_cur_fed.md)
     -   [Changing the login and logout pages](../manage/security/people/authentication/external_sec_mgmt/sec_chg_login.md)
     -   [Managing access control with external security managers](../manage/security/people/authentication/external_sec_mgmt/man_acc_ext.md)
-    -   [Accessing the Configuration Wizard](../../deployment/manage/portal_admin_tools/cfg_wizard/configuration/cw_run.md)
+    -   [Accessing the Configuration Wizard](../../deploy_dx/manage/portal_admin_tools/cfg_wizard/configuration/cw_run.md)
     -   [Reusing group information](../manage/security/people/authorization/users_and_groups/reuse_group_info.md)
     -   [Enabling and disabling impersonation](../manage/security/people/authorization/users_and_groups/impersonation/impers_enable_disable.md)
     -   [Managing Single sign-on settings in your cluster](../manage/config_cluster/managing_cluster/manage_sso.md)

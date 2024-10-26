@@ -33,6 +33,6 @@ The Outbound HTTP Connection services support the connection of remote sites, su
 
 
 ???+ info "Related information"
-    - [Configuration Service](../../../../../deployment/manage/config_portal_behavior/service_config_properties/portal_svc_cfg/cfg_svc/index.md)
+    - [Configuration Service](../../../../../deploy_dx/manage/config_portal_behavior/service_config_properties/portal_svc_cfg/cfg_svc/index.md)
     - [Adding an outbound connection policy](../../outbound_http_connection/cfg_outbound_http_connections/sample_admin_tasks/outbhttp_cfgsmptsk_add_ob_conn_plcy.md)
 

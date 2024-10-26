@@ -15,7 +15,7 @@ HCL Digital Experience (DX) supports portlets written to the standard portlet AP
 -   If you are already familiar with portlet development using either the standard portlet API, see the following Help Center documentation topics:
     -   See [Portlet communication](../portlets_development/portlet_communication/index.md) for more information how you can enable portlets to share information with other portlets on the page, using the property broker service.
     -   See [Collaborative Services API and the person tag](../portlets_development/collaborative_services_api_person_tag/index.md) for more information how you can integrate collaborative functionality into your portlets, such as online status, chat, and email.
--   See [JavaServer Faces implementation](../../deployment/manage/migrate/next_steps/post_mig_activities/addon_integration_task/mig_post_jsf.md) for HCL's support statement about JSF 2.2 Support with HCL DX Portlet Bridge.
+-   See [JavaServer Faces implementation](../../deploy_dx/manage/migrate/next_steps/post_mig_activities/addon_integration_task/mig_post_jsf.md) for HCL's support statement about JSF 2.2 Support with HCL DX Portlet Bridge.
 
 Rational® Application Developer includes tools designed to help you develop portlet applications for HCL DX.
 

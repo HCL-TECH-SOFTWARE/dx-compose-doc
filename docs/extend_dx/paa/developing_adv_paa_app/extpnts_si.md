@@ -49,5 +49,5 @@ Some ConfigEngine extension points are required when you install an application 
 
 
 ???+ info "Related information"
-    - [Portal administration tools](../../../deployment/manage/portal_admin_tools/index.md)
+    - [Portal administration tools](../../../deploy_dx/manage/portal_admin_tools/index.md)
 

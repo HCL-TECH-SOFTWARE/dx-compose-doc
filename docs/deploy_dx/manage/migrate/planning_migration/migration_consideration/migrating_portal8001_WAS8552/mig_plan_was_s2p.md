@@ -17,5 +17,5 @@ You can set up a staging server with a Portal 8.0.0.1 and WebSphere Application 
 
 
 ???+ info "Related information" 
-    -   [Configuration Wizard](../../../../../../deployment/manage/portal_admin_tools/cfg_wizard/index.md)
+    -   [Configuration Wizard](../../../../../../deploy_dx/manage/portal_admin_tools/cfg_wizard/index.md)
 

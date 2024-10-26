@@ -14,10 +14,10 @@ If you customized your blogs and wiki, you will lose your customizations and you
 3.  Restart HCL Portal.
 
 
-Enabling blogs and wikis by running the configure-blog task also enables tag and rating widgets. Go to [Enabling the new tag and rating widgets after a portal upgrade](../../../../../../deployment/manage/migrate/next_steps/enable_func_migrated_portal/mig_post_tagandrate.md)) to verify and finish enabling tag and rating widgets.
+Enabling blogs and wikis by running the configure-blog task also enables tag and rating widgets. Go to [Enabling the new tag and rating widgets after a portal upgrade](../../../../../../deploy_dx/manage/migrate/next_steps/enable_func_migrated_portal/mig_post_tagandrate.md)) to verify and finish enabling tag and rating widgets.
 
 
 ???+ info "Related information" 
     -   [The tag and rating widgets](../../../../../../build_sites/tagging_rating/tagging_rating_ui/tagging_rating_widget/index.md)
-    -   [Deploying and updating sample web content template items](../../../../../../deployment/manage/migrate/next_steps/post_mig_activities/addon_integration_task/mig_t_templatesample.md)
+    -   [Deploying and updating sample web content template items](../../../../../../deploy_dx/manage/migrate/next_steps/post_mig_activities/addon_integration_task/mig_t_templatesample.md)
 

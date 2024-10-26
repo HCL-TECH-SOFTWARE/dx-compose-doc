@@ -16,7 +16,7 @@ hide:
 
     ---
 
-    [:octicons-arrow-right-24: Go to What's New](./whatsnew/cf224.md)
+    [:octicons-arrow-right-24: Go to What's New](./whats_new/cf224.md)
     
 -   :material-code-braces-box:{ .lg .middle } __DX Architecture__
 
@@ -36,7 +36,7 @@ hide:
 
     ---
 
-    [:octicons-arrow-right-24: Deploy DX](./deployment/index.md)
+    [:octicons-arrow-right-24: Deploy DX](./deploy_dx/index.md)
 
 -   :material-list-box:{ .lg .middle } __System Requirements__
 

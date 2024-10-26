@@ -45,6 +45,6 @@ xmlaccess.sh -user wpsadmin -password your_password -url https://portalhost:1003
 
 
 ???+ info "Related information"  
-   -  [Setting service configuration properties](../../../../../../../../deployment/manage/config_portal_behavior/service_config_properties/index.md)
-   -  [Credential Vault Service](../../../../../../../../deployment/manage/config_portal_behavior/service_config_properties/portal_svc_cfg/security_svc/srvcfgref_cred_vault.md)
+   -  [Setting service configuration properties](../../../../../../../../deploy_dx/manage/config_portal_behavior/service_config_properties/index.md)
+   -  [Credential Vault Service](../../../../../../../../deploy_dx/manage/config_portal_behavior/service_config_properties/portal_svc_cfg/security_svc/srvcfgref_cred_vault.md)
 

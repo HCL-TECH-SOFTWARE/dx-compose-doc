@@ -79,5 +79,5 @@ You can readd the All Sources scope only if this scope does not exist in the cur
 
 ???+ info "Related information"
     - [Configuring search scopes for the Search Center portlet](../../../cfg_dx_search/cfg_searchcenter/srtcfg_sc_scopes.md)
-    - [WebSphere® Integrated Solutions Console](../../../../../deployment/manage/portal_admin_tools/WebSphere_Integrated_Solutions_Console.md)
+    - [WebSphere® Integrated Solutions Console](../../../../../deploy_dx/manage/portal_admin_tools/WebSphere_Integrated_Solutions_Console.md)
 

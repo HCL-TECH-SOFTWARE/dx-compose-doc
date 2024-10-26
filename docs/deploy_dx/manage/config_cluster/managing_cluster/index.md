@@ -8,5 +8,5 @@ Perform the following tasks to manage your cluster:
     After creating your cluster, scheduled tasks that no longer have the default setting need to be reset.
 
 ???+ info "Related information"  
-    -   [XML configuration reference](../../../../deployment/manage/portal_admin_tools/xml_config_interface/xml_config_ref/adxmlref.md)
+    -   [XML configuration reference](../../../../deploy_dx/manage/portal_admin_tools/xml_config_interface/xml_config_ref/adxmlref.md)
 

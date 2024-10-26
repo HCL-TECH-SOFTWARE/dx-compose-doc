@@ -3,7 +3,7 @@
 Choose this option if you want all portal farm instances to be unique installations. You have more control over the server-specific configuration because they are unique from server to server. For example, you can easily apply and test changes or application updates to one server on the farm at a time. The disadvantage to this option is that all administrative actions must be repeated on every server in the farm.
 
 !!! note "Tip"
-    For most farm configurations, the shared farm is the preferred scenario. For information, go to [Setting up farm instances with a shared configuration](../../../../../deployment/manage/portalfarm_cfg/choose_portalfarm/settingup_with_sharedconfig/index.md).
+    For most farm configurations, the shared farm is the preferred scenario. For information, go to [Setting up farm instances with a shared configuration](../../../../../deploy_dx/manage/portalfarm_cfg/choose_portalfarm/settingup_with_sharedconfig/index.md).
 
 Complete the following steps to set up farm instances as unique installations:
 
@@ -72,5 +72,5 @@ HCL Digital Experience is now managed the same as a stand-alone server in terms 
 
 
 ???+ info "Related information"
-    -   [Installing the Farm Master and setting up the support server](../../../../../deployment/manage/portalfarm_cfg/choose_portalfarm/settingup_with_sharedconfig/set_portal_farm_master.md)
+    -   [Installing the Farm Master and setting up the support server](../../../../../deploy_dx/manage/portalfarm_cfg/choose_portalfarm/settingup_with_sharedconfig/set_portal_farm_master.md)
 

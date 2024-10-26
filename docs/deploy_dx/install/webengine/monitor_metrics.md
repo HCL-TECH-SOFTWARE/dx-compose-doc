@@ -5,7 +5,7 @@ title: Monitor Metrics
 
 ## Monitor WebEngine Deployment Using Metrics
 
-This topic outlines the use of standards-based metrics to monitor activity and performance of DX WebEngine container only. More information on other DX containers of the deployment can be found at https://opensource.hcltechsw.com/digital-experience/CF222/deployment/manage/container_configuration/monitoring/monitor_helm_deployment_metrics/?h=metrics
+This topic outlines the use of standards-based metrics to monitor activity and performance of DX WebEngine container only. More information on other DX containers of the deployment can be found at https://opensource.hcltechsw.com/digital-experience/CF222/deploy_dx/manage/container_configuration/monitoring/monitor_helm_deployment_metrics/?h=metrics
 
 ### Prometheus metrics and Grafana
 

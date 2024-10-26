@@ -17,7 +17,7 @@ DX Picker must be installed and configured in HCL Digital Experience 9.5 release
 ## Accessing DX Picker
 
 !!! note
-    You must have **User** access to use DX Picker. Refer to [Working with resource permissions](../../../../deployment/manage/security/people/authorization/controlling_access/working_with_resource_permission/index.md) for more information.
+    You must have **User** access to use DX Picker. Refer to [Working with resource permissions](../../../../deploy_dx/manage/security/people/authorization/controlling_access/working_with_resource_permission/index.md) for more information.
 
 To use the DX Picker, you must have the DX Picker Web Component imported in your HTML page.
 

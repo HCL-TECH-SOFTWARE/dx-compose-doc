@@ -9,7 +9,7 @@ Before you can import a Site Builder template, the target server must have HCL P
 
 The Site Builder template can be installed by using the Solution Installer by running the normal install-paa, update-paa-components, and deploy-paa commands. If the Site Builder template or page templates exist on the server, they are overwritten. If a required library named in the Site Builder template file exists on the server, you cannot import the Site Builder template.Site Builder prevents custom libraries from being overwritten accidentally.
 
-Further information on using the Solution Installer can be found here: [Installing add-ons](../../../../deployment/install/traditional/install_addons/index.md).
+Further information on using the Solution Installer can be found here: [Installing add-ons](../../../../deploy_dx/install/traditional/install_addons/index.md).
 
 1.  Go to the [wp\_profile\_root](../../../../guide_me/wpsdirstr.md) directory.
 

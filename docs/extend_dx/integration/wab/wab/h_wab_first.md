@@ -2,7 +2,7 @@
 
 The portal administrator collects information about the content provider and its applications and then follows basic configuration steps to enable the Web Application Bridge.
 
-1.  The steps that are needed to enable the Web Application Bridge depends on whether the portal context root is removed or not. For information about how to remove the portal context root, go to [Configuration Wizard instructions: Modify site URLs for search engine optimization](../../../../deployment/manage/siteurl_cfg/changing_siteurl/cw_shorten_url/index.md).
+1.  The steps that are needed to enable the Web Application Bridge depends on whether the portal context root is removed or not. For information about how to remove the portal context root, go to [Configuration Wizard instructions: Modify site URLs for search engine optimization](../../../../deploy_dx/manage/siteurl_cfg/changing_siteurl/cw_shorten_url/index.md).
 
     -   If the portal context root is removed, complete the following steps:
         1.  Run the following task to create a virtual host for the Web Application Bridge. This task automatically deploys the Reverse Proxy servlet (RPS) on the newly created virtual host and sets the RPS context root to /.
@@ -163,5 +163,5 @@ For an introduction and a demo on how to use Web Application Bridge, go to [Web 
 ???+ info "Related information"  
     -   [Providing short vanity URLs](../../../../manage_content/wcm_delivery/vanity_url/adm_vanity_url/van_url_short.md)
     -   [Apache Module mod_rewrite](http://httpd.apache.org/docs/2.2/mod/mod_rewrite.html)
-    - [WebSphere® Integrated Solutions Console](../../../../deployment/manage/portal_admin_tools/WebSphere_Integrated_Solutions_Console.md)
+    - [WebSphere® Integrated Solutions Console](../../../../deploy_dx/manage/portal_admin_tools/WebSphere_Integrated_Solutions_Console.md)
 

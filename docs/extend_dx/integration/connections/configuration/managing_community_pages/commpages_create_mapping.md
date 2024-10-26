@@ -56,7 +56,7 @@ You can create, view, modify, or delete community associations on a page with th
         -   The User role on the page is removed for the virtual user group that represents the members of the previously associated community.
         -   The User role on the page is assigned to the virtual user group that represents the members of the newly associated community.
         -   If role blocks do not exist on the page for the User role and Privileged User role, the role blocks are created.
-        Activating this feature is restricted to users that are granted all roles that are required if the corresponding access control modifications are performed manually with the access control administration portlets. For more information about the roles that are required when you select **Limit access to this page to only community members**, see [Access permissions](../../../../../deployment/manage/security/people/authorization/controlling_access/resources_roles/sec_acc_rights.md).
+        Activating this feature is restricted to users that are granted all roles that are required if the corresponding access control modifications are performed manually with the access control administration portlets. For more information about the roles that are required when you select **Limit access to this page to only community members**, see [Access permissions](../../../../../deploy_dx/manage/security/people/authorization/controlling_access/resources_roles/sec_acc_rights.md).
 
     3.  If you want child pages of the page to be automatically associated with the same community as this page, select **Copy updated association to all number direct child pages**.
 
@@ -99,4 +99,4 @@ You can create, view, modify, or delete community associations on a page with th
     - [XML configuration interface and content associations](https://help.hcltechsw.com/digital-experience/9.5/admin-system/mp_wcm_contentmap_xml.html)
     - [Automatically grant page access to community members](../cfg_community_pages/commpages_delegate_access.md)
     - [REST API and content associations](https://help.hcltechsw.com/digital-experience/9.5/admin-system/mp_wcm_contentmap_restapi.html)
-    - [Access permissions](../../../../../deployment/manage/security/people/authorization/controlling_access/resources_roles/sec_acc_rights.md)
+    - [Access permissions](../../../../../deploy_dx/manage/security/people/authorization/controlling_access/resources_roles/sec_acc_rights.md)

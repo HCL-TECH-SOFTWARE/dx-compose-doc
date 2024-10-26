@@ -139,6 +139,6 @@ For information on the XML elements, refer to the following table:
 
 ???+ info "Related information"  
     -   [Portal administration tools](../../../../extend_dx/development_tools/index.md)
-    -   [Setting up SSL](../../../../deployment/manage/security/information/confidentiality/configuring_ssl/setup_ssl/index.md)
-    -   [Deleting orphaned data](../../../../deployment/manage/config_portal_behavior/adelorph.md)
+    -   [Setting up SSL](../../../../deploy_dx/manage/security/information/confidentiality/configuring_ssl/setup_ssl/index.md)
+    -   [Deleting orphaned data](../../../../deploy_dx/manage/config_portal_behavior/adelorph.md)
 

@@ -4,9 +4,9 @@ Use the XML configuration interface (XML Access) for exchanging portal configura
 
 ???+ info "Related information"  
     -   [XML configuration interface parameters for the Web Content Viewer](../../../../manage_content/wcm_configuration/cfg_webcontent_delivery_env/wcm_config_wcmviewer_xmlaccess.md)
-    -   [Configuring a Credential Vault for overlay reports](../../../../deployment/manage/monitoring/analyze_portal_usage/user_behavior_by_asa/displaying_overlay_analytics_reports/sa_asa_overlay_cfg_crd_vlt.md)
-    -   [Tools for staging to production](../../../../deployment/manage/staging_to_production/overview_of_staging_to_prod/dep_tools.md)
-    -   [Syndication and staging](../../../../deployment/manage/staging_to_production/updates_with_syndication/dep_up_syn.md)
+    -   [Configuring a Credential Vault for overlay reports](../../../../deploy_dx/manage/monitoring/analyze_portal_usage/user_behavior_by_asa/displaying_overlay_analytics_reports/sa_asa_overlay_cfg_crd_vlt.md)
+    -   [Tools for staging to production](../../../../deploy_dx/manage/staging_to_production/overview_of_staging_to_prod/dep_tools.md)
+    -   [Syndication and staging](../../../../deploy_dx/manage/staging_to_production/updates_with_syndication/dep_up_syn.md)
     -   [Using the XML configuration interface to work with Producer definitions](../../../../extend_dx/portlets_development/usage/wsrp/portal_wsrp_consumer/working_with_producer_def/using_xml_cfg_work_with_prod_def/index.md)
     -   [Using the XML configuration interface to consume portlets from a Producer portal](../../../../extend_dx/portlets_development/usage/wsrp/portal_wsrp_consumer/consuming_portlets_consumer_portal/using_xml_cfg/index.md)
     -   [XML samples for creating Producer definitions](../../../../extend_dx/portlets_development/usage/wsrp/portal_wsrp_consumer/working_with_producer_def/using_xml_cfg_work_with_prod_def/using_xml_cfg_create_prod_def/wsrpr_cons_crtprd_samp1.md)
@@ -15,7 +15,7 @@ Use the XML configuration interface (XML Access) for exchanging portal configura
     -   [Work with the Portal Scripting Interface](../../portal_admin_tools/portal_scripting_interface/adpsitsk.md)
     -   [Activating and deactivating portlet applications or portlets](../../../../extend_dx/portlets_development/mng_portlets_apps_widgets/portletapps_activate.md)
     -   [Managing iWidgets in your portal](../../../../extend_dx/portlets_development/mng_portlets_apps_widgets/managing_iwidgets/index.md)
-    -   [Deploying portlets common across clusters](../../../../deployment/manage/config_cluster/managing_cluster/managing_portlets_in_cluster/clusm_common_ports.md)
+    -   [Deploying portlets common across clusters](../../../../deploy_dx/manage/config_cluster/managing_cluster/managing_portlets_in_cluster/clusm_common_ports.md)
     -   [Planning for virtual portals](../../../../build_sites/virtual_portal/vp_planning/index.md)
     -   [The master administrator](../../../../build_sites/virtual_portal/vp_planning/vp_roles/advppln_roles_mastr_adm.md)
     -   [Administering virtual portals](../../../../build_sites/virtual_portal/adm_vp_task/index.md)

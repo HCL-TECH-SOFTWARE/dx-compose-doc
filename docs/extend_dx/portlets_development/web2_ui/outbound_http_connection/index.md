@@ -61,5 +61,5 @@ HCL Portal Version 8.5 provides a migration process for the change from the Ajax
 ???+ info "Related information"
     - [The generic XML Digital Data Connector plug-in](../../../../extend_dx/ddc/integrating_remote_xml_data/plrf_genrc_beanlst_provider.md)
     - [The generic JSON Digital Data Connector plug-in](../../../../extend_dx/ddc/integrating_remote_json_data/plrf_genrc_beanlst_provider_json.md)
-    - [Changing from Ajax proxy to outbound HTTP connection](../../../../deployment/manage/migrate/next_steps/enable_func_migrated_portal/mig_enable_outboundhttp.md)
+    - [Changing from Ajax proxy to outbound HTTP connection](../../../../deploy_dx/manage/migrate/next_steps/enable_func_migrated_portal/mig_enable_outboundhttp.md)
 

@@ -19,5 +19,5 @@ When the automatic cache entry clearing feature is enabled, content authors can 
 
 
 ???+ info "Related information"  
-    -   [Portal server performance tuning tool](../../../../deployment/manage/tune_servers/wp_tune_tool.md)
+    -   [Portal server performance tuning tool](../../../../deploy_dx/manage/tune_servers/wp_tune_tool.md)
 

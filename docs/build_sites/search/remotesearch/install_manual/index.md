@@ -199,4 +199,4 @@ If you originally installed the remote service by using manual steps, then you m
 
 
 ???+ info "Related information"
-    - [WebSphere® Integrated Solutions Console](../../../../deployment/manage/portal_admin_tools/WebSphere_Integrated_Solutions_Console.md)
+    - [WebSphere® Integrated Solutions Console](../../../../deploy_dx/manage/portal_admin_tools/WebSphere_Integrated_Solutions_Console.md)

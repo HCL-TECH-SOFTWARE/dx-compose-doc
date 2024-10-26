@@ -34,5 +34,5 @@ Use the Manage Search portlet to export search web collections from a source por
 
 
 ???+ info "Related information"  
-    -   [Importing search web collections](../../../../../../deployment/manage/migrate/next_steps/post_mig_activities/portal_task/mig_t_import_webcoll.md)
+    -   [Importing search web collections](../../../../../../deploy_dx/manage/migrate/next_steps/post_mig_activities/portal_task/mig_t_import_webcoll.md)
 

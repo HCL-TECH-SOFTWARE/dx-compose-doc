@@ -4,8 +4,8 @@ Learn more about XML input structure, XML tags for portal resources, attributes 
 
 ???+ info "Related information"  
     -   [Scheduling scope synchronization](../../../../../manage_content/wcm_authoring/authoring_portlet/content_management_artifacts/tagrate_managing/syn_scope/wcm_tagrate_syncscope_sched.md)
-    -   [Staging to production list](../../../../../deployment/manage/staging_to_production/overview_of_staging_to_prod/dep_stage_check.md)
-    -   [Creating the initial release](../../../../../deployment/manage/staging_to_production/creating_deploying_initial_release/dep_cir.md)
+    -   [Staging to production list](../../../../../deploy_dx/manage/staging_to_production/overview_of_staging_to_prod/dep_stage_check.md)
+    -   [Creating the initial release](../../../../../deploy_dx/manage/staging_to_production/creating_deploying_initial_release/dep_cir.md)
     -   [Exporting and transferring parts of a portal configuration](../../../portal_admin_tools/xml_config_interface/working_xml_config_interface/using_xml_config_cmd_line/transfer_portal_cfg_using_xml_config_int/adxmltsk_xfer_partl_cfg.md)
-    -   [Managing your cluster](../../../../../deployment/manage/config_cluster/managing_cluster/index.md)
+    -   [Managing your cluster](../../../../../deploy_dx/manage/config_cluster/managing_cluster/index.md)
 

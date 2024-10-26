@@ -2,7 +2,7 @@
 
 ## Overview
 
-The [Rule-based user groups](https://opensource.hcltechsw.com/digital-experience/latest/deployment/manage/security/people/authorization/users_and_groups/rule_based_user_groups/) (Softgroups) for HCL Portal allow you to define dynamic portal user groups. For more information, see [capabilities](https://opensource.hcltechsw.com/digital-experience/latest/deployment/manage/security/people/authorization/users_and_groups/rule_based_user_groups/#what-you-can-do-with-rule-based-user-groups).
+The [Rule-based user groups](https://opensource.hcltechsw.com/digital-experience/latest/deploy_dx/manage/security/people/authorization/users_and_groups/rule_based_user_groups/) (Softgroups) for HCL Portal allow you to define dynamic portal user groups. For more information, see [capabilities](https://opensource.hcltechsw.com/digital-experience/latest/deploy_dx/manage/security/people/authorization/users_and_groups/rule_based_user_groups/#what-you-can-do-with-rule-based-user-groups).
 
 The rule-based user group is implemented as a custom repository adapter for Virtual Member Manager (VMM). A unique group name represents rule-based user groups, the Lightweight Directory Access Protocol (LDAP) search filter rule expression, and an optional description. The HCL DX handles them as normal portal user groups. They are in a special base distinguished name in the user realm hierarchy.
 
@@ -16,7 +16,7 @@ The Softgroups(rule-based user groups) configuration allows user roles and group
 
 Create a database before Softgroups is used. The Softgroups feature stores the definitions of the rule-based user groups in a database table. This includes the name, rule, and description of the group. Use one of the following SQL statements to create the table, using a database and schema of your choice. Replace `schema_name` in the scripts with the schema name of your choice.
 
-This configuration has been tested using the DB2 database. Although databases like SQL or Oracle are used instead of DB2. For more information on creating database, tables and schema, see [Database setup](https://opensource.hcltechsw.com/digital-experience/latest/deployment/manage/security/people/authorization/users_and_groups/rule_based_user_groups/cfg_rule_based_user_groups/rbug_db_setup/).
+This configuration has been tested using the DB2 database. Although databases like SQL or Oracle are used instead of DB2. For more information on creating database, tables and schema, see [Database setup](https://opensource.hcltechsw.com/digital-experience/latest/deploy_dx/manage/security/people/authorization/users_and_groups/rule_based_user_groups/cfg_rule_based_user_groups/rbug_db_setup/).
 
 !!!note
     This configuration is not tested on SQL or Oracle. But should work in general.

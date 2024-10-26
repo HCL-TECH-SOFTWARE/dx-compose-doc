@@ -88,5 +88,5 @@ You can exclude pages from being managed in Web Content Manager. You can prevent
 
 
 ???+ info "Related information"  
-    -   [Changes to the XML configuration interface](../../../../../../../deployment/manage/portal_admin_tools/xml_config_interface/adxmlchg.md)
+    -   [Changes to the XML configuration interface](../../../../../../../deploy_dx/manage/portal_admin_tools/xml_config_interface/adxmlchg.md)
 

@@ -30,8 +30,8 @@ The Configuration Wizard supports adding additional nodes to a horizontal cluste
 5. Complete each sub step in the order that is shown in the wizard. Use the Configuration Wizard in conjunction with your selected Roadmap.
 
 ???+ info "Related tasks" 
-    -   [Adding vertical cluster members to a static cluster](../../../../../deployment/manage/config_cluster/add_vert_clus.md)
-    -   [Adding vertical cluster members to a dynamic cluster](../../../../../deployment/manage/config_cluster/add_dynvert_clus.md)
+    -   [Adding vertical cluster members to a static cluster](../../../../../deploy_dx/manage/config_cluster/add_vert_clus.md)
+    -   [Adding vertical cluster members to a dynamic cluster](../../../../../deploy_dx/manage/config_cluster/add_dynvert_clus.md)
     -   [Accessing the Configuration Wizard](../../../portal_admin_tools/cfg_wizard/configuration/cw_run.md)
-    -   [Updating DB2 self-tuning memory manager (STMM) settings](../../../../../deployment/manage/migrate/next_steps/post_mig_activities/db_task/mig_t_post_db2_stmm.md)
+    -   [Updating DB2 self-tuning memory manager (STMM) settings](../../../../../deploy_dx/manage/migrate/next_steps/post_mig_activities/db_task/mig_t_post_db2_stmm.md)
 

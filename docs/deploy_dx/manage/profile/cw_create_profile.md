@@ -166,5 +166,5 @@ If you click **View Step Command**, you can see the task and properties that are
         none
 
 ???+ info "Related information"  
-    -   [Troubleshooting: Create an HCL Digital Experience profile](../../../deployment/manage/troubleshooting/troubleshooting_configwizard/cw_createprofile.md)
+    -   [Troubleshooting: Create an HCL Digital Experience profile](../../../deploy_dx/manage/troubleshooting/troubleshooting_configwizard/cw_createprofile.md)
     -   [Using the Installation Manager to modify your environment](iim_modify.md)

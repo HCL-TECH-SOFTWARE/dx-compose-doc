@@ -123,7 +123,7 @@ After you migrate from Version 7.0 or Version 8.0, vanity URLs are not available
 
 
 ???+ info "Related information"  
-    -   [Enabling vanity URL support after migration](../../../../../deployment/manage/migrate/next_steps/post_mig_activities/portal_task/mig_post_vurls.md)
+    -   [Enabling vanity URL support after migration](../../../../../deploy_dx/manage/migrate/next_steps/post_mig_activities/portal_task/mig_post_vurls.md)
     -   [Transferring content associations to the Portal Site library](../../../../../manage_content/wcm_authoring/authoring_portlet/content_management_artifacts/pages/managed_pages/cfg_managed_pages/wcm_config_mngpages_transfer.md)
     -   [Enabling vanity URL support](../../../../../manage_content/wcm_delivery/vanity_url/adm_vanity_url/van_url_cfgtsk_enable_vus.md)
     -   [Synchronizing the vanity URL database](../../../../../manage_content/wcm_delivery/vanity_url/adm_vanity_url/van_url_cfgtsk_sync_db.md)

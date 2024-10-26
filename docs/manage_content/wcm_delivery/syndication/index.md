@@ -23,6 +23,6 @@ To learn how to use staging tools such as DXClient, Syndication, XMLAccess, Rele
 
 ???+ info "Related information" 
     - [Creating a syndication relationship by using the Administration view](../syndication/manage_synd_subs/wcm_syndication_settingup.md)
-    - [Syndication and staging](../../../deployment/manage/staging_to_production/updates_with_syndication/dep_up_syn.md)
-    - [Sharing Web Content Manager libraries between Virtual Portals](../../../deployment/manage/migrate/next_steps/post_mig_activities/portal_task/vp_post_mig_task/mig_post_vp_sharing_wcm.md)
+    - [Syndication and staging](../../../deploy_dx/manage/staging_to_production/updates_with_syndication/dep_up_syn.md)
+    - [Sharing Web Content Manager libraries between Virtual Portals](../../../deploy_dx/manage/migrate/next_steps/post_mig_activities/portal_task/vp_post_mig_task/mig_post_vp_sharing_wcm.md)
 

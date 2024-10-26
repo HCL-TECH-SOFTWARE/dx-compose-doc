@@ -52,4 +52,4 @@ Remote search requires one persistent volume for storing the profile (called `pr
 Remote search is limited to only one Pod. Therefore, the service requires one PV for that Pod.
 
 !!! note
-    Refer to **[PersistentVolumeClaims](../../../deployment/install/container/helm_deployment/preparation/mandatory_tasks/prepare_persistent_volume_claims.md)** to learn how to set up the `PersistentVolumes` and `PersistentVolumeClaims`.
+    Refer to **[PersistentVolumeClaims](../../../deploy_dx/install/container/helm_deployment/preparation/mandatory_tasks/prepare_persistent_volume_claims.md)** to learn how to set up the `PersistentVolumes` and `PersistentVolumeClaims`.

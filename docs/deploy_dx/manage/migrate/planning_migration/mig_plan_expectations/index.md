@@ -15,5 +15,5 @@ If the page order was altered for HCL pages in the Applications, Administration,
 
 
 ???+ info "Related information" 
-    -   [Migration overview](../../../../../deployment/manage/migrate/mig_over.md)
+    -   [Migration overview](../../../../../deploy_dx/manage/migrate/mig_over.md)
 

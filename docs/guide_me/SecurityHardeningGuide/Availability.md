@@ -12,7 +12,7 @@ Choose a topology that meets your business requirements for the availability of 
 
     - [On-premise](https://help.hcltechsw.com/digital-experience/8.5/admin-system/i_wadm_c_bkup_restr_winlinux.html)
 
-    - [Container](https://opensource.hcltechsw.com/digital-experience/CF210/deployment/install/container/operator-migration/operator_backup_and_recovery_procedures/)
+    - [Container](https://opensource.hcltechsw.com/digital-experience/CF210/deploy_dx/install/container/operator-migration/operator_backup_and_recovery_procedures/)
 
 - Backup and recovery procedures should address:
 

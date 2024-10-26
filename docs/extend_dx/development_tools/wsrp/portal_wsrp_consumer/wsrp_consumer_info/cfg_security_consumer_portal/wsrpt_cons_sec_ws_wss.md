@@ -49,5 +49,5 @@ The token types correspond to the default WSRP policy sets and provider policy b
 
 
 ???+ info "Related information"  
-    -   [Updating a WSRP Consumer](../../../../../../deployment/manage/migrate/next_steps/post_mig_activities/portal_task/wsrp/mig_post_wsrp_consumer.md)
+    -   [Updating a WSRP Consumer](../../../../../../deploy_dx/manage/migrate/next_steps/post_mig_activities/portal_task/wsrp/mig_post_wsrp_consumer.md)
 

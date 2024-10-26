@@ -17,7 +17,7 @@ When you create a backup and recovery plan, consider these general questions:
 
 
 ???+ info "Related information"  
-    -   [Guidelines for Idle Standby clustered deployments](../../../../../deployment/manage/backup_restore/i_wadm_t_bkup_hi_avail.md)
-    -   [Backing up files, databases, and the LDAP servers](../../../../../deployment/manage/backup_restore/backup_files_db_ldap/index.md)
-    -   [Restoring files, databases, and the LDAP servers](../../../../../deployment/manage/backup_restore/restore_files_db_ldap/index.md)
+    -   [Guidelines for Idle Standby clustered deployments](../../../../../deploy_dx/manage/backup_restore/i_wadm_t_bkup_hi_avail.md)
+    -   [Backing up files, databases, and the LDAP servers](../../../../../deploy_dx/manage/backup_restore/backup_files_db_ldap/index.md)
+    -   [Restoring files, databases, and the LDAP servers](../../../../../deploy_dx/manage/backup_restore/restore_files_db_ldap/index.md)
 

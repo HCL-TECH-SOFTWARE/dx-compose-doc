@@ -58,6 +58,6 @@ Inline editing for Content Template version 3.x is not enabled during migration.
 
 ## Tagging and rating
 
-If you use tagging and rating, then you must enable the new tag and rating widgets after migration. For more information, see [Enabling the new tag and rating widgets after a portal upgrade](../../../../../../deployment/manage/migrate/next_steps/enable_func_migrated_portal/mig_post_tagandrate.md).
+If you use tagging and rating, then you must enable the new tag and rating widgets after migration. For more information, see [Enabling the new tag and rating widgets after a portal upgrade](../../../../../../deploy_dx/manage/migrate/next_steps/enable_func_migrated_portal/mig_post_tagandrate.md).
 
 

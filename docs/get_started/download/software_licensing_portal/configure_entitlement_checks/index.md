@@ -3,7 +3,7 @@
 The [HCL Software License Portal](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0073344) supports entitlement checking for several HCL Software solutions, including the [HCL Digital Experience (DX) Cloud Native 9.5 Tier 1 – 7 offerings](https://blog.hcltechsw.com/digital-experience/introducing-new-hcl-digital-experience-cloud-native-9-5-bundle-with-user-session-pricing/) in the HCL DX portfolio. By checking entitlements, you can track purchased software entitlement periods and usage levels. 
 
 ## Overview
-Beginning with [HCL DX 9.5 Container Update CF207](../../../../whatsnew/cf20/newcf207.md), if you deploy DX to supported Kubernetes platforms you must specify certain entitlement check parameters in [HCL Digital Experience Cloud Native 9.5 Tier 1 – 7](../../../../get_started/product_overview/offerings.md#hcl-digital-experience-cloud-native) installations to accomplish entitlement checks. If you do not specify these entitlement check parameters or fail to configure them correctly, then the entitlement check will not pass and software access will enter the grace period. To learn more about the various entitlement check scenarios, see [HCL DX Cloud Native 9.5 entitlement check scenarios](entitlement_checks_scenarios.md).
+Beginning with [HCL DX 9.5 Container Update CF207](../../../../whats_new/cf20/newcf207.md), if you deploy DX to supported Kubernetes platforms you must specify certain entitlement check parameters in [HCL Digital Experience Cloud Native 9.5 Tier 1 – 7](../../../../get_started/product_overview/offerings.md#hcl-digital-experience-cloud-native) installations to accomplish entitlement checks. If you do not specify these entitlement check parameters or fail to configure them correctly, then the entitlement check will not pass and software access will enter the grace period. To learn more about the various entitlement check scenarios, see [HCL DX Cloud Native 9.5 entitlement check scenarios](entitlement_checks_scenarios.md).
 
 Optionally, you can [configure a local FlexNet entitlement server](./configuring_local_flexnet_entitlement_server.md) for enhanced control over the security of entitlement checks in your environments. With this option, you can dedicate a computer to act as a local FlexNet entitlement server. You can remain in entitlement compliance without the need for outbound connections to the HCL-hosted FlexNet entitlement service from your HCL DX Cloud Native 9.5 Kubernetes installations.
 
@@ -24,7 +24,7 @@ The following elements are the prerequisites for configuring the DX Cloud Native
 -   Your DX Cloud Native 9.5 (Tier 1 – 7) entitlements are mapped to your HCL Software License portal instances. 
     ![DX Cloud Native 9.5 (Tier 1 – 7) entitlements](../../software_licensing_portal/_img/DX_cloud_native_entitlements.png)
 See the "How to check your entitlements" and "Map entitlements" sections in: [What is the HCL Software License & Download Portal?](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0073344#a8) for guidance in locating and mapping your entitlements on your deployment servers.
--   A plan you must implement to deploy or update an [HCL DX 9.5 Container Update CF207](../../../../whatsnew/cf20/newcf207.md) or later release. 
+-   A plan you must implement to deploy or update an [HCL DX 9.5 Container Update CF207](../../../../whats_new/cf20/newcf207.md) or later release. 
 
 Review the architecture that presents the License Manager component of HCL DX v9.5 Container Update software, which follows in the next section.
 
@@ -120,7 +120,7 @@ configuration:
 ```
 
 !!!reminder
-    These properties must be configured to your Helm chart **before** you install the environment. If you're changing the environment, configure the properties before you start the DX 9.5 ContainerUpdate 207 or later Helm upgrade to your HCL Digital Experience Cloud Native 9.5 production or non-production deployment. For more information about the Helm configuration steps to manage DX 9.5 Container Update upgrades, see [Upgrade the Helm deployment to the latest version](../../../../deployment/install/container/helm_deployment/update_helm_deployment.md).
+    These properties must be configured to your Helm chart **before** you install the environment. If you're changing the environment, configure the properties before you start the DX 9.5 ContainerUpdate 207 or later Helm upgrade to your HCL Digital Experience Cloud Native 9.5 production or non-production deployment. For more information about the Helm configuration steps to manage DX 9.5 Container Update upgrades, see [Upgrade the Helm deployment to the latest version](../../../../deploy_dx/install/container/helm_deployment/update_helm_deployment.md).
 
 ## Results
 Your HCL DX Cloud Native 9.5 environments are configured for entitlement checks that will validate that your deployment software remains in the purchased timeframe. 

@@ -69,6 +69,6 @@ When you migrate to 8.5/9.5, HCL Digital Experience automatically migrates the f
 
 
 ???+ info "Related information"  
-    -   [Migration overview](../../../../deployment/manage/migrate/mig_over.md)
+    -   [Migration overview](../../../../deploy_dx/manage/migrate/mig_over.md)
     -   [HCL Portal detailed system requirements](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0013514&sys_kb_id=ba230c701b983c50f37655352a4bcb29)
 

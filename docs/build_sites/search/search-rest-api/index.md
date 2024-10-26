@@ -172,7 +172,7 @@ The Digital Experience Search REST API provides developers programmatic access t
 ???+ info "Related information"
       - [Search](../index.md)
       - [Paged Feeds](https://datatracker.ietf.org/doc/html/rfc5005#section-3)
-      - [Running search queries via REST API](../../../deployment/manage/container_configuration/configure_opensearch/run_search_queries_api.md)
+      - [Running search queries via REST API](../../../deploy_dx/manage/container_configuration/configure_opensearch/run_search_queries_api.md)
 
 
 

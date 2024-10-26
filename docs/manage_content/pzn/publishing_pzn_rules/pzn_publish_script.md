@@ -63,5 +63,5 @@ After a publish is started, you see status messages in the command console.
 
 
 ???+ info "Related information"  
-    -   [Tools for staging to production](../../../deployment/manage/staging_to_production/overview_of_staging_to_prod/dep_tools.md)
+    -   [Tools for staging to production](../../../deploy_dx/manage/staging_to_production/overview_of_staging_to_prod/dep_tools.md)
 

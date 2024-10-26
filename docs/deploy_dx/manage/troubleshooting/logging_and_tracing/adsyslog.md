@@ -148,10 +148,10 @@ The current value is TRANSACTION_REPEATABLE_READ.
 ```
 
 ???+ info "Related information"  
-    -   [Starting and stopping servers, deployment managers, and node agents](../../../../deployment/manage/stopstart.md)
-    -   [Setting service configuration properties](../../../../deployment/manage/config_portal_behavior/service_config_properties/index.md)
-    -   [Portal service configuration](../../../../deployment/manage/config_portal_behavior/service_config_properties/portal_svc_cfg/index.md)
-    -   [Localizer Service](../../../../deployment/manage/config_portal_behavior/service_config_properties/portal_svc_cfg/srvcfgref_localizer.md)
+    -   [Starting and stopping servers, deployment managers, and node agents](../../../../deploy_dx/manage/stopstart.md)
+    -   [Setting service configuration properties](../../../../deploy_dx/manage/config_portal_behavior/service_config_properties/index.md)
+    -   [Portal service configuration](../../../../deploy_dx/manage/config_portal_behavior/service_config_properties/portal_svc_cfg/index.md)
+    -   [Localizer Service](../../../../deploy_dx/manage/config_portal_behavior/service_config_properties/portal_svc_cfg/srvcfgref_localizer.md)
     -   [Directory structure](../../../../guide_me/wpsdirstr.md)
     -   [WebSphere Application Server 8.5.:Log and trace settings](https://www.ibm.com/docs/en/SSEQTP_8.5.5/com.ibm.websphere.base.doc/ae/utrb_logtrace.html)
 

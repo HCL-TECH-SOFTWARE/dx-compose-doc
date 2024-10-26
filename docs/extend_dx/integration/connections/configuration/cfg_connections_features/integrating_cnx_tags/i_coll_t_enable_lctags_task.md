@@ -22,6 +22,6 @@ During the import of the tags if you exceed the number of available connections,
 
 ???+ info "Related information"
     - [Administering tag federation](../../../../../../build_sites/tagging_rating/tag_rate_federation/fed_admin/index.md)
-    - [CP Configuration Service for tagging and rating](../../../../../../deployment/manage/config_portal_behavior/service_config_properties/portal_svc_cfg/cp_cfg_svc/index.md)
+    - [CP Configuration Service for tagging and rating](../../../../../../deploy_dx/manage/config_portal_behavior/service_config_properties/portal_svc_cfg/cp_cfg_svc/index.md)
     - [Using the XML configuration interface to administer tags and ratings](../../../../../../build_sites/tagging_rating/tag_rate_xml.md)
 

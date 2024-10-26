@@ -19,9 +19,9 @@ For Version 8.5/9.5, data, applications, databases, property files, security set
 
 
 ???+ info "Related information"  
-    -   [Supported migration paths](../../../deployment/manage/migrate/planning_migration/mig_plan_supported_paths.md)
-    -   [Roadmaps for migration](../../../deployment/manage/migrate/planning_migration/rm_migration/index.md)
-    -   [Migrating from Portal 8.0.0.1 on WebSphere Application Server 8.5.5.2](../../../deployment/manage/migrate/planning_migration/migration_consideration/migrating_portal8001_WAS8552/index.md)
-    -   [What to expect after you complete migration](../../../deployment/manage/migrate/planning_migration/mig_plan_expectations/index.md)
+    -   [Supported migration paths](../../../deploy_dx/manage/migrate/planning_migration/mig_plan_supported_paths.md)
+    -   [Roadmaps for migration](../../../deploy_dx/manage/migrate/planning_migration/rm_migration/index.md)
+    -   [Migrating from Portal 8.0.0.1 on WebSphere Application Server 8.5.5.2](../../../deploy_dx/manage/migrate/planning_migration/migration_consideration/migrating_portal8001_WAS8552/index.md)
+    -   [What to expect after you complete migration](../../../deploy_dx/manage/migrate/planning_migration/mig_plan_expectations/index.md)
     -  [WebSphere® Integrated Solutions Console](../portal_admin_tools/WebSphere_Integrated_Solutions_Console.md)
 

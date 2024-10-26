@@ -101,7 +101,7 @@ There are two separators which can be used with the `csp-replace-string` paramet
     ```
 
 ???+ info "Related information"
-    - [WebSphere® Integrated Solutions Console](../../../../../../../deployment/manage/portal_admin_tools/WebSphere_Integrated_Solutions_Console.md)
+    - [WebSphere® Integrated Solutions Console](../../../../../../../deploy_dx/manage/portal_admin_tools/WebSphere_Integrated_Solutions_Console.md)
 
 
 

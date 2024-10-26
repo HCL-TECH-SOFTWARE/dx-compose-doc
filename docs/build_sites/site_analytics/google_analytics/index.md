@@ -8,7 +8,7 @@ Complete the following steps to integrate Google Analytics to the HCL DX platfor
 
 ## Installation
 
-HCL Digital Experience utilizes the platform [Active Site Analytics](../../../deployment/manage/monitoring/analyze_portal_usage/index.md) framework, which includes application scripts, called Aggregators, to collect page interactions data sent to external web analytics services for analysis. HCL DX administrators and page owners can manage the aggregators. They can assign an aggregator to one or more DX labels or pages.
+HCL Digital Experience utilizes the platform [Active Site Analytics](../../../deploy_dx/manage/monitoring/analyze_portal_usage/index.md) framework, which includes application scripts, called Aggregators, to collect page interactions data sent to external web analytics services for analysis. HCL DX administrators and page owners can manage the aggregators. They can assign an aggregator to one or more DX labels or pages.
 
 In HCL DX 9.5 CF19 and higher, a new Active Site Analytics aggregator for Google Analytics is available.
 
@@ -105,7 +105,7 @@ Obtain a Google Analytics account with ability to connect to your Digital Experi
 
     Optionally, you can register the Active Site Analytics tags/microformats as custom dimensions or metrics in the Google Analytics Dashboard and configure the aggregator to use your custom map. See [Google Analytics Custom Dimensions & Metrics](https://support.google.com/analytics/answer/2709828).
 
-    For a list of Active Site Analytics tags associated with HCL DX site pages that can be tracked by the Google Analytics Aggregator, see [How Active Site Analytics data is represented in the portal](../../../deployment/manage/monitoring/analyze_portal_usage/user_behavior_by_asa/collecting_analytics_data/how_asa_data_is_represented_in_portal/index.md) and [Supported aggregator tags](../../../deployment/manage/monitoring/analyze_portal_usage/user_behavior_by_asa/collecting_analytics_data/how_asa_data_is_represented_in_portal/sa_asa_aggr_tags.md).
+    For a list of Active Site Analytics tags associated with HCL DX site pages that can be tracked by the Google Analytics Aggregator, see [How Active Site Analytics data is represented in the portal](../../../deploy_dx/manage/monitoring/analyze_portal_usage/user_behavior_by_asa/collecting_analytics_data/how_asa_data_is_represented_in_portal/index.md) and [Supported aggregator tags](../../../deploy_dx/manage/monitoring/analyze_portal_usage/user_behavior_by_asa/collecting_analytics_data/how_asa_data_is_represented_in_portal/sa_asa_aggr_tags.md).
 
     ![Optionally configure the DX Google Analytics Aggregator to use a custom map](../../../assets/configure_DX_go0gle_analytics_aggregator_using_custom_map.png)
 
@@ -117,7 +117,7 @@ Obtain a Google Analytics account with ability to connect to your Digital Experi
 
     ![In page analysis of HCL DX 9.5 Woodburn Studio site user interactions in Google Analytics](../../../assets/in_page_analysis_DX_Woodburn_Studio_site_user_interactions.png)
 
-    Refer to the [Analytics tags and site promotions](../../../deployment/manage/monitoring/analyze_portal_usage/user_behavior_by_asa/analytics_tags_site_promo/index.md) topics for more information on how to add additional tags and site promotions in addition to the out-of-the-box ones.
+    Refer to the [Analytics tags and site promotions](../../../deploy_dx/manage/monitoring/analyze_portal_usage/user_behavior_by_asa/analytics_tags_site_promo/index.md) topics for more information on how to add additional tags and site promotions in addition to the out-of-the-box ones.
 
 
 ## Using the Active Site Analytics Aggregator for Google Analytics to track DX deployment user sessions

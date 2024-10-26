@@ -1,6 +1,6 @@
 # Logging and tracing for containers and new services
 
-Starting CF200, a new mechanism is introduced for configuring log settings at runtime (without pod restarts) in Helm-based DX deployments. Log levels and trace strings are set in your custom-values.yaml file. [Configure and Access Logs](../../../../deployment/manage/container_configuration/troubleshooting/configure_access_helm_logs.md) gives more detail on how to configure logging in Helm amd how to access Kubernetes container logs. 
+Starting CF200, a new mechanism is introduced for configuring log settings at runtime (without pod restarts) in Helm-based DX deployments. Log levels and trace strings are set in your custom-values.yaml file. [Configure and Access Logs](../../../../deploy_dx/manage/container_configuration/troubleshooting/configure_access_helm_logs.md) gives more detail on how to configure logging in Helm amd how to access Kubernetes container logs. 
 
 Prerequisite: Install and configure Content Composer and Digital Asset Management to your HCL Digital Experience deployment.
 
@@ -98,4 +98,4 @@ You can view the client logs using the developer tools in the web browser. The f
     WebSphere Application Server consolidates the trace strings list by removing strings that are logically contained within others. For example, if you have a string `x.y.z.*=all` in the list, it disappears when you add `x.y.*=all`
 
 ???+ info "Related information"  
-    -   [Troubleshooting your Helm deployment](../../../../deployment/manage/container_configuration/troubleshooting/helm_troubleshooting.md)
+    -   [Troubleshooting your Helm deployment](../../../../deploy_dx/manage/container_configuration/troubleshooting/helm_troubleshooting.md)

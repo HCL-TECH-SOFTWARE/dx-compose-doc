@@ -6,7 +6,7 @@ GA4 provides ways for website owners to collect data on the visitors of their we
 
 ## Installing Google Analytics 4
 
-HCL DX utilizes the platform [Active Site Analytics](../../../deployment/manage/monitoring/analyze_portal_usage/index.md) framework. This framework includes application scripts called Aggregators to collect page interactions data sent to external web analytics services for analysis. HCL DX administrators and page owners can manage the aggregators. They can assign an aggregator to one or more DX labels or pages.
+HCL DX utilizes the platform [Active Site Analytics](../../../deploy_dx/manage/monitoring/analyze_portal_usage/index.md) framework. This framework includes application scripts called Aggregators to collect page interactions data sent to external web analytics services for analysis. HCL DX administrators and page owners can manage the aggregators. They can assign an aggregator to one or more DX labels or pages.
 
 In HCL DX 9.5 CF19 and higher, a new Active Site Analytics aggregator for Google Analytics is available, and you may also use this with GA4. For more information, see [[GA4] Set up Analytics for a website and/or app](https://support.google.com/analytics/answer/9304153?hl=en&ref_topic=9303319).
 
@@ -122,7 +122,7 @@ Obtain a Google Analytics account with ability to connect to your Digital Experi
 
     Optionally, you can register the Active Site Analytics tags or microformats as custom dimensions or metrics in the Google Analytics Dashboard and configure the aggregator to use your custom map. See the [GA4 Custom Dimensions & Metrics](https://support.google.com/analytics/answer/10075209?sjid=13677223371736029582-NA) for more information. 
 
-    For a list of Active Site Analytics tags associated with HCL DX site pages that can be tracked by the Google Analytics Aggregator, see the topics [How Active Site Analytics data is represented in the portal](../../../deployment/manage/monitoring/analyze_portal_usage/user_behavior_by_asa/collecting_analytics_data/how_asa_data_is_represented_in_portal/index.md) and [Supported aggregator tags](../../../deployment/manage/monitoring/analyze_portal_usage/user_behavior_by_asa/collecting_analytics_data/how_asa_data_is_represented_in_portal/sa_asa_aggr_tags.md).
+    For a list of Active Site Analytics tags associated with HCL DX site pages that can be tracked by the Google Analytics Aggregator, see the topics [How Active Site Analytics data is represented in the portal](../../../deploy_dx/manage/monitoring/analyze_portal_usage/user_behavior_by_asa/collecting_analytics_data/how_asa_data_is_represented_in_portal/index.md) and [Supported aggregator tags](../../../deploy_dx/manage/monitoring/analyze_portal_usage/user_behavior_by_asa/collecting_analytics_data/how_asa_data_is_represented_in_portal/sa_asa_aggr_tags.md).
  
 5.	Access the HCL DX site page analytics from the Google Analytics Dashboard [Realtime Report](https://support.google.com/analytics/answer/9271392?sjid=2012704651258872253-NA) to analyze HCL DX site activity. Take note that the Realtime Report is new with GA4. For an overview, see [Overview of Google Analytics reports](https://support.google.com/analytics/answer/9212670?hl=en&ref_topic=12153537,12153943,2986333,&sjid=2012704651258872253-NA&visit_id=638356755288911187-1947930948&rd=1).
     
@@ -132,7 +132,7 @@ Obtain a Google Analytics account with ability to connect to your Digital Experi
 
     ![GA4 Report](../../../images/ga4_report.png)
  
-    Refer to the [Analytics tags and site promotions](../../../deployment/manage/monitoring/analyze_portal_usage/user_behavior_by_asa/analytics_tags_site_promo/index.md) topics for information on how to add additional tags and site promotions in addition to the out-of-the-box ones.
+    Refer to the [Analytics tags and site promotions](../../../deploy_dx/manage/monitoring/analyze_portal_usage/user_behavior_by_asa/analytics_tags_site_promo/index.md) topics for information on how to add additional tags and site promotions in addition to the out-of-the-box ones.
 
 ## Using the Active Site Analytics Aggregator for Google Analytics 4 to track DX deployment user sessions
 

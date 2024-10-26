@@ -68,7 +68,7 @@ After you add the repository to your Helm deployment, you should see the followi
 
 #### Listing available Helm chart versions
 
-To verify that your Helm configuration works to connect and to see which [HCL DX 9.5 Container Update CF application versions](../../deployment/install/container/image_list.md) are available from the HCL repository on Harbor, you can use the following command:
+To verify that your Helm configuration works to connect and to see which [HCL DX 9.5 Container Update CF application versions](../../deploy_dx/install/container/image_list.md) are available from the HCL repository on Harbor, you can use the following command:
 
 ```
 # Using helm search to find available versions, the DX helm charts are named hcl-dx-deployment
@@ -88,7 +88,7 @@ You can see which chart version correlates to which HCL Digital Experience 9.5 C
 After you complete the preceding actions, your Helm configuration can use HCL DX 9.5 Helm charts directly from the Helm Repository on Harbor.
 
 !!! note
-    Applying the method to pull DX 9.5 Container Update images directly from the HCL container registry on Harbor requires that every cluster node can access the HCL container registry on Harbor. To leverage this feature, you have to configure an `ImagePullSecret` with your HCL credentials for the Harbor site. For instructions, see [Configure deployment to use the HCL container registry on Harbor](../../deployment/install/container/helm_deployment/preparation/optional_tasks/optional_imagepullsecrets.md#configure-deployment-to-use-the-hcl-harbor-container-registry).
+    Applying the method to pull DX 9.5 Container Update images directly from the HCL container registry on Harbor requires that every cluster node can access the HCL container registry on Harbor. To leverage this feature, you have to configure an `ImagePullSecret` with your HCL credentials for the Harbor site. For instructions, see [Configure deployment to use the HCL container registry on Harbor](../../deploy_dx/install/container/helm_deployment/preparation/optional_tasks/optional_imagepullsecrets.md#configure-deployment-to-use-the-hcl-harbor-container-registry).
 
 #### Pulling a Helm chart for deployment
 
@@ -113,7 +113,7 @@ ls -lah
 
 You downloaded your DX 9.5 Container Update Helm chart from the HCL repository on Harbor and can continue with your deployment. 
 
-After the Helm charts are downloaded, the next step is [Retagging images](../../deployment/install/container/helm_deployment/preparation/get_the_code/prepare_load_images.md#re-tag-images).
+After the Helm charts are downloaded, the next step is [Retagging images](../../deploy_dx/install/container/helm_deployment/preparation/get_the_code/prepare_load_images.md#re-tag-images).
 
 ???+ info "Related information"
-    -   [Deploying container platforms by using Helm](../../deployment/install/container/helm_deployment/overview.md)
+    -   [Deploying container platforms by using Helm](../../deploy_dx/install/container/helm_deployment/overview.md)

@@ -8,7 +8,7 @@ Use this roadmap if you are:
 
 -   Migrating a stand-alone server environment from a previous version to the latest version of HCL Digital Experience.
 
-You must apply the latest cumulative fix and one of the two most recent fix packs to your source environment, and the latest cumulative fix and the most recent fix pack to your target environment before you can migrate to HCL Portal 8.5/9.5. For more information, see [Supported migration paths](../../../../../deployment/manage/migrate/planning_migration/mig_plan_supported_paths.md).
+You must apply the latest cumulative fix and one of the two most recent fix packs to your source environment, and the latest cumulative fix and the most recent fix pack to your target environment before you can migrate to HCL Portal 8.5/9.5. For more information, see [Supported migration paths](../../../../../deploy_dx/manage/migrate/planning_migration/mig_plan_supported_paths.md).
 
 ## Planning for migration
 
@@ -65,6 +65,6 @@ After you complete the tasks in the Next steps section of the product documentat
 
 
 ???+ info "Related information" 
-    -   [Portal farm migration](../../../../../deployment/manage/migrate/planning_migration/migration_consideration/mig_plan_portal_farm.md)
-    -   [Migrate a stand-alone server](../../../../../deployment/manage/migrate/migrate_using_cfgwizard/cw_migrate_stand_alone.md)
+    -   [Portal farm migration](../../../../../deploy_dx/manage/migrate/planning_migration/migration_consideration/mig_plan_portal_farm.md)
+    -   [Migrate a stand-alone server](../../../../../deploy_dx/manage/migrate/migrate_using_cfgwizard/cw_migrate_stand_alone.md)
 

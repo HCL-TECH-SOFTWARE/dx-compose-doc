@@ -34,7 +34,7 @@ Use the wp_security_federated.properties helper file that is in the wp_profile_r
 
 7.  **Important:** If you have HCL Portal Version 9.5 or 8.5 with a CF05 or later fix pack applied, then you do not have to complete the following steps.
 
-8.  Stop and restart the appropriate servers to propagate the changes. For instructions, go to [Starting and stopping servers, deployment managers, and node agents](../../../../../../deployment/manage/stopstart.md).
+8.  Stop and restart the appropriate servers to propagate the changes. For instructions, go to [Starting and stopping servers, deployment managers, and node agents](../../../../../../deploy_dx/manage/stopstart.md).
 
 9.  Log in to HCL Portal as an administrator.
 

@@ -86,5 +86,5 @@ To control the default output for the WSDL document, you set the following param
 
 
 ???+ info "Related information" 
-    -   [Changing the portal URI after an installation](../../../../../deployment/manage/siteurl_cfg/changing_portal_uri_after_install/index.md)
+    -   [Changing the portal URI after an installation](../../../../../deploy_dx/manage/siteurl_cfg/changing_portal_uri_after_install/index.md)
 

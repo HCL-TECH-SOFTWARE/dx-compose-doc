@@ -37,5 +37,5 @@ Complete the following steps on the secondary node:
 
 
 ???+ info "Related information"  
-    -   [Multiple cluster environments](../../../../../../deployment/manage/migrate/planning_migration/migration_consideration/mig_plan_clusters.md)
+    -   [Multiple cluster environments](../../../../../../deploy_dx/manage/migrate/planning_migration/migration_consideration/mig_plan_clusters.md)
 

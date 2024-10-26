@@ -15,6 +15,6 @@ To import an XML configuration file by using the Import XML portlet, proceed as 
 
 
 ???+ info "Related information"  
-    -   [Configuring a Credential Vault for overlay reports](../../../../../../deployment/manage/monitoring/analyze_portal_usage/user_behavior_by_asa/displaying_overlay_analytics_reports/sa_asa_overlay_cfg_crd_vlt.md)
+    -   [Configuring a Credential Vault for overlay reports](../../../../../../deploy_dx/manage/monitoring/analyze_portal_usage/user_behavior_by_asa/displaying_overlay_analytics_reports/sa_asa_overlay_cfg_crd_vlt.md)
     -   [Exporting and importing static pages](../../../../../../build_sites/create_sites/building_website/static_content/including_static_content_pages/export_import_static_page/index.md)
-    -   [Tools for staging to production](../../../../../../deployment/manage/staging_to_production/overview_of_staging_to_prod/dep_tools.md)
+    -   [Tools for staging to production](../../../../../../deploy_dx/manage/staging_to_production/overview_of_staging_to_prod/dep_tools.md)

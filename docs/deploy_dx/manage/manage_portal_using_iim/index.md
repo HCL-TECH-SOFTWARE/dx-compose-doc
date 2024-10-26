@@ -9,5 +9,5 @@ After upgrading to an interim fix, you can use the IBM Installation Manager func
 
 
 ???+ info "Related information"
-    [Backup and restore](../../../deployment/manage/backup_restore/index.md)
+    [Backup and restore](../../../deploy_dx/manage/backup_restore/index.md)
 

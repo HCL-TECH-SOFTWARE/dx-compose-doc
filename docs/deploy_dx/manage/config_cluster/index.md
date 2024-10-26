@@ -37,12 +37,12 @@ The Configuration Wizard supports adding additional nodes to a horizontal cluste
 
     Use the Configuration Wizard in conjunction with your selected roadmap.
 
-    -   [Create a deployment manager](../../../deployment/manage/config_cluster/cw_dmgr_profile.md)
-    -   [Create a cluster](../../../deployment/manage/config_cluster/create_cluster/index.md)
-    -   [Create an additional cluster node](../../../deployment/manage/config_cluster/cw_add_node.md)
+    -   [Create a deployment manager](../../../deploy_dx/manage/config_cluster/cw_dmgr_profile.md)
+    -   [Create a cluster](../../../deploy_dx/manage/config_cluster/create_cluster/index.md)
+    -   [Create an additional cluster node](../../../deploy_dx/manage/config_cluster/cw_add_node.md)
     -   [Adding vertical cluster members to a static cluster](../config_cluster/add_vert_clus.md)
     -   [Adding vertical cluster members to a dynamic cluster](../config_cluster/add_dynvert_clus.md)
-    -   [Deleting vertical cluster members](../../../deployment/manage/config_cluster/delete_vert_clus.md)
+    -   [Deleting vertical cluster members](../../../deploy_dx/manage/config_cluster/delete_vert_clus.md)
 
 ???+ info "Related information"  
     -   [Accessing the Configuration Wizard](../portal_admin_tools/cfg_wizard/configuration/cw_run.md)

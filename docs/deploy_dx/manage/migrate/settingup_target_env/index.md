@@ -13,7 +13,7 @@ Migration to a new release requires setting up a target environment. The target 
 
 Independently from the migration path that is chosen, the target environment requires a fresh, binary only, Portal installation. Meaning setting up the target environment without creating any profiles. 
 
-For more details on setting up the target environment, review the following topics in this section and the [Roadmaps for migration](../../../../deployment/manage/migrate/planning_migration/rm_migration/index.md).
+For more details on setting up the target environment, review the following topics in this section and the [Roadmaps for migration](../../../../deploy_dx/manage/migrate/planning_migration/rm_migration/index.md).
 
 -   **[Target environment considerations](mig_plan_targetenvironment.md)**  
 Installation planning of the target environment must be part of your overall migration planning. There are some considerations to keep in mind when you install HCL Portal and you plan to do a migration from your existing installation.

@@ -133,7 +133,7 @@ If you click **View Step Command**, you can see the task and properties associat
 
 12. Set up your database.
 
-    (Automatic Storage Management Users only): If you have configured your database with Automatic Storage Management, you must perform additional manual instructions after you perform this step. Run the setup database script to create database schemas and users and grant privileges to database users. Then, go to [Oracle: Creating JCR table spaces (Automatic Storage Management)](../../../../deployment/manage/db_mgmt_sys/oracle_create_tablespaces.md) to perform additional manual instructions.
+    (Automatic Storage Management Users only): If you have configured your database with Automatic Storage Management, you must perform additional manual instructions after you perform this step. Run the setup database script to create database schemas and users and grant privileges to database users. Then, go to [Oracle: Creating JCR table spaces (Automatic Storage Management)](../../../../deploy_dx/manage/db_mgmt_sys/oracle_create_tablespaces.md) to perform additional manual instructions.
 
     -   **Condition**
 
@@ -327,6 +327,6 @@ If you are setting up a cluster environment, you can use the Create a Deployment
 ???+ info "Related information"  
     -   [Configuration Wizard: Setting up a stand-alone server](../../portal_admin_tools/cfg_wizard/usage/cw_standalone.md)
     -   [Accessing the Configuration Wizard](../../portal_admin_tools/cfg_wizard/configuration/cw_run.md)
-    -   [Updating DB2 self-tuning memory manager (STMM) settings](../../../../deployment/manage/migrate/next_steps/post_mig_activities/db_task/mig_t_post_db2_stmm.md)
-    -   [Manual Steps: Database Transfer option in the Configuration Wizard](../../../../deployment/manage/db_mgmt_sys/dbtransfer_manual/index.md)
+    -   [Updating DB2 self-tuning memory manager (STMM) settings](../../../../deploy_dx/manage/migrate/next_steps/post_mig_activities/db_task/mig_t_post_db2_stmm.md)
+    -   [Manual Steps: Database Transfer option in the Configuration Wizard](../../../../deploy_dx/manage/db_mgmt_sys/dbtransfer_manual/index.md)
 

@@ -63,5 +63,5 @@ Perform the following steps in the newly migrated environment.
 
 
 ???+ info "Related information"  
-    -   [Portlets no longer available](../../../../../../deployment/manage/migrate/next_steps/post_mig_activities/addon_integration_task/mig_removed_portlets.md)
+    -   [Portlets no longer available](../../../../../../deploy_dx/manage/migrate/next_steps/post_mig_activities/addon_integration_task/mig_removed_portlets.md)
 

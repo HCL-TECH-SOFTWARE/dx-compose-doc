@@ -250,5 +250,5 @@ Before you enable the HADR, use the **Database Transfer** option in the Configur
 
 
 ???+ info "Related information"
-    -   [Starting and stopping servers, deployment managers, and node agents](../../../deployment/manage/stopstart.md)
+    -   [Starting and stopping servers, deployment managers, and node agents](../../../deploy_dx/manage/stopstart.md)
 

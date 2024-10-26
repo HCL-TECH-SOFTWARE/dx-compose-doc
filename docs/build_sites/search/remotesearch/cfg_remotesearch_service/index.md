@@ -56,5 +56,5 @@ Before you can begin using remote search service, you must create three new cont
 
 
 ???+ info "Related information"
-    - [Container Staging](../../../../deployment/manage/container_configuration/container_staging.md)
+    - [Container Staging](../../../../deploy_dx/manage/container_configuration/container_staging.md)
 

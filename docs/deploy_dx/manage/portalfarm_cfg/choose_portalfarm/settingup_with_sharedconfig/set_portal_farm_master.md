@@ -85,7 +85,7 @@ The first server where HCL Digital Experience is installed is the basis for the 
 
 8.  Each server that you add to the farm is called a Farm Worker.
 
-        |**Cloned file system**|Create a clone of the Farm Master. Go to [Configuring a cloned file system](../../../../../deployment/manage/portalfarm_cfg/choose_portalfarm/settingup_with_sharedconfig/cfg_farm_clone.md) for information.|
+        |**Cloned file system**|Create a clone of the Farm Master. Go to [Configuring a cloned file system](../../../../../deploy_dx/manage/portalfarm_cfg/choose_portalfarm/settingup_with_sharedconfig/cfg_farm_clone.md) for information.|
     |**Shared file system**|On each Farm Worker, mount the network accessible file system on a new system in the same location as on the Farm Master. This step preserves the installation path configuration.|
 
 9.  Change to the wp_profile_root/PortalServer/bin directory on the farm client.
@@ -98,7 +98,7 @@ The first server where HCL Digital Experience is installed is the basis for the 
     |Linux|`./start_WebSphere_Portal.sh./stop_WebSphere_Portal.sh`|
     |Windows|`start_WebSphere_Portal.batstop_WebSphere_Portal.bat`|
 
-11. If you plan to use a web server for load balancing, complete [Setting up the HTTP server plug-in on a portal farm](../../../../../deployment/manage/portalfarm_cfg/set_http_farm.md) next.
+11. If you plan to use a web server for load balancing, complete [Setting up the HTTP server plug-in on a portal farm](../../../../../deploy_dx/manage/portalfarm_cfg/set_http_farm.md) next.
 
 12. The **wpsScheduler** is used to clean up the database for non-immediate tasks, such as page deletions, and must be enabled only on the farm support server. Verify that **wpsScheduler** is disabled on the farm master. If it is not disabled, complete the following steps:
 
@@ -149,7 +149,7 @@ The first server where HCL Digital Experience is installed is the basis for the 
 
 
 ???+ info "Related information"  
-    -   [Setting up farm instances as unique installations](../../../../../deployment/manage/portalfarm_cfg/choose_portalfarm/settingup_as_unique_install/index.md)
-    -   [Configuring a shared file system](../../../../../deployment/manage/portalfarm_cfg/choose_portalfarm/settingup_with_sharedconfig/set_portal_farm_gpfs.md)
+    -   [Setting up farm instances as unique installations](../../../../../deploy_dx/manage/portalfarm_cfg/choose_portalfarm/settingup_as_unique_install/index.md)
+    -   [Configuring a shared file system](../../../../../deploy_dx/manage/portalfarm_cfg/choose_portalfarm/settingup_with_sharedconfig/set_portal_farm_gpfs.md)
     -   [How to manage syndicators and subscribers](../../../../../manage_content/wcm_delivery/syndication/manage_synd_subs/index.md)
     -   [Configuring search in a cluster](../../../../../build_sites/search/cfg_dx_search/cfg_search_cluster/index.md)

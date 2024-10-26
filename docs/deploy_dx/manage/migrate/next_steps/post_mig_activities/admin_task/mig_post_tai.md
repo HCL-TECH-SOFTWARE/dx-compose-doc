@@ -24,5 +24,5 @@ If TAI was disabled before you began migration, and you had to enable it in orde
 
 
 ???+ info "Related information" 
-    -   [Verifying that WebSphere Application Server Trust Association Interceptor is enabled](../../../../../../deployment/manage/migrate/preparing_source_env/mig_pre_src_tai.md)
+    -   [Verifying that WebSphere Application Server Trust Association Interceptor is enabled](../../../../../../deploy_dx/manage/migrate/preparing_source_env/mig_pre_src_tai.md)
 

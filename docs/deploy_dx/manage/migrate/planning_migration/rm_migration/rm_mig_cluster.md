@@ -11,7 +11,7 @@ Use this roadmap if you are:
 !!!note
     If you are migrating from HCL Digital Experience 8.0.0.1 on WebSphere® Application Server 8.5.5.2 to the latest version of HCL Digital Experience, you must follow a different migration process.
 
-You must apply the latest cumulative fix and one of the two most recent fix packs to your source environment, and the latest cumulative fix and the most recent fix pack to your target environment before you can migrate to HCL Digital Experience 8.5/9.5. For more information, see [Supported migration paths](../../../../../deployment/manage/migrate/planning_migration/mig_plan_supported_paths.md).
+You must apply the latest cumulative fix and one of the two most recent fix packs to your source environment, and the latest cumulative fix and the most recent fix pack to your target environment before you can migrate to HCL Digital Experience 8.5/9.5. For more information, see [Supported migration paths](../../../../../deploy_dx/manage/migrate/planning_migration/mig_plan_supported_paths.md).
 
 ## Planning for migration
 
@@ -50,7 +50,7 @@ Start the Configuration Wizard to migrate data, applications, databases, propert
     |Administrator password| |
     |Soap port| |
 
-2.  To get the latest updates for the wizard, apply the most recent cumulative fix. For more information about applying the latest fix pack, Visit [Apply Combined Cumulative Fix](../../../../../deployment/install/traditional/cf_install/index.md) for more information for more topic information.
+2.  To get the latest updates for the wizard, apply the most recent cumulative fix. For more information about applying the latest fix pack, Visit [Apply Combined Cumulative Fix](../../../../../deploy_dx/install/traditional/cf_install/index.md) for more information for more topic information.
 
     !!!note
         Skip this step, if you have the most recent fix pack applied.
@@ -88,7 +88,7 @@ After you complete the tasks in the Next steps section of the product documentat
 
 
 ???+ info "Related information" 
-    -   [Cluster Step 1: Migrate the deployment manager profile](../../../../../deployment/manage/migrate/migrate_using_cfgwizard/cw_migrate_cluster_1.md)
-    -   [Cluster Step 2: Migrate node profiles](../../../../../deployment/manage/migrate/migrate_using_cfgwizard/cw_migrate_cluster_2.md)
-    -   [Cluster Step 3: Upgrade node profiles](../../../../../deployment/manage/migrate/migrate_using_cfgwizard/cw_migrate_cluster_3.md)
+    -   [Cluster Step 1: Migrate the deployment manager profile](../../../../../deploy_dx/manage/migrate/migrate_using_cfgwizard/cw_migrate_cluster_1.md)
+    -   [Cluster Step 2: Migrate node profiles](../../../../../deploy_dx/manage/migrate/migrate_using_cfgwizard/cw_migrate_cluster_2.md)
+    -   [Cluster Step 3: Upgrade node profiles](../../../../../deploy_dx/manage/migrate/migrate_using_cfgwizard/cw_migrate_cluster_3.md)
 

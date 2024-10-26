@@ -2,7 +2,7 @@
 
 Completing a thorough plan before migrating to the latest version of HCL Digital Experience has a direct impact in the effort invested during the actual migration. Become familiar with the environment you are migrating to (target environment). Also, make sure that the environment you are migrating from (source environment) is up to date with fixes and meets the requirements for migration.
 
-The following sections provide a starting point for your migration planning. Consider each migration planning unique to the environment you are migrating. Refer to the [Roadmaps for migration](../../../../deployment/manage/migrate/planning_migration/rm_migration/index.md) when you are planning and completing the migration process for an high-level view of the process and direct links to important documentation resources.
+The following sections provide a starting point for your migration planning. Consider each migration planning unique to the environment you are migrating. Refer to the [Roadmaps for migration](../../../../deploy_dx/manage/migrate/planning_migration/rm_migration/index.md) when you are planning and completing the migration process for an high-level view of the process and direct links to important documentation resources.
 
 Before you start the more detailed planning, here are some additional migration considerations:
 

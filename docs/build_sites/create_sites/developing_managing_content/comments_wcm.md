@@ -251,7 +251,7 @@ After configuring WCM comments in a theme, actions such as add, reply, like/unli
 
 ## Access Roles and Permissions for WCM Comments
 
-Only authorized users can view, edit, and delete the comments in the library where the comments are stored. It is required to have at least a **View** access to the WCM content library. For more information, see [Managing users and groups](../../../deployment/manage/security/people/authorization/controlling_access/managing_users_groups/index.md). 
+Only authorized users can view, edit, and delete the comments in the library where the comments are stored. It is required to have at least a **View** access to the WCM content library. For more information, see [Managing users and groups](../../../deploy_dx/manage/security/people/authorization/controlling_access/managing_users_groups/index.md). 
 
 The actions available for a user depend on their role:
 
@@ -317,4 +317,4 @@ For purging deleted comments, refer to [How to use REST with Web Content Manager
 
 
 ???+ info "Related information"
-    - [WebSphere® Integrated Solutions Console](../../../deployment/manage/portal_admin_tools/WebSphere_Integrated_Solutions_Console.md)
+    - [WebSphere® Integrated Solutions Console](../../../deploy_dx/manage/portal_admin_tools/WebSphere_Integrated_Solutions_Console.md)

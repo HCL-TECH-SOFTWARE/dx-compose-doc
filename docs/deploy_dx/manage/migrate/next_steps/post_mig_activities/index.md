@@ -19,5 +19,5 @@ Complete the post-migration tasks that are required based on the way you use you
 
 
 ???+ info "Related information" 
-    -   [Exploitation vs. toleration of applications and themes](../../../../../deployment/manage/migrate/planning_migration/dev_consideration/mig_plan_exp_v_tol.md)
+    -   [Exploitation vs. toleration of applications and themes](../../../../../deploy_dx/manage/migrate/planning_migration/dev_consideration/mig_plan_exp_v_tol.md)
 

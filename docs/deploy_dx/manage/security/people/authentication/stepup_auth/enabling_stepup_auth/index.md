@@ -23,4 +23,4 @@ After you enable the Remember me cookie, you might need to adjust the settings t
 
 
 ???+ info "Related information"
-    - [WebSphere® Integrated Solutions Console](../../../../../../../deployment/manage/portal_admin_tools/WebSphere_Integrated_Solutions_Console.md)
+    - [WebSphere® Integrated Solutions Console](../../../../../../../deploy_dx/manage/portal_admin_tools/WebSphere_Integrated_Solutions_Console.md)
