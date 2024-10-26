@@ -2,7 +2,7 @@
 
 The following topics describes the API calls to search HCL Digital Experience. You can search HCL Digital Experience web pages and content to find content that contains a specific text string in its title or content, or is tagged with a specific tag.
 
-Beginning with [HCL DX 9.5 Container Update and CF 200](../../../whatsnew/cf20/newcf200.md), a new API explorer is available that allows developers using the Digital Experience Search REST APIs to explore and test these APIs. See the topic [Digital Experience Search REST API Explorer](index.md) below for details.
+An new API explorer is available that allows developers using the Digital Experience Search REST APIs to explore and test these APIs. See the topic [Digital Experience Search REST API Explorer](index.md) below for details.
 
 ## Context Paths
 
