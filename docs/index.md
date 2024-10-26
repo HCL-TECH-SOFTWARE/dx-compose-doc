@@ -100,7 +100,7 @@ hide:
 
     [:octicons-arrow-right-24: Join DXers User Group](https://ptb.discord.com/channels/787019554173485067/802205783962026034){target="_blank"}
 
--   :material-help-box:{ .lg .middle } __DX 8.5 and 9.0 Help Center__
+-   :material-help-box:{ .lg .middle } __DX Cloud Native & DX Manager__
 
     ---
 
@@ -108,6 +108,6 @@ hide:
 
     ---
 
-    [:octicons-arrow-right-24: Go to DX 8.5 and 9.0 Help Center](https://help.hcl-software.com/digital-experience/index.html){target="_blank"}
+    [:octicons-arrow-right-24: Go to DX 8.5 and 9.0 Help Center](https://opensource.hcltechsw.com/digital-experience/latest/){target="_blank"}
 
 </div>
