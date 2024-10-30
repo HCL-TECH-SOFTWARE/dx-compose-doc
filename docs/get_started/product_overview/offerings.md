@@ -1,6 +1,4 @@
-# HCL Digital Experience Cloud Native 9.5 offerings
-
-See the latest offerings for HCL Digital Experience 9.5.
+# HCL Digital Experience Offerings
 
 ## HCL Digital Experience Cloud Native
 
@@ -15,7 +13,7 @@ HCL Digital Experience Cloud Native also includes:
 
 -  HCL Digital Experience Cloud Native 9.5.1 is available in the [HCL Software License Portal (Flexnet)](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0073344) to customers licensed for the [HCL Digital Experience Cloud Native 9.5](https://www.hcl-software.com/wps/wcm/connect/61f40a7e-d2ca-42d4-b24c-d5adfd4fe54d/HCL+Digital+Experience+Cloud+Native+v9.5.pdf?MOD=AJPERES&CONVERT_TO=url&CACHEID=ROOTWORKSPACE-61f40a7e-d2ca-42d4-b24c-d5adfd4fe54d-ofP.t-Y) offering. 
 
-For the latest list of Digital Experience 9.5 components available for HCL Digital Experience Cloud Native 9.5 offering deployments to Docker and certified Kubernetes platforms, refer to the [Docker Image list](../../deployment/install/container/image_list.md) topic in the Help Center.
+For the latest list of Digital Experience 9.5 components available for HCL Digital Experience Cloud Native 9.5 offering deployments to Docker and certified Kubernetes platforms, refer to the [Docker Image list](../../deploy_dx/install/container/image_list.md) topic in the Help Center.
 
 <!---
 For additional information on previous updates to the [HCL Digital Experience Cloud Native Version 9.5](https://www.hcl-software.com/blog/digital-experience/simplified-pricing-more-value-hcl-digital-experience-cloud-native-9-5-bundle-with-user-session-pricing/), offering, please review information below:

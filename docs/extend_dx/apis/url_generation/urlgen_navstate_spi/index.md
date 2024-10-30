@@ -33,5 +33,5 @@ Learn about the services that are used to create URLs in the navigational state 
 
 
 ???+ info "Related information"
-    - [Back button behavior](../../../../deployment/manage/troubleshooting/browser_behavior_scenarios/backbut.md)
+    - [Back button behavior](../../../../deploy_dx/manage/troubleshooting/browser_behavior_scenarios/backbut.md)
 

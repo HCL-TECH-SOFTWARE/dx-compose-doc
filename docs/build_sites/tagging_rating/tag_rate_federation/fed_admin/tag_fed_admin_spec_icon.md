@@ -17,7 +17,7 @@ You configure the custom properties in the Resource Environment Provider for the
 
 
 ???+ info "Related information"
-    - [CP Configuration Service for tagging and rating](../../../../deployment/manage/config_portal_behavior/service_config_properties/portal_svc_cfg/cp_cfg_svc/index.md)
-    - [Setting service configuration properties](../../../../deployment/manage/config_portal_behavior/service_config_properties/index.md)
+    - [CP Configuration Service for tagging and rating](../../../../deploy_dx/manage/config_portal_behavior/service_config_properties/portal_svc_cfg/cp_cfg_svc/index.md)
+    - [Setting service configuration properties](../../../../deploy_dx/manage/config_portal_behavior/service_config_properties/index.md)
     - [Federating tags](../index.md)
 

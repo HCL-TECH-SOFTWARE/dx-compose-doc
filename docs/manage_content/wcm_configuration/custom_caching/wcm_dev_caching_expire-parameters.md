@@ -104,5 +104,5 @@ When an item is updated, either directly or as a result of syndication, no cache
 ???+ info "Related information" 
     -   [Strategies for expiring content](../../wcm_configuration/cfg_webcontent_delivery_env/caching_options/wcm_config_delivery_caching_expiring.md)
     -   [Controlling access to hosts specified in a URL](../../wcm_configuration/wcm_svc_cfg/wcm_config_accesshost.md)
-    -   [Setting service configuration properties](../../../deployment/manage/config_portal_behavior/service_config_properties/index.md)
+    -   [Setting service configuration properties](../../../deploy_dx/manage/config_portal_behavior/service_config_properties/index.md)
 

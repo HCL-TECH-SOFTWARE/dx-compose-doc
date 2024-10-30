@@ -114,4 +114,4 @@ Observe the following restrictions when you use Dojo with the portal:
 
 
 ???+ info "Related information"  
-	-	[Updating custom theme Dojo references](../../../deployment/manage/migrate/next_steps/post_mig_activities/development_task/mig_post_dojo.md)
+	-	[Updating custom theme Dojo references](../../../deploy_dx/manage/migrate/next_steps/post_mig_activities/development_task/mig_post_dojo.md)

@@ -26,7 +26,7 @@ The engines rules engine, together with the recommendation engine and the resour
 
 The engine identifies the particular user. Personalization retrieves that person's profile. For example, a person may have a salary range included in her profile. Personalization then selects content that is appropriate for that profile. If a person has a high salary range, region code, or other information, Personalization can be configured to retrieve information about a commercial website premium product. The page is assembled with the proper personalized information. The user sees her personalized page.
 
-Beginning with [HCL DX 9.5 Container Update and CF 200](../../whatsnew/cf20/newcf200.md), a new API explorer is available that allows developers using the Digital Experience Personalization REST APIs to explore and test these APIs. See the topic Digital Experience Personalization REST API Explorer below for details.
+An API explorer is available that allows developers using the Digital Experience Personalization REST APIs to explore and test these APIs. See the topic Digital Experience Personalization REST API Explorer below for details.
 
 ## Types of Personalization
 

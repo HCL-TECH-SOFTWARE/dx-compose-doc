@@ -20,6 +20,6 @@ You can delete a virtual portal by using the Virtual Portal Manager portlet.
 ???+ info "Related information"
     - [Planning for virtual portals](../../vp_planning/index.md)
     - [Administering virtual portals](../../adm_vp_task/index.md)
-    - [Migration: Virtual portals](../../../../deployment/manage/migrate/planning_migration/mig_plan_expectations/mig_plan_expect_vp.md)
-    - [Virtual Portal tasks](../../../../deployment/manage/migrate/next_steps/post_mig_activities/portal_task/vp_post_mig_task/index.md)
+    - [Migration: Virtual portals](../../../../deploy_dx/manage/migrate/planning_migration/mig_plan_expectations/mig_plan_expect_vp.md)
+    - [Virtual Portal tasks](../../../../deploy_dx/manage/migrate/next_steps/post_mig_activities/portal_task/vp_post_mig_task/index.md)
 

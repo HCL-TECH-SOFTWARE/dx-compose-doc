@@ -5,7 +5,7 @@ In this section you learn how to manage site settings.
 
 -   **[Managing global settings](../portal_settings/manage_global_setting/index.md)**  
 Define the settings for your portal server. These settings include the default portal language, the first page displayed when a user logs in, the option to set a URL for the Find feature, and what will be displayed when a user is not authorized to view a portlet.
--   **[Creating meaningful URLs for your site](../../deployment/manage/config_portal_behavior/h_main_url.md)**  
+-   **[Creating meaningful URLs for your site](../../deploy_dx/manage/config_portal_behavior/h_main_url.md)**  
 You can create constant URLs for portal pages that are easy to remember and therefore more user friendly. You can publish these URLs externally for users your portal users.
 -   **[Managing custom unique names](../portal_settings/manage_custom_unique_names/index.md)**  
 The portal uses object IDs to identify portal resources unambiguously even between different portals. They consist of an extended alphanumeric string that might be difficult to remember. Portal administrators can use **Manage Custom Unique Names** to assign **unique names**, or human readable names, to portal resources. They can select names that can be easily remembered.

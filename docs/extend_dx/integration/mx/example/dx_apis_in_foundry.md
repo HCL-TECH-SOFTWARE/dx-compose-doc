@@ -23,7 +23,7 @@ To download and import HCL DX Content Adapter, there are two options:
 
 ### Preparing the HCL DX environment
 
-1. To make authenticated requests against the WCM V2 API, the recommended setup is for the HCL DX environment to use an [OIDC Identity Provider for authentication](../../../../deployment/manage/security/people/authentication/oidc/index.md).
+1. To make authenticated requests against the WCM V2 API, the recommended setup is for the HCL DX environment to use an [OIDC Identity Provider for authentication](../../../../deploy_dx/manage/security/people/authentication/oidc/index.md).
 
 2. Configure the WCM REST V2 API to use the identity provider instead of Basic Authentication. To change this, access the WebSphere Administration console and navigate to **Security > Global Security > Web and SIP security > Trust association > Interceptors > com.ibm.portal.auth.tai.HTTPBasicAuthTAI**.
 

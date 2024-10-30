@@ -3,7 +3,7 @@
 HCL Digital Experience 8.5 and 9.5 includes the HCL Portlet 2.0 Bridge for JSF 2.2. The bridge provides customers an interface to developing and running JSF Portlets.
 
 !!! note
-    Refer to [JavaServer Faces implementation](../../../../deployment/manage/migrate/next_steps/post_mig_activities/addon_integration_task/mig_post_jsf.md) for information about HCL Digital Experience JSF Bridge.
+    Refer to [JavaServer Faces implementation](../../../../deploy_dx/manage/migrate/next_steps/post_mig_activities/addon_integration_task/mig_post_jsf.md) for information about HCL Digital Experience JSF Bridge.
 
 ## Limitations when running HCL DX Portlet Bridge on WebSphere Application Server 9.0
 
@@ -50,5 +50,5 @@ Customers should be aware of the following limitations and best coding practices
 
 
 ???+ info "Related information"
-    - [JavaServer Faces implementation](../../../../deployment/manage/migrate/next_steps/post_mig_activities/addon_integration_task/mig_post_jsf.md)
+    - [JavaServer Faces implementation](../../../../deploy_dx/manage/migrate/next_steps/post_mig_activities/addon_integration_task/mig_post_jsf.md)
 

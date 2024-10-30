@@ -11,5 +11,5 @@ The Simple Theme and the HCL Digital Experience 8.5 theme ship with predefined l
 
 
 ???+ info "Related information"
-    - [Themes](../../../../deployment/manage/migrate/planning_migration/mig_plan_expectations/mig_plan_expect_themes.md)
+    - [Themes](../../../../deploy_dx/manage/migrate/planning_migration/mig_plan_expectations/mig_plan_expect_themes.md)
 

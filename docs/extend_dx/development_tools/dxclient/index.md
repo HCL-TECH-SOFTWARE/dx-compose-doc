@@ -338,115 +338,114 @@ Once installed, commands can be executed using the DXClient tool to perform CI/C
     The DXClient version is mostly forward and backward compatible with the DX CF versions. However, in some cases, it might not work as expected if the CF versions are different. Make sure that the CF versions of both DXClient and DX Core are the same in your installation.
     You can use "`dxclient version-compat`" to check version compatibility between DX Core and DXClient.
 
-!!!note
-    Refer to the list of features that were released in the following HCL DX 9.5 releases:
-    
-    -   HCL DX 9.5 CF224 release: **V224.0.0
-        -  New DXClient LiveSync sub-commands: [LiveSync push-wcm-design-library](../dxclient/dxclient_artifact_types/livesync.md#livesync-push-wcm-design-library) and [pull-wcm-design-library](../dxclient/dxclient_artifact_types/livesync.md#livesync-pull-wcm-design-library)
+Refer to the list of features that were released in the following HCL DX 9.5 releases:
 
-    -   HCL DX 9.5 CF221 release: **V221.0.0
-        -  A one time license agreement click-through is enabled. To skip the prompt, use the [accept-license](#dxclient-information-commands) command.
-        -   DXClient is now openly distributed in [NpmJS and Harbor repository](#public-and-free-dxclient-installation-options).
-        -   In [DAM Staging](../../../manage_content/digital_assets/configuration/staging_dam/dam_subscription_staging.md) tasks, the parameters `dxWASUsername`, `dxWASPassword`, `targetServerWASUsername`, and `targetServerWASPassword` are now deprecated and should no longer be used.
+-   HCL DX 9.5 CF224 release: **V224.0.0
+    -  New DXClient LiveSync sub-commands: [LiveSync push-wcm-design-library](../dxclient/dxclient_artifact_types/livesync.md#livesync-push-wcm-design-library) and [pull-wcm-design-library](../dxclient/dxclient_artifact_types/livesync.md#livesync-pull-wcm-design-library)
 
-    -   HCL DX 9.5 CF219 release: **V1.28.0 
-        - [Enabled multiple environment configuration in node version](#configuring-multiple-environments-in-dxclient)
-    
-    -   HCL DX 9.5 CF216 release: **V1.25.0
-        -   [Shows version compatibility details between DX Core and DXClient](#dxclient-usage-information-commands)
-        -   [Resync DAM Staging environments](../../../manage_content/digital_assets/configuration/staging_dam/dam_staging_mismatch.md)
-        -   [Delete staging mismatch](../../../manage_content/digital_assets/configuration/staging_dam/dam_staging_mismatch.md#delete-staging-mismatch)
+-   HCL DX 9.5 CF221 release: **V221.0.0
+    -  A one time license agreement click-through is enabled. To skip the prompt, use the [accept-license](#dxclient-information-commands) command.
+    -   DXClient is now openly distributed in [NpmJS and Harbor repository](#public-and-free-dxclient-installation-options).
+    -   In [DAM Staging](../../../manage_content/digital_assets/configuration/staging_dam/dam_subscription_staging.md) tasks, the parameters `dxWASUsername`, `dxWASPassword`, `targetServerWASUsername`, and `targetServerWASPassword` are now deprecated and should no longer be used.
 
-    -   HCL DX 9.5 CF215 release: **V1.24.0
-        -   [Find staging mismatch](../../../manage_content/digital_assets/configuration/staging_dam/dam_staging_mismatch.md) 
-        -   [Download mismatch report](../../../manage_content/digital_assets/configuration/staging_dam/dam_staging_mismatch.md#download-mismatch-report)
-         
-    -   HCL DX 9.5 CF214 release: **V1.23.0
-        -   Lists all WebDAV themes when you pull themes and themeName is not provided.
-        -   LiveSync is supported in scaled DX environment setups.
-        -   [LiveSync Improvements](../dxclient/dxclient_artifact_types/livesync.md)
+-   HCL DX 9.5 CF219 release: **V1.28.0 
+    - [Enabled multiple environment configuration in node version](#configuring-multiple-environments-in-dxclient)
 
-    -   HCL DX 9.5 CF213 release: **V1.22.0
-        -   [LiveSync](../dxclient/dxclient_artifact_types/livesync.md)
+-   HCL DX 9.5 CF216 release: **V1.25.0
+    -   [Shows version compatibility details between DX Core and DXClient](#dxclient-usage-information-commands)
+    -   [Resync DAM Staging environments](../../../manage_content/digital_assets/configuration/staging_dam/dam_staging_mismatch.md)
+    -   [Delete staging mismatch](../../../manage_content/digital_assets/configuration/staging_dam/dam_staging_mismatch.md#delete-staging-mismatch)
 
-    -   HCL DX 9.5 CF211 release: **V1.20.0
-        -   [Deploy and Undeploy Applications](../dxclient/dxclient_artifact_types/deployapplication.md)
-
-    -   HCL DX 9.5 CF210 release: **V1.19.0
-        -   Removed parameters deprecated during CF201 & CF202 deployment.
-
-        -   Added additional attribute - virtualPortalContext. [Exporting and Importing WCM libraries](../dxclient/dxclient_artifact_types/wcmlibraries.md)
-
-    -   HCL DX 9.5 CF209 release: **V1.18.0
-        -   [Restart All Core Pods in Kubernetes Deployment](../dxclient/dxclient_artifact_types/dxcoreserver.md#restart-dx-core-pods)
-
-    -   HCL DX 9.5 CF208 release: **V1.17.0
-        -   [Get all subscribers details for DAM staging](../../../manage_content/digital_assets/configuration/staging_dam/dam_subscription_staging.md#get-all-subscribers-details-for-dam-staging)
-
-    -   HCL DX 9.5 CF207 release: **V1.16.0
-        -   Support to set different Container Runtime.
-
-    -   HCL DX 9.5 CF202 release: **V1.11.0
-        -   Deprecated parameter `dxConnectHostname`. It is recommended that you start using the replacement parameter `-hostname` starting from CF202 wherever necessary.
-
-        -   [DAM Assets Export & import](https://opensource.hcltechsw.com/digital-experience/CF207/manage_content/digital_assets/usage/managing_dam/dam_exim/)
+-   HCL DX 9.5 CF215 release: **V1.24.0
+    -   [Find staging mismatch](../../../manage_content/digital_assets/configuration/staging_dam/dam_staging_mismatch.md) 
+    -   [Download mismatch report](../../../manage_content/digital_assets/configuration/staging_dam/dam_staging_mismatch.md#download-mismatch-report)
         
-    -   HCL DX 9.5 CF201 release: **V1.10.0
-        -   An optional parameter `requestId` added to [Deploy theme](../dxclient/dxclient_artifact_types/themes.md), [Deploy application](../dxclient/dxclient_artifact_types/scriptapplications.md#deploy-script-applications), [Restart DX Core server](../dxclient/dxclient_artifact_types/dxcoreserver.md#restart-dx-core-server), and [Manage virtual portals](../dxclient/dxclient_artifact_types/virtualportals.md).
-        
-        -   Retrieve feature added to the [Resource environment provider](../dxclient/dxclient_artifact_types/resourceenvironments.md).
-        
-        -   [Accessing ConfigWizard in container environment](../../../deployment/manage/portal_admin_tools/cfg_wizard/configuration/cw_run.md)
-        
-        -   Note that a few parameters are deprecated and replaced with new parameters in the DX Core configuration reports. For information, see [DX Core server configuration report](../dxclient/dxclient_artifact_types/dxcoreserver.md#dx-core-server-configuration-report).
+-   HCL DX 9.5 CF214 release: **V1.23.0
+    -   Lists all WebDAV themes when you pull themes and themeName is not provided.
+    -   LiveSync is supported in scaled DX environment setups.
+    -   [LiveSync Improvements](../dxclient/dxclient_artifact_types/livesync.md)
+
+-   HCL DX 9.5 CF213 release: **V1.22.0
+    -   [LiveSync](../dxclient/dxclient_artifact_types/livesync.md)
+
+-   HCL DX 9.5 CF211 release: **V1.20.0
+    -   [Deploy and Undeploy Applications](../dxclient/dxclient_artifact_types/deployapplication.md)
+
+-   HCL DX 9.5 CF210 release: **V1.19.0
+    -   Removed parameters deprecated during CF201 & CF202 deployment.
+
+    -   Added additional attribute - virtualPortalContext. [Exporting and Importing WCM libraries](../dxclient/dxclient_artifact_types/wcmlibraries.md)
+
+-   HCL DX 9.5 CF209 release: **V1.18.0
+    -   [Restart All Core Pods in Kubernetes Deployment](../dxclient/dxclient_artifact_types/dxcoreserver.md#restart-dx-core-pods)
+
+-   HCL DX 9.5 CF208 release: **V1.17.0
+    -   [Get all subscribers details for DAM staging](../../../manage_content/digital_assets/configuration/staging_dam/dam_subscription_staging.md#get-all-subscribers-details-for-dam-staging)
+
+-   HCL DX 9.5 CF207 release: **V1.16.0
+    -   Support to set different Container Runtime.
+
+-   HCL DX 9.5 CF202 release: **V1.11.0
+    -   Deprecated parameter `dxConnectHostname`. It is recommended that you start using the replacement parameter `-hostname` wherever necessary.
+
+    -   [DAM Assets Export & import](https://opensource.hcltechsw.com/digital-experience/CF207/manage_content/digital_assets/usage/managing_dam/dam_exim/)
     
-    -   HCL DX 9.5 CF200 release: **V1.9.0
-        -   [Exporting and Importing WCM libraries](../dxclient/dxclient_artifact_types/wcmlibraries.md)
-        -   [DX Core server configuration report](../dxclient/dxclient_artifact_types/dxcoreserver.md#dx-core-server-configuration-report)
+-   HCL DX 9.5 CF201 release: **V1.10.0
+    -   An optional parameter `requestId` added to [Deploy theme](../dxclient/dxclient_artifact_types/themes.md), [Deploy application](../dxclient/dxclient_artifact_types/scriptapplications.md#deploy-script-applications), [Restart DX Core server](../dxclient/dxclient_artifact_types/dxcoreserver.md#restart-dx-core-server), and [Manage virtual portals](../dxclient/dxclient_artifact_types/virtualportals.md).
     
-    -   HCL DX 9.5 CF199 release: **V1.8.0
-        -   [DAM Staging](../../../manage_content/digital_assets/configuration/staging_dam/dam_subscription_staging.md)
-        -   [Create credential vault slot](../dxclient/dxclient_artifact_types/credentialvaultslot.md)
-        -   [Create syndication relation](../dxclient/dxclient_artifact_types/syndicatorsandsubscribers.md)
-        -   [Export and import multiple resource environment providers](../dxclient/dxclient_artifact_types/resourceenvironments.md)
-        -   [Specify the context root for exporting and importing personalization rules](../dxclient/dxclient_artifact_types/personalization.md)
-
-    -   HCL DX 9.5 CF198 release: **V1.7.0
-        -   [List DAM schemas](../../../manage_content/digital_assets/usage/managing_dam/damschemas.md)
-        -   [Personalization export and import rules](../dxclient/dxclient_artifact_types/personalization.md)
-        -   [Resource environment provider](../dxclient/dxclient_artifact_types/resourceenvironments.md)
-        -   [Manage virtual portals](../dxclient/dxclient_artifact_types/virtualportals.md)
-
-    -   HCL DX 9.5 CF197 release: **V1.6.0
-        -   [Undeploy portlets](../dxclient/dxclient_artifact_types/portlets.md)
-        -   [Deploy and undeploy themes](../dxclient/dxclient_artifact_types/themes.md)
-        -   [Deploy application](../dxclient/dxclient_artifact_types/deployapplication.md)
-        -   [manage get-syndication report](../dxclient/dxclient_artifact_types/syndicatorsandsubscribers.md)
-        -   [Restart Core](../dxclient/dxclient_artifact_types/dxcoreserver.md)
-        -   [Delete DAM schema](../../../manage_content/digital_assets/usage/managing_dam/damschemas.md)
+    -   Retrieve feature added to the [Resource environment provider](../dxclient/dxclient_artifact_types/resourceenvironments.md).
     
-    -   HCL DX 9.5 CF196 release: **V1.5.0
-        -   [Shared library](../dxclient/dxclient_artifact_types/sharedlibrary.md)
+    -   [Accessing ConfigWizard in container environment](../../../deploy_dx/manage/portal_admin_tools/cfg_wizard/configuration/cw_run.md)
     
-    -   HCL DX 9.5 CF195 release: **V1.4.0
-        -   [Undeploy theme](../dxclient/dxclient_artifact_types/themes.md)
-        -   [MLS export and import of WCM library](../dxclient/dxclient_artifact_types/wcm_mls_export_import.md)
+    -   Note that a few parameters are deprecated and replaced with new parameters in the DX Core configuration reports. For information, see [DX Core server configuration report](../dxclient/dxclient_artifact_types/dxcoreserver.md#dx-core-server-configuration-report).
 
-    -   HCL DX 9.5 CF193 release: **V1.2.0
-        -   [Restart DX Core server](../dxclient/dxclient_artifact_types/dxcoreserver.md)
-        -   [Deploy Application](../dxclient/dxclient_artifact_types/deployapplication.md)
-        -   [Managing syndicators](../dxclient/dxclient_artifact_types/syndicatorsandsubscribers.md)
-        -   [Managing subscribers](../dxclient/dxclient_artifact_types/syndicatorsandsubscribers.md)
+-   HCL DX 9.5 CF200 release: **V1.9.0
+    -   [Exporting and Importing WCM libraries](../dxclient/dxclient_artifact_types/wcmlibraries.md)
+    -   [DX Core server configuration report](../dxclient/dxclient_artifact_types/dxcoreserver.md#dx-core-server-configuration-report)
 
-    -   HCL DX 9.5 CF192 release: **V1.1.0
-        -   [Undeploy script applications](../dxclient/dxclient_artifact_types/scriptapplications.md)
-        -   [Deploy theme](../dxclient/dxclient_artifact_types/themes.md) (EAR and WebDAV based)
+-   HCL DX 9.5 CF199 release: **V1.8.0
+    -   [DAM Staging](../../../manage_content/digital_assets/configuration/staging_dam/dam_subscription_staging.md)
+    -   [Create credential vault slot](../dxclient/dxclient_artifact_types/credentialvaultslot.md)
+    -   [Create syndication relation](../dxclient/dxclient_artifact_types/syndicatorsandsubscribers.md)
+    -   [Export and import multiple resource environment providers](../dxclient/dxclient_artifact_types/resourceenvironments.md)
+    -   [Specify the context root for exporting and importing personalization rules](../dxclient/dxclient_artifact_types/personalization.md)
 
-    -   HCL DX 9.5 CF19 release: **V1.0.0
-        -   [Deploy Portlets](../dxclient/dxclient_artifact_types/portlets.md)
-        -   [Deploy script applications](../dxclient/dxclient_artifact_types/scriptapplications.md)
-        -   [XML Access](../dxclient/dxclient_artifact_types/xmlaccess.md)
-        -   [Restore Script Application](../dxclient/dxclient_artifact_types/scriptapplications.md)
+-   HCL DX 9.5 CF198 release: **V1.7.0
+    -   [List DAM schemas](../../../manage_content/digital_assets/usage/managing_dam/damschemas.md)
+    -   [Personalization export and import rules](../dxclient/dxclient_artifact_types/personalization.md)
+    -   [Resource environment provider](../dxclient/dxclient_artifact_types/resourceenvironments.md)
+    -   [Manage virtual portals](../dxclient/dxclient_artifact_types/virtualportals.md)
+
+-   HCL DX 9.5 CF197 release: **V1.6.0
+    -   [Undeploy portlets](../dxclient/dxclient_artifact_types/portlets.md)
+    -   [Deploy and undeploy themes](../dxclient/dxclient_artifact_types/themes.md)
+    -   [Deploy application](../dxclient/dxclient_artifact_types/deployapplication.md)
+    -   [manage get-syndication report](../dxclient/dxclient_artifact_types/syndicatorsandsubscribers.md)
+    -   [Restart Core](../dxclient/dxclient_artifact_types/dxcoreserver.md)
+    -   [Delete DAM schema](../../../manage_content/digital_assets/usage/managing_dam/damschemas.md)
+
+-   HCL DX 9.5 CF196 release: **V1.5.0
+    -   [Shared library](../dxclient/dxclient_artifact_types/sharedlibrary.md)
+
+-   HCL DX 9.5 CF195 release: **V1.4.0
+    -   [Undeploy theme](../dxclient/dxclient_artifact_types/themes.md)
+    -   [MLS export and import of WCM library](../dxclient/dxclient_artifact_types/wcm_mls_export_import.md)
+
+-   HCL DX 9.5 CF193 release: **V1.2.0
+    -   [Restart DX Core server](../dxclient/dxclient_artifact_types/dxcoreserver.md)
+    -   [Deploy Application](../dxclient/dxclient_artifact_types/deployapplication.md)
+    -   [Managing syndicators](../dxclient/dxclient_artifact_types/syndicatorsandsubscribers.md)
+    -   [Managing subscribers](../dxclient/dxclient_artifact_types/syndicatorsandsubscribers.md)
+
+-   HCL DX 9.5 CF192 release: **V1.1.0
+    -   [Undeploy script applications](../dxclient/dxclient_artifact_types/scriptapplications.md)
+    -   [Deploy theme](../dxclient/dxclient_artifact_types/themes.md) (EAR and WebDAV based)
+
+-   HCL DX 9.5 CF19 release: **V1.0.0
+    -   [Deploy Portlets](../dxclient/dxclient_artifact_types/portlets.md)
+    -   [Deploy script applications](../dxclient/dxclient_artifact_types/scriptapplications.md)
+    -   [XML Access](../dxclient/dxclient_artifact_types/xmlaccess.md)
+    -   [Restore Script Application](../dxclient/dxclient_artifact_types/scriptapplications.md)
 
 ## Additional information
     

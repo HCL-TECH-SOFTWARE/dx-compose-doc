@@ -158,10 +158,10 @@ Follow these steps to export and import a web content library. The server that t
 
 
 ???+ info "Related information"
-    - [Staging to production list](../../../../deployment/manage/staging_to_production/overview_of_staging_to_prod/dep_stage_check.md)
-    - [Creating the initial release](../../../../deployment/manage/staging_to_production/creating_deploying_initial_release/dep_cir.md)
-    - [Preparing the servers for initial staging](../../../../deployment/manage/staging_to_production/creating_deploying_initial_release/dep_prep.md)
-    - [Deploying the initial release](../../../../deployment/manage/staging_to_production/creating_deploying_initial_release/dep_deploy.md)
-    - [Deploying the differential release](../../../../deployment/manage/staging_to_production/creating_deploying_diff_release/dep_deploy_diff.md)
-    - [Portal administration tools](../../../../deployment/manage/portal_admin_tools/index.md)
-    - [WebSphere® Integrated Solutions Console](../../../../deployment/manage/portal_admin_tools/WebSphere_Integrated_Solutions_Console.md)
+    - [Staging to production list](../../../../deploy_dx/manage/staging_to_production/overview_of_staging_to_prod/dep_stage_check.md)
+    - [Creating the initial release](../../../../deploy_dx/manage/staging_to_production/creating_deploying_initial_release/dep_cir.md)
+    - [Preparing the servers for initial staging](../../../../deploy_dx/manage/staging_to_production/creating_deploying_initial_release/dep_prep.md)
+    - [Deploying the initial release](../../../../deploy_dx/manage/staging_to_production/creating_deploying_initial_release/dep_deploy.md)
+    - [Deploying the differential release](../../../../deploy_dx/manage/staging_to_production/creating_deploying_diff_release/dep_deploy_diff.md)
+    - [Portal administration tools](../../../../deploy_dx/manage/portal_admin_tools/index.md)
+    - [WebSphere® Integrated Solutions Console](../../../../deploy_dx/manage/portal_admin_tools/WebSphere_Integrated_Solutions_Console.md)

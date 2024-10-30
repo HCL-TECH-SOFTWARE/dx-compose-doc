@@ -27,6 +27,6 @@ You can control the normalization behavior by various configuration parameters. 
     - [Adding query parameters](../dev_tagging_and_rating/rest_api/tag_rate_api_rest_add_qparms.md)
     - [Type-ahead with the deprecated tag widget](../dev_tagging_and_rating/rest_api/other_queries/tag_rate_api_rest_oth_qu_typahed.md)
     - [Search suggestions for tag names](../dev_tagging_and_rating/rest_api/other_queries/tag_rate_api_rest_oth_qu_opsrchsug.md)
-    - [CP Configuration Service for tagging and rating](../../../deployment/manage/config_portal_behavior/service_config_properties/portal_svc_cfg/cp_cfg_svc/index.md)
-    - [Setting service configuration properties](../../../deployment/manage/config_portal_behavior/service_config_properties/index.md)
+    - [CP Configuration Service for tagging and rating](../../../deploy_dx/manage/config_portal_behavior/service_config_properties/portal_svc_cfg/cp_cfg_svc/index.md)
+    - [Setting service configuration properties](../../../deploy_dx/manage/config_portal_behavior/service_config_properties/index.md)
 

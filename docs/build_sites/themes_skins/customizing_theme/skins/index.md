@@ -11,7 +11,7 @@ The default theme includes these skins that can be used as a basis for creating 
 
 
 ???+ info "Related information"
-[Updating the default theme and skin](../../../../deployment/manage/migrate/next_steps/post_mig_activities/theme_task/mig_upgrade_default_themes_skin.md)
+[Updating the default theme and skin](../../../../deploy_dx/manage/migrate/next_steps/post_mig_activities/theme_task/mig_upgrade_default_themes_skin.md)
 
-[Applying the new theme to your Portal pages](../../../../deployment/manage/migrate/next_steps/post_mig_activities/theme_task/mig_post_apply_theme.md)
+[Applying the new theme to your Portal pages](../../../../deploy_dx/manage/migrate/next_steps/post_mig_activities/theme_task/mig_post_apply_theme.md)
 

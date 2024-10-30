@@ -11,7 +11,7 @@ Take note of the following limitations when using HCL Content Reporting:
 - For the **Expiry date** criteria, no results are returned if the same date is used in the **From** and **To** fields.
 - For the **Word** criteria, a dash (-) is considered a delimiter for splitting the text entered. For example, if you search for "AT-Product-Item", results are returned for three different words: AT, Product, and Item.
 - After generating a report, there is no option to sort using certain fields such as **Location**, **Status**, **Type**, **Expires on**, **Owners**, and **Authors**.
-- For the **Owner** and  **Author** criteria, user and group attributes only display attributes that can be searched through text input or whose data type is string. For more information about adding more attributes with data type string, see [Adding attributes](../../../../deployment/manage/security/people/authentication/user_registry/vmm_atts/add_attributes.md).
+- For the **Owner** and  **Author** criteria, user and group attributes only display attributes that can be searched through text input or whose data type is string. For more information about adding more attributes with data type string, see [Adding attributes](../../../../deploy_dx/manage/security/people/authentication/user_registry/vmm_atts/add_attributes.md).
 
 ## Using the Bulk Updates feature
 
@@ -26,7 +26,7 @@ Take note of the following limitations when using HCL Content Reporting:
 -   When updating owners or authors, updates cannot be applied in bulk to Libraries.
 -   The status of bulk update requests is not tracked in real-time; the status is updated every 10 seconds.
 -   Selecting a subset of items in the report for update is not allowed.
--   You can only resume a paused bulk update process for owners and authors if the update involves a limited number of users and groups. There is a size limitation in the database column that stores the action string that specifies the owners or authors used in an update. If the action string exceeds 255 characters, you cannot resume the paused bulk update process. It is recommended to create a user group instead. Add all of the users to the group and then select the new group when initiating the bulk update operation. For more information, see [Managing users and groups](../../../../deployment/manage/security/people/authorization/controlling_access/).
+-   You can only resume a paused bulk update process for owners and authors if the update involves a limited number of users and groups. There is a size limitation in the database column that stores the action string that specifies the owners or authors used in an update. If the action string exceeds 255 characters, you cannot resume the paused bulk update process. It is recommended to create a user group instead. Add all of the users to the group and then select the new group when initiating the bulk update operation. For more information, see [Managing users and groups](../../../../deploy_dx/manage/security/people/authorization/controlling_access/).
 
 ## Exporting reports to a CSV file
 

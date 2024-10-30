@@ -51,6 +51,6 @@ When enabled, information similar to the following example is seen in the System
 ```
 
 ???+ info "Related information"
-    - [Setting service configuration properties](../../../deployment/manage/config_portal_behavior/service_config_properties/index.md)
+    - [Setting service configuration properties](../../../deploy_dx/manage/config_portal_behavior/service_config_properties/index.md)
     - [Resetting the web content event log](../../wcm_configuration/wcm_adm_tools/wcm_config_reset_event_log.md)
 

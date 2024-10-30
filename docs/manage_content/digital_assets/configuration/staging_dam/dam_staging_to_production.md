@@ -31,7 +31,7 @@ Prerequisites:
                     host: "<loadbalancer Target url>"
         ```
 
-    These [settings](../../../../deployment/install/container/helm_deployment/preparation/mandatory_tasks/prepare_configure_networking.md) allow Digital Asset Management to communicate with other HCL DX 9.5 deployment servers.
+    These [settings](../../../../deploy_dx/install/container/helm_deployment/preparation/mandatory_tasks/prepare_configure_networking.md) allow Digital Asset Management to communicate with other HCL DX 9.5 deployment servers.
 -->
 ## Publish Digital Asset Management assets from staging to production
 

@@ -1,6 +1,6 @@
 # DAM Indexing
 
-You can use Digital Asset Management (DAM) as a datasource of the Search service. Using DAM as a datasource enables you to search DAM assets and images more efficiently with the help of [OpenSearch](../../../../deployment//install/container/helm_deployment/preparation/optional_tasks/optional_install_new_search.md). To make DAM a proper datasource for Search, the following indexing processes are introduced:
+You can use Digital Asset Management (DAM) as a datasource of the Search service. Using DAM as a datasource enables you to search DAM assets and images more efficiently with the help of [OpenSearch](../../../../deploy_dx//install/container/helm_deployment/preparation/optional_tasks/optional_install_new_search.md). To make DAM a proper datasource for Search, the following indexing processes are introduced:
 
 - **Initial indexing**: Indexes all existing assets during the startup of the DAM server.
 - **Reindexing**: Indexes all existing assets while revalidating stale indexes. You can trigger this process manually through [DXClient](../../../../extend_dx/development_tools/dxclient/index.md) or [DAM API](https://opensource.hcltechsw.com/experience-api-documentation/dam-api/).
@@ -20,7 +20,7 @@ Know how to use DAM Indexing.
 
 
 ???+ info "Related information"
-    - [Installing search based on OpenSearch](../../../../deployment/install/container/helm_deployment/preparation/optional_tasks/optional_install_new_search.md)
-    - [Running search queries via REST API](../../../../deployment/manage/container_configuration/configure_opensearch/run_search_queries_api.md)
+    - [Installing search based on OpenSearch](../../../../deploy_dx/install/container/helm_deployment/preparation/optional_tasks/optional_install_new_search.md)
+    - [Running search queries via REST API](../../../../deploy_dx/manage/container_configuration/configure_opensearch/run_search_queries_api.md)
 
 

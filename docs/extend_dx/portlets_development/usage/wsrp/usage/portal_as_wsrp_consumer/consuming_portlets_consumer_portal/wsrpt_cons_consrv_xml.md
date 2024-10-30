@@ -22,6 +22,6 @@ To delete integrated remote portlets, use the Manage Web Modules portlet.
 
 
 ???+ info "Related information"
-   -  [The XML configuration interface](../../../../../../../deployment/manage/portal_admin_tools/xml_config_interface/index.md)
-   -  [Working with the XML configuration interface](../../../../../../../deployment/manage/portal_admin_tools/xml_config_interface/working_xml_config_interface/index.md)
+   -  [The XML configuration interface](../../../../../../../deploy_dx/manage/portal_admin_tools/xml_config_interface/index.md)
+   -  [Working with the XML configuration interface](../../../../../../../deploy_dx/manage/portal_admin_tools/xml_config_interface/working_xml_config_interface/index.md)
 

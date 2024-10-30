@@ -82,7 +82,7 @@ false: Does not filter any files in the WebDav contribution and profile director
 ???+ info "Related information"
     - [Module dependencies in portlets](../../the_module_framework/themeopt_mod_capfilters.md)
     - [Change the auto-loading of portlet capabilities](../../the_module_framework/change_the_auto_loading_of_portlet/index.md)
-    - [WebSphere® Integrated Solutions Console](../../../../deployment/manage/portal_admin_tools/WebSphere_Integrated_Solutions_Console.md)
+    - [WebSphere® Integrated Solutions Console](../../../../deploy_dx/manage/portal_admin_tools/WebSphere_Integrated_Solutions_Console.md)
 
 
 

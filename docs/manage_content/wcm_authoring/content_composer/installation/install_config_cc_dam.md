@@ -12,7 +12,7 @@ This section provides a high-level overview of the architecture and the steps to
 
 ## Prerequisite
 
-DX Administrators can choose to install the DX Core containers then proceed to install Content Composer and Digital Asset Management containers to the supported Kubernetes container platforms as outlined in the following steps. See the [Deployment image files](../../../../deployment/install/container/image_list.md) section for the latest DX 9.5 container file listings.
+DX Administrators can choose to install the DX Core containers then proceed to install Content Composer and Digital Asset Management containers to the supported Kubernetes container platforms as outlined in the following steps. See the [Deployment image files](../../../../deploy_dx/install/container/image_list.md) section for the latest DX 9.5 container file listings.
 
 Deploying the HCL Digital Asset Management or Content Composer components is supported on Kubernetes or OpenShift platforms and is not supported for deployment to Docker platforms. See the [System requirements](../../../../get_started/system_requirements/kubernetes/kubernetes-runtime.md) section for more information and the latest updates.
 
@@ -25,7 +25,7 @@ Follow these steps to install your HCL Digital Experience 9.5 components (Experi
 
 **Asset Management components**
 
-If installing in conjunction with HCL Digital Experience 9.5 CF181 or higher, follow the instructions in the [Container Deployment](../../../../deployment/install/container/helm_deployment/overview.md) topic. This page lists the latest HCL Digital Experience 9.5 CF181 or higher product images available and how to obtain and load the images into your Docker repository before continuing with these instructions.
+If installing in conjunction with HCL Digital Experience 9.5 CF181 or higher, follow the instructions in the [Container Deployment](../../../../deploy_dx/install/container/helm_deployment/overview.md) topic. This page lists the latest HCL Digital Experience 9.5 CF181 or higher product images available and how to obtain and load the images into your Docker repository before continuing with these instructions.
 
 If installing to an existing HCL Digital Experience 9.5 CF181 or higher Kubernetes environment:
 
@@ -188,7 +188,7 @@ If installing to an existing HCL Digital Experience 9.5 CF181 or higher Kubernet
 
             A `dx.dam.config.cors` config map setting is auto-generated and provides the ability for Cross Origin Resource Sharing across Content Composer and Digital Asset Management resources.
 
-            In the Digital Experience 9.5 core deployment, the `dx.config.cors` setting is set in the DX configuration map. Reference the [Kubernetes Deployment](../../../../deployment/install/container/index.md) pages for additional details.
+            In the Digital Experience 9.5 core deployment, the `dx.config.cors` setting is set in the DX configuration map. Reference the [Kubernetes Deployment](../../../../deploy_dx/install/container/index.md) pages for additional details.
 
             An additional self-provisioning volume is created for each of the HCL Digital Asset Management Persistence (Postgres) pods. The access mode of these self-provisioning persistent volumes must include `ReadWriteOnce`. If this volume is not present the images are lost and shows blank if/when the HCL Digital Asset Management library is restarted.
 
@@ -322,5 +322,5 @@ If you are using a content delivery network (CDN) such as [Akamai](https://www.a
 ???+ info "Related information"  
     - [HCL Digital Asset Management](../../../digital_assets/index.md)
     - [How to enable Practitioner Studio](../../../../build_sites/practitioner_studio/working_with_ps/enable_prac_studio.md)
-    - [Docker image deployment](../../../../deployment/install/container/helm_deployment/overview.md)
+    - [Docker image deployment](../../../../deploy_dx/install/container/helm_deployment/overview.md)
     - [Digital Asset Management persistence architecture](../../../../get_started/plan_deployment/container_deployment/dam_persistence_architecture.md)

@@ -79,5 +79,5 @@ When you transfer the content association for a page to the Portal Site library,
 ???+ info "Related information"  
     -   [Enabling managed pages](wcm_config_mngpages_enable.md)
     -   [Page templates](../../../../../../../build_sites/sitebuilder/site_dev_with_sitebuilder/creating_sites_using_sitebuilder/sitebuilder_learn_pgtemplate.md)
-    -   [Migration: Enabling managed pages](../../../../../../../deployment/manage/migrate/next_steps/enable_func_migrated_portal/mig_t_enable_mngpages.md)
+    -   [Migration: Enabling managed pages](../../../../../../../deploy_dx/manage/migrate/next_steps/enable_func_migrated_portal/mig_t_enable_mngpages.md)
 

@@ -131,7 +131,7 @@ This section provides details for the Kubernetes cluster, Jmeter, LDAP, and data
 
 The following list contains details of tuning and enhancements done to DX core during testing:
 
-- Defined the initial deployment as a rendering environment to trigger the tuning task for initial tuning. For more information, see [Portal server performance tuning tool](../../../deployment/manage/tune_servers/wp_tune_tool.md).
+- Defined the initial deployment as a rendering environment to trigger the tuning task for initial tuning. For more information, see [Portal server performance tuning tool](../../../deploy_dx/manage/tune_servers/wp_tune_tool.md).
 
 - LTPA token timeout increased from 120 minutes to 480 minutes for rendering tests execution.
 

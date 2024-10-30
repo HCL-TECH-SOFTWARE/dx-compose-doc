@@ -166,6 +166,6 @@ This extracts your light weight iWidget package represented by the file /tmp/Som
 
 
 ???+ info "Related information"  
-    -   [Types of portal resources](../../../../deployment/manage/portal_admin_tools/xml_config_interface/xml_config_ref/types_portal_resources/adxmlref_resrc_types.md)
+    -   [Types of portal resources](../../../../deploy_dx/manage/portal_admin_tools/xml_config_interface/xml_config_ref/types_portal_resources/adxmlref_resrc_types.md)
     -   [Managing iWidgets in your portal](../../../../extend_dx/portlets_development/mng_portlets_apps_widgets/managing_iwidgets/index.md)
 

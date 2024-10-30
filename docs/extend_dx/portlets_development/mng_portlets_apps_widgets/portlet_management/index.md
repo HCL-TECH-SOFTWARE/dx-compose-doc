@@ -8,7 +8,7 @@ Manage the portlets and Web services that the site uses.
 You can install new portlets from either a Web service or WAR file, or you can manage existing portlets.
 -   **[Managing portlet applications](../portlet_management/managing_portlet_apps/index.md)**  
 You can enable a portlet application as a Web service and manage existing portlet applications. To view a list of portlets for a portlet application, select the appropriate portlet application title. You can also modify the properties of the portlet.
--   **[Searching](../../../../deployment/manage/portal_admin_tools/portal_user_interface/managing_pages/h_search_admin_portlets.md)**  
+-   **[Searching](../../../../deploy_dx/manage/portal_admin_tools/portal_user_interface/managing_pages/h_search_admin_portlets.md)**  
 Use the search feature to search the portlet for portal resources by selecting the type of search and the appropriate search parameters. You can limit the number of portal resources that are listed in the portlet.
 -   **[Checking the availability of a portlet](h_mport_test_portlet.md)**  
 Check to see if a portlet is available so that you can add it to a page. This option appears only for remote portlets.

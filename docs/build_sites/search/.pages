@@ -14,5 +14,5 @@ nav:
     - Searching your local portal: searching_local_portal
     - Enabling anonymous users to search public pages of your portal: enabling_anonymous_user
     - redirect_search_custom_form.md
-    - Remote search service: remotesearch
+#    - Remote search service: remotesearch
     - Search REST API specification: search-rest-api

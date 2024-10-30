@@ -47,7 +47,7 @@ The following `taglib` declarations must be provided to the parent JSP of the sk
 
 
 ???+ info "Related information"
-	- [Instrumenting a theme for Active Site Analytics](../../../../deployment/manage/monitoring/analyze_portal_usage/user_behavior_by_asa/collecting_analytics_data/instrumenting_theme_for_asa/index.md)
-	- [Injecting custom aggregators](../../../../deployment/manage/monitoring/analyze_portal_usage/user_behavior_by_asa/collecting_analytics_data/instrumenting_theme_for_asa/sa_asa_injct_custaggrg.md)
-	- [Dynamically changing the language during the user session](../../../../deployment/manage/portal_admin_tools/language_support/adchglang_dynamic.md)
+	- [Instrumenting a theme for Active Site Analytics](../../../../deploy_dx/manage/monitoring/analyze_portal_usage/user_behavior_by_asa/collecting_analytics_data/instrumenting_theme_for_asa/index.md)
+	- [Injecting custom aggregators](../../../../deploy_dx/manage/monitoring/analyze_portal_usage/user_behavior_by_asa/collecting_analytics_data/instrumenting_theme_for_asa/sa_asa_injct_custaggrg.md)
+	- [Dynamically changing the language during the user session](../../../../deploy_dx/manage/portal_admin_tools/language_support/adchglang_dynamic.md)
 

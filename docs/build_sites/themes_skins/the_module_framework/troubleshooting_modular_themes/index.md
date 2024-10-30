@@ -28,5 +28,5 @@ If your theme is not behaving as it should, it could be because there are syntax
 
 ???+ info "Related information"
     - [Theme Optimization Analyzer](../themeopt_analyzer/index.md)
-    - [Themes](../../../../deployment/manage/migrate/planning_migration/mig_plan_expectations/mig_plan_expect_themes.md)
+    - [Themes](../../../../deploy_dx/manage/migrate/planning_migration/mig_plan_expectations/mig_plan_expect_themes.md)
 

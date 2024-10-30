@@ -38,5 +38,5 @@ You can now use the Dojo tagging and rating menu options with the modified profi
 
 ???+ info "Related information"
     - [What is new in tagging and rating](../tag_rate_whatsnew.md)
-    - [Tag and Search Center pages](../../../deployment/manage/migrate/next_steps/post_mig_activities/portal_task/mig_post_tagsearchpages.md)`
+    - [Tag and Search Center pages](../../../deploy_dx/manage/migrate/next_steps/post_mig_activities/portal_task/mig_post_tagsearchpages.md)`
 

@@ -16,6 +16,6 @@ This setting is used in the next run of the FederationTaskHandler that retrieves
 
 
 ???+ info "Related information"
-    - [CP Configuration Service for tagging and rating](../../../../deployment/manage/config_portal_behavior/service_config_properties/portal_svc_cfg/cp_cfg_svc/index.md)
-    - [Setting service configuration properties](../../../../deployment/manage/config_portal_behavior/service_config_properties/index.md)
+    - [CP Configuration Service for tagging and rating](../../../../deploy_dx/manage/config_portal_behavior/service_config_properties/portal_svc_cfg/cp_cfg_svc/index.md)
+    - [Setting service configuration properties](../../../../deploy_dx/manage/config_portal_behavior/service_config_properties/index.md)
 

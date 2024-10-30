@@ -1,10 +1,9 @@
 nav:
     - index.md
     - get_started
-    - whatsnew
-    - deployment
+    - whats_new
+    - deploy_dx
     - build_sites
     - manage_content
     - extend_dx
     - guide_me
-    - early_access

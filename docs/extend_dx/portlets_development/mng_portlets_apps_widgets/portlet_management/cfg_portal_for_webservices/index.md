@@ -4,5 +4,5 @@ If you want to make remote portlets available to your portal users, you can set 
 
 
 ???+ info "Related information"
-    - [Searching](../../../../../deployment/manage/portal_admin_tools/portal_user_interface/managing_pages/h_search_admin_portlets.md)
+    - [Searching](../../../../../deploy_dx/manage/portal_admin_tools/portal_user_interface/managing_pages/h_search_admin_portlets.md)
 

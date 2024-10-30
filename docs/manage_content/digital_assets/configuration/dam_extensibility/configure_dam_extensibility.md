@@ -6,7 +6,7 @@ This topic describes how to configure DAM extensibility in the configuration fol
 
 Rendition, plug-in, Kaltura configurations are expected to be config maps in DAM. And these are maintained in the values.yaml and can be deployed through a Helm upgrade.
 
-Refer to the section [Planning your container deployment using Helm](../../../../deployment/install/container/helm_deployment/preparation/index.md) for more information on Helm support.
+Refer to the section [Planning your container deployment using Helm](../../../../deploy_dx/install/container/helm_deployment/preparation/index.md) for more information on Helm support.
 
 Once configured, DAM gets the latest config maps to handle assets and their transformations.
 

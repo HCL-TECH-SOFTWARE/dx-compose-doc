@@ -17,5 +17,5 @@ After you start a job to publish a personalization rule, you can monitor the sta
 
 
 ???+ info "Related information"  
-    -   [Staging to production list](../../../deployment/manage/staging_to_production/overview_of_staging_to_prod/dep_stage_check.md)
+    -   [Staging to production list](../../../deploy_dx/manage/staging_to_production/overview_of_staging_to_prod/dep_stage_check.md)
 

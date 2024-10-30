@@ -12,11 +12,11 @@ hide:
 
     ---
 
-    Find out what's new in the latest HCL DX cumulative fix.
+    Find out what's new in the latest HCL DX cumulative fix level.
 
     ---
 
-    [:octicons-arrow-right-24: Go to What's New](./whatsnew/cf20/newcf224.md)
+    [:octicons-arrow-right-24: Go to What's New](./whats_new/cf224.md)
     
 -   :material-code-braces-box:{ .lg .middle } __DX Architecture__
 
@@ -26,23 +26,23 @@ hide:
 
     ---
 
-    [:octicons-arrow-right-24: Learn about DX Architecture](./get_started/architecture_overview/index.md)
+    [:octicons-arrow-right-24: Learn about DX Architecture](./get_started/plan_deployment/architecture_overview.md)
 
 -   :material-server-network:{ .lg .middle } __Deploy DX__
 
     ---
 
-    Learn how to deploy DX through container-based, traditional, hybrid, and Docker platforms. 
+    Learn how to deploy DX into your Kubernetes cluster. 
 
     ---
 
-    [:octicons-arrow-right-24: Deploy DX](./deployment/index.md)
+    [:octicons-arrow-right-24: Deploy DX](./deploy_dx/index.md)
 
 -   :material-list-box:{ .lg .middle } __System Requirements__
 
     ---
 
-    Know the minimum system requirements for HCL DX version 9.5.
+    Know the minimum system requirements for HCL DX Compose.
 
     ---
 
@@ -52,7 +52,7 @@ hide:
 
     ---
 
-    The DX Help Center contains a section for tutorials and how-to guides to help you use DX.
+    Go here for tutorials and how-to guides to help you use DX.
 
     ---
 
@@ -61,8 +61,6 @@ hide:
 -   :material-school:{ .lg .middle } __HCLSoftware U__
 
     ---
-
-    <!--![HCL Software U Logo](./assets/homepage-images/HCLSoftware-U-logo-blk.png)-->
 
     Explore self-paced learning courses for using HCL DX.
 
@@ -100,7 +98,7 @@ hide:
 
     [:octicons-arrow-right-24: Join DXers User Group](https://ptb.discord.com/channels/787019554173485067/802205783962026034){target="_blank"}
 
--   :material-help-box:{ .lg .middle } __DX 8.5 and 9.0 Help Center__
+-   :material-help-box:{ .lg .middle } __DX Cloud Native & DX Manager__
 
     ---
 
@@ -108,6 +106,6 @@ hide:
 
     ---
 
-    [:octicons-arrow-right-24: Go to DX 8.5 and 9.0 Help Center](https://help.hcl-software.com/digital-experience/index.html){target="_blank"}
+    [:octicons-arrow-right-24: Go to DX 8.5 and 9.0 Help Center](https://opensource.hcltechsw.com/digital-experience/latest/){target="_blank"}
 
 </div>

@@ -1,8 +1,9 @@
 title: System Requirements
 nav:
     - index.md
-    - kubernetes
-    - traditional
+    - kubernetes-runtime.md
+    - databases.md
+    - ...
     - disclaimer.md
     - glossary.md
   

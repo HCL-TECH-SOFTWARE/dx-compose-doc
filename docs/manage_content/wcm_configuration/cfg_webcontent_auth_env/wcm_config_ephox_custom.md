@@ -86,4 +86,4 @@ These customization steps only apply to Web content in-place editing with the Ti
     To revert to the default editor toolbar, remove the property `inplaceEdit.toolbarConfigForRichText` and restart the server.
 
 ???+ info "Related information"
-    - [WebSphere® Integrated Solutions Console](../../../deployment/manage/portal_admin_tools/WebSphere_Integrated_Solutions_Console.md)
+    - [WebSphere® Integrated Solutions Console](../../../deploy_dx/manage/portal_admin_tools/WebSphere_Integrated_Solutions_Console.md)

@@ -25,7 +25,7 @@ To enable log tracing in DXConnect you will need to access ConfigWizard admin co
 7. You may access the `SystemOut.log` & trace logs files under `/opt/HCL/AppServer/profiles/cw_profile/logs/server1` to trace dxconnect logs.
     
 !!!note 
-    Refer [Configure Core Sidecar Logging](https://opensource.hcltechsw.com/digital-experience/CF207/deployment/install/container/helm_deployment/preparation/optional_tasks/optional_core_sidecar_log/) on how to configure to fetch logs from Core Server in containerised environments.
+    Refer [Configure Core Sidecar Logging](https://opensource.hcltechsw.com/digital-experience/CF207/deploy_dx/install/container/helm_deployment/preparation/optional_tasks/optional_core_sidecar_log/) on how to configure to fetch logs from Core Server in containerised environments.
 
 ???+ info "Related information"
     -   [DXClient](../dxclient/index.md)

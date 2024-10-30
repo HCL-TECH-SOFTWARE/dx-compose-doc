@@ -19,9 +19,9 @@ Run the portal configuration task register-iwidget-definition to register indivi
 
 
 ???+ info "Related information"
-    - [Manage pages portlets](../../../../deployment/manage/portal_admin_tools/portal_user_interface/managing_pages/manage_pages_portlets/index.md)
-    - [Customizing pages](../../../../deployment/manage/portal_admin_tools/portal_user_interface/managing_pages/manage_pages_portlets/customizing_pages/index.md)
+    - [Manage pages portlets](../../../../deploy_dx/manage/portal_admin_tools/portal_user_interface/managing_pages/manage_pages_portlets/index.md)
+    - [Customizing pages](../../../../deploy_dx/manage/portal_admin_tools/portal_user_interface/managing_pages/manage_pages_portlets/customizing_pages/index.md)
     - [Putting a portlet on a page](../../../apis/model_spi/model-spi_rest_service/feeds_rest_svc/use_cases_for_resource_mod/rest_feed_pt_ptltnpg.md)
     - [Task register-iwidget-definition](csa2r_cfgtsk_regwidgdef.md)
-    - [The XML configuration interface](../../../../deployment/manage/portal_admin_tools/xml_config_interface/index.md)
+    - [The XML configuration interface](../../../../deploy_dx/manage/portal_admin_tools/xml_config_interface/index.md)
 

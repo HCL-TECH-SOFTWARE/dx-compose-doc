@@ -24,7 +24,7 @@ The **Insert Link to Remote Document** function requires the modularized theme a
     - [Reserved authoring portlet](../../../content_management_artifacts/reserved_auth_portlet/index.md)
     - [The module framework](../../../../../../build_sites/themes_skins/the_module_framework/index.md)
     - [Editor options](../../../auth_portlet_settings/wcm_config_authoringportlet_richtext.md)
-    - [Customizing pages](../../../../../../deployment/manage/portal_admin_tools/portal_user_interface/managing_pages/manage_pages_portlets/customizing_pages/index.md)
+    - [Customizing pages](../../../../../../deploy_dx/manage/portal_admin_tools/portal_user_interface/managing_pages/manage_pages_portlets/customizing_pages/index.md)
     - [Setting up support for federated documents](../../../../../wcm_configuration/cfg_webcontent_auth_env/fed_docs_setup/index.md)
     - [Reserved authoring portlet](../../../content_management_artifacts//reserved_auth_portlet/index.md)
     - [Integrating HCL Connections files](../../../../../../extend_dx/integration/connections/configuration/cfg_connections_features/integrating_cnx_files/index.md)

@@ -38,7 +38,7 @@ The tuning task also configures Portal as a rendering server by setting deployme
 
 In Kubernetes this task is run automatically when deploying. Depending on the authoring value of true or false the tuning for the authoring or rendering environment is applied.
 
-See [Portal server performance tuning tool](../../../deployment/manage/tune_servers/wp_tune_tool.md) for information on how to configure and run this task.
+See [Portal server performance tuning tool](../../../deploy_dx/manage/tune_servers/wp_tune_tool.md) for information on how to configure and run this task.
 
 If additional tuning is necessary, start by applying the Base Portal Tuning then apply the tunings that are specific to the use case. For example, if you are using Web Content Management (WCM) also apply the WCM tunings.
 
@@ -63,7 +63,7 @@ To obtain the performance guidance deployments to support Kubernetes container p
 
 HCL DX provides a tool called "Prereqs Checker" that runs several checks to confirm whether the prerequisites for various components are met.
 
-You can get the result of these checks from the container logs of the prereqs-checker container in the pod where Prereqs Checker is installed. For more information, see [Configure Prereqs Checker For DX Deployment](../../../deployment/install/container/helm_deployment/preparation/optional_tasks/optional-core-prereqs-checker.md).
+You can get the result of these checks from the container logs of the prereqs-checker container in the pod where Prereqs Checker is installed. For more information, see [Configure Prereqs Checker For DX Deployment](../../../deploy_dx/install/container/helm_deployment/preparation/optional_tasks/optional-core-prereqs-checker.md).
 
 For these checks, one separate sidecar container is deployed with the main application container. This is a lightweight container, so the main application performance is not affected.
 
@@ -616,7 +616,7 @@ Resources → Resource Environment → Resource Environment Providers → WP Con
 
 The navigator service manages the content model for unauthenticated users, which controls the pages those users are able to see. This content model is periodically reloaded by WebSphere Portal. New pages which are visible to unauthenticated users will not be available until the next reload occurs. Our environment assumes a low rate of change for pages, so we set this reload to only occur once per hour. In a production environment where new pages for unauthenticated users are rarely created, setting this reload time to an hour or more will give better performance. In a test or staging environment where updates to unauthenticated pages need to be seen more often, a lower reload time is more appropriate.
 
-This service also controls the HTTP cache-control headers which will be sent on unauthenticated pages. While our environment did not exploit HTTP page caching, increasing these cache lifetimes in a production environment can reduce load on the Portal. For more information about the use of HTTP cache-control headers with WebSphere Portal, refer to [Caching](../../../deployment/manage/config_portal_behavior/caching/index.md).
+This service also controls the HTTP cache-control headers which will be sent on unauthenticated pages. While our environment did not exploit HTTP page caching, increasing these cache lifetimes in a production environment can reduce load on the Portal. For more information about the use of HTTP cache-control headers with WebSphere Portal, refer to [Caching](../../../deploy_dx/manage/config_portal_behavior/caching/index.md).
 
 **How to Set**
 
@@ -712,7 +712,7 @@ When assigning user and group permissions for WCM resources through the People P
 
 Value: cn,cn,cn,cn
 
-For more information about defining Search attributes in HCL DX, see [Search - Portlet repository](../../../deployment/manage/portal_admin_tools/portal_scripting_interface/command_ref_psi/portlet_repo/search_ptlt_rep.md).
+For more information about defining Search attributes in HCL DX, see [Search - Portlet repository](../../../deploy_dx/manage/portal_admin_tools/portal_scripting_interface/command_ref_psi/portlet_repo/search_ptlt_rep.md).
 
 
 ## Tuning via HCL Portal Administration
@@ -929,7 +929,7 @@ For environments where federated LDAP is used, throughput can be improved by dis
 
 ### Enabling WebSphere and VMM to share group info
 
-In a federated ldap environment, WebSphere and VMM can share cached information about groups. Setting this up is described in [Reusing group information](../../../deployment/manage/security/people/authorization/users_and_groups/reuse_group_info.md).
+In a federated ldap environment, WebSphere and VMM can share cached information about groups. Setting this up is described in [Reusing group information](../../../deploy_dx/manage/security/people/authorization/users_and_groups/reuse_group_info.md).
 
 **How to Set**
 
@@ -958,7 +958,7 @@ Multiple database domains are used to hold information in HCL Portal and Web Con
 5. Likeminds database, used for Likeminds enabled systems. This database is not used in the scenarios measured for the performance benchmarks.
 6. Feedback database, used by the feedback subsystem. This database is not used in the scenarios measured for the performance benchmarks.
 
-For more information on creating databases, see [Database Management Systems](../../../deployment/manage/db_mgmt_sys/index.md).
+For more information on creating databases, see [Database Management Systems](../../../deploy_dx/manage/db_mgmt_sys/index.md).
 
 For more information on supported databases, see [Databases](../../../get_started/system_requirements/kubernetes/databases.md).
 
@@ -2046,7 +2046,7 @@ Add the following properties:
 
 Note that multiple users and groups can be added by incrementing the user or group number (e.x. group.2) and the numberOfUsers or numberOfGroups property. Ideally all groups or users that have many roles should be loaded.
 
-See [Optimizing Portal Access Control](../../../deployment/manage/tune_servers/wp_pac_tool.md) for more information on this service.
+See [Optimizing Portal Access Control](../../../deploy_dx/manage/tune_servers/wp_pac_tool.md) for more information on this service.
 
 ### Warming Up Portal Before Opening for Business
 
@@ -2056,7 +2056,7 @@ Recording Last Login Time for UsersBy default, WebSphere Portal will record the 
 
 Disabling the last login time will eliminate an insert or update operation on the USER_DESC table for each user login. This will reduce IO on the database server but will probably not significantly reduce CPU utilization.
 
-For more information about user session persistence, see [Configuring user session persistence](../../../deployment/manage/config_portal_behavior/user_session_persistence/index.md).
+For more information about user session persistence, see [Configuring user session persistence](../../../deploy_dx/manage/config_portal_behavior/user_session_persistence/index.md).
 
 **How to Set**
 
@@ -2134,7 +2134,7 @@ Troubleshooting → Logs and trace
 
 WebSphere Portal 8.0 and above provides a new Portal light mode which can improve Portal startup time
 and reduce memory consumption in production environments.
-For more information, see [Enabling and disabling portal light mode](../../../deployment/manage/config_portal_behavior/portal_lightmode/portal_light_nbl.md).
+For more information, see [Enabling and disabling portal light mode](../../../deploy_dx/manage/config_portal_behavior/portal_lightmode/portal_light_nbl.md).
 
 ### Managing the Retrieval of User Attributes
 
@@ -2265,7 +2265,7 @@ If possible, all traffic to the Portal server should be unencrypted. SSL should 
 
 If SSL must be enabled on the Portal server, ensure that this server supports Intel’s Advanced Encryption Standard New Instructions (AES-NI). To make use of the instructions, the Java system property com.ibm.crypto.provider.doAESInHardware must be set to true. Without this setting, the throughput was more than 16% less with SSL enabled on Portal.
 
-See [Setting up SSL](../../../deployment/manage/security/information/confidentiality/configuring_ssl/setup_ssl/index.md) for more information.
+See [Setting up SSL](../../../deploy_dx/manage/security/information/confidentiality/configuring_ssl/setup_ssl/index.md) for more information.
 
 ### Tagging & Rating
 
@@ -2391,7 +2391,7 @@ Browsers will cache content with either Cache-control: public or Cache-Control: 
 
 If Portal content can be cached for some period of time, it should be. Even caching for a few minutes can dramatically reduce the load in some cases. But, since HTTP servers do not have any application awareness and cannot cache private content, adding the correct Cache-Control headers needs to be done in Portal.
 
-Portal can apply the appropriate Cache-Control headers through its Adaptive Page Caching mechanism. Adaptive Page Caching is done by specifying caching properties at the page and portlet level. If caching parameters are specified for multiple portlets, the most restrictive cache scope and timeout will be applied to the entire page. See [Caching](../../../deployment/manage/config_portal_behavior/caching/index.md) for more information.
+Portal can apply the appropriate Cache-Control headers through its Adaptive Page Caching mechanism. Adaptive Page Caching is done by specifying caching properties at the page and portlet level. If caching parameters are specified for multiple portlets, the most restrictive cache scope and timeout will be applied to the entire page. See [Caching](../../../deploy_dx/manage/config_portal_behavior/caching/index.md) for more information.
 
 ### Portlet Fragment Cache
 

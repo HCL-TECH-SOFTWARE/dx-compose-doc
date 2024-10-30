@@ -4,5 +4,5 @@ HCL Web Content Manager includes tasks and tools to help maintain your content m
 
 
 ???+ info "Related information"
-    - [Staging to production process](../../../deployment/manage/staging_to_production/overview_of_staging_to_prod/dep_ovr.md)
+    - [Staging to production process](../../../deploy_dx/manage/staging_to_production/overview_of_staging_to_prod/dep_ovr.md)
 

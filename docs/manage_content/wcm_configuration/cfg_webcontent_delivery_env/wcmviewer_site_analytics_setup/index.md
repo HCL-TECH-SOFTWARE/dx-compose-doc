@@ -10,6 +10,6 @@ The site analysis log uses the NCSA Combined log format, which is a combination 
 
 
 ???+ info "Related information" 
-    - [Analyzing portal usage data](../../../../deployment/manage/monitoring/analyze_portal_usage/index.md)
+    - [Analyzing portal usage data](../../../../deploy_dx/manage/monitoring/analyze_portal_usage/index.md)
     - [Instrumenting web content for Active Site Analytics](../../../../build_sites/site_analytics/instrumenting_webcontent_asa/index.md)
 

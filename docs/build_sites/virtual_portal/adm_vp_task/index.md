@@ -47,10 +47,10 @@ Administering virtual portals and their content comprises the tasks described in
     - [The master administrator](../vp_planning/vp_roles/advppln_roles_mastr_adm.md)
     - [Tasks for administering virtual portals](../adm_vp_task/vp_adm_task/index.md)
     - [Portal configuration tasks for administering virtual portals](../vp_reference/vp_command_ref/portal_cfg_adm_vp/index.md)
-    - [The XML configuration interface](../../../deployment/manage/portal_admin_tools/xml_config_interface/index.md)
-    - [Working with the XML configuration interface](../../../deployment/manage/portal_admin_tools/xml_config_interface/working_xml_config_interface/index.md)
+    - [The XML configuration interface](../../../deploy_dx/manage/portal_admin_tools/xml_config_interface/index.md)
+    - [Working with the XML configuration interface](../../../deploy_dx/manage/portal_admin_tools/xml_config_interface/working_xml_config_interface/index.md)
     - [Planning for virtual portals](../vp_planning/index.md)
     - [Separating and sharing resources between virtual portals](../vp_planning/advppln_scope.md)
     - [Preconfiguring the default content for virtual portals](../vp_mgr_portlet/preconfig_vp/advp_precfg_content.md)
-    - [Virtual Portal tasks](../../../deployment/manage/migrate/next_steps/post_mig_activities/portal_task/vp_post_mig_task/index.md)
+    - [Virtual Portal tasks](../../../deploy_dx/manage/migrate/next_steps/post_mig_activities/portal_task/vp_post_mig_task/index.md)
 

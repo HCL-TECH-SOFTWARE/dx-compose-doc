@@ -4,9 +4,9 @@ This page provides information on how to configure the integration of HCL Leap w
 
 ## Configuring Ingress for HCL DX and HCL Leap
 
-You can use an [optional Ingress](../../../../deployment/install/container/helm_deployment/preparation/optional_tasks/optional-configure-ingress.md) with HCL DX. While an Ingress is not required to run HCL Digital Experience, it can be configured to be reused by HCL Leap to handle the routing for both products and make them available on the same host name and certificate.
+You can use an [optional Ingress](../../../../deploy_dx/install/container/helm_deployment/preparation/optional_tasks/optional-configure-ingress.md) with HCL DX. While an Ingress is not required to run HCL Digital Experience, it can be configured to be reused by HCL Leap to handle the routing for both products and make them available on the same host name and certificate.
 
-1. Set up the Ingress for HCL DX. For more information, refer to the [optional Ingress documentation](../../../../deployment/install/container/helm_deployment/preparation/optional_tasks/optional-configure-ingress.md).
+1. Set up the Ingress for HCL DX. For more information, refer to the [optional Ingress documentation](../../../../deploy_dx/install/container/helm_deployment/preparation/optional_tasks/optional-configure-ingress.md).
 
 2. Add a second Ingress resource for Leap or extend the existing DX Ingress. Point the Ingress resource to the path at which Leap is configured; this depends on the context route of the Leap deployment.
 

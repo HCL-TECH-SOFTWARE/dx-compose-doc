@@ -29,5 +29,5 @@ To deploy social rendering in a virtual portal, use the configuration task deplo
 
 
 ???+ info "Related information"
-    - [Social Lists](../../../deployment/manage/migrate/next_steps/post_mig_activities/addon_integration_task/sociallistpost_mig.md)
+    - [Social Lists](../../../deploy_dx/manage/migrate/next_steps/post_mig_activities/addon_integration_task/sociallistpost_mig.md)
 

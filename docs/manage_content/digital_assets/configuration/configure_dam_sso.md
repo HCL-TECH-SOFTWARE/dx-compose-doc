@@ -96,4 +96,4 @@ To configure single sign-on between HCL Digital Experience staging and productio
 HCL Digital Experience is interested in your experience and feedback working with HCL Digital Experience 9.5 release software. To offer comments or issues on your findings, please access the [HCL Digital Experience 9.5 Feedback Reporting application](https://www.hclleap.com/apps/secure/org/app/158bbc7c-f357-4ef0-8023-654dd90780d4/launch/index.html?form=F_Form1).-->
 
 ???Info Related Information
-   - [Digital Experience on containerized platforms](../../../deployment/index.md)
+   - [Digital Experience on containerized platforms](../../../deploy_dx/index.md)

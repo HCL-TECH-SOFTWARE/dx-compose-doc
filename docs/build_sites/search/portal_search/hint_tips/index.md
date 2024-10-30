@@ -72,5 +72,5 @@ Under IBM i, Portal Search collections might fail to collect documents. --->
     - [Managing the content sources of a search collection](../administer_portal_search/setup_search_collections/mng_content_sources_search_collections/index.md)
     - [Static content](../../../create_sites/building_website/static_content/index.md)
     - [Dynamic user interfaces](../../../../extend_dx/portlets_development/dynamic_user_interfaces/index.md)
-    - [Importing search web collections](../../../../deployment/manage/migrate/next_steps/post_mig_activities/portal_task/mig_t_import_webcoll.md)
+    - [Importing search web collections](../../../../deploy_dx/manage/migrate/next_steps/post_mig_activities/portal_task/mig_t_import_webcoll.md)
 

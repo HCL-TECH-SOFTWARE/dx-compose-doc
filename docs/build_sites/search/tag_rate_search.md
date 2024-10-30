@@ -30,7 +30,7 @@ By default the searches are case sensitive. If you want to perform a case insens
 
 ???+ info "Related information"
     - [Querying for the OpenSearch description document](../tagging_rating/dev_tagging_and_rating/rest_api/other_queries/tag_rate_api_rest_oth_qu_opsrchdoc.md)
-    - [CP Configuration Service for tagging and rating](../../deployment/manage/config_portal_behavior/service_config_properties/portal_svc_cfg/cp_cfg_svc/index.md)
+    - [CP Configuration Service for tagging and rating](../../deploy_dx/manage/config_portal_behavior/service_config_properties/portal_svc_cfg/cp_cfg_svc/index.md)
     - [Type-ahead feature for the deprecated tag widget](../tagging_rating/howto_tagging_rating/tag_rate_adm_typeahead.md)
     - [Searching for tagged content](tag_rate_search.md)
     - [Open Search - http://www.opensearch.org/Home](https://www.opensearch.org/Home)

@@ -4,11 +4,11 @@ HCL Digital Experience (DX) can be integrated with HCL Leap. Both products can b
 
 ## Deploy HCL Digital Experience using Helm
 
-For the deployment and installation of DX, refer to [Deploy Container Platforms Using Helm](../../../../deployment/install/container/helm_deployment/overview.md). This integration guide assumes that DX is deployed and configured successfully.
+For the deployment and installation of DX, refer to [Deploy Container Platforms Using Helm](../../../../deploy_dx/install/container/helm_deployment/overview.md). This integration guide assumes that DX is deployed and configured successfully.
 
 ## Deploy HCL Leap using Helm
 
-1. Update the custom values file to set Leap image name, tags, and repository name. The procedure is similar to the instructions in the topic [Prepare Configuration page for DX](../../../../deployment/install/container/helm_deployment/preparation/mandatory_tasks/prepare_configuration.md). The value options for Leap are documented [in the Leap documentation](https://opensource.hcltechsw.com/leap-doc/9.3.5/deploy_container_kubernetes_openliberty.html).
+1. Update the custom values file to set Leap image name, tags, and repository name. The procedure is similar to the instructions in the topic [Prepare Configuration page for DX](../../../../deploy_dx/install/container/helm_deployment/preparation/mandatory_tasks/prepare_configuration.md). The value options for Leap are documented [in the Leap documentation](https://opensource.hcltechsw.com/leap-doc/9.3.5/deploy_container_kubernetes_openliberty.html).
 
 2. Deploy HCL Leap. For more information, refer to the [Deploying to a Container (Kubernetes) Platform - Open Liberty](https://help.hcltechsw.com/Leap/9.3.2/deploy_container_kubernetes_openliberty.html) section of the HCL Leap product documentation.
 

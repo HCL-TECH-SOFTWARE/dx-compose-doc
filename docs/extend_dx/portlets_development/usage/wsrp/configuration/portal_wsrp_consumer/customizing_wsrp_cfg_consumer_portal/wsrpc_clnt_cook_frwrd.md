@@ -60,5 +60,5 @@ Example properties that contain cookie forwarding rules are as follows:
 ???+ info "Related information"
     - [Securing the WSRP Consumer by HTTP-cookie-based single sign-on](../../../portal_wsrp_consumer/wsrp_consumer_info/cfg_security_consumer_portal/wsrpt_cons_sec_ws_http_cb_sso.md)
     - [Cookie support](../../../reference_for_using_wsrp_portal/wsrpc_cookie.md)
-    - [Setting service configuration properties](../../../../../../../deployment/manage/config_portal_behavior/service_config_properties/index.md)
+    - [Setting service configuration properties](../../../../../../../deploy_dx/manage/config_portal_behavior/service_config_properties/index.md)
 

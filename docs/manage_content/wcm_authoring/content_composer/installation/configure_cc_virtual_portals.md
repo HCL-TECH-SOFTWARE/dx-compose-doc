@@ -2,7 +2,7 @@
 
 The use of Content Composer features in a Virtual Portal deployment pattern is supported for HCL Content Composer beginning with Container Update 9.5 CF192.
 
-By default, this feature is not enabled on HCL Digital Experience 9.5. Get the [latest Docker image](../../../../deployment/install/container/image_list.md) before you proceed with the following steps.
+By default, this feature is not enabled on HCL Digital Experience 9.5. Get the [latest Docker image](../../../../deploy_dx/install/container/image_list.md) before you proceed with the following steps.
 
 !!! note
      While there are also DX 8.5/9.0 CF17 images, the one you need to enable this HCL Content Composer feature is the 9.5 Docker image.

@@ -61,5 +61,5 @@ After you enable the HCL Connections profile for a particular user, when you mov
 
 
 ???+ info "Related information"
-    - [Starting and stopping servers, deployment managers, and node agents](../../../../../deployment/manage/stopstart.md)
+    - [Starting and stopping servers, deployment managers, and node agents](../../../../../deploy_dx/manage/stopstart.md)
 

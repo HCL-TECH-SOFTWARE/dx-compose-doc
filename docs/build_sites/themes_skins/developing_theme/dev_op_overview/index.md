@@ -98,7 +98,7 @@ You must repackage the static content as a WAR file or as an EAR file containing
 
 
 ???+ info "Related information"
-    - [Installing add-ons](../../../../deployment/install/traditional/install_addons/index.md)
+    - [Installing add-ons](../../../../deploy_dx/install/traditional/install_addons/index.md)
     - [Exporting content from the filestore](../dev_op_overview/manual_packaging_themes/themeopt_move_expfilestore.md)
     - [Manually packaging themes for deployment](../dev_op_overview/manual_packaging_themes/index.md)
 

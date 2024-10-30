@@ -60,8 +60,8 @@ Learn about some hints and tips that apply to tagging and rating. Some hints and
 For an introduction and a demo on how to use tagging and rating as a business user, go to [Search](https://hclsoftwareu.hcltechsw.com/component/axs/?view=sso_config&id=3&forward=https%3A%2F%2Fhclsoftwareu.hcltechsw.com%2Fcourses%2Flesson%2F%3Fid%3D2804){target="_blank"}. To try it out yourself, refer to [Search Lab](https://hclsoftwareu.hcltechsw.com/images/Lc4sMQCcN5uxXmL13gSlsxClNTU3Mjc3NTc4MTc2/DS_Academy/DX/Business_User/HDX-BU-200_Search_Lab.pdf){target="_blank"}.
 
 ???+ info "Related information"
-    - [CP Configuration Service for tagging and rating](../../deployment/manage/config_portal_behavior/service_config_properties/portal_svc_cfg/cp_cfg_svc/index.md)
-    - [Setting service configuration properties](../../deployment/manage/config_portal_behavior/service_config_properties/index.md)
+    - [CP Configuration Service for tagging and rating](../../deploy_dx/manage/config_portal_behavior/service_config_properties/portal_svc_cfg/cp_cfg_svc/index.md)
+    - [Setting service configuration properties](../../deploy_dx/manage/config_portal_behavior/service_config_properties/index.md)
     - [Enabling your own custom content for tagging and rating](tag_rate_custom_content.md)
     - [Security for tagging and rating](tag_rate_secy.md)
     - [Using the XML configuration interface to administer tags and ratings](tag_rate_xml.md)
