@@ -12,4 +12,5 @@ nav:
     - logging_webengine.md
     - uninstall_webengine.md
     - troubleshooting.md
+    - configure_ltpa_key.md
 
