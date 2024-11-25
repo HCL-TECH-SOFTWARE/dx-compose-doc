@@ -1,6 +1,0 @@
-title: Plan Your Deployment
-nav:
-    - architecture_overview.md
-    - kubernetes
-    - docker_workstation.md
-    - learning_materials.md

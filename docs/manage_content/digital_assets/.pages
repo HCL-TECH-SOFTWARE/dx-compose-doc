@@ -1,8 +1,0 @@
-title: Digital Asset Management 
-nav:
-    - index.md
-    - Configuration: configuration
-    - Usage: usage
-    - dam_backup_restore_image.md
-    - Limitations: limitations
-    - Operation Framework: operation_framework.md

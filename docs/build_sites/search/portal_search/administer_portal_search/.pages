@@ -1,9 +1,0 @@
-title: Administering Portal Search
-nav:
-    - index.md
-    - srtmgsrchsrvc.md
-    - srt_srch_admin_id.md
-    - Customizing the Search Center: customize_searchcenter
-    - srtadmsrchadmcnsl.md
-    - Setting up search collections: setup_search_collections
-    - Searching and crawling Portal and other sites: searching_crawling_portal_sites
