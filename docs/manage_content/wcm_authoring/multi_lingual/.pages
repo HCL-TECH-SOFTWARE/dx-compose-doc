@@ -1,8 +1,0 @@
-title: Multilingual Content
-nav:
-    - index.md
-    - wcm_mls_framework.md
-    - wcm_mls_ovr.md
-    - Deployment, installation, and configuration: mls_install
-    - How to use the multilingual solution: using_mls
-    - Extensions for multilingual sites: mls_extension
