@@ -1,5 +1,6 @@
-title: Deploy DX
+title: Deploy WebEngine
 nav:
-    - index.md
-    - Install: install
-    - Manage: manage
+  - index.md
+  - Getting Started: getting_started
+  - Install: install
+  - Manage: manage
