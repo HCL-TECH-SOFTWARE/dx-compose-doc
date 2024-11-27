@@ -1,5 +1,3 @@
 nav:
-    - index.md
-    - Compose Deployment: webengine
-    - container
-    - docker-compose.md
+  - install.md
+  - uninstall.md
