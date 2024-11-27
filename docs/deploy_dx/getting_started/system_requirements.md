@@ -1,6 +1,6 @@
 # System requirements
 
-The deployment of WebEngine happens as part of the broader DX deployment using Helm for Kubernetes or Docker Compose. This topic provides the minimum system requirements for the WebEngine container in Digital Experience (DX) Compose.
+The deployment of WebEngine happens as part of the broader Digital Experience (DX) deployment using Helm for Kubernetes or Docker Compose. This topic provides the minimum system requirements for the WebEngine container in DX Compose.
 
 ## Kubernetes
 
@@ -13,7 +13,7 @@ See the requirements for Kubernetes in [Kubernetes runtime](https://opensource.h
 
 ## Java SDK
 
-HCL DX 9.5 requires JDK 11.0 or later for installation.
+DX Compose requires JDK 11.0 or later for installation.
 
 |Prerequisite|Prerequisite minimum and supported versions|Product minimum|
 |----------|----------|-----|

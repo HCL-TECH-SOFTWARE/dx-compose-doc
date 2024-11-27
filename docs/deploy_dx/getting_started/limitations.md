@@ -15,7 +15,7 @@ Know the existing limitations of Digital Experience (DX) Compose.
 - There is no WebSphere Application Server (WAS) Admin Console. You can use the Liberty Admin Center instead but this has limited functionality.
 - Open Liberty does not provide wsadmin scripting.
 - Configuration in resource environment providers earlier managed with WAS must be managed with the Helm chart.
-- There is no Configuration Engine or Configuration Wizard with DX Compose. All configuration must be done using the Helm chart.
+- There is no ConfigEngine or Configuration Wizard with DX Compose. All configuration must be done through the Helm chart.
 - A limited set of DXClient commands is supported. For more information, see [DXClient limitations](../../deploy_dx/manage/dxclient.md).
 
 ## Applications and extensions
@@ -31,7 +31,7 @@ Know the existing limitations of Digital Experience (DX) Compose.
 
 ## User and group management
 
-- Creating, updating, and deleting users and groups using the WebEngine UI, REST APIs, or scripting tools are not possible.
+- Creating, updating, and deleting users and groups using the WebEngine UI, REST APIs, or scripting tools are not supported.
 - Lookaside database, application groups, custom user registries, and transient users are not supported.
 
 ## Authentication

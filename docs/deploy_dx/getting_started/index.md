@@ -5,7 +5,7 @@ Digital Experience (DX) Compose is a cloud-native platform for delivering conten
 DX Compose is released under the HCLSoftware Continuous Delivery Support Policy, and will be releasing incremental and cumulative updates to progressively provide new features and fixes.
 
 -   **[DX Compose overview](overview.md)**  
-This topic provides an overview of DX Compose container.
+This topic provides an overview of DX Compose.
 -   **[DX Compose features](features.md)**  
 Know the DX features supported by the WebEngine container.
 -   **[Architecture and dependencies](architecture_dependencies.md)**  

@@ -12,6 +12,6 @@ The second diagram shows the architecture of the WebEngine container.
 
 ## Dependencies
 
-For the correct version of Kubernetes to use, see the topic[Kubernetes runtime](https://opensource.hcltechsw.com/digital-experience/latest/get_started/system_requirements/kubernetes/kubernetes-runtime/){target="_blank"}.
+For the correct version of Kubernetes to use, see the topic [Kubernetes runtime](https://opensource.hcltechsw.com/digital-experience/latest/get_started/system_requirements/kubernetes/kubernetes-runtime/){target="_blank"}.
 
 For production purposes, a Lightweight Directory Access Protocol (LDAP) server and DB2 are required. See [System Requirements](system_requirements.md) for more information.

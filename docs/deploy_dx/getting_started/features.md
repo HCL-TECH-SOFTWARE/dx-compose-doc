@@ -1,6 +1,6 @@
 # DX Compose features
 
-In this topic, you can find the main scenarios supported by Digital Experience (DX) Compose. See the following list of features:
+In this topic, you can find the main scenarios supported by Digital Experience (DX) Compose. See the following list of supported features:
 
 - Apply custom branding using an HTML theme
 - Create a website and manage it with [Site Manager](https://opensource.hcltechsw.com/digital-experience/latest/manage_content/wcm_authoring/inline_editing/){target="_blank"}
@@ -25,3 +25,5 @@ In this topic, you can find the main scenarios supported by Digital Experience (
 - Federate multiple LDAPs
 - Integrate sites using [Web Application Bridge](https://opensource.hcltechsw.com/digital-experience/latest/extend_dx/integration/wab/){target="_blank"}
 - Use several [DXClient](https://opensource.hcltechsw.com/digital-experience/latest/extend_dx/integration/wab/) functions
+
+<!--Add links when applicable>
