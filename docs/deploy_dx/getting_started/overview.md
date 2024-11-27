@@ -1,13 +1,10 @@
-# WebEngine Overview
+# DX Compose overview
 
-With WebEngine we provide an updated Core container that runs on Open Liberty instead of IBM WebSphere Application Server. While we transition more and more functionality over - the initial release is focused on running web content, custom script apps, and themes on WebEngine. The ability to run custom java applications and extensions is planned for a future delivery.
+Digital Experience (DX) Compose provides an updated Core container called WebEngine that runs on [Open Liberty](https://openliberty.io/){target="_blank"} instead of IBM WebSphere Application Server. The initial release is focused on running web content, custom Script Applications, and themes.
 
-For more information on Open Liberty see [Open Liberty](https://openliberty.io/).
+!!!note
+    The ability to run custom Java applications and extensions is planned for a DX Compose future delivery. This statement is not a guarantee of future releases or their features.
 
-Outside of custom java apps all the great features of DX like powerful web content management, personalization, secure and role based delivery, virtual portals, script apps, DAM, content composer integration and many more are delivered by the WebEngine.
+In addition, DX features such as Web Content Management (WCM), Personalization, secure and role-based delivery, virtual portals, Script Applications, Digital Asset Management (DAM), and Content Composer integration are available in the DX Compose container.
 
-WebEngine is delivered the same way as DX with Core on WebSphere - as a set of container images and attached helm charts to deploy to a Kubernetes system or for docker compose. 
-WebEngine is not supported for a non container install.
-
-Rather than duplicating the documentation about all the features of DX we will outline in the WebEngine sections what is different for deployment, configuration, support, ...
-For all other items refer back to the same DX documentation sections like e.g. [Virtual Portals](https://opensource.hcltechsw.com/digital-experience/latest/build_sites/virtual_portal/).
+DX Compose is delivered as a set of container images and attached Helm charts to deploy to a Kubernetes system or Docker Compose. Note that DX Compose is not supported for a non-container installation.

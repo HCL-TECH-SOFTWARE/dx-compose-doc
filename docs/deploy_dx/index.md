@@ -1,13 +1,13 @@
-# Deploying
+# Deploying WebEngine
 
-Learn how to efficiently deploy the WebEngine within your environment. Starting with environment preparation, this guide covers the deployment process, focusing on Helm-based deployments to Kubernetes environments You'll find specific steps for installation, configuration, uninstallation, and troubleshooting to ensure a smooth setup and maintenance of the service.
+Learn how to efficiently deploy the WebEngine container within your environment. Starting with environment preparation, this guide covers the deployment process, focusing on Helm-based deployments to Kubernetes environments. Steps for installation, configuration, uninstallation, and troubleshooting to ensure a smooth setup and maintenance of the service are provided.
 
 - [Overview](./manage/overview.md)
 - [Installation](./install/install.md)
 - [Web Engine Overview](./getting_started/overview.md)
 - [Features](./getting_started/features.md)
-- [Architecture and Dependencies](./getting_started/architecture-dependencies.md)
-- [System Requirements](./getting_started/system-requirements.md)
+- [Architecture and Dependencies](./getting_started/architecture_dependencies.md)
+- [System Requirements](./getting_started/system_requirements.md)
 - [Differences](./getting_started/differences.md)
 - [Limitations](./getting_started/limitations.md)
 - [Configuration Parameters](./manage/configuration-parameters.md)
