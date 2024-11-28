@@ -5,18 +5,18 @@ title: Upgrading the Helm deployment
 
 This topic provides detailed steps for upgrading the Helm deployment using an updated `custom-values.yaml` file.
 
-1. Retrieve the current `values.yaml` File
+1. Retrieve the current `custom-values.yaml` file.
 
-     You can retrieve the current `custom-values.yaml` file from a previous deployment or by using the following command:
+    You can retrieve the current `custom-values.yaml` file from a previous deployment or by using the following command:
 
     ```sh
-    helm get values <RELEASE-NAME> -n <NAMESPACE> > values.yaml
+    helm get values <RELEASE-NAME> -n <NAMESPACE> -o yaml > custom-values.yaml
     ```
 
     For example:
 
     ```sh
-    helm get values dx-deployment -n dxns > values.yaml
+    helm get values dx-deployment -n dxns > -o yaml  > custom-values.yaml
     ```
 
 2. Update the `custom-values.yaml` file with the required changes.
@@ -28,11 +28,11 @@ This topic provides detailed steps for upgrading the Helm deployment using an up
     Use the following command to apply the updates to your Helm deployment:
 
     ```sh
-    helm upgrade <RELEASE_NAME> -n <NAMESPACE> -f values.yaml <HELM_CHART_DIRECTORY>
+    helm upgrade <RELEASE_NAME> -n <NAMESPACE> -f custom-values.yaml <HELM_CHART_DIRECTORY>
     ```
 
     For example:
 
     ```sh
-    helm upgrade dx-deployment  -n dxns -f values.yaml mycharts/install-hcl-dx-deployment
+    helm upgrade dx-deployment  -n dxns -f custom-values.yaml mycharts/install-hcl-dx-deployment
     ```
