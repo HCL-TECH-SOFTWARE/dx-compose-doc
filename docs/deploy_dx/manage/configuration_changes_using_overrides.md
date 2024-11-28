@@ -85,7 +85,7 @@ The `attributeConfiguration` element in the LDAP registry configuration allows y
 ```yaml
 configOverrideFiles:
   ldapOverride.xml: | 
-    <server description="DX WebEngine server"> 
+    <server description="DX Web Engine server"> 
       <ldapRegistry id="ldap" realm="SampleLdapIDSRealm"
         host="127.0.0.1" port="1389" ignoreCase="true"
         baseDN="dc=dx,dc=com"
@@ -125,7 +125,7 @@ Several out of the box security hardenings have been applied based on [Security 
 ```yaml
 configOverrideFiles:
   securityOverride.xml: | 
-    <server description="DX WebEngine server"> 
+    <server description="DX Web Engine server"> 
       <webAppSecurity httpOnlyCookies="true" trackLoggedOutSSOCookies="false"/>
       <httpDispatcher enableWelcomePage="false" />
       <httpOptions removeServerHeader="true" />
