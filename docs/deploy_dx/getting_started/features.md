@@ -7,7 +7,7 @@ In this topic, you can find the main scenarios supported by Digital Experience (
 - Create and manage content with [Web Content Manager](https://opensource.hcltechsw.com/digital-experience/latest/manage_content/wcm_authoring/){target="_blank"} (WCM) and [Content Composer](https://opensource.hcltechsw.com/digital-experience/latest/manage_content/wcm_authoring/content_composer/){target="_blank"}
 - Manage multilingual content with [Multilingual Solution](https://opensource.hcltechsw.com/digital-experience/latest/manage_content/wcm_authoring/multi_lingual/){target="_blank"}
 - Create [Personalization](https://opensource.hcltechsw.com/digital-experience/latest/build_sites/practitioner_studio/personalization/){target="_blank"} rules and use them to target content
-- [Syndicate content](https://opensource.hcltechsw.com/digital-experience/latest/manage_content/wcm_delivery/syndication/) from server to server
+- [Syndicate content](https://opensource.hcltechsw.com/digital-experience/latest/manage_content/wcm_delivery/syndication/){target="_blank"} from server to server
 - Use [projects](https://opensource.hcltechsw.com/digital-experience/latest/build_sites/create_sites/adding_pages_content_more/projects_organizing_coord_chgs_site/){target="_blank"} to manage changes
 - Change the [context root](https://opensource.hcltechsw.com/digital-experience/latest/deployment/manage/siteurl_cfg/){target="_blank"} of the URL
 - Set up [virtual portals](https://opensource.hcltechsw.com/digital-experience/latest/build_sites/virtual_portal/){target="_blank"}
@@ -24,6 +24,6 @@ In this topic, you can find the main scenarios supported by Digital Experience (
 - Use DB2 as a production database for WebEngine container
 - Federate multiple LDAPs
 - Integrate sites using [Web Application Bridge](https://opensource.hcltechsw.com/digital-experience/latest/extend_dx/integration/wab/){target="_blank"}
-- Use several [DXClient](https://opensource.hcltechsw.com/digital-experience/latest/extend_dx/integration/wab/) functions
+- Use several [DXClient](https://opensource.hcltechsw.com/digital-experience/latest/extend_dx/integration/wab/){target="_blank"} functions
 
 <!--Add links when applicable>
