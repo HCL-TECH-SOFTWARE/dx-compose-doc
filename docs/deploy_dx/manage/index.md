@@ -12,10 +12,10 @@ Learn how to configure users and groups in DX Compose.
 Learn how to resolve WebEngine issues.
 -   **[DX Compose configuration changes using overrides](configuration_changes_using_overrides.md)**  
 Learn how to update the `server.xml` properties and how to configure the DX Compose server using `configOverrideFiles`.
--   **[WCM Modules](wcm_modules.md)**  
-Learn how to configure user registries and viewing users and groups in HCL Digital Experience (DX) on Liberty. <!--edit-->
--   **[DXClient](dxclient.md)**  
-Learn how to configure user registries and viewing users and groups in HCL Digital Experience (DX) on Liberty. <!--edit-->
+-   **[WCM modules](wcm_modules.md)**  
+Learn how to trigger WCM modules and import WCM libraries.
+-   **[Supported DXClient operations](dxclient.md)**  
+Learn the supported DXClient operations in DX Compose. 
 -   **[Monitoring the WebEngine Deployment](monitor_metrics.md)**  
 Learn how to use metrics to monitor activity and performance of the DX WebEngine container.
 -   **[Enabling Content Composer](enable_cc.md)**  
@@ -31,15 +31,15 @@ Learn how to view the WebEngine server logs through Kubernetes.
 -   **[Configuring LDAP](ldap_configuration.md)**  
 Learn how to configure a Lightweight Directory Access Protocol (LDAP) registry in HCL DX on Liberty.
 -   **[Updating DX properties using Helm values](update_properties_with_helm.md)**  
-Learn how to use the Helm chart's `values.yaml file` to add, update, or delete DX properties.
+Learn how to use the Helm chart's `values.yaml` file to add, update, or delete DX properties.
 -   **[Updating the default administrator password](update_wpsadmin_password.md)**  
 Learn how to update the default `wpsadmin` password.
--   **[Managing Outbound Connections (Ajax Proxy)](manage_outbound_connections.md)**  
+-   **[Managing outbound connections (Ajax Proxy)](manage_outbound_connections.md)**  
 Learn a different technique that you should use to manage outbound connections with WebEngine. 
 -   **[Using custom secrets](custom_secrets.md)**  
-Learn how to configure user registries and viewing users and groups in HCL Digital Experience (DX) on Liberty. <!--edit-->
+Learn how to use custom secrets through the `values.yaml` file. <!--not yet reviewed 11/28-->
 -   **[Staging to production](staging_to_production.md)**  
-Learn how to configure user registries and viewing users and groups in HCL Digital Experience (DX) on Liberty. <!--edit-->
+Learn how to stage one WebEngine instance to another. <!--not yet reviewed 11/28-->
 -   **[Using an External Database and Database Transfer](external_db_database_transfer.md)**  
 Learn how to connect to an external database and transfer the content of the Derby database to the external database.
 -   **[Upgrading the Helm deployment](helm_upgrade_values.md)**  

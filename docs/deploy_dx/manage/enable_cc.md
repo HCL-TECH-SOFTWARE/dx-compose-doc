@@ -22,7 +22,7 @@ After updating the `values.yaml` file, perform the following actions:
 
 Access the HCL Content Composer component by navigating to **Practitioner Studio > Web Content > Content**.
 
-You can also use the following sample URL: <!--Please check if this description is correct.>
+You can also use the following sample URL: <!--Please check if this description is correct.-->
 
 ```
 https://your-portal.net/wps/myportal/Practitioner/Web Content/Content Library

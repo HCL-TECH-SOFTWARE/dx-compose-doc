@@ -2,7 +2,7 @@
 id: enable-cc-dam
 title: Enable/Disable Content Composer and Digital Asset Management
 ---
-
+<!-- I separated CC and Dam into 2 pages-->
 ## Introduction
 This document outlines configurations to enable/disable Content Composer and Digital Asset Management in HCL Digital Experience (DX) in a Kubernetes deployment using the `values.yaml` file. Content Composer allows users to create and manage content more effectively within the DX environment and DAM is used for managing web-ready digital assets such as images or videos for use in content and sites built with HCL DX.
 

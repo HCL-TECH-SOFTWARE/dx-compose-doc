@@ -1,6 +1,6 @@
 ---
 id: helm-upgrade-values
-title: Upgrading the Helm deploymen
+title: Upgrading the Helm deployment
 ---
 
 This topic provides detailed steps for upgrading the Helm deployment using an updated `custom-values.yaml` file.

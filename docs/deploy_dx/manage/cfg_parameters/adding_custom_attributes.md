@@ -1,9 +1,9 @@
 ---
 id: adding-custom-attributes
-title: Adding custom attributes in Liberty
+title: Adding custom attributes in DX Compose
 ---
 
-This topic provides steps on how to add or define custom attributes in Liberty.
+This topic provides steps on how to add or define custom attributes in Digital Experience (DX) Compose.
 
 ## Overview
 
