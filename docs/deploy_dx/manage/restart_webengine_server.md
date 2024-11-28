@@ -1,10 +1,9 @@
 ---
 id: restart-webengine-server
-title: Restart WebEngine Server
+title: Restarting the WebEngine server
 ---
 
-## Introduction
-This document outlines the steps to restart the WebEngine server through Kubernetes.
+This topic provides the command to restart the WebEngine server through Kubernetes.
 
 To restart the WebEngine server, execute the following command:
 

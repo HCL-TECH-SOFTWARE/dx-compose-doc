@@ -1,14 +1,16 @@
 ---
 id: ldap-configuration
-title: LDAP Configuration
+title: Configuring LDAP
 ---
 
 ## Introduction
 
-This guide provides instructions for configuring an LDAP registry in HCL Digital Experience (DX) on Liberty. We will cover how to integrate an LDAP server with the DX WebEngine using HELM.
+This guide provides instructions for configuring an (Lightweight Directory Access Protocol) LDAP registry in HCL Digital Experience (DX) Compose. This covers how to integrate an LDAP server with the WebEngine container using Helm.
 
-### LDAP Configuration in the values.yaml
-Below is an example snippet for configuring the DX WebEngine server to use an LDAP server. The `host`, `port`, `baseDN`, `bindDN`, and `bindPassword` will need to be replaced with the proper values of the LDAP server.
+### LDAP configuration in the `values.yaml`
+
+Refer to the following sample snippet to configure the DX WebEngine server to use an LDAP server.
+
 ```yaml
 configuration:
   webEngine:
@@ -24,46 +26,61 @@ configuration:
       customLdapSecret: "customLdapSecret"
 ```
 
-### LDAP Configuration Parameters Explanation
+Replace the values for the following parameters with the values of the LDAP server:
 
-In the above configuration, the following parameters are used:
+- `host`
+- `port`
+- `baseDN`
+- `bindDN`
+- `bindPassword`
 
-- **host**: LDAP server hostname, only used if LDAP type is "other".
+## LDAP configuration parameters
 
-- **port**: LDAP server port, only used if LDAP type is "other".
+In the [sample configuration](#ldap-configuration-in-the-valuesyaml), the following parameters are used:
 
-- **suffix**: Base Distinguished Name for LDAP searches (also known as baseDN).
+- `host`: The LDAP server hostname. Only used if LDAP type is `other`.
 
-- **serverType**: The type of LDAP server. Accepts: "Custom", TODO: add more types.
+- `port`: The LDAP server port. Only used if LDAP type is `other`.
 
-- **id**: The LDAP configuration ID, only used if LDAP type is "other".
+- `suffix`: Base Distinguished Name for LDAP searches (also known as `baseDN`).
 
-- **type**: The type determines which type of LDAP to use. Accepts: "none", "dx", or "other".
+- `serverType`: The type of LDAP server. Accepts `Custom`.<!--, TODO: add more types.-->
 
-  - **none**: No LDAP configuration.
+- `id`: The LDAP configuration ID. Only used if LDAP type is `other`.
 
-  - **dx**: For OpenLDAP server (you can also adjust the image version with `images -> tags -> openLdap`).
+- `type`: The type determines which type of LDAP to use. Accepts `none`, `dx`, or `other`.
 
-  - **other**: For other LDAP servers.
+  - `none`: No LDAP configuration.
 
-- **bindUser**: User used to connect to LDAP, only used if LDAP type is "other".
+  - `dx`: For OpenLDAP server. You can also adjust the image version with `images > tags > openLdap`.
 
-- **bindPassword**: Password used to connect to LDAP, only used if LDAP type is "other".
+  - `other`: For other LDAP servers.
 
-- **customLdapSecret**: The name of the secret that contains the bind user and password. This is used to store the bind user and password in a secret, only used if LDAP type is "other".
+- `bindUser`: User used to connect to LDAP. Only used if LDAP type is `other`.
 
-**Note:** Provide either `customLdapSecret` or `bindUser` & `bindPassword`. If both are provided, the LDAP Bind User and Password from the secret will be used.
+- `bindPassword`: Password used to connect to LDAP. Only used if LDAP type is `other`.
 
-#### To create a secret, run the following command:
+- `customLdapSecret`: The name of the secret that contains the bind user and password. This is used to store the bind user and password in a secret. Only used if LDAP type is `other`.
+
+!!!note
+    Provide either `customLdapSecret` or `bindUser` and `bindPassword`. If both are provided, the LDAP Bind User and Password from the secret will be used.
+
+### Creating a secret
+
+To create a secret, run the following command:
+
 ```sh
 kubectl create secret generic CUSTOM_SECRET_NAME --from-literal=bindUser=CUSTOM_BIND_USER --from-literal=bindPassword=CUSTOM_BIND_PASSWORD --namespace=NAME_SERVER
 ```
-**Note:** Replace `CUSTOM_SECRET_NAME`, `CUSTOM_BIND_USER`, `CUSTOM_BIND_PASSWORD`, and `NAME_SERVER` with the actual values.
 
-Example:
+Replace `CUSTOM_SECRET_NAME`, `CUSTOM_BIND_USER`, `CUSTOM_BIND_PASSWORD`, and `NAME_SERVER` with the actual values.
+
+For example:
+
 ```sh
 kubectl create secret generic custom-web-engine-secret --from-literal=bindUser=dx_user --from-literal=bindPassword=p0rtal4u --namespace=dxns
 ```
 
-### LDAP Configuration through Configuration Overrides
-Check [here](configuration-changes-using-overrides.md) for more information on how to configure LDAP using configuration overrides.
+## LDAP configuration using overrides
+
+For information on how to configure LDAP using configuration overrides, refer to [DX Compose configuration changes using overrides](configuration_changes_using_overrides.md).

@@ -1,19 +1,20 @@
 ---
 id: web-engine-configuration-changes-using-overrides
-title: DX WebEngine Configuration Changes Using Overrides
+title: DX Compose configuration changes using overrides
 ---
-## Overview
-This document provides detailed steps for updating the `server.xml` properties or for configuration using `configOverrideFiles`.
 
-The snippets are merged into the Open Liberty `server.xml` file. After making changes to the respective `values.yaml` file, apply them by using the **helm upgrade ...** command. Open Liberty picks up and applies changes at runtime; this does not require a restart.
+This guide provides detailed steps for updating the `server.xml` properties and for configuring the Digital Experience (DX) Compose server using `configOverrideFiles`.
 
-## User / User Group through Configuration Overrides
-Below is an example snippet of  configuring DX WebEngine server to configure or override user or user group.
+The snippets are merged into the Open Liberty `server.xml` file. After making changes to the respective `values.yaml` file, apply them by using the `helm upgrade` command. Open Liberty picks up and applies changes at runtime; this does not require a restart.
 
-```
+## Configuring users or user groups
+
+The following sample snippet shows how to configure a DX WebEngine server to configure or override a user or a user group.
+
+```yaml
 configOverrideFiles:
   user-overrides.xml: |
-    <server description="DX WebEngine server"> 
+    <server description="DX Web Engine server"> 
       <basicRegistry id="basic" realm="defaultWIMFileBasedRealm"> 
         <user name="wpsadmin" password="newPass" />
         <user name="newuser1" password="password" />
@@ -26,22 +27,25 @@ configOverrideFiles:
       </basicRegistry> 
     </server>
 ```
-**Note:** The name of the customization (`user-overrides.xml` in the example above) can be any string. However, it's beneficial for it to be descriptive of the changes it introduces.
-**Note:** To update the default admin username and password, refer to [Updating the Default Admin Password](update-wpsadmin-password.md).
 
-## SMTP Configuration through Configuration Overrides
+The name of the customization in the example (`user-overrides.xml`) can be any string. However, it is recommended that you use a name that describes the change it applies.
+
+To update the default administrator username and password, refer to the steps in [Updating the default admin password](update_wpsadmin_password.md).
+
+## Configuring DX Compose to use a mail server
+
 Below is an example snippet of configuring DX WebEngine server to use a mail server. The `smtphost` will need to be replaced with the proper hostname of the mail server. If authentication is required to communicate with the mail server then replace `smtpUser` and `smtpPassword` with the correct values, otherwise remove those lines from the snippet.
 
-```
+```yaml
 configOverrideFiles:
   smtpOverride.xml: | 
-    <server description="DX WebEngine server">
+    <server description="DX Web Engine server">
       <mailSession
         id="dxWebEngineMail"
         host="smtphost.com"
         from="no-reply@smtphost.com"
         jndiName="mail/BuilderMailSession"
-        description="DX WebEngine MailSession"
+        description="DX Web Engine MailSession"
         mailSessionID="dxWebEngineMail"
         user="smtpUser"
         password="smtpPassword">
@@ -50,28 +54,35 @@ configOverrideFiles:
       </mailSession>
     </server>
 ```
-**Note:** The name of the customization (`smtpOverride` in the example above) can be any string. However, it's beneficial for it to be descriptive of the changes it introduces.
 
-## SSL Configuration through Configuration Overrides
-The Open Liberty may not trust default certificates. By providing this config setting, the default certificates will be trusted enabling communication with third-party services.
+The name of the customization in the example (`smtpOverride`) can be any string. However, it is recommended that you use a name that describes the change it applies.
 
-```
+## Configuring SSL
+
+The Open Liberty may not trust default certificates. By providing the following configuration setting, Open Liberty trusts the default certificates, enabling communication with third-party services.
+
+```yaml
 configOverrideFiles:
    sslOverride.xml: |
-      <server description="DX WebEngine server">  
+      <server description="DX Web Engine server">  
         <ssl id="defaultSSLConfig" trustDefaultCerts="true" />
       </server>
 ```
-**Note:** The name of the customization (`sslOverride` in the example above) can be any string. However, it's beneficial for it to be descriptive of the changes it introduces.
 
-## LDAP Configuration through Configuration Overrides
-Below is an example snippet for configuring the DX WebEngine server to use an OpenLDAP server. The **baseDN**, **bindDN**, **bindPassword**, and **host** will need to be replaced with the proper values.
+The name of the customization in the example (`sslOverride`) can be any string. However, it is recommended that you use a name that describes the change it applies.
 
-For custom LDAP types, use `customFilters` to define your own search filters for users and groups. For predefined LDAP types supported by Open Liberty, use `idsFilters`. If your LDAP directory uses nested groups or hierarchical structures, consider enabling `recursiveSearch` to ensure all relevant entries are retrieved. For more information, refer to the [Open Liberty LDAP Registry documentation](https://openliberty.io/docs/latest/reference/config/ldapRegistry.html).
+## Configuring LDAP
 
-The `attributeConfiguration` element in the LDAP registry configuration allows you to map LDAP attributes to user registry attributes. This is useful when the attribute names in your LDAP directory do not match the expected attribute names. Each `attribute` element specifies a mapping. `name` - The name of the attribute in the LDAP directory. `propertyName` - The name of the attribute to be mapped to. In the example below, LDAP `mail` attribute is mapped to `ibm-primaryEmail`, which is the attribute used to display email address of a user and LDAP `title` attribute is mapped to `ibm-jobTitle`, which is the attribute used to display job title of a user. 
+The following is a sample snippet that shows how to configure the DX Compose server to use an OpenLDAP server. Replace the values for `baseDN`, `bindDN`, `bindPassword`, and `host` with the proper values.
 
-```
+For custom LDAP types, use `customFilters` to define your own search filters for users and groups. For predefined LDAP types supported by Open Liberty, use `idsFilters`. If your LDAP directory uses nested groups or hierarchical structures, consider enabling `recursiveSearch` to ensure all relevant entries are retrieved. For more information, refer to the [Open Liberty LDAP Registry documentation](https://openliberty.io/docs/latest/reference/config/ldapRegistry.html){target="_blank"}.
+
+The `attributeConfiguration` element in the LDAP registry configuration allows you to map LDAP attributes to user registry attributes. This is useful when the attribute names in your LDAP directory do not match the expected attribute names. Each `attribute` element specifies a mapping:
+
+- `name` - The name of the attribute in the LDAP directory
+- `propertyName` - The name of the attribute to be mapped to. In the following example, the LDAP `mail` attribute is mapped to `ibm-primaryEmail`, which is the attribute used to display the email address of a user. The LDAP `title` attribute is mapped to `ibm-jobTitle`, which is the attribute used to display job title of a user.
+
+```yaml
 configOverrideFiles:
   ldapOverride.xml: | 
     <server description="DX WebEngine server"> 
@@ -102,14 +113,16 @@ configOverrideFiles:
       </federatedRepository>
     </server>
 ```
-Follow this document to set up a custom LDAP server in Liberty: [Configuring LDAP with Liberty](ldap-configuration.md).
 
-## Security Hardening
+To set up a custom LDAP server in Liberty, see [Configuring LDAP with Liberty](ldap_configuration.md).
 
-### Out of the Box cCnfiguration
+## Security hardening
 
-Several out of the box security hardenings have been applied based on [Security hardening for production](https://openliberty.io/docs/latest/security-hardening.html):
-```
+### Out-of-the-box configuration
+
+Several out of the box security hardenings have been applied based on [Security hardening for production](https://openliberty.io/docs/latest/security-hardening.html)(https://openliberty.io/docs/latest/reference/config/ldapRegistry.html){target="_blank"}:
+
+```yaml
 configOverrideFiles:
   securityOverride.xml: | 
     <server description="DX WebEngine server"> 
@@ -119,12 +132,16 @@ configOverrideFiles:
       <httpSession invalidateOnUnauthorizedSessionRequestException="true" cookieHttpOnly="true"/>
     </server>  
 ```
-**Note:** The `trackLoggedOutSSOCookies` setting, when enabled, ensures that if a user logs out from one browser, the same user will be required to log in again if they try to access the resource from another browser. This setting helps prevent session replay attacks by marking the LTPA cookie as invalid upon logout. 
-However, it can impact your SSO scenarios. For example, if a user logs in from multiple browsers to the same server and logs out from one browser, they will need to log in again if they try to access the resource from another browser. As a result, it is set to `false` by default but can be enabled for production environments.
 
-To allow http access for developer setups with the docker image, SSL only has not been enforced. 
-For a production setup one might apply the following as server.xml override:
-```
+The `trackLoggedOutSSOCookies` setting, when enabled, ensures that if a user logs out from one browser, the same user will be required to log in again if they try to access the resource from another browser. This setting helps prevent session replay attacks by marking the LTPA cookie as invalid upon logout.
+
+However, enabling `trackLoggedOutSSOCookies` can impact your SSO scenarios. For example, if a user logs in from multiple browsers to the same server and logs out from one browser, they must log in again if they try to access the resource from another browser. As a result, `trackLoggedOutSSOCookies` is set to `false` by default but can be enabled for production environments.
+
+To allow HTTP access for developer setups with the Docker image, SSL only has not been enforced. 
+
+For a production setup, you can apply the following as a `server.xml` override:
+
+```yaml
   configOverrideFiles:
     securityOverride.xml: | 
       <server description="DX WebEngine server"> 
@@ -133,9 +150,9 @@ For a production setup one might apply the following as server.xml override:
       </server>
 ```
 
-Also by default we have configured to trust any default certificates, which are typically included in all mainstream browsers.
-By providing this config setting, the default certificates will be not trusted disabling communication with third-party services.
-```
+By default, the system is configured to trust any default certificates, which are typically included in all mainstream browsers. To change this default behavior and disable communication with third-party services, provide the following configuration setting:
+
+```yaml
   configOverrideFiles:
     securityOverride.xml: | 
     <server description="DX WebEngine server"> 
@@ -143,13 +160,13 @@ By providing this config setting, the default certificates will be not trusted d
     </server>
 ```
 
-### Additional Configuration
+See [Security hardening for production](https://openliberty.io/docs/latest/security-hardening.html){target="_blank"} for more information.
 
-See [Security hardening for production](https://openliberty.io/docs/latest/security-hardening.html) for more information.
+### Additional configuration
 
-Virtual Hosts can be used to limit the domains the server responds to - in the sample below the virtual host is configured to not respond to other hosts than localhost and sample.hcl.com:
+You can use virtual hosts to limit the domains the server responds to. In the following example, the virtual host is configured to not respond to other hosts than `localhost` and `sample.hcl.com`:
 
-```
+```yaml
 <virtualHost id="default_host" allowFromEndpointRef="localHostOnly">
     <hostAlias>*:9080</hostAlias>
     <hostAlias>*:9443</hostAlias>
@@ -158,4 +175,5 @@ Virtual Hosts can be used to limit the domains the server responds to - in the s
 </virtualHost>
 ```
 
-**Note**: Refer to this [Update custom values.yaml with configOverrideFiles using HELM upgrade](helm-upgrade-values.md).
+???+ info "Related information"
+  - [Update custom values.yaml with configOverrideFiles using HELM upgrade](helm_upgrade_values.md).

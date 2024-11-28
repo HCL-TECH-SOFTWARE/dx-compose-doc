@@ -1,25 +1,26 @@
 ---
 id: update-default-admin-password
-title: Update Default Admin Password
+title: Updating the default administrator password
 ---
+This topic provides the steps for updating the default administrator (wpsadmin) password.
 
-!!! warning "Current Limitation"
-    It is not possible to change the wpsadmin username at this time. The password can be updated.
+!!!note "Limitation" 
+    It is not possible to change the `wpsadmin` username at this time. However, you can update the `wpsadmin` password.
 
-## Overview
-This document provides a snippet for updating the Default Admin password.
+To update the default administrator password, refer to the following steps:
 
-### Steps to Update Default Admin Password
+1. Create a secret with the new administrator password using the following command:
 
-1. Create a secret with the new admin password:
     ```sh
     kubectl create secret generic CUSTOM_SECRET_NAME --from-literal=username=wpsadmin --from-literal=password=CUSTOM_ADMIN_PASSWORD --namespace=dxns
     ```
-    Replace the following: 
-    - `CUSTOM_SECRET_NAME` with the name of the secret.
-    - `CUSTOM_ADMIN_PASSWORD` with the new admin password.
 
-2. Update the `values.yaml` file with secret name and do a [Helm upgrade](./helm-upgrade-values.md).
+    Replace the values for the following: 
+    - `CUSTOM_SECRET_NAME` with the name of the secret.
+    - `CUSTOM_ADMIN_PASSWORD` with the new administrator password.
+
+2. Update the `values.yaml` file with the secret name. See the following sample:
+
     ```yaml
     security:
       webEngine:
@@ -28,13 +29,14 @@ This document provides a snippet for updating the Default Admin password.
         customWebEngineSecret: "CUSTOM_SECRET_NAME"
     ```
 
-    - Replace `CUSTOM_SECRET_NAME` with the name of the secret created in step 1.
+    - Replace `CUSTOM_SECRET_NAME` with the name of the secret created in Step 1.
 
-    - Replace `WEB_ENGINE_PASSWORD` with the new admin password.
+    - Replace `WEB_ENGINE_PASSWORD` with the new administrator password.
 
-    - Make sure either provide `customWebEngineSecret` or `webEngineUser` & `webEnginePassword`. 
+    - Make sure to either provide a `customWebEngineSecret` or a `webEngineUser` and `webEnginePassword`.
 
+3. Do a [Helm upgrade](helm_upgrade_values.md).
 
-**Note:** To apply the updated password, a [server restart](./restart-webengine-server.md) is required.
+4. [Restart the server](restart_webengine_server.md) to apply the updated password.
 
-Refer to this for adding other admin and non-admin user: [configOverrideFiles](configuration-changes-using-overrides.md#user--user-group-through-configuration-overrides).
+For adding other administrators and users with no administrator access, see [configOverrideFiles](configuration_changes_using_overrides.md#configuring-users-or-user-groups).

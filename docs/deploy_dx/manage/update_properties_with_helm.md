@@ -1,17 +1,15 @@
 ---
 id: update-properties-with-helm
-title: Update DX Properties with HELM
+title: Updating DX properties using Helm values
 ---
 
-## Introduction
+This topic provides steps on how to use the Helm chart's `values.yaml` file to add, update, or delete Digital Experience (DX) Compose properties. The `values.yaml` file contains the default values for the properties used during the deployment of the Helm chart. You can override these default values by updating the `values.yaml` file.
 
-This guide provides instructions for adding, updating, or deleting properties from services using the `values.yaml` file for a HELM chart. The `values.yaml` file contains the default values for the properties used during the deployment of the HELM chart. You can override these default values by updating the `values.yaml` file.
+## Overriding default values in `values.yaml`
 
-## Update Properties with HELM Values
+To override the default values for the properties used during the deployment of the Helm chart, add the `propertiesFilesOverrides` section in the `values.yaml` file.
 
-### Properties Overrides Parameters
-
-**Sample Format for propertiesFilesOverrides**
+See the sample format for `propertiesFilesOverrides`:
   
 ```yaml
 configuration:
@@ -20,16 +18,23 @@ configuration:
       <propertiesFileName>: 
           <propertyKey>: <propertyValue>
 ```
-**Note**: The `propertiesFileName` is the name of the properties file that you want to update. The `propertyKey` is the key of the property that you want to update. The `propertyValue` is the value that you want to set for the property.
 
-#### To Update and Add Properties to a Properties File
+For the description of each parameter value, refer to the following list:
+
+- `propertiesFileName`: Name of the properties file that you want to update.
+- `propertyKey`: Key of the property that you want to update.
+- `propertyValue`: Value that you want to set for the property.
+
+### Updating and adding properties to a properties file
 
 With key-value pairs under the properties file name, the properties will be updated, and if not present, will be added to the properties file.
-- **propertiesFileName**: The name of the properties file that you want to update. e.g., `ConfigService.properties`
-- **propertyKey**: The key of the property that you want to update. e.g., `uri.context.path`
-- **propertyValue**: The value that you want to set for the property. e.g., `"/wps/mycontenthandler"`
+Refer to the following sample values for each parameter in `propertiesFilesOverrides`:
 
-**Example**
+- `propertiesFileName`: `ConfigService.properties`
+- `propertyKey`: `uri.context.path`
+- `propertyValue`: `"/wps/mycontenthandler"`
+
+See the following sample configuration:
 
 ```yaml
 configuration:
@@ -47,10 +52,11 @@ configuration:
         uri.poc.protected: "/mypoc"
 ```
 
-### To Disable Properties from a Properties File
-To disable properties, use the `propertiesDisable` section. It follows a similar key-value pair format as `propertiesFilesOverrides`. The key represents the property you want to disable from the properties file, and the value can be any string or an empty string ("").
+### Disabling properties from a properties file
 
-**Example**
+To disable properties, use the `propertiesDisable` section. `propertiesDisable` follows a similar key-value pair format as `propertiesFilesOverrides`. The key represents the property you want to disable from the properties file, and the value can be any string or you can leave it empty ("").
+
+See the following sample:
 
 ```yaml
 configuration:
@@ -61,17 +67,23 @@ configuration:
         logBufferSize: ""
 ```
 
-**Note**: You can update, delete, or add multiple properties under the same properties file. Additionally, you can use multiple properties files.
+You can update, delete, or add multiple properties under the same properties file. You can also use multiple properties files.
 
+## Updating properties with Helm values
 
-### Steps to Update Properties with HELM Values
-Refer to the following steps to update the new [HELM values](helm-upgrade-values.md).
+### Updating the `values.yaml` file
 
-#### Update the `values.yaml` File
-Add the properties you want to override or delete using the `propertiesFilesOverrides` or `propertiesDisable` section, respectively. Refer to the properties [overrides parameters for guidance](#properties-overrides-parameters), then perform a [HELM upgrade](helm-upgrade-values.md) to apply the changes.
+1. Add the properties you want to override or delete using the [`propertiesFilesOverrides`](#overriding-default-values-in-valuesyaml) section or [`propertiesDisable`](#disabling-properties-from-a-properties-file) section, respectively.
 
-#### To Update the Properties File, You Will Need to Restart the Server
+2. After updating or disabling properties, perform a [Helm upgrade](helm_upgrade_values.md) to apply the changes.
+
+### Restarting the server
+
+To update the properties file, you musty restart the server with the following command:
+
 ```sh
 kubectl exec -it  dx-deployment-web-engine-0  -n dxns -c core -- /opt/openliberty/wlp/usr/svrcfg/bin/restart.sh
 ```
-**Note**: The properties file changes will not be persistent and will be lost after being removed from the `propertiesFilesOverrides` section of the `values.yaml` file.
+
+!!!note
+    The properties file changes are not persistent and will be lost after being removed from the `propertiesFilesOverrides` section of the `values.yaml` file.

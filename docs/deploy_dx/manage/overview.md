@@ -6,7 +6,7 @@ See [Deploying using Helm](https://opensource.hcltechsw.com/digital-experience/l
 Specific webEngine properties and specific are listed here:
 
 See [WebEngine Server configuration changes using overrides](./configuration-changes-using-overrides.md) for steps on configuring overrides,
-See [WebEngine properties updation](./update-properties-with-helm.md)
+See [WebEngine properties updation](update-properties-with-helm.md)
 
 More info can be found in [Configuration Parameters](./configuration-parameters.md).
 
@@ -21,3 +21,5 @@ For viewing Logs: See [Logging](./logging-webengine.md)
 For Updating Default Admin Username & Password: See [Update Default Admin Password](./update-default-admin-password.md)
 
 For Custom Secrets: See [Using custom secret in WebEngine](./custom-secrets.md)
+
+<!-- I suggest we incorporate the contents of this place in the index file>

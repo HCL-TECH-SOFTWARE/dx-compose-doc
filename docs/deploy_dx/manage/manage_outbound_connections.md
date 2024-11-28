@@ -1,17 +1,16 @@
 ---
 id: manage-outbound-connections
-title: Manage Outbound Connections (Ajax Proxy)
+title: Manage outbound connections (Ajax Proxy)
 ---
 
-## Introduction
+The configuration of the outbound connections happens in DX Core through ConfigEngine tasks. There are no ConfigEngine tasks when running WebEngine. This topic explains a different technique that you should use to manage outbound connections with WebEngine.
 
-The configuration of the outbound connections happens in DX Core via ConfigEngine tasks. When running with WebEngine as there are no ConfigEngine tasks a different technique explained in this document should be used.
+## Using XMLAccess for outbound connections
 
-## Leverage XMLAccess for Outbound Connections Configuration
+You can use a specially prepared xmlaccess script to create or delete outbound connections policies. The following samples showcase how you can use an XML script. You can execute the script through an `xmlaccess.sh` script in the Liberty container or through a remote execution using [DXClient](https://opensource.hcltechsw.com/digital-experience/CF223/extend_dx/development_tools/dxclient/){target="_blank"}.
 
-You can use a specially prepared xmlaccess script to create or delete outbound connections policies. The samples below showcase the usage of a xml script. The script can be executed via xmlaccess.sh script in the Liberty container or remote execution with dxclient.
+### Sample for policy creation (global)
 
-Sample for policy creation (global):
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <request type="update" version="8.0.0.0"
@@ -31,7 +30,8 @@ Sample for policy creation (global):
 </request>
 ```
 
-Sample for policy deletion (global):
+### Sample for policy deletion (global)
+
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <request type="update" version="8.0.0.0"

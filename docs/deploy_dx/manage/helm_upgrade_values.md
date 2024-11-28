@@ -1,37 +1,38 @@
 ---
 id: helm-upgrade-values
-title: HELM Upgrade Values
+title: Upgrading the Helm deploymen
 ---
 
-## Overview
-This document provides detailed steps for upgrading the HELM deployment using the updated `values.yaml` file.
+This topic provides detailed steps for upgrading the Helm deployment using an updated `custom-values.yaml` file.
 
-### Steps to Update HELM Values
+1. Retrieve the current `values.yaml` File
 
-#### Step 1: Retrieve the Current values.yaml File
+     You can retrieve the current `custom-values.yaml` file from a previous deployment or by using the following command:
 
-The current `values.yaml` file can be retrieved from a previous deployment or by using the following command:
+    ```sh
+    helm get values <RELEASE-NAME> -n <NAMESPACE> > values.yaml
+    ```
 
-```sh
-helm get values <RELEASE-NAME> -n <NAMESPACE> > values.yaml
-```
+    For example:
 
-**Example:**
-```sh
-helm get values dx-deployment -n dxns > values.yaml
-```
+    ```sh
+    helm get values dx-deployment -n dxns > values.yaml
+    ```
 
-#### Step 2: Update the `values.yaml` File with the Required Changes
+2. Update the `custom-values.yaml` file with the required changes.
 
-Make the necessary updates to the `values.yaml` file, such as `configOverrideFiles`, `images`, etc.
+    Make the necessary updates to the `custom-values.yaml` file (for example, `configOverrideFiles`, `images`).
 
-#### Step 3: Upgrade the Deployment with the Updated values.yaml
-Use the following command to apply the updates to your Helm deployment:
-```sh
-helm upgrade <RELEASE_NAME> -n <NAMESPACE> -f values.yaml <HELM_CHART_DIRECTORY>
-```
+3. Upgrade the Helm deployment with the updated `custom-values.yaml` file.
 
-**Example:**
-```sh
-helm upgrade dx-deployment  -n dxns -f values.yaml mycharts/install-hcl-dx-deployment
-```
+    Use the following command to apply the updates to your Helm deployment:
+
+    ```sh
+    helm upgrade <RELEASE_NAME> -n <NAMESPACE> -f values.yaml <HELM_CHART_DIRECTORY>
+    ```
+
+    For example:
+
+    ```sh
+    helm upgrade dx-deployment  -n dxns -f values.yaml mycharts/install-hcl-dx-deployment
+    ```
