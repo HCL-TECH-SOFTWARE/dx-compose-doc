@@ -155,7 +155,7 @@ By default, the system is configured to trust any default certificates, which ar
 ```yaml
   configOverrideFiles:
     securityOverride.xml: | 
-    <server description="DX WebEngine server"> 
+    <server description="DX Web Engine server"> 
       <ssl id="defaultSSLConfig" trustDefaultCerts="false" />
     </server>
 ```
