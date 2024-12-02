@@ -65,10 +65,10 @@ configuration:
 
 
 ### Steps to Update Properties with HELM Values
-Refer to the following steps to update the new [HELM values](helm-upgrade-values.md).
+Refer to the following steps to update the new [HELM values](helm_upgrade_values.md).
 
 #### Update the `values.yaml` File
-Add the properties you want to override or delete using the `propertiesFilesOverrides` or `propertiesDisable` section, respectively. Refer to the properties [overrides parameters for guidance](#properties-overrides-parameters), then perform a [HELM upgrade](helm-upgrade-values.md) to apply the changes.
+Add the properties you want to override or delete using the `propertiesFilesOverrides` or `propertiesDisable` section, respectively. Refer to the properties [overrides parameters for guidance](#properties-overrides-parameters), then perform a [HELM upgrade](helm_upgrade_values.md) to apply the changes.
 
 #### To Update the Properties File, You Will Need to Restart the Server
 ```sh
