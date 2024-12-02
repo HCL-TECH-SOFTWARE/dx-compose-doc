@@ -27,7 +27,7 @@ configOverrideFiles:
     </server>
 ```
 **Note:** The name of the customization (`user-overrides.xml` in the example above) can be any string. However, it's beneficial for it to be descriptive of the changes it introduces.
-**Note:** To update the default admin username and password, refer to [Updating the Default Admin Password](update-wpsadmin-password.md).
+**Note:** To update the default admin username and password, refer to [Updating the Default Admin Password](update_wpsadmin_password.md).
 
 ## SMTP Configuration through Configuration Overrides
 Below is an example snippet of configuring DX WebEngine server to use a mail server. The `smtphost` will need to be replaced with the proper hostname of the mail server. If authentication is required to communicate with the mail server then replace `smtpUser` and `smtpPassword` with the correct values, otherwise remove those lines from the snippet.
@@ -102,7 +102,7 @@ configOverrideFiles:
       </federatedRepository>
     </server>
 ```
-Follow this document to set up a custom LDAP server in Liberty: [Configuring LDAP with Liberty](ldap-configuration.md).
+Follow this document to set up a custom LDAP server in Liberty: [Configuring LDAP with Liberty](ldap_configuration.md).
 
 ## Security Hardening
 
@@ -158,4 +158,4 @@ Virtual Hosts can be used to limit the domains the server responds to - in the s
 </virtualHost>
 ```
 
-**Note**: Refer to this [Update custom values.yaml with configOverrideFiles using HELM upgrade](helm-upgrade-values.md).
+**Note**: Refer to this [Update custom values.yaml with configOverrideFiles using HELM upgrade](helm_upgrade_values.md).

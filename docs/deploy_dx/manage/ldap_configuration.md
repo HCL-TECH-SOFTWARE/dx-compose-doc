@@ -66,4 +66,4 @@ kubectl create secret generic custom-web-engine-secret --from-literal=bindUser=d
 ```
 
 ### LDAP Configuration through Configuration Overrides
-Check [here](configuration-changes-using-overrides.md) for more information on how to configure LDAP using configuration overrides.
+Check [here](configuration_changes_using_overrides.md) for more information on how to configure LDAP using configuration overrides.

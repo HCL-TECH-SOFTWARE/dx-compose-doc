@@ -19,7 +19,7 @@ This document provides a snippet for updating the Default Admin password.
     - `CUSTOM_SECRET_NAME` with the name of the secret.
     - `CUSTOM_ADMIN_PASSWORD` with the new admin password.
 
-2. Update the `values.yaml` file with secret name and do a [Helm upgrade](./helm-upgrade-values.md).
+2. Update the `values.yaml` file with secret name and do a [Helm upgrade](./helm_upgrade_values.md).
     ```yaml
     security:
       webEngine:
@@ -35,6 +35,6 @@ This document provides a snippet for updating the Default Admin password.
     - Make sure either provide `customWebEngineSecret` or `webEngineUser` & `webEnginePassword`. 
 
 
-**Note:** To apply the updated password, a [server restart](./restart-webengine-server.md) is required.
+**Note:** To apply the updated password, a [server restart](./restart_webengine_server.md) is required.
 
-Refer to this for adding other admin and non-admin user: [configOverrideFiles](configuration-changes-using-overrides.md#user--user-group-through-configuration-overrides).
+Refer to this for adding other admin and non-admin user: [configOverrideFiles](configuration_changes_using_overrides.md#user--user-group-through-configuration-overrides).

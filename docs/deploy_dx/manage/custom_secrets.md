@@ -8,7 +8,7 @@ This document outlines how to use custom secrets in the WebEngine server configu
 
 Apart from the admin credentials, there can be use cases where additional credentials, secrets, or key files are required. To pass them to the deployment, the **configuration.webEngine.customSecrets** value can be used to reference additional [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/).
 
-Secrets are both injected as environment variables and mounted as files in `/mnt/customSecrets` in a subfolder named after the referenced key. From there, they can be referenced in the server configuration or the [configOverrideFiles](./configuration-changes-using-overrides.md).
+Secrets are both injected as environment variables and mounted as files in `/mnt/customSecrets` in a subfolder named after the referenced key. From there, they can be referenced in the server configuration or the [configOverrideFiles](./configuration_changes_using_overrides.md).
 All keys and values under `customSecrets` must consist of lowercase alphanumeric characters or '-', and must start and end with an alphanumeric character (e.g., 'my-name', or '123-abc'). `helm install` will throw one of the following errors if this criterion is not met:
 
 - "configuration.leap.customSecrets: Additional property is not allowed"
@@ -16,7 +16,7 @@ All keys and values under `customSecrets` must consist of lowercase alphanumeric
 
 ## Use Custom Secret for Defining the Admin User and Password
 
-Refer to this [Update admin credential](./update-wpsadmin-password.md).
+Refer to this [Update admin credential](./update_wpsadmin_password.md).
 
 ## Using Custom Secrets as Credentials
 
@@ -115,5 +115,5 @@ configuration:
         </server> 
 ```
 
-**Note:** Preform a [helm upgrade](./helm-upgrade-values.md) to apply the changes.
+**Note:** Preform a [helm upgrade](./helm_upgrade_values.md) to apply the changes.
 

@@ -5,19 +5,19 @@ See [Deploying using Helm](https://opensource.hcltechsw.com/digital-experience/l
 
 Specific webEngine properties and specific are listed here:
 
-See [WebEngine Server configuration changes using overrides](./configuration-changes-using-overrides.md) for steps on configuring overrides,
-See [WebEngine properties updation](./update-properties-with-helm.md)
+See [WebEngine Server configuration changes using overrides](./configuration_changes_using_overrides.md) for steps on configuring overrides,
+See [WebEngine properties updation](./update_properties_with_helm.md)
 
-More info can be found in [Configuration Parameters](./configuration-parameters.md).
+More info can be found in [Configuration Parameters](./configuration_parameters.md).
 
-How to run WCM Modules like import or export library can be found in [WCM Modules](./wcm-modules.md).
+How to run WCM Modules like import or export library can be found in [WCM Modules](./wcm_modules.md).
 
-Integrate DAM,CC and ContentAI in WebEngine: [DAM/CC](./enable-cc-dam.md) and [ContentAI](./enable-content-ai.md).
+Integrate DAM,CC and ContentAI in WebEngine: [DAM/CC](./enable_cc_dam.md) and [ContentAI](./enable_content_ai.md).
 
-For restarting WebEngine server: See [ manual restart](./restart-webengine-server.md).
+For restarting WebEngine server: See [ manual restart](./restart_webengine_server.md).
 
-For viewing Logs: See [Logging](./logging-webengine.md)
+For viewing Logs: See [Logging](./logging_webengine.md)
 
-For Updating Default Admin Username & Password: See [Update Default Admin Password](./update-default-admin-password.md)
+For Updating Default Admin Username & Password: See [Update Default Admin Password](./update_default_admin_password.md)
 
-For Custom Secrets: See [Using custom secret in WebEngine](./custom-secrets.md)
+For Custom Secrets: See [Using custom secret in WebEngine](./custom_secrets.md)

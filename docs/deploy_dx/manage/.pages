@@ -1,23 +1,23 @@
 nav:
   - index.md
   - Overview: overview.md
-  - Configuration Parameters: configuration-parameters.md
+  - Configuration Parameters: configuration_parameters.md
   - Troubleshooting: troubleshooting.md
-  - Adding custom user attributes: adding-custom-attributes.md
-  - Server Configuration Overrides: configuration-changes-using-overrides.md
-  - Manage Users and Groups: manage-users-groups-liberty.md
-  - WCM Modules: wcm-modules.md
+  - Adding custom user attributes: adding_custom_attributes.md
+  - Server Configuration Overrides: configuration_changes_using_overrides.md
+  - Manage Users and Groups: manage_users_groups_liberty.md
+  - WCM Modules: wcm_modules.md
   - Supported Operations of dxclient with WebEngine: dxclient.md
-  - Monitor Metrics: monitor-metrics.md
-  - Enable/Disable Content Composer and Digital Asset Management: enable-cc-dam.md
-  - AI analysis for Web Content Management (WCM) content: enable-content-ai.md
-  - Restart Server: restart-webengine-server.md
-  - View WebEngine Logs: logging-webengine.md
-  - LDAP Configuration: ldap-configuration.md
-  - Updating DX Properties: update-properties-with-helm.md
-  - Update Default Admin Password: update-wpsadmin-password.md
-  - Manage Outbound Connections (Ajax Proxy): manage-outbound-connections.md
-  - Using Custom Secret in WebEngine: custom-secrets.md
-  - Staging One WebEngine Instance to Another: staging-to-production.md
-  - Using an External Database and Database Transfer: external-db-database-transfer.md
-  - Upgrade WebEngine Using HELM: helm-upgrade-values.md
+  - Monitor Metrics: monitor_metrics.md
+  - Enable/Disable Content Composer and Digital Asset Management: enable_cc_dam.md
+  - AI analysis for Web Content Management (WCM) content: enable_content_ai.md
+  - Restart Server: restart_webengine_server.md
+  - View WebEngine Logs: logging_webengine.md
+  - LDAP Configuration: ldap_configuration.md
+  - Updating DX Properties: update_properties_with_helm.md
+  - Update Default Admin Password: update_wpsadmin_password.md
+  - Manage Outbound Connections (Ajax Proxy): manage_outbound_connections.md
+  - Using Custom Secret in WebEngine: custom_secrets.md
+  - Staging One WebEngine Instance to Another: staging_to_production.md
+  - Using an External Database and Database Transfer: external_db_database_transfer.md
+  - Upgrade WebEngine Using HELM: helm_upgrade_values.md

@@ -17,7 +17,7 @@ applications:
 Set the value of the key `contentComposer` and `digitalAssetManagement` to `true` for enabling and `false` for disabling.
 
 ### Validation
-After updating the values.yaml file, if running the server for the first time refer the document for [installation](./install.md). If upgrading previous configurations refer the document for [upgrading](./helm-upgrade-values.md). 
+After updating the values.yaml file, if running the server for the first time refer the document for [installation](../install/install.md). If upgrading previous configurations refer the document for [upgrading](./helm_upgrade_values.md). 
 
 Access the HCL Content Composer and Digital Asset Management components by navigating to **Practitioner Studio > Web Content > Content** or **Practitioner Studio > Digital Assets**.
 
