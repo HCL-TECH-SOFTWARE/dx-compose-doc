@@ -9,5 +9,5 @@ This document outlines the steps to restart the WebEngine server through Kuberne
 To restart the WebEngine server, execute the following command:
 
 ```bash
-kubectl exec -it  dx-deployment-web-engine-0  -n dxns -c core -- /opt/openliberty/wlp/usr/svrcfg/bin/restart.sh  
+kubectl exec -it  dx-deployment-web-engine-0  -n dxns -c web-engine -- /opt/openliberty/wlp/usr/svrcfg/bin/restart.sh  
 ```

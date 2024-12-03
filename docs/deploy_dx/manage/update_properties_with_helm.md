@@ -72,6 +72,6 @@ Add the properties you want to override or delete using the `propertiesFilesOver
 
 #### To Update the Properties File, You Will Need to Restart the Server
 ```sh
-kubectl exec -it  dx-deployment-web-engine-0  -n dxns -c core -- /opt/openliberty/wlp/usr/svrcfg/bin/restart.sh
+kubectl exec -it  dx-deployment-web-engine-0  -n dxns -c web-engine -- /opt/openliberty/wlp/usr/svrcfg/bin/restart.sh
 ```
 **Note**: The properties file changes will not be persistent and will be lost after being removed from the `propertiesFilesOverrides` section of the `values.yaml` file.
