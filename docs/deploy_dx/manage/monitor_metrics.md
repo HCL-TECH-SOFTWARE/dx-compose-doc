@@ -5,7 +5,7 @@ title: Monitor Metrics
 
 ## Monitor WebEngine Deployment Using Metrics
 
-This topic outlines the use of standards-based metrics to monitor activity and performance of DX WebEngine container only. More information on other DX containers of the deployment can be found at https://opensource.hcltechsw.com/digital-experience/CF222/deployment/manage/container_configuration/monitoring/monitor_helm_deployment_metrics/?h=metrics
+This topic outlines the use of standards-based metrics to monitor activity and performance of DX WebEngine container only. More information on other DX containers of the deployment can be found at https://opensource.hcltechsw.com/digital-experience/latest/deployment/manage/container_configuration/monitoring/monitor_helm_deployment_metrics/?h=metrics
 
 ### Prometheus Metrics and Grafana
 
@@ -69,7 +69,7 @@ Metrics for the WebEngine container in the DX 9.5 Helm chart are enabled by defa
 
 #### Publicly Available Grafana Dashboards
 
-You can directly download or import the following dashboard from the Grafana community page using the IDs or links. Currently this is the only dashboard available publicly for the OpenLiberty metrics version that is compatibile with different features we are using in WebEngine application. 
+You can directly download or import the following dashboard from the Grafana community page using the IDs or links. Currently this is the only dashboard available publicly for the OpenLiberty metrics version that is compatible with different features we are using in WebEngine application. 
 
 |ID|Dashboard|Applications|
 |--|---------|------------|
@@ -89,4 +89,4 @@ The following dashboards are provided by [HCL Software](https://www.hcltechsw.co
 
 |Dashboard|Application\(s\)|
 |---------|----------------|
-|[webengine-grafana-dashboard.json](../../../../static/assets/liberty/webengine-grafana-dashboard.json)|WebEngine|
+|[webengine-grafana-dashboard.json](./webengine-grafana-dashboard.json)|WebEngine|

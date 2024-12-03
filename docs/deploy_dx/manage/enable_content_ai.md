@@ -60,4 +60,4 @@ kubectl create secret generic custom-credentials-webengine-ai-secret --from-lite
 
 After updating the values.yaml file, if running the server for the first time refer the document for [installation](../install/install.md). If upgrading previous configurations refer the document for [upgrading](./helm_upgrade_values.md).
 
-After enabling the Content AI analysis in DX deployment, use the [WCM REST V2 AI Analysis API](https://opensource.hcltechsw.com/digital-experience/CF222/manage_content/wcm_development/wcm_rest_v2_ai_analysis/) to call the AI Analyzer APIs of the configured Content AI Provider.
+After enabling the Content AI analysis in DX deployment, use the [WCM REST V2 AI Analysis API](https://opensource.hcltechsw.com/digital-experience/latest/manage_content/wcm_development/wcm_rest_v2_ai_analysis/) to call the AI Analyzer APIs of the configured Content AI Provider.
