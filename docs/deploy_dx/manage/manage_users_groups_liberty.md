@@ -104,7 +104,7 @@ Please note that editing user profile information is currently not supported.
 
 ### Defining Custom Attributes
 
-Multiple custom attributes can be added at once or individually by specifying them in the `server.xml` file. Please refer to **[Defining Custom Attributes](./adding_custom_attributes.md)** on how to define Custom Attributes.
+Multiple custom attributes can be added at once or individually by specifying them in the `server.xml` file. Please refer to [Defining Custom Attributes](./adding_custom_attributes.md) on how to define Custom Attributes.
 
 ### Limitations
 

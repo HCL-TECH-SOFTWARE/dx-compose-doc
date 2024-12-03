@@ -11,8 +11,8 @@ Apart from the admin credentials, there can be use cases where additional creden
 Secrets are both injected as environment variables and mounted as files in `/mnt/customSecrets` in a subfolder named after the referenced key. From there, they can be referenced in the server configuration or the [configOverrideFiles](./configuration_changes_using_overrides.md).
 All keys and values under `customSecrets` must consist of lowercase alphanumeric characters or '-', and must start and end with an alphanumeric character (e.g., 'my-name', or '123-abc'). `helm install` will throw one of the following errors if this criterion is not met:
 
-- "configuration.leap.customSecrets: Additional property is not allowed"
-- "configuration.leap.customSecrets.: Does not match pattern '^[a-z0-9]([-a-z0-9]*[a-z0-9])?$'"
+- "configuration.webEngine.customSecrets: Additional property is not allowed"
+- "configuration.webEngine.customSecrets.: Does not match pattern '^\[a-z0-9\]([-a-z0-9]*[a-z0-9])?$'"
 
 ## Use Custom Secret for Defining the Admin User and Password
 

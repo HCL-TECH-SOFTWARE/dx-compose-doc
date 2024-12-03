@@ -18,6 +18,6 @@ For restarting WebEngine server: See [ manual restart](./restart_webengine_serve
 
 For viewing Logs: See [Logging](./logging_webengine.md)
 
-For Updating Default Admin Username & Password: See [Update Default Admin Password](./update_default_admin_password.md)
+For Updating Default Admin Username & Password: See [Update Default Admin Password](./update_wpsadmin_password.md)
 
 For Custom Secrets: See [Using custom secret in WebEngine](./custom_secrets.md)

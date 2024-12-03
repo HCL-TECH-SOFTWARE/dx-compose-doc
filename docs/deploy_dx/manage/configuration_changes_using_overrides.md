@@ -106,7 +106,7 @@ Follow this document to set up a custom LDAP server in Liberty: [Configuring LDA
 
 ## Security Hardening
 
-### Out of the Box cCnfiguration
+### Out of the Box Configuration
 
 Several out of the box security hardenings have been applied based on [Security hardening for production](https://openliberty.io/docs/latest/security-hardening.html):
 ```
