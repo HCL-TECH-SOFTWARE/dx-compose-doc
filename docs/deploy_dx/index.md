@@ -19,7 +19,7 @@ Learn how to efficiently deploy the WebEngine within your environment. Starting 
 - [DXClient](./manage/dxclient.md)
 - [Monitor Metrics](./manage/monitor_metrics.md)
 - [Enable CC](./manage/enable_cc.md)
-- [ENABLE DAM](./manage/enable_dam.md)
+- [Enable DAM](./manage/enable_dam.md)
 - [AI Analysis for Web Content Management (WCM)](./manage/enable_content_ai.md)
 - [Restart Server](./manage/restart_webengine_server.md)
 - [View Logs](./manage/logging_webengine.md)
