@@ -13,12 +13,12 @@ This document provides detailed steps for upgrading the HELM deployment using th
 The current `values.yaml` file can be retrieved from a previous deployment or by using the following command:
 
 ```sh
-helm get values <RELEASE-NAME> -n <NAMESPACE> > values.yaml
+helm get values <RELEASE-NAME> -o yaml -n <NAMESPACE> > values.yaml
 ```
 
 **Example:**
 ```sh
-helm get values dx-deployment -n dxns > values.yaml
+helm get values dx-deployment -o yaml -n dxns > values.yaml
 ```
 
 #### Step 2: Update the `values.yaml` File with the Required Changes

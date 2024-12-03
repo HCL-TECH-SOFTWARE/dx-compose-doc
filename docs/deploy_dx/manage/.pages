@@ -9,7 +9,8 @@ nav:
   - WCM Modules: wcm_modules.md
   - Supported Operations of dxclient with WebEngine: dxclient.md
   - Monitor Metrics: monitor_metrics.md
-  - Enable/Disable Content Composer and Digital Asset Management: enable_cc_dam.md
+  - Enable/Disable Content Composer: enable_cc.md
+  - Enable/Disable Digital Asset Management: enable_dam.md
   - AI analysis for Web Content Management (WCM) content: enable_content_ai.md
   - Restart Server: restart_webengine_server.md
   - View WebEngine Logs: logging_webengine.md
