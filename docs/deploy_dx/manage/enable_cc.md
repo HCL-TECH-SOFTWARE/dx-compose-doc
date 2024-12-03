@@ -5,6 +5,7 @@ title: Enable/Disable Content Composer
 
 ## Introduction
 This document outlines configurations to enable/disable Content Composer in HCL Digital Experience (DX) in a Kubernetes deployment using the `values.yaml` file. Content Composer allows users to create and manage content more effectively within the DX environment.
+
 ### Content Composer Configuration in the values.yaml
 Below is an example snippet for configuring the DX Web Engine server to enable Content Composer.
 
