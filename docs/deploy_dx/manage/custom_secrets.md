@@ -52,7 +52,7 @@ configuration:
     . . .
     configOverrideFiles:
       ldapOverride.xml: | 
-        <server description="DX WebEngine server"> 
+        <server description="DX Web Engine server"> 
           <ldapRegistry id="ldap" realm="SampleLdapIDSRealm"
             host="127.0.0.1" port="1389" ignoreCase="true"
             baseDN="dc=dx,dc=com"
@@ -110,7 +110,7 @@ configuration:
     configOverrideFiles: 
       . . .
       ltpaOverride: | 
-        <server description="DX WebEngine server">  
+        <server description="DX Web Engine server">  
           <ltpa keysFileName="/mnt/customSecrets/ltpa-key/ltpa.keys" keysPassword="myLtpaKeyPassword" /> 
         </server> 
 ```

@@ -14,7 +14,7 @@ The following sample snippet shows how to configure a DX WebEngine server to con
 ```yaml
 configOverrideFiles:
   user-overrides.xml: |
-    <server description="DX WebEngine server"> 
+    <server description="DX Web Engine server"> 
       <basicRegistry id="basic" realm="defaultWIMFileBasedRealm"> 
         <user name="wpsadmin" password="newPass" />
         <user name="newuser1" password="password" />
@@ -39,7 +39,7 @@ Below is an example snippet of configuring DX WebEngine server to use a mail ser
 ```yaml
 configOverrideFiles:
   smtpOverride.xml: | 
-    <server description="DX WebEngine server">
+    <server description="DX Web Engine server">
       <mailSession
         id="dxWebEngineMail"
         host="smtphost.com"
@@ -64,7 +64,7 @@ The Open Liberty may not trust default certificates. By providing the following 
 ```yaml
 configOverrideFiles:
    sslOverride.xml: |
-      <server description="DX WebEngine server">  
+      <server description="DX Web Engine server">  
         <ssl id="defaultSSLConfig" trustDefaultCerts="true" />
       </server>
 ```
@@ -85,7 +85,7 @@ The `attributeConfiguration` element in the LDAP registry configuration allows y
 ```yaml
 configOverrideFiles:
   ldapOverride.xml: | 
-    <server description="DX WebEngine server"> 
+    <server description="DX Web Engine server"> 
       <ldapRegistry id="ldap" realm="SampleLdapIDSRealm"
         host="127.0.0.1" port="1389" ignoreCase="true"
         baseDN="dc=dx,dc=com"
@@ -125,7 +125,7 @@ Several out of the box security hardenings have been applied based on [Security 
 ```yaml
 configOverrideFiles:
   securityOverride1.xml: | 
-    <server description="DX WebEngine server"> 
+    <server description="DX Web Engine server"> 
       <webAppSecurity httpOnlyCookies="true" trackLoggedOutSSOCookies="false"/>
       <httpDispatcher enableWelcomePage="false" />
       <httpOptions removeServerHeader="true" />
@@ -144,7 +144,7 @@ For a production setup, you can apply the following as a `server.xml` override:
 ```yaml
   configOverrideFiles:
     securityOverride2.xml: | 
-      <server description="DX WebEngine server"> 
+      <server description="DX Web Engine server"> 
         <webAppSecurity httpOnlyCookies="true" removeServerHeader="true" disableXPoweredBy="true" trackLoggedOutSSOCookies="true" ssoRequiresSSL="true" sameSiteCookie="none"/>
         <httpSession invalidateOnUnauthorizedSessionRequestException="true" cookieHttpOnly="true" cookieSameSite="None"/>
       </server>
@@ -155,7 +155,7 @@ By default, the system is configured to trust any default certificates, which ar
 ```yaml
   configOverrideFiles:
     securityOverride3.xml: | 
-    <server description="DX WebEngine server"> 
+    <server description="DX Web Engine server"> 
       <ssl id="defaultSSLConfig" trustDefaultCerts="false" />
     </server>
 ```
