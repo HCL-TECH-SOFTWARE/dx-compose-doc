@@ -24,8 +24,8 @@ HCL DX offerings utilize the IBM WebSphere Application Server (WAS) as the base 
 
 ## Security
 
-- The security J2EE standards such as authentication and authorization have been updated with Open Liberty<!--should this be DX Compose?-->.
-- The former Virtual Member Manager feature is no longer available in Open Liberty<!--should this be DX Compose?-->. However, features such as federation for multiple LDAPs are available.
+- The security J2EE standards such as authentication and authorization have been updated with Open Liberty.
+- The former Virtual Member Manager feature is no longer available in Open Liberty. However, features such as federation for multiple LDAPs are available.
 - The file-based repository is configured out-of-the box. You can configure one or multiple LDAPs.
 - The configuration is different with DX Compose. Instead of using the Configuration Wizard or ConfigEngine, the configuration now happens through the Helm chart, influencing the `server.xml` and related DX Compose resource environment providers.
 - User and group management is only possible for read-only scenarios.

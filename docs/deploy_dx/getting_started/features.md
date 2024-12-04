@@ -25,5 +25,3 @@ In this topic, you can find the main scenarios supported by Digital Experience (
 - Federate multiple LDAPs
 - Integrate sites using [Web Application Bridge](https://opensource.hcltechsw.com/digital-experience/latest/extend_dx/integration/wab/){target="_blank"}
 - Use several [DXClient](https://opensource.hcltechsw.com/digital-experience/latest/extend_dx/integration/wab/){target="_blank"} functions
-
-<!--Add links when applicable>
