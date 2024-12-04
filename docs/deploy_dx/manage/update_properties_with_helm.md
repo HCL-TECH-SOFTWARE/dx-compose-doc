@@ -79,11 +79,7 @@ You can update, delete, or add multiple properties under the same properties fil
 
 ### Restarting the server
 
-To update the properties file, you musty restart the server with the following command:
-
-```sh
-kubectl exec -it  dx-deployment-web-engine-0  -n dxns -c web-engine -- /opt/openliberty/wlp/usr/svrcfg/bin/restart.sh
-```
+The server is automatically restarted to pick up properties file changes.
 
 !!!note
     The properties file changes are not persistent and will be lost after being removed from the `propertiesFilesOverrides` section of the `values.yaml` file.
