@@ -1,4 +1,4 @@
-# Enabling Content Composer
+# Enabling and disabling Content Composer
 
 This document outlines configurations to enable and disable Content Composer in HCL Digital Experience (DX) Compose using the `values.yaml` file. With Content Composer, you can create and manage content more effectively within the DX environment. 
 

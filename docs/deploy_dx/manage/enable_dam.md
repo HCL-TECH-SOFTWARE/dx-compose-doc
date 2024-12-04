@@ -1,10 +1,10 @@
-# Enabling DAM
+# Enabling and disabling DAM
 
 This document outlines configurations to enable and disable Digital Asset Management (DAM) in HCL Digital Experience (DX) Compose using the `values.yaml` file. DAM is used for managing web-ready digital assets such as images or videos to be used in content and sites built with HCL DX.
 
 ## DAM configuration
 
-Refer to the following sample snippet for configuring the DX Web Engine server to enable DAM:
+Refer to the following sample snippet for configuring the DX WebEngine server to enable DAM:
 
 ```yaml
 applications:

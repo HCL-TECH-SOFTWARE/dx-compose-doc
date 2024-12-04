@@ -1,6 +1,6 @@
 ---
 id: manage-outbound-connections
-title: Manage outbound connections (Ajax Proxy)
+title: Managing outbound connections (Ajax Proxy)
 ---
 
 The configuration of the outbound connections happens in DX Core through ConfigEngine tasks. There are no ConfigEngine tasks when running WebEngine. This topic explains a different technique that you should use to manage outbound connections with WebEngine.

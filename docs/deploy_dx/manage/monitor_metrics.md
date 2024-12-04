@@ -3,7 +3,7 @@ id: monitor-metrics
 title: Monitoring the DX Compose deployment
 ---
 
-This topic outlines the use of standards-based metrics to monitor activity and performance of the Digital Experience (DX) Compose WebEngine container. For information on the deployment of other DX containers, see [Monitor Deployment Using Metrics](https://opensource.hcltechsw.com/digital-experience/CF222/deployment/manage/container_configuration/monitoring/monitor_helm_deployment_metrics/){target="_blank"}.
+This topic outlines the use of standards-based metrics to monitor activity and performance of the Digital Experience (DX) Compose WebEngine container. For information on the deployment of other DX containers, see [Monitor Deployment Using Metrics](https://opensource.hcltechsw.com/digital-experience/latest/deployment/manage/container_configuration/monitoring/monitor_helm_deployment_metrics/){target="_blank"}.
 
 ## Prometheus metrics and Grafana
 

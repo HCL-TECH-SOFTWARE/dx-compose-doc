@@ -1,6 +1,6 @@
 ---
 id: enable-content-ai
-title: Enabling WCM content AI analysis
+title: Enabling and disabling WCM content AI analysis
 ---
 
 This document outlines configurations to enable and disable artificial intelligence (AI) analysis for Web Content Management (WCM) content in a Kubernetes deployment using the `values.yaml` file. You can also configure a content AI provider to be used for AI analysis.
@@ -67,4 +67,4 @@ After updating the `values.yaml` file, perform the following actions:
 - If running the server for the first time, refer to [Installing WebEngine](../install/install.md). 
 - If upgrading previous configurations, refer to [Upgrading the Helm deployment](helm_upgrade_values.md).
 
-After enabling the Content AI analysis, refer to the steps in [WCM REST V2 AI Analysis API](https://opensource.hcltechsw.com/digital-experience/CF222/manage_content/wcm_development/wcm_rest_v2_ai_analysis/){target="_blank"} to call the AI Analyzer APIs of the configured Content AI Provider.
+After enabling the Content AI analysis, refer to the steps in [WCM REST V2 AI Analysis API](https://opensource.hcltechsw.com/digital-experience/latest/manage_content/wcm_development/wcm_rest_v2_ai_analysis/){target="_blank"} to call the AI Analyzer APIs of the configured Content AI Provider.

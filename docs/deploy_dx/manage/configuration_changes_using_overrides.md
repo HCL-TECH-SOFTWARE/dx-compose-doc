@@ -1,6 +1,6 @@
 ---
 id: web-engine-configuration-changes-using-overrides
-title: DX Compose configuration changes using overrides
+title: DX WebEngine configuration changes using overrides
 ---
 
 This guide provides detailed steps for updating the `server.xml` properties and for configuring the Digital Experience (DX) Compose server using `configOverrideFiles`.
@@ -14,7 +14,7 @@ The following sample snippet shows how to configure a DX WebEngine server to con
 ```yaml
 configOverrideFiles:
   user-overrides.xml: |
-    <server description="DX Web Engine server"> 
+    <server description="DX WebEngine server"> 
       <basicRegistry id="basic" realm="defaultWIMFileBasedRealm"> 
         <user name="wpsadmin" password="newPass" />
         <user name="newuser1" password="password" />
@@ -39,13 +39,13 @@ Below is an example snippet of configuring DX WebEngine server to use a mail ser
 ```yaml
 configOverrideFiles:
   smtpOverride.xml: | 
-    <server description="DX Web Engine server">
+    <server description="DX WebEngine server">
       <mailSession
         id="dxWebEngineMail"
         host="smtphost.com"
         from="no-reply@smtphost.com"
         jndiName="mail/BuilderMailSession"
-        description="DX Web Engine MailSession"
+        description="DX WebEngine MailSession"
         mailSessionID="dxWebEngineMail"
         user="smtpUser"
         password="smtpPassword">
@@ -64,7 +64,7 @@ The Open Liberty may not trust default certificates. By providing the following 
 ```yaml
 configOverrideFiles:
    sslOverride.xml: |
-      <server description="DX Web Engine server">  
+      <server description="DX WebEngine server">  
         <ssl id="defaultSSLConfig" trustDefaultCerts="true" />
       </server>
 ```
@@ -85,7 +85,7 @@ The `attributeConfiguration` element in the LDAP registry configuration allows y
 ```yaml
 configOverrideFiles:
   ldapOverride.xml: | 
-    <server description="DX Web Engine server"> 
+    <server description="DX WebEngine server"> 
       <ldapRegistry id="ldap" realm="SampleLdapIDSRealm"
         host="127.0.0.1" port="1389" ignoreCase="true"
         baseDN="dc=dx,dc=com"
@@ -124,8 +124,8 @@ Several out of the box security hardenings have been applied based on [Security 
 
 ```yaml
 configOverrideFiles:
-  securityOverride.xml: | 
-    <server description="DX Web Engine server"> 
+  securityOverride1.xml: | 
+    <server description="DX WebEngine server"> 
       <webAppSecurity httpOnlyCookies="true" trackLoggedOutSSOCookies="false"/>
       <httpDispatcher enableWelcomePage="false" />
       <httpOptions removeServerHeader="true" />
@@ -143,7 +143,7 @@ For a production setup, you can apply the following as a `server.xml` override:
 
 ```yaml
   configOverrideFiles:
-    securityOverride.xml: | 
+    securityOverride2.xml: | 
       <server description="DX WebEngine server"> 
         <webAppSecurity httpOnlyCookies="true" removeServerHeader="true" disableXPoweredBy="true" trackLoggedOutSSOCookies="true" ssoRequiresSSL="true" sameSiteCookie="none"/>
         <httpSession invalidateOnUnauthorizedSessionRequestException="true" cookieHttpOnly="true" cookieSameSite="None"/>
@@ -154,8 +154,8 @@ By default, the system is configured to trust any default certificates, which ar
 
 ```yaml
   configOverrideFiles:
-    securityOverride.xml: | 
-    <server description="DX Web Engine server"> 
+    securityOverride3.xml: | 
+    <server description="DX WebEngine server"> 
       <ssl id="defaultSSLConfig" trustDefaultCerts="false" />
     </server>
 ```

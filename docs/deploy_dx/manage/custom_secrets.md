@@ -110,7 +110,7 @@ configuration:
     configOverrideFiles: 
       . . .
       ltpaOverride: | 
-        <server description="DX Web Engine server">  
+        <server description="DX WebEngine server">  
           <ltpa keysFileName="/mnt/customSecrets/ltpa-key/ltpa.keys" keysPassword="myLtpaKeyPassword" /> 
         </server> 
 ```

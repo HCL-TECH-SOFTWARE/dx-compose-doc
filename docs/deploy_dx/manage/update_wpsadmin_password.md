@@ -12,7 +12,7 @@ To update the default administrator password, refer to the following steps:
 1. Create a secret with the new administrator password using the following command:
 
     ```sh
-    kubectl create secret generic CUSTOM_SECRET_NAME --from-literal=username=wpsadmin --from-literal=password=CUSTOM_ADMIN_PASSWORD --namespace=dxns
+    kubectl create secret generic CUSTOM_SECRET_NAME --from-literal=username=wpsadmin --from-literal=password=CUSTOM_ADMIN_PASSWORD --namespace=<NAMESPACE>
     ```
 
     Replace the values for the following: 

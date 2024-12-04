@@ -43,4 +43,4 @@ This topic enumerates the DXClient functionalities supported by Digital Experien
 |                                               | `dxclient manage-dam-staging start-staging-resync` |  
 |                                               | `dxclient manage-dam-staging delete-staging-mismatch` |
 
-All other DXClient operations are not supported at this time and are planned to be included in future releases. This statement is not a guarantee of future releases or their features.
+All other DXClient operations are not supported at this time.

@@ -8,13 +8,13 @@ nav:
   - Monitoring the DX Compose deployment: monitor_metrics.md
   - enable_cc.md
   - enable_dam.md
-  - Enabling WCM content AI analysis: enable_content_ai.md
+  - enable_content_ai.md
   - Restarting the WebEngine server: restart_webengine_server.md
   - Viewing WebEngine server logs: logging_webengine.md
   - Configuring LDAP: ldap_configuration.md
   - Updating DX properties using Helm values: update_properties_with_helm.md
   - Updating the default administrator password: update_wpsadmin_password.md
-  - Manage outbound connections (Ajax Proxy): manage_outbound_connections.md
+  - Managing outbound connections (Ajax Proxy): manage_outbound_connections.md
   - Using Custom Secret in WebEngine: custom_secrets.md
   - Staging One WebEngine Instance to Another: staging_to_production.md
   - Using an external database and database transfer: external_db_database_transfer.md
