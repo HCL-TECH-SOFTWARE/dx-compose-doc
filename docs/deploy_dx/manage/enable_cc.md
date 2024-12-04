@@ -1,24 +1,28 @@
----
-id: enable-cc
-title: Enable/Disable Content Composer
----
+# Enabling and disabling Content Composer
 
-## Introduction
-This document outlines configurations to enable/disable Content Composer in HCL Digital Experience (DX) in a Kubernetes deployment using the `values.yaml` file. Content Composer allows users to create and manage content more effectively within the DX environment.
+This document outlines configurations to enable and disable Content Composer in HCL Digital Experience (DX) Compose using the `values.yaml` file. With Content Composer, you can create and manage content more effectively within the DX environment. 
 
-### Content Composer Configuration in the values.yaml
-Below is an example snippet for configuring the DX Web Engine server to enable Content Composer.
+## Content Composer configuration
+
+Refer to the following sample snippet for configuring the DX Compose server to enable Content Composer:
 
 ```yaml
 applications:
   contentComposer: true
 ```
-Set the value of the key `contentComposer` to `true` for enabling and `false` for disabling.
 
-### Validation
-After updating the values.yaml file, if running the server for the first time refer the document for [installation](./install.md). If upgrading previous configurations refer the document for [upgrading](./helm-upgrade-values.md). 
+Set the value of the key `contentComposer` to `true` to enable or `false` to disable Content Composer.
 
-Access the HCL Content Composer components by navigating to **Practitioner Studio > Web Content > Content**.
+## Validation
+
+After updating the `values.yaml` file, perform the following actions:
+
+- If running the server for the first time, refer to [Installing WebEngine](../install/install.md). 
+- If upgrading previous configurations, refer to [Upgrading the Helm deployment](helm_upgrade_values.md).
+
+Access the HCL Content Composer component by navigating to **Practitioner Studio > Web Content > Content**.
+
+You can also use the following sample URL: 
 
 ```
 https://your-portal.net/wps/myportal/Practitioner/Web Content/Content Library

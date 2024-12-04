@@ -1,33 +1,31 @@
 ---
 id: external-db-database-transfer
-title: Using an External Database and Database Transfer
+title: Using an external database and database transfer
 ---
 
-## Introduction
-
-By default, WebEngine comes with a local Derby database included in the image and persisted in a PersistentVolume. The Derby database can be used to test the basic functionality of HCL Digital Experience (DX) in a Kubernetes deployment. This will work for single-Pod deployments. However, for production environments, it is required to use an external database for better performance and scalability. This document outlines the steps and configurations to take to connect to an external Database and transfer the content of the Derby database to the external database in HCL Digital Experience (DX) in a Kubernetes deployment.
+By default, WebEngine comes with a local Derby database included in the image and persisted in a PersistentVolume. You can use the Derby database to test the basic functionality of HCL Digital Experience (DX) Compose in a Kubernetes deployment. This works for single-Pod deployments. However, for production environments, it is required to use an external database for better performance and scalability. This document outlines the steps to connect to an external database and transfer the content of the Derby database to the external database in HCL DX Compose deployment.
 
 !!! note
-    For the currently supported external databases, refer to the [Limitations topic](../getting_started/limitations.md).
+    For the currently supported external databases, refer to [Limitations](../getting_started/limitations.md).
 
-## Configuring an External Database
+## Configuring an external database
 
-The external database is configured in the Helm custom values file. The values can be added directly to the custom values file or referenced from secrets to hide the plain text entries that can contain credentials.
+The external database is configured in the Helm custom `values.yaml` file. You can add the values directly to the custom values file or you can reference them from secrets to hide the plain text entries that can contain credentials.
 
 There are two sets of values used to configure the external database:
 
 - `configuration.webEngine.dbDomainProperties`
 - `configuration.webEngine.dbTypeProperties`
 
-The following secrets that can be used instead of the entries above:
+You can use the following secrets instead of the provided values:
 
 - `configuration.webEngine.customDbDomainPropertiesSecret`
 - `configuration.webEngine.customDbTypePropertiesSecret`
 
 !!! note
-    The `customDbDomainPropertiesSecret` and `customDbTypePropertiesSecret` secrets must be created before the deployment of the Helm chart. If the secrets are used, all property values set in the custom values file will be ignored. Therefore the all properties must be set in the secrets, not only the overridden ones.
+    You must create the `customDbDomainPropertiesSecret` and `customDbTypePropertiesSecret` secrets before the deployment of the Helm chart. If the secrets are used, all property values set in the custom `values.yaml` file will be ignored. Therefore, all properties must be set in the secrets, not only the overridden ones.
 
-### External Database Configuration in the Custom Values File
+### External database configuration in the custom `values.yaml` file
 
 ```yaml
 configuration:
@@ -130,7 +128,7 @@ configuration:
       db2.JdbcProviderName: "wpdbJDBC_db2"
 ```
 
-### External Database Configuration in the Custom Secrets File
+### External database configuration in the custom secrets file
 
 ```yaml
 configuration:
@@ -139,14 +137,14 @@ configuration:
     customDbDomainPropertiesSecret: custom-credentials-webengine-dbdomain-secret
 ```
 
-The secrets must be created before the deployment of the Helm chart. The secret names must be referenced in the custom values file. To create the secrets, use the following commands:
+Make sure to create the secrets before the deployment of the Helm chart. You must reference the secret names in the custom `values.yaml` file. To create the secrets, use the following commands:
 
 ```sh
 kubectl create secret generic custom-credentials-webengine-dbtype-secret --from-file=dx_dbdomain.properties
 kubectl create secret generic custom-credentials-webengine-dbdomain-secret --from-file=dx_dbtype.properties
 ```
 
-The properties files must be created with the same properties as in the custom values file in the format `key=value`. For example:
+Create the properties files with the same properties as in the custom `values.yaml` file in the format `key=value`. For example:
 
 ```properties
 db2.DbDriver=com.ibm.db2.jcc.DB2Driver
@@ -154,18 +152,20 @@ db2.DbLibrary=/opt/openliberty/wlp/usr/svrcfg/bin/db2jcc4.jar:/opt/openliberty/w
 db2.JdbcProviderName=wpdbJDBC_db2
 ```
 
-### Changing the Database Configuration
+### Changing the database configuration
 
-To change the database configuration, update the custom values file or the custom secrets file with the new values and do a `helm upgrade`. When the database configuration is changed a Pod restart is triggered automatically. This also applies when a new secret is created and referenced in the custom values file. If an existing secret is updated, the Pods have to be restarted manually after the secret is updated for the changes to take effect.
+To change the database configuration, update the custom `values.yaml` file or the custom secrets file with the new values and do a `helm upgrade`. When the database configuration is changed, a Pod restart is triggered automatically. This also applies when a new secret is created and referenced in the custom `values.yaml` file. If an existing secret is updated, you must restart the Pods manually after the secret is updated for the changes to take effect.
 
-## Using the External Database and Triggering the Database Transfer
+## Using the external database and triggering the database transfer
 
-The external database is used by setting the `configuration.webEngine.useExternalDatabase` property to `true` in the custom values file and doing a  `helm upgrade`. This triggers a database transfer when enabled for the first time. The database transfer is a one-time operation that copies the content of the Derby database to the external database.
+The external database is used by setting the `configuration.webEngine.useExternalDatabase` property to `true` in the custom `values.yaml` file and doing a  `helm upgrade`. This triggers a database transfer when enabled for the first time. The database transfer is a one-time operation that copies the content of the Derby database to the external database.
 
-To drop and recreate all existing WebEngine tables in the external database when transferring the Derby data, set the `configuration.webEngine.dropDatabaseTables` property to true in the custom values file when doing the `helm upgrade` for the database transfer. WebEngine data that may exist in the external database will be lost.  If you change the `configuration.webEngine.dropDatabaseTables` property to true, it is recommended to immediately reset it to false following your `helm upgrade`.  Failure to do so could lead to unexpected loss of data.
+To drop and recreate all existing WebEngine tables in the external database when transferring the Derby data, set the `configuration.webEngine.dropDatabaseTables` property to `true` in the custom `values.yaml` file when doing the `helm upgrade` for the database transfer. WebEngine data that may exist in the external database will be lost. If you change the `configuration.webEngine.dropDatabaseTables` property to `true`, it is recommended to immediately reset it to `false` after your `helm upgrade`.  Failure to do so could lead to unexpected loss of data.
 
 ## dbDomainProperties
 
+Refer to the following table for more information about the properties you can use: 
+<!--Is \<domain\> supposed to be <domain>? -->
 | Property | Description |
 | --- | --- |
 | <domain\>.DbType | Database management software to use for the \<domain\> domain. |
@@ -175,8 +175,7 @@ To drop and recreate all existing WebEngine tables in the external database when
 | <domain\>.DbUrl | The JDBC database URL to be used to connect with the database of this portal database domain. It must comply with your JDBC Driver software requirements. This property that is combined with the properties database name and schema name must be unique for the portal database domains release, community, customization, and JCR. |
 | <domain\>.DbUser | The database user ID to be used to configure the database objects of this portal database domain. It must comply with your database management software requirements. It is also used by the data source to connect with the database, unless you specify a runtime database user. |
 | <domain\>.DbPassword | The password of the database user ID used to configure the database objects of this portal database domain. It must comply with your database management software requirements. It is also used by the data source to connect with the database, unless you specify a runtime database user. |
-| <domain\>.DbRuntimeUser | The database user ID used for the data source of the portal database domain to connect with the database during day-to-day operations. It must comply with your database management software requirements. It has fewer permissions than the configuration database user (DbUser) that is used when you leave this blank.
- |
+| <domain\>.DbRuntimeUser | The database user ID used for the data source of the portal database domain to connect with the database during day-to-day operations. It must comply with your database management software requirements. It has fewer permissions than the configuration database user (DbUser) that is used when you leave this blank.|
 | <domain\>.DbRuntimePassword | The password of the database user ID used for the data source of this portal database domain to connect with the database during day-to-day operations. It must comply with your database management software requirements. |
 | <domain\>.DBA.DbUser | The database administration user ID used for privileged database operations during database creation and setup for this portal database domain. It must comply with your database management software requirements. |
 | <domain\>.DBA.DbPassword | The password of the database administration user ID used for privileged database operations during database creation and setup for this portal database domain. It must comply with your database management software requirements. |
@@ -187,6 +186,8 @@ To drop and recreate all existing WebEngine tables in the external database when
 | InitializeFeedbackDB | Specify how to handle the Feedback database during database transfer from Derby. |
 
 ## dbTypeProperties
+
+Refer to the following table for more information about the properties you can use:
 
 | Property | Description |
 | --- | --- |

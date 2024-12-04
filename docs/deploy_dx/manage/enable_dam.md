@@ -1,27 +1,32 @@
----
-id: enable-dam
-title: Enable/Disable Digital Asset Manager
----
+# Enabling and disabling DAM
 
-## Introduction
-This document outlines configurations to enable/disable Digital Asset Management in HCL Digital Experience (DX) on Liberty in a Kubernetes deployment using the `values.yaml` file. DAM is used for managing web-ready digital assets such as images or videos for use in content and sites built with HCL DX.
+This document outlines configurations to enable and disable Digital Asset Management (DAM) in HCL Digital Experience (DX) Compose using the `values.yaml` file. DAM is used for managing web-ready digital assets such as images or videos to be used in content and sites built with HCL DX.
 
-### Digital Asset Management Configuration in the values.yaml
-Below is an example snippet for configuring the DX Web Engine server to enable Digital Asset Management.
+## DAM configuration
+
+Refer to the following sample snippet for configuring the DX WebEngine server to enable DAM:
 
 ```yaml
 applications:
   digitalAssetManagement: true
 ```
-Set the value of the key `digitalAssetManagement` to `true` for enabling and `false` for disabling.
 
-### Validation
-After updating the values.yaml file, if running the server for the first time refer the document for [installation](./install.md). If upgrading previous configurations refer the document for [upgrading](./helm-upgrade-values.md). 
+Set the value of the key `digitalAssetManagement` to `true` to enable or `false` to disable DAM.
 
-Access the HCL Digital Asset Management component by navigating to **Practitioner Studio > Digital Assets**.
+!!!note
+    By default, [DX Picker](https://opensource.hcltechsw.com/digital-experience/latest/manage_content/wcm_authoring/dx_picker/){target="_blank"} is enabled when you enable DAM. When you disable DAM, DX Picker is disabled as well.
+
+## Validation
+
+After updating the `values.yaml` file, perform the following actions:
+
+- If running the server for the first time, refer to [Installing WebEngine](../install/install.md). 
+- If upgrading previous configurations, refer to [Upgrading the Helm deployment](helm_upgrade_values.md).
+
+Access the DAM components by navigating to **Practitioner Studio > Digital Assets**.
+
+You can also use the following sample URL:
 
 ```
-https://your-portal.net/wps/myportal/Practitioner/Digital Assets
+https://your-portal.net/wps/myportal/Practitioner/digital assets
 ```
-
-**Note**: By default DX Picker will get enabled/disabled on enabling/disabling DAM

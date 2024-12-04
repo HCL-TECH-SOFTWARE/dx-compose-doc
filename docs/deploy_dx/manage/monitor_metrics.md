@@ -1,45 +1,43 @@
 ---
 id: monitor-metrics
-title: Monitor Metrics
+title: Monitoring the DX Compose deployment
 ---
 
-## Monitor WebEngine Deployment Using Metrics
+This topic outlines the use of standards-based metrics to monitor activity and performance of the Digital Experience (DX) Compose WebEngine container. For information on the deployment of other DX containers, see [Monitor Deployment Using Metrics](https://opensource.hcltechsw.com/digital-experience/latest/deployment/manage/container_configuration/monitoring/monitor_helm_deployment_metrics/){target="_blank"}.
 
-This topic outlines the use of standards-based metrics to monitor activity and performance of DX WebEngine container only. More information on other DX containers of the deployment can be found at https://opensource.hcltechsw.com/digital-experience/latest/deployment/manage/container_configuration/monitoring/monitor_helm_deployment_metrics/?h=metrics
+## Prometheus metrics and Grafana
 
-### Prometheus Metrics and Grafana
+DX Helm deployment supports monitoring the deployment activity with advanced metrics and visualization by exposing standards-based, Prometheus-compatible metrics. Components of Prometheus metrics can scrape the metrics of most of the DX container applications, including WebEngine container. The collected data is queried from Prometheus and are visualized in operations dashboard solutions, such as Grafana.
 
-The Digital Experience 9.5 Helm deployment supports monitoring the deployment activity with advanced metrics and visualization, by exposing standards-based Prometheus-compatible metrics. Prometheus metrics components can scrape the metrics of most of the DX 9.5 container applications including WebEngine container. The collected data is queried from Prometheus and are visualized in operations dashboard solutions, such as Grafana.
+### WebEngine application container and Prometheus metrics
 
-### WebEngine Application Container and Prometheus Metrics
-
-WebEngine container expose metrics that can be tracked with Prometheus metrics and details are as follows.
+WebEngine container exposes metrics that you can track with Prometheus metrics. See the following details:
 
 |Application|Port|Route|
 |-----------|----|-----|
 |WebEngine|9091|/metrics|
 
 !!!important
-    HCL Digital Experience 9.5 does not include a deployment of [Prometheus](https://prometheus.io/) or [Grafana](https://grafana.com/). The metrics are enabled by default for the [DX 9.5 Helm chart](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack). This exposes Prometheus-compatible metrics, which can be consumed by any common Prometheus installation.
+    DX Compose does not include a deployment of [Prometheus](https://prometheus.io/){target="_blank"} or [Grafana](https://grafana.com/){target="_blank"}. The metrics are enabled by default for the [DX Helm chart](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack){target="_blank"}. This exposes Prometheus-compatible metrics, which can be consumed by any common Prometheus installation.
 
-HCL DX 9.5 metrics are compatible with the following deployment and discovery types of Prometheus in [Kubernetes](https://kubernetes.io/) environments:
+HCL DX Compose metrics are compatible with the following deployment and discovery types of Prometheus in [Kubernetes](https://kubernetes.io/){target="_blank"} environments:
 
--   [Prometheus](https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus) - Discovers metrics by evaluating the [`annotation`](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/) of the services
--   [Prometheus Operator](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack) - Discovers metrics using the [`ServiceMonitor`](https://github.com/prometheus-operator/prometheus-operator/blob/master/Documentation/user-guides/getting-started.md#related-resources) custom resources
+-   [Prometheus](https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus){target="_blank"} - Discovers metrics by evaluating the [`annotation`](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/){target="_blank"} of the services.
+-   [Prometheus Operator](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack){target="_blank"} - Discovers metrics using the [`ServiceMonitor`](https://github.com/prometheus-operator/prometheus-operator/blob/master/Documentation/user-guides/getting-started.md#related-resources){target="_blank"} custom resources.
 
-Administrators can configure the HCL DX 9.5 metrics depending on their specific Prometheus deployment, as outlined in the following sections.
+Administrators can configure the HCL DX Compose metrics depending on their specific Prometheus deployment, as outlined in the following sections.
 
-### Configure Prometheus Metrics
+### Configuring Prometheus metrics
 
-Metrics for the WebEngine container in the DX 9.5 Helm chart are enabled by default, with `prometheusDiscoveryType` set to `annotations`. The parameter to disable metrics is included in the example configurations.
+Metrics for the WebEngine container in the DX Helm chart are enabled by default, with `prometheusDiscoveryType` set to `annotations`. The parameter to disable metrics is included in the example configurations.
 
 |Parameter|Description|Default value|
 |---------|-----------|-------------|
 |`metrics.<application>.scrape`|Determines if the metrics of this application are scraped by Prometheus.|`true`|
-|`metrics.<application>.prometheusDiscoveryType`|Determines how Prometheus discovers the metrics of a service. Accepts `"annotation"` and `"serviceMonitor"`. The`"serviceMonitor"` setting requires that the [ServiceMonitor CRD](https://github.com/prometheus-operator/prometheus-operator/blob/master/Documentation/user-guides/getting-started.md#related-resources) \(which comes with the Prometheus Operator\), is installed in the cluster.|`"annotation"`|
+|`metrics.<application>.prometheusDiscoveryType`|Determines how Prometheus discovers the metrics of a service. Accepts the values `"annotation"` and `"serviceMonitor"`. The`"serviceMonitor"` setting requires that the [ServiceMonitor CRD](https://github.com/prometheus-operator/prometheus-operator/blob/master/Documentation/user-guides/getting-started.md#related-resources){target="_blank"} \(which comes with the Prometheus Operator\), is installed in the cluster.|`"annotation"`|
 
 !!!example "Example:"
-    -   __Default configuration__: Metrics are enabled for WebEngine with the appropriate [`annotation`](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/) for Prometheus:
+    -   __Default configuration__: Metrics are enabled for WebEngine with the appropriate [`annotation`](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/){target="_blank"} for Prometheus:
 
         ```yaml
         metrics:
@@ -48,7 +46,7 @@ Metrics for the WebEngine container in the DX 9.5 Helm chart are enabled by defa
             prometheusDiscoveryType: "annotation"
         ```
 
-    -   Create a [`ServiceMonitor`](https://github.com/prometheus-operator/prometheus-operator/blob/master/Documentation/user-guides/getting-started.md#related-resources) for Prometheus Operator:
+    -   Create a [`ServiceMonitor`](https://github.com/prometheus-operator/prometheus-operator/blob/master/Documentation/user-guides/getting-started.md#related-resources){target="_blank"} for Prometheus Operator:
 
         ```yaml
         metrics:
@@ -65,27 +63,27 @@ Metrics for the WebEngine container in the DX 9.5 Helm chart are enabled by defa
             scrape: false
         ```
 
-### Grafana Dashboards
+## Using Grafana dashboards
 
-#### Publicly Available Grafana Dashboards
+### Publicly available Grafana dashboards
 
-You can directly download or import the following dashboard from the Grafana community page using the IDs or links. Currently this is the only dashboard available publicly for the OpenLiberty metrics version that is compatible with different features we are using in WebEngine application. 
+You can directly download or import the following dashboard from the Grafana community page using the IDs or links. Currently, Grafana is the only publicly available dashboard for the Open Liberty metrics version that is compatible with the different features used in the DX Compose application.
 
 |ID|Dashboard|Applications|
 |--|---------|------------|
-|11706|[Open Liberty (mpMetrics-2.x)](https://grafana.com/grafana/dashboards/11706-open-liberty/)|WebEngine|
+|11706|[Open Liberty (mpMetrics-2.x)](https://grafana.com/grafana/dashboards/11706-open-liberty/){target="_blank"}|WebEngine|
 
-However, this dashboard has few issue due to which it does not display prometheus data. Currently we need to customize query and regex in this imported dashboard a bit so that exposed Prometheus metrics of WebEngine container will be visible in this dashboard.
+However, this dashboard must be configured to display Prometheus data. Currently, it is required to customize query and regex in this imported dashboard for the exposed Prometheus metrics of WebEngine container to be visible in the Grafana dashboard.
 
-Till we get a fixed version of above mentioned dashboard for Kube from Openliberty in the grafana marketplace, we have few alternatives available for Grafana Dashboard as mentioned in next sections.
+Until a fixed version of Grafana is available for Kube from Open Liberty in the Grafana Marketplace, there is a custom alternative available for Grafana Dashboard as described in the next section.
 
-#### Publicly Available Grafana Dashboard JSON
+### Publicly available Grafana dashboard JSON
 
-Open liberty community has provided the fixed JSON version of the Grafana dashboard at https://github.com/OpenLiberty/open-liberty-operator/blob/main/deploy/dashboards/metrics/RHOCP4.3-Grafana5.2/open-liberty-grafana-mpMetrics2.x.json. You can directly import this Dashboard JSON so that exposed Prometheus metrics of WebEngine container will be visible in this dashboard.
+Open Liberty community has provided the fixed JSON version of the Grafana dashboard at [open-liberty-grafana-mpMetrics2.x.json](https://github.com/OpenLiberty/open-liberty-operator/blob/main/deploy/dashboards/metrics/RHOCP4.3-Grafana5.2/open-liberty-grafana-mpMetrics2.x.json){target="_blank"}. You can directly import this Dashboard JSON so that exposed Prometheus metrics of WebEngine container will be visible in this dashboard.
 
-#### Custom Grafana Dashboards
+### Custom Grafana dashboards
 
-The following dashboards are provided by [HCL Software](https://www.hcltechsw.com/wps/portal) for use with [HCL Digital Experience 9.5](https://www.hcltechsw.com/dx) deployments. You can directly import Grafana-supported custom dashboard available in JSON format below, so that exposed Prometheus metrics of WebEngine container will be visible in this dashboard.
+The following dashboard is provided by [HCL Software](https://www.hcltechsw.com/wps/portal) for use with HCL DX deployments. For exposed Prometheus metrics of WebEngine container to be visible, you can directly import a Grafana-supported custom dashboard available in the following JSON format.
 
 |Dashboard|Application\(s\)|
 |---------|----------------|
