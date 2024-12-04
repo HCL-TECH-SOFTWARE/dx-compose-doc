@@ -82,7 +82,7 @@ You can update, delete, or add multiple properties under the same properties fil
 To update the properties file, you musty restart the server with the following command:
 
 ```sh
-kubectl exec -it  dx-deployment-web-engine-0  -n dxns -c core -- /opt/openliberty/wlp/usr/svrcfg/bin/restart.sh
+kubectl exec -it  dx-deployment-web-engine-0  -n dxns -c web-engine -- /opt/openliberty/wlp/usr/svrcfg/bin/restart.sh
 ```
 
 !!!note

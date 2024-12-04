@@ -12,7 +12,7 @@
 - Open Liberty does not provide wsadmin scripting.
 - Configuration like resource environment providers earlier managed with WebSphere Application Server need to be managed with the helm chart.
 - There is no Configuration Engine or Configuration Wizard with WebEngine - instead all configuration should happen via the helm chart.
-- A limited set of dxclient commands is supported. [DXClient Limitations](../deploy_dx/manage/dxclient.md)
+- A limited set of dxclient commands is supported. [DXClient Limitations](../manage/dxclient.md)
 
 ## Applications and Extensions
 - Cannot deploy java based applications like portlets, ear based themes, wcm extensions.

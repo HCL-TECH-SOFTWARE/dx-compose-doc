@@ -87,4 +87,4 @@ The following dashboard is provided by [HCL Software](https://www.hcltechsw.com/
 
 |Dashboard|Application\(s\)|
 |---------|----------------|
-|[webengine-grafana-dashboard.json](../../../../static/assets/liberty/webengine-grafana-dashboard.json)<!--file must be uploaded-->|WebEngine|
+|[webengine-grafana-dashboard.json](./webengine-grafana-dashboard.json)|WebEngine|
