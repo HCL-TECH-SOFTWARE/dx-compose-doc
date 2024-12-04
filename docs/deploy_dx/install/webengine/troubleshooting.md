@@ -1,3 +1,0 @@
-# Troubleshooting
-
-Call support.

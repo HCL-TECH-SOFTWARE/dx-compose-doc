@@ -16,7 +16,7 @@ Know the existing limitations of Digital Experience (DX) Compose.
 - Open Liberty does not provide wsadmin scripting.
 - Configuration in resource environment providers earlier managed with WAS must be managed with the Helm chart.
 - There is no ConfigEngine or Configuration Wizard with DX Compose. All configuration must be done through the Helm chart.
-- A limited set of DXClient commands is supported. For more information, see [DXClient limitations](../../deploy_dx/manage/dxclient.md).
+- A limited set of dxclient commands is supported. [DXClient Limitations](../manage/dxclient.md)
 
 ## Applications and extensions
 
