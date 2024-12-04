@@ -14,7 +14,7 @@ In this topic, you can find the main scenarios supported by Digital Experience (
 - Use [Digital Asset Management](https://opensource.hcltechsw.com/digital-experience/latest/manage_content/digital_assets/){target="_blank"} (DAM) to manage assets
 - Use [AI features](https://opensource.hcltechsw.com/digital-experience/latest/manage_content/wcm_authoring/authoring_portlet/content_management_artifacts/elements/wcm_dev_elements_ai_assistance/){target="_blank"} to augment content and asset
 - Create custom [Script Applications](https://opensource.hcltechsw.com/digital-experience/latest/extend_dx/script_application/){target="_blank"}
-- [Authenticate users](https://opensource.hcltechsw.com/digital-experience/CF223/deployment/manage/security/people/authentication/user_registry/){target="_blank"} using LDAP
+- [Authenticate users](https://opensource.hcltechsw.com/digital-experience/latest/deployment/manage/security/people/authentication/user_registry/){target="_blank"} using LDAP
 - Create [role-based sites](https://opensource.hcltechsw.com/digital-experience/latest/get_started/product_overview/role_based_access/){target="_blank"}
 - Deploy to the cloud using Kubernetes
 - Go into production, ideally for smaller workloads
