@@ -5,8 +5,8 @@ title: Getting Started
 nav:
   - Overview: overview.md
   - Features: features.md
-  - Architecture and Dependencies: architecture-dependencies.md
-  - System Requirements: system-requirements.md
+  - Architecture and dependencies: architecture_dependencies.md
+  - System requirements: system_requirements.md
   - Differences: differences.md
   - Limitations: limitations.md
   - '...'
