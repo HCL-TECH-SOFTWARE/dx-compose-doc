@@ -24,7 +24,7 @@ DX Compose requires JDK 11.0 or later for installation.
 |Supported software|Supported software minimum|Product minimum
 |-----------|------------------|-----|
 |Apache Derby|10.11*<br/>|8.5|
-|DB2 Standard and Advanced Edition|11.5** and later maintenance releases|9.5|
+|IBM DB2 Standard and Advanced Edition|11.5** and later maintenance releases (acquired separately)|9.5|
 
 \* Apache Derby is not supported in a product environment.  
 \** DB2 includes support for the DB2 pureScale component.  

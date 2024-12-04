@@ -1,6 +1,6 @@
-# Deploying WebEngine
+# Deploying DX Compose
 
-Learn how to efficiently deploy the WebEngine container within your environment. Starting with environment preparation, this guide covers the deployment process, focusing on Helm-based deployments to Kubernetes environments. Steps for installation, configuration, uninstallation, and troubleshooting to ensure a smooth setup and maintenance of the service are provided.
+Learn how to efficiently deploy Digital Experience (DX) Compose and its WebEngine Core container within your environment. Starting with environment preparation, this guide covers the deployment process, focusing on Helm-based deployments to Kubernetes environments. Steps for installation, configuration, uninstallation, and troubleshooting to ensure a smooth setup and maintenance of the service are provided.
 
 - [Overview](./manage/overview.md)
 - [Installation](./install/install.md)

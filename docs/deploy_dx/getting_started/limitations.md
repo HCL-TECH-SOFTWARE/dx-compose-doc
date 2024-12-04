@@ -4,17 +4,17 @@ Know the existing limitations of Digital Experience (DX) Compose.
 
 ## Deployment
 
-- You cannot deploy the Core container and the WebEngine container together.
+- You cannot deploy the Core container used in the DX offerings deployment and the DX Compose WebEngine Core container together on the same deployment.
 - The only supported databases are DB2 and Derby.
-- You cannot use Remote Search with the WebEngine container. Instead, you can use the new Search containers based on OpenSearch with WebEngine.
+- It is not possible to use the Remote Search service provided with HCL DX offerings in DX Compose. DX Compose provides support for OpenSearch.
 - No ReadWriteMany (RWX) shared volume is used.
 - Portal Application Archive (PAA) deployment is not supported.
 
 ## Configuration
 
-- There is no WebSphere Application Server (WAS) Admin Console. You can use the Liberty Admin Center instead but this has limited functionality.
+- DX Compose does not operate on the IBM WebSphere Application Server (WAS). DX Compose administrators should use the Open Liberty Admin Console. In this initial release, the Open Liberty Admin Console has limited functionality.
 - Open Liberty does not provide wsadmin scripting.
-- Configuration in resource environment providers earlier managed with WAS must be managed with the Helm chart.
+- Configuration in resource environment providers, which was earlier managed with the DX Offerings WAS console, is managed with Helm charts in DX Compose.
 - There is no ConfigEngine or Configuration Wizard with DX Compose. All configuration must be done through the Helm chart.
 - A limited set of dxclient commands is supported. [DXClient Limitations](../manage/dxclient.md)
 
@@ -31,7 +31,7 @@ Know the existing limitations of Digital Experience (DX) Compose.
 
 ## User and group management
 
-- Creating, updating, and deleting users and groups using the WebEngine UI, REST APIs, or scripting tools are not supported.
+- Creating, updating, and deleting users and groups using the DX Compose Admin UI, REST APIs, or scripting tools are not supported with this initial release.
 - Lookaside database, application groups, custom user registries, and transient users are not supported.
 
 ## Authentication
