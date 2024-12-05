@@ -3,6 +3,6 @@ title: Product Overview
 nav:
   - index.md
   ##  - Application Integration: application_integration.md
-  ##  - Content Composer: cc.md
+  ##  - Content Management: content.md
   ##  - Digital Asset Management: dam.md
   - Features: features.md
