@@ -7,7 +7,7 @@ This document outlines how to use custom secrets in the WebEngine server configu
 
 Apart from administrator credentials, there can be use cases where additional credentials, secrets, or key files are required. To pass them to the deployment, you can use the `configuration.webEngine.customSecrets` value to reference additional [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/){target="_blank"}.
 
-Secrets are both injected as environment variables and mounted as files in `/mnt/customSecrets` in a subfolder named after the referenced key. From there, you can reference secrets in the server configuration or in [configOverrideFiles](./configuration_changes_using_overrides.md). All keys and values under `customSecrets` must consist of lowercase alphanumeric characters or '-', and must start and end with an alphanumeric character (for example, `my-name`, or `123-abc`). `helm install` throws one of the following errors if this criterion is not met:
+Secrets are both injected as environment variables and mounted as files in `/mnt/customSecrets` in a subfolder named after the referenced key. From there, you can reference secrets in the server configuration or in [configOverrideFiles](./configuration_changes_using_overrides.md). All keys and values under `customSecrets` must consist of lowercase alphanumeric characters or dashes (-), and must start and end with an alphanumeric character (for example, `my-name`, or `123-abc`). `helm install` throws one of the following errors if this criterion is not met:
 
 - `configuration.webEngine.customSecrets: Additional property is not allowed`
 - `configuration.webEngine.customSecrets.: Does not match pattern '^\[a-z0-9\]([-a-z0-9]*[a-z0-9])?$'`
@@ -114,4 +114,4 @@ configuration:
         </server> 
 ```
 
-Preform a [Helm upgrade](./helm_upgrade_values.md) to apply the changes.
+Perform a [Helm upgrade](./helm_upgrade_values.md) to apply the changes.
