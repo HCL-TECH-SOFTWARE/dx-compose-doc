@@ -14,5 +14,5 @@ Learn more about the transition of architecture from the Core container to the W
 See the system requirements to use the WebEngine container in your DX deployment.
 -   **[Differences from DX Core](differences.md)**  
 Know the differences of WebEngine from the DX Core container. 
--   **[DX Compose limitations](limitations.md)**  
+-   **[DX Compose limitations](limitations.md)**  <!-- move to Plan Your Deployment when available (as in DX doc) -->
 This topic enumerates the current limitations of DX Compose.
