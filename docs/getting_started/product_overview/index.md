@@ -6,6 +6,6 @@ Outside of custom java apps all the great features of DX like powerful web conte
 
 With DX Compose we provide an updated Core container, WebEngine, that runs on [Open Liberty](https://openliberty.io/){target="_blank"} instead of IBM WebSphere Application Server. While we will transition more and more functionality over - the initial release is focused on running web content, custom script apps, and themes on WebEngine. The ability to run custom java applications and extensions is planned for a future delivery.
 
-Digital Experience Compose is delivered in the same way as the traditional Digital Experience product - as a set of container images and attached helm charts to deploy to a Kubernetes system or Docker Compose. DX Compose is not supported for a non container install.
+Digital Experience Compose is delivered as a set of container images and attached helm charts to deploy to a supported Kubernetes system or Docker Compose for development. DX Compose is not supported for a non container platform.
 
-Rather than duplicating the documentation about all the features of DX we will outline in this documentation what is different for DX Compose deployment, configuration, support ... For all other items refer back to the same DX documentation sections like e.g. [Virtual Portals](https://opensource.hcltechsw.com/digital-experience/latest/build_sites/virtual_portal/){target="_blank"}.
+Replace this with: Note: In this release, instructions for use of select features will be located in the [HCL Digital Experience Help Center](https://opensource.hcltechsw.com/digital-experience/latest/){target="_blank"}. These will be documented in the HCL Digital Experience Compose Help Center in future releases.
