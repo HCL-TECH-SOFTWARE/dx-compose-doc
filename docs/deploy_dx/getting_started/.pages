@@ -3,6 +3,7 @@
 title: Getting Started
 ## This section defines the navigation structure for this directory
 nav:
+  - HCL DX offerings: offerings.md
   - Overview: overview.md
   - Features: features.md
   - Architecture and dependencies: architecture_dependencies.md
