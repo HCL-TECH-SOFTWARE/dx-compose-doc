@@ -4,13 +4,13 @@ During WebEngine solution development, the total solution is initially developed
 
 Staging is only possible between the same product release or version. In contrast, upgrading from one release to a newer release is called migration.
 
-HCL Digital Experience Compose, Web Content Manager (WCM) and Digital Asset Manager (DAM) solutions can consist of many artifacts. These artifacts include portlets, themes and skins, portlet services, page layouts, wires, portlet configurations, portlet data, content, and personalization rules. Staging helps you move these artifacts to the production environment in a controlled way.
+HCL Digital Experience (DX) Compose, Web Content Manager (WCM) and Digital Asset Manager (DAM) solutions can consist of many artifacts. These artifacts include portlets, themes and skins, portlet services, page layouts, wires, portlet configurations, portlet data, content, and personalization rules. Staging helps you move these artifacts to the production environment in a controlled way.
 
 For naming purposes, this document calls the system that you are staging from the *source* system and the system you are staging to the *target* system.
 
 ## Staging from source to target
 
-1. Install and upgrade the target HCL DX Compose system with helm. The target and source should have exactly the same DX Compose level and preferably be at the latest of both. As both source and target are Kubernetes-based.
+1. Install and upgrade the target HCL DX Compose system with Helm. The target and source should have exactly the same DX Compose level and preferably be at the latest of both. As both source and target are Kubernetes-based.
 
     !!!note
         It is recommended to use the latest cumulative fix (CF) on both the source and target systems.
@@ -21,7 +21,7 @@ For naming purposes, this document calls the system that you are staging from th
 
 3. Transfer the database to DB2 on the target DX Compose system. Note that this step happens through the Helm chart for the target server.
 
-    While transferring database on the source is not critical, it is assumed that the target system will be used for production use and should have gone through database transfer. 
+    While transferring database on the source is not critical, it is assumed that the target system will be used for production use and should have gone through database transfer.
 
 4. Using XMLAccess, export the virtual Portals from the source system.
 
@@ -98,7 +98,7 @@ For naming purposes, this document calls the system that you are staging from th
         /opt/openliberty/wlp/usr/svrcfg/scripts/xmlaccess/xmlaccess.sh -d /opt/openliberty/wlp/usr/servers/defaultServer -in /tmp/ExportThemesAndSkins.xml.out -in /tmp/ExportThemesAndSkins.xml.out.out -user wpsadmin -password wpsadmin -url http://localhost:9080/wps/config
         ```
 
-11. Set the properties required for syndication in WCM ConfigService (for example, enable member fixer to run as part of syndication). You can find more information about custom syndication configuration properties for instance in [Member fixer in Syndication](https://opensource.hcltechsw.com/digital-experience/CF223/manage_content/wcm_configuration/wcm_adm_tools/wcm_member_fixer/wcm_admin_member-fixer_synd/).
+11. Set the properties required for syndication in WCM ConfigService (for example, enable member fixer to run as part of syndication). You can find more information about custom syndication configuration properties in [Member fixer in Syndication](https://opensource.hcltechsw.com/digital-experience/latest/manage_content/wcm_configuration/wcm_adm_tools/wcm_member_fixer/wcm_admin_member-fixer_synd/){target="_blank"}.
 
 12. Import XMLAccess with `baseExport.xml` into the base virtual Portal of the target system.
 
@@ -117,9 +117,11 @@ For naming purposes, this document calls the system that you are staging from th
     dxclient manage-dam-staging trigger-staging
     ```
 
-14. Export the Personalization rules from the source system and import them to the target server. You can export and import the rules using the Personalization Administration Portlet Export and Import functions. See [Staging Personalization rules to production](https://opensource.hcltechsw.com/digital-experience/latest/manage_content/pzn/pzn_stage_prod) for more information.
+14. Export the Personalization rules from the source system and import them to the target server. You can export and import the rules using the Personalization Administration Portlet Export and Import functions. See [Staging Personalization rules to production](https://opensource.hcltechsw.com/digital-experience/latest/manage_content/pzn/pzn_stage_prod){target="_blank"} for more information.
 
-15. Verify that everything in the base virtual Portal is working. Things to check are rendering of the theme and pages as well as content and PZN rules or script apps.
+15. Verify that everything in the base virtual Portal is working. 
+
+    Make sure to check the rendering of the theme and pages, as well as content, Personalization rules, or Script Applications.
 
 16. Create your virtual Portals using the output deck from the XMLAccess command used in step 4 to export the virtual Portal definitions from the source.
 
@@ -141,13 +143,19 @@ For naming purposes, this document calls the system that you are staging from th
 
 19. Validate all DAM artifacts were transferred from your source system to your target system as configured in step 13.
 
-20. Delete your WebEngine pod and wait for Kubernetes to restart the pod. A sample command could look like ```kubectl delete webengine-pod-0 -n dxns ```
+20. Delete your WebEngine pod and wait for Kubernetes to restart the pod. 
+
+    Sample command:
+    
+    ```
+    kubectl delete webengine-pod-0 -n dxns
+    ```
 
 21. Make sure that the WebEngine works correctly. 
 
     Address potentially missed artifacts. Watch out for error messages in `SystemOut.log`, `messages.log`, and `trace.log` during startup.
 
-21. Set up syndication for the appropriate libraries between the source and the target system (or target to source depending on your requirements - i.e. for an Authoring system subsequent syndications could go from Authoring to Integration Test or Development environment).
+21. Set up syndication for the appropriate libraries between the source and the target system or target to source depending on your requirements (for example, for an Authoring system, subsequent syndications could go from Authoring to Integration Test or Development environment).
 
     !!!note
         - You need to syndicate the Multilingual configuration library.
@@ -155,4 +163,4 @@ For naming purposes, this document calls the system that you are staging from th
 
 22. After syndication has completed its initial run, set up the library permissions. 
 
-    Library permissions are not syndicated. See [Set up access to libraries](https://opensource.hcltechsw.com/digital-experience/latest/manage_content/wcm_authoring/authoring_portlet/web_content_libraries/oob_content_accesslib/) for details.
+    Library permissions are not syndicated. For more information, see [Set up access to libraries](https://opensource.hcltechsw.com/digital-experience/latest/manage_content/wcm_authoring/authoring_portlet/web_content_libraries/oob_content_accesslib/){target="_blank"}.
