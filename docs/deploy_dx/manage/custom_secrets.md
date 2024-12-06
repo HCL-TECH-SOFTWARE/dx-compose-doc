@@ -1,26 +1,28 @@
 ---
 id: custom-secrets
-title: Using Custom Secret in WebEngine
+title: Using custom secrets in WebEngine
 ---
 
-## Overview
 This document outlines how to use custom secrets in the WebEngine server configuration through the `values.yaml` file.
 
-Apart from the admin credentials, there can be use cases where additional credentials, secrets, or key files are required. To pass them to the deployment, the **configuration.webEngine.customSecrets** value can be used to reference additional [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/).
+Apart from administrator credentials, there can be use cases where additional credentials, secrets, or key files are required. To pass them to the deployment, you can use the `configuration.webEngine.customSecrets` value to reference additional [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/){target="_blank"}.
 
-Secrets are both injected as environment variables and mounted as files in `/mnt/customSecrets` in a subfolder named after the referenced key. From there, they can be referenced in the server configuration or the [configOverrideFiles](./configuration_changes_using_overrides.md).
-All keys and values under `customSecrets` must consist of lowercase alphanumeric characters or '-', and must start and end with an alphanumeric character (e.g., 'my-name', or '123-abc'). `helm install` will throw one of the following errors if this criterion is not met:
+Secrets are both injected as environment variables and mounted as files in `/mnt/customSecrets` in a subfolder named after the referenced key. From there, you can reference secrets in the server configuration or in [configOverrideFiles](./configuration_changes_using_overrides.md). All keys and values under `customSecrets` must consist of lowercase alphanumeric characters or dashes (-), and must start and end with an alphanumeric character (for example, `my-name`, or `123-abc`). `helm install` throws one of the following errors if these requirements are not met:
 
-- "configuration.webEngine.customSecrets: Additional property is not allowed"
-- "configuration.webEngine.customSecrets.: Does not match pattern '^\[a-z0-9\]([-a-z0-9]*[a-z0-9])?$'"
+- `configuration.webEngine.customSecrets: Additional property is not allowed`
+- `configuration.webEngine.customSecrets.: Does not match pattern '^\[a-z0-9\]([-a-z0-9]*[a-z0-9])?$'`
 
-## Use Custom Secret for Defining the Admin User and Password
+## Using custom secrets to define administrator password
 
-Refer to this [Update admin credential](./update_wpsadmin_password.md).
+To use a custom secret to define the WebEngine administrator password, see [Updating the default administrator password](update_wpsadmin_password.md) for instructions.
 
-## Using Custom Secrets as Credentials
+!!!note
+       It is not possible to change the `wpsadmin` username at this time.
 
-Create a secret in the Kubernetes cluster. 
+## Using custom secrets as credentials
+
+Create a secret in the Kubernetes cluster.
+
 For example, to create a secret named `my-custom-ldap-credentials`, which contains two entries, `LDAP_USERNAME` and `LDAP_PASSWORD`, run the following command:
 
 ```bash
@@ -38,13 +40,13 @@ configuration:
       ldap-credentials: my-custom-ldap-credential
 ```
 
-This will result in:
+This results in:
 
 - The environment variables `LDAP_USERNAME` and `LDAP_PASSWORD` being injected into the Pod.
 
-- The files `LDAP_USERNAME` and `LDAP_PASSWORD` being mounted in `/mnt/customSecrets/ldap-credentials` inside the webEngine Pod each containing the values specified in the secret.
+- The files `LDAP_USERNAME` and `LDAP_PASSWORD` being mounted in `/mnt/customSecrets/ldap-credentials` inside the webEngine Pod, each containing the values specified in the secret.
 
-The environment variables can then be referenced in any of the server configurations. For example, configOverrideFiles for LDAP:
+You can then reference the environment variables in any of the server configurations. For example, `configOverrideFiles` for LDAP:
 
 ```yaml
 configuration: 
@@ -77,9 +79,9 @@ configuration:
         </server>
 ```
 
-## Using Custom Secrets as a Key File
+## Using custom secrets as a key file
 
-Below is an example of creating a secret `my-custom-ltpa-key` from an LTPA key file including the entry `LTPA_KEY`:
+The following is a sample command for creating a secret `my-custom-ltpa-key` from an LTPA key file, including the entry `LTPA_KEY`:
 
 ``` bash
 kubectl create secret generic my-custom-ltpa-key --from-file=LTPA_KEY=<path-to-key-file> --namespace=<namespace>
@@ -95,13 +97,13 @@ configuration:
       ltpa-key: "my-custom-ltpa-key"
 ```
 
-This will result in:
+This results in:
 
 - The environment variables `ltpa.keys` being injected into the Pod.
 
 - The file `ltpa.keys` being mounted in `/mnt/customSecrets/ltpa-key` inside the Pod containing the same content as the input file.
 
-The file can then be referenced in any of the server configurations. For example, to use the LTPA key for the server:
+You can then reference the file in any of the server configurations. For example, to use the LTPA key for the server:
 
 ```yaml
 configuration: 
@@ -115,5 +117,4 @@ configuration:
         </server> 
 ```
 
-**Note:** Preform a [helm upgrade](./helm_upgrade_values.md) to apply the changes.
-
+Perform a [Helm upgrade](./helm_upgrade_values.md) to apply the changes.
