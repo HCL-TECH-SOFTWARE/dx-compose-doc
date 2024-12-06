@@ -15,7 +15,7 @@ nav:
   - Updating DX properties using Helm values: update_properties_with_helm.md
   - Updating the default administrator password: update_wpsadmin_password.md
   - Managing outbound connections (Ajax Proxy): manage_outbound_connections.md
-  - Using Custom Secret in WebEngine: custom_secrets.md
+  - Using custom secrets in WebEngine: custom_secrets.md
   - Staging one WebEngine instance to another: staging_to_production.md
   - Using an external database and database transfer: external_db_database_transfer.md
   - Upgrading the Helm deployment: helm_upgrade_values.md

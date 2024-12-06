@@ -14,14 +14,14 @@ In this topic, you can find the main scenarios supported by Digital Experience (
 - Use [Digital Asset Management](https://opensource.hcltechsw.com/digital-experience/latest/manage_content/digital_assets/){target="_blank"} (DAM) to manage assets
 - Use [AI features](https://opensource.hcltechsw.com/digital-experience/latest/manage_content/wcm_authoring/authoring_portlet/content_management_artifacts/elements/wcm_dev_elements_ai_assistance/){target="_blank"} to augment content and asset
 - Create custom [Script Applications](https://opensource.hcltechsw.com/digital-experience/latest/extend_dx/script_application/){target="_blank"}
-- [Authenticate users](https://opensource.hcltechsw.com/digital-experience/latest/deployment/manage/security/people/authentication/user_registry/){target="_blank"} using LDAP
+- [Authenticate users](../../deploy_dx/manage/ldap_configuration.md) using LDAP
 - Create [role-based sites](https://opensource.hcltechsw.com/digital-experience/latest/get_started/product_overview/role_based_access/){target="_blank"}
 - Deploy to the cloud using Kubernetes
 - Go into production, ideally for smaller workloads
 - Integrate [HCL Leap applications](https://opensource.hcltechsw.com/digital-experience/latest/extend_dx/integration/leap/){target="_blank"} using Script Applications or WCM components
-- Integrate [HCL Volt MX Foundry services using Digital Data Connector](https://opensource.hcltechsw.com/digital-experience/latest/extend_dx/integration/mx/){target="_blank"}
-- Use [OpenSearch](../../deploy_dx/manage/container_configuration/configure_opensearch/index.md){target="_blank"} to search content and assets
-- Use DB2 as a production database for WebEngine container
-- Federate multiple LDAPs
+<!-- - Integrate [HCL Volt MX Foundry services using Digital Data Connector](https://opensource.hcltechsw.com/digital-experience/latest/extend_dx/integration/mx/){target="_blank"} -->
+- Use [OpenSearch](https://opensource.hcltechsw.com/digital-experience/latest/deployment/install/container/helm_deployment/preparation/optional_tasks/optional_install_new_search/){target="_blank"} to search content and assets
+- [Use DB2](../../deploy_dx/manage/external_db_database_transfer.md) as a production database for WebEngine container
+- [Federate multiple LDAPs](../../deploy_dx/manage/cfg_parameters/manage_users_groups_liberty.md#configuring-federated-user-registry)
 - Integrate sites using [Web Application Bridge](https://opensource.hcltechsw.com/digital-experience/latest/extend_dx/integration/wab/){target="_blank"}
-- Use several [DXClient](https://opensource.hcltechsw.com/digital-experience/latest/extend_dx/integration/wab/){target="_blank"} functions
+- Use several [DXClient](../../deploy_dx/manage/dxclient.md) functions

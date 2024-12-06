@@ -26,9 +26,9 @@ hide:
 
     ---
 
-    [:octicons-arrow-right-24: Learn about DX Architecture](./get_started/plan_deployment/architecture_overview.md)
+    [:octicons-arrow-right-24: Learn about DX Architecture](./getting_started/architecture_dependencies.md)
 
--   :material-server-network:{ .lg .middle } __Deploy DX__
+-   :material-server-network:{ .lg .middle } __Deploy DX Compose__
 
     ---
 
@@ -46,17 +46,7 @@ hide:
 
     ---
 
-    [:octicons-arrow-right-24: Go to System Requirements](./get_started/system_requirements/index.md)
-
--   :material-book-open-variant:{ .lg .middle } __Tutorials__
-
-    ---
-
-    Go here for tutorials and how-to guides to help you use DX.
-
-    ---
-
-    [:octicons-arrow-right-24: Go to Tutorials](./guide_me/tutorials/index.md)
+    [:octicons-arrow-right-24: Go to System Requirements](./getting_started/system_requirements.md)
 
 -   :material-school:{ .lg .middle } __HCLSoftware U__
 
@@ -98,14 +88,14 @@ hide:
 
     [:octicons-arrow-right-24: Join DXers User Group](https://ptb.discord.com/channels/787019554173485067/802205783962026034){target="_blank"}
 
--   :material-help-box:{ .lg .middle } __DX Cloud Native & DX Manager__
+-   :material-help-box:{ .lg .middle } __HCL Digital Experience Help Center__
 
     ---
 
-    This Help Center contains documentation for older HCL DX versions.
+    This Help Center contains documentation for HCL Digital Experience.
 
     ---
 
-    [:octicons-arrow-right-24: Go to DX 8.5 and 9.0 Help Center](https://opensource.hcltechsw.com/digital-experience/latest/){target="_blank"}
+    [:octicons-arrow-right-24: Go to DX 9.5 Help Center](https://opensource.hcltechsw.com/digital-experience/latest/){target="_blank"}
 
 </div>

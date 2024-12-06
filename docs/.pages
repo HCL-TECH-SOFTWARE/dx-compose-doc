@@ -1,4 +1,5 @@
 nav:
   - index.md
   - whats_new
+  - getting_started
   - deploy_dx
