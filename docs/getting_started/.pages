@@ -5,7 +5,8 @@ title: Getting Started
 nav:
   - index.md
   - product_overview
-  - Architecture Overview: architecture_dependencies.md
+  - HCL DX offerings: offerings.md
+  - Architecture overview: architecture_dependencies.md
     #  - Plan Your Deployment: plan_deployment
-  - System Requirements: system_requirements.md
+  - System requirements: system_requirements.md
 #  - Download Software: download
