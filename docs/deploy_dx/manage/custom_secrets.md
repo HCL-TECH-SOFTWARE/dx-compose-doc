@@ -15,7 +15,8 @@ Secrets are both injected as environment variables and mounted as files in `/mnt
 ## Using a custom secret to define administrator password
 
 To use a custom secret to define the WebEngine administrator password, see [Updating the default administrator password](update_wpsadmin_password.md) for instructions.
-
+!!!note
+       It is not possible to change the `wpsadmin` username at this time.
 ## Using custom secrets as credentials
 
 Create a secret in the Kubernetes cluster.
