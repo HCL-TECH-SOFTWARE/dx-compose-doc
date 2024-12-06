@@ -12,11 +12,13 @@ Secrets are both injected as environment variables and mounted as files in `/mnt
 - `configuration.webEngine.customSecrets: Additional property is not allowed`
 - `configuration.webEngine.customSecrets.: Does not match pattern '^\[a-z0-9\]([-a-z0-9]*[a-z0-9])?$'`
 
-## Using a custom secret to define administrator password
+## Using custom secrets to define administrator password
 
 To use a custom secret to define the WebEngine administrator password, see [Updating the default administrator password](update_wpsadmin_password.md) for instructions.
+
 !!!note
        It is not possible to change the `wpsadmin` username at this time.
+       
 ## Using custom secrets as credentials
 
 Create a secret in the Kubernetes cluster.
