@@ -8,7 +8,7 @@ See the requirements for Kubernetes in [Kubernetes runtime](https://opensource.h
 
 ### Kubernetes platform policy
 
-HCL DX Compose v9.5 is designed to run on any [Certified Kubernetes platform](https://www.cncf.io/certification/software-conformance){target="_blank"}, provided that the following statements are true:
+HCL DX Compose v9.5 is designed to run on any [Certified Kubernetes platform](https://www.cncf.io/certification/software-conformance){target="_blank"}, provided that the following criteria are met:
 
 - The Kubernetes platform must be hosted on x86-64 hardware.
 - The Kubernetes platform must be officially supported by Helm. For more information, see [Kubernetes Distribution Guide](https://helm.sh/docs/topics/kubernetes_distros){target="_blank"}.
