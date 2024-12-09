@@ -13,7 +13,7 @@ You can enable logging and tracing for software that is included with HCL DX Com
 
 You can use the information gathered to help solve problems or to report an issue to [HCL Software Support](https://support.hcl-software.com/csm){target="_blank"}.
 
-## Links to important HCL Digital Experience tracing questions
+## Common HCL DX Compose tracing questions
 
 -   **How do I turn on HCL Digital Experience trace logging?**
 
