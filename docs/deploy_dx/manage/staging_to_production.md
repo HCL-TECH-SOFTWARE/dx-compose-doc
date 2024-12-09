@@ -1,6 +1,6 @@
 # Staging one WebEngine instance to another
 
-During WebEngine solution development, the total solution is initially developed, tested, and refined on one server or a limited number of servers. The total solution is then deployed later on systems targeted for production, referred to as the production environment. The process of moving the solution from the development environment to the production environment is called staging.
+During WebEngine solution development, the total solution is initially developed, tested, and refined on one server or a limited number of servers. The total solution is then deployed later on systems targeted for production, referred to as the production environment. The process of moving the solution from the one environment to another environment is called staging.
 
 Staging is only possible between the same product release or version. In contrast, upgrading from one release to a newer release is called migration.
 
