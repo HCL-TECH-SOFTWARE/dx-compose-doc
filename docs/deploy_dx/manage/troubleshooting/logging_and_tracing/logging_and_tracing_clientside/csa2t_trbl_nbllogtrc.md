@@ -25,7 +25,7 @@ To activate all iWidget-related logging and tracing, use the following line:
 traceConfig: ["com.ibm.mm.iwidget.*"]
 ```
 
-To set multiple patterns, you separate them by commas like this example:
+To set multiple patterns, separate them by commas. For example:
 
 ```
 traceConfig: ["com.ibm.mm.iwidget.*", "com.ibm.portal.*", "com.ibm.portal.wps.*"]
