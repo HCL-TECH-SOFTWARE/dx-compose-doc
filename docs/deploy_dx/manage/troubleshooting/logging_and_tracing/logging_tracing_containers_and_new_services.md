@@ -12,7 +12,7 @@ Prerequisite: Install and configure Content Composer, Digital Asset Management, 
     hcl.logging.<app-name>.client.<severity>.<client-hierarchy>.*=all
     ```
 
-    The text strings in angled bracket placeholders must be replaced as described here.
+    Replace the text strings in angled bracket placeholders as described in this section.
 
 -   **app-name**
 
