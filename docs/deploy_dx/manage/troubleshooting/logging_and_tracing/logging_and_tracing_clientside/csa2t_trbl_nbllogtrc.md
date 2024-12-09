@@ -31,5 +31,3 @@ To set multiple patterns, separate them by commas. For example:
 traceConfig: ["com.ibm.mm.iwidget.*", "com.ibm.portal.*", "com.ibm.portal.wps.*"]
 ```
 
-By alternative, you can also achieve the same result by using scripting tools that WebSphere Application Server provides. For more information, refer to the WebSphere Application Server Help Center under topic *configuring custom properties for resource environment providers by using wsadmin scripting*.
-
