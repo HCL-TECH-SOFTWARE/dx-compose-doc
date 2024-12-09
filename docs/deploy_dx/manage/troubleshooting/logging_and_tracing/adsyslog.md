@@ -6,7 +6,7 @@ Event logs provide administrators with information about important or abnormal e
 
 HCL WebEngine provides two types of logging: logging of messages and logging of debugging messages called traces.
 
-For information about how to use log files and a list of trace logger strings refer to the topic about HCL WebEngine logs.
+For information about how to use log files and a list of trace logger strings, refer to [Viewing WebEngine server logs](../../logging_webengine.md).
 
 ## Message logging
 
