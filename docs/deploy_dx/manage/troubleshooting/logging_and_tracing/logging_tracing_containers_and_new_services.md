@@ -4,7 +4,7 @@ Log levels and trace strings are set in your custom-values.yaml file. [Configure
 
 Prerequisite: Install and configure Content Composer, Digital Asset Management, and others to your HCL Digital Experience deployment.
 
--   **Trace string format**
+## Trace string format
 
     The trace strings must use the following format. Any text not in angled brackets ("<>") should not be changed:
 
