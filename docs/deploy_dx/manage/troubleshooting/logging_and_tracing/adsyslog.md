@@ -57,6 +57,6 @@ You can set traces for different durations:
 
 Changing the language in the log file is not supported at this time.
 
-## Reference: Log file format
+## Log file format
 
 See the Open Liberty document on log formats: [Open Liberty Log Format](https://openliberty.io/docs/latest/log-trace-configuration.html#log_formats)
