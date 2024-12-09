@@ -22,7 +22,7 @@ Messages for HCL WebEngine are logged in the following files:
 
 -   `trace.log`
 
-    This file is created only if you enable trace. It contains all the content of the messages.log file plus any enabled trace. This file does not contain messages that are written directly by the JVM process.
+    This file is created only if you enable trace. It contains all the content of the `messages.log` file and any enabled trace content. This file does not contain messages that are written directly by the JVM process.
 
 
 **Locating the log files:** Log files for HCL WebEngine, including SystemOut.log and trace.log are in the following directory: /opt/openliberty/wlp/usr/servers/defaultServer/logs
