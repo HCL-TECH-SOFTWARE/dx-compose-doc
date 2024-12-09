@@ -1,4 +1,4 @@
-# Logging and tracing client side rendering
+# Logging and tracing client-side rendering
 
 Learn the how to enable client side logging and tracing of your HCL Digital Experience pages.
 
