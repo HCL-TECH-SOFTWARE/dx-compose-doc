@@ -4,7 +4,7 @@ The system event logging facility of HCL Digital Experience (DX) Compose enables
 
 Event logs provide administrators with information about important or abnormal events, especially errors that occur during the operation of the product. In addition, event logs gather debugging information that helps [HCL Software Support](https://support.hcl-software.com/csm){target="_blank"} to resolve problems.
 
-HCL WebEngine provides two types of logging: logging of messages and logging of debugging messages called traces.
+HCL WebEngine provides two types of logging: [logging of messages](#message-logging) and logging of debugging messages called [traces](#trace-logging).
 
 For information about how to use log files and a list of trace logger strings, refer to [Viewing WebEngine server logs](../../logging_webengine.md).
 
