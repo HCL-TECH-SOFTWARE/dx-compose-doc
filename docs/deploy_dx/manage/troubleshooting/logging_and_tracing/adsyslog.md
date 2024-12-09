@@ -40,7 +40,7 @@ You can set traces for different durations:
     1.  Log in as the administrator.
     2.  Click the **Administration menu** icon. Then, click **Tracing: Gather data about the site**. The Enable Tracing portlet appears.
     3.  Click **Site Administration > Advanced Administration > Tracing: Gather data about the site**. The Enable Tracing portlet appears.
-    4.  Type the required trace string into the field **Append these trace settings:** For example, this string can be `com.ibm.wps.command.credentialvault.*=finest`
+    4.  Enter the required trace string in the **Append these trace settings:** field. For example, this string can be `com.ibm.wps.command.credentialvault.*=finest`.
     5.  Click the **Add** icon. **Enable Tracing** updates the **Current trace settings** field.
     **Note:** Restarting HCL WebEngine removes traces that were set by using the Enable Tracing Administration portlet.
 
