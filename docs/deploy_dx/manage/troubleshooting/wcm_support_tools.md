@@ -84,7 +84,7 @@ To generate a WCM Seed List URL, refer to the following steps:
     5. Click **Generate URL** to get the URL which will crawl the selected library and site area. 
 
 
-## List Types
+## List types
 
 WCM has defined several JCR nodetypes to represent its data structure. Each nodetype defines the properties and child nodes required for the WCM data object it represents, for example:
 
