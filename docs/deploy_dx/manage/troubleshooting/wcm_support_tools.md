@@ -102,7 +102,7 @@ The workspace is an interface to WCM that is associated with a user, in which it
     -   Dynamic workspaces: Data is calculated
     -   Default: `ROOTWORKSPACE`
 -   Standard workspaces:
-    -   `ROOTWORKSPACE` (Al libraries)
+    -   `ROOTWORKSPACE` (All libraries)
     -   jcr:versioning (All versions)
     -   Dynamic workspaces (WCM Drafts, Personalization work)
 
