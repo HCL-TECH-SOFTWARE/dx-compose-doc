@@ -14,7 +14,7 @@ Messages for HCL WebEngine are logged in the following files:
 
 -   **SystemOut.log**
 
-    Contains information that is useful to monitor the health of the HCL WebEngine server and all running processes.
+    This file contains information that is useful to monitor the health of the HCL WebEngine server and all running processes.
 
 -   **messages.log**
 
