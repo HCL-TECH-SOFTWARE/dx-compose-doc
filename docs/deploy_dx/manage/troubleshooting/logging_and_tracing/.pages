@@ -3,7 +3,7 @@ nav:
     - index.md
     - run_logs.md
     - verbosegc.md
-    - was_logs.md
+    - open_liberty_logs.md
     - adsyslog.md
     - wcm_logs.md
     - logging_tracing_containers_and_new_services.md

@@ -66,13 +66,13 @@ helm upgrade -n <namespace> <release-name> -f custom-values.yaml ./hcl-dx-deploy
 
 # Release "dx-deployment" has been upgraded. Happy Helming!
 # NAME: dx-deployment
-# LAST DEPLOYED:
+# LAST DEPLOYED: Fri Dec  6 17:10:17 2024
 # NAMESPACE: dxns
 # STATUS: deployed
 # REVISION: 2
 # TEST SUITE: None
 # NOTES:
-# Installation of HCL DX 95_CF217 done.
+# Installation of HCL DX 95_CF224 done.
 
 # See https://opensource.hcltechsw.com/digital-experience/latest/platform/kubernetes/overview/ for further information.
 # ATTENTION: Maintenance mode is enabled for Pods: webEngine
