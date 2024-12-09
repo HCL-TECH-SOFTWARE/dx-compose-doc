@@ -7,7 +7,7 @@ Portal pages that are rendered in client-side aggregation mode differ in their l
 -   **[Enabling client side logging and tracing](csa2t_trbl_nbllogtrc.md)**  
 Modify the custom properties `cc.isDebug` and `cc.traceConfig` in the WP CommonComponentConfigService to enable client-side logging and tracing.
 -   **[Capturing the log statements](csa2t_trbl_captlogs.md)**  
-Client side log statements are written to the JavaScript console of your browser.
+Client-side log statements are written to the JavaScript console of your browser.
 -   **[Enabling module tracing](csa2t_trble_tracemod.md)**  
 Enable tracing to debug your module information to improve performance through trace string or with cookies.
 
