@@ -18,7 +18,7 @@ Enable tracing to debug your module information and improve performance through 
 
     1.  In the Helm chart set, WP ConfigService `resourceaggregation.client.debug.mode.allowed=true`.
 
-    2.  Apply the helm changes.
+    2.  Apply the Helm changes.
 
 
 When a user sets a cookie that is named `com.ibm.portal.resourceaggregator.client.debug.mode` to `true`, debug versions of module contributions are loaded if they are defined. Modules are loaded without using separate links and script tags. All resources are downloaded as a combined unit in that case.
