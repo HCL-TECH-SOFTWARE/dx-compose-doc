@@ -20,7 +20,7 @@ Messages for HCL WebEngine are logged in the following files:
 
     This file contains all messages that are written or captured by the logging component. All messages that are written to this file contain additional information such as the message timestamp and the ID of the thread that wrote the message. This file is suitable for automated log analysis. This file does not contain messages that are written directly by the Java Virtual Machine (JVM) process.
 
--   **trace.log**
+-   `trace.log`
 
     This file is created only if you enable trace. It contains all the content of the messages.log file plus any enabled trace. This file does not contain messages that are written directly by the JVM process.
 
