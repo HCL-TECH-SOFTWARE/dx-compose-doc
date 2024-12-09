@@ -1,6 +1,6 @@
 # Enabling module tracing
 
-Enable tracing to debug your module information to improve performance through trace string or with cookies.
+Enable tracing to debug your module information and improve performance through trace string or with cookies.
 
 1.  Enable tracing through trace string.
 
