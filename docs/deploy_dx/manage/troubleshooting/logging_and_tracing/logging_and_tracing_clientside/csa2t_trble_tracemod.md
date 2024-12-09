@@ -21,6 +21,6 @@ Enable tracing to debug your module information to improve performance through t
     2.  Apply the helm changes.
 
 
-When a user sets a cookie that is named com.ibm.portal.resourceaggregator.client.debug.mode to true, debug versions of module contributions are loaded if they are defined. Modules are loaded without using separate links and script tags. All resources are downloaded as a combined unit in that case.
+When a user sets a cookie that is named `com.ibm.portal.resourceaggregator.client.debug.mode` to `true`, debug versions of module contributions are loaded if they are defined. Modules are loaded without using separate links and script tags. All resources are downloaded as a combined unit in that case.
 
 
