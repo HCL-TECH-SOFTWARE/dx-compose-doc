@@ -14,7 +14,7 @@ Modify the custom properties `cc.isDebug` and `cc.traceConfig` in the WP CommonC
 
     This value adds client-side trace-logging for all components in the namespace `com.ibm.mashups.enabler` and the component `com.ibm.mashups.builder.model.ContextMenu`.
 
-3. Apply the helm chart.
+3. Apply the Helm chart.
 
 
 Examples: To activate all iWidget related logging and tracing, you use the following line:
