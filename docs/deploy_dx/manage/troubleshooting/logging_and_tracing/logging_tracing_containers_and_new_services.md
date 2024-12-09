@@ -81,7 +81,7 @@ Prerequisite: Install and configure Content Composer, Digital Asset Management, 
     ```
 
 
-Once a trace string is added or removed in the Tracing portlet, the Digital Experience platform page containing the **Tracing portlet** application must be refreshed in the browser.
+After a trace string is added or removed in the Tracing portlet, the DX Compose platform page containing the **Tracing portlet** application must be refreshed in the browser.
 
 
 ## Viewing logs in the browser console using developer tools
