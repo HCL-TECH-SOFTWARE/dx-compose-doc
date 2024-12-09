@@ -35,7 +35,7 @@ You can set traces for different durations:
 
 -   **Temporary**
 
-    Traces can be set for a temporary period by using the administration portlet **Enable Tracing**. To set traces by using the portlet, complete the following steps:
+    You can set traces for a temporary period by using the administration portlet **Enable Tracing**. To set traces by using the portlet, complete the following steps:
 
     1.  Log in as the administrator.
     2.  Click the **Administration menu** icon. Then, click **Tracing: Gather data about the site**. The Enable Tracing portlet appears.
