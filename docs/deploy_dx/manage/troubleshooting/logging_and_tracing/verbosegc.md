@@ -2,7 +2,7 @@
 
 Verbose garbage collection \(verbosegc\) logging is often required when tuning and debugging many issues, and has negligible impact on system performance.
 
-The default HCL Digital Experience WebEngine installation enables verbosegc logging and configures the following generic JVM argument:
+The default HCL Digital Experience (DX) WebEngine installation enables verbosegc logging and configures the following generic Java Virtual Machine (JVM) argument:
 
 `-Xlog:safepoint=info,gc:file=verbosegc.log:time,level,tags:filecount=5,filesize=20M`
 
