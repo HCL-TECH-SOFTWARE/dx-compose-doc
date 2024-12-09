@@ -1,6 +1,6 @@
 # Logging and tracing
 
-If you are experiencing a problem, you might want to enable tracing and then re-create the problem to capture more log information.
+If you are experiencing a problem, you can enable tracing and then re-create the problem to capture more log information.
 
 Refer to the MustGather data collection lists used in troubleshooting various problems in HCL Digital Experience and HCL Digital Experience Compose. Collecting MustGather data early, even before you open a PMR, helps HCL Software Support quickly determine whether:
 
