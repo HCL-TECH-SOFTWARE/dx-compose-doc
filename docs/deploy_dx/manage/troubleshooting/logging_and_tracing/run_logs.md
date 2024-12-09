@@ -1,6 +1,6 @@
 # HCL WebEngine runtime logs
 
-If tracing is enabled, HCL Digital Experience WebEngine generates a log file during run time that contains messages and trace information.
+If tracing is enabled, HCL Digital Experience (DX) Compose WebEngine generates a log file during run time that contains messages and trace information.
 
 The default runtime log file is shown:
 
