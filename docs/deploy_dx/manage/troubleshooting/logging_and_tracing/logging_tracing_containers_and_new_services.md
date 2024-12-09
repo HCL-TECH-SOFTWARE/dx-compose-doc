@@ -55,12 +55,7 @@ Prerequisite: Install and configure Content Composer, Digital Asset Management, 
 
 ## Enabling tracing permanently
 
-1.  Start WebSphere Application Server.
-2.  Open the WebSphere Integrated Solutions Console.
-3.  Go to **Troubleshooting > Logs and Traces > HCL Digital Experience > Diagnostic Trace**.
-4.  Click **Change log detail levels**.
-5.  Select the **Enable Trace** check box.
-6.  Enter the trace details you would like to enable in the **TraceSpecification** field.
+1.  Adjust the Helm chart WebEngine trace setting.
 
     For example, to trace all events, use the following value:
 
@@ -70,8 +65,7 @@ Prerequisite: Install and configure Content Composer, Digital Asset Management, 
     hcl.logging.presentation-designer.*=all
     ```
 
-7.  Save the changes.
-8.  Restart HCL Digital Experience 9.5 container session.
+7.  Apply the helm chart.
 
 ## Enabling tracing for the current HCL Digital Experience 9.5 session
 
@@ -97,7 +91,7 @@ You can view the client logs using the developer tools in the web browser. The f
 
 
 !!!important
-    WebSphere Application Server consolidates the trace strings list by removing strings that are logically contained within others. For example, if you have a string `x.y.z.*=all` in the list, it disappears when you add `x.y.*=all`
+    Open Liberty consolidates the trace strings list by removing strings that are logically contained within others. For example, if you have a string `x.y.z.*=all` in the list, it disappears when you add `x.y.*=all`
 
 ???+ info "Related information"  
     -   [Troubleshooting your Helm deployment](../../../../deployment/manage/container_configuration/troubleshooting/helm_troubleshooting.md)
