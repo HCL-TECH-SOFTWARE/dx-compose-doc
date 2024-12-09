@@ -4,7 +4,7 @@ Enable the use of Open Liberty trace facilities to create trace information for 
 
 WCM uses the Open Liberty trace facilities to create trace information. If you need detailed trace output of WCM to debug a problem, follow these steps:
 
-## Enable static (extended) tracing
+## Enabling static (extended) tracing
 
 Static tracing is recommended when there is a need to capture data, as it collects data from server startup until problem recreation.
 
