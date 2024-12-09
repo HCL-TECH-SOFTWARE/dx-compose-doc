@@ -11,7 +11,7 @@ Static tracing is recommended when there is a need to capture data, as it collec
 1.  Enable tracing in the helm chart for the desired trace specification.
 2.  Apply the helm changes.
 
-## Enable dynamic tracing
+## Enabling dynamic tracing
 
 Dynamic tracing can be used for situations that do not permit a server restart.
 
