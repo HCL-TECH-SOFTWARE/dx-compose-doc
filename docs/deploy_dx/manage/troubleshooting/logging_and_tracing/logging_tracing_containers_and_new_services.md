@@ -18,7 +18,7 @@ Prerequisite: Install and configure Content Composer, Digital Asset Management, 
 
     The application name is configured in the shared settings. The following values are currently in use:
 
-    -   `medialibrary` - for Digital Asset Management
+    -   `medialibrary` - for Digital Asset Management (DAM)
     -   `content-ui` - for Content Composer
     
 -   **severity**
