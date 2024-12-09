@@ -93,7 +93,7 @@ WCM has defined several JCR nodetypes to represent its data structure. Each node
 
 When these links are selected, the child types and properties of a node are displayed.
 
-## List Workspaces
+## List workspaces
 
 The workspace is an interface to WCM that is associated with a user, in which items are created, saved, deleted, and searched for:
 
