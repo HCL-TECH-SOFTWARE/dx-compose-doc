@@ -1,6 +1,6 @@
 # Error message codes
 
-Each message code consists of a product identifier, component identifier, a unique number, and a message type identifier. The product identifier is EJP and there are many components. There are three message types: error, information, and warning.
+Each message code consists of a product identifier, component identifier, a unique number, and a message type identifier. The product identifier is `EJP` and there are many components. There are three message types: error, information, and warning.
 
 ## Example
 
