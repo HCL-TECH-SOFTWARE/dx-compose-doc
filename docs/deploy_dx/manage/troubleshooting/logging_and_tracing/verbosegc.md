@@ -10,6 +10,6 @@ The verbosegc log file name is `verbosegc.log`.
 
 The default HCL Digital Experience Compose installation redirects the verbosegc output to the verbosegc.log file.
 
-For more information about configuring the JVM through Open Liberty see: [Logging and Tracing in Open Liberty](https://openliberty.io/docs/latest/log-trace-configuration.html)
+For more information about configuring the JVM through Open Liberty, see [Logging and Tracing in Open Liberty](https://openliberty.io/docs/latest/log-trace-configuration.html){target="_blank"}.
 
 
