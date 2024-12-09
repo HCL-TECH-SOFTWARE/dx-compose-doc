@@ -12,7 +12,7 @@ For information about how to use log files and a list of trace logger strings, r
 
 Messages for HCL WebEngine are logged in the following files:
 
--   **SystemOut.log**
+-   `SystemOut.log`
 
     This file contains information that is useful to monitor the health of the HCL WebEngine server and all running processes.
 
