@@ -41,7 +41,7 @@ Prerequisite: Install and configure Content Composer, Digital Asset Management, 
     The following are some examples of full trace strings for Content Composer, DAM, and their results:
 
     -   `hcl.logging.content-ui.*=all` - Enables debug message logging for all files in the DAM application user interface source folder app/redux/actions. Specifically, the debug string `client:debug:app:redux:actions:*` is set for the DAM client logger.
-    This tracing is enabled either permanently or just for the current HCL Digital Experience 9.5 container.
+    This tracing is enabled either permanently or just for the current HCL DX Compose WebEngine container.
 
     HCL Digital Experience 9.5 uses the IBM® WebSphere Application Server trace facilities to create trace information.
 
