@@ -11,7 +11,7 @@ Refer to the MustGather data collection lists used in troubleshooting various pr
 
 You can enable logging and tracing for software that is included with HCL DX Compose. Enabling tracing makes log output more verbose. For example, you can enable tracing within Open Liberty to obtain information about application servers and other processes.
 
-You can use the information gathered to help solve your own problems or to report an issue to HCL Software Support.
+You can use the information gathered to help solve problems or to report an issue to [HCL Software Support](https://support.hcl-software.com/csm){target="_blank"}.
 
 ## Links to important HCL Digital Experience tracing questions
 
