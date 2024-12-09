@@ -51,7 +51,7 @@ You can set traces for different durations:
     -   Enter the trace string `*=info` in the **Append these trace settings:** field and click the **Add** icon. This trace string overwrites all settings that are listed under **Current trace settings:** and resets it to the default.
 -   **Extended**
 
-    To enable trace settings for a longer period, that is, for more than one session, enable them via helm. 
+    To enable trace settings for a longer period, that is, for more than one session, enable trace through the Helm chart. 
 
 ## Changing the language used in the log file
 
