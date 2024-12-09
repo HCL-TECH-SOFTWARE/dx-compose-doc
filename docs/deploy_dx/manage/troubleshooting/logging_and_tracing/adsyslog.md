@@ -59,4 +59,4 @@ Changing the language in the log file is not supported at this time.
 
 ## Log file format
 
-See the Open Liberty document on log formats: [Open Liberty Log Format](https://openliberty.io/docs/latest/log-trace-configuration.html#log_formats)
+For more information about log formats, see [Open Liberty Log Format](https://openliberty.io/docs/latest/log-trace-configuration.html#log_formats){target="_blank"}.
