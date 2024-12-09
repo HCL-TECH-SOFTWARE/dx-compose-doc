@@ -31,7 +31,7 @@ You can find the log files for HCL WebEngine, including `SystemOut.log` and `tra
 
 HCL WebEngine provides the logging of debugging messages called traces. These traces are useful for fixing problems. However, to save system resources, they are turned off by default.
 
-Traces can be set for different durations:
+You can set traces for different durations:
 
 -   **Temporary**
 
