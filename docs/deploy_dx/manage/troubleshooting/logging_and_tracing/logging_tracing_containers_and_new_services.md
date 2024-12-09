@@ -45,7 +45,7 @@ Prerequisite: Install and configure Content Composer, Digital Asset Management, 
 
     HCL Digital Experience 9.5 uses the Open Liberty trace facilities to create trace information.
 
-    If you need detailed trace output of Content Composer or Digital Asset Management to troubleshoot a problem, follow these steps in the succeeding sections.
+    If you need detailed trace output of Content Composer or DAM to troubleshoot a problem, follow the steps in the succeeding sections.
 
 
 !!!note
