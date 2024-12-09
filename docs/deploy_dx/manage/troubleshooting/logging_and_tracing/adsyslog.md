@@ -1,6 +1,6 @@
 # System event logging
 
-The system event logging facility of HCL Digital Experience Compose enables the recording of information about the operation of HCL WebEngine.
+The system event logging facility of HCL Digital Experience (DX) Compose enables the recording of information about the operation of the WebEngine container.
 
 Event logs provide administrators with information about important or abnormal events, especially errors that occur during the operation of the product. In addition, event logs gather debugging information that helps HCL Software Support to resolve problems.
 
