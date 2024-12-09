@@ -55,7 +55,7 @@ You can set traces for different durations:
 
 ## Changing the language used in the log file
 
-This is not supported at this time.
+Changing the language in the log file is not supported at this time.
 
 ## Reference: Log file format
 
