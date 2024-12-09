@@ -6,7 +6,7 @@ The default HCL Digital Experience (DX) WebEngine installation enables verbosegc
 
 `-Xlog:safepoint=info,gc:file=verbosegc.log:time,level,tags:filecount=5,filesize=20M`
 
-The verbosegc log file name is verbosegc.log. 
+The verbosegc log file name is `verbosegc.log`. 
 
 The default HCL Digital Experience installation redirects the verbosegc output to 5 rotating historical log files, each containing 20MB.
 
