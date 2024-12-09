@@ -106,7 +106,7 @@ The workspace is an interface to WCM that is associated with a user, in which it
     -   jcr:versioning (All versions)
     -   Dynamic workspaces (WCM Drafts, Personalization work)
 
-## Enable access code
+## Enabling access code
 
 There may be occasions when working with HCL Software Support in which they may provide a specific access code in order to unlock update features within the WCM Support Tools portlet. These access codes are temporary, and should be used only to repair the specific problems as directed by the HCL Support Engineer. Any other updates to the JCR database should be done through either HCL Digital Experience administration or WCM Authoring.
 
