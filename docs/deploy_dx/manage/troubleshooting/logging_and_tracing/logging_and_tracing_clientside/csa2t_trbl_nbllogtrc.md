@@ -1,6 +1,6 @@
 # Enabling client-side logging and tracing
 
-Modify the custom properties cc.isDebug and cc.traceConfig in the WP CommonComponentConfigService to enable client-side logging and tracing.
+Modify the custom properties `cc.isDebug` and `cc.traceConfig` in the WP CommonComponentConfigService to enable client-side logging and tracing.
 
 1.  In the Helm chart set WP CommonComponentConfigService cc.isDebug=true and 
 
