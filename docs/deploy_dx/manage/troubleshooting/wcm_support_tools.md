@@ -61,7 +61,7 @@ After selecting the **Lookup** button, the details of the item are displayed. Fo
 
 The WCM JCR uses XPath to search the node hierarchy. XPath is translated to SQL for the specific underlying DX database installed to the platform. The command Run XPath Query returns the result from JCR by using XPath without WCM manipulation, which can help to isolate a problem (JCR or WCM).
 
-## Generate WCM Search URL
+## Generating WCM Search URL
 
 This option helps you generate a WCM Seed List URL to be used within a content source. You can select a type of site for your environment from the four button options: **Stand-alone**, **Cluster**, **Virtual Portal**, or **Virtual Portal with Unique URL**. Note that Administrator access is required to generate a WCM Search URL.
 
