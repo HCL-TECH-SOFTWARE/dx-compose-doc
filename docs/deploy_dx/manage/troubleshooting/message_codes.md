@@ -4,7 +4,7 @@ Each message code consists of a product identifier, component identifier, a uniq
 
 ## Example
 
-For the following message code EJPIC0001E:
+For the message code `EJPIC0001E`:
 
 -   `EJP` is the product identifier.
 -   `IC` is the component identifier which means installation user interface.
