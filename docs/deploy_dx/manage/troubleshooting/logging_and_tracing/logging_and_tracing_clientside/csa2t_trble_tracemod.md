@@ -16,7 +16,7 @@ Enable tracing to debug your module information and improve performance through 
 
 2.  Enable tracing with cookies.
 
-    1.  In the Helm chart set WP ConfigService  resourceaggregation.client.debug.mode.allowed=true
+    1.  In the Helm chart set, WP ConfigService `resourceaggregation.client.debug.mode.allowed=true`.
 
     2.  Apply the helm changes.
 
