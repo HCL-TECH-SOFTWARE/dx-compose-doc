@@ -8,7 +8,7 @@ For the following message code EJPIC0001E:
 
 -   EJP is the product identifier
 -   `IC` is the component identifier which means installation user interface.
--   0001 is the unique message number
+-   `0001` is the unique message number.
 -   E is the message type, error
 
 During the last session, you clicked Start Configuration and the configuration was running automatically. To return to the automatic process, click Resume Configuration. Otherwise, click Cancel to run each remaining step manually.
