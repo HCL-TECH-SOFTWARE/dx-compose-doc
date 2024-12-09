@@ -18,7 +18,7 @@ Dynamic tracing can be used for situations that do not permit a server restart.
 1.  Log in to the WebEngine Admin UI as the Portal administrator.
 2.  Select **Administration > Portal Analysis > **Enable Tracing**. The Enable Tracing portlet appears.
 3.  Type the required trace string into the field **Append these trace settings** based on the table below.
-4.  Click the **Add** icon. Enable Tracing updates the field **Current trace settings**.
+4.  Click the **Add** icon. Enabling tracing updates the **Current trace settings** field.
 
     !!!note
         Restarting HCL WebEngine will remove traces that were set by using the Enable Tracing Administration portlet.
