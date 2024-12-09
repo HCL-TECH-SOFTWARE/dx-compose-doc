@@ -88,7 +88,7 @@ To generate a WCM Seed List URL, refer to the following steps:
 
 WCM has defined several JCR nodetypes to represent its data structure. Each nodetype defines the properties and child nodes required for the WCM data object it represents, for example:
 
--   Content Item: `ibmcontentwcm:webContent`
+-   Content item: `ibmcontentwcm:webContent`
 -   Site Area: `ibmcontentwcm:siteArea`
 
 When these links are selected, the child types and properties of a node are displayed.
