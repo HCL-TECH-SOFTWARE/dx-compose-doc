@@ -17,7 +17,9 @@ Modify the custom properties `cc.isDebug` and `cc.traceConfig` in the WP CommonC
 3. Apply the Helm chart.
 
 
-Examples: To activate all iWidget related logging and tracing, you use the following line:
+Examples: 
+
+To activate all iWidget-related logging and tracing, use the following line:
 
 ```
 traceConfig: ["com.ibm.mm.iwidget.*"]
