@@ -110,6 +110,6 @@ The workspace is an interface to WCM that is associated with a user, in which it
 
 There may be occasions when working with HCL Software Support in which they may provide a specific access code in order to unlock update features within the WCM Support Tools portlet. These access codes are temporary, and should be used only to repair the specific problems as directed by the HCL Support Engineer. Any other updates to the JCR database should be done through either HCL Digital Experience administration or WCM Authoring.
 
-Once an access code is received, for example, for write_all, and enabled, a message like `Write Access Enabled: write_all` is presented, if the code is valid and accepted. HCL Software Support will provide more information on the specific task required from to work to resolution of your support requirement.
+After an access code is received (for example, for write_all and enabled), a message like `Write Access Enabled: write_all` appears if the code is valid and accepted. HCL Software Support will provide more information on the specific task required from to work to resolution of your support requirement.
 
 
