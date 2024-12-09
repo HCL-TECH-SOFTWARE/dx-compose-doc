@@ -2,7 +2,7 @@
 
 Learn how to enable client-side logging and tracing of your HCL Digital Experience (DX) Compose pages.
 
-Portal pages that are rendered in client side aggregation mode differ in their logging behavior from portal pages rendered in server side mode. For client side rendered pages, a considerable amount of code is written in JavaScript that is executed in the corresponding browser JavaScript engine rather than on the server. As a result, the corresponding logging and tracing information is collected in the browser and not on the server side.
+Portal pages that are rendered in client-side aggregation mode differ in their logging behavior from portal pages rendered in server-side mode. For client-side rendered pages, a considerable amount of code is written in JavaScript that is executed in the corresponding browser JavaScript engine rather than on the server. As a result, the corresponding logging and tracing information is collected in the browser and not on the server side.
 
 -   **[Enabling client side logging and tracing](csa2t_trbl_nbllogtrc.md)**  
 Modify the custom properties cc.isDebug and cc.traceConfig in the WP CommonComponentConfigService to enable client-side logging and tracing.
