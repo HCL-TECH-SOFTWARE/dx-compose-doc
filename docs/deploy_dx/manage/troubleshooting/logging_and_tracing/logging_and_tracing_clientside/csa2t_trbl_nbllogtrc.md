@@ -2,7 +2,7 @@
 
 Modify the custom properties `cc.isDebug` and `cc.traceConfig` in the WP CommonComponentConfigService to enable client-side logging and tracing.
 
-1.  In the Helm chart set WP CommonComponentConfigService cc.isDebug=true and 
+1.  In the Helm chart, set `WP CommonComponentConfigService cc.isDebug=true` and 
 
 2.  Set the value of the property `cc.traceConfig` property for WP CommonComponentConfigService to a value that represents a correctly formatted JavaScript array of strings. Each string in the array is the name of the component that you want to trace. You can use the wildcard character asterisk \(`**\***`\) for multiple matching.
 
