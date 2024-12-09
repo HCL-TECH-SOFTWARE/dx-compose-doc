@@ -11,7 +11,7 @@ See the topic [System event logging](adsyslog.md)) for details on how to configu
 The following information describes trace loggers for particular situations and problem symptoms. Enabling the trace loggers can slow down HCL WebEngine.
 
 !!!note
-    If there are problems with portal administration portlets, the error is not caused by the portlet code itself, but by the underlying function for which the portlet provides the UI. Therefore, the portlet trace strings are not listed here. If there are issues with these portlets, provide the trace strings of the underlying function. If you need traces or logs for portlets, you can learn how to obtain them from support personnel.
+    If there are problems with portal administration portlets, the error is not caused by the portlet code itself, but by the underlying function for which the portlet provides the UI. Therefore, the portlet trace strings are not listed here. If there are issues with these portlets, provide the trace strings of the underlying function. If you need traces or logs for portlets, you can learn how to obtain them from HCL Support.
 
 ## Access Control
 
