@@ -103,7 +103,7 @@ The following information describes trace loggers for particular situations and 
     Deals with generated SQL statements and the internal flow in the HCL WebEngine database layer.
 
 
--   **Trace String**
+-   **Trace string**
 
     ```
     com.ibm.wps.datastore.*=all:   
