@@ -350,7 +350,7 @@ The following information describes trace loggers for particular situations and 
 
 -   **When to use**
 
-    Use to turn on all SSO tracer loggers.
+    Use to turn on all single sign-on (SSO) tracer loggers.
 
 -   **Trace string**
 
