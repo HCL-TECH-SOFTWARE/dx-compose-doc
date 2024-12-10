@@ -15,14 +15,14 @@ You can use the information gathered to help solve problems or to report an issu
 
 ## Common HCL DX Compose tracing questions
 
--   **How do I turn on HCL Digital Experience trace logging?**
+-   **How do I turn on HCL Digital Experience Compose trace logging?**
 
     See [Trace logging](adsyslog.md#tra_log) for information.
 
 
 -   **What are the different trace settings and where are they logged?**
 
-    See [Portal runtime logs](run_logs.md) for information.
+    See [WebEngine runtime logs](run_logs.md) for information.
 
 
 -   **How do I change the location of my logs?**
