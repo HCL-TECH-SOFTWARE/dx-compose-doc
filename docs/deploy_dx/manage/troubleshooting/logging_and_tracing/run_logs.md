@@ -108,7 +108,7 @@ The following information describes trace loggers for particular situations and 
 
 -   **When to use**
 
-    Deals with generated SQL statements and the internal flow in the HCL WebEngine database layer.
+    Use to deal with generated SQL statements and the internal flow in the HCL WebEngine database layer.
 
 
 -   **Trace string**
