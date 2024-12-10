@@ -6,8 +6,10 @@ The deployment of WebEngine is similar to HCL DX with Core container. Note that 
 
 See the following topics for more information.
 
+-   **[Changing the DX Compose WebEngine URL](../manage/change_context_root_or_home.md)**  <!-- This document needs steps for executing via helm -->
+Learn how to change the WebEngine context root, home and personalized home values in your DX Compose deployment.
 -   **[Configuring LDAP](../manage/ldap_configuration.md)**  
-Learn how to configure a Lightweight Directory Access Protocol (LDAP) registry in HCL DX on Liberty.
+Learn how to configure a Lightweight Directory Access Protocol (LDAP) registry in HCL DX Compose.
 -   **[DX Compose WebEngine configuration changes using overrides](../manage/configuration_changes_using_overrides.md)**  
 Learn how to update the `server.xml` properties and how to configure the DX Compose WebEngine server using `configOverrideFiles`.
 -   **[Enabling Content Composer](enable_cc.md)**  
@@ -28,14 +30,14 @@ Learn how to restart the WebEngine server.
 Learn how to stage one WebEngine instance to another. <!--not yet reviewed 11/28-->
 -   **[Supported DXClient operations](dxclient.md)**  
 Learn the supported DXClient operations in DX Compose. 
--   **[Troubleshooting DX Compose]<!-- (replace with troubleshooting doc link when available)**  -->
+-   **[Troubleshooting DX Compose](../manage/troubleshooting/index.md)**
 Learn how to resolve issues in your DX Compose deployment.
 -   **[Using an external database and database transfer](../manage/external_db_database_transfer.md)**  
 Learn how to connect to an external database and transfer the content of the Derby database to the external database.
 -   **[Using custom secrets](custom_secrets.md)**  
 Learn how to use custom secrets through the `values.yaml` file. <!--not yet reviewed 11/28-->
 -   **[Updating DX properties using Helm values](../manage/update_properties_with_helm.md)**  
-Learn how to use the Helm chart's `values.yaml` file to add, update, or delete DX properties.
+Learn how to use the Helm chart's `values.yaml` file to add, update, or delete DX Compose properties.
 -   **[Updating the default administrator password](../manage/update_wpsadmin_password.md)**  
 Learn how to update the default `wpsadmin` password.
 -   **[Upgrading the Helm deployment](helm_upgrade_values.md)**  
