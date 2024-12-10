@@ -65,7 +65,7 @@ The following information describes trace loggers for particular situations and 
 
 -   **When to use**
 
-    Enable these messages if you want to get more information on how pages are constructed, need to verify page lists that are displayed on HCL WebEngine for correctness, or need to isolate an error in the HCL WebEngine aggregation component.
+    Enable these messages if you want to get more information on how pages are constructed, if you need to verify page lists that are displayed on HCL WebEngine for correctness, or if you must isolate an error in the HCL WebEngine aggregation component.
 
 
 -   **Trace String**
