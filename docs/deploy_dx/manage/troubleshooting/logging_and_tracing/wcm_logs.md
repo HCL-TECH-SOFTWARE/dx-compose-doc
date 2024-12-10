@@ -35,7 +35,7 @@ In HCL Digital Experience 9.5 and higher releases, the following trace strings a
 |WCM REST API|-   `com.ibm.workplace.wcm.rest.*=all:`<br>-   `com.hcl.wcm.rest.*=all:`|
 |Search Token issues|-   `com.ibm.ilel.*=all`|
 
-The following table is the list of all trace strings available for HCL Digital Experience WebEngine 9.5 and higher releases:
+The following table lists all trace strings available for HCL DX WebEngine and higher releases:
 
 |Issue|Trace String|
 |-----|------------|
