@@ -4,7 +4,7 @@ Use the HCL Web Content Manager (WCM) Support Tools portlet to investigate and a
 
 ## Overview
 
-The HCL Web Content Manager (WCM) items are stored in the Java Content Repository (JCR) repository against a complex schema of interrelated tables. Each item is represented as a node, which is modeled through a graph of information stored across multiple tables. For this reason, deleting a node is not as simple as removing one row from a table in the database. The interrelated connections among all the tables must be handled; in many cases, the level of logic required is not encoded in any singular SQL command that can be sent to the database.
+The HCL WCM items are stored in the JCR repository against a complex schema of interrelated tables. Each item is represented as a node, which is modeled through a graph of information stored across multiple tables. For this reason, deleting a node is not as simple as removing one row from a table in the database. The interrelated connections among all the tables must be handled; in many cases, the level of logic required is not encoded in any singular SQL command that can be sent to the database.
 
 The HCL WCM Support Tools portlet enables administrators to browse through those nodes and perform various operations directly on the JCR repository through the tool's user interface. This portlet includes tools to view the JCR repository for WCM content, run an XPath query and view results, and directly execute various support JavaServer Pages (JSPs). These tools are often utilized when working with HCL Software Support on a case-by-case basis to gather information specific to customers' environment and content. Using this portlet on the HCL WCM system helps expedite the troubleshooting process.
 
