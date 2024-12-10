@@ -1,0 +1,7 @@
+title: Troubleshooting DX Compose
+nav:
+    - index.md
+    - Logging and tracing: logging_and_tracing
+    - message_codes.md
+    - wcm_support_tools.md
+    - Maintenance mode: maintenance_mode
