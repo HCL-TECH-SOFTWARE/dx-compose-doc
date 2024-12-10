@@ -7,4 +7,4 @@ In addition, DX features such as Web Content Management (WCM), Personalization, 
 DX Compose is delivered as a set of container images and attached Helm charts to deploy to a Kubernetes system or Docker Compose. Note that DX Compose is not supported for a non-container installation.
 
 !!!note
-    In this release, instructions for use of select features are located in the [HCL Digital Experience Help Center](https://opensource.hcltechsw.com/digital-experience/latest/){target="_blank"}. These will be documented in the HCL Digital Experience Compose Help Center in future releases.
+    In this release, instructions for using select features are located in the [HCL Digital Experience Help Center](https://opensource.hcltechsw.com/digital-experience/latest/){target="_blank"}. These will be documented in the HCL Digital Experience Compose Help Center in future releases.
