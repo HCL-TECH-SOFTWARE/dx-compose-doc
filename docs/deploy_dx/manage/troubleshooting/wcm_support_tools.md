@@ -23,7 +23,7 @@ When you open the portlet in the Digital Experience Administration panel, you se
 
 After selecting **Browsing nodes**, you must select a workspace; the default is `ROOTWORKSPACE`, where WCM libraries are stored. The Java content repository is divided into the following hierarchy:
 
--   Repository: Container for workspaces
+-   **Repository**: Container for workspaces
 -   **Workspace**: Container for nodes
 -   **Node**: Container for properties
 -   **Property**: Attribute of a node
