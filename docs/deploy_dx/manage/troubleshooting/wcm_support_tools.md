@@ -11,7 +11,7 @@ The HCL WCM Support Tools portlet enables administrators to browse through those
 The WCM Support Tools Portlet is accessible from **Practitioner Studio Menu > Web Content** area.
 
 !!!note
-    HCL Software advises customers to work with HCL Software Support to properly use the Web Content Manager (WCM) Support Tools portlet.
+    HCL Software advises customers to work with [HCL Software Support](https://support.hcl-software.com/csm){target="_blank"} to properly use the WCM Support Tools portlet.
 
 ## Using the HCL WCM Support Tools portlet
 
