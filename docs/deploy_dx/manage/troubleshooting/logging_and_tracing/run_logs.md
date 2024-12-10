@@ -85,7 +85,7 @@ The following information describes trace loggers for particular situations and 
 
 ## Credential Vault
 
--   **Trace String**
+-   **Trace string**
 
     ```
     com.ibm.wps.sso.credentialvault.*=all:   
