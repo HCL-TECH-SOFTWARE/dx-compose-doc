@@ -6,7 +6,7 @@ The HCL Digital Experience Compose Helm Charts provide the capability to start a
 
 The applications with maintenance mode enabled experience the following effects:
 
-- The application containers within the Pods always remain 'ready' and 'live,' regardless of the actual application status.
+- The application containers within the Pods always remain `ready` and `live`, regardless of the actual application status.
 - The startup routine of the application is skipped, and the container does not not execute its main entrypoint routines.
 - The application itself is not started, resulting in the container to be idle until manual intervention.
 
