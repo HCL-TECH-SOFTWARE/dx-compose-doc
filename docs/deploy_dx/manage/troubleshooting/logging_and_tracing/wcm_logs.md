@@ -26,7 +26,7 @@ Dynamic tracing can be used for situations that do not permit a server restart.
 
 ## Trace Strings
 
-In HCL Digital Experience 9.5 and higher releases, the following trace strings are now available:
+In HCL DX Compose WebEnging, the following trace strings are available:
 
 |Issue|Trace String|
 |-----|------------|
