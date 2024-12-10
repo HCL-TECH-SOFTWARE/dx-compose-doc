@@ -68,7 +68,7 @@ The following information describes trace loggers for particular situations and 
     Enable these messages if you want to get more information on how pages are constructed, if you need to verify page lists that are displayed on HCL WebEngine for correctness, or if you must isolate an error in the HCL WebEngine aggregation component.
 
 
--   **Trace String**
+-   **Trace string**
 
     ```
     com.ibm.wps.model.*=all: 
