@@ -21,7 +21,7 @@ Dynamic tracing can be used for situations that do not permit a server restart.
 4.  Click the **Add** icon. Enabling tracing updates the **Current trace settings** field.
 
     !!!note
-        Restarting HCL WebEngine will remove traces that were set by using the Enable Tracing Administration portlet.
+        Restarting HCL WebEngine removes traces that were set by using the Enable Tracing Administration portlet.
 
 
 ## Trace strings
