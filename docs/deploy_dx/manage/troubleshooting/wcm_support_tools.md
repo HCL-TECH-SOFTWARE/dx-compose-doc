@@ -21,7 +21,8 @@ When you open the portlet in the Digital Experience (DX) Administration panel, y
 
 ## Browse Nodes
 
-After selecting **Browsing nodes**, you must select a workspace; the default is `ROOTWORKSPACE`, where WCM libraries are stored. The Java content repository is divided into the following hierarchy:
+To analyze the JCR representation of WCM or PZN objects use the Browse Nodes functionality. 
+After selecting **Browse Nodes**, you must select a workspace; the default is `ROOTWORKSPACE`, where WCM libraries are stored. The Java content repository is divided into the following hierarchy:
 
 -   **Repository**: Container for workspaces
 -   **Workspace**: Container for nodes
