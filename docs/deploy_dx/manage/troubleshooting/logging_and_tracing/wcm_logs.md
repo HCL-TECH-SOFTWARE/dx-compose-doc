@@ -17,7 +17,7 @@ Dynamic tracing can be used for situations that do not permit a server restart.
 
 1.  Log in to the WebEngine Admin UI as the Portal administrator.
 2.  Select **Administration > Portal Analysis > **Enable Tracing**. The Enable Tracing portlet appears.
-3.  Type the required trace string into the field **Append these trace settings** based on the table below.
+3.  Based on the following table, enter the required trace string in the **Append these trace settings** field.
 4.  Click the **Add** icon. Enabling tracing updates the **Current trace settings** field.
 
     !!!note
