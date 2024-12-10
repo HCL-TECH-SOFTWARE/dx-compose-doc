@@ -138,7 +138,12 @@ The following information describes trace loggers for particular situations and 
     com.ibm.wps.*=all
     ```
 
-    **Note:** If you want to use general tracing but do not want render times to be displayed for such portlets, you must selectively disable tracing by using the following trace string:
+    !!!note
+            If you want to use general tracing but do not want render times to be displayed for such portlets, you must selectively disable tracing by using the following trace string:
+            
+             ```
+             com.ibm.wps.pe.PortletRenderTimeLoggingHelper=info
+             ```
 
     ```
     com.ibm.wps.pe.PortletRenderTimeLoggingHelper=info
