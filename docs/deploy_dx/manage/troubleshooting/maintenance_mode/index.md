@@ -1,4 +1,4 @@
-# Maintenance Mode
+# Maintenance mode
 
 The HCL Digital Experience (DX) Compose Helm charts provide the capability to start application containers in a maintenance mode. This can be useful to debug issues that occur during the containers lifecycle, especially during the startup phase.
 
