@@ -35,7 +35,7 @@ The following information describes trace loggers for particular situations and 
 
 ## Authentication
 
--   **Trace String**
+-   **Trace string**
 
     ```
     com.ibm.wps.services.puma.*=all:   
