@@ -1,6 +1,6 @@
 # Logging and tracing for containers and new services
 
-Log levels and trace strings are set in your custom-values.yaml file. [Configure and Access Logs](../../../../deployment/manage/container_configuration/troubleshooting/configure_access_helm_logs.md) gives more detail on how to configure logging in Helm amd how to access Kubernetes container logs. 
+Log levels and trace strings are set in your `custom-values.yaml` file. [Configure and Access Logs](../../../../deployment/manage/container_configuration/troubleshooting/configure_access_helm_logs.md) provides more detail on how to configure logging in Helm amd how to access Kubernetes container logs. 
 
 ## Prerequisite
 
