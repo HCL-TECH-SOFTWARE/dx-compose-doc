@@ -67,7 +67,7 @@ Install and configure Content Composer, Digital Asset Management, and others to 
     hcl.logging.presentation-designer.*=all
     ```
 
-7.  Apply the helm chart.
+7.  Apply the Helm chart.
 
 ## Enabling tracing for the current HCL Digital Experience 9.5 session
 
