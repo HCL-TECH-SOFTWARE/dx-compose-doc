@@ -9,7 +9,7 @@ WCM uses the Open Liberty trace facilities to create trace information. If you n
 Static tracing is recommended when there is a need to capture data, as it collects data from server startup until problem recreation.
 
 1.  Enable tracing in the Helm chart for the desired trace specification.
-2.  Apply the helm changes.
+2.  Apply the Helm changes.
 
 ## Enabling dynamic tracing
 
