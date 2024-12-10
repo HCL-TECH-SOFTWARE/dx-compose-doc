@@ -1,12 +1,12 @@
-# Maintenance Mode
+# Maintenance mode
 
-The HCL Digital Experience Helm Charts provide the capability to start application containers in a maintenance mode. This can be useful to debug issues that occur during the containers lifecycle, especially during the startup phase.
+The HCL Digital Experience (DX) Compose Helm charts provide the capability to start application containers in a maintenance mode. This can be useful to debug issues that occur during the containers lifecycle, especially during the startup phase.
 
 ## Effects
 
 The applications with maintenance mode enabled experience the following effects:
 
-- The application containers within the Pods always remain 'ready' and 'live,' regardless of the actual application status.
+- The application containers within the Pods always remain `ready` and `live`, regardless of the actual application status.
 - The startup routine of the application is skipped, and the container does not not execute its main entrypoint routines.
 - The application itself is not started, resulting in the container to be idle until manual intervention.
 
@@ -33,8 +33,8 @@ Sample configuration:
 # This allows for debugging inside the containers if required, e.g. if configuration fixes are required
 maintenanceMode:
     contentComposer: false
-    # Enabling maintenance mode for DX Core
-    core: true
+    # Enabling maintenance mode for WebEngine
+    webEngine: true
     damPluginGoogleVision: false
     digitalAssetManagement: false
     imageProcessor: false
@@ -66,16 +66,16 @@ helm upgrade -n <namespace> <release-name> -f custom-values.yaml ./hcl-dx-deploy
 
 # Release "dx-deployment" has been upgraded. Happy Helming!
 # NAME: dx-deployment
-# LAST DEPLOYED:
+# LAST DEPLOYED: Fri Dec  6 17:10:17 2024
 # NAMESPACE: dxns
 # STATUS: deployed
 # REVISION: 2
 # TEST SUITE: None
 # NOTES:
-# Installation of HCL DX 95_CF217 done.
+# Installation of HCL DX 95_CF224 done.
 
 # See https://opensource.hcltechsw.com/digital-experience/latest/platform/kubernetes/overview/ for further information.
-# ATTENTION: Maintenance mode is enabled for Pods: Core
+# ATTENTION: Maintenance mode is enabled for Pods: webEngine
 ```
 
 If you check the logs of the affected application, there is also a message regarding the maintenance mode:
@@ -83,7 +83,7 @@ If you check the logs of the affected application, there is also a message regar
 ```sh
 # Checking the logs of a Pod using kubectl
 # Please adjust namespace and pod name to match your deployment
-kubectl logs -n <namespace> <release-name>-core-0 -c core
+kubectl logs -n <namespace> <release-name>-web-engine-0 -c web-engine
 
 # Deployment type is: helm
 # Maintenance mode is: true
@@ -99,44 +99,12 @@ In case you need to delete a Pod that is still in a broken state even though you
 # Delete the corresponding Pod using kubectl
 # Please adjust namespace and pod name to match your deployment
 
-kubectl delete pod -n <namespace> <release-name>-core-0
+kubectl delete pod -n <namespace> <release-name>-web-engine-0
 ```
 
-## Usage with DX Core
+## Usage with WebEngine
 
-The DX Core application performs certain actions during its regular startup routine. These actions are not executed when maintenance mode is enabled.
-In order to start the DX Core JVM in maintenance mode, you must perform the following actions:
+The DX WebEngine application performs certain actions during its regular startup routine. These actions are not executed when maintenance mode is enabled.
+In order to start the DX WebEngine JVM in maintenance mode, you must perform the following actions:
 
-!!!important
-    Make sure you are selecting the right profile that matches the currently installed version in the following commands.
-
-```sh
-# Connect into the running container
-# Please adjust namespace and pod name to match your deployment
-kubectl exec -it -n <namespace> <release-name>-core-0 -c core -- /bin/bash
-
-# Navigate to the profiles directory that is stored within the mounted persistent volume
-cd /opt/HCL/profiles
-
-# Display the existing volumes
-ls -l
-# total 8
-# drwxr-xr-x. 22 dx_user dx_users 4096 Nov 28 06:45 cw_prof
-# drwxr-xr-x. 30 dx_user dx_users 4096 Nov 28 08:26 prof_95_CF217
-
-# Perform a symlink of your desired profile to the wp_profile directory
-# Make sure you are selecting the right profile that matches your currently installed / active version
-ln -s /opt/HCL/profiles/prof_95_CF217/ /opt/HCL/wp_profile
-
-# You can now attempt to start the DX Core JVM
-/opt/HCL/wp_profile/bin/startServer.sh WebSphere_Portal
-
-# ADMU0116I: Tool information is being logged in file
-#            /opt/HCL/wp_profile/logs/WebSphere_Portal/startServer.log
-# ADMU0128I: Starting tool with the wp_profile profile
-# ADMU3100I: Reading configuration for server: WebSphere_Portal
-# ADMU3200I: Server launched. Waiting for initialization status.
-# ADMU3000I: Server WebSphere_Portal open for e-business; process id is 2233
-```
-
-Note that if the container is restarted by Kubernetes, this symlink disappears.
+To be done.

@@ -1,27 +1,26 @@
-# HCL Portal runtime logs
+# HCL WebEngine runtime logs
 
-If tracing is enabled, HCL Digital Experience generates a log file during run time that contains messages and trace information.
+If tracing is enabled, HCL Digital Experience (DX) Compose WebEngine generates a log file during run time that contains messages and trace information.
 
 The default runtime log file is shown:
 
--   AIX® and Linux™: wp_profile_root/logs/WebSphere_Portal/trace.log
--   Windows™: wp_profile_root\logs\WebSphere_Portal\trace.log
+/opt/openliberty/wlp/usr/servers/defaultServer/logs/trace.log
 
-See the topic on system event logging for details on how to configure logging and for information on the grammar of the "trace string" configuration key.
+See the topic [System event logging](adsyslog.md) for details on how to configure logging and for information on the grammar of the "trace string" configuration key.
 
-The following information describes trace loggers for particular situations and problem symptoms. Enabling the trace loggers can slow down HCL Portal.
+The following information describes trace loggers for particular situations and problem symptoms. Enabling the trace loggers can slow down HCL WebEngine.
 
 !!!note
-    If there are problems with portal administration portlets, the error is not caused by the portlet code itself, but by the underlying function for which the portlet provides the UI. Therefore, the portlet trace strings are not listed here. If there are issues with these portlets, provide the trace strings of the underlying function. If you need traces or logs for portlets, you can learn how to obtain them from support personnel.
+    If there are problems with portal administration portlets, the error is not caused by the portlet code itself, but by the underlying function for which the portlet provides the UI. Therefore, the portlet trace strings are not listed here. If there are issues with these portlets, provide the trace strings of the underlying function. If you need traces or logs for portlets, you can learn how to obtain them from HCL Support.
 
-## Access Control
+## Access control
 
 -   **When to use**
 
     Enable this tracer if you want permissions for resources to be explained in detail, need to verify the correctness of a permission, or need to isolate a defect in access control.
 
 
--   **Trace String**
+-   **Trace string**
 
     ```
     com.ibm.wps.ac.*=all
@@ -29,14 +28,18 @@ The following information describes trace loggers for particular situations and 
 
 -   **Additional comments**
 
-    The traces are easier to evaluate while HCL Portal usage is low.
+    The traces are easier to evaluate while HCL WebEngine usage is low.
 
     **Important:** Enabling this logger creates large log files.
 
 
 ## Authentication
 
--   **Trace String**
+-   **When to use**
+
+    Enable this tracer if you want to debug login, logout, and impersonation issues.
+
+-   **Trace string**
 
     ```
     com.ibm.wps.services.puma.*=all:   
@@ -55,21 +58,21 @@ The following information describes trace loggers for particular situations and 
     Use to turn on all command trace loggers.
 
 
--   **Trace String**
+-   **Trace string**
 
     ```
     com.ibm.wps.commands.*=all
     ```
 
 
-## Layout Model
+## Layout model
 
 -   **When to use**
 
-    Enable these messages if you want to get more information on how pages are constructed, need to verify page lists that are displayed on HCL Portal for correctness, or need to isolate an error in the HCL Portal aggregation component.
+    Enable these messages if you want to get more information on how pages are constructed, if you need to verify page lists that are displayed on HCL WebEngine for correctness, or if you must isolate an error in the HCL WebEngine aggregation component.
 
 
--   **Trace String**
+-   **Trace string**
 
     ```
     com.ibm.wps.model.*=all: 
@@ -79,14 +82,18 @@ The following information describes trace loggers for particular situations and 
 
 -   **Additional comments**
 
-    The traces are easier to evaluate while HCL Portal usage is low.
+    The traces are easier to evaluate while HCL WebEngine usage is low.
 
     **Important:** Enabling this logger creates large log files.
 
 
-## Credential Vault
+## Credential vault
 
--   **Trace String**
+-   **When to use**
+
+    Investigate issues with the credential retrieval or storage from the vault.
+
+-   **Trace string**
 
     ```
     com.ibm.wps.sso.credentialvault.*=all:   
@@ -101,10 +108,10 @@ The following information describes trace loggers for particular situations and 
 
 -   **When to use**
 
-    Deals with generated SQL statements and the internal flow in the HCL Portal database layer.
+    Use to deal with generated SQL statements and the internal flow in the HCL WebEngine database layer.
 
 
--   **Trace String**
+-   **Trace string**
 
     ```
     com.ibm.wps.datastore.*=all:   
@@ -139,12 +146,12 @@ The following information describes trace loggers for particular situations and 
     com.ibm.wps.*=all
     ```
 
-    **Note:** If you want to use general tracing but do not want render times to be displayed for such portlets, you must selectively disable tracing by using the following trace string:
-
-    ```
-    com.ibm.wps.pe.PortletRenderTimeLoggingHelper=info
-    ```
-
+    !!!note
+            If you want to use general tracing but do not want render times to be displayed for such portlets, you must selectively disable tracing by using the following trace string:
+            
+             ```
+             com.ibm.wps.pe.PortletRenderTimeLoggingHelper=info
+             ```
 
 ## Mail Service
 
@@ -185,12 +192,7 @@ The following information describes trace loggers for particular situations and 
     ```
 
 
--   **Additional comments**
-
-    When Personalization is installed outside of a HCL Portal server, Personalization logs by using WebSphere® Application Server tracing with the same trace strings.
-
-
-## Portlet Container
+## Portlet container
 
 -   **Trace string**
 
@@ -201,7 +203,7 @@ The following information describes trace loggers for particular situations and 
     ```
 
 
-## Portlet Environment
+## Portlet environment
 
 -   **Trace string**
 
@@ -257,46 +259,6 @@ The following information describes trace loggers for particular situations and 
 -   **Additional comments**
 
     Enables tracing for all portlets. Therefore, place the suspect portlet on a separate page for testing.
-
-
-## Scripting Interface
-
--   **When to use**
-
-    Use this trace string to diagnose problems with the Portal Scripting Interface, or with application interface scripting, and the execution of such scripts.
-
-
--   **Trace string**
-
-    ```
-    com.ibm.wps.scripting.*=all
-    ```
-
--   **Additional comments**
-
-    The traces are easier to evaluate while portal usage is low.
-
-    **Note:** Enabling this logger can create large log files fast.
-
-
-## Selfcare
-
--   **When to use**
-
-    Use to diagnose problems with user registration and profile editing.
-
-
--   **Trace string**
-
-    ```
-    com.ibm.wps.services.puma.*=all:   
-    com.ibm.wps.puma.*=all:
-    com.ibm.wps.um.*=all 
-    ```
-
--   **Additional comments**
-
-    Use this logger if there are errors in the sign-up, Edit My Profile, and the Manage Users and Groups portlets.
 
 
 ## Services: EventBroker
@@ -391,7 +353,7 @@ The following information describes trace loggers for particular situations and 
 
 -   **When to use**
 
-    Use to turn on all SSO tracer loggers.
+    Use to turn on all single sign-on (SSO) tracer loggers.
 
 -   **Trace string**
 
@@ -408,7 +370,7 @@ The following information describes trace loggers for particular situations and 
 
 -   **When to use**
 
-    Use to diagnose problems that occur during the administration of Web Services for Remote Portlets \(WSRP\) with HCL Portal.
+    Use to diagnose problems that occur during the administration of Web Services for Remote Portlets \(WSRP\) with HCL WebEngine.
 
 -   **Trace string**
 
@@ -422,7 +384,7 @@ The following information describes trace loggers for particular situations and 
 
 -   **When to use**
 
-    Use to diagnose problems that occur during the use of WSRP with HCL Portal as a Consumer.
+    Use to diagnose problems that occur during the use of WSRP with HCL WebEngine as a Consumer.
 
 -   **Trace string**
 
@@ -435,7 +397,7 @@ The following information describes trace loggers for particular situations and 
 
 -   **When to use**
 
-    Use to diagnose problems that occur during the use of WSRP with HCL Portal as a Producer.
+    Use to diagnose problems that occur during the use of WSRP with HCL WebEngine as a Producer.
 
 -   **Trace string**
 
@@ -448,7 +410,7 @@ The following information describes trace loggers for particular situations and 
 
 -   **When to use**
 
-    Use to diagnose problems with the XML import/export of HCL Portal configurations.
+    Use to diagnose problems with the XML import/export of HCL WebEngine configurations.
 
 -   **Trace string**
 
