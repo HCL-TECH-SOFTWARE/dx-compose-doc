@@ -29,7 +29,7 @@ You can use the information gathered to help solve problems or to report an issu
 
     See [Changing the log file name and location](adsyslog.md#log_loc) for information.
 
-
+[]()
 -   **[HCL WebEngine runtime logs](run_logs.md)**  
 If tracing is enabled, HCL Digital Experience WebEngine generates a log file during run time that contains messages and trace information.
 -   **[Verbosegc in Java VM logs](verbosegc.md)**  
