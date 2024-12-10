@@ -4,15 +4,13 @@ Digital Experience (DX) Compose is a cloud-native platform for delivering conten
 
 DX Compose is released under the HCLSoftware Continuous Delivery Support Policy, and will be releasing incremental and cumulative updates to progressively provide new features and fixes.
 
--   **[DX Compose overview](overview.md)**  
+-   **[Product overview](product_overview/index.md)**  
 This topic provides an overview of DX Compose.
--   **[DX Compose features](../getting_started/product_overview/features.md)**  
-Know the DX features supported by the WebEngine container.
 -   **[Architecture and dependencies](architecture_dependencies.md)**  
 Learn more about the transition of architecture from the Core container to the WebEngine container.
 -   **[System requirements](system_requirements.md)**  
 See the system requirements to use the WebEngine container in your DX deployment.
 -   **[Differences from DX Core](differences.md)**  
 Know the differences of WebEngine from the DX Core container. 
--   **[DX Compose limitations](limitations.md)**  <!-- move to Plan Your Deployment when available (as in DX doc) -->
+-   **[DX Compose limitations](limitations.md)** <!-- move to Plan Your Deployment when available (as in DX doc) -->
 This topic enumerates the current limitations of DX Compose.

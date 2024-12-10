@@ -1,4 +1,4 @@
-# DX Compose limitations
+# DX Compose limitations 
 
 Know the existing limitations of Digital Experience (DX) Compose.
 
@@ -47,3 +47,5 @@ Know the existing limitations of Digital Experience (DX) Compose.
 ## Product features
 
 - Site Template Builder is not supported.
+
+<!--to be moved under Plan your deployment?>

@@ -7,6 +7,7 @@ nav:
   - product_overview
   - HCL DX offerings: offerings.md
   - Architecture overview: architecture_dependencies.md
-    #  - Plan Your Deployment: plan_deployment
+#  - Plan Your Deployment: plan_deployment
   - System requirements: system_requirements.md
 #  - Download Software: download
+  - differences.md
