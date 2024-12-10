@@ -145,11 +145,6 @@ The following information describes trace loggers for particular situations and 
              com.ibm.wps.pe.PortletRenderTimeLoggingHelper=info
              ```
 
-    ```
-    com.ibm.wps.pe.PortletRenderTimeLoggingHelper=info
-    ```
-
-
 ## Mail Service
 
 -   **When to use**
@@ -194,7 +189,7 @@ The following information describes trace loggers for particular situations and 
     When Personalization is installed outside of a HCL WebEngine server, Personalization logs by using WebSphere® Application Server tracing with the same trace strings.
 
 
-## Portlet container
+## Portlet Container
 
 -   **Trace string**
 
@@ -205,7 +200,7 @@ The following information describes trace loggers for particular situations and 
     ```
 
 
-## Portlet environment
+## Portlet Environment
 
 -   **Trace string**
 
