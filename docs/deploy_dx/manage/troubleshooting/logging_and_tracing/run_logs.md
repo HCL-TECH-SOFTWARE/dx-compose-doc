@@ -20,7 +20,7 @@ The following information describes trace loggers for particular situations and 
     Enable this tracer if you want permissions for resources to be explained in detail, need to verify the correctness of a permission, or need to isolate a defect in access control.
 
 
--   **Trace String**
+-   **Trace string**
 
     ```
     com.ibm.wps.ac.*=all
