@@ -35,6 +35,10 @@ The following information describes trace loggers for particular situations and 
 
 ## Authentication
 
+-   **When to use**
+
+    Enable this tracer if you want to debug login, logout, and impersonation issues.
+
 -   **Trace string**
 
     ```
@@ -84,6 +88,10 @@ The following information describes trace loggers for particular situations and 
 
 
 ## Credential vault
+
+-   **When to use**
+
+    Investigate issues with the credential retrieval or storage from the vault.
 
 -   **Trace string**
 
