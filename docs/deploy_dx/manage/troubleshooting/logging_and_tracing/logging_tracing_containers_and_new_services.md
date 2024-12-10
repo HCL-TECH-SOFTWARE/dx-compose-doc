@@ -69,7 +69,7 @@ Install and configure Content Composer, Digital Asset Management, and others to 
 
 7.  Apply the Helm chart.
 
-## Enabling tracing for the current HCL Digital Experience 9.5 session
+## Enabling tracing for the current HCL DX Compose session
 
 1.  Click the **Administration** menu icon. Then, click **Tracing: Gather data about the site**.
 2.  Enter any of the following values in the **Append these trace settings** field.
