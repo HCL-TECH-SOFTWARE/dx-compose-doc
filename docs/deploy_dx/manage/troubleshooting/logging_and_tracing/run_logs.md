@@ -83,7 +83,7 @@ The following information describes trace loggers for particular situations and 
     **Important:** Enabling this logger creates large log files.
 
 
-## Credential Vault
+## Credential vault
 
 -   **Trace string**
 
