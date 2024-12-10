@@ -192,11 +192,6 @@ The following information describes trace loggers for particular situations and 
     ```
 
 
--   **Additional comments**
-
-    When Personalization is installed outside of a HCL WebEngine server, Personalization logs by using WebSphere® Application Server tracing with the same trace strings.
-
-
 ## Portlet container
 
 -   **Trace string**
