@@ -61,7 +61,7 @@ The following information describes trace loggers for particular situations and 
     ```
 
 
-## Layout Model
+## Layout model
 
 -   **When to use**
 
