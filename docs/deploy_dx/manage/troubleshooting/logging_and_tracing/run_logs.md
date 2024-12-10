@@ -54,7 +54,7 @@ The following information describes trace loggers for particular situations and 
     Use to turn on all command trace loggers.
 
 
--   **Trace String**
+-   **Trace string**
 
     ```
     com.ibm.wps.commands.*=all
