@@ -205,7 +205,7 @@ The following information describes trace loggers for particular situations and 
     ```
 
 
-## Portlet Environment
+## Portlet environment
 
 -   **Trace string**
 
