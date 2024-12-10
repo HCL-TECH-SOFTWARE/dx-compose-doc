@@ -49,7 +49,6 @@ You can set traces for different durations:
 
     -   Select the current trace settings under **Current trace settings:** and click the **Remove** icon. For example, the current setting can be `com.ibm.wps.command.credentialvault.*=finest`.
     -   Enter the trace string `*=info` in the **Append these trace settings:** field and click the **Add** icon. This trace string overwrites all settings that are listed under **Current trace settings:** and resets it to the default.
-
 -   **Extended**
 
     To enable trace settings for a longer period, that is, for more than one session, enable trace through the Helm chart. 
