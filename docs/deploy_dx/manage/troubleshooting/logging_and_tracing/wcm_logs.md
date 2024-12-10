@@ -1,6 +1,6 @@
 # HCL Web Content Manager tracing
 
-Enable the use of Open Liberty trace facilities to create trace information for Web Content Manager. This tracing can be enabled either permanently or for just the current HCL Digital Experience WebEngine session.
+Enable the use of Open Liberty trace facilities to create trace information for Web Content Manager (WCM). You can enable this tracing either permanently or for just the current HCL Digital Experience (DX) Compose WebEngine session.
 
 WCM uses the Open Liberty trace facilities to create trace information. If you need detailed trace output of WCM to debug a problem, follow these steps:
 
