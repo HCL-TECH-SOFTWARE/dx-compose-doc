@@ -13,7 +13,7 @@ Static tracing is recommended when there is a need to capture data, as it collec
 
 ## Enabling dynamic tracing
 
-Dynamic tracing can be used for situations that do not permit a server restart.
+You can use dynamic tracing for situations that do not permit a server restart.
 
 1.  Log in to the WebEngine Admin UI as the Portal administrator.
 2.  Select **Administration > Portal Analysis > **Enable Tracing**. The Enable Tracing portlet appears.
