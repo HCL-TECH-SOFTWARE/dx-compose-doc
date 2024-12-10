@@ -2,7 +2,7 @@
 
 Learn how to efficiently deploy Digital Experience (DX) Compose and its WebEngine Core container within your environment. Starting with environment preparation, this guide covers the deployment process, focusing on Helm-based deployments to Kubernetes environments. Steps for installation, configuration, uninstallation, and troubleshooting to ensure a smooth setup and maintenance of the service are provided.
 
-<!-- Commenting links for now.  If needed can uncomment when manage section is restructured
+<!-- Commenting links for now.  If needed can uncomment when manage section is restructured  If uncommented, links will need updating
 - [Overview](./manage/overview.md)
 - [Installation](./install/install.md)
 - [Web Engine Overview](../getting_started/overview.md)
@@ -11,7 +11,7 @@ Learn how to efficiently deploy Digital Experience (DX) Compose and its WebEngin
 - [System Requirements](../getting_started/system_requirements.md)
 - [Differences](../getting_started/differences.md)
 - [Limitations](../getting_started/limitations.md)
-- [Configuration Parameters](./manage/configuration_parameters.md)
+- [Manage users and Groups](./manage/configuration_parameters.md)
 - [Uninstall](./install/uninstall.md)
 - [Troubleshooting](./manage/troubleshooting.md)
 - [Adding Custom User Attributes](./manage/adding_custom_attributes.md)

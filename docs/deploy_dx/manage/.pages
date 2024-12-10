@@ -1,21 +1,24 @@
 nav:
   - index.md
-  - Configuration parameters: cfg_parameters
-  - Troubleshooting: troubleshooting.md
-  - Configuration changes using overrides: configuration_changes_using_overrides.md
-  - WCM modules: wcm_modules.md
-  - Supported DXClient operations: dxclient.md
-  - Monitoring the DX Compose deployment: monitor_metrics.md
-  - enable_cc.md
-  - enable_dam.md
-  - enable_content_ai.md
-  - Restarting the WebEngine server: restart_webengine_server.md
-  - Viewing WebEngine server logs: logging_webengine.md
-  - Configuring LDAP: ldap_configuration.md
-  - Updating DX properties using Helm values: update_properties_with_helm.md
-  - Updating the default administrator password: update_wpsadmin_password.md
-  - Managing outbound connections (Ajax Proxy): manage_outbound_connections.md
-  - Using custom secrets in WebEngine: custom_secrets.md
-  - Staging One WebEngine Instance to Another: staging_to_production.md
-  - Using an external database and database transfer: external_db_database_transfer.md
-  - Upgrading the Helm deployment: helm_upgrade_values.md
+  - Configure DX Compose:
+      - Enabling and disabling WCM content AI analysis: enable_content_ai.md
+      - Enabling and disabling Content Composer: enable_cc.md
+      - Enabling and disabling DAM: enable_dam.md
+  - Configure DX WebEngine:
+      - Configuration changes using overrides: configuration_changes_using_overrides.md
+      - Configuring LDAP: ldap_configuration.md
+      - Database Management: external_db_database_transfer.md
+      - Updating DX properties using Helm values: update_properties_with_helm.md
+      - Updating the default administrator password: update_wpsadmin_password.md
+      - WCM modules: wcm_modules.md
+  - Working with DX Compose:
+      - Managing outbound connections (Ajax Proxy): manage_outbound_connections.md
+      - Managing users and groups: cfg_parameters
+      - Monitoring the DX Compose deployment: monitor_metrics.md
+      - Restarting the WebEngine server: restart_webengine_server.md
+      - Staging to production: staging_to_production.md
+      - Supported DXClient operations: dxclient.md
+      - Troubleshooting: troubleshooting
+      - Upgrading the Helm deployment: helm_upgrade_values.md
+      - Using custom secrets in WebEngine: custom_secrets.md
+      - Viewing WebEngine server logs: logging_webengine.md

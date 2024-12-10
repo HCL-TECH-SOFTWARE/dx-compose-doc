@@ -6,13 +6,13 @@ See [Deploying using Helm](https://opensource.hcltechsw.com/digital-experience/l
 Specific webEngine properties and specific are listed here:
 
 See [WebEngine Server configuration changes using overrides](./configuration_changes_using_overrides.md) for steps on configuring overrides,
-See [WebEngine properties updation](./update_properties_with_helm.md)
+See [WebEngine properties updation](../manage/update_properties_with_helm.md)
 
-More info can be found in [Configuration Parameters](./configuration_parameters.md).
+More info can be found in [Configuration Parameters](./configuration_parameters.md). <!-- Seems out of place here?  The configuration_paramaters.md file deals with users and groups>
 
 How to run WCM Modules like import or export library can be found in [WCM Modules](./wcm_modules.md).
 
-Integrate DAM,CC and ContentAI in WebEngine: [DAM/CC](./enable_cc_dam.md) and [ContentAI](./enable_content_ai.md).
+Integrate DAM,CC and ContentAI in WebEngine: [DAM](../manage/enable_dam.md), [CC](../manage/enable_cc.md) and [ContentAI](../manage/enable_content_ai.md).
 
 For restarting WebEngine server: See [ manual restart](./restart_webengine_server.md).
 
