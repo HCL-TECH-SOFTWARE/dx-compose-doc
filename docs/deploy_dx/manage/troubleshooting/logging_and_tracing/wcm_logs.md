@@ -24,7 +24,7 @@ Dynamic tracing can be used for situations that do not permit a server restart.
         Restarting HCL WebEngine will remove traces that were set by using the Enable Tracing Administration portlet.
 
 
-## Trace Strings
+## Trace strings
 
 In HCL DX Compose WebEnging, the following trace strings are available:
 
