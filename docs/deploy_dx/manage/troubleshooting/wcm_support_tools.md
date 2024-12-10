@@ -1,4 +1,4 @@
-# HCL Web Content Manager Support Tools
+# HCL WCM Support Tools
 
 Use the HCL Web Content Manager (WCM) Support Tools portlet to investigate and analyze information related to the WCM Java Content Repository (JCR) nodes.
 
