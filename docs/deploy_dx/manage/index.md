@@ -44,17 +44,3 @@ Learn how to upgrade the Helm deployment using the updated `values.yaml` file.
 Learn how to view the WebEngine server logs through Kubernetes.
 -   **[WCM modules](../manage/wcm_modules.md)**  
 Learn how to trigger WCM modules and import WCM libraries.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
