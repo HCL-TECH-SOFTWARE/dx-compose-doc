@@ -2,7 +2,9 @@
 
 Log levels and trace strings are set in your custom-values.yaml file. [Configure and Access Logs](../../../../deployment/manage/container_configuration/troubleshooting/configure_access_helm_logs.md) gives more detail on how to configure logging in Helm amd how to access Kubernetes container logs. 
 
-Prerequisite: Install and configure Content Composer, Digital Asset Management, and others to your HCL Digital Experience deployment.
+## Prerequisite
+
+Install and configure Content Composer, Digital Asset Management, and others to your HCL Digital Experience (DX) Compose deployment.
 
 ## Trace string format
 
