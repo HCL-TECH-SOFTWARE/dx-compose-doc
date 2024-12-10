@@ -26,7 +26,7 @@ After selecting **Browsing nodes**, you must select a workspace; the default is 
 -   Repository: Container for workspaces
 -   Workspace: Container for nodes
 -   Node: Container for properties
--   Property: Attribute of a node
+-   **Property**: Attribute of a node
 
 Within the JCR specification, the concept of a workspace is defined to be a container for a collection of nodes. All work in the repository is done by way of a workspace. When a user logs into the repository, the user is given a "ticket", through which a workspace is requested. It is through the workspace that all interaction with the nodes, or content, is performed.
 
