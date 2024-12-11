@@ -30,7 +30,7 @@ configOverrideFiles:
 
 The name of the customization in the example (`user-overrides.xml`) can be any string. However, it is recommended that you use a name that describes the change it applies.
 
-To update the default administrator username and password, refer to the steps in [Updating the default admin password](update_wpsadmin_password.md).
+To update the default administrator username and password, refer to the steps in [Updating the default admin password](../cfg_webengine/update_wpsadmin_password.md).
 
 ## Configuring DX Compose to use a mail server
 
@@ -176,4 +176,4 @@ You can use virtual hosts to limit the domains the server responds to. In the fo
 ```
 
 ???+ info "Related information"
-  - [Update custom values.yaml with configOverrideFiles using HELM upgrade](helm_upgrade_values.md).
+  - [Update custom values.yaml with configOverrideFiles using HELM upgrade](../working_with_compose/helm_upgrade_values.md).

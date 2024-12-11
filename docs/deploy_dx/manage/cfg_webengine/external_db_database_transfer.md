@@ -6,7 +6,7 @@ title: Using an external database and database transfer
 By default, WebEngine comes with a local Derby database included in the image and persisted in a PersistentVolume. You can use the Derby database to test the basic functionality of HCL Digital Experience (DX) Compose in a Kubernetes deployment. This works for single-Pod deployments. However, for production environments, it is required to use an external database for better performance and scalability. This document outlines the steps to connect to an external database and transfer the content of the Derby database to the external database in HCL DX Compose deployment.
 
 !!! note
-    For the currently supported external databases, refer to [Limitations](../../getting_started/limitations.md).
+    For the currently supported external databases, refer to [Limitations](../../../getting_started/limitations.md).
 
 ## Configuring an external database
 

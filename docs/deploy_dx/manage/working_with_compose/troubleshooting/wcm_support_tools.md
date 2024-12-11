@@ -17,7 +17,7 @@ The WCM Support Tools Portlet is accessible from **Practitioner Studio Menu > We
 
 The HCL WCM Support Tools portlet provides an assortment of tools that are useful in troubleshooting content-related issues.
 
-When you open the portlet in the Digital Experience (DX) Compose WebEngine Administration panel, you see links to various support tools in the body. In the footer, you will find the time stamp of when the portlet is accessed, the version of WCM for which portlet is installed, and the build version of the portlet. ![HCL WCM Support Tools portlet](../../manage/troubleshooting/_img/HCL_WCM_Support_Tools_portlet_95.png)
+When you open the portlet in the Digital Experience (DX) Compose WebEngine Administration panel, you see links to various support tools in the body. In the footer, you will find the time stamp of when the portlet is accessed, the version of WCM for which portlet is installed, and the build version of the portlet. ![HCL WCM Support Tools portlet](./_img//HCL_WCM_Support_Tools_portlet_95.png)
 
 ## Browse Nodes
 

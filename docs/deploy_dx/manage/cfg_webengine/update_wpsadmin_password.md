@@ -35,8 +35,8 @@ To update the default administrator password, refer to the following steps:
 
     - Make sure to either provide a `customWebEngineSecret` or a `webEngineUser` and `webEnginePassword`.
 
-3. Do a [Helm upgrade](helm_upgrade_values.md).
+3. Do a [Helm upgrade](../working_with_compose/helm_upgrade_values.md).
 
-4. [Restart the server](restart_webengine_server.md) to apply the updated password.
+4. [Restart the server](../working_with_compose/restart_webengine_server.md) to apply the updated password.
 
 For adding other administrators and users with no administrator access, see [configOverrideFiles](configuration_changes_using_overrides.md#configuring-users-or-user-groups).

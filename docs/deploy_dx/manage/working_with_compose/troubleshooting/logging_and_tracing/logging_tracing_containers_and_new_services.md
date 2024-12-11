@@ -89,7 +89,7 @@ After a trace string is added or removed in the Tracing portlet, the DX Compose 
 ## Viewing logs in the browser console using developer tools
 You can view the client logs using the developer tools in the web browser. The following image shows an example on how to view the logs of Content Composer.
 
-![View Logs in Web Browser ](../../../../images/View_logs_in_console.png)
+![View Logs in Web Browser](../../../../../images/View_logs_in_console.png)
 
 
 !!!important
