@@ -11,7 +11,7 @@ Learn how to efficiently deploy Digital Experience (DX) Compose and its WebEngin
 - [System Requirements](../getting_started/system_requirements.md)
 - [Differences](../getting_started/differences.md)
 - [Limitations](../getting_started/limitations.md)
-- [Manage users and Groups](./manage/configuration_parameters.md)
+- [Manage users and Groups](./manage/working_with_compose/cfg_parameters/manage_users_groups_liberty.md)
 - [Uninstall](./install/uninstall.md)
 - [Troubleshooting](./manage/troubleshooting.md)
 - [Adding Custom User Attributes](./manage/adding_custom_attributes.md)
