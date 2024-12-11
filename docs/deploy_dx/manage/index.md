@@ -11,6 +11,6 @@ Learn how to enable Content Composer, Digital Asset Management, and AI analysis 
 -   **[Configuring WebEngine](cfg_webengine/index.md)**  
 Learn how to configure the WebEngine container in DX Compose.
 -   **[Working with DX Compose](working_with_compose/index.md)**  
-Learn how to
+Learn how to manage DX Compose deployments.
 
 
