@@ -6,6 +6,10 @@ The deployment of WebEngine is similar to HCL DX with Core container. Note that 
 
 See the following topics for more information.
 
+-   **[WebEngine Directory Structure](webengine_directory_structure.md)**  
+Learn about the WebEngine directory structure to understand different configurations.
+-   **[Server Configuration](server_configuration.md)**  
+Learn about the WebEngine server configuration to understand the different features, services and libraries configured to run applications.
 -   **[Configuration parameters](configuration_parameters.md)**  
 Learn how to configure users and groups in DX Compose.
 -   **[Troubleshooting DX Compose](troubleshooting.md)**  

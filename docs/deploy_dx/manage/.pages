@@ -1,5 +1,7 @@
 nav:
   - index.md
+  - WebEngine Directory Structure: webengine_directory_structure.md
+  - Server Configuration: server_configuration.md
   - Configuration parameters: cfg_parameters
   - Troubleshooting: troubleshooting.md
   - Configuration changes using overrides: configuration_changes_using_overrides.md
