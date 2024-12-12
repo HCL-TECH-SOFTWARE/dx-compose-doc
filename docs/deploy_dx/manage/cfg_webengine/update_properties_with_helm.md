@@ -75,7 +75,7 @@ You can update, delete, or add multiple properties under the same properties fil
 
 1. Add the properties you want to override or delete using the [`propertiesFilesOverrides`](#overriding-default-values-in-valuesyaml) section or [`propertiesDisable`](#disabling-properties-from-a-properties-file) section, respectively.
 
-2. After updating or disabling properties, perform a [Helm upgrade](helm_upgrade_values.md) to apply the changes.
+2. After updating or disabling properties, perform a [Helm upgrade](../working_with_compose/helm_upgrade_values.md) to apply the changes.
 
 ### Restarting the server
 

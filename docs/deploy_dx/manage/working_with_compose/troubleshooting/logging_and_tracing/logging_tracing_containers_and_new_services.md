@@ -1,6 +1,6 @@
 # Logging and tracing for containers and new services
 
-Log levels and trace strings are set in your `custom-values.yaml` file. [Configure and Access Logs](../../../../deployment/manage/container_configuration/troubleshooting/configure_access_helm_logs.md) provides more detail on how to configure logging in Helm amd how to access Kubernetes container logs. 
+Log levels and trace strings are set in your `custom-values.yaml` file. [Configure and Access Logs](https://opensource.hcltechsw.com/digital-experience/latest/deployment/manage/container_configuration/troubleshooting/configure_access_helm_logs/){target="_blank"} provides more detail on how to configure logging in Helm amd how to access Kubernetes container logs. 
 
 ## Prerequisite
 
@@ -42,10 +42,10 @@ Install and configure Content Composer, Digital Asset Management, and others to 
 
     The following are some examples of full trace strings for Content Composer, DAM, and their results:
 
-    -   `hcl.logging.content-ui.*=all` - Enables debug message logging for all files in the DAM application user interface source folder app/redux/actions. Specifically, the debug string `client:debug:app:redux:actions:*` is set for the DAM client logger.
+    -   `hcl.logging.medialibrary.*=all` - Enables debug message logging for all files in the DAM application user interface source folder app/redux/actions. Specifically, the debug string `client:debug:app:redux:actions:*` is set for the DAM client logger.
     This tracing is enabled either permanently or just for the current HCL DX Compose WebEngine container.
 
-    HCL Digital Experience 9.5 uses the Open Liberty trace facilities to create trace information.
+    HCL Digital Experience Compose v9.5 uses the Open Liberty trace facilities to create trace information.
 
     If you need detailed trace output of Content Composer or DAM to troubleshoot a problem, follow the steps in the succeeding sections.
 
@@ -67,7 +67,7 @@ Install and configure Content Composer, Digital Asset Management, and others to 
     hcl.logging.presentation-designer.*=all
     ```
 
-7.  Apply the Helm chart.
+2.  Apply the Helm chart.
 
 ## Enabling tracing for the current HCL DX Compose session
 
@@ -89,11 +89,11 @@ After a trace string is added or removed in the Tracing portlet, the DX Compose 
 ## Viewing logs in the browser console using developer tools
 You can view the client logs using the developer tools in the web browser. The following image shows an example on how to view the logs of Content Composer.
 
-![View Logs in Web Browser ](../../../../images/View_logs_in_console.png)
+![View Logs in Web Browser](../../../../../images/View_logs_in_console.png)
 
 
 !!!important
     Open Liberty consolidates the trace strings list by removing strings that are logically contained within others. For example, if you have a string `x.y.z.*=all` in the list, it disappears when you add `x.y.*=all`
 
 ???+ info "Related information"  
-    -   [Troubleshooting your Helm deployment](../../../../deployment/manage/container_configuration/troubleshooting/helm_troubleshooting.md)
+    -   [Troubleshooting your Helm deployment](https://opensource.hcltechsw.com/digital-experience/latest/deployment/manage/container_configuration/troubleshooting/helm_troubleshooting/){target="_blank"} 

@@ -6,7 +6,7 @@ The default runtime log file is shown:
 
 /opt/openliberty/wlp/usr/servers/defaultServer/logs/trace.log
 
-See the topic [System event logging](adsyslog.md)) for details on how to configure logging and for information on the grammar of the "trace string" configuration key.
+See the topic [System event logging](adsyslog.md) for details on how to configure logging and for information on the grammar of the "trace string" configuration key.
 
 The following information describes trace loggers for particular situations and problem symptoms. Enabling the trace loggers can slow down HCL WebEngine.
 

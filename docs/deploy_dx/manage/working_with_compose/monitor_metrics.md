@@ -83,8 +83,8 @@ Open Liberty community has provided the fixed JSON version of the Grafana dashbo
 
 ### Custom Grafana dashboards
 
-The following dashboard is provided by [HCL Software](https://www.hcltechsw.com/wps/portal) for use with HCL DX deployments. For exposed Prometheus metrics of WebEngine container to be visible, you can directly import a Grafana-supported custom dashboard available in the following JSON format.
+The following dashboard is provided by [HCL Software](https://www.hcl-software.com/){target="_blank"} for use with HCL DX deployments. For exposed Prometheus metrics of WebEngine container to be visible, you can directly import a Grafana-supported custom dashboard available in the following JSON format.
 
 |Dashboard|Application\(s\)|
 |---------|----------------|
-|[webengine-grafana-dashboard.json](./webengine-grafana-dashboard.json)|WebEngine|
+|[webengine-grafana-dashboard.json](../webengine-grafana-dashboard.json)|WebEngine|

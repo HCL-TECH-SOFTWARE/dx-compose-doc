@@ -17,7 +17,7 @@ The WCM Support Tools Portlet is accessible from **Practitioner Studio Menu > We
 
 The HCL WCM Support Tools portlet provides an assortment of tools that are useful in troubleshooting content-related issues.
 
-When you open the portlet in the Digital Experience (DX) Administration panel, you see links to various support tools in the body. In the footer, you will find the time stamp of when the portlet is accessed, the version of WCM for which portlet is installed, and the build version of the portlet. ![HCL WCM Support Tools portlet](../../manage/troubleshooting/_img/HCL_WCM_Support_Tools_portlet_95.png)
+When you open the portlet in the Digital Experience (DX) Compose WebEngine Administration panel, you see links to various support tools in the body. In the footer, you will find the time stamp of when the portlet is accessed, the version of WCM for which portlet is installed, and the build version of the portlet. ![HCL WCM Support Tools portlet](./_img//HCL_WCM_Support_Tools_portlet_95.png)
 
 ## Browse Nodes
 
@@ -64,7 +64,7 @@ The WCM JCR uses XPath to search the node hierarchy. XPath is translated to SQL 
 
 ## Generating WCM Search URL
 
-This option helps you generate a WCM Seed List URL to be used within a content source. You can select a type of site for your environment from the four button options: **Stand-alone**, **Cluster**, **Virtual Portal**, or **Virtual Portal with Unique URL**. Note that Administrator access is required to generate a WCM Search URL.
+This option helps you generate a WCM Seed List URL to be used within a content source. You can select a type of site for your environment from the four button options: **Stand-alone**, **Cluster**, **Virtual Portal**, or **Virtual Portal with Unique URL**. Note that Administrator access is required to generate a WCM Search URL. <!-- Cluster is really not applicable here but is available in the WebEngine UI so leaving it.>
 
 To generate a WCM Seed List URL, refer to the following steps:
 
@@ -109,7 +109,7 @@ The workspace is an interface to WCM that is associated with a user, in which it
 
 ## Enabling access code
 
-There may be occasions when working with HCL Software Support in which they may provide a specific access code in order to unlock update features within the WCM Support Tools portlet. These access codes are temporary, and should be used only to repair the specific problems as directed by the HCL Support Engineer. Any other updates to the JCR database should be done through either HCL Digital Experience administration or WCM Authoring.
+There may be occasions when working with HCL Software Support in which they may provide a specific access code in order to unlock update features within the WCM Support Tools portlet. These access codes are temporary, and should be used only to repair the specific problems as directed by the HCL Support Engineer. Any other updates to the JCR database should be done through either HCL Digital Experience Compose WebEngine administration or WCM Authoring.
 
 After an access code is received (for example, for write_all and enabled), a message like `Write Access Enabled: write_all` appears if the code is valid and accepted. HCL Software Support will provide more information on the specific task required from to work to resolution of your support requirement.
 
