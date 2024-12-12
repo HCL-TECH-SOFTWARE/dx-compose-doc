@@ -1,0 +1,6 @@
+nav:
+  - overview.md
+  - preparation
+  - image_list.md
+  - install.md
+  - helm_uninstall.md
