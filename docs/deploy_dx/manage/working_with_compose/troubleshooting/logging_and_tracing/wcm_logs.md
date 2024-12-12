@@ -26,7 +26,7 @@ You can use dynamic tracing for situations that do not permit a server restart.
 
 ## Trace strings
 
-In HCL DX Compose WebEnging, the following trace strings are available:
+In HCL DX Compose WebEngine, the following trace strings are available:
 
 |Issue|Trace String|
 |-----|------------|
@@ -35,7 +35,7 @@ In HCL DX Compose WebEnging, the following trace strings are available:
 |WCM REST API|-   `com.ibm.workplace.wcm.rest.*=all:`<br>-   `com.hcl.wcm.rest.*=all:`|
 |Search Token issues|-   `com.ibm.ilel.*=all`|
 
-The following table lists all trace strings available for HCL DX WebEngine and higher releases:
+The following table lists all trace strings available for HCL DX WebEngine releases:
 
 |Issue|Trace String|
 |-----|------------|

@@ -10,7 +10,3 @@ For the message code `EJPIC0001E`:
 -   `IC` is the component identifier which means installation user interface.
 -   `0001` is the unique message number.
 -   `E` is the message type which means error.
-
-Clicking **Start Configuration** runs the configuration  automatically. To return to the automatic process, click **Resume Configuration**. Otherwise, click **Cancel** to run each remaining step manually.
-
-
