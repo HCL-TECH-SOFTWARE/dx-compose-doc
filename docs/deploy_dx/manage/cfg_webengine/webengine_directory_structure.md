@@ -61,7 +61,7 @@ Custom secrets are stored in subfolders under the following directory.
 ```
 /mnt/customSecrets/
 ```
-For more details, refer to the document on [using custom secrets in WebEngine](./custom_secrets.md)
+For more details, refer to the document on [using custom secrets in WebEngine](../working_with_compose/custom_secrets.md)
 
 ## Side car container for logs
 
