@@ -20,8 +20,8 @@ Another way is to hover on the **Downloads** tab and click **List Downloads**.
 
 The portal lists the product line of the products you have entitlement for. Again, click **HCL Digital Experience** to locate DX Compose products.
 
-<!-- Will need new screenshot with Compose product ????-->
-![Select products DXPN](../kubernetes_deployment/images/downloadslist.png)
+<!-- Using an enlarged version of the file downloaded from Git but imho we need a better resolution ????-->
+![Select products DXPN](../kubernetes_deployment/images/compose_download_list2.png)
 
 The latest version of the software and previous versions are shown.
 
@@ -30,35 +30,14 @@ The latest version of the software and previous versions are shown.
 In the DX Download Packages list, there are several products that are under the HCL Digital Experience product line according to the product customers have purchased and are entitled to. To track down DXs’ Download Packages Name, refer to the following list:
 
 ### Package name according to DX Offering
-* HCL Portal Enable v8.5
-* HCL Portal Enable v9.0 Multiplatform
-* HCL Portal Enable v9.5 Multiplatform
-* HCL Portal Express v8.5
-* HCL Portal Express v9.0 Multiplatform
-* HCL Portal Express v9.5 Multiplatform
-* HCL Portal Extend v8.5
-* HCL Portal Extend v9.0 MP
-* HCL Portal Extend v9.5MP
-* HCL Portal Server v8.5
-* HCL Portal Server v9.0 MP
-* HCL Portal Server v9.5 MP
-* HCL Customer Experience Suite v8.5
-* HCL Customer Experience Suite v9.0
-* HCL Customer Experience Suite v9.5
-* HCL Digital Experience Manager v8.5
-* HCL Digital Experience Manager v9.0
-* HCL Digital Experience Manager v9.5
-* HCL Employee Experience Suite v8.5
-* HCL Employee Experience Suite v9.0
-* HCL Employee Experience Suite v9.5
-* HCL Web Content Manager v8.5
-* HCL Web Content Manager v9.0
-* HCL Web Content Manager v9.5
-* HCL Web Content Manager Standard Edition v8.5
-* HCL Digital Experience Cloud Native 9.5.x
-* HCL Digital Experience Cloud
-<!-- Is this the correct spot for Compose??? -->
-* HCL Digital Experience Compose v9.5
+* HCL DX 9.5 CF224 Client
+* HCL DX 9.5 CF224 Client Image
+* HCL DX Compose 9.5 CF224
+* HCL Leap PVU v9.3.6 Container - Leap image and Helm charts
+* HCL Leap PVU v9.3.7 Container - Leap image and Helm charts
+* HCL Volt Foundry Command Line Utility
+* HCL Volt Foundry Container Deployment Tool
+* HCL Volt Foundry Container Installer (Kubernetes cluster)
 
 <!-- Not needed for Compose 224?
 ### Package name for DX Cumulative Fixes and Docker Releases
