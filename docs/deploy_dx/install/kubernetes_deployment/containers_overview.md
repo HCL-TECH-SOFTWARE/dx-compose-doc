@@ -48,7 +48,7 @@ Finally, Helm accesses the Kubernetes or OpenShift Cluster and creates the resul
 Each deployed application has a similar deployment structure and use a common set of OpenShift or Kubernetes resources that follow naming conventions. Some of the DX Compose 9.5 applications might have a different setup because of their special requirements, for example, the Digital Asset Management component and its persistence definitions.
 
 **Stateful applications**
-<!-- Below screenshot includes persisted volumes ... OK for Compose? -->
+
 ![Stateful applications](../kubernetes_deployment/images/helm_chart_stateful_applications_definition.png)
 
 DX Compose 9.5 container applications are managed by a StatefulSet, which controls the creation and lifecycle of all pods it is responsible for. These pods store their application in persistent volumes. They use ConfigMaps to adjust application configuration and Secrets to access credentials.
