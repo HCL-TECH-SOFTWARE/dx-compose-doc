@@ -64,7 +64,7 @@ Click on the download package to select the download files.
 
 If you only need to download a single file, click on the **File Name** hyperlink to start the HTTPS download.
 
-![Select a single file](../kubernetes_deployment/images/containerupdates.png)
+<!-- ![Select a single file](../kubernetes_deployment/images/containerupdates.png) -->
 
 You can download multiple files at the same time. Select the files you want to download and click **Download Selected Files**. If you are doing this for the first time, you are prompted to download and install Download Manager.
 
