@@ -47,11 +47,9 @@ To deploy HCL Digital Experience Compose 9.5 to the supported Kubernetes platfor
 !!!note
     Every Kubernetes node requires some memory for Kubernetes-specific services. Ensure that your Kubernetes Node has enough capacity to host both the Kubernetes services and HCL DX Compose. The overall requested amount of resources might vary based on disabled and enabled applications.
 
-<br><span style="color:red">**TABLE NEEDS UPDATING FOR COMPOSE WEBENGINE**</span> <br>
-
 | **Pod name** | **Minimum number of Pods** | **Container** | **Container Image** | **Container CPU request and limit** | **Container Memory request and limit** |
 |---|---|---|---|---|---|
-| core | 1 | core | core | 4000m | 6144Mi |
+| web-engine | 1 | web-engine | web-engine | 4000m | 6144Mi |
 | content-composer | 1 | content-composer | content-composer | 100m | 128Mi |
 | dam-plugin-google-vision | 1 | dam-plugin-google-vision | dam-plugin-google-vision | 100m | 384Mi |
 | dam-plugin-kaltura | 1 | dam-plugin-kaltura | dam-plugin-kaltura | 100m | 128Mi |
