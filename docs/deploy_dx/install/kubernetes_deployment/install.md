@@ -1,6 +1,6 @@
 # Install
 
-Follow [Installing Commands to Deploy](https://opensource.hcltechsw.com/digital-experience/latest/deployment/install/container/helm_deployment/helm_install_commands/).
+Follow [Installing Commands to Deploy](helm_install_commands.md).
 
 For WebEngine-related configurations, use the sample values file provided inside the Helm chart. The sample values file is located in the unpacked chart directory under `values-samples/webEngine/webEngine-sample.yaml`. This file disables Core and enables the WebEngine container, and serves as a starting point for a custom WebEngine configuration.
 
