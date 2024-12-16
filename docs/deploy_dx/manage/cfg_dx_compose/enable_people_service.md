@@ -26,5 +26,5 @@ After updating the `values.yaml` file, perform the following actions:
 Access the People Service by navigating to below sample URL:
 
 ```link
-https://your-portal.net/wps/myportal/Practitioner/PeopleService
+https://your-portal.net/dx/ui/people
 ```
