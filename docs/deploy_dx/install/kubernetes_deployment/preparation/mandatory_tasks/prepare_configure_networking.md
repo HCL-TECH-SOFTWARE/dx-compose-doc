@@ -24,10 +24,10 @@ networking:
 ```
 
 If you do not know the hostname beforehand, you can leave it blank and run an additional step later in the installation, which would retrieve the assigned hostname from HAProxy and configure all applications accordingly.
-<!-- 
+
 ## Configure Cross Origin Resource Sharing (CORS)
 
-The HCL Digital Experience 9.5 Helm Chart allows you to configure CORS configuration for all the `addon` to Core applications such as Digital Asset Management or Ring API. This allows you to access the APIs provided by those applications in other applications with ease.
+The HCL Digital Experience Compose 9.5 Helm Chart allows you to configure CORS configuration for all the `addon` to WebEngine applications such as Digital Asset Management or Ring API. This allows you to access the APIs provided by those applications in other applications with ease.
 
 You can define a list of allowed hosts for a specific application using the following syntax in your `custom-values.yaml`:
 
@@ -42,7 +42,7 @@ networking:
       - "https://my-different-application.net"
       - "https://the-other-application.com"
 ```
--->
+
 Refer to the HCL DX Compose 9.5 `values.yaml` detail for all possible applications that can be configured.
 
 ## Configure HAProxy certificate

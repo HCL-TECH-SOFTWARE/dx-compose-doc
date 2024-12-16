@@ -1,8 +1,8 @@
 # Loading images
 
-This section presents how to load the HCL DX 9.5 images into your container image repository, tag them to fit your repository structure, and push them to your repository, so that all Nodes in your Kubernetes cluster can deploy HCL Digital Experience 9.5 Pods.
+This section presents how to load the HCL DX Compose 9.5 images into your container image repository, tag them to fit your repository structure, and push them to your repository, so that all Nodes in your Kubernetes cluster can deploy HCL Digital Experience Compose 9.5 Pods.
 
-To use HCL Digital Experience 9.5 in your Kubernetes cluster, you have to make the container images available to all nodes of your cluster. Usually this is done by providing them through a container image repository.
+To use HCL Digital Experience Compose 9.5 in your Kubernetes cluster, you have to make the container images available to all nodes of your cluster. Usually this is done by providing them through a container image repository.
 
 Depending on your cloud provider, there may be different types of default container image repositories already configured. Refer to the documentation of your cloud provider for setup and use of such platform container image repository.
 
@@ -12,15 +12,18 @@ It is assumed that you have a repository configured and running, and is technica
     In the following guidance, the docker CLI is used as a command reference. Tools like Podman may also be used, but are not described in this documentation. The procedure for the use of such tools are the same.
 
 ## Retrieving container images
- 
-You can either directly pull the HCL DX images from the HCL Harbor container image registry, or download the HCL Digital Experience 9.5 package, unpack it locally and load the images into your container registry. In both cases, you can load the images to your own container registry for others in your organization to access.
 
+[Download the HCL Digital Experience Compose 9.5 package](https://support.hcl-software.com/csm?id=kb_article&sysparm_article=KB0073344){target="blank"}, unpack it locally and load the images into your container registry. You can load the images to your own container registry for others in your organization to access.
+<!--
+You can either directly pull the HCL DX images from the HCL Harbor container image registry, or download the HCL Digital Experience 9.5 package, unpack it locally and load the images into your container registry. In both cases, you can load the images to your own container registry for others in your organization to access.
+-->
 ### Configure the Helm chart image pull secret
 
 It is possible to have your Kubernetes deployment pull images directly from a container registry. This requires all of your cluster nodes to be able to reach the container registry.
 
 Ensure that you have configured your deployment to authenticate to the container registry, as described in [Using ImagePullSecrets](../optional_tasks/optional_imagepullsecrets.md).
 
+<!--
 !!! tip
     If you configure your deployment to use the HCL Harbor container registry you do not need to retrieve, re-tag and push the images manually. This is very handy for quick deployments or if you do not have a local container image registry. The steps to do this are described in the [Using ImagePullSecrets](../optional_tasks/optional_imagepullsecrets.md#configure-deployment-to-use-the-hcl-harbor-container-registry) page.
 
@@ -42,11 +45,11 @@ After a successful login, you will see the message:
 ```
 
 You can now pull images from the Harbor container registry.
-
+-->
 
 ### From HCL Digital Experience 9.5 package
 
-The HCL Digital Experience 9.5 Container Update packages are provided in a compressed .zip file, that can easily be unzipped using a utility of your choice. Refer to the latest [Container file listing](../../../image_list.md) topic for a list of the files contained in the .zip archive.
+The HCL Digital Experience Compose 9.5 Container packages are provided in a compressed .zip file, that can easily be unzipped using a utility of your choice. Refer to the latest [Container file listing](../../../../install/kubernetes_deployment/image_list.md) topic for a list of the files contained in the .zip archive.
 
 Unzip the archive. 
 
@@ -55,14 +58,14 @@ To load the individual image files, you may use the following command, replacing
 ```sh
 # Command to load container image into local repository
 # docker load < image-file-name.tar.gz
-docker load < hcl-dx-core-image-v95_CFXXX_XXXXXXXX-XXXX.tar.gz
+docker load < hcl-dx-web-engine-image-v95_CFXXX_XXXXXXXX-XXXX.tar.gz
 ```
 
-If you want to load all DX 9.5 CFxxx image files via one command, use the following command:
+If you want to load all DX Compose 9.5 image files via one command, use the following command:
 
 ```sh
 # Command to load all images at once
-# Since HCL Digital Experience images are all containing the word "images", 
+# Since HCL Digital Experience Compose images are all containing the word "images", 
 # we can filter for fitting tar.gz files
 ls -f | grep image | xargs -L 1 docker load -i
 ```
@@ -74,7 +77,8 @@ You may verify if the loading is successful with the following command:
 ```sh
 # List all images
 docker images
-
+```
+<!-- Replace with Compose list when available 
 # Command output (minified, example)
 REPOSITORY                                    TAG                                   IMAGE ID       CREATED         SIZE
 hcl/dx/remote-search                          v95_CF195_20210514-1708               e4c46618f404   4 weeks ago     2.25GB
@@ -87,19 +91,17 @@ hcl/dx/digital-asset-management-operator      v95_CF195_20210514-1714           
 hcl/dx/content-composer                       v1.8.0_20210514-1707                  62b7b54d3895   4 weeks ago     427MB
 hcl/dx/postgres                               v1.8.0_20210514-1708                  d94672f395ad   4 weeks ago     498MB
 hcl/dx/ringapi                                v1.8.0_20210514-1709                  505eebb52ebf   4 weeks ago     397MB
-```
-
-
+-->
 ## Load Images to Your Own Repository
 
 ### Re-tag images
 
-If you are using a Kubernetes cluster that is not configured to operate on your local machine, you may need to push the HCL Digital Experience 9.5 container images to a remote repository.
+If you are using a Kubernetes cluster that is not configured to operate on your local machine, you may need to push the HCL Digital Experience Compose 9.5 container images to a remote repository.
 
 To do so, you need to re-tag the images to point to your remote repository.
 
 !!!warning
-    Do not change the version tags of the DX 9.5 images, because they are used for uniquely identifying which versions of DX applications are running in your cluster.
+    Do not change the version tags of the DX Compose 9.5 images, because they are used for uniquely identifying which versions of DX Compose applications are running in your cluster.
 
 You may re-tag any image using the following command:
 
@@ -107,18 +109,18 @@ You may re-tag any image using the following command:
 # Re-tag an existing loaded image
 # docker tag OLD_IMAGE_PATH:VERSION NEW_IMAGE_TAG:VERSION
 
-# Example command for DX Core:
-docker tag dx/core:v95_CF195_20210514-1708 my/test/repository/dx/core:v95_CF195_20210514-1708
+# Example command for DX WebEngine:
+docker tag dx/web-engine:v95_CF224_20241216-1708 my/test/repository/dx/web-engine:v95_CF224_20241216-1708
 ```
 
-If you want to prefix all HCL Digital Experience 9.5 container images with your repository structure, you may use the following command:
+If you want to prefix all HCL Digital Experience Compose 9.5 container images with your repository structure, you may use the following command:
 
 ```sh
-# Command to prefix all HCL Digital Experience container images
+# Command to prefix all HCL Digital Experience Compose container images
 # export the prefix for the repository structure, without tailing slash
 export REMOTE_REPO_PREFIX="my/test/repository"
 
-# First we list all HCL Digital Experience 9.5 Images, then we remove the first line containing the header
+# First we list all HCL Digital Experience Compose 9.5 Images, then we remove the first line containing the header
 # Then we execute the docker tag command, prefixing each image with the $REMOTE_REPO_PREFIX
 docker images dx/* | tail -n +2 | awk -F ' ' '{system("docker tag " $1 ":" $2 " $REMOTE_REPO_PREFIX/" $1 ":" $2) }'
 ```
@@ -128,7 +130,9 @@ The output may be verified by using the following command:
 ```sh
 # List all images
 docker images
+```
 
+<!-- Replace with WebEnging list when available
 # Command output (minified, example)
 
 REPOSITORY                                                    TAG                                  IMAGE ID       CREATED         SIZE
@@ -153,7 +157,7 @@ my/test/repository/hcl/dx/postgres                            v1.8.0_20210514-17
 hcl/dx/ringapi                                                v1.8.0_20210514-1709                 505eebb52ebf   4 weeks ago     397MB
 my/test/repository/hcl/dx/ringapi                             v1.8.0_20210514-1709                 505eebb52ebf   4 weeks ago     397MB
 
-```
+-->
 
 ### Push to repository
 
@@ -162,14 +166,14 @@ You may use the following command to push the container images to your repositor
 ```sh
 # Push the new tagged images
 # docker push NEW_IMAGE_TAG:VERSION
-# Example command for core:
-docker push my/test/repository/dx/core:v95_CF195_20210514-1708
+# Example command for WebEngine:
+docker push my/test/repository/dx/web-engine:v95_CF224_20241216-1708
 ```
 
 If you want to push all your locally processed images, use the following command:
 
 ```sh
-# Command to push all HCL Digital Experience images to a remote repository
+# Command to push all HCL Digital Experience Compose images to a remote repository
 # export the prefix for the repository structure, without tailing slash
 export REMOTE_REPO_PREFIX="my/test/repository"
 
@@ -182,16 +186,13 @@ After running this command, Docker goes ahead and pushes the images to your remo
 
 ### Adjust deployment configuration
 
-After you have successfully prepared all DX 9.5 images, you need to configure the images inside your custom-values.yaml.
+After you have successfully prepared all DX Compose 9.5 images, you need to configure the images inside your custom-values.yaml.
 
 The following syntax may be used to define the correct image configuration for your environment:
 
 !!!note
-    If deploying to a [Hybrid](../../../../hybrid/index.md) environment, with DX 9.5 Container Update CF198 or later, the Core needs to be set as false, since Core is already installed to an On-premise Server.
-
-!!!note
-    From CF205 onwards, the image name and tag configuration of the Helm Chart is pre-filled using the default image names and matching version tags for the respective version of DX. You might need to re-adjust these if you have renamed/re-tagged the images in your local container image repository.
-
+    The image name and tag configuration of the Helm Chart is pre-filled using the default image names and matching version tags for the respective version of DX Compose. You might need to re-adjust these if you have renamed/re-tagged the images in your local container image repository.
+<!-- 
     If you want to use the HCL Harbor container registry, ensure to configure your target repository accordingly and have the [ImagePullSecret](../optional_tasks/optional_imagepullsecrets.md) configured:
 
     ```yaml
@@ -202,7 +203,7 @@ The following syntax may be used to define the correct image configuration for y
       imagePullSecrets:
         - name: "dx-harbor"
     ```
-
+-->
 ```yaml
 # Fill in the values fitting to your configuration
 # Ensure to use the correct image version tags
@@ -211,30 +212,28 @@ images:
     # Image tag for each application
     tags:
     contentComposer: "v95_CFXXX_XXXXXXXX-XXXX"
-    core: "v95_CFXXX_XXXXXXXX-XXXX"
+    webEngine: "v95_CFXXX_XXXXXXXX-XXXX"
     digitalAssetManagement: "vX.X.X_XXXXXXXX-XXXX"
     imageProcessor: "vX.X.X_XXXXXXXX-XXXX"
     openLdap: "vX.X.X_XXXXXXXX-XXXX"
     persistence: "vX.X.X_XXXXXXXX-XXXX"
-    remoteSearch: "v95_CFXXX_XXXXXXXX-XXXX"
     ringApi: "vX.X.X_XXXXXXXX-XXXX"
     runtimeController: "vX.X.X_XXXXXXXX-XXXX"
     # Image name for each application
     names:
     contentComposer: "dx/content-composer"
-    core: "dx/core"
+    webEngine: "dx/web-engine"
     digitalAssetManagement: "dx/digital-asset-manager"
     imageProcessor: "dx/image-processor"
     openLdap: "dx/openldap"
     persistence: "dx/postgres"
-    remoteSearch: "dx/remote-search"
     ringApi: "dx/ringapi"
     runtimeController: "dx/runtime-controller"
 ```
 
 ## Additional Tasks
 
-If your remote repository requires access credentials, it is necessary to configure an `ImagePullSecret` to allow your cluster nodes to have proper access to the HCL DX 9.5 container images. This is also required if you want to use the HCL Harbor container registry directly.
+If your remote repository requires access credentials, it is necessary to configure an `ImagePullSecret` to allow your cluster nodes to have proper access to the HCL DX Compose 9.5 container images. <!-- This is also required if you want to use the HCL Harbor container registry directly. 
 
 Please refer to [Using ImagePullSecrets](../optional_tasks/optional_imagepullsecrets.md) topic for instructions on how to configure this.
 
