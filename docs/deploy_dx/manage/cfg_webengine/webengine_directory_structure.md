@@ -1,80 +1,95 @@
 ---
 id: webengine-directory-structure
-title: WebEngine Directory Structure
+title: WebEngine directory structure
 ---
 
-This document provides a detailed overview of the directory structure within the WebEngine container and its associated sidecar container for logs. It includes paths to various configuration files, logs, and other critical directories.
+This topic provides the directory structure within the WebEngine container and its associated sidecar container for logs. This includes paths to various configuration files, logs, and other critical directories.
 
 ## WebEngine container
 
-### WebEngine Server path
+### WebEngine server path
+
 The root directory for the WebEngine server is located at:
 ```
 /opt/openliberty/wlp
 ```
 
-### Server configurations files path
+### Server configuration files path
+
 Configuration files for the WebEngine server, such as `server.xml`, `jvm.options`, `server.env`, are stored in the following directory:
+
 ```
 /opt/openliberty/wlp/usr/servers/defaultServer/
 ```
 
 ### Log folder
+
 Log files for tracing and informational purposes are stored in the following directory:
 ```
 /opt/openliberty/wlp/usr/servers/defaultServer/logs/
 ```
 
 ### Customization
-Custom configuration files can be placed in the following directory:
+
+You can store custom configuration files in the following directory:
 ```
 /opt/openliberty/wlp/usr/servers/defaultServer/customization
 ```
 
 ### Configuration overrides
-Configuration override files can be placed in the following directory. 
+
+You can store configuration override files in the following directory: 
 ```
 /opt/openliberty/wlp/usr/servers/defaultServer/configDropins/overrides
 ```
-For more details, refer to the document on [configuration changes using overrides](./configuration_changes_using_overrides.md).
+
+For more details, refer to [DX WebEngine configuration changes using overrides](./configuration_changes_using_overrides.md).
 
 ### Properties overrides
-Override files for properties can be placed in the following directory:
+
+You can store the override files for properties in the following directory:
+
 ```
 /opt/openliberty/wlp/usr/servers/defaultServer/properties-overrides
 ```
 
 ### Properties
+
 Service configuration properties are stored in the following directory:
 ```
 /opt/openliberty/wlp/usr/servers/defaultServer/resources/dxconfig/config/services
 ```
 
 ### Database properties
+
 Database properties are stored in the following directory:
 ```
 /opt/openliberty/wlp/usr/svrcfg/properties/
 ```
 
 ### Custom secrets
-Custom secrets are stored in subfolders under the following directory.
+Custom secrets are stored in subfolders under the following directory:
+
 ```
 /mnt/customSecrets/
 ```
-For more details, refer to the document on [using custom secrets in WebEngine](../working_with_compose/custom_secrets.md)
 
-## Side car container for logs
+For more details, refer to [Using custom secrets in WebEngine](../working_with_compose/custom_secrets.md).
 
-### SystemOut Log
-The main log file for system output is located at:
+## Sidecar container for logs
+
+### SystemOut log
+
+The main log file for system output is located in the following directory:
 ```
 /var/logs/SystemOut.log
 ```
 
-### Trace Log
-The trace log file is located at:
+### Trace log
+
+The trace log file is located in the following directory:
 ```
 /var/logs/trace.log
 ```
 
-This structure ensures that all configuration files, logs, and custom settings are organized and easily accessible within the WebEngine and its sidecar container.
+This structure ensures that all configuration files, logs, and custom settings are organized accessible within the WebEngine and its sidecar container.
