@@ -14,6 +14,8 @@ Learn how to efficiently deploy Digital Experience (DX) Compose and its WebEngin
 - [System Requirements](../getting_started/system_requirements.md)
 - [Differences](../getting_started/differences.md)
 - [Limitations](../getting_started/limitations.md)
+- [WebEngine Directory Structure](./manage/webengine_directory_structure.md)
+- [Server Configuration](./manage/server_configuration.md)
 - [Manage users and Groups](./manage/working_with_compose/cfg_parameters/manage_users_groups_liberty.md)
 - [Uninstall](./install/uninstall.md)
 - [Troubleshooting](./manage/troubleshooting.md)

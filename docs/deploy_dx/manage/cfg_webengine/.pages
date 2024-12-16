@@ -1,5 +1,7 @@
 nav:
  - index.md
+ - WebEngine directory structure: webengine_directory_structure.md
+ - WebEngine server configuration: server_configuration.md
  - Configuration changes using overrides: configuration_changes_using_overrides.md
  - Configuring LDAP: ldap_configuration.md
  - Database Management: external_db_database_transfer.md
