@@ -136,9 +136,9 @@ Once the secret is created inside the cluster, you can now reference them in the
 !!! note
     For WebEngine LTPA AND LDAP you can reference your secrets under `configuration.webEngine` section of the Helm values.
 
-#### 3. Check the Required Attributes in Secrets - mdoy
+#### 3. Check the Required Attributes in Secrets
 
-There are multiple credentials used in HCL Digital Experience 9.5. Each application has different required attributes for credentials. If you want to use a secret to configure credentials for a specific application, check the data attributes of the secret that you are using. This is for the Helm chart to map and have those values passed or cascaded accordingly to each application. 
+There are multiple credentials used in HCL Digital Experience Compose 9.5. Each application has different required attributes for credentials. If you want to use a secret to configure credentials for a specific application, check the data attributes of the secret that you are using. This is for the Helm chart to map and have those values passed or cascaded accordingly to each application. 
 
 `Persistence DAM User Credential secret` has a username limitation. The username can begin with lowercase letters or an underscore and can contain only lowercase letters, numbers, underscore, or a dollar sign. The maximum length is 63 characters.
 
@@ -149,12 +149,10 @@ Here's a list of the required credential attributes for each application:
 
 | Secrets | Helm Reference | Required Attributes | Application |
 |-----------------------------------------------|--------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|-------------------|
-| Core WAS Credential secret | `security.core.customWasSecret` | `username` <br> `password` | Core |
-| Core WPS Credential secret | `security.core.customWpsSecret` | `username`  <br> `password` | Core |
-| Core Config Wizard Credential secret | `security.core.customConfigWizardSecret` | `username`  <br> `password` | Core (Config Wizard) |
-| Core LDAP Credential secret | `configuration.core.ldap.customLdapSecret` | `bindUser` <br> `bindPassword` | Core |
-| Core LTPA Credential secret | `configuration.core.ltpa.customLtpaSecret` | `ltpa.version` <br> `ltpa.realm` <br> `ltpa.desKey` <br> `ltpa.privateKey` <br> `ltpa.publicKey` <br> `ltpa.password` | Core |
-| Core Content AI Secret | `security.core.customContentAISecret` | `apiKey` | Core |
+| WebEngine Credential secret | `security.webEngine.customWebEngineSecret` | `username`  <br> `password` | WebEngine |
+| WebEngine LDAP Credential secret | `configuration.webEngine.ldap.customLdapSecret` | `bindUser` <br> `bindPassword` | WebEngine |
+| WebEngine LTPA Credential secret | `configuration.webEngine.ltpa.customLtpaSecret` | `ltpa.version` <br> `ltpa.realm` <br> `ltpa.desKey` <br> `ltpa.privateKey` <br> `ltpa.publicKey` <br> `ltpa.password` | WebEngine |
+| WebEngine Content AI Secret | `security.webEngine.customWebEngineContentAISecret` | `apiKey` | WebEngine |
 | DAM Plugin Google Vision Credential secret | `security.damPluginGoogleVision.customDamGoogleVisionSecret` | `authenticationKey` <br> `apiKey` | DAM Google Vision |
 | DAM Plugin Kaltura Credential secret | `security.damPluginKaltura.customDamKalturaSecret` | `authenticationKey` <br> `secretKey` | DAM Kaltura |
 | Persistence Connection Pool Credential secret | `security.persistence.customConnectionPoolSecret` | `username` <br> `password` | Persistence |
@@ -164,9 +162,9 @@ Here's a list of the required credential attributes for each application:
 | Image Processor Credential secret | `security.imageProcessor.customImageProcessorSecret` | `authenticationKey` | Image Processor |
 | License Manager Credential secret | `security.licenseManager.customLicenseManagerSecret` | `username`  <br> `password` | License Manager |
 | Open LDAP Credential secret | `security.openLdap.customLdapSecret` | `username`  <br> `password` | Open LDAP         |
-| Remote Search WAS Credential secret | `security.remoteSearch.customWasSecret` | `username` <br> `password` | Remote Search |
 
-**Core WAS Credential secret**
+
+**WebEngine Credential secret**
 ```yaml
 apiVersion: "v1"
 kind: "Secret"
@@ -177,44 +175,12 @@ data:
   password: <password>
 metadata:
   labels:
-  name: sample-was-secret
+  name: sample-web-engine-secret
   namespace: <namespace>
 type: "Opaque"
 ```
 
-**Core WPS Credential secret**
-```yaml
-apiVersion: "v1"
-kind: "Secret"
-data:
-  # Required attribute
-  username: <username>
-  # Required attribute
-  password: <password>
-metadata:
-  labels:
-  name: sample-wps-secret
-  namespace: <namespace>
-type: "Opaque"
-```
-
-**Core Config Wizard Credential secret**
-```yaml
-apiVersion: "v1"
-kind: "Secret"
-data:
-  # Required attribute
-  username: <username>
-  # Required attribute
-  password: <password>
-metadata:
-  labels:
-  name: sample-config-wizard-secret
-  namespace: <namespace>
-type: "Opaque"
-```
-
-**Core LDAP Credential secret**
+**WebEngine LDAP Credential secret**
 ```yaml
 apiVersion: "v1"
 kind: "Secret"
@@ -225,12 +191,12 @@ data:
   bindPassword: <bindPassword>
 metadata:
   labels:
-  name: sample-core-ldap-secret
+  name: sample-web-engine-ldap-secret
   namespace: <namespace>
 type: "Opaque"
 ```
 
-**Core LTPA Credential secret**
+**WebEngine LTPA Credential secret**
 ```yaml
 apiVersion: "v1"
 kind: "Secret"
@@ -249,12 +215,12 @@ data:
   "ltpa.password": <password>
 metadata:
   labels:
-  name: sample-core-ltpa-secret
+  name: sample-web-engine-ltpa-secret
   namespace: <namespace>
 type: "Opaque"
 ```
 
-**Core Content AI Secret**
+**WebEngine Content AI Secret**
 ```yaml
 apiVersion: "v1"
 kind: "Secret"
@@ -263,7 +229,7 @@ data:
   apiKey: <apiKey>
 metadata:
   labels:
-  name: sample-core-content-ai-secret
+  name: sample-web-engine-content-ai-secret
   namespace: <namespace>
 type: "Opaque"
 ```
@@ -406,22 +372,6 @@ data:
 metadata:
   labels:
   name: sample-open-ldap-secret
-  namespace: <namespace>
-type: "Opaque"
-```
-
-**Remote Search WAS Credential secret**
-```yaml
-apiVersion: "v1"
-kind: "Secret"
-data:
-  # Required attribute
-  username: <username>
-  # Required attribute
-  password: <password>
-metadata:
-  labels:
-  name: sample-remote-search-was-secret
   namespace: <namespace>
 type: "Opaque"
 ```

@@ -21,14 +21,13 @@ Specify the `nodeSelector` constraints to your services in the custom values fil
 ```yaml
 nodeSelector:
   contentComposer:
-  core:
+  webEngine:
   damPluginGoogleVision:
   digitalAssetManagement:
   imageProcessor:
   openLdap:
   persistenceConnectionPool:
   persistenceNode:
-  remoteSearch:
   ringApi:
   runtimeController:
   haproxy:
@@ -53,14 +52,13 @@ Specify `affinity` constraints to your services in the custom values file:
 ```yaml
 affinity:
   contentComposer:
-  core:
+  webEngine:
   damPluginGoogleVision:
   digitalAssetManagement:
   imageProcessor:
   openLdap:
   persistenceConnectionPool:
   persistenceNode:
-  remoteSearch:
   ringApi:
   runtimeController:
   haproxy:
@@ -81,7 +79,7 @@ affinity:
               - key: statefulset.kubernetes.io/pod-name
                 operator: In
                 values:
-                  - dx-deployment-core-0
+                  - dx-deployment-web-engine-0
           topologyKey: topology.kubernetes.io/zone
     podAntiAffinity:
       preferredDuringSchedulingIgnoredDuringExecution:
@@ -92,7 +90,7 @@ affinity:
                 - key: statefulset.kubernetes.io/pod-name
                   operator: In
                   values:
-                    - dx-deployment-core-0
+                    - dx-deployment-web-engine-0
             topologyKey: topology.kubernetes.io/zone
     nodeAffinity:
       requiredDuringSchedulingIgnoredDuringExecution:
@@ -121,14 +119,13 @@ Specify the `nodeName` constraints to your services in the custom values file:
 ```yaml
 nodeName:
   contentComposer: ""
-  core: ""
+  webEngine: ""
   damPluginGoogleVision: ""
   digitalAssetManagement: ""
   imageProcessor: ""
   openLdap: ""
   persistenceConnectionPool: ""
   persistenceNode: ""
-  remoteSearch: ""
   ringApi: ""
   runtimeController: ""
   haproxy: ""
@@ -152,14 +149,13 @@ Specify `topologySpreadConstraints` constraints to your services in the custom v
 ```yaml
 topologySpreadConstraints:
   contentComposer:
-  core:
+  webEngine:
   damPluginGoogleVision:
   digitalAssetManagement:
   imageProcessor:
   openLdap:
   persistenceConnectionPool:
   persistenceNode:
-  remoteSearch:
   ringApi:
   runtimeController:
   haproxy:
@@ -189,14 +185,13 @@ Specify `tolerations` constraints to your services in the custom values file:
 ```yaml
 tolerations:
   contentComposer:
-  core:
+  webEngine:
   damPluginGoogleVision:
   digitalAssetManagement:
   imageProcessor:
   openLdap:
   persistenceConnectionPool:
   persistenceNode:
-  remoteSearch:
   ringApi:
   runtimeController:
   haproxy:

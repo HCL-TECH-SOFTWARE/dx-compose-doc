@@ -1,6 +1,6 @@
-# Select DX Applications to Deploy
+# Select DX Compose Applications to Deploy
 
-HCL Digital Experience 9.5 consists of multiple applications and services that can be deployed. Depending on your needs, it might not be necessary to have all applications deployed.
+HCL Digital Experience Compose 9.5 consists of multiple applications and services that can be deployed. Depending on your needs, it might not be necessary to have all applications deployed.
 
 ## Disabling or enabling specific applications
 
@@ -11,8 +11,8 @@ You can easily enable or disable specific applications by adding the following p
 applications:
   # Deploys Content Composer
   contentComposer: true
-  # Deploys Core
-  core: true
+  # Deploys WebEngine
+  webEngine: true
   # Deploys Digital Asset Management
   digitalAssetManagement: true
   # Deploys the Image Processor
@@ -24,8 +24,6 @@ applications:
   # Deploys the Persistence Layer
   # Enabling digitalAssetManagement will override this setting with: true
   persistence: true
-  # Deploys the Remote Search
-  remoteSearch: true
   # Deploys the Ring API
   # Enabling either digitalAssetManagement or contentComposer will override this setting with: true
   ringApi: true
@@ -36,4 +34,4 @@ applications:
 
 ```
 
-You can set applications that you do not want to be deployed to `false`. As noted in the [Deploy DX 9.5 to container platforms using Helm](../../../overview.md) Help Center topic, some DX applications are pre-requisites for others to be deployed. It can appear that you have disabled an application, but it still gets deployed. This is due to other applications requiring that one.
+You can set applications that you do not want to be deployed to `false`. As noted in the [Deploy DX Compose 9.5 to container platforms using Helm](../../overview.md) Help Center topic, some DX Compose applications are pre-requisites for others to be deployed. It can appear that you have disabled an application, but it still gets deployed. This is due to other applications requiring that one.

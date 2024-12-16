@@ -1,6 +1,6 @@
 # Adding additional CA to the DAM trust store
 
-Implementing a custom plugin for the [Digital Asset Management extensibility](../../../../../../manage_content/digital_assets/configuration/dam_extensibility/configure_dam_extensibility.md) is by default limited to publicly trusted certificates. If the plugin is signed with a self-signed or otherwise untrusted certificate authority (CA), the trust store of DAM can be extended. Starting CF216, you can add additional certificate authorities to the trust store.
+Implementing a custom plugin for the [Digital Asset Management extensibility](https://opensource.hcltechsw.com/digital-experience/latest/manage_content/digital_assets/configuration/dam_extensibility/dam_extensibility/){target="blank"} is by default limited to publicly trusted certificates. If the plugin is signed with a self-signed or otherwise untrusted certificate authority (CA), the trust store of DAM can be extended. You can add additional certificate authorities to the trust store.
 
 ## Prerequisites
 
@@ -13,13 +13,13 @@ To have your deployment and DAM use the certificate, you must store it in the Ku
 The secret can be created using the following commands:
 
 !!! note
-    You can choose the secret name and this must be referenced in the next configuration step (for example, `custom-ca-cert`). The namespace is the Kubernetes namespace where you want to deploy HCL Digital Experience 9.5 to (for example, `digital-experience`). However, you must set the key name to `customCACert.pem` in the following command like in [`--from-file=key=source`](https://kubernetes.io/docs/tasks/configmap-secret/managing-secret-using-kubectl/#use-source-files).
+    You can choose the secret name and this must be referenced in the next configuration step (for example, `custom-ca-cert`). The namespace is the Kubernetes namespace where you want to deploy HCL Digital Experience Compose 9.5 to (for example, `digital-experience-compose`). However, you must set the key name to `customCACert.pem` in the following command like in [`--from-file=key=source`](https://kubernetes.io/docs/tasks/configmap-secret/managing-secret-using-kubectl/#use-source-files).
 
 ```
 # Create secret with the name "custom-ca-cert" and the key "customCACert.pem"
-# Secret will be created in the namespace "digital-experience"
+# Secret will be created in the namespace "digital-experience-compose"
 
-kubectl create secret generic custom-ca-cert --from-file=customCACert.pem=./customCACert.pem -n digital-experience
+kubectl create secret generic custom-ca-cert --from-file=customCACert.pem=./customCACert.pem -n digital-experience-compose
 ```
 
 ## Configuring secret in deployment

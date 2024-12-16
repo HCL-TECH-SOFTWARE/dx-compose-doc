@@ -2,12 +2,13 @@
 
 To use a container image registry that has access restrictions and requires credentials, you need to leverage `ImagePullSecrets` in your deployment. Refer to the [Kubernetes Documentation](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/) for additional information on this topic.
 
+<!-- 
 You can use this method to have your helm deployment directly access either the HCL container registry or your own container registry.
-
+-->
 !!! tip
-    Ensure that you create the `ImagePullSecret` in the same namespace that your DX deployment is installed to.
+    Ensure that you create the `ImagePullSecret` in the same namespace that your DX Compose deployment is installed to.
 
-In order for the HCL Digital Experience 9.5 deployment to leverage `ImagePullSecrets` you need to adjust your `custom-values.yaml` file to include the following syntax:
+In order for the HCL Digital Experience Compose 9.5 deployment to leverage `ImagePullSecrets` you need to adjust your `custom-values.yaml` file to include the following syntax:
 
 ```yaml
 images:
@@ -17,15 +18,16 @@ images:
 
 The name `regcred` can be different, depending on how you have created your `ImagePullSecret` and how it is named. Ensure that you reference the correct name in the configuration.
 
-It is assume that you have moved the HCL Digital Experience 9.5 images to your registry; make sure it is also configured properly in your `custom-values.yaml`:
+It is assumed that you have moved the HCL Digital Experience Compose 9.5 images to your registry; make sure it is also configured properly in your `custom-values.yaml`:
 
 ```yaml
 images:
   repository: "your-repo:port"                
 ```
 
-All pods created now have that secret configured for pulling DX container images.
+All pods created now have that secret configured for pulling DX Compose container images.
 
+<!--
 ## Configuring deployment to use the HCL Harbor container registry
 
 It is possible to pull images directly from the HCL Harbor container registry. This requires every cluster node to be able to access the HCL Harbor container registry.
@@ -62,3 +64,4 @@ images:
 ```
 
 You deployment can now directly pull the container images from the HCL Harbor container registry.
+-->

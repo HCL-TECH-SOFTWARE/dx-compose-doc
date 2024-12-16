@@ -1,13 +1,13 @@
 # Prepare Configuration
 
-Create a configuration file that fits the needs of your target HCL DX 9.5 deployment. The configuration file is the heart of your deployment using Helm. It defines how HCL Digital Experience 9.5 is deployed to supported platforms, and how it behaves during runtime operations. This section explains how to create your own configuration file and how to leverage the existing `values.yaml` inside the Helm Chart. It also explains how to optionally overwrite settings in case the default set may not be sufficient.
+Create a configuration file that fits the needs of your target HCL DX Compose 9.5 deployment. The configuration file is the heart of your deployment using Helm. It defines how HCL Digital Experience Compose 9.5 is deployed to supported platforms, and how it behaves during runtime operations. This section explains how to create your own configuration file and how to leverage the existing `values.yaml` inside the Helm Chart. It also explains how to optionally overwrite settings in case the default set may not be sufficient.
 
 !!!warning
     Modification to any files (chart.yaml, templates, crds) in hcl-dx-deployment-vX.X.X_XXXXXXXX-XXXX.tar.gz except custom-values.yaml or values.yaml is not supported.
-
+<!--
 !!!note
     From CF205 on you can directly retrieve the Helm Chart via the HCL Harbor Helm repository. If you wish to do so, please follow the instructions in [Configure Harbor Helm Repository](../get_the_code/configure_harbor_helm_repo.md) to pull the Helm Chart before you continue.
-
+-->
 ## The configuration flow
 
 Helm provides multiple ways to define values that can be processed to run an installation. Processing involves a three-step approach, that is ordered sequentially within a hierarchy.
@@ -35,11 +35,11 @@ It is possible to define values using a --set parameter in the Helm CLI during t
 
 Since there are many values that can be configured in the HCL Digital Experience deployment, we do not recommend this technique, since it makes installation commands very large and confusing.
 
-## The default HCL DX 9.5 `values.yaml` file
+## The default HCL DX Compose 9.5 `values.yaml` file
 
-HCL DX 9.5 Helm Chart provides a default values.yaml, which contains all possible configuration parameters.
+HCL DX Compose 9.5 Helm Chart provides a default values.yaml, which contains all possible configuration parameters.
 
-To access this file, you may use the following command when you have the HCL DX 9.5 CF196 or later [Helm Chart tar.gz](../../../../../../get_started/plan_deployment/container_deployment/index.md#helm-chart-contents) file on hand:
+To access this file, you may use the following command when you have the HCL DX Compose 9.5 [Helm Chart tar.gz](https://opensource.hcltechsw.com/digital-experience/latest/get_started/plan_deployment/container_deployment#helm-chart-contents){target="blank"} file on hand:
 
 ``` sh
 # Command to extract values.ymal from Helm Chart
@@ -49,13 +49,13 @@ helm show values hcl-dx-deployment.tar.gz > values.yaml
 The file contains all configurable parameters and their default values. You may use this file as a blueprint to create your own `custom-values.yaml`. You may also just rename the extracted `values.yaml` to `custom-values.yaml`.
 
 !!! note
-    Having a complete copy of the default `values.yaml` is not necessary and may bloat your configuration file with values that are already present in the DX Helm Chart. A good practice is to focus your `values.yaml` file on only those parameters that you want to configure yourself.
+    Having a complete copy of the default `values.yaml` is not necessary and may bloat your configuration file with values that are already present in the DX Compose Helm Chart. A good practice is to focus your `values.yaml` file on only those parameters that you want to configure yourself.
 
 ## A custom configuration file
 
 Helm allows you to provide a custom configuration file during the installation or upgrade process.
 
-That file only overwrites settings that are defined within it. For parts of the configuration that are not defined in your custom configuration file, Helm returns to the default values in the `values.yaml` file inside the DX Helm Chart.
+That file only overwrites settings that are defined within it. For parts of the configuration that are not defined in your custom configuration file, Helm returns to the default values in the `values.yaml` file inside the DX Compose Helm Chart.
 
 This allows you to create a file that only overwrites settings that are required, keeping the overall size of your configuration file small and the maintainability high.
 

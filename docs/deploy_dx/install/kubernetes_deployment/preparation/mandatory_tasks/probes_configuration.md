@@ -1,6 +1,6 @@
 # Probes Configuration in values.yaml file
 
-The `liveness` and `readiness` probes such as the status thresholds and time values can be modified. The probe target values are not configurable anymore because they are application specific and the values must not be changed.
+The `liveness` and `readiness` probes such as the status thresholds and time values can be modified. The probe target values are not configurable because they are application specific and the values must not be changed.
 
 ```yaml
 # Liveness probe using the applications HTTP probe endpoint 
@@ -19,4 +19,4 @@ The `liveness` and `readiness` probes such as the status thresholds and time val
       timeoutSeconds: 30
 ```
 
-Information about the configuration options can be found in the [Kubernetes documentation](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#configure-probes).
+Information about the configuration options can be found in the [Kubernetes documentation](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#configure-probes){target="blank"}.

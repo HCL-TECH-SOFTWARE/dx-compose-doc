@@ -8,6 +8,8 @@ nav:
   - optional_container_resources.md
   - optional_configure_credentials.md
   - optional_labels_annotations.md
-  - optional_experimental_features.md
-  - optional_install_new_search.md
+  - optional_configure_ingress.md
+  - optional_configure_timezone.md
+  - optional_configure_dam_custom_cert.md
+  - optional_options_host_alias.md
   - '...'

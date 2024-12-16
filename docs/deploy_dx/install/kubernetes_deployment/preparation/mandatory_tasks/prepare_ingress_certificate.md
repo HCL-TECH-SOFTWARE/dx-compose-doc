@@ -24,13 +24,13 @@ To have your deployment and HAProxy to use the certificate, you must store it in
 The secret can be created using the following commands:
 
 !!! note
-    The secret name can be chosen by you and must be referenced in the next configuration step (the following example uses `dx-tls-cert`). The namespace is the Kubernetes namespace where you want to deploy HCL Digital Experience 9.5 to (the example uses `digital-experience`).
+    The secret name can be chosen by you and must be referenced in the next configuration step (the following example uses `dx-tls-cert`). The namespace is the Kubernetes namespace where you want to deploy HCL Digital Experience Compose 9.5 to (the example uses `digital-experience-compose`).
 
 ```
 # Create secret with the name "dx-tls-cert"
-# Secret will be created in the namespace "digital-experience"
+# Secret will be created in the namespace "digital-experience-compose"
 # You can either reference the cert and key file created before, or a proper signed certificate e.g. from your CA
-kubectl create secret tls dx-tls-cert --cert=my-cert.pem --key=my-key.pem -n digital-experience 
+kubectl create secret tls dx-tls-cert --cert=my-cert.pem --key=my-key.pem -n digital-experience-compose
 ```
 
 ## Configure secret in deployment

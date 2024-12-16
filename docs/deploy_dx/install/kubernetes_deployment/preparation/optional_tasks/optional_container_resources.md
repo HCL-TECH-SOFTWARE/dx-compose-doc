@@ -15,8 +15,8 @@ resources:
     limits:
       cpu: "100m"
       memory: "192Mi"
-  # Core resource allocation
-  core:
+  # WebEngine resource allocation
+  webEngine:
     requests:
       cpu: "2000m"
       memory: "4096Mi"
@@ -71,14 +71,6 @@ resources:
     limits:
       cpu: "500m"
       memory: "1024Mi"
-  # Remote Search resource allocation
-  remoteSearch:
-    requests:
-      cpu: "500m"
-      memory: "2048Mi"
-    limits:
-      cpu: "500m"
-      memory: "2048Mi"
   # Ring API resource allocation
   ringApi:
     requests:
@@ -135,25 +127,17 @@ resources:
     limits:
       cpu: "100m"
       memory: "128Mi"
-  # Prereqs Checker resource allocation
-  prereqsChecker:
-    requests:
-      cpu: "100m"
-      memory: "64Mi"
-    limits:
-      cpu: "100m"
-      memory: "64Mi"
 ```
 
 ## Unlimited resource `limits`
 
 All `limits` are explicitly set to `null` to unset them in Kubernetes and allow for unlimited resources depending on the Kubernetes Cluster. Cluster and namespace level resource limits still apply.
 
-The `limits` are removed individually for either CPU or Memory. For example, to remove the Core CPU limit set the following:
+The `limits` are removed individually for either CPU or Memory. For example, to remove the WebEngine CPU limit set the following:
 
 ```yaml
 resources:
-  core:
+  webEngine:
     limits:
       cpu: null
       memory: "6144Mi"
@@ -163,6 +147,6 @@ To remove the `limits` entirely for an application, set the following:
 
 ```yaml
 resources:
-  core:
+  webEngine:
     limits: null
 ```
