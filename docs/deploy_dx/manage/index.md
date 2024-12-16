@@ -1,6 +1,6 @@
 # Managing DX Compose
 
-This section provides information how to manage the deployment of the Digital Experience (DX) Compose WebEngine container within your environment.
+This section provides information how to manage the deployment of Digital Experience (DX) Compose within your environment.
 
 The deployment of WebEngine is similar to HCL DX with Core container. Note that the Helm chart has some additional settings related to WebEngine. For more information, see [Deploying using Helm](https://opensource.hcltechsw.com/digital-experience/latest/deployment/install/container/helm_deployment/overview/){target="_blank"} and [Preparation before installing with Helm](https://opensource.hcltechsw.com/digital-experience/latest/deployment/install/container/helm_deployment/preparation/){target="_blank"}.
 
