@@ -233,7 +233,8 @@ images:
 
 ## Additional Tasks
 
-If your remote repository requires access credentials, it is necessary to configure an `ImagePullSecret` to allow your cluster nodes to have proper access to the HCL DX Compose 9.5 container images. <!-- This is also required if you want to use the HCL Harbor container registry directly. 
+If your remote repository requires access credentials, it is necessary to configure an `ImagePullSecret` to allow your cluster nodes to have proper access to the HCL DX Compose 9.5 container images. 
+<!-- This is also required if you want to use the HCL Harbor container registry directly.  -->
 
 Please refer to [Using ImagePullSecrets](../optional_tasks/optional_imagepullsecrets.md) topic for instructions on how to configure this.
 

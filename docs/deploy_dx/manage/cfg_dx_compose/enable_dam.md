@@ -20,7 +20,7 @@ Set the value of the key `digitalAssetManagement` to `true` to enable or `false`
 
 After updating the `values.yaml` file, perform the following actions:
 
-- If running the server for the first time, refer to [Installing WebEngine](../../install/install.md). 
+- If running the server for the first time, refer to [Installing WebEngine](../../install/kubernetes_deployment/install.md). 
 - If upgrading previous configurations, refer to [Upgrading the Helm deployment](../working_with_compose/helm_upgrade_values.md).
 
 Access the DAM components by navigating to **Practitioner Studio > Digital Assets**.

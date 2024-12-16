@@ -16,14 +16,14 @@ annotations:
 
 ??? example "Example for GKE:"
 
-    ```yaml
-    annotations:
-      service: 
-        # Annotations for haproxy service.
-        haproxy:
-        - key: cloud.google.com/load-balancer-type
-          value : "Internal"
-    ```
+```yaml
+annotations:
+  service: 
+    # Annotations for haproxy service.
+    haproxy:
+    - key: cloud.google.com/load-balancer-type
+      value : "Internal"
+```
 ## How to update the existing deployment
 
 Follow the steps to update an existing deployment from an external network to an internal network or vice-versa:
@@ -36,12 +36,12 @@ Follow the steps to update an existing deployment from an external network to an
 
     ??? example "Example:"
 
-        ```yaml
-          # Controls which application is deployed and configured
-        applications:
-          # Deploys haproxy
-          haproxy: false
-        ```
+    ```yaml
+      # Controls which application is deployed and configured
+    applications:
+      # Deploys haproxy
+      haproxy: false
+    ```
 
 2.  After updating your custom `values.yaml` file, run helm update command.
 
@@ -50,9 +50,9 @@ Follow the steps to update an existing deployment from an external network to an
     ```
 
     ??? example "Example:"
-        ```
-        helm upgrade dx-deployment -n dxns . -f ./cloud-deploy-values.yaml
-        ```
+    ```
+    helm upgrade dx-deployment -n dxns . -f ./cloud-deploy-values.yaml
+    ```
 
 3.  After the update is completed, enable HAProxy and add annotations specific to your cloud provider in custom `values.yaml` file.
 
@@ -88,10 +88,9 @@ Follow the steps to update an existing deployment from an external network to an
     ```
 
     ??? example "Example:"
-    
-        ```
-        helm upgrade dx-deployment -n dxns . -f ./cloud-deploy-values.yaml
-        ```
+    ```
+    helm upgrade dx-deployment -n dxns . -f ./cloud-deploy-values.yaml
+    ```
 
 5.  Do a helm update with your existing custom `values.yaml` file to make sure all the updates are present in the deployment.
 
@@ -102,7 +101,7 @@ Follow the steps to update an existing deployment from an external network to an
     ```
 
     ??? example "Example:" 
-          ```
-          helm upgrade dx-deployment -n external-lb . -f ./cloud-deploy-values.yaml
-          ```
+    ```
+    helm upgrade dx-deployment -n external-lb . -f ./cloud-deploy-values.yaml
+    ```
 
