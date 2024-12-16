@@ -8,3 +8,5 @@ Learn how to enable and disable Content Composer.
 Learn how to enable and disable Digital Asset Management.
 -   **[Enabling and disabling WCM Content AI Analysis](enable_content_ai.md)**  
 Learn how to enable and disable artificial intelligence (AI) analysis for Web Content Management (WCM) content.
+-   **[Integrating WAB in DX Compose](wab_integration.md)**  
+Learn how to integrate WAB in DX Compose.
