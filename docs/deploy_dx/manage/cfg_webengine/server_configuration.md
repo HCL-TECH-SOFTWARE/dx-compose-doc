@@ -121,7 +121,7 @@ Transaction management is crucial for maintaining data consistency and integrity
 
 ### Persistence
 
-The Java Persistence API (JPA) is used for Object-Relational Mapping (ORM) and data handling within applications. JPA provides a standardized way to map Java objects to database tables, enabling developers to interact with the database using Java objects rather than SQL queries. This abstraction simplifies data access and manipulation, while also providing powerful features such as caching, lazy loading, and query optimization.
+The Java Persistence API (JPA) is used for Object-Relational Mapping (ORM) and data handling within applications. JPA provides a standardized way to map Java objects to database tables, enabling developers to interact with the database using Java objects rather than SQL queries. This abstraction simplifies data access and manipulation, while also providing features such as caching, lazy loading, and query optimization.
 
 By using these data and transaction management features, developers can ensure efficient and reliable data handling within their applications, while maintaining data consistency and integrity across all operations.
 
@@ -171,7 +171,7 @@ By using these logging features, administrators can ensure effective error track
 
 ## Context and Dependency Injection
 
-Context and Dependency Injection (CDI) is a powerful framework for managing object lifecycles and dependencies within Java applications. CDI simplifies the development of loosely coupled, testable, and maintainable applications by providing the following:
+Context and Dependency Injection (CDI) is a framework for managing object lifecycles and dependencies within Java applications. CDI simplifies the development of loosely coupled, testable, and maintainable applications by providing the following:
 
 - **Dependency injection**: Automatic injection of dependencies which reduces boilerplate code and enhances modularity.
 - **Context management**: Scoping and lifecycle management of beans which ensures proper resource allocation and cleanup.
