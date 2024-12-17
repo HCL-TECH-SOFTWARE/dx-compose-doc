@@ -8,7 +8,7 @@ DX Compose supports site design and web content authoring features such as Web C
 
 HCL DX Compose 9.5 is available in the [HCL Software License Portal (Flexnet)](https://support.hcl-software.com/csm?id=kb_article&sysparm_article=KB0073344){target="_blank"} to customers licensed for the [HCL Digital Experience Compose v9.5](https://www.hcl-software.com/resources/license-agreements){target="_blank"} offering.
 
-For the latest list of Digital Experience Compose 9.5 components for deployments to Docker and certified Kubernetes platforms, refer to the [Docker image list]() topic in the Help Center.
+For the latest list of Digital Experience Compose 9.5 components for deployments to Docker and certified Kubernetes platforms, refer to the [Docker image list](../deploy_dx/install/kubernetes_deployment/image_list.md) topic in the Help Center.
 
 ## HCL Digital Experience Cloud Native
 
