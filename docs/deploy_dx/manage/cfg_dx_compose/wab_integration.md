@@ -7,18 +7,28 @@ The portal administrator collects information about the content provider and its
 !!! note
     This is not supported on a portal with the context root removed.
 
-        1.  Set the context root for the **wp.vwat.servlet.ear** application:
-            1.  Log on to the Open Liberty Admin Center at https://<portal_hostname>/adminCenter/login.jsp.
-            2.  Navigate to **Server Config > server.xml**.
-            3.  Find and expand the **wp.vwat.servlet.ear** enterprise application link.
-            4.  Under the **Enterprise Application wp.vwat.servlet.ear**, click **Web Application Extensions**.
-            5.  Update the context root to /. This step can create name conflicts. Add a rewrite rule to avoid these conflicts. For more information read [Apache Module mod_rewrite](http://httpd.apache.org/docs/2.2/mod/mod_rewrite.html).
-            6.  Click **Save** to apply your changes.
-            7.  The **wp.vwat.servlet.ear** application should restart automatically.
+Update the context root of the **wp.vwat.servlet.ear** application to "/" by adding the following snippet to the respective `values.yaml` file:
+
+```yaml
+configOverrideFiles:
+vwat-wab-overrides.xml: |
+    <server description="DX Web Engine server"> 
+        <enterpriseApplication id="wp.vwat.servlet.ear" location="${server.config.dir}/resources/portlets/VwatReverseProxyServlet.ear" name="wp.vwat.servlet.ear" startAfterRef="engine-ear">
+        <web-ext moduleName="wp.vwat.servlet.war" context-root="/"></web-ext>
+        <application-bnd>
+            <security-role name="All Role">
+                <special-subject type="ALL_AUTHENTICATED_USERS"/>
+            </security-role>
+        </application-bnd>
+        </enterpriseApplication>
+    </server>
+```
+
+After updating, perform a [Helm upgrade](../working_with_compose/helm_upgrade_values.md) to apply the changes. Open Liberty picks up and applies changes at runtime; this does not require a restart.
 
 2.  The system administrator logs in to HCL DX Compose.
 
-3.  The system administrator clicks the **Administration menu** icon from the toolbar. Then, clicks **Portlet Management > Virtual Web Application Manager**.
+3.  The system administrator clicks the **Administration menu** icon from the toolbar. Then, clicks **Applications > Virtual Application Manager**.
 
     !!!warning
         Do not enter < or > into any of the text boxes.
