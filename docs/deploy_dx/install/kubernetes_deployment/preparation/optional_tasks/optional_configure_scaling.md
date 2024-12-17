@@ -2,7 +2,7 @@
 
 The HCL Digital Experience Compose 9.5 Kubernetes deployment using Helm allows you to configure the pod count of each individual application.
 
-In addition, it is possible to configure the use of HorizontalPodAutoscalers that scales up and down the applications by adding or removing Pods based on the pod metrics. Refer to the [Scaling DX 9.5 container deployments using Helm](https://opensource.hcltechsw.com/digital-experience/latest/deployment/manage/container_configuration/container_scaling) topic for detailed overview information.
+In addition, it is possible to configure the use of HorizontalPodAutoscalers that scales up and down the applications by adding or removing Pods based on the pod metrics. Refer to the [Scaling DX 9.5 container deployments using Helm](https://opensource.hcltechsw.com/digital-experience/latest/deployment/manage/container_configuration/container_scaling){target="blank"} topic for detailed overview information.
 
 !!! note
     You are not able to use more than one (1) WebEngine Pod until you have performed a database transfer.
