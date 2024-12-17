@@ -8,7 +8,7 @@ DX Compose supports site design and web content authoring features such as Web C
 
 HCL DX Compose 9.5 is available in the [HCL Software License Portal (Flexnet)](https://support.hcl-software.com/csm?id=kb_article&sysparm_article=KB0073344){target="_blank"} to customers licensed for the [HCL Digital Experience Compose v9.5](https://www.hcl-software.com/resources/license-agreements){target="_blank"} offering.
 
-For the latest list of Digital Experience Compose 9.5 components for deployments to Docker and certified Kubernetes platforms, refer to the [Docker image list](../deploy_dx/install/kubernetes_deployment/image_list.md) topic in the Help Center.
+For the latest list of Digital Experience Compose 9.5 components for deployments to Docker and certified Kubernetes platforms, refer to the [Container file listings](../deploy_dx/install/kubernetes_deployment/image_list.md) topic in the Help Center.
 
 ## HCL Digital Experience Cloud Native
 
@@ -22,12 +22,10 @@ HCL DX Cloud Native also includes:
 
 - HCL DX Cloud Native 9.5.1 and higher releases are available in the [HCL Software License Portal (Flexnet)](https://support.hcl-software.com/csm?id=kb_article&sysparm_article=KB0073344){target="_blank"} to customers licensed for the [HCL DX Cloud Native 9.5](https://www.hcl-software.com/wps/wcm/connect/61f40a7e-d2ca-42d4-b24c-d5adfd4fe54d/HCL+Digital+Experience+Cloud+Native+v9.5.pdf?MOD=AJPERES&CONVERT_TO=url&CACHEID=ROOTWORKSPACE-61f40a7e-d2ca-42d4-b24c-d5adfd4fe54d-ofP.t-Y){target="_blank"} offering.
 
-For the latest list of DX 9.5 components available for HCL DX Cloud Native 9.5 offering deployments to Docker and certified Kubernetes platforms, refer to the [Docker image list]() topic in the Help Center.
+For the latest list of DX 9.5 components available for HCL DX Cloud Native 9.5 offering deployments to Docker and certified Kubernetes platforms, refer to the [Docker image list](https://opensource.hcltechsw.com/digital-experience/CF223/deployment/install/container/image_list/){target="_blank"} topic in the Help Center.
 
 ## HCL Digital Experience Cloud
 
 HCL DX Cloud is the SLA-based cloud service platform with built-in security and compliance. This solution includes the capabilities of HCL DX Cloud Native 9.5 offering software and ongoing maintenance and upgrades to the latest releases of HCL Software. This means you can focus on achieving business results faster, while reducing time building and managing systems and ensuring the highest security and reliability. For more information, see [Introducing HCL Digital Experience Cloud](https://www.youtube.com/watch?v=RjEixzVmft4&list=PLEjl4yzB6ckHXyJv0Kx7O9vI_7KPAAsTO&index=11&t=10s){target="_blank"}. Contact [HCL](https://www.hcl-software.com/dx/upgrade/contact-us?utm_medium=email&utm_source=unica_email&utm_campaign=DT_DX_Newsletter_Jan24_C000000168&referrer=mail.google.com){target="_blank"} to discuss further and get started.
 
 For additional information about HCL DX solutions, visit the [HCL Digital Experience](https://www.hcl-software.com/dx){target="_blank"} website.
-
-<!--File listing not yet available-->
