@@ -41,7 +41,6 @@ flowchart TD
   C ----> |Optional| I;
   I --> J;
 
-  click B1 "../preparation/get_the_code/configure_harbor_helm_repo/"
   click B2 "../preparation/get_the_code/prepare_load_images/"
   click D "../preparation/mandatory_tasks/prepare_namespace/"
   click E "../preparation/mandatory_tasks/prepare_configuration/"
