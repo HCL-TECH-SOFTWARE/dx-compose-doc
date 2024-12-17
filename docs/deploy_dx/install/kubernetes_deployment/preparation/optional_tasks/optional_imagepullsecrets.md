@@ -1,6 +1,6 @@
 # Using ImagePullSecrets
 
-To use a container image registry that has access restrictions and requires credentials, you need to leverage `ImagePullSecrets` in your deployment. Refer to the [Kubernetes Documentation](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/) for additional information on this topic.
+To use a container image registry that has access restrictions and requires credentials, you need to leverage `ImagePullSecrets` in your deployment. Refer to the [Kubernetes Documentation](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/){target="_blank"} for additional information on this topic.
 
 <!-- 
 You can use this method to have your helm deployment directly access either the HCL container registry or your own container registry.
@@ -44,7 +44,7 @@ kubectl create secret -n <YOUR-NAMESPACE> docker-registry dx-harbor --docker-ser
 --docker-password='<YOUR_HARBOR_CLI_SECRET>'
 ```
 
-You can obtain the CLI secret from harbor by navigating to your `User Profile` in [HCL Harbor](https://hclcr.io). You can copy it from the field called `CLI secret`.
+You can obtain the CLI secret from harbor by navigating to your `User Profile` in [HCL Harbor](https://hclcr.io){target="_blank"}. You can copy it from the field called `CLI secret`.
 
 After executing this command you should receive the following message:
 
@@ -63,5 +63,5 @@ images:
     - name: "dx-harbor"
 ```
 
-You deployment can now directly pull the container images from the HCL Harbor container registry.
+Your deployment can now directly pull the container images from the HCL Harbor container registry.
 -->

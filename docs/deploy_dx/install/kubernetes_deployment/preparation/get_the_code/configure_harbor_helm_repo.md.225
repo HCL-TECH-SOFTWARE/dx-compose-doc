@@ -1,8 +1,8 @@
 # Configure Harbor Helm Repository
 
-The HCL Digital Experience 9.5 container images and Helm charts can be accessed from the [HCL Harbor container repository](https://hclcr.io/){:target="_blank"}. Customers with credentials to access entitled software in the HCL Software Licensing Portal may apply those credentials to optionally access these components of Digital Experience v9.5. 
+The HCL Digital Experience Compose 9.5 container images and Helm charts can be accessed from the [HCL Harbor container repository](https://hclcr.io/){target="_blank"}. Customers with credentials to access entitled software in the HCL Software Licensing Portal may apply those credentials to optionally access these components of Digital Experience Compose v9.5.
 
-As of the CF216 release, the Harbor repository is updated with a registry based on Open Container Initiative (OCI) standards. The Helm chart command is updated to be OCI-compliant. However, older versions of the Helm chart are still utilized in the non-OCI approach. On this page, both approaches are described.
+The Harbor repository is updated with a registry based on Open Container Initiative (OCI) standards. The Helm chart command is updated to be OCI-compliant. However, older versions of the Helm chart are still utilized in the non-OCI approach. On this page, both approaches are described.
 
 ## OCI-based registry
 
@@ -52,7 +52,7 @@ helm repo add \
 hcl-dx https://hclcr.io/chartrepo/dx
 ```
 
-To obtain the `CLI secret`, you must log in to [HCL Harbor](https://hclcr.io/){:target="_blank"} using your authorized user credentials, navigate to your `User Profile` in HCL Harbor, and then copy it from the field called `CLI secret`.
+To obtain the `CLI secret`, you must log in to [HCL Harbor](https://hclcr.io/){target="_blank"} using your authorized user credentials, navigate to your `User Profile` in HCL Harbor, and then copy it from the field called `CLI secret`.
 
 After adding the repository to Helm, you should see the following message:
 
@@ -73,16 +73,16 @@ This would return you a list of available versions, looking similar to this:
 
 ```text
 NAME                    	CHART VERSION	APP VERSION	DESCRIPTION                                    
-hcl-dx/hcl-dx-deployment	2.7.1        	95_CF204   	Kubernetes Deployment of HCL Digital Experience
+hcl-dx/hcl-dx-deployment	2.7.1        	95_CF204   	Kubernetes Deployment of HCL Digital Experience Compose
 ```
 
-You see which chart version correlates to which HCL Digital Experience version. In the above example, installing CF204 would require you to use Helm Chart version 2.7.1.
+You see which chart version correlates to which HCL Digital Experience Compose version. In the above example, installing CF224 would require you to use Helm Chart version 2.7.1.
 
-Your Helm configuration is now capable of using HCL DX Helm Charts directly from the HCL Harbor Helm Repository.
+Your Helm configuration is now capable of using HCL DX Compose Helm Charts directly from the HCL Harbor Helm Repository.
 
 ### Pulling Helm Chart for deployment
 
-To use the HCL Digital Experience Helm Chart from the HCL Harbor Helm repository, we recommend you pull it via Helm to your local machine, by that you can work with it the same way, as you would have downloaded it manually.
+To use the HCL Digital Experience Compose Helm Chart from the HCL Harbor Helm repository, we recommend you pull it via Helm to your local machine, by that you can work with it the same way, as you would have downloaded it manually.
 
 To do so, run the following command with the correct Helm Chart version:
 

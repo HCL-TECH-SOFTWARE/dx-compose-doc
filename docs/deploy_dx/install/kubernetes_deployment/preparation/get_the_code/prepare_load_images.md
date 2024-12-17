@@ -15,7 +15,7 @@ It is assumed that you have a repository configured and running, and is technica
 
 [Download the HCL Digital Experience Compose 9.5 package](https://support.hcl-software.com/csm?id=kb_article&sysparm_article=KB0073344){target="blank"}, unpack it locally and load the images into your container registry. You can load the images to your own container registry for others in your organization to access.
 <!--
-You can either directly pull the HCL DX images from the HCL Harbor container image registry, or download the HCL Digital Experience 9.5 package, unpack it locally and load the images into your container registry. In both cases, you can load the images to your own container registry for others in your organization to access.
+You can either directly pull the HCL DX Compose images from the HCL Harbor container image registry, or download the HCL Digital Experience Compose 9.5 package, unpack it locally and load the images into your container registry. In both cases, you can load the images to your own container registry for others in your organization to access.
 -->
 ### Configure the Helm chart image pull secret
 
@@ -36,7 +36,7 @@ docker login hclcr.io
 # Enter your harbor username and CLI secret to login
 ```
 
-You can obtain the CLI secret from harbor by navigating to your `User Profile` in [HCL Harbor](https://hclcr.io). You can copy it from the field called `CLI secret`.
+You can obtain the CLI secret from harbor by navigating to your `User Profile` in [HCL Harbor](https://hclcr.io){target="_blank"}. You can copy it from the field called `CLI secret`.
 
 After a successful login, you will see the message:
 
