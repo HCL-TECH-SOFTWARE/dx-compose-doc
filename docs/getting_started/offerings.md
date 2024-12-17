@@ -22,7 +22,7 @@ HCL DX Cloud Native also includes:
 
 - HCL DX Cloud Native 9.5.1 and higher releases are available in the [HCL Software License Portal (Flexnet)](https://support.hcl-software.com/csm?id=kb_article&sysparm_article=KB0073344){target="_blank"} to customers licensed for the [HCL DX Cloud Native 9.5](https://www.hcl-software.com/wps/wcm/connect/61f40a7e-d2ca-42d4-b24c-d5adfd4fe54d/HCL+Digital+Experience+Cloud+Native+v9.5.pdf?MOD=AJPERES&CONVERT_TO=url&CACHEID=ROOTWORKSPACE-61f40a7e-d2ca-42d4-b24c-d5adfd4fe54d-ofP.t-Y){target="_blank"} offering.
 
-For the latest list of DX 9.5 components available for HCL DX Cloud Native 9.5 offering deployments to Docker and certified Kubernetes platforms, refer to the [Docker image list](https://opensource.hcltechsw.com/digital-experience/CF223/deployment/install/container/image_list/){target="_blank"} topic in the Help Center.
+For the latest list of DX 9.5 components available for HCL DX Cloud Native 9.5 offering deployments to Docker and certified Kubernetes platforms, refer to the [Docker image list](https://opensource.hcltechsw.com/digital-experience/latest/deployment/install/container/image_list/){target="_blank"} topic in the Help Center.
 
 ## HCL Digital Experience Cloud
 
