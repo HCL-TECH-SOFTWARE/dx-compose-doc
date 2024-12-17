@@ -8,3 +8,5 @@ Learn how to enable and disable Content Composer.
 Learn how to enable and disable Digital Asset Management.
 -   **[Enabling and disabling WCM Content AI Analysis](enable_content_ai.md)**  
 Learn how to enable and disable artificial intelligence (AI) analysis for Web Content Management (WCM) content.
+-   **[Enabling and disabling People Service](enable_people_service.md)**
+Learn how to enable and disable People Service.
