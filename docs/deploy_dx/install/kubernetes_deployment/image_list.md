@@ -1,4 +1,4 @@
-# Container and supported OS file listings
+# Container file listings
 
 This section presents the latest available HCL Digital Experience (DX) 9.5 Compose Container images.
 
