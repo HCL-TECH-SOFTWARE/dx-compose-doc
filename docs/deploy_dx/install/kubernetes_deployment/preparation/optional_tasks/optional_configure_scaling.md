@@ -29,7 +29,7 @@ scaling:
 
 ## Configuring HorizontalPodAutoscalers
 
-The use of HorizontalPodAutoscalers requires your cluster to have the [Kubernetes Metrics](https://github.com/kubernetes-sigs/metrics-server) running. Ensure that this is the case, and reference your cloud provider documentation for further information.
+The use of HorizontalPodAutoscalers requires your cluster to have the [Kubernetes Metrics](https://github.com/kubernetes-sigs/metrics-server){target="blank"} running. Ensure that this is the case, and reference your cloud provider documentation for further information.
 
 You can set up the use of `HorizontalPodAutoscalers` on a per application basis using the following syntax in your custom-values.yaml file, showing Content Composer, as an example:
 
