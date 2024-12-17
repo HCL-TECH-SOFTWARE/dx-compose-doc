@@ -34,7 +34,7 @@ These commands are different from the previous approach with the non-OCI-based r
     ls -lah 
 
     # total 8868
-    # -rw-r--r--. 1 user user  136052 Jul  7 11:28 hcl-dx-deployment-2.7.1.tgz
+    # -rw-r--r--. 1 user user  136052 Jul  7 11:28 hcl-dx-deployment-3.15.4.tgz
     ```
 
 ## Non-OCI-based registry
@@ -73,10 +73,10 @@ This would return you a list of available versions, looking similar to this:
 
 ```text
 NAME                    	CHART VERSION	APP VERSION	DESCRIPTION                                    
-hcl-dx/hcl-dx-deployment	2.7.1        	95_CF204   	Kubernetes Deployment of HCL Digital Experience Compose
+hcl-dx/hcl-dx-deployment	3.15.4        	95_CF224   	Kubernetes Deployment of HCL Digital Experience Compose
 ```
 
-You see which chart version correlates to which HCL Digital Experience Compose version. In the above example, installing CF224 would require you to use Helm Chart version 2.7.1.
+You see which chart version correlates to which HCL Digital Experience Compose version. In the above example, installing CF224 would require you to use Helm Chart version 3.15.4.
 
 Your Helm configuration is now capable of using HCL DX Compose Helm Charts directly from the HCL Harbor Helm Repository.
 
@@ -87,8 +87,8 @@ To use the HCL Digital Experience Compose Helm Chart from the HCL Harbor Helm re
 To do so, run the following command with the correct Helm Chart version:
 
 ```sh
-# Use Helm Pull with the version you want to deploy (example uses 2.7.1, please enter your desired version)
-helm pull hcl-dx/hcl-dx-deployment --version 2.7.1
+# Use Helm Pull with the version you want to deploy (example uses 3.15.4, please enter your desired version)
+helm pull hcl-dx/hcl-dx-deployment --version 3.15.4
 ```
 
 After running this command, you can check if the Helm Chart has been downloaded to your local machine:
@@ -98,7 +98,7 @@ After running this command, you can check if the Helm Chart has been downloaded 
 ls -lah 
 
 # total 8868
-# -rw-r--r--. 1 user user  136052 Jul  7 11:28 hcl-dx-deployment-2.7.1.tgz
+# -rw-r--r--. 1 user user  136052 Jul  7 11:28 hcl-dx-deployment-3.15.4.tgz
 ```
 
 You have now downloaded your Helm Chart and can continue with your deployment.
