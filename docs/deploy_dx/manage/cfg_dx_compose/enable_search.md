@@ -1,0 +1,39 @@
+# Enabling and disabling Search
+
+This document outlines configurations to enable and disable Search in HCL Digital Experience (DX) Compose using the `values.yaml` file. With Search, you can search WCM and Portal items using Opensearch.
+
+## Search configuration
+
+Refer to the following sample snippet for configuring the DX Compose server to enable Search:
+
+```yaml
+# Application configuration
+configuration:
+  # Application specific configuration for Core
+  webEngine:
+    # Settings for SearchV2 UI configuration
+    search:
+      # Determines if search ui v2 is enabled or not
+      uiV2Enabled: true
+      # Determines to which search center any input box on DX redirects by default
+      inputRedirectVersion: "v2"
+```
+
+Set the value of the key `uiV2Enabled` to `true` to enable or `false` to disable Search.
+Set the value of the key `inputRedirectVersion` to `v2` to redirect all searches on DX to the new Search UI.
+
+
+## Validation
+
+After updating the `values.yaml` file, perform the following actions:
+
+- If running the server for the first time, refer to [Installing WebEngine](../../install/install.md). 
+- If upgrading previous configurations, refer to [Upgrading the Helm deployment](../working_with_compose/helm_upgrade_values.md).
+
+Access the HCL Search by navigating to **Practitioner Studio > Web Content > Search**.
+
+You can also use the following sample URL: 
+
+```
+https://your-portal.net/wps/myportal/Practitioner/SearchCenter
+```
