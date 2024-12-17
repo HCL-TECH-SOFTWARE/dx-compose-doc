@@ -18,8 +18,8 @@ HCL tests DX Compose against a range of Kubernetes platforms that are regularly 
 Table 1 lists the Kubernetes platforms that HCL tested and supports. This is provided for information only.
 
 |Kubernetes platforms on full deployments|
-|--------------|-----------------|
-|- Amazon EKS<br/>- Google GKE<br/>- Microsoft Azure AKS<br/>- Red Hat OpenShift|- Amazon EKS / AWS EC2<br/>- Red Hat OpenShift on AWS / AWS EC2|
+|--------------|
+|- Amazon EKS<br/> - Google GKE <br/> - Microsoft Azure AKS <br/> - Red Hat OpenShift <br/> - Amazon EKS / AWS EC2<br/> - Red Hat OpenShift on AWS / AWS EC2|
 
 ## Kubernetes version support policy
 
