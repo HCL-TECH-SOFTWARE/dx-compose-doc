@@ -1,6 +1,6 @@
 # Enabling and disabling Search
 
-This document outlines configurations to enable and disable Search in HCL Digital Experience (DX) Compose using the `values.yaml` file. With Search, you can search WCM and Portal items using Opensearch.
+This document outlines configurations to enable and disable Search in HCL Digital Experience (DX) Compose using the `values.yaml` file. Search introduces a new user interface along with a new backend service that utilizes OpenSearch to provide a seamless search experience.
 
 ## Search configuration
 
@@ -27,7 +27,7 @@ Set the value of the key `inputRedirectVersion` to `v2` to redirect all searches
 
 After updating the `values.yaml` file, perform the following actions:
 
-- If running the server for the first time, refer to [Installing WebEngine](../../install/install.md). 
+- If running the server for the first time, refer to [Installing WebEngine](../../install/kubernetes_deployment/install.md).
 - If upgrading previous configurations, refer to [Upgrading the Helm deployment](../working_with_compose/helm_upgrade_values.md).
 
 Access the HCL Search by navigating to **Practitioner Studio > Web Content > Search**.
