@@ -56,3 +56,4 @@ See the [System requirements](../../../getting_started/system_requirements.md) s
 
 ???+ info "Related information"
     - [Download the HCL Digital Experience Compose software](../kubernetes_deployment/download_sw.md)
+
