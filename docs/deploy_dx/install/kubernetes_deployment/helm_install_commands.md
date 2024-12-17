@@ -2,7 +2,7 @@
 title: Install
 ---
 
-# Installing Commands to Deploy
+# Installing Commands to Deploy <!--this page is not visible in the navigation, should we add it?-->.
 
 The following are install commands that are used to deploy HCL Digital Experience Compose 9.5 Helm Charts.
 

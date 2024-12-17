@@ -1,6 +1,7 @@
 nav:
   - overview.md
   - preparation
+  - kubernetes_runtime.md
   - image_list.md
   - install.md
   - helm_uninstall.md

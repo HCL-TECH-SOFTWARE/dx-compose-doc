@@ -1,5 +1,5 @@
 ---
-title: Uninstall
+title: Uninstalling Helm deployment
 ---
 
 # Uninstalling Helm Deployment
