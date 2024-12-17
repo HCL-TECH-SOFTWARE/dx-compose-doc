@@ -1,4 +1,4 @@
-# Getting started with the Web Application Bridge
+# Integrating WAB with DX Compose
 
 The portal administrator collects information about the content provider and its applications and then follows basic configuration steps to enable the Web Application Bridge.
 
