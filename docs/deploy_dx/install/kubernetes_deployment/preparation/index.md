@@ -2,7 +2,7 @@
 title: Preparation
 ---
 
-# Preparation Before Installing with Helm
+# Preparation before installing with Helm
 
 This section outlines mandatory and optional tasks that need to be done before installation of HCL Digital Experience Compose using Helm.
 

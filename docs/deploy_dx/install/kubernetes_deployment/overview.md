@@ -47,7 +47,7 @@ flowchart TD
   click G "../preparation/mandatory_tasks/prepare_configure_networking/"
   click H "../preparation/mandatory_tasks/prepare_ingress_certificate/"
   click I "../preparation/optional_tasks/optional_internal_networking/"
-  click J "../helm_install_commands/"
+  click J "../install/"
 
 
 
