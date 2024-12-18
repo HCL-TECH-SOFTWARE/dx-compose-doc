@@ -4,7 +4,7 @@ This topic provides the steps to integrate Web Application Bridge (WAB) with Dig
 
 1. [Enable WAB on a portal.](#enabling-wab-on-a-portal)
 2. [Create and configure the web dock application.](#creating-and-configuring-the-web-dock-application)
-3. [Adding the web dock application to a page](#adding-the-web-dock-application-to-a-page)
+3. [Add the web dock application to a page.](#adding-the-web-dock-application-to-a-page)
 
 !!! note
     WAB integration is not supported on a portal with the context root removed.
