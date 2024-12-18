@@ -12,5 +12,5 @@ Learn how to enable and disable artificial intelligence (AI) analysis for Web Co
 Learn how to integrate WAB with DX Compose.
 -   **[Enabling and disabling People Service](enable_people_service.md)**  
 Learn how to enable and disable People Service.
--   **[Enabling and disabling Search](enable_search.md)**  
-Learn how to enable and disable Search.
+-   **[Enabling and disabling Search V2](enable_search.md)**  
+Learn how to enable and disable Search V2.
