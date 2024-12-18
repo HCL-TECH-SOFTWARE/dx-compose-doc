@@ -6,11 +6,15 @@ DX Compose is released under the HCLSoftware Continuous Delivery Support Policy,
 
 -   **[Product overview](product_overview/index.md)**  
 This topic provides an overview of DX Compose.
+-   **[HCL DX offerings](offerings.md)**  
+See the latest offerings for HCL Digital Experience.
 -   **[Architecture and dependencies](architecture_dependencies.md)**  
 Learn more about the transition of architecture from the Core container to the WebEngine container.
 -   **[System requirements](system_requirements.md)**  
 See the system requirements to use the WebEngine container in your DX deployment.
+-   **[Download software](download)**  
+Download HCL Digital Experience Compose from the HCL Software License Portal (Flexnet).
 -   **[Differences from DX Core](differences.md)**  
 Know the differences of WebEngine from the DX Core container. 
--   **[DX Compose limitations](limitations.md)** <!-- move to Plan Your Deployment when available (as in DX doc) -->
+-   **[DX Compose limitations](limitations.md)**  <br>
 This topic enumerates the current limitations of DX Compose.
