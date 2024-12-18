@@ -8,5 +8,6 @@ nav:
   - HCL DX offerings: offerings.md
   - Architecture overview: architecture_dependencies.md
   - System requirements: system_requirements.md
-#  - Download Software: download
+  - Download software: download
   - differences.md
+  - Limitations: limitations.md
