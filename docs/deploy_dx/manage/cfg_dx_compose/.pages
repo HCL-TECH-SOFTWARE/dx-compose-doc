@@ -4,4 +4,5 @@ nav:
   - enable_dam.md
   - enable_content_ai.md
   - enable_search.md
+  - wab_integration.md
   - enable_people_service.md

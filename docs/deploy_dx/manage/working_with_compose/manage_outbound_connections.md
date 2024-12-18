@@ -16,7 +16,7 @@ You can use a specially prepared xmlaccess script to create or delete outbound c
 <request type="update" version="8.0.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ProxyConfig_1.0.0.xsd">
     <proxy-config-data type="global">
-        <data action="delete"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+        <data action="create"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
   
 <proxy-rules xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.ibm.com/xmlns/prod/sw/http/outbound/proxy-config/2.0">
     <policy active="true" url="https://replacme.hcl.com/*" name="myservice">
@@ -37,7 +37,7 @@ You can use a specially prepared xmlaccess script to create or delete outbound c
 <request type="update" version="8.0.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ProxyConfig_1.0.0.xsd">
     <proxy-config-data type="global">
-        <data action="create"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+        <data action="delete"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
   
 <proxy-rules xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.ibm.com/xmlns/prod/sw/http/outbound/proxy-config/2.0">
     <policy active="true" url="https://replacme.hcl.com/*" name="myservice">
