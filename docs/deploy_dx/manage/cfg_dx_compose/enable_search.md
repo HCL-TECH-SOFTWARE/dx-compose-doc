@@ -30,7 +30,7 @@ After updating the `values.yaml` file, perform the following actions:
 - If running the server for the first time, refer to [Installing WebEngine](../../install/kubernetes_deployment/install.md).
 - If upgrading previous configurations, refer to [Upgrading the Helm deployment](../working_with_compose/helm_upgrade_values.md).
 
-Access the HCL Search by navigating to **Practitioner Studio > Web Content > Search**.
+Access the HCL Search V2 by navigating to **Practitioner Studio > Web Content > Search**.
 
 You can also use the following sample URL: 
 
