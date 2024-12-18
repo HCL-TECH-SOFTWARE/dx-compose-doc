@@ -3,7 +3,5 @@ nav:
   - preparation
   - kubernetes_runtime.md
   - image_list.md
-  - Installing:
-    - install.md
-    - helm_install_commands.md
+  - install.md
   - helm_uninstall.md
