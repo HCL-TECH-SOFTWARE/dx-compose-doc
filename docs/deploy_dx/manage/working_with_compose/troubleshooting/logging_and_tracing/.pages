@@ -1,0 +1,10 @@
+title: Logging and tracing
+nav:
+    - index.md
+    - run_logs.md
+    - verbosegc.md
+    - open_liberty_logs.md
+    - adsyslog.md
+    - wcm_logs.md
+    - logging_tracing_containers_and_new_services.md
+    - Logging and tracing client side rendering: logging_and_tracing_clientside

@@ -1,0 +1,13 @@
+nav:
+ - index.md
+ - Changing the WebEngine URL: change_context_root_or_home.md #This document does not have helm information ... only manual steps
+ - Managing outbound connections (Ajax Proxy): manage_outbound_connections.md
+ - Managing users and groups: cfg_parameters
+ - Monitoring the DX Compose deployment: monitor_metrics.md
+ - Restarting the WebEngine server: restart_webengine_server.md
+ - Staging to production: staging_to_production.md
+ - Supported DXClient operations: dxclient.md
+ - Troubleshooting: troubleshooting
+ - Upgrading the Helm deployment: helm_upgrade_values.md
+ - Using custom secrets in WebEngine: custom_secrets.md
+ - Viewing WebEngine server logs: logging_webengine.md
