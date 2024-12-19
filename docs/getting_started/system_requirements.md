@@ -4,7 +4,7 @@ The deployment of WebEngine happens as part of the broader Digital Experience (D
 
 ## Kubernetes
 
-See the requirements for Kubernetes in [Kubernetes runtime](https://opensource.hcltechsw.com/digital-experience/latest/get_started/system_requirements/kubernetes/kubernetes-runtime/){target="_blank"}.
+See the requirements for Kubernetes in [Kubernetes runtime](../deploy_dx/install/kubernetes_deployment/kubernetes_runtime.md).
 
 ### Kubernetes platform policy
 
