@@ -19,7 +19,7 @@ In this topic, you can find the main scenarios supported by Digital Experience (
 - Deploy to the cloud using Kubernetes
 - Go into production, ideally for smaller workloads
 - Integrate [HCL Leap applications](https://opensource.hcltechsw.com/digital-experience/latest/extend_dx/integration/leap/){target="_blank"} using Script Applications or WCM components
- - Integrate [HCL Volt MX Foundry services using Digital Data Connector](https://opensource.hcltechsw.com/digital-experience/latest/extend_dx/integration/mx/){target="_blank"}
+ - Integrate [HCL Volt MX Foundry services](https://opensource.hcltechsw.com/digital-experience/latest/extend_dx/integration/mx/){target="_blank"}
 - Use [OpenSearch](https://opensource.hcltechsw.com/digital-experience/latest/deployment/install/container/helm_deployment/preparation/optional_tasks/optional_install_new_search/){target="_blank"} to search content and assets
 - [Use DB2](../../deploy_dx/manage/cfg_webengine/external_db_database_transfer.md) as a production database for WebEngine container
 - [Federate multiple LDAPs](../../deploy_dx/manage/working_with_compose/cfg_parameters/manage_users_groups_liberty.md#configuring-federated-user-registry)
