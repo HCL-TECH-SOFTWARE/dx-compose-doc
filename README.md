@@ -16,11 +16,11 @@ Perform the following steps to install mkdocs and clone the git repository to up
 - Follow the [MkDocs Installation guide](https://www.mkdocs.org/user-guide/installation/) to install [`MkDocs`](https://www.mkdocs.org/) and `pip`
 - Install the required `mkdocs` plugins:  
   - `pip install -r requirements.txt`
-- Clone the [digital-experience repository](https://github.com/HCL-TECH-SOFTWARE/digital-experience)
+- Clone the [dx-compose-doc repository](https://github.com/HCL-TECH-SOFTWARE/dx-compose-doc)
 - Update the markdown files in the `docs` folder
 - Verify the changes by building the project locally [mkdocs serve](https://www.mkdocs.org/getting-started/#creating-a-new-project)
 - Commit the changes
-- Create and submit a [Pull Request](https://github.com/HCL-TECH-SOFTWARE/digital-experience/pulls)
+- Create and submit a [Pull Request](https://github.com/HCL-TECH-SOFTWARE/dx-compose-doc/pulls)
 - Await the PR to be reviewed, merged, and built
 
 ## Set up github email notification
