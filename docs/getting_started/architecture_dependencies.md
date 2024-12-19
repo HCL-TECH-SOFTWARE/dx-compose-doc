@@ -8,7 +8,7 @@ The first diagram shows the architecture of the existing DX Core container.
 
 The second diagram shows the architecture of the WebEngine container.
 
-![WebEngine deployment](./img/webengine-arch-mvp.png)
+![WebEngine deployment](./img/webengine-arch-mvp.png){ width="800" }
 
 ## Dependencies
 
