@@ -1,0 +1,5 @@
+nav:
+  - index.md
+  - Configuring DX Compose: cfg_dx_compose
+  - Configuring WebEngine: cfg_webengine
+  - Working with DX Compose: working_with_compose

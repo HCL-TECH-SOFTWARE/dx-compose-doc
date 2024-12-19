@@ -1,0 +1,13 @@
+# This is the title of the folder that will be listed in the side bar
+
+title: Getting Started
+## This section defines the navigation structure for this directory
+nav:
+  - index.md
+  - product_overview
+  - HCL DX offerings: offerings.md
+  - Architecture overview: architecture_dependencies.md
+  - System requirements: system_requirements.md
+  - Download software: download
+  - differences.md
+  - Limitations: limitations.md
