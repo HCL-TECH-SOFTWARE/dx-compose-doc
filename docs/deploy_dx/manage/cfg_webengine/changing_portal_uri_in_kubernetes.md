@@ -17,7 +17,7 @@ configuration:
 
 ## Additional considerations
 
-The People Service Helm chart cannot automatically detect changes in the parent chart. If you have deployed HCL People Service along with DX, you must adjust the `portletPageContextRoot` in the People Service chart after adjusting the context root of the DX URI to align the two charts.  For example, when you change the `values.yaml` for DX, you need to add the following:
+The People Service Helm chart cannot automatically detect changes in the parent chart. If you have deployed HCL People Service along with DX Compose, you must adjust the `portletPageContextRoot` in the People Service chart after adjusting the context root of the DX URI to align the two charts.  For example, when you change the `values.yaml` for DX Compose, you need to add the following:
 
 ```yaml
 peopleservice:
