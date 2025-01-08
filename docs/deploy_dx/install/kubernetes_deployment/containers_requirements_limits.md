@@ -18,8 +18,8 @@ This section describes the requirements and limitations for HCL Digital Experien
 
 HCL DX Compose 9.5 is designed to run on any certified Kubernetes platform \([https://www.cncf.io/certification/software-conformance](https://www.cncf.io/certification/software-conformance)\), provided that the conditions apply:
 
-- the Kubernetes platform is hosted on x86\_64 hardware.
-- the Kubernetes platform is officially supported by Helm ([https://helm.sh/docs/topics/kubernetes\_distros/](https://helm.sh/docs/topics/kubernetes_distros/)).
+- The Kubernetes platform is hosted on x86\_64 hardware.
+- The Kubernetes platform is officially supported by Helm ([https://helm.sh/docs/topics/kubernetes\_distros/](https://helm.sh/docs/topics/kubernetes_distros/)).
 
 <!-- 
 For the list of Kubernetes versions that are tested and supported by HCL, refer to the [HCL DX supported hardware and software statements](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0013514&sys_kb_id=ba230c701b983c50f37655352a4bcb29) page.
