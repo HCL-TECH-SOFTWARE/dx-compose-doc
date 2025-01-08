@@ -1,4 +1,4 @@
-# DX Compose limitations 
+# DX Compose limitations
 
 Know the existing limitations of Digital Experience (DX) Compose.
 
