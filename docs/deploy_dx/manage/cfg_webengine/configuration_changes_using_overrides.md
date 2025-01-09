@@ -34,7 +34,7 @@ To update the default administrator username and password, refer to the steps in
 
 ## Configuring DX Compose to use a mail server
 
-Below is an example snippet of configuring DX WebEngine server to use a mail server. The `smtphost` will need to be replaced with the proper hostname of the mail server. If authentication is required to communicate with the mail server then replace `smtpUser` and `smtpPassword` with the correct values, otherwise remove those lines from the snippet.
+The following is an example snippet of configuring DX WebEngine server to use a mail server. The `smtphost` will need to be replaced with the proper hostname of the mail server. If authentication is required to communicate with the mail server then replace `smtpUser` and `smtpPassword` with the correct values, otherwise remove those lines from the snippet.
 
 ```yaml
 configOverrideFiles:
