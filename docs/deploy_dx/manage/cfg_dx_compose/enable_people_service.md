@@ -3,7 +3,7 @@
 This document outlines configurations to enable and disable People Service in HCL Digital Experience (DX) Compose using the `values.yaml` file. People Service provides a layer for social connectivity by helping team members to connect, especially in large projects. It enhances user profiles with additional data and interactive features, improving team collaboration and project execution.
 
 !!!note
-    In this release, instructions for using this feature is located in the [HCL Digital Experience Help Center](https://opensource.hcltechsw.com/digital-experience/latest/extend_dx/integration/people_service/){target="_blank"}. These will be documented in the HCL Digital Experience Compose Help Center in future releases.
+    In this release, instructions for using this feature is located in the [HCL Digital Experience Help Center](https://help.hcl-software.com/digital-experience/9.5/latest/extend_dx/integration/people_service/){target="_blank"}. These will be documented in the HCL Digital Experience Compose Help Center in future releases.
 
 ## People Service configuration
 
