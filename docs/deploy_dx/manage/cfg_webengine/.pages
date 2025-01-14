@@ -6,5 +6,6 @@ nav:
  - Configuring LDAP: ldap_configuration.md
  - Database Management: external_db_database_transfer.md
  - Updating DX properties using Helm values: update_properties_with_helm.md
+ - Changing portal URI: changing_portal_uri_in_kubernetes.md
  - Updating the default administrator password: update_wpsadmin_password.md
  - WCM modules: wcm_modules.md
