@@ -50,7 +50,7 @@ The goal, in general, is to make the DX Compose WebEngine image have defaults "o
 
 **Applying the Helm Chart Settings**
 
-The helm charts for performance are insufficient for a helm update. They must always be applied in concert with the helm chart for other changes.
+The helm charts (mentioned above) for performance are insufficient for a helm update. They must always be applied in concert with the helm chart for other changes.
 
 So, for example, one might use the following command line for applying the helm chart:
 
@@ -58,9 +58,9 @@ So, for example, one might use the following command line for applying the helm 
 helm upgrade -n dxns -f install-deploy-values.yaml -f ./install-hcl-dx-deployment/performance/webengine-performance-rendering.yaml dx-deployment ./install-hcl-dx-deployment
 ```
 
-In this command, the first "-f" for install-deploy-values.yaml refers to the helm chart for non-performance changes. The second "-f" for webengine-performance-rendering.yaml is the helm chart for performance changes specifically for the initial tunings of a rendering environment.
+In this command, the first "-f" for install-deploy-values.yaml refers to the helm chart for non-performance changes (e.g. the global changes). The second "-f" for webengine-performance-rendering.yaml is the helm chart for performance changes specifically for the initial tunings of a rendering environment.
 
-Note that the WebEngine pod(s) need to be restarted to pick up any changes in the due to the helm changes because a helm upgrade in the currently running pod(s) are not subject to the these changes.
+Note that the WebEngine pod(s) need to be restarted to pick up any changes in the WebEngine pod(s) because a helm upgrade in the currently running pod(s) are not subject to properties file changes.
 
 **Notes**
 
