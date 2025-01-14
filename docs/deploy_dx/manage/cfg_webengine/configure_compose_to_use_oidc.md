@@ -49,4 +49,5 @@ Therefore, an example command might look like this:
 Consult this topic for further information on doing a 
 [helm update](../working_with_compose/helm_upgrade_values.md).
 
-After completing the helm update, the appropriate pods will automatically restart.
+5. Restart the DX Compose WebEngine pods. 
+The changes to the ConfigService.properties file (made via helm) are only available to WebEngine after a restart.
