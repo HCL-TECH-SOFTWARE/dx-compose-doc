@@ -36,7 +36,7 @@ Refer to the following steps to enable OIDC authentication in DX Compose:
           - `redirect.logout.ssl` to `true`
           - `redirect.logout.url` to the URL to be shown to the user after logout
 
-    These changes force the logout screen to the identity provider as opposed to the default DX Compose logout screen. These changes also ensure that any relevant HTTP cookies are cleared so that the user is logged out.
+    This configuration forces the logout screen to the identity provider instead of the default DX Compose logout screen. This also ensures that any relevant HTTP cookies are cleared and the user is actually logged out.
 
 3. Run the `helm upgrade` to apply the changes to DX Compose.
 
