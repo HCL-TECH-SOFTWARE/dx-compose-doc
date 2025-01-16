@@ -36,7 +36,6 @@ Know the existing limitations of Digital Experience (DX) Compose.
 
 ## Authentication
 
-- Mechanisms other than LDAP, such as Open IDConnect (OIDC), are not supported.
 - Step-up authentication is not supported.
 - Impersonation is not supported.
 
