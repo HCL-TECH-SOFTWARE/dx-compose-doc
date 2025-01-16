@@ -1,5 +1,7 @@
 # Connecting to HCL Volt MX Foundry through Digital Data Connector (DDC)
 
+You can use the Digital Data Connector (DDC) for the HCL DX Compose framework to integrate data from external data sources on your portal pages by using HCL Web Content Manager presentation components. External data means that the data does not need to be stored directly in HCL Web Content Manager. For more information on Digital Data Connector, please reference: [Digital Data Connector](https://help.hcl-software.com/digital-experience/9.5/latest/extend_dx/ddc/).
+
 This section provides the steps on using DDC for HCL DX Compose framework to integrate data from HCL Volt MX Foundry (integrated external data sources) on your portal pages by using HCL Web Content Manager presentation components.
 
 ## Prerequisite
@@ -10,7 +12,7 @@ Ensure that the your Volt MX Foundry application is configured correctly accordi
 
 This section describes how to define the set of attributes available in the beans that are contained in bean lists that a DDC plug-in generates in list-rendering profile.
 
-For more information, see [Technical concepts | HCL Digital Experience](https://help.hcltechsw.com/digital-experience/9.5/social/plrf_tech_concepts.html).
+For more information, see [Technical concepts | HCL Digital Experience](https://help.hcl-software.com/digital-experience/9.5/latest/extend_dx/ddc/plrf_tech_concepts/).
 
 The following API end point and response are used to create this sample document:
 
@@ -53,7 +55,7 @@ Save the changes and restart the server to apply the new list-rendering profile.
 
 You may use an existing or new WCM library. For this example we have used a new library, DDC Foundry, with default items such as site area and workflow. You will have to create WCM artifacts under 4 folders: Content, Components, Authoring Templates, and Presentation Templates.
 
-Refer to [Creating web content libraries](https://help.hcltechsw.com/digital-experience/9.5/panel_help/wcm_config_wcmlibraries.html) for instructions on how to work with WCM libraries.
+Refer to [Creating web content libraries](https://help.hcl-software.com/digital-experience/9.5/latest/build_sites/create_sites/building_website/content_libraries/) for instructions on how to work with WCM libraries.
 
 ### Creating a Presentation Template
 
@@ -226,7 +228,7 @@ Under Authoring Templates, create a Content Template.
 Now you can use all the WCM artifacts that you created on a portal page.
 
 !!!note
-    This guide is using an existing page but you can create a completely new Content Root or any child or sibling page on any site. Refer to [Creating a page from the site toolbar](https://help.hcltechsw.com/digital-experience/9.5/dev-theme/themeopt_addpage.html?hl=create%2Cpage) for creating a page.
+    This guide is using an existing page but you can create a completely new Content Root or any child or sibling page on any site. Refer to [Creating a page from the site toolbar](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_delivery/deliver_webcontent_on_dx/displaying_content/mp_wcm_createpage/) for creating a page.
 
 1. Go to any page (e.g. Volt MX DDC) and enable `Edit mode`.
 
