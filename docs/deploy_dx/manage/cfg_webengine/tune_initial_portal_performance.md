@@ -1,73 +1,61 @@
 ---
 id: tune_initial_portal_performance
-title: Tune DX Compose Prior to Load Testing
+title: Tuning the initial DX Compose performance
 ---
-This document has two main purposes:
+This topic provides information on how to tune the initial HCL Digital Experience (DX) Compose performance before load testing. This page identifies Helm charts (YAML files) that provide initial tuning for various WebEngine production environments and provides the Helm command used to update those environments.
 
-1) Identify helm charts (yaml files) which provide initial tuning for various WebEngine production environments 
+In general, these Helm charts provide the tunings for the WebEngine container. You must immediately apply the tunings provided before modifying the settings for a specific environment which contains custom themes, skins, and pages and portlets. For more information, refer to [Tune your environment](https://help.hcl-software.com/digital-experience/9.5/latest/deployment/manage/tune_servers/){target="_blank"} topic. The [Performance Tuning Guide](https://support.hcl-software.com/csm?id=kb_article&sysparm_article=KB0074411){target="_blank"} was created for DX running on WebSphere Application Server, either standalone or running in Kubernetes. However, most settings in the guide are valid for running in DX Compose as well.
 
-2) Show the helm command used to update those envinroments
+Note that you only can determine the most appropriate settings after any changes or additions to DX Compose are complete. These changes include all new themes, skins, and portlets and pages to be added. After applying the changes, you can determine the optimal settings after simulating a test load against the augmented DX Compose environment.
 
-In general, these helm charts provide the tunings for WebEngine itself (as opposed the DB server, the OS, the LDAP, etc) which should be applied immediately before tweaking the settings for a specific environment which would contain (among other things) custom themes, skins, pages and portlets. Refer to the "DX Performance Tuning Guide" for complete details. The tuning guide document was originally written for DX running on WebSphere Application Server; either stand-alone or running in Kubenetes. However, most settings in that document are valid for running in DX Compose as well.
+To know if the settings are optimal, there should be no errors in `SystemOut.log`, `console.log` and `trace.log`. DX Compose is a Java-based software and in Java, any errors in the logs from commonly used themes or portlets can serialize page rendering, which slows down performance.
 
-As with all parameter changes for performance, it's worth noting that the best settings can only be determined after any changes or addtions to DX Compose are complete. That includes all new themes, skins, portlets and pages to be added. At that point, the optimal setting for any setting can be determined after synthetic simulation of a "test" load against this augmented DX Compose environment.
+## Helm charts for initial tuning
 
-Note also that from an optimal performance setting point of view, there should be absolutely no errors in SystemOut.log, console.log nor trace.log. As DX Compose (and WebEngine) is Java based software and, in Java, given that the "print writer" (used for logging of errors) is a serialized resource, any errors being written to the log(s) from commonly used themes or portlets can serialize page rendering which inhibits performance.
+The following files are used to initially tune DX Compose WebEngine. They are located in the `native-kube/install-hcl-dx-deployment/performance` directory of a Kubernetes deployment:
 
-**The Files**
+- [`webengine-performance-rendering.yaml`](#production-rendering-environment)
+- [`webengine-performance-authoring.yaml`](#production-authoring-environment)
 
-By default, the two files used to initially tune DX Compose WebEngine are located in the "native-kube/install-hcl-dx-deployment/performance" directory of a Kubernetes deployment.
+### Production-rendering environment
 
-**Production Rendering**
+The file `webengine-performance-rendering.yaml` contains the recommended initial tuning for a production-rendering environment. The term rendering implies an environment where Web Content Manager (WCM) is heavily cached to provide optimal page-rendering performance. Changes to the content may not be readily available because content might be cached. This environment is geared to rendering production content to users as responsively as possible.
 
-The file
+It is expected that WCM content is syndicated to this rendering environment, generally from a WCM authoring server. A separate authoring environment should be available to generate content, including new DX Compose pages, which will be available to users of the rendering site.
 
-```
-webengine-performance-rendering.yaml
-```
+### Production-authoring environment
 
-contains the recommended initial tuning for a production rendering environment. The term rendering implies an environment where WCM is heavily cached to provide optimal page rendering performance. Changes to that content may not be readily available given that it might be cached. This site is geared to rendering production content to users as responsively as possible.
+The file `webengine-performance-authoring.yaml` contains the recommended initial tuning for an environment where content authors create, delete, and edit content. The production-authoring environment is where new pages would be made available to users through syndication to the rendering environments.
 
-It is expected that WCM content will be syndicated to this rendering environment (generally from a WCM authoring server). A separate authoring environment should be available for the generation of this content including new WebEngine pages which eventually become available to users of the rendering site.
+There should be minimal to no caching in this environment. This facilitates an optimal editing experience for content authoring as changes become immediately visible.  
 
-**Production Authoring**
+### Tuning for developers
 
-The file
+No specific initial tuning file is available for developers. It is expected that developers use Docker instead of Kubernetes and Helm charts are not available in Docker. Therefore, the shipped DX Compose image must be defaulted to a developer experience to minimize or eliminate the need for the developer to change any settings. <!-- Who will do the default developer image?-->
 
-```
-webengine-performance-authoring.yaml
-```
+The goal is to make the DX Compose WebEngine image have defaults out-of-the-box that would be applicable to a developer. <!--What does this mean? Is this "goal" planned for a future release?-->
 
-contains the recommended intial tuning for an environment where content authors create, delete and edit content. It is also the environment where new pages would be made available to users via syndication to the rendering environment(s).
+## Applying the Helm chart settings
 
-Little to no caching should be available in this environment. This facilitates an optimal editing experience for content authoring as change become more immediately available.
+The Helm charts for performance listed in [Helm charts for initial tuning](#helm-charts-for-initial-tuning) are insufficient for a Helm update. When updating, you must always use any of the performance Helm charts together with the Helm chart for non-performance changes.
 
-**Development**
+See the following sample command:
 
-No specific initial tuning file is made available for developers. The reason is that it is envisioned that developers would be using Docker as opposed to Kubernetes. There is no helm in Docker. Therefore, the shipped DX Compose image needs to be defaulted to a developer experience so as to minimize or eliminate the need for the developer to change any settings.
-
-The goal, in general, is to make the DX Compose WebEngine image have defaults "out of the box" that would be applicable to a developer. 
-
-**Applying the Helm Chart Settings**
-
-The helm charts (mentioned above) for performance are insufficient for a helm update. They must always be applied in concert with the helm chart for other changes.
-
-So, for example, one might use the following command line for applying the helm chart:
-
-```
+```sh
 helm upgrade -n dxns -f install-deploy-values.yaml -f ./install-hcl-dx-deployment/performance/webengine-performance-rendering.yaml dx-deployment ./install-hcl-dx-deployment
 ```
 
-In this command, the first "-f" for install-deploy-values.yaml refers to the helm chart for non-performance changes (e.g. the global changes). The second "-f" for webengine-performance-rendering.yaml is the helm chart for performance changes specifically for the initial tunings of a rendering environment.
+In this sample command, the first `-f` for `install-deploy-values.yaml` refers to the Helm chart for non-performance changes (for example, global changes<!--What are global changes?-->). The second `-f` for `webengine-performance-rendering.yaml` is the Helm chart for performance changes specifically for the initial tunings of a rendering environment.
 
-Note that the WebEngine pod(s) need to be restarted to pick up any changes in the WebEngine pod(s) because a helm upgrade in the currently running pod(s) are not subject to properties file changes.
+Note that you must restart the WebEngine pods to pick up any changes. A `helm upgrade` in the currently running pods are not subject to properties file changes.
 
-**Notes**
+### Updating the size of datasources
 
-***Datasources***
+During `helm upgrade`, there is no automated method to find and update the minimum and maximum size of the datasources in `server.xml`. You must manually update the datasources to the correct size. To update the minimum and maximum size:
 
-There is no automated method to find and update the minimum and maximum size of the datasource(s) in server.xml at helm upgrade time. Updating to the correct size will need to be done manually.
+1. Let Kubernetes start the pod. <!--How to let Kube start the pod?-->
+2. "exec" into that pod <!--What is "exec"? Is it execute?-->
+3. change `server.xml` <!--For this step, is it correct that the user can change the size in the server.xml?-->
+4. Restart the pod.
 
-The way to do that will be to let kubernetes start the pod, "exec" into that pod and change server.xml and then restart the pod.
-
-Once this optimal size is determined, the performance yaml file could be updated to reflect this new size.
+After the optimal size is determined, you can update the performance YAML file to reflect the new size.

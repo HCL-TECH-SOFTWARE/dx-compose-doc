@@ -9,3 +9,5 @@ nav:
  - Changing portal URI: changing_portal_uri_in_kubernetes.md
  - Updating the default administrator password: update_wpsadmin_password.md
  - WCM modules: wcm_modules.md
+ - Tuning the initial DX Compose performance: tune_initial_portal_performance.md
+ - Configuring DX Compose to use OIDC identity provider: configure_compose_to_use_oidc.md

@@ -1,53 +1,50 @@
 ---
 id: configure_compose_to_use_oidc
-title: Configure DX Compoese to Use OIDC Identity Provider
+title: Configuring DX Compose to use OIDC identity provider
 ---
-This topic provides the necessary steps to enable an OpenID Connect (OIDC) identity provider (like Google, Facebook, etc) to authenticate a user to DX Compose (WebEngine). 
-This implies that the user does NOT login to WebEngine but rather to the provider.
 
-!!!note "Limitation" 
-    As of this release, the user authenticating to DX Compose via an external identity provider must reside in the DX Compose user registry (generally an LDAP server). These steps do not support transient users (e.g. users not in the registry) at this time. 
+This topic provides the steps to enable an OpenID Connect (OIDC) identity provider (for example, Google, Facebook) to authenticate a user to HCL Digital Experience (DX) Compose. In this scenario, the user does not log in to DX Compose, but to an OIDC identity provider.
 
-An important prerequisite for allowing DX Compose to allow an external identity provider to "vouch" for an user's identity is that the DX Compose administrator must have secured the ability to do so from the external provider.
-Take, for example, the Okta Auth0 identity provider.
-A system administrator must have created an account on Auth0 and secured several important pieces of information from that provider such as a "clientID" and a "clientSecret" along with the URL from that provider which contains the JSON for several important URLs used during the OpenID connect process.
+!!!note "Limitation"
+    Currently, the user authentication to DX Compose through an external identity provider must reside in the DX Compose user registry, generally an LDAP server. These steps do not support transient users (for example, users not in the registry) at this time.
 
-Once a system administrator has secured all the important information from the OpenID Connect identity provider, these parameters need to be made available to DX Compose.
+## Prerequisites
 
-In the DX Compose installation, on the primary Kubernetes node, there is a file named "oidc.yaml" located in the "charts/hcl-dx-deployment/oidc" subdirectory which must be filled out and then subsequently used during a "helm update" operation to integrate DX Compose to the external identity provider.
+A DX Compose system administrator must create an account in the identity provider and obtain the following information:
 
-**The Steps**
+- clientID
+- clientSecret
+- hostname (for the discovery endpoint URL and jwt URL)
+- userIdentifier
 
-1. Examine the oidc.yaml file previously mentioned and obtain (from the identity provider) the required parameters. In the case of, say Okta Auth0, one can create an account and then gather the information from the Auth0 website.
+## Enabling OIDC authentication in DX Compose
 
-2. Edit oidc.yaml and place the required parameters from the identity provider in the file as appropriate. 
+After securing the required information from the OpenID Connect identity provider, the administrator must make these parameters available to DX Compose.
 
-   In particular, you must obtain:
+In the DX Compose installation, on the primary Kubernetes node, there is a file named `oidc.yaml` located in the `charts/hcl-dx-deployment/oidc` subdirectory. An administrator must fill out the `oidc.yaml` file and use this file during a `helm ugrade` operation to integrate DX Compose to the external identity provider.
 
-   a. clientID
+Refer to the following steps to enable OIDC authentication in DX Compose:
 
-   b. clientSecret
+1. Edit the `oidc.yaml` file and enter the following required parameters from the identity provider:
+    - clientID
+    - clientSecret
+    - hostname (for the discovery endpoint URL and jwt URL)
+    - userIdentifier
 
-   c. hostname (for the discovery endpoint Url and jwt Url)
+2. In the `oidc.yaml` file, configure the changes needed to the `ConfigService.properties` file. <!--Step to be clarified-->
 
-   d. userIdentifier
+    These changes force the logout screen to the identity provider as opposed to the default DX Compose logout screen. These changes also ensure that any relevant HTTP cookies are cleared so that the user is logged out.
 
-3. In the "oidc.yaml" file, configure the changes needed to the ConfigService.properties file. 
-These changes force the logout screen to the identity provider as opposed to the default DX Compose logout screen.
-More importantly, this change insures that any relevant HTTP cookies are cleared so that the user is truly "logged out". 
+3. Run the `helm upgrade` to apply the changes to DX Compose.
 
-4. Run the "helm update" in order to propagate these changes to DX Compose.
-Note that two "-f" parameters must be specified on the "helm update" command.
-The first is the yaml file with all DX Compose values apart from OIDC. 
-The second file is the oidc.yaml file itself.
-Therefore, an example command might look like this:
+    Note that you must specify the two file (`-f`) parameters in the `helm upgrade` command. The first `-f` is the YAML file with all DX Compose values apart from OIDC. The second `-f` is the `oidc.yaml` file. See the following sample command:
 
-    ```
+    ```sh
     helm upgrade -n dxns -f install-deploy-values.yaml -f ./install-hcl-dx-deployment/oidc/oidc.yaml dx-deployment ./install-hcl-dx-deployment
     ```
 
-   Consult this topic for further information on doing a 
-[helm update](../working_with_compose/helm_upgrade_values.md).
+    For more information, see [Upgrading the Helm deployment](../working_with_compose/helm_upgrade_values.md).
 
-5. Restart the DX Compose WebEngine pods. 
-The changes to the ConfigService.properties file (made via helm) are only available to WebEngine after a restart.
+4. Restart the DX Compose WebEngine pods.
+
+    The changes to the `ConfigService.properties` file made through the Helm chart are only available in the DX Compose WebEngine container after a restart.
