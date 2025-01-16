@@ -31,7 +31,10 @@ Refer to the following steps to enable OIDC authentication in DX Compose:
     - hostname (for the discovery endpoint URL and jwt URL)
     - userIdentifier
 
-2. In the `oidc.yaml` file, configure the changes needed to the `ConfigService.properties` file. <!--Step to be clarified-->
+2. In the `oidc.yaml` file, configure the following properties under `ConfigService.properties`:
+          - `redirect.logout` to `true`
+          - `redirect.logout.ssl` to `true`
+          - `redirect.logout.url` to the URL to be shown to the user after logout
 
     These changes force the logout screen to the identity provider as opposed to the default DX Compose logout screen. These changes also ensure that any relevant HTTP cookies are cleared so that the user is logged out.
 
