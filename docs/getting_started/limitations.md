@@ -11,12 +11,12 @@ Know the existing limitations of Digital Experience (DX) Compose.
 - Portal Application Archive (PAA) deployment is not supported.
 
 ## Configuration
- 
+
 - DX Compose does not operate on the IBM WebSphere Application Server (WAS). DX Compose administrators should use the Helm chart to make changes they used to perform in the WebSphere Application Server Admin Console. The Open Liberty Admin Console has limited functionality but can be leveraged for starting/stopping applications, investigating the configuration, and monitoring.
 - Open Liberty does not provide wsadmin scripting.
 - Configuration in resource environment providers, which was earlier managed with the DX Offerings WAS console, is managed with Helm charts in DX Compose.
 - There is no ConfigEngine or Configuration Wizard with DX Compose. All configuration must be done through the Helm chart.
-- A limited set of dxclient commands is supported. [DXClient Limitations](../deploy_dx/manage/working_with_compose/dxclient.md)
+- A limited set of DXClient commands is supported. For more information, see [Supported DXClient operations](../deploy_dx/manage/working_with_compose/dxclient.md).
 
 ## Applications and extensions
 
