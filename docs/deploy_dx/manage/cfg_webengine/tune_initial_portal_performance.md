@@ -31,9 +31,7 @@ There should be minimal to no caching in this environment. This facilitates an o
 
 ### Tuning for developers
 
-No specific initial tuning file is available for developers. It is expected that developers use Docker instead of Kubernetes and Helm charts are not available in Docker. Therefore, the shipped DX Compose image must be defaulted to a developer experience to minimize or eliminate the need for the developer to change any settings. <!-- Who will do the default developer image?-->
-
-The goal is to make the DX Compose WebEngine image have defaults out-of-the-box that would be applicable to a developer. <!--What does this mean? Is this "goal" planned for a future release?-->
+No specific initial tuning file is available for developers. It is expected that developers use Docker instead of Kubernetes and Helm charts are not available in Docker. If a tuning file is needed for developers, the shipped DX Compose image should be sufficient. If not, developers can modify the shipped DX Compose image to be applicable to their needs using `docker commit` or a Dockerfile.
 
 ## Applying the Helm chart settings
 
@@ -45,17 +43,26 @@ See the following sample command:
 helm upgrade -n dxns -f install-deploy-values.yaml -f ./install-hcl-dx-deployment/performance/webengine-performance-rendering.yaml dx-deployment ./install-hcl-dx-deployment
 ```
 
-In this sample command, the first `-f` for `install-deploy-values.yaml` refers to the Helm chart for non-performance changes (for example, global changes<!--What are global changes?-->). The second `-f` for `webengine-performance-rendering.yaml` is the Helm chart for performance changes specifically for the initial tunings of a rendering environment.
+In this sample command, the first `-f` for `install-deploy-values.yaml` refers to the Helm chart for non-performance changes. The second `-f` for `webengine-performance-rendering.yaml` is the Helm chart for performance changes specifically for the initial tunings of a rendering environment.
 
 Note that you must restart the WebEngine pods to pick up any changes. A `helm upgrade` in the currently running pods are not subject to properties file changes.
 
-### Updating the size of datasources
+### Updating the size of `dataSources`
 
-During `helm upgrade`, there is no automated method to find and update the minimum and maximum size of the datasources in `server.xml`. You must manually update the datasources to the correct size. To update the minimum and maximum size:
+During `helm upgrade`, there is no automated method to find and update the minimum and maximum size of the `dataSources` in `server.xml`. You must manually update the datasources to the correct size. To update the minimum and maximum size, wait until Kubernetes restarts the pod after a `helm upgrade` and do the following steps:
 
-1. Let Kubernetes start the pod. <!--How to let Kube start the pod?-->
-2. "exec" into that pod <!--What is "exec"? Is it execute?-->
-3. change `server.xml` <!--For this step, is it correct that the user can change the size in the server.xml?-->
-4. Restart the pod.
+1. Log in to the WebEngine pod by running the following command: 
 
-After the optimal size is determined, you can update the performance YAML file to reflect the new size.
+    ```
+    kubectl exec -it <Pod Name> bash
+    ```
+
+    Make sure to replace the `<Pod Name`> with the actual pod name.
+
+2. In the performance YAML file (`webengine-performance-rendering.yaml` or `webengine-performance-authoring.yaml`), incrementally adjust the `dataSource` sizes until the performance is optimal.
+    
+    You might have to run the load testing multiple times to determine the right size.
+
+3. Restart the WebEngine pod every time you apply changes.
+
+After the optimal size is determined, you can update the performance YAML file to reflect the new `dataSource` size.
