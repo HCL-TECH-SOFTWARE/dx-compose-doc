@@ -22,7 +22,6 @@ Know the existing limitations of Digital Experience (DX) Compose.
 
 - You cannot deploy Java-based applications such as portlets, EAR-based themes, and WCM extensions.
 - Social Media Publisher, Content Template Catalog (CTC), and other WCM extensions are not supported except Multilingual Solution.
-- Digital Data Connector is not supported.
 - WCM AI Sentiment Analysis in the WCM Authoring user interface (UI) is not supported with the TinyMCE Rich text editor but is supported with CKEditor.
 
 ## Image customization
