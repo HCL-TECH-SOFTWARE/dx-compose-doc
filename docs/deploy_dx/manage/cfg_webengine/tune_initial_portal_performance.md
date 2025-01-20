@@ -2,7 +2,7 @@
 id: tune_initial_portal_performance
 title: Tuning the initial DX Compose performance
 ---
-This topic provides information on how to tune the initial HCL Digital Experience (DX) Compose performance before load testing. This page identifies Helm charts (YAML files) that provide initial tuning for various WebEngine production environments and provides the Helm command used to update those environments.
+This topic provides information on how to tune the initial HCL Digital Experience (DX) Compose performance before load testing. This page identifies Helm charts (YAML files) that provide initial tuning for various WebEngine production scenarios and provides the Helm command used to update those environments.
 
 In general, these Helm charts provide the tunings for the WebEngine container. You must immediately apply the tunings provided before modifying the settings for a specific environment which contains custom themes, skins, and pages and portlets. For more information, refer to [Tune your environment](https://help.hcl-software.com/digital-experience/9.5/latest/deployment/manage/tune_servers/){target="_blank"} topic. The [Performance Tuning Guide](https://support.hcl-software.com/csm?id=kb_article&sysparm_article=KB0074411){target="_blank"} was created for DX running on WebSphere Application Server, either standalone or running in Kubernetes. However, most settings in the guide are valid for running in DX Compose as well.
 
