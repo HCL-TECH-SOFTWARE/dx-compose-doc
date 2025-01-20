@@ -45,7 +45,7 @@ helm upgrade -n dxns -f install-deploy-values.yaml -f ./install-hcl-dx-deploymen
 
 In this sample command, the first `-f` for `install-deploy-values.yaml` refers to the Helm chart for non-performance changes. The second `-f` for `webengine-performance-rendering.yaml` is the Helm chart for performance changes specifically for the initial tunings of a rendering environment.
 
-Note that you must restart the WebEngine pods to pick up any changes. A `helm upgrade` in the currently running pods are not subject to properties file changes.
+Note that you must restart the WebEngine pods to pick up any changes.
 
 ### Updating the size of `dataSources`
 
