@@ -40,7 +40,7 @@ Refer to the following steps to enable OIDC authentication in DX Compose:
 
 3. Run the `helm upgrade` to apply the changes to DX Compose.
 
-    Note that you must specify the two file (`-f`) parameters in the `helm upgrade` command. The first `-f` is the YAML file with all DX Compose values apart from OIDC. The second `-f` is the `oidc.yaml` file. See the following sample command:
+    Note that you must specify two file (`-f`) parameters in the `helm upgrade` command. The first `-f` is the YAML file with all DX Compose values apart from OIDC. The second `-f` is the `oidc.yaml` file. See the following sample command:
 
     ```sh
     helm upgrade -n dxns -f install-deploy-values.yaml -f ./install-hcl-dx-deployment/oidc/oidc.yaml dx-deployment ./install-hcl-dx-deployment
