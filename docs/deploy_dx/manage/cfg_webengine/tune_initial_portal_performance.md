@@ -21,7 +21,7 @@ The following files are used to initially tune DX Compose WebEngine. They are lo
 
 The file `webengine-performance-rendering.yaml` contains the recommended initial tuning for a production-rendering environment. The term rendering implies an environment where Web Content Manager (WCM) is heavily cached to provide optimal page-rendering performance. Changes to the content may not be readily available because content might be cached. This environment is geared to rendering production content to users as responsively as possible.
 
-It is expected that WCM content is syndicated to this rendering environment, generally from a WCM authoring server. A separate authoring environment should be available to generate content, including new DX Compose pages, which will be available to users of the rendering site.
+It is expected that WCM content is syndicated to this rendering environment, generally from a WCM authoring server. A separate authoring environment should be available to generate content, including new DX Compose pages, which will be available to users of the site on the rendering environment after syndication occurs.
 
 ### Production-authoring environment
 
