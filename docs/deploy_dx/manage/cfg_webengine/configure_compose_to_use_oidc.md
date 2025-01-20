@@ -1,6 +1,6 @@
 ---
 id: configure_compose_to_use_oidc
-title: Configuring DX Compose to use OIDC identity provider
+title: Configuring DX Compose to use an OIDC identity provider
 ---
 
 This topic provides the steps to enable an OpenID Connect (OIDC) identity provider (for example, Google, Facebook) to authenticate a user to HCL Digital Experience (DX) Compose. In this scenario, the user does not log in to DX Compose, but to an OIDC identity provider.
