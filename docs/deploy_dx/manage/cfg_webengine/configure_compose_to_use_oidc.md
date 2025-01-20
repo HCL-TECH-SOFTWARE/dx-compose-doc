@@ -6,7 +6,7 @@ title: Configuring DX Compose to use an OIDC identity provider
 This topic provides the steps to enable an OpenID Connect (OIDC) identity provider (for example, Google, Facebook) to authenticate a user to HCL Digital Experience (DX) Compose. In this scenario, the user does not log in to DX Compose, but to an OIDC identity provider.
 
 !!!note "Limitation"
-    Currently, the user authentication to DX Compose through an external identity provider must reside in the DX Compose user registry, generally an LDAP server. These steps do not support transient users (for example, users not in the registry) at this time.
+    Currently, the user authenticated to DX Compose through an external identity provider must reside in the DX Compose user registry, generally an LDAP server. These steps do not support transient users (that is, users not in the registry) at this time.
 
 ## Prerequisites
 
