@@ -5,3 +5,4 @@ nav:
   - image_list.md
   - install.md
   - helm_uninstall.md
+  - update_helm_deployment.md

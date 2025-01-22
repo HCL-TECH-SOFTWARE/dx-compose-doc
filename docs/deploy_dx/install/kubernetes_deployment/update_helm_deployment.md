@@ -1,3 +1,7 @@
+---
+title: Upgrading Helm Deployment
+---
+
 # Upgrading Helm Deployment
 
 This section describes how to update the configuration of an HCL Digital Experience (DX) Compose 9.5 CF225 or later deployment to Kubernetes or OpenShift installed using Helm.
