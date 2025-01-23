@@ -63,6 +63,8 @@ During `helm upgrade`, there is no automated method to find and update the minim
     
     You might have to run the load testing multiple times to determine the right size.
 
-3. Restart the WebEngine pod every time you apply changes.
+3. Perform a [Helm upgrade](#applying-the-helm-chart-settings) every time you modify the `dataSource` sizes to apply the changes.
+
+4. Restart the WebEngine pod after every Helm upgrade for the system to pick up the changes.
 
 After the optimal size is determined, you can update the performance YAML file to reflect the new `dataSource` size.
