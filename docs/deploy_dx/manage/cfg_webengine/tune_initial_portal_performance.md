@@ -51,20 +51,12 @@ Note that you must restart the WebEngine pods to pick up any changes.
 
 During `helm upgrade`, there is no automated method to find and update the minimum and maximum size of the `dataSources` in `server.xml`. You must manually update the datasources to the correct size. To update the minimum and maximum size, wait until Kubernetes restarts the pod after a `helm upgrade` and do the following steps:
 
-1. Log in to the WebEngine pod by running the following command: 
-
-    ```
-    kubectl exec -it <Pod Name> bash
-    ```
-
-    Make sure to replace the `<Pod Name`> with the actual pod name.
-
-2. In the performance YAML file (`webengine-performance-rendering.yaml` or `webengine-performance-authoring.yaml`), incrementally adjust the `dataSource` sizes until the performance is optimal.
+1. In the performance YAML file (`webengine-performance-rendering.yaml` or `webengine-performance-authoring.yaml`), incrementally adjust the `dataSource` sizes until the performance is optimal.
     
     You might have to run the load testing multiple times to determine the right size.
 
-3. Perform a [Helm upgrade](#applying-the-helm-chart-settings) every time you modify the `dataSource` sizes to apply the changes.
+2. Perform a [Helm upgrade](#applying-the-helm-chart-settings) every time you modify the `dataSource` sizes to apply the changes.
 
-4. Restart the WebEngine pod after every Helm upgrade for the system to pick up the changes.
+3. Restart the WebEngine pod after every Helm upgrade for the system to pick up the changes.
 
 After the optimal size is determined, you can update the performance YAML file to reflect the new `dataSource` size.
