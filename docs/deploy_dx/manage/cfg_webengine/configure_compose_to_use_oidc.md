@@ -47,7 +47,3 @@ Refer to the following steps to enable OIDC authentication in DX Compose:
     ```
 
     For more information, see [Upgrading the Helm deployment](../working_with_compose/helm_upgrade_values.md).
-
-4. Restart the DX Compose WebEngine pods.
-
-    The changes to the `ConfigService.properties` file made through the Helm chart are only available in the DX Compose WebEngine container after a restart.
