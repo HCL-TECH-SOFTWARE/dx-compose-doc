@@ -58,5 +58,3 @@ During `helm upgrade`, there is no automated method to find and update the minim
 2. Perform a [Helm upgrade](#applying-the-helm-chart-settings) every time you modify the `dataSource` sizes to apply the changes.
 
     The WebEngine pod restarts automatically after every Helm upgrade.
-
-After the optimal size is determined, you can update the performance YAML file to reflect the new `dataSource` size.
