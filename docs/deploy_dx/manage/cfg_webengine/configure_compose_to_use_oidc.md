@@ -21,7 +21,7 @@ A DX Compose system administrator must create an account in the identity provide
 
 After securing the required information from the OpenID Connect identity provider, the administrator must make these parameters available to DX Compose.
 
-In the DX Compose installation, on the primary Kubernetes node, there is a file named `oidc.yaml` located in the `charts/hcl-dx-deployment/oidc` subdirectory. An administrator must fill out the `oidc.yaml` file and use this file during a `helm upgrade` operation to integrate DX Compose to the external identity provider.
+During DX Compose installation, there is a file named `oidc.yaml` located in the `charts/hcl-dx-deployment/oidc` subdirectory of the Kubernetes node where you ran `helm install`. An administrator must fill out the `oidc.yaml` file and use this file during a `helm upgrade` operation to integrate DX Compose to the external identity provider.
 
 Refer to the following steps to enable OIDC authentication in DX Compose:
 
