@@ -10,7 +10,7 @@ This section describes how to update the configuration of an HCL Digital Experie
 
 Make sure that you have completed the following steps:
 
-- Prepare your cluster and your `custom-values.yaml` file. For more information, see [Preparation before installing HCL DX  using Helm](../kubernetes_deployment/preparation/index.md).
+- Prepare your cluster and your `custom-values.yaml` file. For more information, see [Preparation before installing HCL DX Compose using Helm](../kubernetes_deployment/preparation/index.md).
 - Install your deployment. For more information, see [Install commands to deploy](../kubernetes_deployment/helm_install_commands.md).
 - If an external database is used, ensure that the values for the external database are correct in the `custom-values.yaml` and relevant Kubernetes secrets. For more information, see [Configuring an external database](../../../manage/cfg_webengine/external_db_database_transfer#configuring-an-external-database) and [Using the external database and triggering the database transfer](../../../manage/cfg_webengine/external_db_database_transfer#using-the-external-database-and-triggering-the-database-transfer).
 
@@ -37,7 +37,7 @@ helm upgrade -n your-namespace -f path/to/your/custom-values.yaml your-release-n
 
 -   The `your-namespace` is the namespace in which your HCL DX Compose 9.5 deployment is installed and `your-release-name` is the Helm release name you used when installing.
 -   The `-f path/to/your/custom-values.yaml` parameter must point to the `custom-values.yaml` you have updated.
--   The `path/to/hcl-dx-deployment-vX.X.X\_XXXXXXXX-XXXX.tar.gz` is the HCL DX Compose Helm Chart that you extracted in [Preparation before installing HCL DX  using Helm](../kubernetes_deployment/preparation/index.md).
+-   The `path/to/hcl-dx-deployment-vX.X.X\_XXXXXXXX-XXXX.tar.gz` is the HCL DX Compose Helm Chart that you extracted in [Preparation before installing HCL DX Compose using Helm](../kubernetes_deployment/preparation/index.md).
 
 
 
