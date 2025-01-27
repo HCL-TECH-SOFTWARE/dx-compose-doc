@@ -32,13 +32,14 @@ Refer to the following steps to enable OIDC authentication in DX Compose:
     - userIdentifier
 
 2. In the `oidc.yaml` file, configure the following properties under `ConfigService.properties`:
-          - `redirect.logout` to `true`
-          - `redirect.logout.ssl` to `true`
-          - `redirect.logout.url` to the URL to be shown to the user after logout
+    
+    - `redirect.logout` to `true`
+    - `redirect.logout.ssl` to `true`
+    - `redirect.logout.url` to the URL to be shown to the user after logout
 
     This configuration forces the logout screen to the identity provider instead of the default DX Compose logout screen. This also ensures that any relevant HTTP cookies are cleared and the user is actually logged out.
 
-3. Run the `helm upgrade` to apply the changes to DX Compose.
+3. Run `helm upgrade` to apply the changes to DX Compose.
 
     Note that you must specify two file (`-f`) parameters in the `helm upgrade` command. The first `-f` is the YAML file with all DX Compose values apart from OIDC. The second `-f` is the `oidc.yaml` file. See the following sample command:
 
