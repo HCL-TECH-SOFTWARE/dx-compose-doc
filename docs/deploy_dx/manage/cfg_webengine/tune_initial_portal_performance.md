@@ -6,7 +6,7 @@ This topic provides information on how to tune the initial HCL Digital Experienc
 
 In general, these Helm charts provide the tunings for the WebEngine container. You must immediately apply the tunings provided before modifying the settings for a specific environment which contains custom themes, skins, and pages. For more information, refer to [Tune your environment](https://help.hcl-software.com/digital-experience/9.5/latest/deployment/manage/tune_servers/){target="_blank"} topic. The [Performance Tuning Guide](https://support.hcl-software.com/csm?id=kb_article&sysparm_article=KB0074411){target="_blank"} was created for DX running on WebSphere Application Server, either standalone or running in Kubernetes. However, most settings in the guide are valid for running in DX Compose as well.
 
-Note that you only can determine the most appropriate settings after any changes or additions to DX Compose are complete. These changes include all new themes, skins, and pages to be added. After applying the changes, you can determine the optimal settings after simulating a test load against the augmented DX Compose environment.
+Note that you can only determine the most appropriate settings after any changes or additions to DX Compose are complete. These changes include all new themes, skins, and pages to be added. After applying the changes, you can determine the optimal settings after simulating a test load against the augmented DX Compose environment.
 
 To know if the settings are optimal, there should be no errors in `SystemOut.log`, `console.log` and `trace.log`. DX Compose is a Java-based software and in Java, any errors in the logs from commonly used themes can serialize page rendering, which slows down performance.
 
@@ -44,8 +44,6 @@ helm upgrade -n dxns -f install-deploy-values.yaml -f ./install-hcl-dx-deploymen
 ```
 
 In this sample command, the first `-f` for `install-deploy-values.yaml` refers to the Helm chart for non-performance changes. The second `-f` for `webengine-performance-rendering.yaml` is the Helm chart for performance changes specifically for the initial tunings of a rendering environment.
-
-Note that you must restart the WebEngine pods to pick up any changes.
 
 ### Updating the size of `dataSources`
 
