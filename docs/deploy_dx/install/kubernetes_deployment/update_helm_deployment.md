@@ -9,9 +9,10 @@ This section describes how to update the configuration of an HCL Digital Experie
 ## Prerequisites
 
 Make sure that you have completed the following steps:
-- Prepared your cluster and your `custom-values.yaml` file. For more information, see [Preparation before installing HCL DX  using Helm](../kubernetes_deployment/preparation/index.md).
-- Installed your deployment. For more information, see [Install commands to deploy](../kubernetes_deployment/helm_install_commands.md).
-- If external database is used in helm install, configured values for external database transfer and carried out database transfer. For more information, see [Configuring an external database](../../../manage/cfg_webengine/external_db_database_transfer#configuring-an-external-database) and [Using the external database and triggering the database transfer](../../../manage/cfg_webengine/external_db_database_transfer#using-the-external-database-and-triggering-the-database-transfer).
+
+- Prepare your cluster and your `custom-values.yaml` file. For more information, see [Preparation before installing HCL DX  using Helm](../kubernetes_deployment/preparation/index.md).
+- Install your deployment. For more information, see [Install commands to deploy](../kubernetes_deployment/helm_install_commands.md).
+- If external database is used in `helm install`, configure values for external database transfer and perform database transfer. For more information, see [Configuring an external database](../../../manage/cfg_webengine/external_db_database_transfer#configuring-an-external-database) and [Using the external database and triggering the database transfer](../../../manage/cfg_webengine/external_db_database_transfer#using-the-external-database-and-triggering-the-database-transfer).
 
 
 ## Recommended actions before a CF upgrade
@@ -27,7 +28,7 @@ In a Helm-based deployment, moving from one cumulative fix (CF) to another one i
 
 ## Helm Upgrade configuration command
 
-After making the needed changes to your `custom-values.yaml` file, use the following command:
+After making the needed changes to your `custom-values.yaml` file, run the following command:
 
 ``` sh
 # Helm upgrade command
