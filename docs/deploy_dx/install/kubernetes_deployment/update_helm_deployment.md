@@ -1,8 +1,8 @@
 ---
-title: Upgrading Helm Deployment
+title: Upgrading Helm deployment
 ---
 
-# Upgrading Helm Deployment
+# Upgrading Helm deployment
 
 This section describes how to update the configuration of an HCL Digital Experience (DX) Compose 9.5 CF224 or later deployment to Kubernetes or OpenShift installed using Helm.
 
@@ -12,8 +12,12 @@ Make sure that you have completed the following steps:
 
 - Prepare your cluster and your `custom-values.yaml` file. For more information, see [Preparation before installing HCL DX Compose using Helm](../kubernetes_deployment/preparation/index.md).
 - Install your deployment. For more information, see [Install commands to deploy](../kubernetes_deployment/helm_install_commands.md).
-- If an external database is used, ensure that the values for the external database are correct in the `custom-values.yaml` and relevant Kubernetes secrets. For more information, see [Configuring an external database](../../../manage/cfg_webengine/external_db_database_transfer#configuring-an-external-database) and [Using the external database and triggering the database transfer](../../../manage/cfg_webengine/external_db_database_transfer#using-the-external-database-and-triggering-the-database-transfer).
-
+- Ensure customizations made to your deployment are reflected in your `custom-values.yaml` file.
+    - If an external database is used, make sure the values for the external database are correct in the `custom-values.yaml` and relevant Kubernetes secrets. For more information, see [Configuring an external database](../../manage/cfg_webengine/external_db_database_transfer.md#configuring-an-external-database) and [Using the external database and triggering the database transfer](../../manage/cfg_webengine/external_db_database_transfer.md#using-the-external-database-and-triggering-the-database-transfer).
+    - If LDAP is configured for the environment, make sure the values for the LDAP directory are correct in the `custom-values.yaml` file and relevant Kubernetes secrets. For more information, see [Configuring LDAP](../../manage/cfg_webengine/ldap_configuration.md)
+    - If WebEngine properties are updated, make sure the updated values are correct in the `custom-values.yaml`. For more information, see [Updating DX Compose WebEngine properties using Helm values](../../manage/cfg_webengine/update_properties_with_helm.md).
+    - If the WebEngine administrator password is updated in the environment, make sure the Kubernetes secret is up-to-date and the correct values are in the `custom-values.yaml` file. For more information, see [Updating the default administrator password](../../manage/cfg_webengine/update_wpsadmin_password.md).
+    - If configuration changes are made to the deployment using configuration override files, make sure the values are correct in the `custom-values.yaml` file. For more information, see [Configuration changes using overrides](../../manage/cfg_webengine/configuration_changes_using_overrides.md) and [Upgrading the Helm deployment](../../manage/working_with_compose/helm_upgrade_values.md).
 
 ## Recommended actions before a CF upgrade
 
