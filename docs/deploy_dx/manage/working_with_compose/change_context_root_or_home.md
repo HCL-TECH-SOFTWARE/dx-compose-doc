@@ -3,9 +3,60 @@ id: change-context-root-or-home
 title: Changing the context root or home URL for DX WebEngine
 ---
 
-This topic provides the name and proper usage of the Linux bash script used to change either the context root (for example, wps) or the home URL (for example, portal in "wps/portal" or myportal in "/wps/myportal") of DX WebEngine .
+Configuration changes to helm based deployments should be made by updating the `custom-values.yaml` file and [upgrading the deployment](../working_with_compose/helm_upgrade_values.md).  
 
-## Changing the context root
+!!!note
+            Configuration changes to helm based deployments using methods outside of running `helm upgrade` will not persist through image upgrades or pod restarts.
+
+## Changing the context root using helm
+
+To change the WebEngine context root in a helm based deployment:
+
+- Update the `networking.webengine.contextRoot` value in the `custom-values.yaml` file to your desired context root.
+
+```yaml
+# Networking configuration specific to webEngine
+webEngine:
+# Host of webEngine, must be specified as a FQDN
+host: ""
+# Port of webEngine
+port:
+# Setting if SSL is enabled for webEngine
+ssl: true
+# webEngine Context root, only alter if your deployment already uses a non default context route
+contextRoot: "myContextRoot"
+```
+
+- Upgrade the deployment using helm.
+
+```sh
+   helm upgrade <RELEASE_NAME> -n <NAMESPACE> -f custom-values.yaml <HELM_CHART_DIRECTORY>
+```
+
+## Changing the home URL using helm
+
+- Update the `networking.webengine.home` and/or `networking.webengine.personalizedHome` value(s) in the `custom-values.yaml` file to your desired value(s).
+
+```yaml
+    # webEngine Context root, only alter if your deployment already uses a non default context route
+    contextRoot: "myContextRoot"
+    # webEngine personalized home, only alter if your deployment already uses a non default personalized home
+    personalizedHome: "myAuthenticatedHome"
+    # webEngine home, only alter if your deployment already uses a non default home
+    home: "myAnonymousHome"
+```
+
+- Upgrade the deployment using helm.
+
+```sh
+   helm upgrade <RELEASE_NAME> -n <NAMESPACE> -f custom-values.yaml <HELM_CHART_DIRECTORY>
+```
+
+---
+
+The instructions below provide the name and proper usage of the Linux bash script used to change either the context root (for example, wps) or the home URL (for example, portal in "wps/portal" or myportal in "/wps/myportal") of DX WebEngine in a non helm based deployment.
+
+## Changing the context root in a non helm based deployment
 
 To change the context root, use the following script:
 
@@ -55,7 +106,7 @@ In this case, you can access the portal as:
 localhost/portal
 ```
 
-## Changing the home URL
+## Changing the home URL in a non helm based deployment
 
 Follow the steps in this section in case you want to use a string like "newHome" and "mynewHome" in the home URL, as opposed to "portal" and "myportal" /wps/portal and /wps/myportal.
 
