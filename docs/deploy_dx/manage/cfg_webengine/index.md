@@ -14,8 +14,6 @@ Learn how to connect to an external database and transfer the content of the Der
 -   **[Configuring LDAP](ldap_configuration.md)**  
 Learn how to configure a Lightweight Directory Access Protocol (LDAP) registry in HCL DX Compose.
 -   **[Updating DX properties using Helm values](update_properties_with_helm.md)**  
-Learn how to use the Helm chart's `values.yaml` file to add, update, or delete DX Compose properties.
--   **[Changing the Portal URI in Kubernetes deployments](changing_portal_uri_in_kubernetes.md)**   
 Learn how to use the Helm chart's `custom-values.yaml` file to change portal URI in Kubernetes deployments.
 -   **[Updating the default administrator password](update_wpsadmin_password.md)**  
 Learn how to update the default `wpsadmin` password.

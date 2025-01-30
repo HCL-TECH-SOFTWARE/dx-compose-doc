@@ -1,14 +1,16 @@
 ---
 id: change-context-root-or-home
-title: Changing the context root or home URL for DX WebEngine
+title: Changing the WebEngine context root or home URI
 ---
 
-Configuration changes to helm based deployments should be made by updating the `custom-values.yaml` file and [upgrading the deployment](../working_with_compose/helm_upgrade_values.md).  
+HCL Digital Experience (DX) Compose consists of multiple applications and services that can be deployed. Depending on your needs, you can change the default WebEngine context root of the Uniform Resource Locator (URL) and the Uniform Resource Identifier (URI) any time after you install HCL DX Compose to better suit the requirements of your organization.
+
+To change the WebEngine URL or URI in Kubernetes deployments, adjust the `custom-values.yaml` file used for your Helm deployment. Refer to the [Custom value files](https://opensource.hcltechsw.com/digital-experience/latest/deployment/install/container/helm_deployment/preparation/mandatory_tasks/prepare_configuration/#custom-value-files) page for more information.
 
 !!!note
             Configuration changes to helm based deployments using methods outside of running `helm upgrade` will not persist through image upgrades or pod restarts.
 
-## Changing the context root using helm
+## Changing the URL context root using helm
 
 To change the WebEngine context root in a helm based deployment:
 
@@ -33,7 +35,7 @@ contextRoot: "myContextRoot"
    helm upgrade <RELEASE_NAME> -n <NAMESPACE> -f custom-values.yaml <HELM_CHART_DIRECTORY>
 ```
 
-## Changing the home URL using helm
+## Changing the URI using helm
 
 - Update the `networking.webengine.home` and/or `networking.webengine.personalizedHome` value(s) in the `custom-values.yaml` file to your desired value(s).
 
@@ -51,6 +53,49 @@ contextRoot: "myContextRoot"
 ```sh
    helm upgrade <RELEASE_NAME> -n <NAMESPACE> -f custom-values.yaml <HELM_CHART_DIRECTORY>
 ```
+
+## Additional considerations
+
+The People Service Helm chart cannot automatically detect changes in the parent chart. If you have deployed HCL People Service along with DX Compose, you must adjust the `configuration.dx.portletPageContextRoot` in the People Service `custom-values.yaml` file and the `configuration.peopleservice.configuration.dx.portletPageContextRoot` in the DX Compose `custom-values.yaml` file and upgrade the deployment using both `custom-values.yaml` files.
+
+- Update the `configuration.dx.portletPageContextRoot` in the People Service `custom-values.yaml` file.
+
+```yaml
+# Application configuration
+configuration:
+  # Authencation configuration for DX integration
+  dx:
+    # -- (string) Context root for the People Service portlet page
+    # @section -- DX configuration
+    portletPageContextRoot: "/myContextRoot/myAuthenticatedHome/Practitioner/PeopleService"
+```
+
+- Update the `configuration.peopleservice.configuration.dx.portletPageContextRoot` in the DX Compose `custom-values.yaml` file.
+```yaml
+# Application configuration
+configuration:
+    # Configuration for the peopleservice sub-chart.
+    # Set `enabled` to `true` to enable the peopleservice sub-chart, or `false` to disable it.
+    peopleservice:
+    enabled: true
+    # Application configuration
+    configuration:
+        # Integration configuration
+        integration:
+        # Indicates if DX integration is enabled
+        dx: true
+        # Integration specific configuration for DX
+        dx:
+        # Context root for the People Service portlet page
+        portletPageContextRoot: "/myContextRoot/myAuthenticatedHome/Practitioner/PeopleService"
+```
+
+- Upgrade the deployment using helm.
+
+```sh
+   helm upgrade <RELEASE_NAME> -n <NAMESPACE> -f dx-compose-custom-values.yaml -f peopleservice-custom-values.yaml <HELM_CHART_DIRECTORY>
+```
+
 
 ---
 
