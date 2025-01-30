@@ -19,14 +19,14 @@ To change the WebEngine context root in a helm based deployment:
 ```yaml
 # Networking configuration specific to webEngine
 webEngine:
-# Host of webEngine, must be specified as a FQDN
-host: ""
-# Port of webEngine
-port:
-# Setting if SSL is enabled for webEngine
-ssl: true
-# webEngine Context root, only alter if your deployment already uses a non default context route
-contextRoot: "myContextRoot"
+  # Host of webEngine, must be specified as a FQDN
+  host: ""
+  # Port of webEngine
+  port:
+  # Setting if SSL is enabled for webEngine
+  ssl: true
+  # webEngine Context root, only alter if your deployment already uses a non default context route
+  contextRoot: "myContextRoot"
 ```
 
 - Upgrade the deployment using helm.
@@ -40,12 +40,14 @@ contextRoot: "myContextRoot"
 - Update the `networking.webengine.home` and/or `networking.webengine.personalizedHome` value(s) in the `custom-values.yaml` file to your desired value(s).
 
 ```yaml
-    # webEngine Context root, only alter if your deployment already uses a non default context route
-    contextRoot: "myContextRoot"
-    # webEngine personalized home, only alter if your deployment already uses a non default personalized home
-    personalizedHome: "myAuthenticatedHome"
-    # webEngine home, only alter if your deployment already uses a non default home
-    home: "myAnonymousHome"
+# Networking configuration specific to webEngine
+webEngine:
+  # webEngine Context root, only alter if your deployment already uses a non default context route
+  contextRoot: "myContextRoot"
+  # webEngine personalized home, only alter if your deployment already uses a non default personalized home
+  personalizedHome: "myAuthenticatedHome"
+  # webEngine home, only alter if your deployment already uses a non default home
+  home: "myAnonymousHome"
 ```
 
 - Upgrade the deployment using helm.
@@ -74,20 +76,20 @@ configuration:
 ```yaml
 # Application configuration
 configuration:
-    # Configuration for the peopleservice sub-chart.
-    # Set `enabled` to `true` to enable the peopleservice sub-chart, or `false` to disable it.
-    peopleservice:
-    enabled: true
-    # Application configuration
-    configuration:
-        # Integration configuration
-        integration:
-        # Indicates if DX integration is enabled
-        dx: true
-        # Integration specific configuration for DX
-        dx:
-        # Context root for the People Service portlet page
-        portletPageContextRoot: "/myContextRoot/myAuthenticatedHome/Practitioner/PeopleService"
+  # Configuration for the peopleservice sub-chart.
+  # Set `enabled` to `true` to enable the peopleservice sub-chart, or `false` to disable it.
+  peopleservice:
+  enabled: true
+  # Application configuration
+  configuration:
+    # Integration configuration
+    integration:
+    # Indicates if DX integration is enabled
+    dx: true
+    # Integration specific configuration for DX
+    dx:
+    # Context root for the People Service portlet page
+    portletPageContextRoot: "/myContextRoot/myAuthenticatedHome/Practitioner/PeopleService"
 ```
 
 - Upgrade the deployment using helm.
