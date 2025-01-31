@@ -2,7 +2,7 @@
 
 <!-- add short description-->
 
--   **[Changing the DX Compose WebEngine URL](change_context_root_or_home.md)**<!-- This document needs steps for executing via helm -->  
+-   **[Changing the DX Compose WebEngine URL](change_context_root_or_home.md)**  
 Learn how to change the WebEngine context root, home, and personalized home values in your DX Compose deployment.
 -   **[Managing outbound connections (Ajax Proxy)](manage_outbound_connections.md)**  
 Learn a different technique that you should use to manage outbound connections with WebEngine. 

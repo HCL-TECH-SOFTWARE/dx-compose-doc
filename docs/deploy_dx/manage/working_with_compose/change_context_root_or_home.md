@@ -1,11 +1,107 @@
 ---
 id: change-context-root-or-home
-title: Changing the context root or home URL for DX WebEngine
+title: Changing the WebEngine context root or home URI
 ---
 
-This topic provides the name and proper usage of the Linux bash script used to change either the context root (for example, wps) or the home URL (for example, portal in "wps/portal" or myportal in "/wps/myportal") of DX WebEngine .
+HCL Digital Experience (DX) Compose consists of multiple applications and services that can be deployed. Depending on your needs, you can change the default WebEngine context root of the Uniform Resource Locator (URL) and the Uniform Resource Identifier (URI) any time after you install HCL DX Compose to better suit the requirements of your organization.
 
-## Changing the context root
+To change the WebEngine URL or URI in Kubernetes deployments, adjust the `custom-values.yaml` file used for your Helm deployment. For more information, see [Custom value files](../../install/kubernetes_deployment/preparation/mandatory_tasks/prepare_configuration.md#custom-value-files)
+
+!!!note
+    Configuration changes to Helm-based deployments using methods outside of running `helm upgrade` will not persist through image upgrades or pod restarts.
+
+## Changing the URL context root using Helm
+
+To change the WebEngine context root in a Helm-based deployment:
+
+1. Update the `networking.webengine.contextRoot` value in the `custom-values.yaml` file to your desired context root.
+
+  ```yaml
+  # Networking configuration specific to webEngine
+  webEngine:
+    # Host of webEngine, must be specified as a FQDN
+    host: ""
+    # Port of webEngine
+    port:
+    # Setting if SSL is enabled for webEngine
+    ssl: true
+    # webEngine Context root, only alter if your deployment already uses a non default context route
+    contextRoot: "myContextRoot"
+  ```
+
+2. Upgrade the deployment using Helm:
+
+```sh
+   helm upgrade <RELEASE_NAME> -n <NAMESPACE> -f custom-values.yaml <HELM_CHART_DIRECTORY>
+```
+
+## Changing the URI using Helm
+
+1. Update the `networking.webengine.home` and or `networking.webengine.personalizedHome` values in the `custom-values.yaml` file to your desired values.
+
+  ```yaml
+  # Networking configuration specific to webEngine
+  webEngine:
+    # webEngine Context root, only alter if your deployment already uses a non default context route
+    contextRoot: "myContextRoot"
+    # webEngine personalized home, only alter if your deployment already uses a non default personalized home
+    personalizedHome: "myAuthenticatedHome"
+    # webEngine home, only alter if your deployment already uses a non default home
+    home: "myAnonymousHome"
+  ```
+
+2. Upgrade the deployment using Helm:
+
+```sh
+   helm upgrade <RELEASE_NAME> -n <NAMESPACE> -f custom-values.yaml <HELM_CHART_DIRECTORY>
+```
+
+## Additional considerations
+
+The People Service Helm chart cannot automatically detect changes in the parent chart. If you have deployed HCL People Service along with DX Compose, you must adjust the `configuration.dx.portletPageContextRoot` in the People Service `custom-values.yaml` file and the `configuration.peopleservice.configuration.dx.portletPageContextRoot` in the DX Compose `custom-values.yaml` file. After updating these values, upgrade the deployment using both `custom-values.yaml` files. Refer to the following steps:
+
+1. Update the `configuration.dx.portletPageContextRoot` in the People Service `custom-values.yaml` file.
+
+  ```yaml
+  # Application configuration
+  configuration:
+    # Authencation configuration for DX integration
+    dx:
+      # -- (string) Context root for the People Service portlet page
+      # @section -- DX configuration
+      portletPageContextRoot: "/myContextRoot/myAuthenticatedHome/Practitioner/PeopleService"
+  ```
+
+2. Update the `configuration.peopleservice.configuration.dx.portletPageContextRoot` in the DX Compose `custom-values.yaml` file.
+
+  ```yaml
+  # Application configuration
+  configuration:
+    # Configuration for the peopleservice sub-chart.
+    # Set `enabled` to `true` to enable the peopleservice sub-chart, or `false` to disable it.
+    peopleservice:
+    enabled: true
+    # Application configuration
+    configuration:
+      # Integration configuration
+      integration:
+      # Indicates if DX integration is enabled
+      dx: true
+      # Integration specific configuration for DX
+      dx:
+      # Context root for the People Service portlet page
+      portletPageContextRoot: "/myContextRoot/myAuthenticatedHome/Practitioner/PeopleService"
+  ```
+
+3. Upgrade the deployment using Helm:
+
+```sh
+   helm upgrade <RELEASE_NAME> -n <NAMESPACE> -f dx-compose-custom-values.yaml -f peopleservice-custom-values.yaml <HELM_CHART_DIRECTORY>
+```
+
+## Changing the context root in a non-Helm deployment
+
+The following instructions provide the name and proper usage of the Linux bash script used to change either the context root (for example, wps) or the home URL (for example, portal in "wps/portal" or myportal in "/wps/myportal") of DX WebEngine in a non helm based deployment.
 
 To change the context root, use the following script:
 
@@ -55,7 +151,7 @@ In this case, you can access the portal as:
 localhost/portal
 ```
 
-## Changing the home URL
+## Changing the home URL in a non helm based deployment
 
 Follow the steps in this section in case you want to use a string like "newHome" and "mynewHome" in the home URL, as opposed to "portal" and "myportal" /wps/portal and /wps/myportal.
 
