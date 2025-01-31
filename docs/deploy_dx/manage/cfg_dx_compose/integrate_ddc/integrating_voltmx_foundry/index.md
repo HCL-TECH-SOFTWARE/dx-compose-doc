@@ -1,6 +1,6 @@
 # Connecting to HCL Volt MX Foundry through DDC
 
-This section provides the steps on using the Digital Data Connector (DDC) for HCL Digital Experience (DX) Compose framework to integrate data from HCL Volt MX Foundry (integrated external data sources) to your DX pages using HCL Web Content Manager presentation components.
+This section provides the steps on using the Digital Data Connector (DDC) for HCL Digital Experience (DX) Compose framework to integrate data from HCL Volt MX Foundry (integrated external data sources) to your DX Compose pages using HCL Web Content Manager presentation components.
 
 ## Prerequisite
 
@@ -266,9 +266,9 @@ Under Authoring Templates, create a Content Template.
 
     ![](../../../../../assets/DDC_content_with_params.png "DDC Content item with value for params"){ width="1000" }
 
-## Using WCM artifacts on a DX page
+## Using WCM artifacts on a DX Compose page
 
-Now you can use all the WCM artifacts that you created on a DX page.
+Now you can use all the WCM artifacts that you created on a DX Compose page.
 
 !!!note
     This guide uses an existing page but you can create a completely new Content Root or any child or sibling page on any site. Refer to [Creating a page from the site toolbar](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_delivery/deliver_webcontent_on_dx/displaying_content/mp_wcm_createpage/){target="_blank"} for creating a page.
