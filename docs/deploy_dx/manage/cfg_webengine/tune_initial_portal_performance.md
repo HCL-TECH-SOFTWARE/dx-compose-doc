@@ -23,11 +23,18 @@ The file `webengine-performance-rendering.yaml` contains the recommended initial
 
 It is expected that WCM content is syndicated to this rendering environment, generally from a WCM authoring server. A separate authoring environment should be available to generate content, including new DX Compose pages, which will be available to users of the site on the rendering environment after syndication occurs.
 
+See the partial view of the `webengine-performance-rendering.yaml` file:
+
+![Rendering yaml file](../cfg_webengine/Rendering_yaml_file.png)
 ### Production-authoring environment
 
 The file `webengine-performance-authoring.yaml` contains the recommended initial tuning for an environment where content authors create, delete, and edit content. The production-authoring environment is where new pages would be made available to users through syndication to the rendering environments.
 
 There should be minimal to no caching in this environment. This facilitates an optimal editing experience for content authoring as changes become immediately visible.  
+
+See the partial view of the `webengine-performance-authoring.yaml` file:
+
+![Authoring yaml file](../cfg_webengine/Authoring_yaml_file.png)
 
 ### Tuning for developers
 
