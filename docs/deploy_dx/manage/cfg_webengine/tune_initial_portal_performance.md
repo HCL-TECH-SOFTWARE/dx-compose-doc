@@ -26,6 +26,7 @@ It is expected that WCM content is syndicated to this rendering environment, gen
 See the partial view of the `webengine-performance-rendering.yaml` file:
 
 ![Rendering yaml file](../cfg_webengine/Rendering_yaml_file.png)
+
 ### Production-authoring environment
 
 The file `webengine-performance-authoring.yaml` contains the recommended initial tuning for an environment where content authors create, delete, and edit content. The production-authoring environment is where new pages would be made available to users through syndication to the rendering environments.
