@@ -26,23 +26,23 @@ The following API end point and response are used to create this sample document
 
 ### Creating the list-rendering profile
 
-1. In WebEngine, add the list-rendering profile by navigating to the following path:
+Use Helm to add list-rendering profile properties in `ListRenderingProfileService.properties`. Refer to the following steps:
 
-    ```
-    /opt/openliberty/wlp/usr/servers/defaultServer/resources/dxconfig/config/services/ListRenderingProfileService.properties
-    ```
-
-2. Add the following configuration for our integration:
-
-    ```
-    ddcDemo.Name=ddcDemo.profile.json
-    ddcDemo.BeanListProviderID=ibm.portal.ddc.json
-    ddcDemo.ItemAttribute.id=id
-    ddcDemo.ItemAttribute.fullname=name
-    ddcDemo.ItemAttribute.email=email
-    ddcDemo.ItemAttribute.username=username
-    ddcDemo.ListItemSelection=.
-    ddcDemo.Type=BasicJSONSelection
+1. Update the `values.yaml` file with the following snippet:
+    
+    ```yaml
+    propertiesFilesOverrides:
+      ListRenderingProfileService.properties:
+        ddcDemo.Name: "ddcDemo.profile.json"
+        ddcDemo.BeanListProviderID: "ibm.portal.ddc.json"
+        ddcDemo.ItemAttribute.id: "id"
+        ddcDemo.ItemAttribute.fullname: "name"
+        ddcDemo.ItemAttribute.email: "email"
+        ddcDemo.ItemAttribute.username: "username"
+        ddcDemo.ListItemSelection: "."
+        ddcDemo.Type: "BasicJSONSelection"
+      ConfigService.properties:
+        wp.proxy.config.urlreplacement.digital_data_connector_policy.ddcDemo: "https://hcl-dx-dev.hclvoltmx.net/services/account/*"
     ```
 
     This configuration defines a list-rendering profile named `ddcDemo` with the following attributes:
@@ -56,7 +56,11 @@ The following API end point and response are used to create this sample document
     - `ListItemSelection`: The selection criteria for the list items.
     - `Type`: The type of selection.
 
-3. Save the changes and restart the server to apply the new list-rendering profile.
+    For more information on how to update or add properties using Helm, see [Updating DX Compose WebEngine properties using Helm values](../../../cfg_webengine/update_properties_with_helm.md).
+
+2. After updating property, perform a [Helm upgrade](../../../working_with_compose/helm_upgrade_values.md) to apply the changes.
+
+The server is automatically restarted to pick up the changes in the properties file.
 
 ## WCM presentation components
 
