@@ -12,7 +12,7 @@ To know if the settings are optimal, there should be no errors in `SystemOut.log
 
 ## Helm charts for initial tuning
 
-The following files are used to initially tune DX Compose WebEngine. They are located in the `hcl-dx-deployment/performance` directory of a Kubernetes deployment:
+The following files are used to initially tune DX Compose WebEngine.
 
 - [`webengine-performance-rendering.yaml`](#production-rendering-environment)
 - [`webengine-performance-authoring.yaml`](#production-authoring-environment)
@@ -23,9 +23,9 @@ The file `webengine-performance-rendering.yaml` contains the recommended initial
 
 It is expected that WCM content is syndicated to this rendering environment, generally from a WCM authoring server. A separate authoring environment should be available to generate content, including new DX Compose pages, which will be available to users of the site on the rendering environment after syndication occurs.
 
-See the partial view of the `webengine-performance-rendering.yaml` file:
+See a portion of the `webengine-performance-rendering.yaml` file. To view the additional tuning properties for a production-rendering environment, go to the `hcl-dx-deployment/performance/webengine-performance-rendering.yaml` directory of your Kubernetes deployment:
 
-![Rendering yaml file](../cfg_webengine/Rendering_yaml_file.png)
+![Rendering yaml file](../cfg_webengine/Rendering_yaml_file.png){ width="750" } 
 
 ### Production-authoring environment
 
@@ -33,9 +33,9 @@ The file `webengine-performance-authoring.yaml` contains the recommended initial
 
 There should be minimal to no caching in this environment. This facilitates an optimal editing experience for content authoring as changes become immediately visible.  
 
-See the partial view of the `webengine-performance-authoring.yaml` file:
+See a portion of the `webengine-performance-authoring.yaml` file. To view the additional tuning properties for a production-authoring environment, go to the `hcl-dx-deployment/performance/webengine-performance-authoring.yaml` directory of your Kubernetes deployment:
 
-![Authoring yaml file](../cfg_webengine/Authoring_yaml_file.png)
+![Authoring yaml file](../cfg_webengine/Authoring_yaml_file.png){ width="750" } 
 
 ### Tuning for developers
 
