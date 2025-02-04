@@ -26,7 +26,7 @@ The following API end point and response are used to create this sample document
 
 ### Creating the list-rendering profile
 
-Use Helm to add list-rendering profile properties in `ListRenderingProfileService.properties`:
+Use Helm to add list-rendering profile properties in `ListRenderingProfileService.properties`. Refer to the following steps:
 
 1. Update the `values.yaml` file with the following snippet:
     
@@ -60,7 +60,7 @@ Use Helm to add list-rendering profile properties in `ListRenderingProfileServic
 
 2. After updating property, perform a [Helm upgrade](../../../working_with_compose/helm_upgrade_values.md) to apply the changes.
 
-The server is automatically restarted to pick up the properties file changes. 
+The server is automatically restarted to pick up the changes in the properties file.
 
 ## WCM presentation components
 
