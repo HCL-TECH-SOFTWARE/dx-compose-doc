@@ -176,7 +176,7 @@ After creating a Credential Vault slot, you can configure an outbound connection
 
 ## Adding the HTTP outbound proxy 
 
-Use Helm to add outbound proxy config property in `ConfigService.properties`:
+Use Helm to add outbound proxy configuration property in `ConfigService.properties`. Refer to the following steps:
 
 1. Update the `values.yaml` file with the following snippet:
     
@@ -189,4 +189,4 @@ Use Helm to add outbound proxy config property in `ConfigService.properties`:
 
 2. After updating property, perform a [Helm upgrade](../../../working_with_compose/helm_upgrade_values.md) to apply the changes.
 
-The server is automatically restarted to pick up the properties file changes. 
+The server is automatically restarted to pick up the changes in the properties file.
