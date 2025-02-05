@@ -12,7 +12,7 @@ To know if the settings are optimal, there should be no errors in `SystemOut.log
 
 ## Helm charts for initial tuning
 
-The following files are used to initially tune DX Compose WebEngine.
+The following files are used to initially tune DX Compose WebEngine. They are located in the `hcl-dx-deployment/performance` directory of a Kubernetes deployment:
 
 - [`webengine-performance-rendering.yaml`](#production-rendering-environment)
 - [`webengine-performance-authoring.yaml`](#production-authoring-environment)
