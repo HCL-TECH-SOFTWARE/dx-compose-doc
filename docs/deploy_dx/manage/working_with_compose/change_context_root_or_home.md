@@ -39,22 +39,22 @@ To change the WebEngine context root in a Helm-based deployment:
 
 1. Update the `networking.webengine.home` and or `networking.webengine.personalizedHome` values in the `custom-values.yaml` file to your desired values.
 
-  ```yaml
-  # Networking configuration specific to webEngine
-  webEngine:
-    # webEngine Context root, only alter if your deployment already uses a non default context route
-    contextRoot: "myContextRoot"
-    # webEngine personalized home, only alter if your deployment already uses a non default personalized home
-    personalizedHome: "myAuthenticatedHome"
-    # webEngine home, only alter if your deployment already uses a non default home
-    home: "myAnonymousHome"
-  ```
+    ```yaml
+    # Networking configuration specific to webEngine
+    webEngine:
+      # webEngine Context root, only alter if your deployment already uses a non default context route
+      contextRoot: "myContextRoot"
+      # webEngine personalized home, only alter if your deployment already uses a non default personalized home
+      personalizedHome: "myAuthenticatedHome"
+      # webEngine home, only alter if your deployment already uses a non default home
+      home: "myAnonymousHome"
+    ```
 
 2. Upgrade the deployment using Helm:
 
-```sh
-   helm upgrade <RELEASE_NAME> -n <NAMESPACE> -f custom-values.yaml <HELM_CHART_DIRECTORY>
-```
+    ```sh
+      helm upgrade <RELEASE_NAME> -n <NAMESPACE> -f custom-values.yaml <HELM_CHART_DIRECTORY>
+    ```
 
 ## Additional considerations
 
@@ -62,42 +62,42 @@ The People Service Helm chart cannot automatically detect changes in the parent 
 
 1. Update the `configuration.dx.portletPageContextRoot` in the People Service `custom-values.yaml` file.
 
-  ```yaml
-  # Application configuration
-  configuration:
-    # Authencation configuration for DX integration
-    dx:
-      # -- (string) Context root for the People Service portlet page
-      # @section -- DX configuration
-      portletPageContextRoot: "/myContextRoot/myAuthenticatedHome/Practitioner/PeopleService"
-  ```
+    ```yaml
+    # Application configuration
+    configuration:
+      # Authencation configuration for DX integration
+      dx:
+        # -- (string) Context root for the People Service portlet page
+        # @section -- DX configuration
+        portletPageContextRoot: "/myContextRoot/myAuthenticatedHome/Practitioner/PeopleService"
+    ```
 
 2. Update the `configuration.peopleservice.configuration.dx.portletPageContextRoot` in the DX Compose `custom-values.yaml` file.
 
-  ```yaml
-  # Application configuration
-  configuration:
-    # Configuration for the peopleservice sub-chart.
-    # Set `enabled` to `true` to enable the peopleservice sub-chart, or `false` to disable it.
-    peopleservice:
-    enabled: true
+    ```yaml
     # Application configuration
     configuration:
-      # Integration configuration
-      integration:
-      # Indicates if DX integration is enabled
-      dx: true
-      # Integration specific configuration for DX
-      dx:
-      # Context root for the People Service portlet page
-      portletPageContextRoot: "/myContextRoot/myAuthenticatedHome/Practitioner/PeopleService"
-  ```
+      # Configuration for the peopleservice sub-chart.
+      # Set `enabled` to `true` to enable the peopleservice sub-chart, or `false` to disable it.
+      peopleservice:
+      enabled: true
+      # Application configuration
+      configuration:
+        # Integration configuration
+        integration:
+        # Indicates if DX integration is enabled
+        dx: true
+        # Integration specific configuration for DX
+        dx:
+        # Context root for the People Service portlet page
+        portletPageContextRoot: "/myContextRoot/myAuthenticatedHome/Practitioner/PeopleService"
+    ```
 
 3. Upgrade the deployment using Helm:
 
-```sh
-   helm upgrade <RELEASE_NAME> -n <NAMESPACE> -f dx-compose-custom-values.yaml -f peopleservice-custom-values.yaml <HELM_CHART_DIRECTORY>
-```
+    ```sh
+      helm upgrade <RELEASE_NAME> -n <NAMESPACE> -f dx-compose-custom-values.yaml -f peopleservice-custom-values.yaml <HELM_CHART_DIRECTORY>
+    ```
 
 ## Changing the context root in a non-Helm deployment
 

@@ -256,8 +256,8 @@ Under Authoring Templates, create a Content Template.
     | Data Source URI                | https://hcl-dx-dev.hclvoltmx.net/services/account/id         |
     | Select Http Method             | post                                                         |
 
-    ![](../../../../../assets/WCM_Input_Content_Element_Post.png "Input Main Content for Post."{ width="1500" }
-)
+    ![](../../../../../assets/WCM_Input_Content_Element_Post.png "Input Main Content for Post."){ width="1500" }
+
 
 4. Click **Save and Close**.
 
