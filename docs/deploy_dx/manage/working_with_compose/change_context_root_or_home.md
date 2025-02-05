@@ -3,7 +3,11 @@ id: change-context-root-or-home
 title: Changing the WebEngine context root or home URI
 ---
 
-HCL Digital Experience (DX) Compose consists of multiple applications and services that can be deployed. Depending on your needs, you can change the default WebEngine context root of the Uniform Resource Locator (URL) and the Uniform Resource Identifier (URI) any time after you install HCL DX Compose to better suit the requirements of your organization.
+HCL Digital Experience (DX) Compose consists of multiple applications and services that can be deployed. Depending on your needs, you can change the default WebEngine context root of the Uniform Resource Locator (URL) and the Uniform Resource Identifier (URI) any time after you install HCL DX Compose to better suit the requirements of your organization. Note that `/wps/portal` and `/wps/myportal` are the default WebEngine server values where:
+
+- `wps` is the default context root.
+- `portal` is the default home value.
+- `myportal` is the default personalized home value.
 
 To change the WebEngine URL or URI in Kubernetes deployments, adjust the `custom-values.yaml` file used for your Helm deployment. For more information, see [Custom value files](../../install/kubernetes_deployment/preparation/mandatory_tasks/prepare_configuration.md#custom-value-files)
 
@@ -37,7 +41,7 @@ To change the WebEngine context root in a Helm-based deployment:
 
 ## Changing the URI using Helm
 
-1. Update the `networking.webengine.home` and or `networking.webengine.personalizedHome` values in the `custom-values.yaml` file to your desired values.
+1. Update the `networking.webengine.home` and `networking.webengine.personalizedHome` values in the `custom-values.yaml` file to your desired values.
 
   ```yaml
   # Networking configuration specific to webEngine
@@ -56,7 +60,7 @@ To change the WebEngine context root in a Helm-based deployment:
    helm upgrade <RELEASE_NAME> -n <NAMESPACE> -f custom-values.yaml <HELM_CHART_DIRECTORY>
 ```
 
-## Additional considerations
+## Changing the context root in People Service
 
 The People Service Helm chart cannot automatically detect changes in the parent chart. If you have deployed HCL People Service along with DX Compose, you must adjust the `configuration.dx.portletPageContextRoot` in the People Service `custom-values.yaml` file and the `configuration.peopleservice.configuration.dx.portletPageContextRoot` in the DX Compose `custom-values.yaml` file. After updating these values, upgrade the deployment using both `custom-values.yaml` files. Refer to the following steps:
 
@@ -101,7 +105,7 @@ The People Service Helm chart cannot automatically detect changes in the parent 
 
 ## Changing the context root in a non-Helm deployment
 
-The following instructions provide the name and proper usage of the Linux bash script used to change either the context root (for example, wps) or the home URL (for example, portal in "wps/portal" or myportal in "/wps/myportal") of DX WebEngine in a non helm based deployment.
+The following instructions provide the name and proper usage of the Linux bash script used to change either the context root (for example, `wps`) or the home URL (for example, `portal` in `wps/portal` or `myportal` in `/wps/myportal`) of DX WebEngine in a non-Helm deployment.
 
 To change the context root, use the following script:
 
@@ -133,13 +137,13 @@ Except for the `-h` and `-x` parameters, all other options are required.
 
 ### Sample use of script
 
-This example changes the context root of the WebEngine server from "wps" to "newRoot":
+This example changes the context root of the WebEngine server from `wps` to `newRoot`:
 
 ```
 /opt/openliberty/wlp/usr/svrcfg/bin/changeContextRoot.sh -n newRoot -l /opt/openliberty -s defaultServer -u wpsadmin -P wpsadmin
 ```
 
-This example changes a WebEngine server context root of "wps" to having no context root at all:
+This example changes a WebEngine server context root of `wps` to having no context root at all:
 
 ```
 /opt/openliberty/wlp/usr/svrcfg/bin/changeContextRoot.sh -l /opt/openliberty -s defaultServer -u wpsadmin -P wpsadmin
@@ -151,11 +155,11 @@ In this case, you can access the portal as:
 localhost/portal
 ```
 
-## Changing the home URL in a non helm based deployment
+## Changing the home URL in a non-Helm deployment
 
-Follow the steps in this section in case you want to use a string like "newHome" and "mynewHome" in the home URL, as opposed to "portal" and "myportal" /wps/portal and /wps/myportal.
+Follow the steps in this section in case you want to use a string like `newHome` and `mynewHome` in the home URL, as opposed to `portal` and `myportal` in `/wps/portal` and `/wps/myportal`.
 
-To change the home URL, use the script "changeHomeURLs.sh" located in Docker or Kubernetes at
+To change the home URL, use the script `changeHomeURLs.sh` located in Docker or Kubernetes at:
 
 ```
 /opt/openliberty/wlp/usr/svrcfg/bin/changeHomeURLs.sh
@@ -175,7 +179,7 @@ The parameters for this script (except of `-h`) are all required and include:
 
 ### Sample use of script
 
-This example changes the anonymous home to "newHome" and the authenticated home to "mynewHome":
+This example changes the anonymous home to `newHome` and the authenticated home to `mynewHome`:
 
 ```
 /opt/openliberty/wlp/usr/svrcfg/bin/changeHomeURLs.sh -l /opt/openliberty -s defaultServer -a newHome -A mynewHome
