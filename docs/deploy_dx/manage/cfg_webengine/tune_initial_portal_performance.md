@@ -31,7 +31,7 @@ There should be minimal to no caching in this environment. This facilitates an o
 
 ### Tuning for developers
 
-No specific initial tuning file is available for developers. It is expected that developers use Docker instead of Kubernetes and Helm charts are not available in Docker. If a tuning file is needed for developers, the shipped DX Compose image should be sufficient. If not, developers can modify the shipped DX Compose image to be applicable to their needs using `docker commit` or a Dockerfile.
+No specific initial tuning file is available for developers. It is expected that developers use Docker Compose instead of Kubernetes; Helm charts are not available in Docker Compose. If a tuning file is needed for developers, the shipped DX Compose image should be sufficient. If not, developers can modify the shipped DX Compose image to be applicable to their needs using `docker commit` or a Dockerfile.
 
 ## Applying the Helm chart settings
 
