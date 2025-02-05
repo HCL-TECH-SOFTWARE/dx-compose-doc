@@ -23,11 +23,168 @@ The file `webengine-performance-rendering.yaml` contains the recommended initial
 
 It is expected that WCM content is syndicated to this rendering environment, generally from a WCM authoring server. A separate authoring environment should be available to generate content, including new DX Compose pages, which will be available to users of the site on the rendering environment after syndication occurs.
 
+See the content of the `webengine-performance-rendering.yaml` file.
+
+```yaml
+configuration:
+  webEngine:
+    configOverrideFiles:
+      derbyMaxConnections.xml: |
+        <server description="DX Web Engine server">
+          <!-- This setting is for Derby; if you transfer the database to DB2 you likely need to change this setting to use a higher maxPoolSize; say 300" -->
+          <!-- The dataSource id likely needs to be changed as well -->
+          <dataSource id="DefaultDataSource" jndiName="jdbc/wpdbDS" statementCacheSize="10" isolationLevel="TRANSACTION_READ_COMMITTED">
+            <jdbcDriver libraryRef="derbyLib" />
+            <properties.derby.embedded connectionAttributes="upgrade=true" createDatabase="false" databaseName="resources/wpsdb" shutdownDatabase="false" />
+            <connectionManager agedTimeout="7200" connectionTimeout="180" maxIdleTime="1800" maxPoolSize="100" minPoolSize="10" purgePolicy="EntirePool" reapTime="180" />
+          </dataSource>
+          </server>
+      WCMDynacachesPerformance.xml: |
+        <server description="DX Web Engine server">
+              <distributedMap id="services/cache/iwk/abspath" memorySizeInEntries="32000"></distributedMap>
+              <distributedMap id="services/cache/iwk/abspathreverse" memorySizeInEntries="32000"></distributedMap>
+              <distributedMap id="services/cache/iwk/processing" memorySizeInEntries="10000"></distributedMap>
+              <distributedMap id="services/cache/iwk/session" memorySizeInEntries="6000"></distributedMap>
+              <distributedMap id="services/cache/iwk/strategy" memorySizeInEntries="32000"></distributedMap>
+              <distributedMap id="services/cache/iwk/summary" memorySizeInEntries="4000"></distributedMap>
+        </server>
+    propertiesFilesOverrides:
+      WCMConfigService.properties:
+        connect.moduleconfig.ajpe.contentcache.defaultcontentcache: "SECURE"
+        connect.moduleconfig.ajpe.contentcache.contentcacheexpires: "REL 2H"
+        user.cache.enable: "true"
+        versioningStrategy.Default: "manual"
+        versioningStrategy.AuthoringTemplate: "manual"
+        versioningStrategy.Component: "manual"
+        versioningStrategy.Content: "manual"
+        versioningStrategy.PresentationTemplate: "manual"
+        versioningStrategy.SiteArea: "manual"
+        versioningStrategy.PortalPage: "manual"
+        versioningStrategy.Taxonomy: "manual"
+        versioningStrategy.Workflow: "manual"
+        deployment.subscriberOnly: "true"
+      CacheManagerService.properties:
+        cacheinstance.com.ibm.wps.ac.AccessControlUserContextCache.size: "8403"
+        cacheinstance.com.ibm.wps.model.factory.UserSpecificModelCache.size: "8403"
+      ConfigService.properties:
+        timeout.resume.session: "true"
+        persistent.session.level: "0"
+        record.lastlogin: "false"
+        content.topology.dynamic: "false"
+        friendly.enabled: "true"
+        friendly.pathinfo.enabled: "true"
+        cache.dynamic.content.spot: "false"
+        resourceaggregation.cache.markup: "true"
+        resourceaggregation.enableRuntimePortletCapabilitiesFilter: "false"
+      PumaStoreService.properties:
+        store.puma_default.disableACforRead: "true"
+      CPConfigurationService.properties:
+        com.ibm.wps.cp.tagging.isTaggingEnabled: "false"
+        com.ibm.wps.cp.rating.isRatingEnabled: "false"
+      CommonComponentConfigService.properties:
+        cc.multipart.enabled: "false"
+        cc.multipart.correlatehosts: "false"
+      NavigatorService.properties:
+        public.expires: "3600"
+        public.reload: "3600"
+        remote.cache.expiration: "28800"
+      RegistryService.properties:
+        default.interval: "28800"
+        bucket.transformationapp: "28800"
+        bucket.transformation.int: "28800"
+      AccessControlDataManagementService.properties:
+        accessControlDataManagement.acucIgnoreResourceTypes: "null"
+        accessControlDataManagement.loadRolesParentBased: "false"
+environment:
+  pod:
+    webEngine:
+    - name: JVM_ARGS
+      value: "-Xmx3548m -Xms3548m -Xmn1024m -XX:MaxDirectMemorySize=256000000"
+```
+
 ### Production-authoring environment
 
 The file `webengine-performance-authoring.yaml` contains the recommended initial tuning for an environment where content authors create, delete, and edit content. The production-authoring environment is where new pages would be made available to users through syndication to the rendering environments.
 
 There should be minimal to no caching in this environment. This facilitates an optimal editing experience for content authoring as changes become immediately visible.  
+
+See the content of the `webengine-performance-authoring.yaml` file.
+
+```yaml
+configuration:
+  webEngine:
+    configOverrideFiles:
+      derbyMaxConnections.xml: |
+        <server description="DX Web Engine server">
+          <!-- This setting is for Derby; if you transfer the database to DB2 you likely need to change this setting to use a higher maxPoolSize; say 300" -->
+          <!-- The dataSource id likely needs to be changed as well -->
+          <dataSource id="DefaultDataSource" jndiName="jdbc/wpdbDS" statementCacheSize="10" isolationLevel="TRANSACTION_READ_COMMITTED">
+            <jdbcDriver libraryRef="derbyLib" />
+            <properties.derby.embedded connectionAttributes="upgrade=true" createDatabase="false" databaseName="resources/wpsdb" shutdownDatabase="false" />
+            <connectionManager agedTimeout="7200" connectionTimeout="180" maxIdleTime="1800" maxPoolSize="100" minPoolSize="10" purgePolicy="EntirePool" reapTime="180" />
+          </dataSource>
+          </server>
+      WCMDynacachesPerformance.xml: |
+        <server description="DX Web Engine server">
+              <distributedMap id="services/cache/iwk/abspath" memorySizeInEntries="8000"></distributedMap>
+              <distributedMap id="services/cache/iwk/abspathreverse" memorySizeInEntries="8000"></distributedMap>
+              <distributedMap id="services/cache/iwk/processing" memorySizeInEntries="10000"></distributedMap>
+              <distributedMap id="services/cache/iwk/session" memorySizeInEntries="6000"></distributedMap>
+              <distributedMap id="services/cache/iwk/strategy" memorySizeInEntries="8000"></distributedMap>
+              <distributedMap id="services/cache/iwk/summary" memorySizeInEntries="2000"></distributedMap>
+        </server>
+    propertiesFilesOverrides:
+      WCMConfigService.properties:
+        user.cache.enable: "true"
+        versioningStrategy.Default: "always"
+        versioningStrategy.AuthoringTemplate: "always"
+        versioningStrategy.Component: "always"
+        versioningStrategy.Content: "always"
+        versioningStrategy.PresentationTemplate: "always"
+        versioningStrategy.SiteArea: "always"
+        versioningStrategy.PortalPage: "always"
+        versioningStrategy.Taxonomy: "always"
+        versioningStrategy.Workflow: "always"
+        deployment.subscriberOnly: "false"
+      CacheManagerService.properties:
+        cacheinstance.com.ibm.wps.ac.AccessControlUserContextCache.size: "8403"
+        cacheinstance.com.ibm.wps.model.factory.UserSpecificModelCache.size: "8403"
+      ConfigService.properties:
+        timeout.resume.session: "true"
+        persistent.session.level: "0"
+        record.lastlogin: "false"
+        content.topology.dynamic: "false"
+        friendly.enabled: "true"
+        friendly.pathinfo.enabled: "true"
+        cache.dynamic.content.spot: "false"
+        resourceaggregation.cache.markup: "true"
+        resourceaggregation.enableRuntimePortletCapabilitiesFilter: "false"
+      PumaStoreService.properties:
+        store.puma_default.disableACforRead: "true"
+      CPConfigurationService.properties:
+        com.ibm.wps.cp.tagging.isTaggingEnabled: "false"
+        com.ibm.wps.cp.rating.isRatingEnabled: "false"
+      CommonComponentConfigService.properties:
+        cc.multipart.enabled: "false"
+        cc.multipart.correlatehosts: "false"
+      NavigatorService.properties:
+        public.expires: "3600"
+        public.reload: "3600"
+        remote.cache.expiration: "28800"
+      RegistryService.properties:
+        default.interval: "28800"
+        bucket.transformationapp: "28800"
+        bucket.transformation.int: "28800"
+      AccessControlDataManagementService.properties:
+        accessControlDataManagement.acucIgnoreResourceTypes: "null"
+        accessControlDataManagement.loadRolesParentBased: "true"
+
+environment:
+  pod:
+    webEngine:
+    - name: JVM_ARGS
+      value: "-Xmx3548m -Xms3548m -Xmn1024m -XX:MaxDirectMemorySize=256000000"
+```
 
 ### Tuning for developers
 
