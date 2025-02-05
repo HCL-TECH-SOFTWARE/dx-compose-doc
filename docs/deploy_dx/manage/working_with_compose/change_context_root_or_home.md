@@ -16,24 +16,24 @@ To change the WebEngine context root in a Helm-based deployment:
 
 1. Update the `networking.webengine.contextRoot` value in the `custom-values.yaml` file to your desired context root.
 
-  ```yaml
-  # Networking configuration specific to webEngine
-  webEngine:
-    # Host of webEngine, must be specified as a FQDN
-    host: ""
-    # Port of webEngine
-    port:
-    # Setting if SSL is enabled for webEngine
-    ssl: true
-    # webEngine Context root, only alter if your deployment already uses a non default context route
-    contextRoot: "myContextRoot"
-  ```
+    ```yaml
+    # Networking configuration specific to webEngine
+    webEngine:
+      # Host of webEngine, must be specified as a FQDN
+      host: ""
+      # Port of webEngine
+      port:
+      # Setting if SSL is enabled for webEngine
+      ssl: true
+      # webEngine Context root, only alter if your deployment already uses a non default context route
+      contextRoot: "myContextRoot"
+    ```
 
 2. Upgrade the deployment using Helm:
 
-```sh
-   helm upgrade <RELEASE_NAME> -n <NAMESPACE> -f custom-values.yaml <HELM_CHART_DIRECTORY>
-```
+    ```sh
+      helm upgrade <RELEASE_NAME> -n <NAMESPACE> -f custom-values.yaml <HELM_CHART_DIRECTORY>
+    ```
 
 ## Changing the URI using Helm
 
