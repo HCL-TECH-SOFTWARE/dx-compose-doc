@@ -3,7 +3,11 @@ id: change-context-root-or-home
 title: Changing the WebEngine context root or home URI
 ---
 
-HCL Digital Experience (DX) Compose consists of multiple applications and services that can be deployed. Depending on your needs, you can change the default WebEngine context root of the Uniform Resource Locator (URL) and the Uniform Resource Identifier (URI) any time after you install HCL DX Compose to better suit the requirements of your organization. Note that the default context root values are `/wps/portal` and `/wps/myportal`.
+HCL Digital Experience (DX) Compose consists of multiple applications and services that can be deployed. Depending on your needs, you can change the default WebEngine context root of the Uniform Resource Locator (URL) and the Uniform Resource Identifier (URI) any time after you install HCL DX Compose to better suit the requirements of your organization. Note that `/wps/portal` and `/wps/myportal` are the default WebEngine server values where:
+
+- `wps` is the default context root.
+- `portal` is the default home value.
+- `myportal` is the default personalized home value.
 
 To change the WebEngine URL or URI in Kubernetes deployments, adjust the `custom-values.yaml` file used for your Helm deployment. For more information, see [Custom value files](../../install/kubernetes_deployment/preparation/mandatory_tasks/prepare_configuration.md#custom-value-files)
 
