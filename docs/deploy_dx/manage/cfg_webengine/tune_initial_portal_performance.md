@@ -25,7 +25,7 @@ It is expected that WCM content is syndicated to this rendering environment, gen
 
 See the content of the `webengine-performance-rendering.yaml` file.
 
-```
+```yaml
 configuration:
   webEngine:
     configOverrideFiles:
@@ -110,7 +110,7 @@ There should be minimal to no caching in this environment. This facilitates an o
 
 See the content of the `webengine-performance-authoring.yaml` file.
 
-```
+```yaml
 configuration:
   webEngine:
     configOverrideFiles:
