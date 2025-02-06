@@ -1,9 +1,9 @@
 # HCL Digital Experience Help Center
 
-Visit the published site at [https://opensource.hcltechsw.com/digital-experience](https://opensource.hcltechsw.com/digital-experience)
+Visit the published site at [https://help.hcl-software.com/digital-experience/dx-compose/latest/](https://help.hcl-software.com/digital-experience/dx-compose/latest/)
 
 ## Usage
-[View the documentation](https://opensource.hcltechsw.com/digital-experience/) for product features and usage information.
+[View the documentation](https://help.hcl-software.com/digital-experience/dx-compose/latest/) for product features and usage information.
 
 ## Contributing
 
