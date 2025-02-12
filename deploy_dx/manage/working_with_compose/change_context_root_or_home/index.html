@@ -13,7 +13,7 @@
       
       
       
-        <link rel="canonical" href="https://opensource.hcltechsw.com/digital-experience/deploy_dx/manage/working_with_compose/change_context_root_or_home/">
+        <link rel="canonical" href="https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/working_with_compose/change_context_root_or_home/">
       
       
         <link rel="prev" href="../">
@@ -27,7 +27,7 @@
     
     
       
-        <title>Changing the context root or home URL for DX WebEngine - HCL Digital Experience Compose Help Center</title>
+        <title>Changing the WebEngine context root or home URI - HCL Digital Experience Compose Help Center</title>
       
     
     
@@ -54,14 +54,13 @@
     
     <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
-      <!--March2023-->
-<!--  OneTrust Cookies Consent Notice start  -->
-<script type="text/javascript" src="https://cdn.cookielaw.org/consent/99b8d579-c52a-43c9-ab7b-a35e60de7103/OtAutoBlock.js"></script>
-<script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" type="text/javascript" charset="UTF-8" data-domain-script="99b8d579-c52a-43c9-ab7b-a35e60de7103"></script>
-<script type="text/javascript"> 
-	function OptanonWrapper() { } 
+      <!--Jan2025-->
+<!-- OneTrust Cookies Consent Notice start for hcl-software.com -->
+<script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js"  type="text/javascript" charset="UTF-8" data-domain-script="c65f43b5-068e-4e4b-80d3-bdc8c41cf93d" ></script>
+<script type="text/javascript">
+function OptanonWrapper() { }
 </script>
-<!--  OneTrust Cookies Consent Notice end  -->
+<!-- OneTrust Cookies Consent Notice end for hcl-software.com -->
 
 <!--  Global site tag (gtag.js) - Google Analytics start -->
 <script src="https://www.googletagmanager.com/gtag/js?id=G-7LF0XY95M1" class="optanon-category-C0002-C0003-C0004-C0005"></script>
@@ -83,7 +82,6 @@
   <!-- End Google Tag Manager -->
   
 <!--  Global site tag (gtag.js) - Google Analytics end -->
-
     
     
     
@@ -104,7 +102,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#changing-the-context-root" class="md-skip">
+        <a href="#changing-the-url-context-root-using-helm" class="md-skip">
           Skip to content
         </a>
       
@@ -190,7 +188,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Changing the context root or home URL for DX WebEngine
+              Changing the WebEngine context root or home URI
             
           </span>
         </div>
@@ -297,7 +295,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../whats_new/cf224/" class="md-tabs__link">
+        <a href="../../../../whats_new/cf225/" class="md-tabs__link">
           
   
     
@@ -427,6 +425,8 @@
       
         
       
+        
+      
     
     
       
@@ -443,7 +443,7 @@
         
   
   
-    <a href="../../../../whats_new/cf224/" class="md-nav__link">
+    <a href="../../../../whats_new/cf225/" class="md-nav__link">
       
   
   <span class="md-ellipsis">
@@ -729,6 +729,8 @@
       
         
       
+        
+      
     
     
       
@@ -776,6 +778,10 @@
       
         
           
+        
+      
+        
+      
         
       
         
@@ -928,7 +934,7 @@
           
   
   <span class="md-ellipsis">
-    Changing the WebEngine URL
+    Changing the WebEngine context root or home URI
   </span>
   
 
@@ -939,7 +945,7 @@
         
   
   <span class="md-ellipsis">
-    Changing the WebEngine URL
+    Changing the WebEngine context root or home URI
   </span>
   
 
@@ -961,13 +967,40 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#changing-the-context-root" class="md-nav__link">
+  <a href="#changing-the-url-context-root-using-helm" class="md-nav__link">
     <span class="md-ellipsis">
-      Changing the context root
+      Changing the URL context root using Helm
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Changing the context root">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changing-the-uri-using-helm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changing the URI using Helm
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changing-the-context-root-in-people-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changing the context root in People Service
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changing-the-context-root-in-a-non-helm-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changing the context root in a non-Helm deployment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Changing the context root in a non-Helm deployment">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -994,13 +1027,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#changing-the-home-url" class="md-nav__link">
+  <a href="#changing-the-home-url-in-a-non-helm-deployment" class="md-nav__link">
     <span class="md-ellipsis">
-      Changing the home URL
+      Changing the home URL in a non-Helm deployment
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Changing the home URL">
+    <nav class="md-nav" aria-label="Changing the home URL in a non-Helm deployment">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1363,13 +1396,40 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#changing-the-context-root" class="md-nav__link">
+  <a href="#changing-the-url-context-root-using-helm" class="md-nav__link">
     <span class="md-ellipsis">
-      Changing the context root
+      Changing the URL context root using Helm
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Changing the context root">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changing-the-uri-using-helm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changing the URI using Helm
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changing-the-context-root-in-people-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changing the context root in People Service
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changing-the-context-root-in-a-non-helm-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changing the context root in a non-Helm deployment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Changing the context root in a non-Helm deployment">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1396,13 +1456,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#changing-the-home-url" class="md-nav__link">
+  <a href="#changing-the-home-url-in-a-non-helm-deployment" class="md-nav__link">
     <span class="md-ellipsis">
-      Changing the home URL
+      Changing the home URL in a non-Helm deployment
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Changing the home URL">
+    <nav class="md-nav" aria-label="Changing the home URL in a non-Helm deployment">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1451,10 +1511,104 @@
   
 
 
-  <h1>Changing the WebEngine URL</h1>
+  <h1>Changing the WebEngine context root or home URI</h1>
 
-<p>This topic provides the name and proper usage of the Linux bash script used to change either the context root (for example, wps) or the home URL (for example, portal in "wps/portal" or myportal in "/wps/myportal") of DX WebEngine .</p>
-<h2 id="changing-the-context-root">Changing the context root</h2>
+<p>HCL Digital Experience (DX) Compose consists of multiple applications and services that can be deployed. Depending on your needs, you can change the default WebEngine context root of the Uniform Resource Locator (URL) and the Uniform Resource Identifier (URI) any time after you install HCL DX Compose to better suit the requirements of your organization. Note that <code>/wps/portal</code> and <code>/wps/myportal</code> are the default WebEngine server values where:</p>
+<ul>
+<li><code>wps</code> is the default context root.</li>
+<li><code>portal</code> is the default home value.</li>
+<li><code>myportal</code> is the default personalized home value.</li>
+</ul>
+<p>To change the WebEngine URL or URI in Kubernetes deployments, adjust the <code>custom-values.yaml</code> file used for your Helm deployment. For more information, see <a href="../../../install/kubernetes_deployment/preparation/mandatory_tasks/prepare_configuration/#custom-value-files">Custom value files</a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Configuration changes to Helm-based deployments using methods outside of running <code>helm upgrade</code> will not persist through image upgrades or pod restarts.</p>
+</div>
+<h2 id="changing-the-url-context-root-using-helm">Changing the URL context root using Helm</h2>
+<p>To change the WebEngine context root in a Helm-based deployment:</p>
+<ol>
+<li>
+<p>Update the <code>networking.webengine.contextRoot</code> value in the <code>custom-values.yaml</code> file to your desired context root.</p>
+<div class="language-yaml highlight"><pre><span></span><code><span class="c1"># Networking configuration specific to webEngine</span>
+<span class="nt">webEngine</span><span class="p">:</span>
+<span class="w">  </span><span class="c1"># Host of webEngine, must be specified as a FQDN</span>
+<span class="w">  </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span>
+<span class="w">  </span><span class="c1"># Port of webEngine</span>
+<span class="w">  </span><span class="nt">port</span><span class="p">:</span>
+<span class="w">  </span><span class="c1"># Setting if SSL is enabled for webEngine</span>
+<span class="w">  </span><span class="nt">ssl</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="c1"># webEngine Context root, only alter if your deployment already uses a non default context route</span>
+<span class="w">  </span><span class="nt">contextRoot</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;myContextRoot&quot;</span>
+</code></pre></div>
+</li>
+<li>
+<p>Upgrade the deployment using Helm:</p>
+<div class="language-sh highlight"><pre><span></span><code><span class="w">  </span>helm<span class="w"> </span>upgrade<span class="w"> </span>&lt;RELEASE_NAME&gt;<span class="w"> </span>-n<span class="w"> </span>&lt;NAMESPACE&gt;<span class="w"> </span>-f<span class="w"> </span>custom-values.yaml<span class="w"> </span>&lt;HELM_CHART_DIRECTORY&gt;
+</code></pre></div>
+</li>
+</ol>
+<h2 id="changing-the-uri-using-helm">Changing the URI using Helm</h2>
+<ol>
+<li>
+<p>Update the <code>networking.webengine.home</code> and <code>networking.webengine.personalizedHome</code> values in the <code>custom-values.yaml</code> file to your desired values.</p>
+<div class="language-yaml highlight"><pre><span></span><code><span class="c1"># Networking configuration specific to webEngine</span>
+<span class="nt">webEngine</span><span class="p">:</span>
+<span class="w">  </span><span class="c1"># webEngine Context root, only alter if your deployment already uses a non default context route</span>
+<span class="w">  </span><span class="nt">contextRoot</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;myContextRoot&quot;</span>
+<span class="w">  </span><span class="c1"># webEngine personalized home, only alter if your deployment already uses a non default personalized home</span>
+<span class="w">  </span><span class="nt">personalizedHome</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;myAuthenticatedHome&quot;</span>
+<span class="w">  </span><span class="c1"># webEngine home, only alter if your deployment already uses a non default home</span>
+<span class="w">  </span><span class="nt">home</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;myAnonymousHome&quot;</span>
+</code></pre></div>
+</li>
+<li>
+<p>Upgrade the deployment using Helm:</p>
+<div class="language-sh highlight"><pre><span></span><code><span class="w">  </span>helm<span class="w"> </span>upgrade<span class="w"> </span>&lt;RELEASE_NAME&gt;<span class="w"> </span>-n<span class="w"> </span>&lt;NAMESPACE&gt;<span class="w"> </span>-f<span class="w"> </span>custom-values.yaml<span class="w"> </span>&lt;HELM_CHART_DIRECTORY&gt;
+</code></pre></div>
+</li>
+</ol>
+<h2 id="changing-the-context-root-in-people-service">Changing the context root in People Service</h2>
+<p>The People Service Helm chart cannot automatically detect changes in the parent chart. If you have deployed HCL People Service along with DX Compose, you must adjust the <code>configuration.dx.portletPageContextRoot</code> in the People Service <code>custom-values.yaml</code> file and the <code>configuration.peopleservice.configuration.dx.portletPageContextRoot</code> in the DX Compose <code>custom-values.yaml</code> file. After updating these values, upgrade the deployment using both <code>custom-values.yaml</code> files. Refer to the following steps:</p>
+<ol>
+<li>
+<p>Update the <code>configuration.dx.portletPageContextRoot</code> in the People Service <code>custom-values.yaml</code> file.</p>
+<div class="language-yaml highlight"><pre><span></span><code><span class="c1"># Application configuration</span>
+<span class="nt">configuration</span><span class="p">:</span>
+<span class="w">  </span><span class="c1"># Authencation configuration for DX integration</span>
+<span class="w">  </span><span class="nt">dx</span><span class="p">:</span>
+<span class="w">    </span><span class="c1"># -- (string) Context root for the People Service portlet page</span>
+<span class="w">    </span><span class="c1"># @section -- DX configuration</span>
+<span class="w">    </span><span class="nt">portletPageContextRoot</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/myContextRoot/myAuthenticatedHome/Practitioner/PeopleService&quot;</span>
+</code></pre></div>
+</li>
+<li>
+<p>Update the <code>configuration.peopleservice.configuration.dx.portletPageContextRoot</code> in the DX Compose <code>custom-values.yaml</code> file.</p>
+<div class="language-yaml highlight"><pre><span></span><code><span class="c1"># Application configuration</span>
+<span class="nt">configuration</span><span class="p">:</span>
+<span class="w">  </span><span class="c1"># Configuration for the peopleservice sub-chart.</span>
+<span class="w">  </span><span class="c1"># Set `enabled` to `true` to enable the peopleservice sub-chart, or `false` to disable it.</span>
+<span class="w">  </span><span class="nt">peopleservice</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="c1"># Application configuration</span>
+<span class="w">  </span><span class="nt">configuration</span><span class="p">:</span>
+<span class="w">    </span><span class="c1"># Integration configuration</span>
+<span class="w">    </span><span class="nt">integration</span><span class="p">:</span>
+<span class="w">    </span><span class="c1"># Indicates if DX integration is enabled</span>
+<span class="w">    </span><span class="nt">dx</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="c1"># Integration specific configuration for DX</span>
+<span class="w">    </span><span class="nt">dx</span><span class="p">:</span>
+<span class="w">    </span><span class="c1"># Context root for the People Service portlet page</span>
+<span class="w">    </span><span class="nt">portletPageContextRoot</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/myContextRoot/myAuthenticatedHome/Practitioner/PeopleService&quot;</span>
+</code></pre></div>
+</li>
+<li>
+<p>Upgrade the deployment using Helm:</p>
+<div class="language-sh highlight"><pre><span></span><code><span class="w">  </span>helm<span class="w"> </span>upgrade<span class="w"> </span>&lt;RELEASE_NAME&gt;<span class="w"> </span>-n<span class="w"> </span>&lt;NAMESPACE&gt;<span class="w"> </span>-f<span class="w"> </span>dx-compose-custom-values.yaml<span class="w"> </span>-f<span class="w"> </span>peopleservice-custom-values.yaml<span class="w"> </span>&lt;HELM_CHART_DIRECTORY&gt;
+</code></pre></div>
+</li>
+</ol>
+<h2 id="changing-the-context-root-in-a-non-helm-deployment">Changing the context root in a non-Helm deployment</h2>
+<p>The following instructions provide the name and proper usage of the Linux bash script used to change either the context root (for example, <code>wps</code>) or the home URL (for example, <code>portal</code> in <code>wps/portal</code> or <code>myportal</code> in <code>/wps/myportal</code>) of DX WebEngine in a non-Helm deployment.</p>
 <p>To change the context root, use the following script:</p>
 <div class="language-sh highlight"><pre><span></span><code>/opt/openliberty/wlp/usr/svrcfg/bin/changeContextRoot.sh
 </code></pre></div>
@@ -1473,19 +1627,19 @@
 <p>The script does an XMLAccess export of the Themes and Skins to extract the context root contained therein. If the context root specified by the <code>-n</code> parameter is the same as the context root extracted from the XMLAccess export, no new XMLAccess for the Portlet update and the Theme/Skins update will take place because the context root is already correct.</p>
 <p>Except for the <code>-h</code> and <code>-x</code> parameters, all other options are required.</p>
 <h3 id="sample-use-of-script">Sample use of script</h3>
-<p>This example changes the context root of the WebEngine server from "wps" to "newRoot":</p>
-<div class="language-text highlight"><pre><span></span><code>/opt/openliberty/wlp/usr/svrcfg/bin/changeContextRoot.sh -n newRoot -l /opt/openliberty -s defaultServer -u wpsadmin -P wpsadmin
+<p>This example changes the context root of the WebEngine server from <code>wps</code> to <code>newRoot</code>:</p>
+<div class="language-sh highlight"><pre><span></span><code>/opt/openliberty/wlp/usr/svrcfg/bin/changeContextRoot.sh<span class="w"> </span>-n<span class="w"> </span>newRoot<span class="w"> </span>-l<span class="w"> </span>/opt/openliberty<span class="w"> </span>-s<span class="w"> </span>defaultServer<span class="w"> </span>-u<span class="w"> </span>wpsadmin<span class="w"> </span>-P<span class="w"> </span>wpsadmin
 </code></pre></div>
-<p>This example changes a WebEngine server context root of "wps" to having no context root at all:</p>
-<div class="language-text highlight"><pre><span></span><code>/opt/openliberty/wlp/usr/svrcfg/bin/changeContextRoot.sh -l /opt/openliberty -s defaultServer -u wpsadmin -P wpsadmin
+<p>This example changes a WebEngine server context root of <code>wps</code> to having no context root at all:</p>
+<div class="language-sh highlight"><pre><span></span><code>/opt/openliberty/wlp/usr/svrcfg/bin/changeContextRoot.sh<span class="w"> </span>-l<span class="w"> </span>/opt/openliberty<span class="w"> </span>-s<span class="w"> </span>defaultServer<span class="w"> </span>-u<span class="w"> </span>wpsadmin<span class="w"> </span>-P<span class="w"> </span>wpsadmin
 </code></pre></div>
 <p>In this case, you can access the portal as:</p>
 <div class="language-text highlight"><pre><span></span><code>localhost/portal
 </code></pre></div>
-<h2 id="changing-the-home-url">Changing the home URL</h2>
-<p>Follow the steps in this section in case you want to use a string like "newHome" and "mynewHome" in the home URL, as opposed to "portal" and "myportal" /wps/portal and /wps/myportal.</p>
-<p>To change the home URL, use the script "changeHomeURLs.sh" located in Docker or Kubernetes at</p>
-<div class="language-text highlight"><pre><span></span><code>/opt/openliberty/wlp/usr/svrcfg/bin/changeHomeURLs.sh
+<h2 id="changing-the-home-url-in-a-non-helm-deployment">Changing the home URL in a non-Helm deployment</h2>
+<p>Follow the steps in this section in case you want to use a string like <code>newHome</code> and <code>mynewHome</code> in the home URL, as opposed to <code>portal</code> and <code>myportal</code> in <code>/wps/portal</code> and <code>/wps/myportal</code>.</p>
+<p>To change the home URL, use the script <code>changeHomeURLs.sh</code> located in Docker or Kubernetes at:</p>
+<div class="language-sh highlight"><pre><span></span><code>/opt/openliberty/wlp/usr/svrcfg/bin/changeHomeURLs.sh
 </code></pre></div>
 <h3 id="script-options_1">Script options</h3>
 <p>The parameters for this script (except of <code>-h</code>) are all required and include:</p>
@@ -1496,8 +1650,8 @@
 -l DX WebEngine server Location: Specify the directory containing your DX Compose WebEngine installation (for example, /opt/openliberty). Note that it should contain a directory called wlp.
 </code></pre></div>
 <h3 id="sample-use-of-script_1">Sample use of script</h3>
-<p>This example changes the anonymous home to "newHome" and the authenticated home to "mynewHome":</p>
-<div class="language-text highlight"><pre><span></span><code>/opt/openliberty/wlp/usr/svrcfg/bin/changeHomeURLs.sh -l /opt/openliberty -s defaultServer -a newHome -A mynewHome
+<p>This example changes the anonymous home to <code>newHome</code> and the authenticated home to <code>mynewHome</code>:</p>
+<div class="language-sh highlight"><pre><span></span><code>/opt/openliberty/wlp/usr/svrcfg/bin/changeHomeURLs.sh<span class="w"> </span>-l<span class="w"> </span>/opt/openliberty<span class="w"> </span>-s<span class="w"> </span>defaultServer<span class="w"> </span>-a<span class="w"> </span>newHome<span class="w"> </span>-A<span class="w"> </span>mynewHome
 </code></pre></div>
 <p>In this case, you can access the Portal as:</p>
 <div class="language-text highlight"><pre><span></span><code>localhost/wps/newHome
@@ -1525,7 +1679,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 11, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 5, 2025</span>
   </span>
 
     
