@@ -1,6 +1,6 @@
 ---
 id: update-properties-with-helm
-title: Updating DX properties using Helm values
+title: Updating DX Compose WebEngine properties using Helm values
 ---
 
 This topic provides steps on how to use the Helm chart's `values.yaml` file to add, update, or delete Digital Experience (DX) Compose properties. The `values.yaml` file contains the default values for the properties used during the deployment of the Helm chart. You can override these default values by updating the `values.yaml` file.
