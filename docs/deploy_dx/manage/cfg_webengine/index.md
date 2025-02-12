@@ -19,3 +19,7 @@ Learn how to use the Helm chart's `values.yaml` file to add, update, or delete D
 Learn how to update the default `wpsadmin` password.
 -   **[WCM modules](wcm_modules.md)**  
 Learn how to trigger WCM modules and import WCM libraries.
+-   **[Tuning the initial DX Compose performance](tune_initial_portal_performance.md)**  
+Learn how to perform initial tuning on DX Compose before load testing.
+-   **[Configuring DX Compose to use OpenID Connect (OIDC) identity provider](configure_compose_to_use_oidc.md)**  
+Learn how to use OIDC authentication in DX Compose.

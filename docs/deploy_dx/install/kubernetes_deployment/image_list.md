@@ -5,7 +5,7 @@ This section presents the latest available HCL Digital Experience (DX) 9.5 Compo
 The following software files are packaged and licensed for use with HCL Digital Experience Compose v9.5 and are available in your entitlements on the [HCL Software License Portal](https://hclsoftware.flexnetoperations.com/flexnet/operationsportal/logon.do){target="blank"}.
 
 - HCL Digital Experience Compose v9.5
-- HCL DX Client
+- HCL DXClient
 - HCL Leap 9.3.x for use with DX Compose
 - HCL Volt Foundry 9.5.x for use with DX Compose
 
@@ -13,6 +13,44 @@ In future continuous delivery updates, entitled customers can obtain the HCL DX 
 
 Video: [How to upload HCL Digital Experience 9.5 container images to a private repository](https://youtu.be/XJONRdpgCuo)
 
+## HCL DX 9.5 Compose CF225
+
+If you are deploying the HCL DX 9.5 Compose CF225 release, the following software packages are available in your [HCL Software License Portal (Flexnet)](https://support.hcl-software.com/csm?id=kb_article&sysparm_article=KB0073344){target="blank"} HCL Digital Experience Compose v9.5 entitlements:
+
+- HCL Digital Experience Compose v9.5
+- HCL DXClient
+- HCL Leap 9.3.x for use with DX Compose
+- HCL Volt Foundry 9.5.x for use with DX Compose
+
+## hcl-compose-kubernetes-CF225.zip
+
+```shell
+HCL DX Compose notices CF225.txt
+hcl-dx-content-composer-image-v1.38.0_20250203-2223.tar.gz
+hcl-dx-dam-plugin-google-vision-image-v1.0.0_20250203-2224.tar.gz
+hcl-dx-dam-plugin-kaltura-image-v1.0.0_20250203-2224.tar.gz
+hcl-dx-deployment-v2.34.0_20250205-1351.tgz
+hcl-dx-digital-asset-manager-image-v1.37.0_20250203-2300.tar.gz
+hcl-dx-file-processor-image-v2.0.0_20250203-2240.tar.gz
+hcl-dx-haproxy-image-v1.21.0_20250203-2240.tar.gz
+hcl-dx-image-processor-image-v1.38.0_20250203-2244.tar.gz
+hcl-dx-license-manager-image-v95_CF225_20250203-2229.tar.gz
+hcl-dx-logging-sidecar-image-v1.0.0_20250203-2231.tar.gz
+hcl-dx-openldap-image-v2.6.8_20250203-2228.tar.gz
+hcl-dx-opensearch-image-v2.0.0_20250207-1432.tar.gz
+hcl-dx-people-service-image-v1.0.0_20250203-2223.tar.gz
+hcl-dx-persistence-connection-pool-image-v1.35.0_20250203-2301.tar.gz
+hcl-dx-persistence-metrics-exporter-image-v1.33.0_20250203-2241.tar.gz
+hcl-dx-persistence-node-image-v1.25_20250203-2242.tar.gz
+hcl-dx-prereqs-checker-image-v1.0.0_20250203-2234.tar.gz
+hcl-dx-ringapi-image-v1.38.0_20250203-2244.tar.gz
+hcl-dx-runtime-controller-image-v95_CF225_20250203-2236.tar.gz
+hcl-dx-search-middleware-image-v2.0.0_20250207-1433.tar.gz
+hcl-dx-search-v2.23.0_20250207-1739.tgz
+hcl-dx-webengine-image-CF225_20250204-1935.tar.gz
+```
+
+<!--
 ## HCL DX 9.5 Compose CF224
 
 If you are deploying the HCL DX 9.5 Compose CF224 release, the following software packages are available in your [HCL Software License Portal (Flexnet)](https://support.hcl-software.com/csm?id=kb_article&sysparm_article=KB0073344){target="blank"} HCL Digital Experience Compose v9.5 entitlements:
@@ -49,6 +87,7 @@ hcl-dx-search-middleware-image-v2.0.0_20241213-1938.tar.gz
 hcl-dx-search-v2.22.3_20241216-1628.tgz
 hcl-dx-webengine-image-CF224_20241213-2134.tar.gz
 ```
+-->
 
 [Locate the HCL Digital Experience Compose v9.5 software](locating_downloads.md) and download the files from the [HCL Software License Portal (Flexnet)](https://support.hcl-software.com/csm?id=kb_article&sysparm_article=KB0073344){target="blank"}.
 

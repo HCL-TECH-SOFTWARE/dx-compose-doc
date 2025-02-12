@@ -1,6 +1,6 @@
 nav:
  - index.md
- - Changing the WebEngine URL: change_context_root_or_home.md #This document does not have helm information ... only manual steps
+ - Changing the WebEngine context root or home URI: change_context_root_or_home.md #This document does not have helm information ... only manual steps
  - Managing outbound connections (Ajax Proxy): manage_outbound_connections.md
  - Managing users and groups: cfg_parameters
  - Monitoring the DX Compose deployment: monitor_metrics.md
