@@ -42,7 +42,7 @@ configuration:
       certToTrust: "myCertFromFile"
 ```
 
-This example will add all certificates and keys from the Secrets into the `defaultKeyStore`. For a certificate, either `keyAndCert` or `certToTrust` is sufficient. The `defaultKeyStore` can then be referenced in the `server.xml` or any overrides and is used as the default by many configuration elements in webEngine that require a keystore.
+This example will add all certificates and keys from the Secrets listed in `customCertificateSecrets` into the `defaultKeyStore`. The `defaultKeyStore` can then be referenced in the `server.xml` or an override and is used as the default by many configuration elements in WebEngine that require a keystore. As described above, an override file will be automatically generated on startup.
 
 The `customCertificateSecrets` keys can be anything; they are used to create a folder inside the /mnt/certs directory.
 
