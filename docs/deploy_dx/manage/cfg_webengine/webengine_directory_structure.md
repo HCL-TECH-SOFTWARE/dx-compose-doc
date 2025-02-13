@@ -76,6 +76,15 @@ Custom secrets are stored in subfolders under the following directory:
 
 For more details, refer to [Using custom secrets in WebEngine](../working_with_compose/custom_secrets.md).
 
+### Custom Certificates
+Custom Certificates are stored in subfolders under the following directory:
+
+```
+/mnt/certs
+```
+
+For more details, refer to [Using custom Certificates in WebEngine](../working_with_compose/custom_certificates.md).
+
 ## Sidecar container for logs
 
 ### SystemOut log
