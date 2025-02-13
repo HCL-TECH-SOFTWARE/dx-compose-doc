@@ -25,7 +25,7 @@ A random password is generated for the keystore and is directly written into an 
 To create a new Secret from TLS key and certificate files:
 
 ```sh
-kubectl create secret tls myTlsCertSecret --key="certificate.key" --cert="certificate.crt"
+kubectl create secret tls keyAndCert --key="certificate.key" --cert="certificate.crt"
 ```
 
 Alternatively, you can add only the SSL certificate to another Secret:
@@ -38,11 +38,13 @@ configuration:
   webEngine:
     . . .
     customCertificateSecrets:
-      myTlsCertSecret: "myTlsCertSecret"
-      myCertFromFile: "myCertFromFile"
+      keyAndCert: "keyAndCert"
+      certToTrust: "myCertFromFile"
 ```
 
 This example will add all certificates and keys from the Secrets into the `defaultKeyStore`. For a certificate, either `keyAndCert` or `certToTrust` is sufficient. The `defaultKeyStore` can then be referenced in the `server.xml` or any overrides and is used as the default by many configuration elements in webEngine that require a keystore.
+
+The `customCertificateSecrets` keys can be anything; they are used to create a folder inside the /mnt/certs directory.
 
 !!!note
        Changes to the keystores DO require a restart of the Pod.
