@@ -68,6 +68,7 @@ Database properties are stored in the following directory:
 ```
 
 ### Custom secrets
+
 Custom secrets are stored in subfolders under the following directory:
 
 ```
@@ -76,8 +77,9 @@ Custom secrets are stored in subfolders under the following directory:
 
 For more details, refer to [Using custom secrets in WebEngine](../working_with_compose/custom_secrets.md).
 
-### Custom Certificates
-Custom Certificates are stored in subfolders under the following directory:
+### Custom certificates
+
+Custom certificates are stored in subfolders under the following directory:
 
 ```
 /mnt/certs
