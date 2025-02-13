@@ -9,7 +9,7 @@ You can use the `customCertificateSecrets` parameter to reference multiple secre
 
 ## Adding custom certificates using the `values.yaml` file
 
-Each secret specified in `customCertificateSecrets` is mounted into its own folder under the `/mnt/certs/` directory in the container. During system startup, the script `/opt/openliberty/wlp/svrcfg/bin/create_keystores.sh` is executed. This script checks each folder in `/mnt/certs/` and uses both **keytool** and **openssl** to create a keystore that aggregates all the provided certificates and keys. The keystore is located in `resources/security/key.p12` in the Open Liberty server directory.
+Each secret specified in `customCertificateSecrets` is mounted into its own folder under the `/mnt/certs/` directory in the container. During system startup, the WebEngine server will look for folders in `/mnt/certs/` and uses both **keytool** and **openssl** to create a keystore that aggregates all the provided certificates and keys. The keystore is located in `resources/security/key.p12` in the Open Liberty server directory.
 
 A random password is generated for the keystore and is directly written into an XML override snippet. The following sample snippet is located in `configDropins/keystoreOverrides/defaultKeyStore.xml`. The Helm chart includes this snippet when the `customCertificateSecrets` parameter is provided.
 
