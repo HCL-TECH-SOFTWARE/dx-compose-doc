@@ -10,4 +10,5 @@ nav:
  - Troubleshooting: troubleshooting
  - Upgrading the Helm deployment: helm_upgrade_values.md
  - Using custom secrets in WebEngine: custom_secrets.md
+ - Using custom certificates in WebEngine: custom_certificates.md
  - Viewing WebEngine server logs: logging_webengine.md
