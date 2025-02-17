@@ -101,7 +101,7 @@ The initial test runs were conducted on an AWS-distributed Kubernetes setup with
 
 Test results were analyzed in Prometheus and Grafana dashboards. For OpenLdap and WebEngine pods, the CPU and memory limits were fully utilized. These limits were increased based on the CPU and memory usage observations from Grafana during the load test. Increasing the CPU and memory limits of OpenLdap and WebEngine pods resolved the errors.
 
-From these observations, CPU and memory limits of OpenLdap,WebEngine, and HAProxy pods were tuned one by one to see if no errors occur during a user load of 1,000 users.
+From these observations, CPU and memory limits of OpenLdap,WebEngine, and  other pods were tuned one by one to see if no errors occur during a user load of 1,000 users.
 
 ## Conclusion
 
@@ -123,14 +123,14 @@ This performance tuning guide aims to understand how the ratios of key pod limit
 
 ### Recommendations
 
-- For a small-sized workload in AWS, start the Kubernetes cluster with a single node with at least a c5.2xlarge instance to support a load of 1,000 users. Currently, default CPU and memory values in the [Helm chart](../../../get_started/plan_deployment/container_deployment/limitations_requirements.md#containerization-requirements-and-limitations) are the minimum values for DX to work.
+- For a small-sized workload in AWS, start the Kubernetes cluster with a single node with at least a c5.2xlarge instance to support a load of 1,000 users. Currently, default CPU and memory values in the [Helm chart](../../../get_started/plan_deployment/container_deployment/limitations_requirements.md#containerization-requirements-and-limitations) are the minimum values for DX Compose to work.
 
 - To hold more authenticated users for testing purposes, increase the OpenLDAP pod values. Note that the OpenLDAP pod is not for production use.
 
 Modifications were made to the initial Helm chart configuration during the tests. The following table outlines the pod count and limits for each pod. After applying these values, the setup showed significantly improved responsiveness. These changes allowed the system to handle 1,000 concurrent users with an improved error rate, average response time, throughput, and an event loop lag of Ring API containers.
 
 
-- Use the .jmx script for the DX Compose Sizing combined test, increasing ThinkTime. This will help us achieve better response times.
+- Use the .jmx script for the DX Compose Sizing combined test, with increasing ThinkTime. This will help us achieve better response times.
 - Perform the Helm upgrade using the WebEngine performance rendering YAML file. This will also help improve response time.
 
 
@@ -163,7 +163,7 @@ For convenience, these values were added to the `small-config-values.yaml` file 
 
 #### DX Compose tuning
 
-For tuning details and enhancements done to DX Compose during the tests, refer to [DX Compose tuning](./rendering_medium_config.md#dx-core-tuning).
+For tuning details and enhancements done to DX Compose during the tests added here.
 
 ### Results
 
@@ -185,18 +185,18 @@ The following table outlines the pod count and limits for each pod. After applyi
 | Pod Name                    | Number of Pods | Container                   | Container Image             | Container CPU Request and Limit | Container Memory Request and Limit |
 | --------------------------- | -------------- | --------------------------- | --------------------------- | ------------------------------- | ---------------------------------- |
 | Web-engine                  | 1              | Web-engine                  | Web-engine                  | 4300 m                          | 6144 Mi                            |
-| ringApi                     | 1              | ringApi                     | ringApi                     | 200 m                           | 256 Mi                             |
-| haproxy                     | 1              | haproxy                     | haproxy                     | 500 m                           | 500 Mi                             |
+| ringApi                     | 1              | ringApi                     | ringApi                     | 200 m                           | 256  Mi                            |
+| haproxy                     | 1              | haproxy                     | haproxy                     | 500 m                           | 500  Mi                            |
 | digital-asset-management    | 1              | digital-asset-management    | digital-asset-management    | 500 m                           | 1536 Mi                            |
-| persistence-connection-pool | 1              | persistence-connection-pool | persistence-connection-pool | 300 m                           | 512 Mi                             |
-| persistence-node            | 1              | persistence-node            | persistence-node            | 200 m                           | 500 Mi                             |
-| image-processor             | 1              | image-processor             | image-processor             | 200 m                           | 768 Mi                             |
+| persistence-connection-pool | 1              | persistence-connection-pool | persistence-connection-pool | 300 m                           | 512  Mi                            |
+| persistence-node            | 1              | persistence-node            | persistence-node            | 200 m                           | 500  Mi                            |
+| image-processor             | 1              | image-processor             | image-processor             | 200 m                           | 768  Mi                            |
 | open-ldap                   | 1              | open-ldap                   | open-ldap                   | 100 m                           | 1024 Mi                            |
 
 
 !!!note
      We didn't use the Content Composer and Runtime Controller pods for the performance runs because using these pods did not have a significant impact on the results.
-     
+
 !!!note
      For more information on OS tuning, Web Server tuning, JSF best practices, and other performance tuning	guidelines and recommendations for traditional deployments, refer to the [Performance Tuning Guide for Traditional Deployments](../traditional_deployments.md).
 
