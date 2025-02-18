@@ -1,5 +1,5 @@
 ---
-title: DX_Compose_Rendering_Small_Sized_Configuration
+title: DX Compose Rendering Small Sized Configuration
 ---
 
 # Sizing guidance for rendering in a small-sized Kubernetes configuration
@@ -8,9 +8,9 @@ This topic provides the details of the environments used for rendering in a smal
 
 ## Methodology
 
-This sizing activity rendered scenarios for the Web Content Manager (WCM), Digital Asset Management (DAM), and HCL Digital Experience (DX) pages and portlets. This activity used a rendering setup enabled in AWS/Native-Kubernetes, where Kubernetes is installed directly in Amazon Elastic Cloud Compute (EC2) instances. A combination run was performed that rendered WCM content, DAM assets, and DX pages and portlets. The load distribution was WCM content (40%), DAM assets (30%), and DX pages and portlets (30%). All systems were pre-populated before performing the rendering tests.
+This sizing activity evaluated rendering scenarios for the Web Content Manager (WCM), Digital Asset Management (DAM), and HCL Digital Experience (DX) pages and portlets. The evaluation was conducted using a rendering setup in an AWS/Native-Kubernetes environment, where Kubernetes was directly installed on Amazon EC2 instances.
 
-To achieve the 1,000 concurrent users mark, an initial set of runs was done with a lower number of users on a single node setup. The tests started with the desired load of 1,000 users and an acceptable error rate (< 0.01%). Further steps were taken to optimize the limits on the available resources for each pod.
+A combination run was performed that rendered WCM content, DAM assets, and DX pages and portlets. The load was distributed as follows: WCM content (40%), DAM assets (30%), and DX pages and portlets (30%). All systems were pre-populated before performing the rendering tests.
 
 The following table contains the rendering scenario details for a small configuration. 
 
@@ -32,7 +32,7 @@ This section provides details for the Kubernetes cluster, JMeter agents, and dat
 
 The Kubernetes platform ran on an Amazon EC2 instance with the DX images installed and configured. In AWS/Native Kubernetes, the tests were executed in EC2 instances with one c5.2xlarge node. Refer to the following node setup details:
 
-**c5.2large node**
+**c5.2xlarge node**
 
 - Node details
 
@@ -58,7 +58,7 @@ The tests used a c5.2xlarge remote DB2 instance for the core database. Refer to 
 
        ![](../../../images/Header-2-AWS.png){ width="600" }
 
-       ![](../../../images/t3a.large.png){ width="600" }
+       ![](../../../images/C5.2xlarge.png){ width="600" }
 
 - Processor details
 
@@ -78,7 +78,7 @@ To run the tests, a distributed AWS/JMeter agents setup consisting of one primar
 
       ![](../../../images/Header-3-AWS.png){ width="400" }
 
-      ![](../../../images/c5.xlarge.png){ width="400" }
+      ![](../../../images/C5.xlarge.png){ width="400" }
 
 - Processor details
 
@@ -97,11 +97,11 @@ To run the tests, a distributed AWS/JMeter agents setup consisting of one primar
 
 ## Results
 
-The initial test runs were conducted on an AWS-distributed Kubernetes setup with a single node. The system successfully handled concurrent user loads of 1,000 users,with a low error rate (0.1%). At 1,000 users, error rates increased dramatically and response times went up. For a response time to be considered optimal, it should be under one second. All the errors came from WCM and DX Pages and Portlets related out of memory issue.
+The system was able to support 1,000 concurrent users with a low error rate of 0.1%. However, beyond this load, error rates spiked, and response times significantly increased. All the errors were traced to WCM and DX Pages and Portlets, which were impacted by out-of-memory issues. For optimal performance, response times should remain under one second.
 
-Test results were analyzed in Prometheus and Grafana dashboards. For OpenLdap and WebEngine pods, the CPU and memory limits were fully utilized. These limits were increased based on the CPU and memory usage observations from Grafana during the load test. Increasing the CPU and memory limits of OpenLdap and WebEngine pods resolved the errors.
+The initial test runs were conducted on an AWS-distributed Kubernetes setup with a single node. The system was able to support 1,000 concurrent users with a low error rate of 0.1%. However, beyond this load, error rates spiked, and response times significantly increased. For a response time to be considered optimal, it should be under one second. All errors were related to out-of-memory issues in WCM and DX Pages and Portlets.
 
-From these observations, CPU and memory limits of OpenLdap,WebEngine, and  other pods were tuned one by one to see if no errors occur during a user load of 1,000 users.
+Test results were analyzed using Prometheus metrics and Grafana dashboards. For OpenLdap and WebEngine pods, the CPU and memory limits were fully utilized. These limits were increased based on the CPU and memory usage observations from Grafana during the load test. Increasing the CPU and memory limits of OpenLdap and WebEngine pods resolved the errors.
 
 ## Conclusion
 
@@ -125,13 +125,12 @@ This performance tuning guide aims to understand how the ratios of key pod limit
 
 - For a small-sized workload in AWS, start the Kubernetes cluster with a single node with at least a c5.2xlarge instance to support a load of 1,000 users. Currently, default CPU and memory values in the [Helm chart](../../../get_started/plan_deployment/container_deployment/limitations_requirements.md#containerization-requirements-and-limitations) are the minimum values for DX Compose to work.
 
-- To hold more authenticated users for testing purposes, increase the OpenLDAP pod values. Note that the OpenLDAP pod is not for production use.
+- To support a higher number of authenticated users during testing, increase the resource limits of the OpenLDAP pod. Note that OpenLDAP is not intended for production use.
 
-Modifications were made to the initial Helm chart configuration during the tests. The following table outlines the pod count and limits for each pod. After applying these values, the setup showed significantly improved responsiveness. These changes allowed the system to handle 1,000 concurrent users with an improved error rate, average response time, throughput, and an event loop lag of Ring API containers.
+Modifications were made to the initial Helm chart configuration during the tests. The following table outlines the pod count and limits for each pod. After applying these values, the setup showed significantly improved responsiveness. These changes enabled the system to handle 1,000 concurrent users with an improved error rate, average response time, throughput, and a reduction in the event loop lag of Ring API containers.
 
-
-- Use the .jmx script for the DX Compose Sizing combined test, with increasing ThinkTime. This will help us achieve better response times.
-- Perform the Helm upgrade using the WebEngine performance rendering YAML file. This will also help improve response time.
+- Use the .jmx script for the DX Compose Sizing combined test, with increasing ThinkTime. This will help achieve better response times.
+- Perform the Helm upgrade using the WebEngine performance rendering YAML file. This will also contribute to improved response times.
 
 
 |                               |                 | Request         | Request             | Limit           | Limit                |

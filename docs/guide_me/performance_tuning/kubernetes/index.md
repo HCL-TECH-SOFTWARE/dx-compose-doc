@@ -16,13 +16,13 @@ The sizing tests examined rendering scenarios for the Web Content Manager (WCM),
 
 Refer to the following definition of terms used throughout the performance tests and sizing guidances:
 
-- Concurrent user: The number of virtual users actively sending requests to the target application simultaneously.
+- Concurrent user: The number of virtual users that are simultaneously sending requests to the target application.
 
 - Thread Groups: Concurrent users are simulated using Thread Groups and are configured using the Threads (Users), the Ramp-up Period, and the Loop Count.
     - Number of Threads (Users): The number of concurrent users.
     - Ramp-up Period: The time taken to start all the Threads (Users).
     - Loop Count: The number of iterations each user performs.
-    - Think Time: A timer that can be added to simulate real user behavior. Adding a Think Time may cause the number of concurrent users at any given time to fluctuate.
+    - Think Time: A timer that can be added to simulate real user behavior. Adding Think Time introduces delays between user actions, which may cause fluctuations in the number of concurrent users at any moment.
     
         For example, Threads (Users): 100, Ramp-up Period: 10 seconds, Loop Count: 1.
 
@@ -44,7 +44,7 @@ Refer to the following methodology used for the performance tests.
 
 ### Overview of DX rendering sizing-performance tests
 
-These sizing activities rendered scenarios for WCM, DAM, and HCL DX pages and portlets. The activities used a rendering setup enabled in AWS/Native-Kubernetes, where Kubernetes is installed directly in Amazon EC2 instances. Combination runs were performed that rendered WCM content, DAM assets, and DX pages and portlets. The load distribution was WCM content (40%), DAM assets (30%), and DX pages and portlets (30%). All systems were pre-populated before performing the rendering tests.
+These sizing tests evaluated rendering scenarios for WCM, DAM, and HCL DX pages and portlets. The activities used a rendering setup in AWS/Native-Kubernetes, where Kubernetes was installed directly on Amazon EC2 instances. Combination runs were performed that rendered WCM content, DAM assets, and DX pages and portlets. The load distribution was WCM content (40%), DAM assets (30%), and DX pages and portlets (30%). All systems were pre-populated before performing the rendering tests.
 
 ### Rendering scenarios and users details
 
@@ -137,9 +137,9 @@ Examples of DAM asset rendering APIs of UUID, Custom URL, and Friendly URL are p
 
 #### Pages and portlets default test data
 
-The following pages and portlets setup covers the different types of the most commonly used portlets as listed in this section. Performance tests include the response time for rendering the whole page with the portlet. Knowing the response times for rendering pages is important as these portlets are often used in DX content. Refer to the following list for more information about this setup:
+The following setup includes different types of commonly used portlets, as listed in this section. Performance tests measure the response time required to render an entire page with its associated portlets. Knowing the response times for rendering pages is important, as these portlets are frequently used in DX content. Refer to the following list for more information about this setup:
 
-- The tests used a total of 8 unique pages with portlets for the small configuration and 80 pages for medium and large configurations.
+- The tests included 8 unique pages with portlets for the small configuration and 80 pages for the medium and large configurations.
 - Both anonymous and authenticated users were granted access for authoring and rendering. The same users utilized in WCM rendering are also used here.
 - All authenticated users were assigned the "User" role.
 - The following list shows the pages, their corresponding page numbers, and the portlet details for authoring on each page:
@@ -152,10 +152,10 @@ The following pages and portlets setup covers the different types of the most co
     - Page 7: Script Application portlet. Added JavaScript Functions and Date and Time object examples.
     - Page 8: Added all mentioned portlets in this section except for the custom JSF portlet.
 
-    !!!note
+    !!!Note
         The JSP portlet file required to load Page 4 and render its portlets is located at `jsp/oob/welcome.jsp`.
 
-After completing the authoring steps, the anonymous and authenticated portal users must render the pages. Every page request uses a `/GET` API call such as `/wps/portal/portletsperf/page1`. A response assertion in the sampler also validates the HTML content in the response body.
+Once the authoring steps are completed, both anonymous and authenticated portal users will render the pages. Each page request is triggered via a `/GET` API call such as `/wps/portal/portletsperf/page1`. A response assertion in the sampler also validates the HTML content in the response body.
 
 ## Limitations
 
