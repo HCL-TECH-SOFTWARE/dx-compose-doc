@@ -5,5 +5,7 @@ HCL Digital Experience Compose 9.5 is available in the [HCL Software License Por
 -   **[Tracking user session consumption and exporting usage reports](export_usage_report.md)**  
 Learn how to configure user session tracking DX Compose 9.5 deployments and manually export usage reports.
 
+HCL Digital Experience (DX) software is now available through the new My HCLSoftware portal, in parallel to the existing HCL Software License Portal delivered in FlexNet.
+
 -   **[Online entitlement checking in the My HCLSoftware delivery portal](https://help.hcl-software.com/digital-experience/9.5/CF226/get_started/download/software_licensing_portal/configure_entitlement_checks/configuring_mhs/)**
 Learn how to set up entitlement checking and user session reporting in DX Compose 9.5 deployments.
