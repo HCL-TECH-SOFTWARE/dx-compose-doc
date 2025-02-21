@@ -27,14 +27,13 @@ images:
 
 All pods created now have that secret configured for pulling DX Compose container images.
 
-<!--
 ## Configuring deployment to use the HCL Harbor container registry
 
 It is possible to pull images directly from the HCL Harbor container registry. This requires every cluster node to be able to access the HCL Harbor container registry.
 
-If you want to leverage this feature, you will have to configure an ImagePullSecret with your HCL Harbor credentials.
+If you want to use this feature, you will have to configure an ImagePullSecret with your HCL Harbor credentials.
 
-To do so, use the following command targeting your the Kubernetes namespace for your deployment:
+Use the following command targeting your the Kubernetes namespace for your deployment:
 
 ```sh
 # E-Mail and username are your harbor login, the password is your harbor CLI secret
@@ -44,15 +43,15 @@ kubectl create secret -n <YOUR-NAMESPACE> docker-registry dx-harbor --docker-ser
 --docker-password='<YOUR_HARBOR_CLI_SECRET>'
 ```
 
-You can obtain the CLI secret from harbor by navigating to your `User Profile` in [HCL Harbor](https://hclcr.io){target="_blank"}. You can copy it from the field called `CLI secret`.
+You can obtain the CLI secret from Harbor by navigating to your `User Profile` in [HCL Harbor](https://hclcr.io){target="_blank"}. You can copy it from the field called `CLI secret`.
 
-After executing this command you should receive the following message:
+After executing this command you should receive the following message:<!--should this be dx-compose-harbor?-->
 
 ```text
 secret/dx-harbor created
 ```
 
-Inside your `custom-values.yaml` you can now adjust the ImagePullSecret to the secret that was just created and point to the HCL Harbor container registry.
+Inside your `custom-values.yaml` you can now adjust the `ImagePullSecret` to the secret that was just created and point to the HCL Harbor container registry.<!--should the secret be dx-compose-harbor?-->
 
 ```yaml
 # Image related configuration
@@ -64,4 +63,3 @@ images:
 ```
 
 Your deployment can now directly pull the container images from the HCL Harbor container registry.
--->
