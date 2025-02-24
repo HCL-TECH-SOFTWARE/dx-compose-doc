@@ -1,10 +1,6 @@
----
-title: Harbor container registry
----
+# Downloading and deploying DX Compose from a Harbor repository
 
-# Downloading and deploying HCL products from a Harbor repository
-
-You can access HCL Digital Experience (DX) Compose 9.5 container images and Helm charts from the [HCL container repository on Harbor](https://hclcr.io/){:target="_blank"}. Customers with credentials to access entitled software on the HCL Software Licensing Portal can apply those credentials to optionally access these components of DC Compose v9.5. 
+Customers with entitlements to HCL Digital Experience Compose 9.5 may access the DX Compose container images and Helm charts from the [HCL container repository on Harbor](https://hclcr.io/){:target="_blank"}. Customers with credentials to access entitled software on the HCL Software Licensing Portal can apply those credentials to optionally access these components of DX Compose v9.5.
 
 With the CF216 release (November 2023), the Harbor repository provides a registry based on Open Container Initiative (OCI). The Helm chart command is updated to be OCI-compliant. However, older versions of the Helm chart are still used in the non-OCI approach. Both approaches are described in this topic. 
 
@@ -45,7 +41,7 @@ This section describes the previous non-OCI approach that still uses older versi
 
 ### Configuring the Helm repository on Harbor to your DX Compose 9.5 Kubernetes deployment
 
-As an alternative to downloading the DX Compose 9.5 Helm charts from the Docker components of your HCL DX Compose offering entitlements on the HCL Software License Portal, you can directly use the Helm repository on Harbor with Helm from HCL DX Compose Container update CF226 and later releases<!--please check accuracy of this sentence, this used to say CF205-->.
+As an alternative to downloading the DX Compose 9.5 Helm charts from the Docker components of your HCL DX Compose offering entitlements on the HCL Software License Portal, you can directly use the Helm repository on Harbor with Helm from HCL DX Compose Container update CF226 and later releases.
 
 #### Adding the Helm repository on Harbor to your Helm configuration
 
@@ -55,19 +51,19 @@ To add the Helm repository on Harbor to your Helm configuration, you can use the
 helm repo add 
 --username <YOUR_HARBOR_USERNAME> 
 --password <YOUR_HARBOR_CLI_SECRET_> 
-hcl-dx https://hclcr.io/chartrepo/dx-compose
+dx-compose https://hclcr.io/chartrepo/dx-compose
 ```
 
 To get the `CLI secret`, refer to the following steps:
 
-1. Log in to [Harbor GitHub site for HCL](https://hclcr.io/) using your authorized HCL user credentials. 
+1. Log in to [Harbor GitHub site for HCL](https://hclcr.io/){:target="_blank"} using your authorized HCL user credentials. 
 2. Navigate to your HCL `User Profile` on Harbor.
 3. Copy the CLI secret from the `CLI secret` field.
 
 After you add the repository to your Helm deployment, you should see the following message:
 
 ```
-"hcl-dx-compose" has been added to your repositories
+"dx-compose" has been added to your repositories
 ```
 
 #### Listing available Helm chart versions
@@ -77,17 +73,17 @@ To verify that your Helm configuration works to connect and to see which [HCL DX
 ```
 # Using helm search to find available versions, the DX helm charts are named hcl-dx-deployment
     
-helm search repo hcl-dx-compose/hcl-dx-deployment --versions
+helm search repo dx-compose/hcl-dx-deployment --versions
 ```
 
 This command returns a list of available versions, which looks similar to this example:
 
 ```
-NAME                        CHART VERSION   APP VERSION DESCRIPTION                                    
-hcl-dx-compose/hcl-dx-deployment    2.7.1           95_CF204    Kubernetes Deployment of HCL Digital Experience
+NAME                        CHART VERSION     APP VERSION     DESCRIPTION                                    
+dx-compose/hcl-dx-deployment    2.7.1           95_CF226    Kubernetes Deployment of HCL Digital Experience Compose
 ```
 
-You can see which chart version correlates to which HCL DX Compose 9.5 Container Update CF version. In the preceding example, installing Container Update CF204 requires you to use Helm chart version 2.7.1.<!--Should CF204 be updated?-->
+You can see which chart version correlates to which HCL DX Compose 9.5 Container Update CF version. In the preceding example, installing Container Update CF226 requires you to use Helm chart version 2.7.1.
 
 After you complete the preceding actions, your Helm configuration can use HCL DX 9.5 Helm charts directly from the Helm Repository on Harbor.
 
@@ -102,7 +98,7 @@ To do so, run the following command with the correct Helm chart version:
 
 ```
 # Use Helm Pull with the version you want to deploy. (This example uses version 2.7.1. Enter the version you want to use.)
-helm pull hcl-dx-compose/hcl-dx-deployment --version 2.7.1
+helm pull dx-compose/hcl-dx-deployment --version 2.7.1
 ```
 
 After running this command, you can verify whether the Helm chart was downloaded to your local computer:
