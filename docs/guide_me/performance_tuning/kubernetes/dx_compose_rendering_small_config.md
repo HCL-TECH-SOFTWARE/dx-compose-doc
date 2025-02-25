@@ -1,5 +1,5 @@
 ---
-title: DX Compose Rendering Small Sized Configuration
+title: DX_Compose_Rendering_Small_Sized_Configuration
 ---
 
 # Sizing guidance for rendering in a small-sized Kubernetes configuration
@@ -8,9 +8,9 @@ This topic provides the details of the environments used for rendering in a smal
 
 ## Methodology
 
-This sizing activity evaluated rendering scenarios for the Web Content Manager (WCM), Digital Asset Management (DAM), and HCL Digital Experience (DX) pages and portlets. The evaluation was conducted using a rendering setup in an AWS/Native-Kubernetes environment, where Kubernetes was directly installed on Amazon EC2 instances.
+This sizing activity rendered scenarios for the Web Content Manager (WCM), Digital Asset Management (DAM), and HCL Digital Experience (DX) pages and portlets. This activity used a rendering setup enabled in AWS/Native-Kubernetes, where Kubernetes is installed directly in Amazon Elastic Cloud Compute (EC2) instances. A combination run was performed that rendered WCM content, DAM assets, and DX pages and portlets. The load distribution was WCM content (40%), DAM assets (30%), and DX pages and portlets (30%). All systems were pre-populated before performing the rendering tests.
 
-A combination run was performed that rendered WCM content, DAM assets, and DX pages and portlets. The load was distributed as follows: WCM content (40%), DAM assets (30%), and DX pages and portlets (30%). All systems were pre-populated before performing the rendering tests.
+To achieve the 1,000 concurrent users mark, an initial set of runs was done with a lower number of users on a single node setup. The tests started with the desired load of 1,000 users and an acceptable error rate (< 0.01%). Further steps were taken to optimize the limits on the available resources for each pod.
 
 The following table contains the rendering scenario details for a small configuration. 
 
@@ -32,7 +32,7 @@ This section provides details for the Kubernetes cluster, JMeter agents, and dat
 
 The Kubernetes platform ran on an Amazon EC2 instance with the DX images installed and configured. In AWS/Native Kubernetes, the tests were executed in EC2 instances with one c5.2xlarge node. Refer to the following node setup details:
 
-**c5.2xlarge node**
+**c5.2large node**
 
 - Node details
 
@@ -58,7 +58,7 @@ The tests used a c5.2xlarge remote DB2 instance for the core database. Refer to 
 
        ![](../../../images/Header-2-AWS.png){ width="600" }
 
-       ![](../../../images/C5.2xlarge.png){ width="600" }
+       ![](../../../images/t3a.large.png){ width="600" }
 
 - Processor details
 
@@ -78,7 +78,7 @@ To run the tests, a distributed AWS/JMeter agents setup consisting of one primar
 
       ![](../../../images/Header-3-AWS.png){ width="400" }
 
-      ![](../../../images/C5.xlarge.png){ width="400" }
+      ![](../../../images/c5.xlarge.png){ width="400" }
 
 - Processor details
 
@@ -97,11 +97,11 @@ To run the tests, a distributed AWS/JMeter agents setup consisting of one primar
 
 ## Results
 
-The system was able to support 1,000 concurrent users with a low error rate of 0.1%. However, beyond this load, error rates spiked, and response times significantly increased. All the errors were traced to WCM and DX Pages and Portlets, which were impacted by out-of-memory issues. For optimal performance, response times should remain under one second.
+The initial test runs were conducted on an AWS-distributed Kubernetes setup with a single node. The system successfully handled concurrent user loads of 1,000 users,with a low error rate (0.1%). At 1,000 users, error rates increased dramatically and response times went up. For a response time to be considered optimal, it should be under one second. All the errors came from WCM and DX Pages and Portlets related out of memory issue.
 
-The initial test runs were conducted on an AWS-distributed Kubernetes setup with a single node. The system was able to support 1,000 concurrent users with a low error rate of 0.1%. However, beyond this load, error rates spiked, and response times significantly increased. For a response time to be considered optimal, it should be under one second. All errors were related to out-of-memory issues in WCM and DX Pages and Portlets.
+Test results were analyzed in Prometheus and Grafana dashboards. For OpenLdap and WebEngine pods, the CPU and memory limits were fully utilized. These limits were increased based on the CPU and memory usage observations from Grafana during the load test. Increasing the CPU and memory limits of OpenLdap and WebEngine pods resolved the errors.
 
-Test results were analyzed using Prometheus metrics and Grafana dashboards. For OpenLdap and WebEngine pods, the CPU and memory limits were fully utilized. These limits were increased based on the CPU and memory usage observations from Grafana during the load test. Increasing the CPU and memory limits of OpenLdap and WebEngine pods resolved the errors.
+From these observations, CPU and memory limits of OpenLdap,WebEngine, and HAProxy pods were tuned one by one to see if no errors occur during a user load of 1,000 users.
 
 ## Conclusion
 
@@ -123,14 +123,15 @@ This performance tuning guide aims to understand how the ratios of key pod limit
 
 ### Recommendations
 
-- For a small-sized workload in AWS, start the Kubernetes cluster with a single node with at least a c5.2xlarge instance to support a load of 1,000 users. Currently, default CPU and memory values in the [Helm chart](../../../get_started/plan_deployment/container_deployment/limitations_requirements.md#containerization-requirements-and-limitations) are the minimum values for DX Compose to work.
+- For a small-sized workload in AWS, start the Kubernetes cluster with a single node with at least a c5.2xlarge instance to support a load of 1,000 users. Currently, default CPU and memory values in the [Helm chart](../../../get_started/plan_deployment/container_deployment/limitations_requirements.md#containerization-requirements-and-limitations) are the minimum values for DX to work.
 
-- To support a higher number of authenticated users during testing, increase the resource limits of the OpenLDAP pod. Note that OpenLDAP is not intended for production use.
+- To hold more authenticated users for testing purposes, increase the OpenLDAP pod values. Note that the OpenLDAP pod is not for production use.
 
-Modifications were made to the initial Helm chart configuration during the tests. The following table outlines the pod count and limits for each pod. After applying these values, the setup showed significantly improved responsiveness. These changes enabled the system to handle 1,000 concurrent users with an improved error rate, average response time, throughput, and a reduction in the event loop lag of Ring API containers.
+Modifications were made to the initial Helm chart configuration during the tests. The following table outlines the pod count and limits for each pod. After applying these values, the setup showed significantly improved responsiveness. These changes allowed the system to handle 1,000 concurrent users with an improved error rate, average response time, throughput, and an event loop lag of Ring API containers.
 
-- Use the .jmx script for the DX Compose Sizing combined test, with increasing ThinkTime. This will help achieve better response times.
-- Perform the Helm upgrade using the WebEngine performance rendering YAML file. This will also contribute to improved response times.
+
+- Use the .jmx script for the DX Compose Sizing combined test, increasing ThinkTime. This will help us achieve better response times.
+- Perform the Helm upgrade using the WebEngine performance rendering YAML file. This will also help improve response time.
 
 
 |                               |                 | Request         | Request             | Limit           | Limit                |
@@ -145,7 +146,7 @@ Modifications were made to the initial Helm chart configuration during the tests
 | **persistenceConnectionPool** | 1               | **300**         | **512**             | **300**         | **512**              |
 | **ringApi**                   | 1               | **200**         | **256**             | **200**         | **256**              |
 | **haproxy**                   | 1               | **500**         | **500**             | **500**         | **500**              |
-| **Total**                     |                 | **6300**        | **11240**           | **6300**        | **11240**            |
+| **Total**                     |                 | **6400**        | **11240**           | **6400**        | **11240**            |
 
 
 !!!note
@@ -162,42 +163,59 @@ For convenience, these values were added to the `small-config-values.yaml` file 
 
 #### DX Compose tuning
 
-For tuning details and enhancements done to DX Compose during the tests added here.
+For tuning details and enhancements done to DX Compose during the tests, refer to [DX Compose tuning](./rendering_medium_config.md#dx-core-tuning).
 
 ### Results
 
-The initial test runs were conducted on an AWS-distributed Kubernetes setup with a single c5.2xlarge node. The system successfully handled concurrent user loads of 1,000 with a < 0.00% error rate.
+The initial test runs were conducted on an AWS-distributed Kubernetes setup with a single c5.2xlarge node and later transitioned to a c5.4xlarge node. The system successfully handled concurrent user loads of 1,000 with a < 0.00% error rate.
 
-Later tests were done from a c5.2xlarge instance and helm upgrade done with `Webengine-performance-rendering.yaml` Additionally increased the pods resource allocation  with thresholds of 70% for CPU utilization and 50% for memory utilization. The  test run finished successfully with no errors.With this setup  it gives good performance results for 1,000 concurrent users.
+Later tests were done from a c5.9xlarge instance and Horizontal Pod Autoscaling (HPA) was enabled for Core, DAM, HAProxy, and RingAPI pods with thresholds of 50% for CPU utilization and 80% for memory utilization. The HPA test run finished successfully with no errors. Through the HPA tests, it was observed that four pods each for Core, DAM, and HAProxy, as well as three pods of RingAPI are required to have a successful run for 6,000 concurrent users. With this setup, the test was run for 10,000 concurrent users.
 
+At 10,000 concurrent users, there were a few failures due to the RingAPI pod decreasing intermittently. Due to these failures, RingAPI pods were scaled to four. The test run with four pods for each of the containers was successful for 10,000 concurrent users.
 
-Test results were analyzed in Prometheus and Grafana dashboards. For these user load numbers, the average usage of a node CPU was around 70-80%. Based on the results, response times are optimal.
+Test results were analyzed in Prometheus and Grafana dashboards. The single-node CPU usage of a node reached an average of 80% in tests with 10,000 concurrent users. The saturation was checked by reducing the number of users to 5,000, 3,000, and 2,500 users. For these user load numbers, the average usage of a node CPU was around 70-80%. Based on the results, response times are optimal with a 2,500 user load.
 
 ### Conclusion
 
-This guidance shows the upper limit on a single-node K8s cluster AWS c5.2xlarge instance. For c5.2xlarge single-node rendering scenarios for DAM, WCM, and DX pages with portlets, the recommended load is 1,000 concurrent users.
+This guidance shows the upper limit on a single-node K8s cluster AWS c5.9xlarge instance. For c5.9xlarge single-node rendering scenarios for DAM, WCM, and DX pages with portlets, the recommended load is 2,500 concurrent users.
 
 The following table outlines the pod count and limits for each pod. After applying these values, the setup showed significantly improved responsiveness. These changes allowed the system to handle 2,500 concurrent users.
 
-## Helm Values
-
 | Pod Name                    | Number of Pods | Container                   | Container Image             | Container CPU Request and Limit | Container Memory Request and Limit |
 | --------------------------- | -------------- | --------------------------- | --------------------------- | ------------------------------- | ---------------------------------- |
-| Web-engine                  | 1              | Web-engine                  | Web-engine                  | 4300 m                          | 6144 Mi                            |
-| ringApi                     | 1              | ringApi                     | ringApi                     | 200 m                           | 256  Mi                            |
-| haproxy                     | 1              | haproxy                     | haproxy                     | 500 m                           | 500  Mi                            |
-| digital-asset-management    | 1              | digital-asset-management    | digital-asset-management    | 500 m                           | 1536 Mi                            |
-| persistence-connection-pool | 1              | persistence-connection-pool | persistence-connection-pool | 300 m                           | 512  Mi                            |
-| persistence-node            | 1              | persistence-node            | persistence-node            | 200 m                           | 500  Mi                            |
-| image-processor             | 1              | image-processor             | image-processor             | 200 m                           | 768  Mi                            |
-| open-ldap                   | 1              | open-ldap                   | open-ldap                   | 100 m                           | 1024 Mi                            |
+| core                        | 4              | core                        | core                        | 5000 m                          | 8000 Mi                            |
+| ringApi                     | 4              | ringApi                     | ringApi                     | 800 m                           | 512 Mi                             |
+| haproxy                     | 4              | haproxy                     | haproxy                     | 700 m                           | 1024 Mi                            |
+| digitalAssetManagement      | 4              | digitalAssetManagement      | digitalAssetManagement      | 1000 m                          | 2048 Mi                            |
+| persistence-connection-pool | 2              | persistence-connection-pool | persistence-connection-pool | 500 m                           | 512 Mi                             |
+| persistence-node            | 2              | persistence-node            | persistence-node            | 1000 m                          | 2048 Mi                            |
 
-
-!!!note
-     We didn't use the Content Composer and Runtime Controller pods for the performance runs because using these pods did not have a significant impact on the results.
 
 !!!note
      For more information on OS tuning, Web Server tuning, JSF best practices, and other performance tuning	guidelines and recommendations for traditional deployments, refer to the [Performance Tuning Guide for Traditional Deployments](../traditional_deployments.md).
+
+### Recommendations
+
+- For an upper limit on one instance in AWS, start the Kubernetes cluster with a single node with at least a c5.9xlarge instance to support a load of 2,500 user for optimal response times. Currently, the default CPU and memory values in the [Helm chart](../../../get_started/plan_deployment/container_deployment/limitations_requirements.md#containerization-requirements-and-limitations) are the minimum values for DX to work.
+
+- To hold more authenticated users for testing purposes, increase the OpenLDAP pod values. Note that the OpenLDAP pod is not for production use.
+
+Modifications were made to the initial Helm chart configuration during the tests. The following table contains the number and limits for each pod in a single-node setup.
+
+|                               |                 | Request         | Request             | Limit           | Limit                |
+|-------------------------------|-----------------|-----------------|---------------------|-----------------|----------------------|
+| **Component**                 | **No. of pods** | **CPU (m)<br>** | **Memory (Mi)<br>** | **CPU (m)<br>** | **Memory (Mi)<br>**  |
+|-------------------------------|-----------------|-----------------|---------------------|-----------------|----------------------|
+| **Webengine**                 | **1**           | **4300**        | **6144**            | **4300**        | **6144**             |
+| digitalAssetManagement        | 1               | 500             | 1536                | 500             | 1536                 |
+| **imageProcessor**            | 1               | 200             | **768**             | 200             | **768**              |
+| **openLdap**                  | 1               | 200             | **1024**            | 200             | **1024**             |
+| **persistenceNode**           | 1               | **200**         | **500**             | **100**         | **500**              |
+| **persistenceConnectionPool** | 1               | **300**         | **512**             | **300**         | **512**              |
+| **ringApi**                   | 1               | **200**         | **256**             | **200**         | **256**              |
+| **haproxy**                   | 1               | **500**         | **500**             | **500**         | **500**              |
+| **Total**                     |                 | **6400**        | **11240**           | **6400**        | **11240**            |
+| **Total**                     |                 | **30000**       | **50860**           | **30000**        | **50860**           |
 
 !!!note
      Values in bold are tuned Helm values while the rest are default minimal values.
