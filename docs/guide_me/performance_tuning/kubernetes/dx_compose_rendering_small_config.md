@@ -32,7 +32,7 @@ This section provides details for the Kubernetes cluster, JMeter agents, and dat
 
 The Kubernetes platform ran on an Amazon EC2 instance with the DX images installed and configured. In AWS/Native Kubernetes, the tests were executed in EC2 instances with one c5.2xlarge node. Refer to the following node setup details:
 
-**c5.2large node**
+**c5.2xlarge node**
 
 - Node details
 
