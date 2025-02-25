@@ -58,7 +58,7 @@ The tests used a c5.2xlarge remote DB2 instance for the core database. Refer to 
 
        ![](../../../images/Header-2-AWS.png){ width="600" }
 
-       ![](../../../images/t3a.large.png){ width="600" }
+       ![](../../../images/C5.2xlarge.png){ width="600" }
 
 - Processor details
 
@@ -70,27 +70,27 @@ The tests used a c5.2xlarge remote DB2 instance for the core database. Refer to 
 
 ### JMeter agents
 
-To run the tests, a distributed AWS/JMeter agents setup consisting of one primary and two subordinate t2.xlarge instances was used. Refer to the following JMeter setup details:
+To run the tests, a distributed AWS/JMeter agents setup consisting of one primary and two subordinate C5.xlarge instances was used. Refer to the following JMeter setup details:
 
 **C5.xlarge JMeter instance**
 
 - Instance details
 
-      ![](../../../images/Header-3-AWS.png){ width="400" }
+       ![](../../../images/Header-3-AWS.png){ width="400" }
 
-      ![](../../../images/c5.xlarge.png){ width="400" }
+       ![](../../../images/C5.xlarge.png){ width="400" }
 
 - Processor details
 
-      ![](../../../images/Processor_Info_JMeterAgent.png){ width="600" }
+       ![](../../../images/Processor_Info_JMeterAgent.png){ width="600" }
 
 - Network details
 
-      ![](../../../images/JMeter_Agent_Network_Details.png){ width="400" }
+       ![](../../../images/JMeter_Agent_Network_Details.png){ width="400" }
 
 - Volume details
 
-      ![](../../../images/JMeter-Agent-Volume-Info.png){ width="600" }
+       ![](../../../images/JMeter-Agent-Volume-Info.png){ width="600" }
 
 !!!note
       Ramp-up time is 0.5 seconds per user. The test duration includes the ramp-up time plus one hour at the peak load of concurrent users.
