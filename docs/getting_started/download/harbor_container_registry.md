@@ -68,7 +68,7 @@ After you add the repository to your Helm deployment, you should see the followi
 
 #### Listing available Helm chart versions
 
-To verify that your Helm configuration works to connect and to see which [HCL DX 9.5 Container Update CF application versions](../../deploy_dx/install/kubernetes_deployment/image_list.md) are available from the HCL repository on Harbor, you can use the following command:
+To verify that your Helm configuration works to connect and to see which [HCL DX Compose 9.5 Container Update CF application versions](../../deploy_dx/install/kubernetes_deployment/image_list.md) are available from the HCL repository on Harbor, you can use the following command:
 
 ```
 # Using helm search to find available versions, the DX helm charts are named hcl-dx-deployment
@@ -85,10 +85,10 @@ dx-compose/hcl-dx-deployment    2.7.1           95_CF226    Kubernetes Deploymen
 
 You can see which chart version correlates to which HCL DX Compose 9.5 Container Update CF version. In the preceding example, installing Container Update CF226 requires you to use Helm chart version 2.7.1.
 
-After you complete the preceding actions, your Helm configuration can use HCL DX 9.5 Helm charts directly from the Helm Repository on Harbor.
+After you complete the preceding actions, your Helm configuration can use HCL DX Compose 9.5 Helm charts directly from the Helm Repository on Harbor.
 
 !!! note
-    Applying the method to pull DX 9.5 Container Update images directly from the HCL container registry on Harbor requires that every cluster node can access the HCL container registry on Harbor. To leverage this feature, you have to configure an `ImagePullSecret` with your HCL credentials for the Harbor site. For instructions, see [Configure deployment to use the HCL container registry on Harbor](../../deploy_dx/install/kubernetes_deployment/preparation/optional_tasks/optional_imagepullsecrets.md#configuring-deployment-to-use-the-hcl-harbor-container-registry).
+    Applying the method to pull DX Compose 9.5 Container Update images directly from the HCL container registry on Harbor requires that every cluster node can access the HCL container registry on Harbor. To leverage this feature, you have to configure an `ImagePullSecret` with your HCL credentials for the Harbor site. For instructions, see [Configure deployment to use the HCL container registry on Harbor](../../deploy_dx/install/kubernetes_deployment/preparation/optional_tasks/optional_imagepullsecrets.md#configuring-deployment-to-use-the-hcl-harbor-container-registry).
 
 #### Pulling a Helm chart for deployment
 
