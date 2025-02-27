@@ -1,2 +1,5 @@
 title: What's New
 order: desc
+nav:
+    - index.md
+    - ...
