@@ -56,7 +56,7 @@ The tests used a c5.2xlarge remote DB2 instance for the core database. Refer to 
 
 - DB2 details
 
-       ![](../../../images/Header-2-AWS.png){ width="600" }
+       ![](../../../images/Header-1-AWS.png){ width="600" }
 
        ![](../../../images/C5.2xlarge.png){ width="600" }
 
@@ -76,7 +76,7 @@ To run the tests, a distributed AWS/JMeter agents setup consisting of one primar
 
 - Instance details
 
-       ![](../../../images/Header-3-AWS.png){ width="400" }
+       ![](../../../images/Header-1-AWS.png){ width="400" }
 
        ![](../../../images/C5.xlarge.png){ width="400" }
 
@@ -84,9 +84,6 @@ To run the tests, a distributed AWS/JMeter agents setup consisting of one primar
 
        ![](../../../images/Processor_Info_JMeterAgent.png){ width="600" }
 
-- Network details
-
-       ![](../../../images/JMeter_Agent_Network_Details.png){ width="400" }
 
 - Volume details
 
