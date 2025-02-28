@@ -1,4 +1,4 @@
 title: Kubernetes Deployments
 nav:
     - index.md
-    - dx_compose_rendering_small_config.md
+    - rendering_small_config.md
