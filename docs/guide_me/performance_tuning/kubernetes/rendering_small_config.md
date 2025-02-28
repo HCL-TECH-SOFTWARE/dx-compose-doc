@@ -115,15 +115,16 @@ This performance tuning guide aims to understand how the ratios of key pod limit
 | openLdap  | 1                      | openLdap   | openLdap        | 100 m                           | 1024 Mi                           |
 
 
-
-- The modifications recommended in [small-config-helm-values](#recommendations) lead to an improved response time and throughput by 50% compared to using the [default minimal values in the Helm chart](../../../get_started/plan_deployment/container_deployment/limitations_requirements.md#containerization-requirements-and-limitations).
-
 !!!note
      For more information on OS tuning, Web Server tuning, JSF best practices, and other performance tuning	guidelines and recommendations for traditional deployments, refer to the [Performance Tuning Guide for Traditional Deployments](../traditional_deployments.md).
 
-### Recommendations
+### DX Compose tuning
 
-- For a small-sized workload in AWS, start the Kubernetes cluster with a single node with at least a c5.2xlarge instance to support a load of 1,000 users. Currently, default CPU and memory values in the [Helm chart](../../../get_started/plan_deployment/container_deployment/limitations_requirements.md#containerization-requirements-and-limitations) are the minimum values for DX to work.
+For tuning details and enhancements made to DX Compose during the tests, each step is mentioned below.
+
+## Results
+
+For a small-sized workload in AWS, the Kubernetes cluster should be started with a single node using at least a c5.2xlarge instance to support a load of 1,000 users. The CPU and memory values used are detailed below. The test results showed no errors or pod restarts throughout the execution. After implementing the tuning changes, both the total average response time and overall throughput improved significantly. Additionally, the average response time for the top five requests showed a noticeable improvement, further validating the effectiveness of the optimizations.
 
 - To hold more authenticated users for testing purposes, increase the OpenLDAP pod values. Note that the OpenLDAP pod is not for production use.
 
@@ -152,47 +153,10 @@ This performance tuning guide aims to understand how the ratios of key pod limit
 !!!note
      Values in bold are tuned Helm values while the rest are default minimal values.
 
-For convenience, these values were added to the `small-config-values.yaml` file in the hcl-dx-deployment Helm chart. To use these values, refer to the following steps:
+## Conclusion
 
-1. Download the `hcl-dx-deployment` Helm chart from FlexNet or Harbor.
+This guidance shows the upper limit on a single-node K8s cluster AWS c5.2xlarge instance. For c5.2xlarge single-node rendering scenarios for DAM, WCM, and DX pages with portlets, the recommended load is 1,000 concurrent users.
 
-2. Extract the `hcl-dx-deployment-XXX.tgz` file.
-
-3. In the extracted folder, navigate to `hcl-dx-deployment/value-samples/small-config-values.yaml` and copy the `small-config-values.yaml` file.
-
-
-#### DX Compose tuning
-
-For tuning details and enhancements done to DX Compose during the tests, refer to [DX Compose tuning](./rendering_medium_config.md#dx-core-tuning).
-
-### Results
-
-The initial test runs were conducted on an AWS-distributed Kubernetes setup with a single c5.2xlarge node and later transitioned to a c5.4xlarge node. The system successfully handled concurrent user loads of 1,000 with a < 0.00% error rate.
-
-Later tests were done from a c5.9xlarge instance and Horizontal Pod Autoscaling (HPA) was enabled for Core, DAM, HAProxy, and RingAPI pods with thresholds of 50% for CPU utilization and 80% for memory utilization. The HPA test run finished successfully with no errors. Through the HPA tests, it was observed that four pods each for Core, DAM, and HAProxy, as well as three pods of RingAPI are required to have a successful run for 6,000 concurrent users. With this setup, the test was run for 10,000 concurrent users.
-
-At 10,000 concurrent users, there were a few failures due to the RingAPI pod decreasing intermittently. Due to these failures, RingAPI pods were scaled to four. The test run with four pods for each of the containers was successful for 10,000 concurrent users.
-
-Test results were analyzed in Prometheus and Grafana dashboards. The single-node CPU usage of a node reached an average of 80% in tests with 10,000 concurrent users. The saturation was checked by reducing the number of users to 5,000, 3,000, and 2,500 users. For these user load numbers, the average usage of a node CPU was around 70-80%. Based on the results, response times are optimal with a 2,500 user load.
-
-### Conclusion
-
-This guidance shows the upper limit on a single-node K8s cluster AWS c5.9xlarge instance. For c5.9xlarge single-node rendering scenarios for DAM, WCM, and DX pages with portlets, the recommended load is 2,500 concurrent users.
-
-The following table outlines the pod count and limits for each pod. After applying these values, the setup showed significantly improved responsiveness. These changes allowed the system to handle 2,500 concurrent users.
-
-| Pod Name                    | Number of Pods | Container                   | Container Image             | Container CPU Request and Limit | Container Memory Request and Limit |
-| --------------------------- | -------------- | --------------------------- | --------------------------- | ------------------------------- | ---------------------------------- |
-| core                        | 4              | core                        | core                        | 5000 m                          | 8000 Mi                            |
-| ringApi                     | 4              | ringApi                     | ringApi                     | 800 m                           | 512 Mi                             |
-| haproxy                     | 4              | haproxy                     | haproxy                     | 700 m                           | 1024 Mi                            |
-| digitalAssetManagement      | 4              | digitalAssetManagement      | digitalAssetManagement      | 1000 m                          | 2048 Mi                            |
-| persistence-connection-pool | 2              | persistence-connection-pool | persistence-connection-pool | 500 m                           | 512 Mi                             |
-| persistence-node            | 2              | persistence-node            | persistence-node            | 1000 m                          | 2048 Mi                            |
-
-
-!!!note
-     For more information on OS tuning, Web Server tuning, JSF best practices, and other performance tuning guidelines and recommendations for traditional deployments, refer to the [Performance Tuning Guide for Traditional Deployments](../traditional_deployments.md).
 
 ### Recommendations
 
