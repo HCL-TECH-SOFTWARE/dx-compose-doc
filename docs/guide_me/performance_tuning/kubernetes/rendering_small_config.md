@@ -1,5 +1,5 @@
 ---
-title: DX_Compose_Rendering_Small_Sized_Configuration
+title: Rendering - Small-Sized configuration
 ---
 
 # Sizing guidance for rendering in a small-sized Kubernetes configuration
@@ -97,9 +97,9 @@ To run the tests, a distributed AWS/JMeter agents setup consisting of one primar
 
 ## Results
 
-The initial test runs were conducted on an AWS-distributed Kubernetes setup with a single node. The system successfully handled concurrent user loads of 1,000 users,with a low error rate (0.1%). At 1,000 users, error rates increased dramatically and response times went up. For a response time to be considered optimal, it should be under one second. All the errors came from WCM and DX Pages and Portlets related out of memory issue.
+The initial test runs were conducted on an AWS-distributed Kubernetes setup with a single node. The system successfully handled concurrent user loads of up to 1,000 users with a low error rate (0.1%). To ensure optimal performance, response times should remain under one second. All errors observed at higher loads were related to WCM and DX Pages and Portlets, primarily due to out-of-memory issues.
 
-Test results were analyzed in Prometheus and Grafana dashboards. For OpenLdap and WebEngine pods, the CPU and memory limits were fully utilized. These limits were increased based on the CPU and memory usage observations from Grafana during the load test. Increasing the CPU and memory limits of OpenLdap and WebEngine pods resolved the errors.
+Test results were analyzed using Prometheus metrics and Grafana dashboards. For OpenLDAP and WebEngine pods, the CPU and memory limits were fully utilized. These limits were increased based on the CPU and memory usage observations from Grafana during the load test. Increasing the CPU and memory limits of OpenLDAP and WebEngine pods resolved the errors.
 
 From these observations, CPU and memory limits of OpenLdap,WebEngine, and HAProxy pods were tuned one by one to see if no errors occur during a user load of 1,000 users.
 
@@ -127,10 +127,10 @@ This performance tuning guide aims to understand how the ratios of key pod limit
 
 - To hold more authenticated users for testing purposes, increase the OpenLDAP pod values. Note that the OpenLDAP pod is not for production use.
 
-Modifications were made to the initial Helm chart configuration during the tests. The following table outlines the pod count and limits for each pod. After applying these values, the setup showed significantly improved responsiveness. These changes allowed the system to handle 1,000 concurrent users with an improved error rate, average response time, throughput, and an event loop lag of Ring API containers.
+- Modifications were made to the initial Helm chart configuration during the tests. The following table outlines the pod count and limits for each pod. After applying these values, the setup showed significantly improved responsiveness. These changes allowed the system to handle 1,000 concurrent users with an improved error rate, average response time, throughput, and an event loop lag of Ring API containers.
 
+- To improve response times, use the `.jmx` script for the DX Compose Sizing combined test to increase ThinkTime and perform the Helm upgrade using the WebEngine performance rendering YAML file.
 
-- Use the .jmx script for the DX Compose Sizing combined test, increasing ThinkTime. This will help us achieve better response times.
 - Perform the Helm upgrade using the WebEngine performance rendering YAML file. This will also help improve response time.
 
 
@@ -192,11 +192,11 @@ The following table outlines the pod count and limits for each pod. After applyi
 
 
 !!!note
-     For more information on OS tuning, Web Server tuning, JSF best practices, and other performance tuning	guidelines and recommendations for traditional deployments, refer to the [Performance Tuning Guide for Traditional Deployments](../traditional_deployments.md).
+     For more information on OS tuning, Web Server tuning, JSF best practices, and other performance tuning guidelines and recommendations for traditional deployments, refer to the [Performance Tuning Guide for Traditional Deployments](../traditional_deployments.md).
 
 ### Recommendations
 
-- For an upper limit on one instance in AWS, start the Kubernetes cluster with a single node with at least a c5.9xlarge instance to support a load of 2,500 user for optimal response times. Currently, the default CPU and memory values in the [Helm chart](../../../get_started/plan_deployment/container_deployment/limitations_requirements.md#containerization-requirements-and-limitations) are the minimum values for DX to work.
+- Currently, we used the CPU and memory values mentioned below for DX Compose small configuration combined runs to achieve better response times without any errors
 
 - To hold more authenticated users for testing purposes, increase the OpenLDAP pod values. Note that the OpenLDAP pod is not for production use.
 
@@ -222,4 +222,3 @@ Modifications were made to the initial Helm chart configuration during the tests
 
 ???+ info "Related information"
     - [Performance Tuning Guide for Traditional Deployments](../traditional_deployments.md)
-    - [DX Helm Minimal Values](../../../get_started/plan_deployment/container_deployment/limitations_requirements.md#containerization-requirements-and-limitations)

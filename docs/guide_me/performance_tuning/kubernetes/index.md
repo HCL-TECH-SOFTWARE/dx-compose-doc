@@ -155,7 +155,7 @@ The following setup includes different types of commonly used portlets, as liste
     !!!Note
         The JSP portlet file required to load Page 4 and render its portlets is located at `jsp/oob/welcome.jsp`.
 
-Once the authoring steps are completed, both anonymous and authenticated portal users will render the pages. Each page request is triggered via a `/GET` API call such as `/wps/portal/portletsperf/page1`. A response assertion in the sampler also validates the HTML content in the response body.
+Once the authoring steps are completed, both anonymous and authenticated portal users will render the pages. Each page request is triggered using a `/GET` API call such as `/wps/portal/portletsperf/page1`. A response assertion in the sampler also validates the HTML content in the response body.
 
 ## Limitations
 
