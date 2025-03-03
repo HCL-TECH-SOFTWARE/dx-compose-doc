@@ -2,8 +2,6 @@
 
 This section provides sizing guides for HCL Digital Experience (DX) rendering scenarios in a Kubernetes configuration. The goal of these sizing guides is to identify the optimal Kubernetes configurations for varying levels of DX demands, ranging from small to large setups. Additionally, this guide provides tuning recommendations for Kubernetes pods based on their specific workloads, such as rendering-intensive tasks.
 
-For the performance guidance deployments to support Kubernetes container platforms, refer to [Containerization requirements and limitations](../../../get_started/plan_deployment/container_deployment/limitations_requirements.md).
-
 ## Introduction
 
 In  DX Compose performance testing, it is important to determine both DX container sizing and the relationships between the components that make up DX. The goal of performance testing is to identify the optimal Kubernetes configurations for varying levels of DX demands, ranging from small to large setups. This sizing guidance evaluates configurations supporting 1,000, 10,000, and 30,000 virtual users for small, medium, and large setups, respectively.
