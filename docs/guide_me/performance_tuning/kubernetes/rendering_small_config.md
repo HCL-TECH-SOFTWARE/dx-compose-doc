@@ -8,7 +8,7 @@ This topic provides the details of the environments used for rendering in a smal
 
 ## Methodology
 
-This sizing activity rendered scenarios for the Web Content Manager (WCM), Digital Asset Management (DAM), and HCL Digital Experience (DX) pages and portlets. This activity used a rendering setup enabled in AWS/Native-Kubernetes, where Kubernetes is installed directly in Amazon Elastic Cloud Compute (EC2) instances. A combination run was performed that rendered WCM content, DAM assets, and DX pages and portlets. The load distribution was WCM content (40%), DAM assets (30%), and DX pages and portlets (30%). All systems were pre-populated before performing the rendering tests.
+This sizing activity evaluated rendering scenarios for the Web Content Manager (WCM), Digital Asset Management (DAM), and HCL Digital Experience (DX) pages and portlets. This activity used a rendering setup enabled in AWS/Native-Kubernetes, where Kubernetes is installed directly in Amazon Elastic Cloud Compute (EC2) instances. A combination run was performed that rendered WCM content, DAM assets, and DX pages and portlets. The load distribution consisted of WCM content (40%), DAM assets (30%), and DX pages and portlets (30%). All systems were pre-populated before performing the rendering tests.
 
 To achieve the 1,000 concurrent users mark, an initial set of runs was done with a lower number of users on a single node setup. The tests started with the desired load of 1,000 users and an acceptable error rate (< 0.01%). Further steps were taken to optimize the limits on the available resources for each pod.
 
@@ -56,9 +56,9 @@ The tests used a c5.2xlarge remote DB2 instance for the core database. Refer to 
 
 - DB2 details
 
-       ![](../../../images/Header-1-AWS.png){ width="600" }
+       ![](../../../images/Header-1-AWS.png){ width="1000" }
 
-       ![](../../../images/C5.2xlarge.png){ width="600" }
+       ![](../../../images/C5.2xlarge.png){ width="1000" }
 
 - Processor details
 
@@ -76,14 +76,13 @@ To run the tests, a distributed AWS/JMeter agents setup consisting of one primar
 
 - Instance details
 
-       ![](../../../images/Header-1-AWS.png){ width="400" }
+       ![](../../../images/Header-1-AWS.png){ width="1000" }
 
-       ![](../../../images/C5.xlarge.png){ width="400" }
+       ![](../../../images/C5.xlarge.png){ width="1000" }
 
 - Processor details
 
        ![](../../../images/Processor_Info_JMeterAgent.png){ width="600" }
-
 
 - Volume details
 
@@ -98,7 +97,7 @@ The initial test runs were conducted on an AWS-distributed Kubernetes setup with
 
 Test results were analyzed using Prometheus metrics and Grafana dashboards. For OpenLDAP and WebEngine pods, the CPU and memory limits were fully utilized. These limits were increased based on the CPU and memory usage observations from Grafana during the load test. Increasing the CPU and memory limits of OpenLDAP and WebEngine pods resolved the errors.
 
-From these observations, CPU and memory limits of OpenLdap,WebEngine, and HAProxy pods were tuned one by one to see if no errors occur during a user load of 1,000 users.
+From these observations, CPU and memory limits of OpenLDAP, WebEngine, and HAProxy pods were tuned one by one to ensure no errors occur during a user load of 1,000 users.
 
 ## Conclusion
 
@@ -111,9 +110,8 @@ This performance tuning guide aims to understand how the ratios of key pod limit
 | web-engine| 1                      | web-engine | web-engine      | 4300 m                          | 6144 Mi                           |
 | openLdap  | 1                      | openLdap   | openLdap        | 100 m                           | 1024 Mi                           |
 
-
 !!!note
-     For more information on OS tuning, Web Server tuning, JSF best practices, and other performance tuning	guidelines and recommendations for traditional deployments, refer to the [Performance Tuning Guide for Traditional Deployments](../traditional_deployments.md).
+     For more information on OS tuning, Web Server tuning, JSF best practices, and other performance tuning guidelines and recommendations for traditional deployments, refer to the [Performance Tuning Guide for Traditional Deployments](../traditional_deployments.md).
 
 ### DX Compose tuning
 
@@ -125,17 +123,13 @@ For a small-sized workload in AWS, the Kubernetes cluster should be started with
 
 - To hold more authenticated users for testing purposes, increase the OpenLDAP pod values. Note that the OpenLDAP pod is not for production use.
 
-- Modifications were made to the initial Helm chart configuration during the tests. The following table outlines the pod count and limits for each pod. After applying these values, the setup showed significantly improved responsiveness. These changes allowed the system to handle 1,000 concurrent users with an improved error rate, average response time, throughput, and an event loop lag of Ring API containers.
-
 - To improve response times, use the `.jmx` script for the DX Compose Sizing combined test to increase ThinkTime and perform the Helm upgrade using the WebEngine performance rendering YAML file.
 
-- Perform the Helm upgrade using the WebEngine performance rendering YAML file. This will also help improve response time.
-
+Modifications were made to the initial Helm chart configuration during the tests. The following table outlines the pod count and limits for each pod. After applying these values, the setup showed significantly improved responsiveness. These changes allowed the system to handle 1,000 concurrent users with an improved error rate, average response time, throughput, and an event loop lag of Ring API containers.
 
 |                               |                 | Request         | Request             | Limit           | Limit                |
 |-------------------------------|-----------------|-----------------|---------------------|-----------------|----------------------|
 | **Component**                 | **No. of pods** | **CPU (m)<br>** | **Memory (Mi)<br>** | **CPU (m)<br>** | **Memory (Mi)<br>**  |
-|-------------------------------|-----------------|-----------------|---------------------|-----------------|----------------------|
 | **Webengine**                 | **1**           | **4300**        | **6144**            | **4300**        | **6144**             |
 | digitalAssetManagement        | 1               | 500             | 1536                | 500             | 1536                 |
 | **imageProcessor**            | 1               | 200             | **768**             | 200             | **768**              |
@@ -146,14 +140,12 @@ For a small-sized workload in AWS, the Kubernetes cluster should be started with
 | **haproxy**                   | 1               | **500**         | **500**             | **500**         | **500**              |
 | **Total**                     |                 | **6400**        | **11240**           | **6400**        | **11240**            |
 
-
 !!!note
      Values in bold are tuned Helm values while the rest are default minimal values.
 
 ## Conclusion
 
 This guidance shows the upper limit on a single-node K8s cluster AWS c5.2xlarge instance. For c5.2xlarge single-node rendering scenarios for DAM, WCM, and DX pages with portlets, the recommended load is 1,000 concurrent users.
-
 
 ### Recommendations
 
@@ -166,7 +158,6 @@ Modifications were made to the initial Helm chart configuration during the tests
 |                               |                 | Request         | Request             | Limit           | Limit                |
 |-------------------------------|-----------------|-----------------|---------------------|-----------------|----------------------|
 | **Component**                 | **No. of pods** | **CPU (m)<br>** | **Memory (Mi)<br>** | **CPU (m)<br>** | **Memory (Mi)<br>**  |
-|-------------------------------|-----------------|-----------------|---------------------|-----------------|----------------------|
 | **Webengine**                 | **1**           | **4300**        | **6144**            | **4300**        | **6144**             |
 | digitalAssetManagement        | 1               | 500             | 1536                | 500             | 1536                 |
 | **imageProcessor**            | 1               | 200             | **768**             | 200             | **768**              |
