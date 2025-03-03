@@ -92,29 +92,6 @@ To run the tests, a distributed AWS/JMeter agents setup consisting of one primar
 !!!note
       Ramp-up time is 0.5 seconds per user. The test duration includes the ramp-up time plus one hour at the peak load of concurrent users.
 
-## Initial Results
-
-The initial test runs were conducted on an AWS-distributed Kubernetes setup with a single node. The system successfully handled concurrent user loads of up to 1,000 users with a low error rate (0.1%). To ensure optimal performance, response times should remain under one second. All errors observed at higher loads were related to WCM and DX Pages and Portlets, primarily due to out-of-memory issues.
-
-Test results were analyzed using Prometheus metrics and Grafana dashboards. For OpenLDAP and WebEngine pods, the CPU and memory limits were fully utilized. These limits were increased based on the CPU and memory usage observations from Grafana during the load test. Increasing the CPU and memory limits of OpenLDAP and WebEngine pods resolved the errors.
-
-From these observations, CPU and memory limits of OpenLdap,WebEngine, and HAProxy pods were tuned one by one to see if no errors occur during a user load of 1,000 users.
-
-## Initial Conclusion
-
-This performance tuning guide aims to understand how the ratios of key pod limits can improve the rendering response time in a simple single pod system. This is an important step before attempting to illustrate the impact of scaling of pods. This guide concludes that:  
-
-- Changes to the pod limits for the following pods significantly improve the responsiveness of the setup and enable the system to handle more users.
-
-| Pod Name  | Minimum Number of Pods | Container  | Container Image | Container CPU Request and Limit | Container Memory Request and Limit|
-| --------  | ---------------------- | ---------  | --------------- | ------------------------------- | ----------------------------------|
-| web-engine| 1                      | web-engine | web-engine      | 4300 m                          | 6144 Mi                           |
-| openLdap  | 1                      | openLdap   | openLdap        | 100 m                           | 1024 Mi                           |
-
-
-!!!note
-     For more information on OS tuning, Web Server tuning, JSF best practices, and other performance tuning	guidelines and recommendations for traditional deployments, refer to the [Performance Tuning Guide for Traditional Deployments](../traditional_deployments.md).
-
 ### DX Compose tuning
 
 For tuning details and enhancements made to DX Compose during the tests, each step is mentioned below.
