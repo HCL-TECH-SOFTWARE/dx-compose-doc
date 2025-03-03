@@ -127,9 +127,16 @@ For a small-sized workload in AWS, the Kubernetes cluster should be started with
 
 - Modifications were made to the initial Helm chart configuration during the tests. The following table outlines the pod count and limits for each pod. After applying these values, the setup showed significantly improved responsiveness. These changes allowed the system to handle 1,000 concurrent users with an improved error rate, average response time, throughput, and an event loop lag of Ring API containers.
 
-- To improve response times,perform the Helm upgrade using the WebEngine performance rendering YAML file.
+-  To improve response times, perform the Helm upgrade using the webengine-performance-rendering.yaml file. This file is available in the HCL DX Deployment Helm chart. To use this file, complete the following steps:
 
-- Perform the Helm upgrade using the WebEngine performance rendering YAML file. This will also help improve response time.
+  1.Download the hcl-dx-deployment Helm chart from FlexNet or Harbor.
+  2.Extract the hcl-dx-deployment-XXX.tgz file.
+  3.In the extracted folder, navigate to hcl-dx-deployment/performance/webengine-performance-rendering.yaml and copy the webengine-performance-rendering.yaml.
+
+  ![](../../../images/dx-compose-tunning-small.png){ width="600" }
+
+
+- Perform the Helm upgrade using the `webengine-performance-rendering.yaml` file. This will also help improve response time.
 
 
 |                               |                 | Request         | Request             | Limit           | Limit                |
