@@ -92,7 +92,7 @@ To run the tests, a distributed AWS/JMeter agents setup consisting of one primar
 !!!note
       Ramp-up time is 0.5 seconds per user. The test duration includes the ramp-up time plus one hour at the peak load of concurrent users.
 
-## Results
+## Initial Results
 
 The initial test runs were conducted on an AWS-distributed Kubernetes setup with a single node. The system successfully handled concurrent user loads of up to 1,000 users with a low error rate (0.1%). To ensure optimal performance, response times should remain under one second. All errors observed at higher loads were related to WCM and DX Pages and Portlets, primarily due to out-of-memory issues.
 
@@ -100,7 +100,7 @@ Test results were analyzed using Prometheus metrics and Grafana dashboards. For 
 
 From these observations, CPU and memory limits of OpenLdap,WebEngine, and HAProxy pods were tuned one by one to see if no errors occur during a user load of 1,000 users.
 
-## Conclusion
+## Initial Conclusion
 
 This performance tuning guide aims to understand how the ratios of key pod limits can improve the rendering response time in a simple single pod system. This is an important step before attempting to illustrate the impact of scaling of pods. This guide concludes that:  
 
@@ -127,7 +127,7 @@ For a small-sized workload in AWS, the Kubernetes cluster should be started with
 
 - Modifications were made to the initial Helm chart configuration during the tests. The following table outlines the pod count and limits for each pod. After applying these values, the setup showed significantly improved responsiveness. These changes allowed the system to handle 1,000 concurrent users with an improved error rate, average response time, throughput, and an event loop lag of Ring API containers.
 
-- To improve response times, use the `.jmx` script for the DX Compose Sizing combined test to increase ThinkTime and perform the Helm upgrade using the WebEngine performance rendering YAML file.
+- To improve response times,perform the Helm upgrade using the WebEngine performance rendering YAML file.
 
 - Perform the Helm upgrade using the WebEngine performance rendering YAML file. This will also help improve response time.
 
@@ -154,32 +154,6 @@ For a small-sized workload in AWS, the Kubernetes cluster should be started with
 
 This guidance shows the upper limit on a single-node K8s cluster AWS c5.2xlarge instance. For c5.2xlarge single-node rendering scenarios for DAM, WCM, and DX pages with portlets, the recommended load is 1,000 concurrent users.
 
-
-### Recommendations
-
-- Currently, we used the CPU and memory values mentioned below for DX Compose small configuration combined runs to achieve better response times without any errors
-
-- To hold more authenticated users for testing purposes, increase the OpenLDAP pod values. Note that the OpenLDAP pod is not for production use.
-
-Modifications were made to the initial Helm chart configuration during the tests. The following table contains the number and limits for each pod in a single-node setup.
-
-|                               |                 | Request         | Request             | Limit           | Limit                |
-|-------------------------------|-----------------|-----------------|---------------------|-----------------|----------------------|
-| **Component**                 | **No. of pods** | **CPU (m)<br>** | **Memory (Mi)<br>** | **CPU (m)<br>** | **Memory (Mi)<br>**  |
-|-------------------------------|-----------------|-----------------|---------------------|-----------------|----------------------|
-| **Webengine**                 | **1**           | **4300**        | **6144**            | **4300**        | **6144**             |
-| digitalAssetManagement        | 1               | 500             | 1536                | 500             | 1536                 |
-| **imageProcessor**            | 1               | 200             | **768**             | 200             | **768**              |
-| **openLdap**                  | 1               | 200             | **1024**            | 200             | **1024**             |
-| **persistenceNode**           | 1               | **200**         | **500**             | **100**         | **500**              |
-| **persistenceConnectionPool** | 1               | **300**         | **512**             | **300**         | **512**              |
-| **ringApi**                   | 1               | **200**         | **256**             | **200**         | **256**              |
-| **haproxy**                   | 1               | **500**         | **500**             | **500**         | **500**              |
-| **Total**                     |                 | **6400**        | **11240**           | **6400**        | **11240**            |
-| **Total**                     |                 | **30000**       | **50860**           | **30000**        | **50860**           |
-
-!!!note
-     Values in bold are tuned Helm values while the rest are default minimal values.
 
 ???+ info "Related information"
     - [Performance Tuning Guide for Traditional Deployments](../traditional_deployments.md)
