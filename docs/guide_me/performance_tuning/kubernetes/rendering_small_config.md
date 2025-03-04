@@ -76,9 +76,9 @@ To run the tests, a distributed AWS/JMeter agents setup consisting of one primar
 
 - Instance details
 
-       ![](../../../images/Header-1-AWS.png){ width="400" }
+       ![](../../../images/Header-1-AWS.png){ width="600" }
 
-       ![](../../../images/C5.xlarge.png){ width="400" }
+       ![](../../../images/C5.xlarge.png){ width="600" }
 
 - Processor details
 
@@ -106,7 +106,7 @@ Modifications were made to the initial Helm chart configuration during the tests
 | **persistenceConnectionPool** | 1               | **300**         | **512**             | **300**         | **512**              |
 | **ringApi**                   | 1               | **200**         | **256**             | **200**         | **256**              |
 | **haproxy**                   | 1               | **500**         | **500**             | **500**         | **500**              |
-| **Total**                     |                 | **6400**        | **11240**           | **6400**        | **11240**            |
+| **Total**                     |                 | **6400**        | **11240**           | **6300**        | **11240**            |
 
 !!!note
      Values in bold are tuned Helm values while the rest are default minimal values.
@@ -123,7 +123,7 @@ This guidance shows the upper limit on a single-node K8s cluster AWS c5.2xlarge 
 
 - For a small-sized workload in AWS, start the Kubernetes cluster with a single node using at least a c5.2xlarge instance to support a load of 1,000 users.
 
-- To hold more authenticated users for testing purposes, increase the OpenLDAP pod values. Note that the OpenLDAP pod is not for production use.
+- To hold more authenticated users for testing purposes, increase the OpenLDAP pod cpu,memory values. Note that the OpenLDAP pod is not for production use.
 
 - To improve response times, perform the Helm upgrade using the `webengine-performance-rendering.yaml` file. This file is available in the HCL DX Deployment Helm chart. To use this file, complete the following steps:
 
