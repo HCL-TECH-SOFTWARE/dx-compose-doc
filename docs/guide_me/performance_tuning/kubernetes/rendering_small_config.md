@@ -56,9 +56,9 @@ The tests used a c5.2xlarge remote DB2 instance for the core database. Refer to 
 
 - DB2 details
 
-       ![](../../../images/Header-1-AWS.png){ width="600" }
+       ![](../../../images/Header-1-AWS.png){ width="1000" }
 
-       ![](../../../images/C5.2xlarge.png){ width="600" }
+       ![](../../../images/C5.2xlarge.png){ width="1000" }
 
 - Processor details
 
@@ -76,9 +76,9 @@ To run the tests, a distributed AWS/JMeter agents setup consisting of one primar
 
 - Instance details
 
-       ![](../../../images/Header-1-AWS.png){ width="600" }
+       ![](../../../images/Header-1-AWS.png){ width="1000" }
 
-       ![](../../../images/C5.xlarge.png){ width="600" }
+       ![](../../../images/C5.xlarge.png){ width="1000" }
 
 - Processor details
 
@@ -123,7 +123,7 @@ This guidance shows the upper limit on a single-node K8s cluster AWS c5.2xlarge 
 
 - For a small-sized workload in AWS, start the Kubernetes cluster with a single node using at least a c5.2xlarge instance to support a load of 1,000 users.
 
-- To hold more authenticated users for testing purposes, increase the OpenLDAP pod cpu,memory values. Note that the OpenLDAP pod is not for production use.
+- To hold more authenticated users for testing purposes, increase the OpenLDAP pod CPU and memory values. Note that the OpenLDAP pod is not for production use.
 
 - To improve response times, perform the Helm upgrade using the `webengine-performance-rendering.yaml` file. This file is available in the HCL DX Deployment Helm chart. To use this file, complete the following steps:
 
