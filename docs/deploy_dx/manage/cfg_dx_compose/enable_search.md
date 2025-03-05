@@ -1,6 +1,6 @@
 # Enabling and disabling Search V2
 
-Search introduces a new user interface along with a new backend service that utilizes OpenSearch to provide a seamless search experience.
+Search V2 introduces a new user interface with a backend service that utilizes OpenSearch to provide a seamless search experience. Search V2 is enabled by default for DX Compose.
 It is enabled by default for DX Compose.
 
 ## Access
