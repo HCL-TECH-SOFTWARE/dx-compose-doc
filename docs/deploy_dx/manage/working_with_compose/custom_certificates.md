@@ -49,7 +49,7 @@ configuration:
 
 This example aggregates all certificates and keys from the secrets specified in `customKeystoreSecrets` into the `defaultKeyStore`, and all certificates from the secrets specified in `customTruststoreSecrets` into the `defaultTruststore`. You can then reference the `defaultKeyStore` and `defaultTruststore` in your `server.xml` or in a configuration override. These files serve as the default keystore and truststore for various WebEngine configuration elements that require them. As described in [Adding custom certificates using the `values.yaml` file](#adding-custom-certificates-using-the-valuesyaml-file), override files are automatically generated on system startup.
 
-Each key in `customKeystoreSecrets` and `customTruststoreSecrets` is used to create a subfolder within `/mnt/certs/keystores` and `/mnt/certs/truststores`, respectively. For proper folder creation, these keys should be in lowercase (i.e., they must not contain capital letters).
+Each key in `customKeystoreSecrets` and `customTruststoreSecrets` is used to create a subfolder within `/mnt/certs/keystores` and `/mnt/certs/truststores`, respectively. For proper folder creation, these keys must be in lowercase.
 
 !!!important
     It is required to restart the pod every time there are changes to the keystores or truststores.
