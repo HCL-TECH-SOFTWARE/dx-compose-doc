@@ -47,7 +47,7 @@ configuration:
       ca-secret-2: "ca-secret-2"
 ```
 
-This example aggregates all certificates and keys from the secrets specified in `customKeystoreSecrets` into the `defaultKeyStore`, and all certificates from the secrets specified in `customTruststoreSecrets` into the `defaultTruststore`. You can then reference the `defaultKeyStore` and `defaultTruststore` in your `server.xml` or in a configuration override. These files serve as the default keystore and truststore for various WebEngine configuration elements that require them. As described in [Adding custom certificates using the `values.yaml` file](#adding-custom-certificates-using-the-valuesyaml-file), override files are automatically generated on system startup.
+This example aggregates all certificates and keys from the secrets specified in `customKeystoreSecrets` into the `defaultKeyStore`, and all certificates from the secrets specified in `customTruststoreSecrets` into the `defaultTruststore`. These files serve as the default keystore and truststore for various WebEngine configuration elements that require them. As described in [Adding custom certificates using the `values.yaml` file](#adding-custom-certificates-using-the-valuesyaml-file), configuration override files are automatically generated on system startup to use the updated keystore and truststore.
 
 Each key in `customKeystoreSecrets` and `customTruststoreSecrets` is used to create a subfolder within `/mnt/certs/keystores` and `/mnt/certs/truststores`, respectively. For proper folder creation, these keys must be in lowercase.
 
