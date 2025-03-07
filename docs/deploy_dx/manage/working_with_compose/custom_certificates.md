@@ -11,14 +11,14 @@ You can use the `customKeystoreSecrets` and `customTruststoreSecrets` parameters
 
 Each secret specified in `customKeystoreSecrets` is mounted into its own folder under the `/mnt/certs/keystores` directory, and each secret specified in `customTruststoreSecrets` is mounted into its own folder under the `/mnt/certs/truststores` directory in the container. During system startup, the WebEngine server scans for subfolders under `/mnt/certs/keystores` and `/mnt/certs/truststores`. Each subfolder represents a separate mounted secret. The server uses keytool and openssl to create the keystore and truststore files and import the provided certificates and keys. The keystore is created at `resources/security/key.p12` and the truststore at `resources/security/truststore.p12` within the Open Liberty server directory.
 
-Helm parameters `customKeystoreSecrets` and/or `customTruststoreSecrets` trigger mounting and processing of the corresponding secrets. A random password is generated and inserted into XML override snippets—created at:
+Helm parameters `customKeystoreSecrets` and/or `customTruststoreSecrets` trigger mounting and processing of the corresponding secrets. A random password is generated and inserted into the XML override snippets, which are created as follows:
 
-- `configDropins/keystoreOverrides/customKeyStore.xml` (if keystore secrets are provided)
-- `configDropins/keystoreOverrides/customTrustStore.xml` (if truststore secrets are provided)
+- If keystore secrets are provided, certificate files in the keystore secrets are imported into a keystore override snippet created at  
+  `configDropins/keystoreOverrides/customKeyStore.xml`
+- If truststore secrets are provided, certificate files in the truststore secrets are imported into a truststore override snippet created at  
+  `configDropins/keystoreOverrides/customTrustStore.xml`
 
-These snippets are applied to your server configuration to ensure the correct keystore and truststore are used.
-
-Example XML override snippets:
+These snippets are applied to your server configuration to ensure the correct keystore and truststore are used. For example:
 
 ```xml
 <!-- customKeyStore.xml -->
@@ -30,12 +30,14 @@ Example XML override snippets:
 <keyStore id="customTrustStore" location="truststore.p12" password="qvxP3kjx6u+/skWSa56/Hnkmlps=" type="PKCS12" />
 ```
 
-Additionally, a custom SSL override snippet (`customSSL.xml`) is generated dynamically based on the availability of these snippets and applied to the server configuration. You can then use the `sslRef` attribute in your LDAP or OIDC override configurations etc. to test SSL communication with this custom SSL setup.
+In addition, a custom SSL override snippet (`customSSL.xml`) is always generated and applied to the server configuration, even if only one of the custom keystore or truststore contains certificates, because the SSL configuration requires both entries (even if one store is empty). The generated SSL snippet references both customKeyStore and customTrustStore.
 
 ```xml
 <!-- customSSL.xml -->
 <ssl id="customSSLConfig" keyStoreRef="customKeyStore" trustStoreRef="customTrustStore" trustDefaultCerts="true"/>
 ```
+
+You can reference this custom SSL configuration via the `sslRef` attribute in your LDAP Registry configuration (see [LDAP Registry 3.0](https://openliberty.io/docs/latest/reference/feature/ldapRegistry-3.0.html)) or in your OpenID Connect Client configuration (see [OpenID Connect Client](https://openliberty.io/docs/latest/reference/config/openidConnectClient.html)) to enable secure SSL communication.
 
 ### Creating KeyStore Secret
 
