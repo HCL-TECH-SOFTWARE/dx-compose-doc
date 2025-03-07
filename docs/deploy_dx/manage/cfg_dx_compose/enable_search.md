@@ -1,6 +1,6 @@
 # Enabling Search V2
 
-[Search V2](https://help.hcl-software.com/digital-experience/9.5/latest/build_sites/search_v2/){target="_blank"} introduces a new user interface with a backend service that utilizes OpenSearch to provide a seamless search experience. Search V2 is enabled by default for HCL Digital Experience (DX) Compose when the parameter `configuration.searchMiddleware.enabled` is set to true in the HCL DX Deployment Helm chart.
+[Search V2](https://help.hcl-software.com/digital-experience/9.5/latest/build_sites/search_v2/){target="_blank"} introduces a new user interface with a backend service that utilizes OpenSearch to provide a seamless search experience. Search V2 is enabled by default for HCL Digital Experience (DX) Compose when the parameter `configuration.searchMiddleware.enabled` is set to `true` in the HCL DX Deployment Helm chart.
 
 ## Search configuration
 
@@ -13,6 +13,14 @@ configuration:
   searchMiddleware:
     # Enable/Disable Search Middleware
     enabled: true
+```
+
+## Validation
+
+After updating the `values.yaml file`, perform the following actions:
+
+- If running the server for the first time, refer to [Installing WebEngine](../../install/kubernetes_deployment/install.md).
+- If upgrading previous configurations, refer to [Upgrading the Helm deployment](../working_with_compose/helm_upgrade_values.md).
 
 ## Access
 
@@ -24,7 +32,7 @@ You can also use the following sample URL:
 https://your-portal.net/wps/myportal/Practitioner/SearchCenter
 ```
 
-## Enabling services for Search V2
+## Search V2 integration
 
 You can enable the following application to use Search V2:
 
