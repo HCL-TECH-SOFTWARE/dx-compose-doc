@@ -12,10 +12,10 @@ You can also use the following sample URL:
 https://your-portal.net/wps/myportal/Practitioner/SearchCenter
 ```
 
-## People Service with Search V2
+## Enabling services for Search V2
 
-You can integrate [People Service](https://help.hcl-software.com/digital-experience/9.5/latest/extend_dx/integration/people_service/){target="_blank"} with Search V2 to enhance user discoverability and search performance. This integration provides efficient access to user profile data with real-time synchronization.
+You can enable the following application to use Search V2:
 
-You can enable the Search V2 integration through the parameter `configuration.search.middleware.enabled` in the People Service Helm chart.
+- [People Service](https://help.hcl-software.com/digital-experience/9.5/latest/extend_dx/integration/people_service/){target="_blank"}
 
-For more information on how to integrate People Service with Search V2, refer to the [People Service and Search V2 integration](https://help.hcl-software.com/digital-experience/9.5/latest/extend_dx/integration/people_service/integration/people_service_search_v2_integration/){target="_blank"} topic.
+    For more information on how to integrate People Service with Search V2, refer to the [People Service and Search V2 integration](https://help.hcl-software.com/digital-experience/9.5/latest/extend_dx/integration/people_service/integration/people_service_search_v2_integration/){target="_blank"} topic.
