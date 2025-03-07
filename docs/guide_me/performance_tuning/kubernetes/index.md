@@ -161,4 +161,4 @@ These performance tests are primarily focused on DAM API. Client-side rendering,
 
 ???+ info "Related information"
     - For details about the environments used, test results, and recommendations for each configuration, refer to the following pages:
-        - [Sizing guidance for rendering in a small-sized Kubernetes configuration](dx_compose_rendering_small_config.md)
+        - [Sizing guidance for rendering in a small-sized Kubernetes configuration](./rendering_small_config.md)

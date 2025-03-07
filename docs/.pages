@@ -2,5 +2,6 @@ nav:
   - index.md
   - whats_new
   - getting_started
-  - guide_me
   - deploy_dx
+  - guide_me
+
