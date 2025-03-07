@@ -34,7 +34,7 @@ https://your-portal.net/wps/myportal/Practitioner/SearchCenter
 
 ## Search V2 integration
 
-You can enable the following application to use Search V2:
+You can enable the following application to use as additional data source for Search V2:
 
 - [People Service](https://help.hcl-software.com/digital-experience/9.5/latest/extend_dx/integration/people_service/){target="_blank"}
 
