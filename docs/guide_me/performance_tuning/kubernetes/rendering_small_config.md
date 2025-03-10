@@ -135,5 +135,5 @@ This guidance shows the upper limit on a single-node K8s cluster AWS c5.2xlarge 
 
        ![](../../../images/dx-compose-tunning-small.png){ width="1000" }
 
-???+ info "Related information"
-    - [Performance Tuning Guide for Traditional Deployments](../traditional_deployments.md)
+!!!note
+     This small config guidance document includes only the DX Compose CF225 release performance results.
