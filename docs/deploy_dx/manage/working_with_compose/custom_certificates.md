@@ -55,9 +55,6 @@ Alternatively, you can add only the SSL certificate to another secret using the 
 kubectl create secret generic ca-secret --from-file=certificate.ca
 ```
 
-!!!important
-    For successful inclusion in the keystore or truststore, all secret names must be in lowercase.
-
 ## Example
 
 See the following sample configuration:
@@ -73,6 +70,9 @@ configuration:
       ca-secret-1: "ca-secret-1"
       ca-secret-2: "ca-secret-2"
 ```
+
+!!!important
+    For successful inclusion in the keystore or truststore, all secret key names (e.g. "tls-secret-1:") must be in lowercase.
 
 This example aggregates all certificates and keys from the secrets specified in `customKeystoreSecrets` into the `customKeyStore`, and all certificates from the secrets specified in `customTruststoreSecrets` into the `customTrustStore`. These files serve as the default keystore and truststore for various WebEngine configuration elements that require them. As described in [Adding custom certificates using the `values.yaml` file](#adding-custom-certificates-using-the-valuesyaml-file), configuration override files are automatically generated on system startup to use the updated keystore and truststore.
 
