@@ -15,7 +15,6 @@ Helm parameters `customKeystoreSecrets` and `customTruststoreSecrets` trigger mo
 
 - If keystore secrets are provided, certificate files in the keystore secrets are imported into a keystore override snippet created at `configDropins/keystoreOverrides/customKeyStore.xml`.
 - If truststore secrets are provided, certificate files in the truststore secrets are imported into a truststore override snippet created at `configDropins/keystoreOverrides/customTrustStore.xml`.
-  `configDropins/keystoreOverrides/customTrustStore.xml`
 
 These snippets are applied to your server configuration to ensure the correct keystore and truststore are used. For example:
 
