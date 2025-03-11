@@ -1,3 +1,4 @@
 nav:
   - index.md
   - Kubernetes Deployment: kubernetes_deployment
+  - Docker Compose: docker_compose.md
