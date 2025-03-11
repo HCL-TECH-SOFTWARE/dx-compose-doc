@@ -5,30 +5,52 @@ title: Using custom certificates in WebEngine
 
 This topic provides the steps on how to add custom certificates to the WebEngine server configuration through the Helm `values.yaml` file.
 
-You can use the `customCertificateSecrets` parameter to reference multiple secrets. These secrets contain the certificates and keys required for Secure Sockets Layer (SSL) communication with the WebEngine server and for encrypted communication with other services.
+You can use the `customKeystoreSecrets` and `customTruststoreSecrets` parameters to reference multiple keystore secrets and truststore secrets respectively. These keystore secrets contain the certificates and keys required for Secure Sockets Layer (SSL) communication with the WebEngine server and for encrypted communication with other services and truststore secrets to trust certificates of other services.
 
 ## Adding custom certificates using the `values.yaml` file
 
-Each secret specified in `customCertificateSecrets` is mounted into its own folder under the `/mnt/certs/` directory in the container. During system startup, the WebEngine server searches for folders in the `/mnt/certs/` directory and uses both **keytool** and **openssl** to create a keystore that aggregates all the provided certificates and keys. The keystore is located in `resources/security/key.p12` in the Open Liberty server directory.
+Each secret specified in `customKeystoreSecrets` is mounted into its own folder under the `/mnt/certs/keystores` directory. Each secret specified in `customTruststoreSecrets` is mounted into its own folder under the `/mnt/certs/truststores` directory in the container. During system startup, the WebEngine server scans for subfolders under `/mnt/certs/keystores` and `/mnt/certs/truststores`. Each subfolder represents a separate mounted secret. The server uses keytool and OpenSSL to create the keystore and truststore files and import the provided certificates and keys. The keystore is created at `resources/security/key.p12` and the truststore at `resources/security/truststore.p12` within the Open Liberty server directory.
 
-A random password is generated for the keystore and is directly written into an XML override snippet. The following sample snippet is located in `configDropins/keystoreOverrides/defaultKeyStore.xml`. The Helm chart includes this snippet when the `customCertificateSecrets` parameter is provided.
+Helm parameters `customKeystoreSecrets` and `customTruststoreSecrets` trigger mounting and processing of the corresponding secrets. A random password is generated and inserted into the XML override snippets, which are created as follows:
+
+- If keystore secrets are provided, certificate files in the keystore secrets are imported into a keystore override snippet created at `configDropins/keystoreOverrides/customKeyStore.xml`.
+- If truststore secrets are provided, certificate files in the truststore secrets are imported into a truststore override snippet created at `configDropins/keystoreOverrides/customTrustStore.xml`.
+
+These snippets are applied to your server configuration to ensure the correct keystore and truststore are used. For example:
 
 ```xml
-<server description="webEngineServer">
-  <include location="${server.config.dir}/configDropins/keystoreOverrides/defaultKeyStore.xml"/>
-</server>
+<!-- customKeyStore.xml -->
+<keyStore id="customKeyStore" location="key.p12" password="UvfHFmrM99KV7VU9mnTkgLQZd34=" type="PKCS12" />
 ```
+
+```xml
+<!-- customTrustStore.xml -->
+<keyStore id="customTrustStore" location="truststore.p12" password="qvxP3kjx6u+/skWSa56/Hnkmlps=" type="PKCS12" />
+```
+
+In addition, a custom SSL override snippet (`customSSL.xml`) is always generated and applied to the server configuration, even if only one of the custom keystore or truststore contains certificates. This is because the SSL configuration requires both entries even if one store is empty. The generated SSL snippet references both `customKeyStore` and `customTrustStore`.
+
+```xml
+<!-- customSSL.xml -->
+<ssl id="customSSLConfig" keyStoreRef="customKeyStore" trustStoreRef="customTrustStore" trustDefaultCerts="true"/>
+```
+
+You can reference this custom SSL configuration using the `sslRef` attribute in your [LDAP Registry configuration](https://openliberty.io/docs/latest/reference/feature/ldapRegistry-3.0.html){target="_blank"} or in your [OpenID Connect Client configuration](https://openliberty.io/docs/latest/reference/config/openidConnectClient.html){target="_blank"} to enable secure SSL communication.
+
+### Creating a keystore secret
 
 To create a new secret from the Transport Layer Security (TLS) key and certificate files, run the following command:
 
 ```sh
-kubectl create secret tls keyAndCert --key="certificate.key" --cert="certificate.crt"
+kubectl create secret tls tls-secret --key="certificate.key" --cert="certificate.crt"
 ```
+
+### Creating a truststore secret
 
 Alternatively, you can add only the SSL certificate to another secret using the following command:
 
 ```sh
-kubectl create secret generic myCertFromFile --from-file=ca.crt
+kubectl create secret generic ca-secret --from-file=certificate.ca
 ```
 
 ## Example
@@ -39,14 +61,18 @@ See the following sample configuration:
 configuration:
   webEngine:
     . . .
-    customCertificateSecrets:
-      keyAndCert: "keyAndCert"
-      certToTrust: "myCertFromFile"
+    customKeystoreSecrets:
+      tls-secret-1: "tls-secret-1"
+      tls-secret-2: "tls-secret-2"
+    customTruststoreSecrets:
+      ca-secret-1: "ca-secret-1"
+      ca-secret-2: "ca-secret-2"
 ```
 
-This example adds all certificates and keys from the secrets listed in `customCertificateSecrets` into the `defaultKeyStore`. You can then reference the `defaultKeyStore` in the `server.xml` or in a configuration override. The `defaultKeyStore` is also used as the default keystore by several configuration elements in WebEngine that require a keystore. As described in [Adding custom certificates using the `values.yaml` file](#adding-custom-certificates-using-the-valuesyaml-file), an override file is automatically generated on system startup.
+!!!important
+    For successful inclusion in the keystore or truststore, all secret key names (for example, `tls-secret-1:`) must be in lowercase.
 
-The `customCertificateSecrets` keys can be anything; they are used to create a folder inside the `/mnt/certs` directory.
+This example aggregates all certificates and keys from the secrets specified in `customKeystoreSecrets` into the `customKeyStore`, and all certificates from the secrets specified in `customTruststoreSecrets` into the `customTrustStore`. These files serve as the default keystore and truststore for various WebEngine configuration elements that require them. As described in [Adding custom certificates using the `values.yaml` file](#adding-custom-certificates-using-the-valuesyaml-file), configuration override files are automatically generated on system startup to use the updated keystore and truststore.
 
 !!!important
-    It is required to restart the pod every time there are changes to the keystores.
+    It is required to restart the pod every time there are changes to the keystores or truststores.
