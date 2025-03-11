@@ -14,7 +14,6 @@ Each secret specified in `customKeystoreSecrets` is mounted into its own folder 
 Helm parameters `customKeystoreSecrets` and `customTruststoreSecrets` trigger mounting and processing of the corresponding secrets. A random password is generated and inserted into the XML override snippets, which are created as follows:
 
 - If keystore secrets are provided, certificate files in the keystore secrets are imported into a keystore override snippet created at `configDropins/keystoreOverrides/customKeyStore.xml`.
-  `configDropins/keystoreOverrides/customKeyStore.xml`
 - If truststore secrets are provided, certificate files in the truststore secrets are imported into a truststore override snippet created at  
   `configDropins/keystoreOverrides/customTrustStore.xml`
 
