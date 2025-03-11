@@ -11,7 +11,7 @@ You can use the `customKeystoreSecrets` and `customTruststoreSecrets` parameters
 
 Each secret specified in `customKeystoreSecrets` is mounted into its own folder under the `/mnt/certs/keystores` directory. Each secret specified in `customTruststoreSecrets` is mounted into its own folder under the `/mnt/certs/truststores` directory in the container. During system startup, the WebEngine server scans for subfolders under `/mnt/certs/keystores` and `/mnt/certs/truststores`. Each subfolder represents a separate mounted secret. The server uses keytool and OpenSSL to create the keystore and truststore files and import the provided certificates and keys. The keystore is created at `resources/security/key.p12` and the truststore at `resources/security/truststore.p12` within the Open Liberty server directory.
 
-Helm parameters `customKeystoreSecrets` and/or `customTruststoreSecrets` trigger mounting and processing of the corresponding secrets. A random password is generated and inserted into the XML override snippets, which are created as follows:
+Helm parameters `customKeystoreSecrets` and `customTruststoreSecrets` trigger mounting and processing of the corresponding secrets. A random password is generated and inserted into the XML override snippets, which are created as follows:
 
 - If keystore secrets are provided, certificate files in the keystore secrets are imported into a keystore override snippet created at  
   `configDropins/keystoreOverrides/customKeyStore.xml`
