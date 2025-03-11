@@ -35,7 +35,7 @@ In addition, a custom SSL override snippet (`customSSL.xml`) is always generated
 <ssl id="customSSLConfig" keyStoreRef="customKeyStore" trustStoreRef="customTrustStore" trustDefaultCerts="true"/>
 ```
 
-You can reference this custom SSL configuration via the `sslRef` attribute in your LDAP Registry configuration (see [LDAP Registry 3.0](https://openliberty.io/docs/latest/reference/feature/ldapRegistry-3.0.html)) or in your OpenID Connect Client configuration (see [OpenID Connect Client](https://openliberty.io/docs/latest/reference/config/openidConnectClient.html)) to enable secure SSL communication.
+You can reference this custom SSL configuration using the `sslRef` attribute in your [LDAP Registry configuration](https://openliberty.io/docs/latest/reference/feature/ldapRegistry-3.0.html){target="_blank"} or in your [OpenID Connect Client configuration](https://openliberty.io/docs/latest/reference/config/openidConnectClient.html){target="_blank"} to enable secure SSL communication.
 
 ### Creating KeyStore Secret
 
