@@ -28,7 +28,7 @@ These snippets are applied to your server configuration to ensure the correct ke
 <keyStore id="customTrustStore" location="truststore.p12" password="qvxP3kjx6u+/skWSa56/Hnkmlps=" type="PKCS12" />
 ```
 
-In addition, a custom SSL override snippet (`customSSL.xml`) is always generated and applied to the server configuration, even if only one of the custom keystore or truststore contains certificates, because the SSL configuration requires both entries (even if one store is empty). The generated SSL snippet references both customKeyStore and customTrustStore.
+In addition, a custom SSL override snippet (`customSSL.xml`) is always generated and applied to the server configuration, even if only one of the custom keystore or truststore contains certificates. This is because the SSL configuration requires both entries even if one store is empty. The generated SSL snippet references both `customKeyStore` and `customTrustStore`.
 
 ```xml
 <!-- customSSL.xml -->
