@@ -15,6 +15,6 @@ See the system requirements to use the WebEngine container in your DX deployment
 -   **[Download software](download)**  
 Download HCL Digital Experience Compose from the HCL Software License Portal (Flexnet).
 -   **[Differences from DX Core](differences.md)**  
-Know the differences of WebEngine from the DX Core container. 
+Know the differences of WebEngine from the DX Core container.
 -   **[DX Compose limitations](limitations.md)**  
 This topic enumerates the current limitations of DX Compose.
