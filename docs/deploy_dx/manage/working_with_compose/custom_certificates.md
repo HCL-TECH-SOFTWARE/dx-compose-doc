@@ -45,7 +45,7 @@ To create a new secret from the Transport Layer Security (TLS) key and certifica
 kubectl create secret tls tls-secret --key="certificate.key" --cert="certificate.crt"
 ```
 
-### Creating TrustStore Secret
+### Creating a truststore secret
 
 Alternatively, you can add only the SSL certificate to another secret using the following command:
 
