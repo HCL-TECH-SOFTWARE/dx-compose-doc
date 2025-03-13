@@ -3,7 +3,7 @@
 In this section, you can find various performance tuning guides for deployments in a container platform.
 
 -   **[Kubernetes Deployments](kubernetes/index.md)**  
-This topic provides sizing guidance for HCL Digital Experience (DX) rendering scenarios in a Kubernetes configuration.
+This topic provides sizing guidance for HCL Digital Experience (DX) Compose rendering scenarios in a Kubernetes configuration.
 
 ## HCLSoftware U learning materials
 
