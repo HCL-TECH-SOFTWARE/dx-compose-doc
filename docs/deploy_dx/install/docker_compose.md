@@ -1,7 +1,7 @@
 
 # Docker Compose for HCL DX Compose
 
-Customers with entitlements to HCL Digital Experience (DX) Compose 9.5 can additionally deploy for non-production purposes using [Docker Compose](https://docs.docker.com/compose/){target="_blank"}. This approach streamlines deployment and configuration of HCL DX Compose 9.5 components. For more information about Docker Compose, see the [Docker Compose documentation](https://docs.docker.com/compose/){target="_blank"}.
+Developers with entitlements to HCL Digital Experience (DX) Compose 9.5 can additionally deploy for non-production purposes using [Docker Compose](https://docs.docker.com/compose/){target="_blank"}. This approach streamlines deployment and configuration of HCL DX Compose 9.5 components. For more information about Docker Compose, see the [Docker Compose documentation](https://docs.docker.com/compose/){target="_blank"}.  
 
 ## Deploying using Docker Compose
 
