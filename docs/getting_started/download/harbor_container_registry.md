@@ -2,7 +2,7 @@
 
 Customers with entitlements to HCL Digital Experience Compose 9.5 may access the DX Compose container images and Helm charts from the [HCL container repository on Harbor](https://hclcr.io/){:target="_blank"}. Customers with credentials to access entitled software on the HCL Software Licensing Portal can apply those credentials to optionally access these components of DX Compose v9.5.
 
-With the CF216 release (November 2023), the Harbor repository provides a registry based on Open Container Initiative (OCI). The Helm chart command is updated to be OCI-compliant. However, older versions of the Helm chart are still used in the non-OCI approach. Both approaches are described in this topic. 
+The Harbor repository provides a registry based on Open Container Initiative (OCI). The Helm chart command is updated to be OCI-compliant. However, older versions of the Helm chart are still used in the non-OCI approach. Both approaches are described in this topic. 
 
 ## OCI-based registry
 
