@@ -16,3 +16,5 @@ Learn how to enable and disable People Service.
 Learn how to enable and disable Search V2.
 -   **[Integrating Digital Data Connector (DDC) in DX Compose](./integrate_ddc/index.md)**  
 Learn how to integrate DDC in DX Compose.
+-   **[Installing Content as a Service (CaaS)](./setup_cntnt_serv_pgs.md)**
+Learn how in install Content as a Service (CaaS)
