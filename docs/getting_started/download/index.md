@@ -1,6 +1,12 @@
 # Download software
 
-HCL Digital Experience Compose 9.5 is available in the [HCL Software License Portal (Flexnet)](https://support.hcl-software.com/csm?id=kb_article&sysparm_article=KB0073344){target="_blank"} to customers licensed for the HCL Digital Experience Compose v9.5 offering.
+HCL Digital Experience (DX) Compose 9.5 is available in the [HCL Software License Portal (Flexnet)](https://support.hcl-software.com/csm?id=kb_article&sysparm_article=KB0073344){target="_blank"} to customers licensed for the HCL Digital Experience Compose v9.5 offering.
 
+HCL DX Compose software will soon be available through the new [My HCLSoftware portal](https://my.hcltechsw.com/){target="_blank"} (MHS) for customers licensed for the HCL Digital Experience Compose v9.5 offering. This will be parallel to the existing HCL Software License Portal delivered in FlexNet.
+
+-   **[Downloading and deploying DX Compose from a Harbor repository](harbor_container_registry.md)**  
+Learn how to download and deploy DX Compose from a Harbor repository.
 -   **[Tracking user session consumption and exporting usage reports](export_usage_report.md)**  
 Learn how to configure user session tracking DX Compose 9.5 deployments and manually export usage reports.
+-   **[Entitlement checking in the My HCLSoftware portal](https://help.hcl-software.com/digital-experience/9.5/latest/get_started/download/software_licensing_portal/configure_entitlement_checks/configuring_mhs/){target="_blank"}**  
+Learn how to set up entitlement checking and user session reporting in DX Compose 9.5 deployments.

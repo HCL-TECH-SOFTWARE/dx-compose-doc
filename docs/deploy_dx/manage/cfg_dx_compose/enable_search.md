@@ -1,6 +1,6 @@
-# Enabling and disabling Search V2
+# Enabling Search V2
 
-This document outlines configurations to enable and disable Search V2 in HCL Digital Experience (DX) Compose using the `values.yaml` file. Search introduces a new user interface along with a new backend service that utilizes OpenSearch to provide a seamless search experience.
+[Search V2](https://help.hcl-software.com/digital-experience/9.5/latest/build_sites/search_v2/){target="_blank"} introduces a new user interface with a backend service that utilizes OpenSearch to provide a seamless search experience. Search V2 is enabled by default for HCL Digital Experience (DX) Compose when the parameter `configuration.searchMiddleware.enabled` is set to `true` in the HCL DX Deployment Helm chart.
 
 ## Search configuration
 
@@ -9,26 +9,20 @@ Refer to the following sample snippet for configuring the DX Compose server to e
 ```yaml
 # Application configuration
 configuration:
-  # Application specific configuration for Core
-  webEngine:
-    # Settings for SearchV2 UI configuration
-    search:
-      # Determines if search ui v2 is enabled or not
-      uiV2Enabled: true
-      # Determines to which search center any input box on DX redirects by default
-      inputRedirectVersion: "v2"
+  # Search Middleware configuration
+  searchMiddleware:
+    # Enable/Disable Search Middleware
+    enabled: true
 ```
-
-Set the value of the key `uiV2Enabled` to `true` to enable or `false` to disable Search V2.
-Set the value of the key `inputRedirectVersion` to `v2` to redirect all searches on DX to the new Search V2 UI.
-
 
 ## Validation
 
-After updating the `values.yaml` file, perform the following actions:
+After updating the `values.yaml file`, perform the following actions:
 
 - If running the server for the first time, refer to [Installing WebEngine](../../install/kubernetes_deployment/install.md).
 - If upgrading previous configurations, refer to [Upgrading the Helm deployment](../working_with_compose/helm_upgrade_values.md).
+
+## Access
 
 Access the HCL Search V2 by navigating to **Practitioner Studio > Web Content > Search**.
 
@@ -37,3 +31,11 @@ You can also use the following sample URL:
 ```
 https://your-portal.net/wps/myportal/Practitioner/SearchCenter
 ```
+
+## Search V2 integration
+
+You can enable the following application to use as additional data source for Search V2:
+
+- [People Service](https://help.hcl-software.com/digital-experience/9.5/latest/extend_dx/integration/people_service/){target="_blank"}
+
+    For more information on how to integrate People Service with Search V2, refer to the [People Service and Search V2 integration](https://help.hcl-software.com/digital-experience/9.5/latest/extend_dx/integration/people_service/integration/people_service_search_v2_integration/){target="_blank"} topic.
