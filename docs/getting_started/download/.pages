@@ -1,4 +1,5 @@
 title: Download software
 nav:
   - index.md
+  - harbor_container_registry.md
   - export_usage_report.md
