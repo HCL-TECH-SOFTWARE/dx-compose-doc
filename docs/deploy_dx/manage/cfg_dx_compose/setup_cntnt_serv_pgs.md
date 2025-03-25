@@ -1,55 +1,39 @@
 # Setting up Content as a Service
 
-To be able to work with "Content as a Service" in HCL DX Compose, you must enable it by using a series of actions documented below.
+To be able to work with Content as a Service (CaaS) pages in HCL Digital Experience (DX) Compose, you must enable it using the steps listed in this topic. The setup for CaaS is comprised of resources that are shared across virtual portals and virtual portal scoped resources.
 
-The setup for "Content as a Service" comprises both resources that are shared across virtual portals and virtual portal scoped resources.
+Refer to the following steps to install and configure CaaS:
 
-To install and configure "Content as a Service", execute the following steps:
+1. On a Kubernetes deployment, change the directory to `/home/centos/native-kube` on the main Kubernetes node.
 
-1.  On a Kubernetes deployment, change the directory to "/home/centos/native-kube" on the kubernetes "master" node.
+2. Run the following command to make the CaaS theme available to DX Compose.
 
-2.  Run the following command to make the CaaS theme available to DX Compose
+    ```
+    helm upgrade -n dxns -f install-deploy-values.yaml -f ./install-hcl-dx-deployment/caas/install-caas.yaml dx-deployment ./install-hcl-dx-deployment
+    ```
 
-    
-```
-helm upgrade -n dxns -f install-deploy-values.yaml -f ./install-hcl-dx-deployment/caas/install-caas.yaml dx-deployment ./install-hcl-dx-deployment
-```
+3. Run the following command to enter a bash shell on the DX Compose WebEngine pod.
 
+    ```
+    kubectl exec -it dx-deployment-web-engine-0 bash -n dxns
+    ```
 
-3. Run the following command to enter a bash shell on the DX Compose WebEngine pod
+4. Run the following command to register the CaaS theme to all the virtual portals in DX Compose.
 
-    
-```
-kubectl exec -it dx-deployment-web-engine-0 bash -n dxns
-```
+    ```
+    /opt/openliberty/wlp/usr/svrcfg/scripts/xmlaccess/xmlaccess.sh -d /opt/openliberty/wlp/usr/servers/defaultServer -url http://localhost:9080/wps/config -in /opt/openliberty/wlp/usr/svrcfg/templates/caas/deployCaaSTheme.xml -out /tmp/deployCaaSTheme.xml.out -user "your Portal Admin userid" -password "your password"
+    ```
 
-    
-4.  Run the following command to register the CaaS theme to DX Compose (all Virtual Portals)
+5. Run the following command to register the CaaS Page and Portlet in each virtual portal, including the main virtual portal.
 
-    
-```
-/opt/openliberty/wlp/usr/svrcfg/scripts/xmlaccess/xmlaccess.sh -d /opt/openliberty/wlp/usr/servers/defaultServer -url http://localhost:9080/wps/config -in /opt/openliberty/wlp/usr/svrcfg/templates/caas/deployCaaSTheme.xml -out /tmp/deployCaaSTheme.xml.out -user "your Portal Admin userid" -password "your password"
-```
+    ```
+    /opt/openliberty/wlp/usr/svrcfg/scripts/xmlaccess/xmlaccess.sh -d /opt/openliberty/wlp/usr/servers/defaultServer -url http://localhost:9080/wps/config -in /opt/openliberty/wlp/usr/svrcfg/templates/caas/deployCaaSPages.xml -out /tmp/deployCaaSPages.xml.out -user "your Portal Admin userid" -password "your password"
+    ```
 
+    If you are installing the CaaS pages into a virtual portal apart from the main virtual portal, run the following command. This command includes the `VP Context` in the `url` parameter.
 
-5.  Run the follow command to register the CaaS Page and Portlet in each VP (including the "main" VP)
+    ```
+    /opt/openliberty/wlp/usr/svrcfg/scripts/xmlaccess/xmlaccess.sh -d /opt/openliberty/wlp/usr/servers/defaultServer -url http://localhost:9080/wps/config/"VP Context" -in /opt/openliberty/wlp/usr/svrcfg/templates/caas/deployCaaSPages.xml -out /tmp/deployCaaSPages.xml.out -user "your Portal Admin userid" -password "your password"
+    ```
 
-    !!! note
-        Use the second version of the command listed below if you are installing the CaaS pages into a VP other than the "main" VP.         Notice the "url" parameter on the second version has the VP Context.
-        
-    
-```
-/opt/openliberty/wlp/usr/svrcfg/scripts/xmlaccess/xmlaccess.sh -d /opt/openliberty/wlp/usr/servers/defaultServer -url http://localhost:9080/wps/config -in /opt/openliberty/wlp/usr/svrcfg/templates/caas/deployCaaSPages.xml -out /tmp/deployCaaSPages.xml.out -user "your Portal Admin userid" -password "your password"
-```
-
-
-    
-```
-/opt/openliberty/wlp/usr/svrcfg/scripts/xmlaccess/xmlaccess.sh -d /opt/openliberty/wlp/usr/servers/defaultServer -url http://localhost:9080/wps/config/"VP Context" -in /opt/openliberty/wlp/usr/svrcfg/templates/caas/deployCaaSPages.xml -out /tmp/deployCaaSPages.xml.out -user "your Portal Admin userid" -password "your password"
-```
-
-
-6.  Restart your portal server.
-
-
-
+6. Restart your HCL DX Compose server.
