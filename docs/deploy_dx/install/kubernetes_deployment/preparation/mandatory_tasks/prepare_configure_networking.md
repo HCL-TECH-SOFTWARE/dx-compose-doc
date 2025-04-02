@@ -92,15 +92,15 @@ networking:
   
 This configuration is helpful for those who want to use a custom `Ingress Controller` to expose the service in a compatible way. Even then, HAProxy will still be active. The `Ingress Controller` will handle the incoming traffic and then route them to the HAProxy service.
 
-## Using annotations to control the HAProxy Service behaviour for different Cloud Providers
+## Using annotations to control the HAProxy service behavior for different cloud providers
 
-The Helm chart provides the ability to add annotations to the HAProxy service to control the behaviour of the service for different cloud providers. This can be used to configure the service to use a specific type of load balancer or to configure other settings specific to the cloud provider. Annotations can be added in your `custom-values.yaml` as described [in the Annotations documentation](../optional_tasks/optional_labels_annotations.md#annotations)
+The Helm chart allows you to add annotations to the HAProxy service to control the behavior of the service for different cloud providers. You can use this to configure the service to use a specific type of load balancer or to configure other settings specific to the cloud provider. You can add annotations in your `custom-values.yaml` as described [in the Annotations documentation](../optional_tasks/optional_labels_annotations.md#annotations).
 
-Examples for such annotations are in an non-exhaustive list. Please refer to the documentation of your cloud provider for more information:
+Examples for such annotations are in an non-exhaustive list. Refer to the documentation provided by your cloud provider for more information:
 
-- [Amazon Elastic Kubernetes Service - Use Service Annotations to configure Network Load Balancers](https://docs.aws.amazon.com/eks/latest/userguide/auto-configure-nlb.html)
-- [Google Kubernetes Engine - LoadBalancer Service parameters](https://cloud.google.com/kubernetes-engine/docs/concepts/service-load-balancer-parameters)
-- [Azure Kubernetes Service - LoadBalancer annotations](https://cloud-provider-azure.sigs.k8s.io/topics/loadbalancer/#loadbalancer-annotations)
+- [Amazon Elastic Kubernetes Service - Use Service Annotations to configure Network Load Balancers](https://docs.aws.amazon.com/eks/latest/userguide/auto-configure-nlb.html){target="_blank"}
+- [Google Kubernetes Engine - LoadBalancer Service parameters](https://cloud.google.com/kubernetes-engine/docs/concepts/service-load-balancer-parameters){target="_blank"}
+- [Azure Kubernetes Service - LoadBalancer annotations](https://cloud-provider-azure.sigs.k8s.io/topics/loadbalancer/#loadbalancer-annotations){target="_blank"}
 
 ## Generate self-signed certificate
 
@@ -158,10 +158,10 @@ A `Route` resource must be created manually when required as part of a deploymen
 
 #### Create the route resource manually
 
-If you want to deploy OpenShift manually using `Routes`, you need to create a .yaml file like below and any changes required can be made in that. To apply those changes in the OpenShift cluster, you can run `kubectl apply` and specify its namespace and location.
+If you want to deploy OpenShift manually using `Routes`, you need to create a `.yaml` file like below and any changes required can be made in that. To apply those changes in the OpenShift cluster, you can run `kubectl apply` and specify its namespace and location.
 For more information, refer to the [OpenShift Route Configuration](https://docs.openshift.com/container-platform/latest/networking/routes/route-configuration.html){target="blank"} documentation.
 
-In some versions of OpenShift, by default, sticky sessions for passthrough `Routes` are enabled in OpenShift using the source (IP) as identifier. To make sure traffic gets forwarded to all DX Compose HAProxy Pods even when another proxy is used in front of it, the `Route` should be annotated as shown in the example below. Please refer to the [OpenShift documentation](https://docs.openshift.com/container-platform/latest/networking/routes/route-configuration.html){target="blank"} to select the appropriate value for your deployment. 
+In some versions of OpenShift, by default, sticky sessions for passthrough `Routes` are enabled in OpenShift using the source (IP) as identifier. To make sure traffic gets forwarded to all DX Compose HAProxy Pods even when another proxy is used in front of it, the `Route` should be annotated as shown in the example below. Refer to the [OpenShift documentation](https://docs.openshift.com/container-platform/latest/networking/routes/route-configuration.html){target="blank"} to select the appropriate value for your deployment. 
 
 ```yaml
 apiVersion: "route.openshift.io/v1"
