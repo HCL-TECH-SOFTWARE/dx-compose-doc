@@ -2,7 +2,7 @@
 
 HCL Digital Experience (DX) Compose 9.5 is available in the [HCL Software License Portal (Flexnet)](https://support.hcl-software.com/csm?id=kb_article&sysparm_article=KB0073344){target="_blank"} to customers licensed for the HCL Digital Experience Compose v9.5 offering.
 
-HCL DX Compose software will soon be available through the new [My HCLSoftware portal](https://my.hcltechsw.com/){target="_blank"} (MHS) for customers licensed for the HCL Digital Experience Compose v9.5 offering. This will be parallel to the existing HCL Software License Portal delivered in FlexNet.
+HCL DX Compose software is also available through the new [My HCLSoftware portal](https://my.hcltechsw.com/){target="_blank"} for customers licensed for the HCL Digital Experience Compose v9.5 offering. This is in parallel to the existing HCL Software License Portal delivered in FlexNet, through June 30, 2025. For more information, refer to the [HCL Digital Experience offerings are now available for download from the My HCLSoftware portal](https://support.hcl-software.com/csm?id=kb_article&sysparm_article=KB0120373){target="_blank"} knowledge article.
 
 -   **[Downloading and deploying DX Compose from a Harbor repository](harbor_container_registry.md)**  
 Learn how to download and deploy DX Compose from a Harbor repository.
