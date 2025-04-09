@@ -27,6 +27,8 @@ You can use the following secrets instead of the provided values:
 
 ### External database configuration in the custom `values.yaml` file
 
+#### Sample `values.yaml` file for DB2
+
 ```yaml
 configuration:
   webEngine:
@@ -128,6 +130,109 @@ configuration:
       db2.JdbcProviderName: "wpdbJDBC_db2"
 ```
 
+#### Sample `values.yaml` file for ORACLE
+
+```yaml
+configuration:
+  webEngine:
+    dbDomainProperties:
+      InitializeFeedbackDB: "true"
+      feedback.DbType: "oracle"
+      feedback.DbName: "WPFDBK"
+      feedback.DbSchema: "feedback"
+      feedback.DataSourceName: "wpfdbkdbDS"
+      feedback.DbUrl: "jdbc:oracle:thin:@//<replace-db-host>:<replace-db-port>/WPFDBK:returnAlias=0;"
+      feedback.DbUser: "<replace-db-user>"
+      feedback.DbPassword: "<replace-db-password>"
+      feedback.DbRuntimeUser: "<replace-db-user>"
+      feedback.DbRuntimePassword: "<replace-db-password>"
+      feedback.DBA.DbUser: "<replace-db-user>"
+      feedback.DBA.DbPassword: "<replace-db-password>"
+      feedback.DbConfigRoleName: "WP_PZN_CONFIG_USERS"
+      feedback.DbRuntimeRoleName: "WP_PZN_RUNTIME_USERS"
+      feedback.XDbName: "WPFDBK"
+      feedback.DbNode: "pznNode"
+      likeminds.DbType: "oracle"
+      likeminds.DbName: "WPLM"
+      likeminds.DbSchema: "likeminds"
+      likeminds.DataSourceName: "wplmdbDS"
+      likeminds.DbUrl: "jdbc:oracle:thin:@//<replace-db-host>:<replace-db-port>/WPLM:returnAlias=0;"
+      likeminds.DbUser: "<replace-db-user>"
+      likeminds.DbPassword: "<replace-db-password>"
+      likeminds.DbRuntimeUser: "<replace-db-user>"
+      likeminds.DbRuntimePassword: "<replace-db-password>"
+      likeminds.DBA.DbUser: "<replace-db-user>"
+      likeminds.DBA.DbPassword: "<replace-db-password>"
+      likeminds.DbConfigRoleName: "WP_PZN_CONFIG_USERS"
+      likeminds.DbRuntimeRoleName: "WP_PZN_RUNTIME_USERS"
+      likeminds.XDbName: "WPLM"
+      likeminds.DbNode: "pznNode"
+      release.DbType: "oracle"
+      release.DbName: "WPREL"
+      release.DbSchema: "release"
+      release.DataSourceName: "wpreldbDS"
+      release.DbUrl: "jdbc:oracle:thin:@//<replace-db-host>:<replace-db-port>/WPREL:returnAlias=0;"
+      release.DbUser: "<replace-db-user>"
+      release.DbPassword: "<replace-db-password>"
+      release.DbRuntimeUser: "<replace-db-user>"
+      release.DbRuntimePassword: "<replace-db-password>"
+      release.DBA.DbUser: "<replace-db-user>"
+      release.DBA.DbPassword: "<replace-db-password>"
+      release.DbConfigRoleName: "WP_BASE_CONFIG_USERS"
+      release.DbRuntimeRoleName: "WP_BASE_RUNTIME_USERS"
+      release.XDbName: "WPREL"
+      release.DbNode: "wpsNode"
+      community.DbType: "oracle"
+      community.DbName: "WPCOMM"
+      community.DbSchema: "community"
+      community.DataSourceName: "wpcommdbDS"
+      community.DbUrl: "jdbc:oracle:thin:@//<replace-db-host>:<replace-db-port>/WPCOMM:returnAlias=0;"
+      community.DbUser: "<replace-db-user>"
+      community.DbPassword: "<replace-db-password>"
+      community.DbRuntimeUser: "<replace-db-user>"
+      community.DbRuntimePassword: "<replace-db-password>"
+      community.DBA.DbUser: "<replace-db-user>"
+      community.DBA.DbPassword: "<replace-db-password>"
+      community.DbConfigRoleName: "WP_BASE_CONFIG_USERS"
+      community.DbRuntimeRoleName: "WP_BASE_RUNTIME_USERS"
+      community.XDbName: "WPCOMM"
+      community.DbNode: "wpsNode"
+      customization.DbType: "oracle"
+      customization.DbName: "WPCUST"
+      customization.DbSchema: "customization"
+      customization.DataSourceName: "wpcustdbDS"
+      customization.DbUrl: "jdbc:oracle:thin:@//<replace-db-host>:<replace-db-port>/WPCUST:returnAlias=0;"
+      customization.DbUser: "<replace-db-user>"
+      customization.DbPassword: "<replace-db-password>"
+      customization.DbRuntimeUser: "<replace-db-user>"
+      customization.DbRuntimePassword: "<replace-db-password>"
+      customization.DBA.DbUser: "<replace-db-user>"
+      customization.DBA.DbPassword: "<replace-db-password>"
+      customization.DbConfigRoleName: "WP_BASE_CONFIG_USERS"
+      customization.DbRuntimeRoleName: "WP_BASE_RUNTIME_USERS"
+      customization.XDbName: "WPCUST"
+      customization.DbNode: "wpsNode"
+      jcr.DbType: "oracle"
+      jcr.DbName: "WPJCR"
+      jcr.DbSchema: "jcr"
+      jcr.DataSourceName: "wpjcrdbDS"
+      jcr.DbUrl: "jdbc:oracle:thin:@//<replace-db-host>:<replace-db-port>/WPJCR:returnAlias=0;"
+      jcr.DbUser: "<replace-db-user>"
+      jcr.DbPassword: "<replace-db-password>"
+      jcr.DbRuntimeUser: "<replace-db-user>"
+      jcr.DbRuntimePassword: "<replace-db-password>"
+      jcr.DBA.DbUser: "<replace-db-user>"
+      jcr.DBA.DbPassword: "<replace-db-password>"
+      jcr.DbConfigRoleName: "WP_JCR_CONFIG_USERS"
+      jcr.DbRuntimeRoleName: "WP_JCR_RUNTIME_USERS"
+      jcr.XDbName: "WPJCR"
+      jcr.DbNode: "wpsNode"
+    dbTypeProperties:
+      oracle.DbDriver: "oracle.jdbc.driver.OracleDriver"
+      oracle.DbLibrary: "/opt/openliberty/wlp/usr/svrcfg/templates/jars/oracle/ojdbc11.jar:/opt/openliberty/wlp/usr/svrcfg/templates/jars/oracle/xdb6-11.2.0.4.jar"
+      oracle.JdbcProviderName: "wpdbJDBC_oracle"
+```
+
 ### External database configuration in the custom secrets file
 
 ```yaml
@@ -194,3 +299,6 @@ Refer to the following table for more information about the properties you can u
 | db2.DbDriver | Name of the database driver class for IBM DB2. |
 | db2.DbLibrary | Path to the database driver library for IBM DB2. |
 | db2.JdbcProviderName | Name of the JDBC provider for IBM DB2. |
+| oracle.DbDriver | Name of the database driver class for ORACLE DB. |
+| oracle.DbLibrary | Path to the database driver library for ORACLE DB. |
+| oracle.JdbcProviderName | Name of the JDBC provider for ORACLE DB. |
