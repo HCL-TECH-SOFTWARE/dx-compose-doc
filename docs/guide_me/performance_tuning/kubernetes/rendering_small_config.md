@@ -16,7 +16,7 @@ The following table contains the rendering scenario details for a small configur
 
 | Concurrent users     |  WCM pages         |  DAM content         |  Pages and portlets content   |
 | -------------------- | ------------------ | -------------------- | ----------------------------- |
-| 1,000 users          | 20                 | 2,500                |    8                          |
+| 1,000 users          | 20                 | 2,500                |    6                          |
 
 For more information about the setup of test data, refer to the following sections:
 
