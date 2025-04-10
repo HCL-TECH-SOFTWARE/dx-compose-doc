@@ -98,7 +98,7 @@ Modifications were made to the initial Helm chart configuration during the tests
 |                               |                 | Request         | Request             | Limit           | Limit                |
 |-------------------------------|-----------------|-----------------|---------------------|-----------------|----------------------|
 | **Component**                 | **No. of pods** | **CPU (m)<br>** | **Memory (Mi)<br>** | **CPU (m)<br>** | **Memory (Mi)<br>**  |
-| **Webengine**                 | **1**           | **4300**        | **6144**            | **4300**        | **6144**             |
+| **Webengine**                 | **1**           | **4300**        | **5120**            | **4300**        | **5120**             |
 | digitalAssetManagement        | 1               | 500             | 1536                | 500             | 1536                 |
 | **imageProcessor**            | 1               | 200             | **768**             | 200             | **768**              |
 | **openLdap**                  | 1               | 200             | **1024**            | 200             | **1024**             |

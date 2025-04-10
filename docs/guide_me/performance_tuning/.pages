@@ -1,0 +1,4 @@
+title: Performance Tuning Guides
+nav:
+    - index.md
+    - kubernetes
