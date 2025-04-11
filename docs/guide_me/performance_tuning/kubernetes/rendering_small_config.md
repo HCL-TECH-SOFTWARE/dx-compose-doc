@@ -60,7 +60,7 @@ The test results revealed no errors or pod restarts during execution. Following 
 
 The test results were analyzed using Prometheus and Grafana dashboards. Resource limits were adjusted based on CPU and memory usage observations from Grafana during the load tests. Additionally, by reviewing and updating the cache statistics tool, the results showed optimal performance, with improvements in both average and 95th percentile response times. The next section provides detailed guidance on using the cache statistics tool and the tuning steps.
 
- ### WebEngine Cache Statistics Tool
+### WebEngine Cache Statistics Tool
 
 This tool allows you to monitor the OpenLiberty Dynacache statistics for the DX Compose webEngine pod.
 
