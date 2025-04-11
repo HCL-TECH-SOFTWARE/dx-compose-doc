@@ -29,10 +29,11 @@ For more information about the setup of test data, refer to the following sectio
 This section provides details for the Kubernetes cluster, JMeter agents, and database.
 
 ### AWS/Native Kubernetes
+The Kubernetes platform was deployed on an Amazon EC2 instance with DX images installed and configured. In the AWS/Native Kubernetes setup, the tests were conducted on EC2 instances using a single c5.2xlarge node, along with a c5.2xlarge remote DB2 instance for the core database and a JMeter instance.
 
-The Kubernetes platform ran on an Amazon EC2 instance with the DX images installed and configured. In AWS/Native Kubernetes, the tests were executed in EC2 instances with one c5.2xlarge node. Refer to the following node setup details:
+Refer to the following setup details:
 
-**c5.2xlarge node**
+**c5.2xlarge**
 
 - Node details
 
@@ -46,78 +47,68 @@ The Kubernetes platform ran on an Amazon EC2 instance with the DX images install
 
 - Volume details
 
-      ![](../../../images/AWS-Native-Kube-Volume-Info.png){ width="600" }
+      ![](../../../images/Remote-DB2-Volume-Info-Compose-Small.png){ width="400" }
 
-### DB2 instance
-
-The tests used a c5.2xlarge remote DB2 instance for the core database. Refer to the following DB2 setup details:
-
-**c5.2xlarge remote DB2 instance**
-
-- DB2 details
-
-       ![](../../../images/Header-1-AWS.png){ width="1000" }
-
-       ![](../../../images/C5.2xlarge.png){ width="1000" }
-
-- Processor details
-
-       ![](../../../images/Processor_Info_RemoteDB2.png){ width="600" }
-
-- Volume details
-
-       ![](../../../images/Remote-DB2-Volume-Info.png){ width="600" }
-
-### JMeter agents
-
-To run the tests, a distributed AWS/JMeter agents setup consisting of one primary and two subordinate C5.xlarge instances was used. Refer to the following JMeter setup details:
-
-**C5.xlarge JMeter instance**
-
-- Instance details
-
-       ![](../../../images/Header-1-AWS.png){ width="1000" }
-
-       ![](../../../images/C5.xlarge.png){ width="1000" }
-
-- Processor details
-
-       ![](../../../images/Processor_Info_JMeterAgent.png){ width="600" }
-
-- Volume details
-
-       ![](../../../images/JMeter-Agent-Volume-Info.png){ width="600" }
 
 !!!note
-      Ramp-up time is 0.5 seconds per user. The test duration includes the ramp-up time plus one hour at the peak load of concurrent users.
+      Ramp-up time is 0.4 seconds per user. The test duration includes the ramp-up time plus one hour at the peak load of concurrent users.
 
-### DX Compose tuning
-
-Modifications were made to the initial Helm chart configuration during the tests. The following table outlines the pod count and limits for each pod. After applying these values, the setup showed significantly improved responsiveness. These changes allowed the system to handle 1,000 concurrent users with an improved error rate, average response time, throughput, and an event loop lag of Ring API containers.
-
-|                               |                 | Request         | Request             | Limit           | Limit                |
-|-------------------------------|-----------------|-----------------|---------------------|-----------------|----------------------|
-| **Component**                 | **No. of pods** | **CPU (m)<br>** | **Memory (Mi)<br>** | **CPU (m)<br>** | **Memory (Mi)<br>**  |
-| **Webengine**                 | **1**           | **4300**        | **5120**            | **4300**        | **5120**             |
-| digitalAssetManagement        | 1               | 500             | 1536                | 500             | 1536                 |
-| **imageProcessor**            | 1               | 200             | **768**             | 200             | **768**              |
-| **openLdap**                  | 1               | 200             | **1024**            | 200             | **1024**             |
-| **persistenceNode**           | 1               | **200**         | **500**             | **100**         | **500**              |
-| **persistenceConnectionPool** | 1               | **300**         | **512**             | **300**         | **512**              |
-| **ringApi**                   | 1               | **200**         | **256**             | **200**         | **256**              |
-| **haproxy**                   | 1               | **500**         | **500**             | **500**         | **500**              |
-| **Total**                     |                 | **6400**        | **11240**           | **6300**        | **11240**            |
-
-!!!note
-     Values in bold are tuned Helm values while the rest are default minimal values.
 
 ## Results
 
- The test results showed no errors or pod restarts throughout the execution. After implementing the tuning changes, both the total average response time and overall throughput improved significantly. Additionally, the average response time for the top five requests showed a noticeable improvement, further validating the effectiveness of the optimizations.
+The test results revealed no errors or pod restarts during execution. Following the implementation of the [tuning changes](./rendering_small_config.md#dx-compose-tuning), there was a significant improvement in both the total average response time and overall throughput. Furthermore, the average response time for the top five requests demonstrated a marked enhancement, confirming the effectiveness of the optimizations.
+
+The test results were analyzed using Prometheus and Grafana dashboards. Resource limits were adjusted based on CPU and memory usage observations from Grafana during the load tests. Additionally, by reviewing and updating the cache statistics tool, the results showed optimal performance, with improvements in both average and 95th percentile response times. The next section provides detailed guidance on using the cache statistics tool and the tuning steps.
+
+ ### WebEngine Cache Statistics Tool
+
+This tool allows you to monitor the OpenLiberty Dynacache statistics for the DX Compose webEngine pod.
+
+To utilize the Dynacache Statistics tool, copy the [LibertyCacheStatistics](./LibertyCacheStatistics.war) WAR file into the `webEngine` pod's `defaultServer` dropins folder. Use the following `kubectl` command:
+
+```
+kubectl cp LibertyCacheStatistics.war dx-deployment-web-engine-0:/opt/openliberty/wlp/usr/servers/defaultServer/dropins -n <namespace>
+```
+Access the cache statistics by opening the following URL in your browser: `https://<hostName>/LibertyCacheStatistics/`. This page displays detailed cache information, including sizes, explicit removals, and LRU removals etc.
+
+### DX Compose tuning
+
+Modifications to the initial Helm chart configuration were applied during testing. The table below specifies the pod count and resource limits for each pod. Additionally, certain WCM Dynacache sizes, lifetimes, and JVM heap sizes were adjusted based on cache statistics. For further details, see the [Recommendations](./rendering_small_config.md/#recommendations) section on performing a Helm upgrade using `webengine-performance-rendering.yaml`.
+
+After applying the updated Helm values and cache adjustments, the system exhibited significant improvements in responsiveness. These changes enabled the setup to handle 1,000 concurrent users with better error rates, reduced average response times, increased throughput, and improved 95th percentile response times.
+
+|  |  | Request | Request | Limit | Limit |
+|---|---|---:|---|---|---|
+| **Component** | **No. of pods** | **cpu (m)<br>** | **memory (Mi)<br>** | **cpu (m)<br>** | **memory (Mi)<br>** |
+| contentComposer | 1 | 100 | 128 | 100 | 128 |
+| **webEngine** | 1 | **4300** | **5120** | **4300** | **5120** |
+| digitalAssetManagement | 1 | 500 | 1536 | 500 | 1536 |
+| **imageProcessor** | 1 | **100** | **768** | **100** | **768** |
+| **openLdap** | 1 | **100** | **1024** | **100** | **1024** |
+| **persistenceNode** | 1 | **200** | 1024 | **200** | 1024 |
+| **persistenceConnectionPool** | 1 | **300** | 512 | **300** | 512 |
+| **ringApi** | 1 | **200** | 256 | **200** | 256 |
+| runtimeController | 1 | 100 | 256 | 100 | 256 |
+| **haproxy** | 1 | **500** | **512** | **500** | **512** |
+| licenseManager | 1 | 100 | 300 | 100 | 300 |
+| **Total** | | **6500** | **11436** | **6500** | **11436** |
+
+
+!!!note
+     Values in bold are tuned Helm values while the rest are default minimal values.
+     Cache value changes depend on the test data, it is recommended to monitor cache statistics regularly and update them as necessary. To learn how to monitor cache statistics, see [Using the WebEngine Cache Statistics Tool](./rendering_small_config.md#webengine-cache-statistics-tool).
+
+For convenience, these values were added to the `small-config-values.yaml` file in the hcl-dx-deployment Helm chart. To use these values, refer to the following steps:
+
+1. Download the `hcl-dx-deployment` Helm chart from FlexNet or Harbor.
+
+2. Extract the `hcl-dx-deployment-XXX.tgz` file.
+
+3. In the extracted folder, navigate to `hcl-dx-deployment/value-samples/webEngine/small-config-values.yaml` and copy the `small-config-values.yaml` file.
 
 ## Conclusion
 
-This guidance shows the upper limit on a single-node K8s cluster AWS c5.2xlarge instance. For c5.2xlarge single-node rendering scenarios for DAM, WCM, and DX pages with portlets, the recommended load is 1,000 concurrent users.
+This guidance outlines the maximum capacity for a single-node Kubernetes cluster deployed on an AWS c5.2xlarge instance. For rendering scenarios involving DAM, WCM, and DX pages with portlets on a c5.2xlarge single-node setup, the recommended load is up to 1,000 concurrent users.
 
 ## Recommendations
 
@@ -131,9 +122,4 @@ This guidance shows the upper limit on a single-node K8s cluster AWS c5.2xlarge 
        2. Extract the hcl-dx-deployment-XXX.tgz file.
        3. In the extracted folder, navigate to hcl-dx-deployment/performance/webengine-performance-rendering.yaml and copy the `webengine-performance-rendering.yaml`.
 
-       After performing the Helm upgrade using the `webengine-performance-rendering.yaml` file, the following cache values will be updated.
-
-       ![](../../../images/dx-compose-tunning-small.png){ width="1000" }
-
-???+ info "Related information"
-    - [Performance Tuning Guide for Traditional Deployments](../traditional_deployments.md)
+       Performm Helm upgrade using the file `webengine-performance-rendering.yaml` file, all the rendering tuned cache values will be updated.

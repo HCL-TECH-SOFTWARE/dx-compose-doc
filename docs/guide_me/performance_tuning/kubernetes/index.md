@@ -4,7 +4,7 @@ This section provides sizing guides for HCL Digital Experience (DX) Compose rend
 
 ## Introduction
 
-In  DX Compose performance testing, it is important to determine both DX container sizing and the relationships between the components that make up DX. The goal of performance testing is to identify the optimal Kubernetes configurations for varying levels of DX demands, ranging from small to large setups. This sizing guidance evaluates configurations supporting 1,000, 10,000, and 30,000 virtual users for small, medium, and large setups, respectively.
+In  DX Compose performance testing, it is important to determine both DX container sizing and the relationships between the components that make up DX. The goal of performance testing is to identify the optimal Kubernetes configurations for varying levels of DX demands, ranging from small to large setups. This sizing guidance evaluates configurations supporting 1,000 virtual users for small, medium, and large setups, respectively.
 
 The key performance indicators in these tests are the number of concurrent users, the average response time, and throughput. These metrics serve as benchmarks for evaluating the performance of small, medium, and large DX configurations and offer insights into the system's capacity to handle varying loads. This sizing guidance demonstrates how strategic adjustments can result in significant performance improvements.
 
@@ -137,7 +137,7 @@ Examples of DAM asset rendering APIs of UUID, Custom URL, and Friendly URL are p
 
 The following setup includes different types of commonly used portlets, as listed in this section. Performance tests measure the response time required to render an entire page with its associated portlets. Knowing the response times for rendering pages is important, as these portlets are frequently used in DX content. Refer to the following list for more information about this setup:
 
-- The tests included 8 unique pages with portlets for the small configuration and 80 pages for the medium and large configurations.
+- The tests included 6 unique pages with portlets for the small configuration and 60 pages for the medium and large configurations.
 - Both anonymous and authenticated users were granted access for authoring and rendering. The same users utilized in WCM rendering are also used here.
 - All authenticated users were assigned the "User" role.
 - The following list shows the pages, their corresponding page numbers, and the portlet details for authoring on each page:
