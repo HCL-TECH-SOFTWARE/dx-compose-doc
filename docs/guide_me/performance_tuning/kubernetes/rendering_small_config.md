@@ -58,7 +58,9 @@ Refer to the following setup details:
 
 The test results revealed no errors or pod restarts during execution. Following the implementation of the [tuning changes](./rendering_small_config.md#dx-compose-tuning), there was a significant improvement in both the total average response time and overall throughput. Furthermore, the average response time for the top five requests demonstrated a marked enhancement, confirming the effectiveness of the optimizations.
 
-The test results were analyzed using Prometheus and Grafana dashboards. Resource limits were adjusted based on CPU and memory usage observations from Grafana during the load tests. Additionally, by reviewing and updating the cache statistics tool, the results showed optimal performance, with improvements in both average and 95th percentile response times. The next section provides detailed guidance on using the cache statistics tool and the tuning steps.
+The test results were analyzed using Prometheus and Grafana dashboards. Resource limits were adjusted based on CPU and memory usage observations from Grafana during the load tests. Additionally, by reviewing and updating the cache statistics tool, the results showed optimal performance, with improvements in both average and 95th percentile response times. For HAProxy and webEngine pods, the CPU and memory limits were fully utilized. These limits were increased based on the CPU and memory usage observations from Grafana during the load test.
+
+The next section provides detailed guidance on using the cache statistics tool and the tuning steps.
 
 ### WebEngine Cache Statistics Tool
 
@@ -113,6 +115,8 @@ This guidance outlines the maximum capacity for a single-node Kubernetes cluster
 ## Recommendations
 
 - For a small-sized workload in AWS, start the Kubernetes cluster with a single node using at least a c5.2xlarge instance to support a load of 1,000 users.
+
+- By increasing the webEngine CPU cores by 1.3, adjusting HAProxy from 200m to 500m, and modifying ringApi from 100m to 200m, the total average response time improved significantly—achieving a 10x enhancement. To support these adjustments, CPU limits for persistenceNode, persistenceConnectionPool, and imageProcessor were reduced, prioritizing the optimization of rendering scenarios.
 
 - To hold more authenticated users for testing purposes, increase the OpenLDAP pod CPU and memory values. Note that the OpenLDAP pod is not for production use.
 
