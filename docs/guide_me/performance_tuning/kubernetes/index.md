@@ -1,20 +1,20 @@
 # Performance Sizing Guide for Kubernetes Deployments
 
-This section provides sizing guides for HCL Digital Experience (DX) Compose rendering scenarios in a Kubernetes configuration. The goal of these sizing guides is to identify the optimal Kubernetes configurations for varying levels of DX demands, ranging from small to large setups. Additionally, this guide provides tuning recommendations for Kubernetes pods based on their specific workloads, such as rendering-intensive tasks.
+This section provides sizing guides for HCL Digital Experience (DX) Compose rendering scenarios in a Kubernetes configuration. The goal of these sizing guides is to identify the optimal Kubernetes configurations for varying levels of DX Compose demands, ranging from small to large setups. Additionally, this guide provides tuning recommendations for Kubernetes pods based on their specific workloads, such as rendering-intensive tasks.
 
 ## Introduction
 
-In  DX Compose performance testing, it is important to determine both DX container sizing and the relationships between the components that make up DX. The goal of performance testing is to identify the optimal Kubernetes configurations for varying levels of DX demands, ranging from small to large setups. This sizing guidance evaluates configurations supporting 1,000 virtual users for small, medium, and large setups, respectively.
+In DX Compose performance testing, it is important to determine both DX Compose container sizing and the relationships between the components that make up DX Compose. The goal of performance testing is to identify the optimal Kubernetes configurations for varying levels of DX Compose demands, ranging from small to large setups. This sizing guidance evaluates configurations supporting 1,000 virtual users for small, medium, and large setups, respectively.
 
-The key performance indicators in these tests are the number of concurrent users, the average response time, and throughput. These metrics serve as benchmarks for evaluating the performance of small, medium, and large DX configurations and offer insights into the system's capacity to handle varying loads. This sizing guidance demonstrates how strategic adjustments can result in significant performance improvements.
+The key performance indicators in these tests are the number of concurrent users, the average response time, and throughput. These metrics serve as benchmarks for evaluating the performance of small, medium, and large DX Compose configurations and offer insights into the system's capacity to handle varying loads. This sizing guidance demonstrates how strategic adjustments can result in significant performance improvements.
 
-The sizing tests examined rendering scenarios for the Web Content Manager (WCM), Digital Asset Management (DAM), and HCL DX pages and portlets. The tests were facilitated by rendering setups deployed on AWS/Native-Kubernetes, where Kubernetes is installed directly in Amazon Elastic Cloud Compute (EC2) instances. This guide presents a comprehensive overview of the findings, offering guidance for organizations seeking to optimize their DX platforms for peak performance.
+The sizing tests examined rendering scenarios for the Web Content Manager (WCM), Digital Asset Management (DAM), and HCL DX Compose pages and portlets. The tests were facilitated by rendering setups deployed on AWS/Native-Kubernetes, where Kubernetes is installed directly in Amazon Elastic Cloud Compute (EC2) instances. This guide presents a comprehensive overview of the findings, offering guidance for organizations seeking to optimize their DX Compose platforms for peak performance.
 
 ## Definition of terms
 
 Refer to the following definition of terms used throughout the performance tests and sizing guidances:
 
-- Concurrent user: The number of virtual users that are simultaneously sending requests to the target application.
+- Concurrent user: The number of virtual users actively sending requests to the target application simultaneously.
 
 - Thread Groups: Concurrent users are simulated using Thread Groups and are configured using the Threads (Users), the Ramp-up Period, and the Loop Count.
     - Number of Threads (Users): The number of concurrent users.
@@ -40,9 +40,9 @@ Refer to the following definition of terms used throughout the performance tests
 
 Refer to the following methodology used for the performance tests.
 
-### Overview of DX rendering sizing-performance tests
+### Overview of DX Compose rendering sizing-performance tests
 
-These sizing tests evaluated rendering scenarios for WCM, DAM, and HCL DX pages and portlets. The activities used a rendering setup in AWS/Native-Kubernetes, where Kubernetes was installed directly on Amazon EC2 instances. Combination runs were performed that rendered WCM content, DAM assets, and DX pages and portlets. The load distribution was WCM content (40%), DAM assets (30%), and DX pages and portlets (30%). All systems were pre-populated before performing the rendering tests.
+These sizing tests evaluated rendering scenarios for WCM, DAM, and HCL DX Compose pages and portlets. The activities used a rendering setup in AWS/Native-Kubernetes, where Kubernetes was installed directly on Amazon EC2 instances. Combination runs were performed that rendered WCM content, DAM assets, and DX Compose pages and portlets. The load distribution was WCM content (40%), DAM assets (30%), and DX pages and portlets (30%). All systems were pre-populated before performing the rendering tests.
 
 ### Rendering scenarios and users details
 
@@ -135,7 +135,7 @@ Examples of DAM asset rendering APIs of UUID, Custom URL, and Friendly URL are p
 
 #### Pages and portlets default test data
 
-The following setup includes different types of commonly used portlets, as listed in this section. Performance tests measure the response time required to render an entire page with its associated portlets. Knowing the response times for rendering pages is important, as these portlets are frequently used in DX content. Refer to the following list for more information about this setup:
+The following setup includes different types of commonly used portlets. Performance tests measure the response time required to render an entire page along with its associated portlets. Knowing the response times for rendering pages is important, as the portlets on these pages are frequently used in DX Compose content. Refer to the following list for more information about this setup:
 
 - The tests included 6 unique pages with portlets for the small configuration and 60 pages for the medium and large configurations.
 - Both anonymous and authenticated users were granted access for authoring and rendering. The same users utilized in WCM rendering are also used here.

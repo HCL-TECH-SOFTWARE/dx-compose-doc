@@ -8,7 +8,7 @@ This topic provides the details of the environments used for rendering in a smal
 
 ## Methodology
 
-This sizing activity rendered scenarios for the Web Content Manager (WCM), Digital Asset Management (DAM), and HCL Digital Experience (DX) pages and portlets. This activity used a rendering setup enabled in AWS/Native-Kubernetes, where Kubernetes is installed directly in Amazon Elastic Cloud Compute (EC2) instances. A combination run was performed that rendered WCM content, DAM assets, and DX pages and portlets. The load distribution was WCM content (40%), DAM assets (30%), and DX pages and portlets (30%). All systems were pre-populated before performing the rendering tests.
+This sizing activity rendered scenarios for the Web Content Manager (WCM), Digital Asset Management (DAM), and HCL Digital Experience (DX) Compose pages and portlets. This activity used a rendering setup enabled in AWS/Native-Kubernetes, where Kubernetes is installed directly in Amazon Elastic Cloud Compute (EC2) instances. A combination run was performed that rendered WCM content, DAM assets, and DX Compose pages and portlets. The load distribution was WCM content (40%), DAM assets (30%), and DX Compose pages and portlets (30%). All systems were pre-populated before performing the rendering tests.
 
 To achieve the 1,000 concurrent users mark, an initial set of runs was done with a lower number of users on a single node setup. The tests started with the desired load of 1,000 users and an acceptable error rate (< 0.01%). Further steps were taken to optimize the limits on the available resources for each pod.
 
@@ -29,7 +29,8 @@ For more information about the setup of test data, refer to the following sectio
 This section provides details for the Kubernetes cluster, JMeter agents, and database.
 
 ### AWS/Native Kubernetes
-The Kubernetes platform was deployed on an Amazon EC2 instance with DX images installed and configured. In the AWS/Native Kubernetes setup, the tests were conducted on EC2 instances using a single c5.2xlarge node, along with a c5.2xlarge remote DB2 instance for the core database and a JMeter instance.
+
+The Kubernetes platform was deployed on an Amazon EC2 instance with DX Compose images installed and configured. In the AWS/Native Kubernetes setup, the tests were conducted on EC2 instances using a single c5.2xlarge node, a c5.2xlarge remote DB2 instance for the core database, and a JMeter instance.
 
 Refer to the following setup details:
 
@@ -62,22 +63,22 @@ The test results were analyzed using Prometheus and Grafana dashboards. Resource
 
 The next section provides detailed guidance on using the cache statistics tool and the tuning steps.
 
-### WebEngine Cache Statistics Tool
+## WebEngine Cache Statistics tool
 
-This tool allows you to monitor the OpenLiberty Dynacache statistics for the DX Compose webEngine pod.
+The WebEngine Cache Statistics tool allows you to monitor the OpenLiberty Dynacache statistics for the DX Compose webEngine pod.
 
-To utilize the Dynacache Statistics tool, copy the [LibertyCacheStatistics](./LibertyCacheStatistics.war) WAR file into the `webEngine` pod's `defaultServer` dropins folder. Use the following `kubectl` command:
+To use the Dynacache Statistics tool, copy the [LibertyCacheStatistics](./LibertyCacheStatistics.war) WAR file into the `defaultServer/dropins` folder of the `webEngine` pod.  Then, run the following `kubectl` command:
 
 ```
 kubectl cp LibertyCacheStatistics.war dx-deployment-web-engine-0:/opt/openliberty/wlp/usr/servers/defaultServer/dropins -n <namespace>
 ```
-Access the cache statistics by opening the following URL in your browser: `https://<hostName>/LibertyCacheStatistics/`. This page displays detailed cache information, including sizes, explicit removals, and LRU removals etc.
+To access the cache statistics, open the following URL in your browser: `https://<hostName>/LibertyCacheStatistics/`. This page displays detailed cache information, including sizes, explicit removals, and LRU removals.
 
 ### DX Compose tuning
 
-Modifications to the initial Helm chart configuration were applied during testing. The table below specifies the pod count and resource limits for each pod. Additionally, certain WCM Dynacache sizes, lifetimes, and JVM heap sizes were adjusted based on cache statistics. For further details, see the [Recommendations](./rendering_small_config.md/#recommendations) section on performing a Helm upgrade using `webengine-performance-rendering.yaml`.
+Modifications to the initial Helm chart configuration were applied during testing. The following table specifies the pod count and resource limits for each pod. Additionally, certain WCM Dynacache sizes, lifetimes, and JVM heap sizes were adjusted based on cache statistics. For further details, see the [Recommendations](./rendering_small_config.md/#recommendations) section on performing a Helm upgrade using `webengine-performance-rendering.yaml`
 
-After applying the updated Helm values and cache adjustments, the system exhibited significant improvements in responsiveness. These changes enabled the setup to handle 1,000 concurrent users with better error rates, reduced average response times, increased throughput, and improved 95th percentile response times.
+After applying the updated Helm values and cache adjustments, the system showed significantly improved responsiveness. These changes enabled the setup to handle 1,000 concurrent users with better error rates, reduced average response times, increased throughput, and improved 95th percentile response times.
 
 |  |  | Request | Request | Limit | Limit |
 |---|---|---:|---|---|---|
@@ -97,9 +98,9 @@ After applying the updated Helm values and cache adjustments, the system exhibit
 
 
 !!!note
-     Values in bold are tuned Helm values while the rest are default minimal values.
-     Cache value changes depend on the test data, it is recommended to monitor cache statistics regularly and update them as necessary. To learn how to monitor cache statistics, see [Using the WebEngine Cache Statistics Tool](./rendering_small_config.md#webengine-cache-statistics-tool).
-
+     - Values in bold are tuned Helm values while the rest are default minimal values.
+     - Cache value changes depending on the test data. It is recommended to monitor cache statistics regularly and update them as necessary. To learn how to monitor cache statistics, refer to [Using the WebEngine Cache Statistics Tool](./rendering_small_config.md#webengine-cache-statistics-tool).
+     
 For convenience, these values were added to the `small-config-values.yaml` file in the hcl-dx-deployment Helm chart. To use these values, refer to the following steps:
 
 1. Download the `hcl-dx-deployment` Helm chart from FlexNet or Harbor.
@@ -110,7 +111,7 @@ For convenience, these values were added to the `small-config-values.yaml` file 
 
 ## Conclusion
 
-This guidance outlines the maximum capacity for a single-node Kubernetes cluster deployed on an AWS c5.2xlarge instance. For rendering scenarios involving DAM, WCM, and DX pages with portlets on a c5.2xlarge single-node setup, the recommended load is up to 1,000 concurrent users.
+This guidance outlines the maximum capacity for a single-node Kubernetes cluster deployed on an AWS c5.2xlarge instance. For rendering scenarios involving DAM, WCM, and DX Compose pages with portlets on a c5.2xlarge single-node setup, the recommended load is up to 1,000 concurrent users.
 
 ## Recommendations
 
@@ -121,9 +122,8 @@ This guidance outlines the maximum capacity for a single-node Kubernetes cluster
 - To hold more authenticated users for testing purposes, increase the OpenLDAP pod CPU and memory values. Note that the OpenLDAP pod is not for production use.
 
 - To improve response times, perform the Helm upgrade using the `webengine-performance-rendering.yaml` file. This file is available in the HCL DX Deployment Helm chart. To use this file, complete the following steps:
-
        1. Download the hcl-dx-deployment Helm chart from FlexNet or Harbor.
        2. Extract the hcl-dx-deployment-XXX.tgz file.
-       3. In the extracted folder, navigate to hcl-dx-deployment/performance/webengine-performance-rendering.yaml and copy the `webengine-performance-rendering.yaml`.
+       3. In the extracted folder, navigate to `hcl-dx-deployment/performance/webengine-performance-rendering.yaml` and copy the `webengine-performance-rendering.yaml`.
 
-       Performm Helm upgrade using the file `webengine-performance-rendering.yaml` file, all the rendering tuned cache values will be updated.
+       After performing a Helm upgrade using the `webengine-performance-rendering.yaml` file, the tuned cache values for rendering will be updated.
