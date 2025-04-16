@@ -72,7 +72,7 @@ To use the Dynacache Statistics tool, copy the [LibertyCacheStatistics](./Libert
 ```
 kubectl cp LibertyCacheStatistics.war dx-deployment-web-engine-0:/opt/openliberty/wlp/usr/servers/defaultServer/dropins -n <namespace>
 ```
-To access the cache statistics, open the following URL in your browser: `https://<hostName>/LibertyCacheStatistics/`. This page displays detailed cache information, including sizes, explicit removals, and LRU removals.
+To access the cache statistics, open the following URL in your browser: `https://<hostName>/LibertyCacheStatistics/`. This page displays detailed cache information, including sizes, explicit removals, and Least Recently Used (LRU) removals.
 
 ### DX Compose tuning
 
@@ -99,8 +99,8 @@ After applying the updated Helm values and cache adjustments, the system showed 
 
 !!!note
      - Values in bold are tuned Helm values while the rest are default minimal values.
-     - Cache value changes depending on the test data. It is recommended to monitor cache statistics regularly and update them as necessary. To learn how to monitor cache statistics, refer to [Using the WebEngine Cache Statistics Tool](./rendering_small_config.md#webengine-cache-statistics-tool).
-     
+     - Cache value changes depending on the test data. It is recommended to monitor cache statistics regularly and update them as necessary. To learn how to monitor cache statistics, refer to the [WebEngine Cache Statistics Tool](./rendering_small_config.md#webengine-cache-statistics-tool).
+
 For convenience, these values were added to the `small-config-values.yaml` file in the hcl-dx-deployment Helm chart. To use these values, refer to the following steps:
 
 1. Download the `hcl-dx-deployment` Helm chart from FlexNet or Harbor.
@@ -117,11 +117,11 @@ This guidance outlines the maximum capacity for a single-node Kubernetes cluster
 
 - For a small-sized workload in AWS, start the Kubernetes cluster with a single node using at least a c5.2xlarge instance to support a load of 1,000 users.
 
-- By increasing the webEngine CPU cores by 1.3, adjusting HAProxy from 200m to 500m, and modifying ringApi from 100m to 200m, the total average response time improved significantly—achieving a 10x enhancement. To support these adjustments, CPU limits for persistenceNode, persistenceConnectionPool, and imageProcessor were reduced, prioritizing the optimization of rendering scenarios.
+- By increasing the webEngine CPU cores by 1.3, adjusting HAProxy from 200m to 500m, and modifying ringApi from 100m to 200m, The total average response time improved significantly, achieving a tenfold increase in performance. To support these adjustments, CPU limits for persistenceNode, persistenceConnectionPool, and imageProcessor were reduced, prioritizing the optimization of rendering scenarios.
 
 - To hold more authenticated users for testing purposes, increase the OpenLDAP pod CPU and memory values. Note that the OpenLDAP pod is not for production use.
 
-- To improve response times, perform the Helm upgrade using the `webengine-performance-rendering.yaml` file. This file is available in the HCL DX Deployment Helm chart. To use this file, complete the following steps:
+- To improve response times, perform the Helm upgrade using the `webengine-performance-rendering.yaml` file. This file is available in the HCL DX Compose Deployment Helm chart. To use this file, complete the following steps:
        1. Download the hcl-dx-deployment Helm chart from FlexNet or Harbor.
        2. Extract the hcl-dx-deployment-XXX.tgz file.
        3. In the extracted folder, navigate to `hcl-dx-deployment/performance/webengine-performance-rendering.yaml` and copy the `webengine-performance-rendering.yaml`.

@@ -42,7 +42,7 @@ Refer to the following methodology used for the performance tests.
 
 ### Overview of DX Compose rendering sizing-performance tests
 
-These sizing tests evaluated rendering scenarios for WCM, DAM, and HCL DX Compose pages and portlets. The activities used a rendering setup in AWS/Native-Kubernetes, where Kubernetes was installed directly on Amazon EC2 instances. Combination runs were performed that rendered WCM content, DAM assets, and DX Compose pages and portlets. The load distribution was WCM content (40%), DAM assets (30%), and DX pages and portlets (30%). All systems were pre-populated before performing the rendering tests.
+These sizing tests evaluated rendering scenarios for WCM, DAM, and HCL DX Compose pages and portlets. The activities used a rendering setup in AWS/Native-Kubernetes, where Kubernetes was installed directly on Amazon EC2 instances. Combination runs were performed that rendered WCM content, DAM assets, and DX Compose pages and portlets. The load distribution was WCM content (40%), DAM assets (30%), and DX Compose pages and portlets (30%). All systems were pre-populated before performing the rendering tests.
 
 ### Rendering scenarios and users details
 
