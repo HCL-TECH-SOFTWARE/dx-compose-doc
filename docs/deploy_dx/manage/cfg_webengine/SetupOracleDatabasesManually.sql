@@ -191,5 +191,6 @@ CREATE TABLESPACE ICMLSNDX DATAFILE 'jdbc:oracle:thin:@//CWDB01.td.clckwrk.com:1
 --------------------------------------------------------------
 -- For timer tables
 --------------------------------------------------------------
+GRANT DBA TO cwdb01;
 GRANT SELECT ANY SEQUENCE, DROP ANY SEQUENCE TO WP_BASE_CONFIG_USERS; 
 GRANT SELECT ANY SEQUENCE, DROP ANY SEQUENCE TO WP_BASE_RUNTIME_USERS; 
