@@ -1,0 +1,51 @@
+-- NOTE: In DB2 cwdb01 must be created externally. The following creates schemas (equivalent to Oracle users) and assigns cwdb01 as their owner.
+
+CREATE SCHEMA RELEASE      AUTHORIZATION cwdb01;
+CREATE SCHEMA COMMUNITY    AUTHORIZATION cwdb01;
+CREATE SCHEMA CUSTOMIZATION AUTHORIZATION cwdb01;
+CREATE SCHEMA JCR          AUTHORIZATION cwdb01;
+CREATE SCHEMA FEEDBACK     AUTHORIZATION cwdb01;
+CREATE SCHEMA LIKEMINDS    AUTHORIZATION cwdb01;
+
+--------------------------------------------------------------
+-- ROLE CREATION & PRIVILEGE ASSIGNMENTS (example for LIKEMINDS)
+--------------------------------------------------------------
+CREATE ROLE WP_PZN_CONFIG_USERS;
+-- Grant example privileges on the LIKEMINDS schema
+GRANT ALTERIN, CREATETABLE, DROPTABLE, SELECT ON SCHEMA LIKEMINDS TO ROLE WP_PZN_CONFIG_USERS;
+GRANT ROLE WP_PZN_CONFIG_USERS TO USER cwdb01;
+
+CREATE ROLE WP_PZN_RUNTIME_USERS;
+-- In DB2, a common privilege is CONNECT on the database
+GRANT CONNECT ON DATABASE YOURDB TO ROLE WP_PZN_RUNTIME_USERS;
+GRANT ROLE WP_PZN_RUNTIME_USERS TO USER cwdb01;
+
+
+--------------------------------------------------------------
+-- TABLESPACE CREATION
+--------------------------------------------------------------
+-- Create a TABLESPACE, update the path to your database directory
+CREATE TABLESPACE ICMLFQ32
+   MANAGED BY SYSTEM
+   USING ('/db2data/WPJCR_ICMLFQ32_01.dbf')
+   EXTENTSIZE 32;
+
+CREATE TABLESPACE ICMLNF32
+   MANAGED BY SYSTEM
+   USING ('/db2data/WPJCR_ICMLNF32_01.dbf')
+   EXTENTSIZE 32;
+
+CREATE TABLESPACE ICMVFQ04
+   MANAGED BY SYSTEM
+   USING ('/db2data/WPJCR_ICMVFQ04_01.dbf')
+   EXTENTSIZE 32;
+
+CREATE TABLESPACE ICMSFQ04
+   MANAGED BY SYSTEM
+   USING ('/db2data/WPJCR_ICMSFQ04_01.dbf')
+   EXTENTSIZE 32;
+
+CREATE TABLESPACE ICMLSNDX
+   MANAGED BY SYSTEM
+   USING ('/db2data/WPJCR_ICMLSNDX_01.dbf')
+   EXTENTSIZE 32;

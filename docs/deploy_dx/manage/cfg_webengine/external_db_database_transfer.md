@@ -8,6 +8,14 @@ By default, WebEngine comes with a local Derby database included in the image an
 !!! note
     For the currently supported external databases, refer to [Limitations](../../../getting_started/limitations.md).
 
+## Setup external database (schema / user creation):
+This section provides the custom scripts for setting up the external database schemas (or users).
+
+|database| custom setup script|
+|--------|--------------------|
+|DB2|[SetupDb2DatabasesManually.sql](DB2 custom Setup Script)|
+|Oracle|[SetupOracleDatabasesManually.sql](Oracle custom Setup Script)|
+
 ## Configuring an external database
 
 The external database is configured in the Helm custom `values.yaml` file. You can add the values directly to the custom values file or you can reference them from secrets to hide the plain text entries that can contain credentials.
