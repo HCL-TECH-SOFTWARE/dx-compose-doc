@@ -5,24 +5,26 @@ title: Oracle 23ai Custom Setup (Pre-User Creation)
 
 # Oracle 23ai Custom Setup (Pre-User Creation)
 
-Our Oracle 23ai AMI uses a single tenancy model. To avoid working in the CDB (root container), which enforces the 'C##' prefix on certain properties, we instead create a Pluggable Database (PDB).
+By default, Oracle 23ai AMI is launched on shared tenancy infrastructure. If needed, it can be deployed with single tenancy by selecting a dedicated instance or host during EC2 provisioning.
+
+Upon creation, the AMI provisions a Container Database (CDB) only, without a Pluggable Database (PDB). Since the CDB enforces the 'C##' prefix for common users and limits certain configuration options, we recommend creating and working within a Pluggable Database (PDB) for standard user management and application compatibility.
 
 Below are the detailed steps and relevant details for setting up the PDB prior to creating users:
 
 1. **Create Directories with Correct Ownership:**  
    - Create the primary directory and set its ownership to `oracle:oinstall` with permissions set to 0750 (or as specified by your security guidelines):
      ```
-     mkdir -p /opt/oracle/oradata/ORCL/
+     mkdir -p <replace-with-oracle-new-dir>
      ```
      ```
-     mkdir -p /opt/oracle/product/23ai/dbhomeFree/ORCL
+     mkdir -p `<oracle-db-home>/ORCL`
      ```
 **Note:** *Ensure ownership: `oracle:oinstall` with 0750 (or similar) permissions*
 
 2. **Log into sqlplus on the Oracle AMI Instance as DBA:**  
    Establish an SSH session, elevate privileges, and start sqlplus as the oracle user:
    ```
-   ssh -i "test-automation-deployments.pem" -o "StrictHostKeyChecking=no" cloud-user@<IP>
+   ssh  <oracle-user>@<IP>
    sudo su
    su - oracle
    sqlplus / as sysdba
@@ -34,7 +36,7 @@ Below are the detailed steps and relevant details for setting up the PDB prior t
    ```
    CREATE PLUGGABLE DATABASE ORCL ADMIN USER <replace-with-user> IDENTIFIED BY <replace-with-user-password> 
    ROLES=(DBA) 
-   FILE_NAME_CONVERT = ('/opt/oracle/oradata/FREE/pdbseed/', '/opt/oracle/oradata/ORCL/');
+   FILE_NAME_CONVERT = ('<replace-with-oracle-existing-dir>', '<replace-with-oracle-new-dir>');
    ```
 
 4. **Open the Pluggable Database:**  
@@ -61,7 +63,7 @@ Below are the detailed steps and relevant details for setting up the PDB prior t
    Create a tablespace for user data. The `AUTOEXTEND ON` option allows the datafile to grow as needed:
    ```
    CREATE TABLESPACE USERS 
-   DATAFILE '/opt/oracle/oradata/ORCL/users.dbf' 
+   DATAFILE '<replace-with-oracle-new-dir>/users.dbf' 
    SIZE 1G 
    AUTOEXTEND ON;
    ```
