@@ -1,3 +1,11 @@
+/****************************************************************************************************
+ * ★★★★★ IMPORTANT WARNING ★★★★★
+ * PLEASE REVIEW AND UPDATE ALL USERS, ROLES, AND PATHS ACCORDING TO YOUR ENVIRONMENT.
+ * This sample script is provided as a template. BEFORE EXECUTION, ensure that you modify the
+ * user names, role definitions, and file paths to match your specific requirements and
+ * security policies.
+ ****************************************************************************************************/
+
 -- NOTE: create a database name WPSDB & user. And update below query with your database connect user (db2inst1) and password (diet4coke)
 CONNECT TO WPSDB USER db2inst1 USING diet4coke;
 CREATE SCHEMA release AUTHORIZATION db2inst1;

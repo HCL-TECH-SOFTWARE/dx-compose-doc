@@ -1,3 +1,11 @@
+/****************************************************************************************************
+ * ★★★★★ IMPORTANT WARNING ★★★★★
+ * PLEASE REVIEW AND UPDATE ALL USERS, ROLES, AND PATHS ACCORDING TO YOUR ENVIRONMENT.
+ * This sample script is provided as a template. BEFORE EXECUTION, ensure that you modify the
+ * user names, role definitions, and file paths to match your specific requirements and
+ * security policies.
+ ****************************************************************************************************/
+
 -- Create login user cwdb01 (can replace with your login user and password)
 CREATE USER cwdb01 
 	IDENTIFIED BY p0rtal4u 
@@ -34,7 +42,7 @@ GRANT SELECT ON DBA_PENDING_TRANSACTIONS TO WP_BASE_RUNTIME_USERS;
 GRANT WP_BASE_RUNTIME_USERS TO cwdb01;
  
 --------------------------------------------------------------
--- SETUP for schema RELEASE
+-- SETUP for schema COMMUNITY
 --------------------------------------------------------------
 CREATE USER community 
 	IDENTIFIED BY p0rtal4u 
@@ -60,7 +68,7 @@ GRANT SELECT ON DBA_PENDING_TRANSACTIONS TO WP_BASE_RUNTIME_USERS;
 GRANT WP_BASE_RUNTIME_USERS TO cwdb01;
  
 --------------------------------------------------------------
--- SETUP for schema RELEASE
+-- SETUP for schema CUSTOMIZATION
 --------------------------------------------------------------
 CREATE USER customization 
 	IDENTIFIED BY p0rtal4u 
@@ -86,7 +94,7 @@ GRANT SELECT ON DBA_PENDING_TRANSACTIONS TO WP_BASE_RUNTIME_USERS;
 GRANT WP_BASE_RUNTIME_USERS TO cwdb01;
  
 --------------------------------------------------------------
--- SETUP for schema RELEASE
+-- SETUP for schema JCR
 --------------------------------------------------------------
 CREATE USER jcr 
 	IDENTIFIED BY p0rtal4u 
@@ -124,7 +132,7 @@ GRANT SELECT ON DBA_PENDING_TRANSACTIONS TO WP_JCR_RUNTIME_USERS;
 GRANT WP_JCR_RUNTIME_USERS TO cwdb01;
  
 --------------------------------------------------------------
--- SETUP for schema RELEASE
+-- SETUP for schema FEEDBACK
 --------------------------------------------------------------
 CREATE USER feedback 
 	IDENTIFIED BY p0rtal4u 
@@ -153,7 +161,7 @@ GRANT SELECT ON DBA_PENDING_TRANSACTIONS TO WP_PZN_RUNTIME_USERS;
 GRANT WP_PZN_RUNTIME_USERS TO cwdb01;
  
 --------------------------------------------------------------
--- SETUP for schema RELEASE
+-- SETUP for schema LIKEMINDS
 --------------------------------------------------------------
 CREATE USER likeminds 
 	IDENTIFIED BY p0rtal4u 
