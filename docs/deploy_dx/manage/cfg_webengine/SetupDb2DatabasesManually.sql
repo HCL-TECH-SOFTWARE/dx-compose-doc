@@ -6,9 +6,10 @@
  * security policies.
  ****************************************************************************************************/
 
--- NOTE: create a database name WPSDB & user. And update below query with your database connect user (db2inst1) and password (diet4coke)
-CONNECT TO WPSDB USER db2inst1 USING diet4coke;
-CREATE SCHEMA release AUTHORIZATION db2inst1;
+-- NOTE: create a database name WPSDB & user. And update below query with your database connect user (<replace-with-user>) and password (<replace-with-user-password>)
+-- NOTE: make sure replace the <replace-with-user> and <replace-with-user-password> with your database connect user and password
+CONNECT TO WPSDB USER <replace-with-user> USING <replace-with-user-password>;
+CREATE SCHEMA release AUTHORIZATION <replace-with-user>;
 COMMIT;
 
 GRANT CONNECT, CREATETAB ON DATABASE TO GROUP WP_BASE_CONFIG_USERS;
@@ -19,8 +20,8 @@ GRANT USAGE ON WORKLOAD SYSDEFAULTUSERWORKLOAD TO GROUP WP_BASE_CONFIG_USERS;
 
 CONNECT RESET;
 
-CONNECT TO WPSDB USER db2inst1 USING diet4coke;
-CREATE SCHEMA community AUTHORIZATION db2inst1;
+CONNECT TO WPSDB USER <replace-with-user> USING <replace-with-user-password>;
+CREATE SCHEMA community AUTHORIZATION <replace-with-user>;
 COMMIT;
 
 GRANT CONNECT, CREATETAB ON DATABASE TO GROUP WP_BASE_CONFIG_USERS;
@@ -31,8 +32,8 @@ GRANT USAGE ON WORKLOAD SYSDEFAULTUSERWORKLOAD TO GROUP WP_BASE_CONFIG_USERS;
 
 CONNECT RESET;
 
-CONNECT TO WPSDB USER db2inst1 USING diet4coke;
-CREATE SCHEMA customization AUTHORIZATION db2inst1;
+CONNECT TO WPSDB USER <replace-with-user> USING <replace-with-user-password>;
+CREATE SCHEMA customization AUTHORIZATION <replace-with-user>;
 COMMIT;
 
 GRANT CONNECT, CREATETAB ON DATABASE TO GROUP WP_BASE_CONFIG_USERS;
@@ -43,8 +44,8 @@ GRANT USAGE ON WORKLOAD SYSDEFAULTUSERWORKLOAD TO GROUP WP_BASE_CONFIG_USERS;
 
 CONNECT RESET;
 
-CONNECT TO WPSDB USER db2inst1 USING diet4coke;
-CREATE SCHEMA jcr AUTHORIZATION db2inst1;
+CONNECT TO WPSDB USER <replace-with-user> USING <replace-with-user-password>;
+CREATE SCHEMA jcr AUTHORIZATION <replace-with-user>;
 COMMIT;
 
 GRANT CONNECT, CREATETAB ON DATABASE TO GROUP WP_JCR_CONFIG_USERS;
@@ -63,8 +64,8 @@ GRANT USE OF TABLESPACE ICMLSUSRTSPACE4 TO GROUP WP_JCR_CONFIG_USERS;
 
 CONNECT RESET;
 
-CONNECT TO WPSDB USER db2inst1 USING diet4coke;
-CREATE SCHEMA feedback AUTHORIZATION db2inst1;
+CONNECT TO WPSDB USER <replace-with-user> USING <replace-with-user-password>;
+CREATE SCHEMA feedback AUTHORIZATION <replace-with-user>;
 COMMIT;
 
 GRANT CONNECT, CREATETAB ON DATABASE TO GROUP WP_PZN_CONFIG_USERS;
@@ -75,8 +76,8 @@ GRANT USAGE ON WORKLOAD SYSDEFAULTUSERWORKLOAD TO GROUP WP_PZN_CONFIG_USERS;
 
 CONNECT RESET;
 
-CONNECT TO WPSDB USER db2inst1 USING diet4coke;
-CREATE SCHEMA likeminds AUTHORIZATION db2inst1;
+CONNECT TO WPSDB USER <replace-with-user> USING <replace-with-user-password>;
+CREATE SCHEMA likeminds AUTHORIZATION <replace-with-user>;
 COMMIT;
 
 GRANT CONNECT, CREATETAB ON DATABASE TO GROUP WP_PZN_CONFIG_USERS;

@@ -5,10 +5,9 @@
  * user names, role definitions, and file paths to match your specific requirements and
  * security policies.
  ****************************************************************************************************/
-
--- Create login user cwdb01 (can replace with your login user and password)
-CREATE USER cwdb01 
-	IDENTIFIED BY p0rtal4u 
+-- Note make sure replace the <replace-with-user> and <replace-with-user-password> with your database connect user and password
+CREATE USER <replace-with-user> 
+	IDENTIFIED BY <replace-with-user-password> 
 	DEFAULT TABLESPACE USERS 
 	TEMPORARY TABLESPACE TEMP; 
 
@@ -17,7 +16,7 @@ CREATE USER cwdb01
 -- SETUP for schema RELEASE
 --------------------------------------------------------------
 CREATE USER release 
-	IDENTIFIED BY p0rtal4u 
+	IDENTIFIED BY <replace-with-user-password> 
 	DEFAULT TABLESPACE USERS 
 	TEMPORARY TABLESPACE TEMP; 
         
@@ -33,19 +32,19 @@ GRANT ALTER ANY TABLE, CREATE ANY TABLE, DROP ANY TABLE,
       
       
 GRANT SELECT ON DBA_PENDING_TRANSACTIONS TO WP_BASE_CONFIG_USERS;
-GRANT WP_BASE_CONFIG_USERS TO cwdb01;
+GRANT WP_BASE_CONFIG_USERS TO <replace-with-user>;
     
     
 CREATE ROLE WP_BASE_RUNTIME_USERS NOT IDENTIFIED;
 GRANT CREATE SESSION TO WP_BASE_RUNTIME_USERS;
 GRANT SELECT ON DBA_PENDING_TRANSACTIONS TO WP_BASE_RUNTIME_USERS;
-GRANT WP_BASE_RUNTIME_USERS TO cwdb01;
+GRANT WP_BASE_RUNTIME_USERS TO <replace-with-user>;
  
 --------------------------------------------------------------
 -- SETUP for schema COMMUNITY
 --------------------------------------------------------------
 CREATE USER community 
-	IDENTIFIED BY p0rtal4u 
+	IDENTIFIED BY <replace-with-user-password> 
 	DEFAULT TABLESPACE USERS 
 	TEMPORARY TABLESPACE TEMP; 
         
@@ -60,18 +59,18 @@ GRANT ALTER ANY TABLE, CREATE ANY TABLE, DROP ANY TABLE,
       
       
 GRANT SELECT ON DBA_PENDING_TRANSACTIONS TO WP_BASE_CONFIG_USERS;
-GRANT WP_BASE_CONFIG_USERS TO cwdb01;
+GRANT WP_BASE_CONFIG_USERS TO <replace-with-user>;
     
     
 GRANT CREATE SESSION TO WP_BASE_RUNTIME_USERS;
 GRANT SELECT ON DBA_PENDING_TRANSACTIONS TO WP_BASE_RUNTIME_USERS;
-GRANT WP_BASE_RUNTIME_USERS TO cwdb01;
+GRANT WP_BASE_RUNTIME_USERS TO <replace-with-user>;
  
 --------------------------------------------------------------
 -- SETUP for schema CUSTOMIZATION
 --------------------------------------------------------------
 CREATE USER customization 
-	IDENTIFIED BY p0rtal4u 
+	IDENTIFIED BY <replace-with-user-password> 
 	DEFAULT TABLESPACE USERS 
 	TEMPORARY TABLESPACE TEMP; 
         
@@ -86,18 +85,18 @@ GRANT ALTER ANY TABLE, CREATE ANY TABLE, DROP ANY TABLE,
       
       
 GRANT SELECT ON DBA_PENDING_TRANSACTIONS TO WP_BASE_CONFIG_USERS;
-GRANT WP_BASE_CONFIG_USERS TO cwdb01;
+GRANT WP_BASE_CONFIG_USERS TO <replace-with-user>;
     
     
 GRANT CREATE SESSION TO WP_BASE_RUNTIME_USERS;
 GRANT SELECT ON DBA_PENDING_TRANSACTIONS TO WP_BASE_RUNTIME_USERS;
-GRANT WP_BASE_RUNTIME_USERS TO cwdb01;
+GRANT WP_BASE_RUNTIME_USERS TO <replace-with-user>;
  
 --------------------------------------------------------------
 -- SETUP for schema JCR
 --------------------------------------------------------------
 CREATE USER jcr 
-	IDENTIFIED BY p0rtal4u 
+	IDENTIFIED BY <replace-with-user-password> 
 	DEFAULT TABLESPACE USERS 
 	TEMPORARY TABLESPACE TEMP; 
         
@@ -123,19 +122,19 @@ GRANT SELECT ON DBA_INDEXES to WP_JCR_CONFIG_USERS;
       
       
 GRANT SELECT ON DBA_PENDING_TRANSACTIONS TO WP_JCR_CONFIG_USERS;
-GRANT WP_JCR_CONFIG_USERS TO cwdb01;
+GRANT WP_JCR_CONFIG_USERS TO <replace-with-user>;
     
     
 CREATE ROLE WP_JCR_RUNTIME_USERS NOT IDENTIFIED;
 GRANT CREATE SESSION TO WP_JCR_RUNTIME_USERS;
 GRANT SELECT ON DBA_PENDING_TRANSACTIONS TO WP_JCR_RUNTIME_USERS;
-GRANT WP_JCR_RUNTIME_USERS TO cwdb01;
+GRANT WP_JCR_RUNTIME_USERS TO <replace-with-user>;
  
 --------------------------------------------------------------
 -- SETUP for schema FEEDBACK
 --------------------------------------------------------------
 CREATE USER feedback 
-	IDENTIFIED BY p0rtal4u 
+	IDENTIFIED BY <replace-with-user-password> 
 	DEFAULT TABLESPACE USERS 
 	TEMPORARY TABLESPACE TEMP; 
         
@@ -152,19 +151,19 @@ GRANT ALTER ANY TABLE, CREATE ANY TABLE, DROP ANY TABLE,
       
 GRANT CREATE ANY SEQUENCE, DROP ANY SEQUENCE TO WP_PZN_CONFIG_USERS;
 GRANT SELECT ON DBA_PENDING_TRANSACTIONS TO WP_PZN_CONFIG_USERS;
-GRANT WP_PZN_CONFIG_USERS TO cwdb01;
+GRANT WP_PZN_CONFIG_USERS TO <replace-with-user>;
     
     
 CREATE ROLE WP_PZN_RUNTIME_USERS NOT IDENTIFIED;
 GRANT CREATE SESSION TO WP_PZN_RUNTIME_USERS;
 GRANT SELECT ON DBA_PENDING_TRANSACTIONS TO WP_PZN_RUNTIME_USERS;
-GRANT WP_PZN_RUNTIME_USERS TO cwdb01;
+GRANT WP_PZN_RUNTIME_USERS TO <replace-with-user>;
  
 --------------------------------------------------------------
 -- SETUP for schema LIKEMINDS
 --------------------------------------------------------------
 CREATE USER likeminds 
-	IDENTIFIED BY p0rtal4u 
+	IDENTIFIED BY <replace-with-user-password> 
 	DEFAULT TABLESPACE USERS 
 	TEMPORARY TABLESPACE TEMP; 
         
@@ -179,12 +178,12 @@ GRANT ALTER ANY TABLE, CREATE ANY TABLE, DROP ANY TABLE,
       
       
 GRANT SELECT ON DBA_PENDING_TRANSACTIONS TO WP_PZN_CONFIG_USERS;
-GRANT WP_PZN_CONFIG_USERS TO cwdb01;
+GRANT WP_PZN_CONFIG_USERS TO <replace-with-user>;
     
     
 GRANT CREATE SESSION TO WP_PZN_RUNTIME_USERS;
 GRANT SELECT ON DBA_PENDING_TRANSACTIONS TO WP_PZN_RUNTIME_USERS;
-GRANT WP_PZN_RUNTIME_USERS TO cwdb01;
+GRANT WP_PZN_RUNTIME_USERS TO <replace-with-user>;
 
 --------------------------------------------------------------
 -- TABLESPACE CREATION
@@ -198,6 +197,6 @@ CREATE TABLESPACE ICMLSNDX DATAFILE '/opt/oracle/product/23ai/dbhomeFree/ORCL/IC
 --------------------------------------------------------------
 -- For timer tables
 --------------------------------------------------------------
-GRANT DBA TO cwdb01;
+GRANT DBA TO <replace-with-user>;
 GRANT SELECT ANY SEQUENCE, DROP ANY SEQUENCE TO WP_BASE_CONFIG_USERS; 
 GRANT SELECT ANY SEQUENCE, DROP ANY SEQUENCE TO WP_BASE_RUNTIME_USERS; 
