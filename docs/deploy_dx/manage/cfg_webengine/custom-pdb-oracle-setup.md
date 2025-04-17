@@ -37,8 +37,8 @@ Below are the detailed steps and relevant details for setting up the PDB prior t
    FILE_NAME_CONVERT = ('/opt/oracle/oradata/FREE/pdbseed/', '/opt/oracle/oradata/ORCL/');
    ```
 
-4. **Open the Pluggable Database (Optional):**  
-   Although not always necessary, opening the PDB can make it immediately available:
+4. **Open the Pluggable Database:**  
+   Opening the PDB can make it immediately available:
    ```
    ALTER PLUGGABLE DATABASE ORCL OPEN;
    ```
