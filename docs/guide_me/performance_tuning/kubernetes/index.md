@@ -4,7 +4,7 @@ This section provides sizing guides for HCL Digital Experience (DX) Compose rend
 
 ## Introduction
 
-In DX Compose performance testing, it is important to determine both DX Compose container sizing and the relationships between the components that make up DX Compose. The goal of performance testing is to identify the optimal Kubernetes configurations for varying levels of DX Compose demands, ranging from small to large setups. This sizing guidance evaluates configurations supporting 1,000 virtual users for small, medium, and large setups, respectively.
+In DX Compose performance testing, it is important to determine both DX Compose container sizing and the relationships between the components that make up DX Compose. The goal of performance testing is to identify the optimal Kubernetes configurations for varying levels of DX Compose demands, ranging from small to large setups. This sizing guidance evaluates configurations supporting 1,000 virtual users for small configuration setup.
 
 The key performance indicators in these tests are the number of concurrent users, the average response time, and throughput. These metrics serve as benchmarks for evaluating the performance of small, medium, and large DX Compose configurations and offer insights into the system's capacity to handle varying loads. This sizing guidance demonstrates how strategic adjustments can result in significant performance improvements.
 
