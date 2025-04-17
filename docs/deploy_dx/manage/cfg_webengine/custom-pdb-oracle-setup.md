@@ -32,7 +32,7 @@ Below are the detailed steps and relevant details for setting up the PDB prior t
 3. **Create the Pluggable Database (PDB):**  
    Execute the SQL command to create the PDB. Notice the `FILE_NAME_CONVERT` clause ensures that files are redirected to the correct directories:
    ```
-   CREATE PLUGGABLE DATABASE ORCL ADMIN USER cwdb01 IDENTIFIED BY p0rtal4u 
+   CREATE PLUGGABLE DATABASE ORCL ADMIN USER <replace-with-user> IDENTIFIED BY <replace-with-user-password> 
    ROLES=(DBA) 
    FILE_NAME_CONVERT = ('/opt/oracle/oradata/FREE/pdbseed/', '/opt/oracle/oradata/ORCL/');
    ```
