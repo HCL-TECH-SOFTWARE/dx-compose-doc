@@ -1,12 +1,12 @@
 # Performance Sizing Guide for Kubernetes Deployments
 
-This section provides sizing guides for HCL Digital Experience (DX) Compose rendering scenarios in a Kubernetes configuration. The goal of these sizing guides is to identify the optimal Kubernetes configurations for varying levels of DX Compose demands, ranging from small to large setups. Additionally, this guide provides tuning recommendations for Kubernetes pods based on their specific workloads, such as rendering-intensive tasks.
+This section provides sizing guides for HCL Digital Experience (DX) Compose rendering scenarios in a Kubernetes configuration. The goal of these sizing guides is to identify the optimal Kubernetes configurations for small DX Compose setups. Additionally, this guide provides tuning recommendations for Kubernetes pods based on their specific workloads, such as rendering-intensive tasks.
 
 ## Introduction
 
-In DX Compose performance testing, it is important to determine both DX Compose container sizing and the relationships between the components that make up DX Compose. The goal of performance testing is to identify the optimal Kubernetes configurations for varying levels of DX Compose demands, ranging from small to large setups. This sizing guidance evaluates configurations supporting 1,000 virtual users for small configuration setup.
+In DX Compose performance testing, it is important to determine both DX Compose container sizing and the relationships between the components that make up DX Compose. This sizing guidance evaluates configurations supporting 1,000 virtual users for small configuration setup.
 
-The key performance indicators in these tests are the number of concurrent users, the average response time, and throughput. These metrics serve as benchmarks for evaluating the performance of small, medium, and large DX Compose configurations and offer insights into the system's capacity to handle varying loads. This sizing guidance demonstrates how strategic adjustments can result in significant performance improvements.
+The key performance indicators in these tests are the number of concurrent users, the average response time, and throughput. These metrics serve as benchmarks for evaluating the performance of small DX Compose configurations and offer insights into the system's capacity to handle varying loads. This sizing guidance demonstrates how strategic adjustments can result in significant performance improvements.
 
 The sizing tests examined rendering scenarios for the Web Content Manager (WCM), Digital Asset Management (DAM), and HCL DX Compose pages and portlets. The tests were facilitated by rendering setups deployed on AWS/Native-Kubernetes, where Kubernetes is installed directly in Amazon Elastic Cloud Compute (EC2) instances. This guide presents a comprehensive overview of the findings, offering guidance for organizations seeking to optimize their DX Compose platforms for peak performance.
 
@@ -46,13 +46,11 @@ These sizing tests evaluated rendering scenarios for WCM, DAM, and HCL DX Compos
 
 ### Rendering scenarios and users details
 
-The following table contains the rendering scenario details for each configuration.
+The following table contains the rendering scenario details for the small configuration setup.
 
 | Concurrent users     |  WCM pages         |  DAM Content         |  Pages and portlets content   |
 | -------------------- | ------------------ | -------------------- | ----------------------------- |
 | Small – 1,000 users  | 20                 | 2,500                |    6                          |
-| Medium – 10,000 users| 200                | 25,000               |    60                         |
-| Large – 30,000 users | 200                | 25,000               |    60                         |
 
 - The concurrent user load distribution are as follows:
     - WCM: 40% of the user load (50% authenticated and 50% anonymous).
@@ -66,7 +64,7 @@ The following table contains the rendering scenario details for each configurati
 
 #### Test data details
 
-Based on the rendering scenarios and user details for small, medium, and large configurations, the following test data are created to support the DX rendering performance tests:
+Based on the rendering scenarios and user details for small configurations, the following test data are created to support the DX rendering performance tests:
 
 - [WCM default test data](#wcm-default-test-data)
 - [DAM default test data](#dam-default-test-data)
@@ -74,7 +72,7 @@ Based on the rendering scenarios and user details for small, medium, and large c
 
 #### WCM default test data
 
-The following WCM setup is commonly used in scenarios where there are multi-nested site areas in libraries with content such as rich text, PDF files, and images in a page. 20 pages are used for small configuration testing, and 200 pages are used for medium and large configuration testing. Refer to the following list for more information about this setup:
+The following WCM setup is commonly used in scenarios where there are multi-nested site areas in libraries with content such as rich text, PDF files, and images in a page. 20 pages are used for the small configuration testing. Refer to the following list for more information about this setup:
 
 - The default test data includes a WCM design library named "PerformanceTestDesign" and five content libraries named "PerformanceTestContent01" to "PerformanceTestContent05."
 
@@ -112,7 +110,7 @@ A total of 99,999 authenticated users were added to openLDAP for performance tes
 
 #### DAM default test data
 
-The following DAM setup covers the different types of the most commonly used assets in three different ways: UUID, custom, and friendly URLs. Testers uploaded 2,500 assets for a small configuration and 25,000 assets for medium and large configurations. These assets include 136 KB JPG images, 199 KB DOCX documents, and 1.1 MB MP4 videos to preheat the environment. After preloading the assets for the respective configurations, 15 assets containing a mix of original images and renditions were uploaded and rendered for one hour at peak load, following the ramp-up time.
+The following DAM setup covers the different types of the most commonly used assets in three different ways: UUID, custom, and friendly URLs. Testers uploaded 2,500 assets for the small configuration testing. These assets include 136 KB JPG images, 199 KB DOCX documents, and 1.1 MB MP4 videos to preheat the environment. After preloading the assets for the respective configurations, 15 assets containing a mix of original images and renditions were uploaded and rendered for one hour at peak load, following the ramp-up time.
 
 The test rendered assets using three custom URLs, eight UUID URLs, and eight friendly URLs over one hour. Refer to the detailed summary of the results below.
 
@@ -137,7 +135,7 @@ Examples of DAM asset rendering APIs of UUID, Custom URL, and Friendly URL are p
 
 The following setup includes different types of commonly used portlets. Performance tests measure the response time required to render an entire page along with its associated portlets. Knowing the response times for rendering pages is important, as the portlets on these pages are frequently used in DX Compose content. Refer to the following list for more information about this setup:
 
-- The tests included 6 unique pages with portlets for the small configuration and 60 pages for the medium and large configurations.
+- The tests included 6 unique pages with portlets for the small configuration.
 - Both anonymous and authenticated users were granted access for authoring and rendering. The same users utilized in WCM rendering are also used here.
 - All authenticated users were assigned the "User" role.
 - The following list shows the pages, their corresponding page numbers, and the portlet details for authoring on each page:
