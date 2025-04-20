@@ -30,7 +30,7 @@ This section provides details for the Kubernetes cluster, JMeter agents, and dat
 
 ### AWS/Native Kubernetes
 
-The Kubernetes platform was deployed on an Amazon EC2 instance with DX Compose images installed and configured. In the AWS/Native Kubernetes setup, the tests were conducted on EC2 instances using a single c5.2xlarge node, a c5.2xlarge remote DB2 instance for the core database, and a JMeter instance.
+The Kubernetes platform was deployed on an Amazon EC2 instance with DX Compose images installed and configured. In the AWS/Native Kubernetes setup, the tests were conducted on three EC2 instances using a c5.2xlarge node. This instance type was used for the remote DB2 instance (core database) and the JMeter instance.
 
 Refer to the following setup details:
 
@@ -76,7 +76,7 @@ To access the cache statistics, open the following URL in your browser: `https:/
 
 ### DX Compose tuning
 
-Modifications to the initial Helm chart configuration were applied during testing. The following table specifies the pod count and resource limits for each pod. Additionally, certain WCM Dynacache sizes, lifetimes, and JVM heap sizes were adjusted based on cache statistics. For further details, see the [Recommendations](./rendering_small_config.md/#recommendations) section on performing a Helm upgrade using `webengine-performance-rendering.yaml`
+Modifications to the initial Helm chart configuration were applied during testing. The following table specifies the pod count and resource limits for each pod. Additionally, certain WCM Dynacache sizes, lifetimes, and JVM heap sizes were adjusted based on cache statistics. For further details, see the [Recommendations](./rendering_small_config.md#recommendations) section on performing a Helm upgrade using `webengine-performance-rendering.yaml`
 
 After applying the updated Helm values and cache adjustments, the system showed significantly improved responsiveness. These changes enabled the setup to handle 1,000 concurrent users with better error rates, reduced average response times, increased throughput, and improved 95th percentile response times.
 
@@ -127,3 +127,21 @@ This guidance outlines the maximum capacity for a single-node Kubernetes cluster
        3. In the extracted folder, navigate to `hcl-dx-deployment/performance/webengine-performance-rendering.yaml` and copy the `webengine-performance-rendering.yaml`.
 
        After performing a Helm upgrade using the `webengine-performance-rendering.yaml` file, the tuned cache values for rendering will be updated.
+
+### Recommended heap size configuration
+
+To ensure optimal performance and stability of HCL DX Compose on Kubernetes, it is essential for you to configure JVM heap memory and pod resource limits correctly. Refer to the following best practices when tuning memory allocation.
+
+!!!note
+     Do not set your JVM heap size larger than the allotted memory for the pod.
+
+- Ensure your minimum heap size (`-Xms`) is equal to your maximum heap size (`-Xmx`).
+      - Setting the minimum and maximum heap sizes to the same value prevents the JVM from dynamically requesting additional memory (`malloc()`). 
+      - This eliminates the overhead of heap expansion and improves performance consistency.
+- Ensure the Kubernetes pod resource limits match the JVM heap settings
+      - The requested memory (`requests.memory`) should match the limit (`limits.memory`) in the pod specification.
+      - This ensures that the container is allocated a fixed memory block and prevents unexpected memory reallocation, which could lead to performance degradation or out-of-memory (OOM) errors.
+- Determine the final memory requirements based on load testing
+      - To determine the optimal memory configuration, you should conduct local testing with your specific portlets, pages, and customizations. You should also perform synthetic load testing using tools like JMeter to simulate realistic usage scenarios.
+      - The required memory is highly dependent on Service Level Agreements (SLAs) and transaction rates.
+      - A minimum of 3.5GB is recommended, but higher memory allocations may be necessary depending on actual usage patterns.
