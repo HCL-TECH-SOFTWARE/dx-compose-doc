@@ -177,7 +177,10 @@ You can use virtual hosts to limit the domains the server responds to. In the fo
 
 ## Disabling Authentication Cache for Impersonation
 
-To ensure the impersonation feature works in HCL DX Compose, you must disable the authentication cache. By default, the authentication cache is enabled. Disabling the cache ensures that the impersonated user is not prompted to authenticate again. Please note, disabling the authentication cache might cause some performance impact.
+To ensure the impersonation feature works in HCL DX Compose, you must disable the authentication cache. By default, the authentication cache is enabled. Disabling the cache ensures that the impersonated user is not prompted to authenticate again.
+
+!!!note
+    Disabling the authentication cache might affect performance.
 
 To disable the authentication cache, use the following configuration snippet in your `values.yaml` file:
 
