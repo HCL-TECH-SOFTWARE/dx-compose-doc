@@ -8,13 +8,17 @@ By default, WebEngine comes with a local Derby database included in the image an
 !!! note
     For the currently supported external databases, refer to [Limitations](../../../getting_started/limitations.md).
 
-## Setup external database (schema / user creation):
+## Setup external database (schema / user creation)
+
 This section provides the custom scripts for setting up the external database schemas (or users).
 
-|database| custom setup script|
+|Database| Custom setup script|
 |--------|--------------------|
-|DB2|[DB2 custom Setup Script](SetupDb2DatabasesManually.sql)|
-|Oracle|[Oracle custom Setup Script](SetupOracleDatabasesManually.sql)|
+|DB2|[DB2 custom setup script](SetupDb2DatabasesManually.sql)|
+|Oracle|[Oracle custom setup script](SetupOracleDatabasesManually.sql)|
+
+!!! note
+    For Oracle 23ai, extra setup is required since it comes with a Container Database (CDB) by default. For more details, refer to [Oracle 23ai Custom Setup (Pre-User Creation)](custom-pdb-oracle-setup.md).
 
 ## Configuring an external database
 
