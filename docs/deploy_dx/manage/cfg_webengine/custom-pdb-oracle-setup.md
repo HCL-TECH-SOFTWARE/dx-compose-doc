@@ -18,8 +18,6 @@ Refer to the following steps and details for setting up the PDB prior to creatin
     mkdir -p `<oracle-db-home>/ORCL`
     ```
 
-    !!!note
-        Ensure ownership: `oracle:oinstall` with 0750 (or similar) permissions
 
 2. Log into SQLPlus on the Oracle AMI Instance as the database administrator (DBA) using the following commands. This establishes an SSH session, elevates privileges, and starts SQLPlus as the oracle user.
 
