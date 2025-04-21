@@ -72,3 +72,5 @@ Below are the detailed steps and relevant details for setting up the PDB prior t
    Once the PDB and tablespace are set up, continue with the required `CREATE USER` and `CREATE ROLE` commands according to your security and access policies. For additional guidance on external database setup (schema/user creation), refer to the [Setup external database (schema / user creation)](external_db_database_transfer.md#setup-external-database-schema--user-creation) section.
 
 Following these steps ensures that the Oracle 23ai DB is set up correctly prior to user creation, maintaining proper separation from the root container.
+
+[For more details, see the Oracle documentation on CREATE PLUGGABLE DATABASE](https://docs.oracle.com/en/database/oracle/oracle-database/23/sqlrf/CREATE-PLUGGABLE-DATABASE.html)
