@@ -14,7 +14,7 @@ This topic provides detailed steps for upgrading the Helm deployment using an up
     For example, to retrieve the `custom-values.yaml` file of modified values, use the following command:
 
     ```sh
-    helm get values dx-deployment -n dxns > -o yaml  > custom-values.yaml
+    helm get values dx-deployment -n dxns -o yaml > custom-values.yaml
     ```
 
     To retrieve the full `custom-values.yaml` file that includes the default values, use the following command:
