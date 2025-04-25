@@ -5,23 +5,25 @@ title: Upgrading the Helm deployment
 
 This topic provides detailed steps for upgrading the Helm deployment using an updated `custom-values.yaml` file.
 
-1. Retrieve the current `custom-values.yaml` file.
-
-    You can retrieve the current `custom-values.yaml` file from a previous deployment or by using the following command:
+1. Retrieve the current `custom-values.yaml` file from a previous deployment or by using the following command:
 
     ```sh
     helm get values <RELEASE-NAME> -n <NAMESPACE> -o yaml > custom-values.yaml
     ```
 
-    For example:
+    For example, to retrieve the `custom-values.yaml` file of modified values, use the following command:
 
     ```sh
-    helm get values dx-deployment -n dxns > -o yaml  > custom-values.yaml
+    helm get values dx-deployment -n dxns -o yaml > custom-values.yaml
     ```
 
-2. Update the `custom-values.yaml` file with the required changes.
+    To retrieve the full `custom-values.yaml` file that includes the default values, use the following command:
 
-    Make the necessary updates to the `custom-values.yaml` file (for example, `configOverrideFiles`, `images`).
+    ```sh
+    helm get values dx-deployment -n dxns  -o yaml  -a > custom-values-all.yaml
+    ```
+
+2. Update the `custom-values.yaml` file with the required changes (for example, `configOverrideFiles`, `images`).
 
 3. Upgrade the Helm deployment with the updated `custom-values.yaml` file.
 
