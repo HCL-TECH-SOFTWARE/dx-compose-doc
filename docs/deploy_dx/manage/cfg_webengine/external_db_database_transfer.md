@@ -41,6 +41,13 @@ You can use the following secrets instead of the provided values:
 
 #### Sample `values.yaml` file for DB2
 
+!!! note
+    With DX Compose 9.5 CF226 the location of the DB2 library jar in the container is /opt/openliberty/wlp/usr/svrcfg/templates/jars/db2
+
+    So the value for db2.DbLibrary is now /opt/openliberty/wlp/usr/svrcfg/templates/jars/db2/db2jcc4.jar
+
+    The db2jcc_license_cu.jar is no longer provided or required.
+
 ```yaml
 configuration:
   webEngine:
@@ -281,7 +288,7 @@ To drop and recreate all existing WebEngine tables in the external database when
 
 ## dbDomainProperties
 
-Refer to the following table for more information about the properties you can use: 
+Refer to the following table for more information about the properties you can use:
 <!--Is \<domain\> supposed to be <domain>? -->
 | Property | Description |
 | --- | --- |
