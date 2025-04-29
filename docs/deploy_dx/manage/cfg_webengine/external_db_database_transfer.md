@@ -17,11 +17,7 @@ This section provides the custom scripts for setting up the external database sc
 |DB2|[DB2 custom setup script](SetupDb2DatabasesManually.sql)|
 |Oracle|[Oracle custom setup script](SetupOracleDatabasesManually.sql)|
 
-!!! note
-    For Oracle 23ai, extra setup is required since it comes with a Container Database (CDB) by default. For more details, refer to [Oracle 23ai Custom Setup (Pre-User Creation)](custom-pdb-oracle-setup.md).
-
 ## Configuring an external database
-
 The external database is configured in the Helm custom `values.yaml` file. You can add the values directly to the custom values file or you can reference them from secrets to hide the plain text entries that can contain credentials.
 
 There are two sets of values used to configure the external database:
