@@ -195,4 +195,4 @@ configOverrideFiles:
 The name of the customization in the example (`authOverride`) can be any unique string. However, it is recommended that you use a name that describes the change it applies.
 
 ???+ info "Related information"
-  - [Update custom values.yaml with configOverrideFiles using HELM upgrade](../working_with_compose/helm_upgrade_values.md).
+    - [Update custom values.yaml with configOverrideFiles using HELM upgrade](../working_with_compose/helm_upgrade_values.md).
