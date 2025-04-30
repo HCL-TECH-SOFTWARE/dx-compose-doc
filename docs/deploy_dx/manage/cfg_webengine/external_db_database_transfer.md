@@ -8,6 +8,18 @@ By default, WebEngine comes with a local Derby database included in the image an
 !!! note
     For the currently supported external databases, refer to [Limitations](../../../getting_started/limitations.md).
 
+## Setup external database (schema / user creation)
+
+This section provides the custom scripts for setting up the external database schemas (or users).
+
+|Database| Custom setup script|
+|--------|--------------------|
+|DB2|[DB2 custom setup script](SetupDb2DatabasesManually.sql)|
+|Oracle|[Oracle custom setup script](SetupOracleDatabasesManually.sql)|
+
+!!! Note
+    If you are using Oracle RDS, you will need to configure the database to support XA transactions. In order to support XA transactions for WebEngine, you must remove the default option group. Refer to [Configure Custom Option Groups for Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithOptionGroups.html){target="_blank"} for more information.
+
 ## Configuring an external database
 
 The external database is configured in the Helm custom `values.yaml` file. You can add the values directly to the custom values file or you can reference them from secrets to hide the plain text entries that can contain credentials.
@@ -26,6 +38,15 @@ You can use the following secrets instead of the provided values:
     You must create the `customDbDomainPropertiesSecret` and `customDbTypePropertiesSecret` secrets before the deployment of the Helm chart. If the secrets are used, all property values set in the custom `values.yaml` file will be ignored. Therefore, all properties must be set in the secrets, not only the overridden ones.
 
 ### External database configuration in the custom `values.yaml` file
+
+#### Sample `values.yaml` file for DB2
+
+!!! note
+    With DX Compose 9.5 CF226 the location of the DB2 library jar in the container is /opt/openliberty/wlp/usr/svrcfg/templates/jars/db2
+
+    So the value for db2.DbLibrary is now /opt/openliberty/wlp/usr/svrcfg/templates/jars/db2/db2jcc4.jar
+
+    The db2jcc_license_cu.jar is no longer provided or required.
 
 ```yaml
 configuration:
@@ -128,6 +149,109 @@ configuration:
       db2.JdbcProviderName: "wpdbJDBC_db2"
 ```
 
+#### Sample `values.yaml` file for ORACLE
+
+```yaml
+configuration:
+  webEngine:
+    dbDomainProperties:
+      InitializeFeedbackDB: "true"
+      feedback.DbType: "oracle"
+      feedback.DbName: "WPFDBK"
+      feedback.DbSchema: "feedback"
+      feedback.DataSourceName: "wpfdbkdbDS"
+      feedback.DbUrl: "jdbc:oracle:thin:@//<replace-db-host>:<replace-db-port>/<replace-service-name>"
+      feedback.DbUser: "<replace-db-user>"
+      feedback.DbPassword: "<replace-db-password>"
+      feedback.DbRuntimeUser: "<replace-db-user>"
+      feedback.DbRuntimePassword: "<replace-db-password>"
+      feedback.DBA.DbUser: "<replace-db-user>"
+      feedback.DBA.DbPassword: "<replace-db-password>"
+      feedback.DbConfigRoleName: "WP_PZN_CONFIG_USERS"
+      feedback.DbRuntimeRoleName: "WP_PZN_RUNTIME_USERS"
+      feedback.XDbName: "WPFDBK"
+      feedback.DbNode: "pznNode"
+      likeminds.DbType: "oracle"
+      likeminds.DbName: "WPLM"
+      likeminds.DbSchema: "likeminds"
+      likeminds.DataSourceName: "wplmdbDS"
+      likeminds.DbUrl: "jdbc:oracle:thin:@//<replace-db-host>:<replace-db-port>/<replace-service-name>"
+      likeminds.DbUser: "<replace-db-user>"
+      likeminds.DbPassword: "<replace-db-password>"
+      likeminds.DbRuntimeUser: "<replace-db-user>"
+      likeminds.DbRuntimePassword: "<replace-db-password>"
+      likeminds.DBA.DbUser: "<replace-db-user>"
+      likeminds.DBA.DbPassword: "<replace-db-password>"
+      likeminds.DbConfigRoleName: "WP_PZN_CONFIG_USERS"
+      likeminds.DbRuntimeRoleName: "WP_PZN_RUNTIME_USERS"
+      likeminds.XDbName: "WPLM"
+      likeminds.DbNode: "pznNode"
+      release.DbType: "oracle"
+      release.DbName: "WPREL"
+      release.DbSchema: "release"
+      release.DataSourceName: "wpreldbDS"
+      release.DbUrl: "jdbc:oracle:thin:@//<replace-db-host>:<replace-db-port>/<replace-service-name>"
+      release.DbUser: "<replace-db-user>"
+      release.DbPassword: "<replace-db-password>"
+      release.DbRuntimeUser: "<replace-db-user>"
+      release.DbRuntimePassword: "<replace-db-password>"
+      release.DBA.DbUser: "<replace-db-user>"
+      release.DBA.DbPassword: "<replace-db-password>"
+      release.DbConfigRoleName: "WP_BASE_CONFIG_USERS"
+      release.DbRuntimeRoleName: "WP_BASE_RUNTIME_USERS"
+      release.XDbName: "WPREL"
+      release.DbNode: "wpsNode"
+      community.DbType: "oracle"
+      community.DbName: "WPCOMM"
+      community.DbSchema: "community"
+      community.DataSourceName: "wpcommdbDS"
+      community.DbUrl: "jdbc:oracle:thin:@//<replace-db-host>:<replace-db-port>/<replace-service-name>"
+      community.DbUser: "<replace-db-user>"
+      community.DbPassword: "<replace-db-password>"
+      community.DbRuntimeUser: "<replace-db-user>"
+      community.DbRuntimePassword: "<replace-db-password>"
+      community.DBA.DbUser: "<replace-db-user>"
+      community.DBA.DbPassword: "<replace-db-password>"
+      community.DbConfigRoleName: "WP_BASE_CONFIG_USERS"
+      community.DbRuntimeRoleName: "WP_BASE_RUNTIME_USERS"
+      community.XDbName: "WPCOMM"
+      community.DbNode: "wpsNode"
+      customization.DbType: "oracle"
+      customization.DbName: "WPCUST"
+      customization.DbSchema: "customization"
+      customization.DataSourceName: "wpcustdbDS"
+      customization.DbUrl: "jdbc:oracle:thin:@//<replace-db-host>:<replace-db-port>/<replace-service-name>"
+      customization.DbUser: "<replace-db-user>"
+      customization.DbPassword: "<replace-db-password>"
+      customization.DbRuntimeUser: "<replace-db-user>"
+      customization.DbRuntimePassword: "<replace-db-password>"
+      customization.DBA.DbUser: "<replace-db-user>"
+      customization.DBA.DbPassword: "<replace-db-password>"
+      customization.DbConfigRoleName: "WP_BASE_CONFIG_USERS"
+      customization.DbRuntimeRoleName: "WP_BASE_RUNTIME_USERS"
+      customization.XDbName: "WPCUST"
+      customization.DbNode: "wpsNode"
+      jcr.DbType: "oracle"
+      jcr.DbName: "WPJCR"
+      jcr.DbSchema: "jcr"
+      jcr.DataSourceName: "wpjcrdbDS"
+      jcr.DbUrl: "jdbc:oracle:thin:@//<replace-db-host>:<replace-db-port>/<replace-service-name>"
+      jcr.DbUser: "<replace-db-user>"
+      jcr.DbPassword: "<replace-db-password>"
+      jcr.DbRuntimeUser: "<replace-db-user>"
+      jcr.DbRuntimePassword: "<replace-db-password>"
+      jcr.DBA.DbUser: "<replace-db-user>"
+      jcr.DBA.DbPassword: "<replace-db-password>"
+      jcr.DbConfigRoleName: "WP_JCR_CONFIG_USERS"
+      jcr.DbRuntimeRoleName: "WP_JCR_RUNTIME_USERS"
+      jcr.XDbName: "WPJCR"
+      jcr.DbNode: "wpsNode"
+    dbTypeProperties:
+      oracle.DbDriver: "oracle.jdbc.driver.OracleDriver"
+      oracle.DbLibrary: "/opt/openliberty/wlp/usr/svrcfg/templates/jars/oracle/ojdbc11.jar:/opt/openliberty/wlp/usr/svrcfg/templates/jars/oracle/xdb6-11.2.0.4.jar"
+      oracle.JdbcProviderName: "wpdbJDBC_oracle"
+```
+
 ### External database configuration in the custom secrets file
 
 ```yaml
@@ -164,7 +288,7 @@ To drop and recreate all existing WebEngine tables in the external database when
 
 ## dbDomainProperties
 
-Refer to the following table for more information about the properties you can use: 
+Refer to the following table for more information about the properties you can use:
 <!--Is \<domain\> supposed to be <domain>? -->
 | Property | Description |
 | --- | --- |
@@ -194,3 +318,6 @@ Refer to the following table for more information about the properties you can u
 | db2.DbDriver | Name of the database driver class for IBM DB2. |
 | db2.DbLibrary | Path to the database driver library for IBM DB2. |
 | db2.JdbcProviderName | Name of the JDBC provider for IBM DB2. |
+| oracle.DbDriver | Name of the database driver class for ORACLE DB. |
+| oracle.DbLibrary | Path to the database driver library for ORACLE DB. |
+| oracle.JdbcProviderName | Name of the JDBC provider for ORACLE DB. |

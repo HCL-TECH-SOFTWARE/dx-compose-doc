@@ -5,7 +5,7 @@ Know the existing limitations of Digital Experience (DX) Compose.
 ## Deployment
 
 - You cannot deploy the Core container used in the DX offerings deployment and the DX Compose WebEngine Core container together on the same deployment.
-- The only supported databases are DB2 and Derby.
+- Supported databases are Derby, DB2 and Oracle. For Oracle on Amazon RDS, versions 19c and 21c (Single-tenant configuration) are supported at this time.
 - It is not possible to use the Remote Search service provided with HCL DX offerings in DX Compose. DX Compose provides support for OpenSearch.
 - No ReadWriteMany (RWX) shared volume is used.
 - Portal Application Archive (PAA) deployment is not supported.
@@ -36,7 +36,7 @@ Know the existing limitations of Digital Experience (DX) Compose.
 ## Authentication
 
 - Step-up authentication is not supported.
-- Impersonation is not supported.
+- Impersonation is supported. However, you must disable the authentication cache for it to work. For more information, see [Disabling Authentication Cache for Impersonation](../deploy_dx/manage/cfg_webengine/configuration_changes_using_overrides.md#disabling-authentication-cache-for-impersonation).
 
 ## Theme customization of dynamic resources
 
