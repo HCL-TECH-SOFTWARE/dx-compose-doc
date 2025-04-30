@@ -350,6 +350,35 @@ function OptanonWrapper() { }
   
 
       
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../../guide_me/performance_tuning/" class="md-tabs__link">
+          
+  
+    
+  
+  Guide Me
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -425,6 +454,8 @@ function OptanonWrapper() { }
       
         
           
+        
+      
         
       
         
@@ -1066,6 +1097,15 @@ function OptanonWrapper() { }
 </li>
       
         <li class="md-nav__item">
+  <a href="#using-annotations-to-control-the-haproxy-service-behavior-for-different-cloud-providers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using annotations to control the HAProxy service behavior for different cloud providers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#generate-self-signed-certificate" class="md-nav__link">
     <span class="md-ellipsis">
       Generate self-signed certificate
@@ -1482,6 +1522,57 @@ function OptanonWrapper() { }
   
 
     
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    
+  
+  
+    <a href="../../../../../../guide_me/performance_tuning/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Guide Me
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1550,6 +1641,15 @@ function OptanonWrapper() { }
   <a href="#configure-haproxy-networking" class="md-nav__link">
     <span class="md-ellipsis">
       Configure HAProxy networking
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-annotations-to-control-the-haproxy-service-behavior-for-different-cloud-providers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using annotations to control the HAProxy service behavior for different cloud providers
     </span>
   </a>
   
@@ -1778,6 +1878,14 @@ function OptanonWrapper() { }
 <span class="w">    </span><span class="nt">sessionCookieName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;JSESSIONID&quot;</span>
 </code></pre></div>
 <p>This configuration is helpful for those who want to use a custom <code>Ingress Controller</code> to expose the service in a compatible way. Even then, HAProxy will still be active. The <code>Ingress Controller</code> will handle the incoming traffic and then route them to the HAProxy service.</p>
+<h2 id="using-annotations-to-control-the-haproxy-service-behavior-for-different-cloud-providers">Using annotations to control the HAProxy service behavior for different cloud providers</h2>
+<p>The Helm chart allows you to add annotations to the HAProxy service to control the behavior of the service for different cloud providers. You can use this to configure the service to use a specific type of load balancer or to configure other settings specific to the cloud provider. You can add annotations in your <code>custom-values.yaml</code> as described <a href="../../optional_tasks/optional_labels_annotations/#annotations">in the Annotations documentation</a>.</p>
+<p>Examples for such annotations are in an non-exhaustive list. Refer to the documentation provided by your cloud provider for more information:</p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/eks/latest/userguide/auto-configure-nlb.html" target="_blank">Amazon Elastic Kubernetes Service - Use Service Annotations to configure Network Load Balancers</a></li>
+<li><a href="https://cloud.google.com/kubernetes-engine/docs/concepts/service-load-balancer-parameters" target="_blank">Google Kubernetes Engine - LoadBalancer Service parameters</a></li>
+<li><a href="https://cloud-provider-azure.sigs.k8s.io/topics/loadbalancer/#loadbalancer-annotations" target="_blank">Azure Kubernetes Service - LoadBalancer annotations</a></li>
+</ul>
 <h2 id="generate-self-signed-certificate">Generate self-signed certificate</h2>
 <p><strong>It is recommended that you use a properly signed certificate for HAProxy</strong>. However, it is also possible to create and use a self-signed certificate, for example, for staging or testing environment.</p>
 <p>Creation of that certificate can be achieved using the following commands for OpenSSL:</p>
@@ -1816,9 +1924,9 @@ kubectl<span class="w"> </span>create<span class="w"> </span>secret<span class="
 <h3 id="openshift-passthrough">OpenShift Passthrough</h3>
 <p>A <code>Route</code> resource must be created manually when required as part of a deployment to OpenShift.</p>
 <h4 id="create-the-route-resource-manually">Create the route resource manually</h4>
-<p>If you want to deploy OpenShift manually using <code>Routes</code>, you need to create a .yaml file like below and any changes required can be made in that. To apply those changes in the OpenShift cluster, you can run <code>kubectl apply</code> and specify its namespace and location.
+<p>If you want to deploy OpenShift manually using <code>Routes</code>, you need to create a <code>.yaml</code> file like below and any changes required can be made in that. To apply those changes in the OpenShift cluster, you can run <code>kubectl apply</code> and specify its namespace and location.
 For more information, refer to the <a href="https://docs.openshift.com/container-platform/latest/networking/routes/route-configuration.html" target="blank">OpenShift Route Configuration</a> documentation.</p>
-<p>In some versions of OpenShift, by default, sticky sessions for passthrough <code>Routes</code> are enabled in OpenShift using the source (IP) as identifier. To make sure traffic gets forwarded to all DX Compose HAProxy Pods even when another proxy is used in front of it, the <code>Route</code> should be annotated as shown in the example below. Please refer to the <a href="https://docs.openshift.com/container-platform/latest/networking/routes/route-configuration.html" target="blank">OpenShift documentation</a> to select the appropriate value for your deployment. </p>
+<p>In some versions of OpenShift, by default, sticky sessions for passthrough <code>Routes</code> are enabled in OpenShift using the source (IP) as identifier. To make sure traffic gets forwarded to all DX Compose HAProxy Pods even when another proxy is used in front of it, the <code>Route</code> should be annotated as shown in the example below. Refer to the <a href="https://docs.openshift.com/container-platform/latest/networking/routes/route-configuration.html" target="blank">OpenShift documentation</a> to select the appropriate value for your deployment. </p>
 <div class="language-yaml highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;route.openshift.io/v1&quot;</span>
 <span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Route&quot;</span>
 <span class="nt">metadata</span><span class="p">:</span>
@@ -1899,7 +2007,7 @@ For more information, refer to the <a href="https://docs.openshift.com/container
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 16, 2024 19:21:39">December 16, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 2, 2025 21:00:38">April 2, 2025</span>
   </span>
 
     
