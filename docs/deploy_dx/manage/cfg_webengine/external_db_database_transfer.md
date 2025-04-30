@@ -17,6 +17,9 @@ This section provides the custom scripts for setting up the external database sc
 |DB2|[DB2 custom setup script](SetupDb2DatabasesManually.sql)|
 |Oracle|[Oracle custom setup script](SetupOracleDatabasesManually.sql)|
 
+!!! Note
+   Refer to [Configure Custom Option Groups for Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithOptionGroups.html){target="_blank"} to create custom option groups with JVM Option, attach it to RDS instance and remove default option group in order to support XA transactions for WebEngine. Once this pre-requisite is taken care, oracle instance can be configured as external database.
+
 ## Configuring an external database
 The external database is configured in the Helm custom `values.yaml` file. You can add the values directly to the custom values file or you can reference them from secrets to hide the plain text entries that can contain credentials.
 
