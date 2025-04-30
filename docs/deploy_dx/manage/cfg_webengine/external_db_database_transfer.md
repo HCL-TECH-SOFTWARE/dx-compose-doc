@@ -17,8 +17,8 @@ This section provides the custom scripts for setting up the external database sc
 |DB2|[DB2 custom setup script](SetupDb2DatabasesManually.sql)|
 |Oracle|[Oracle custom setup script](SetupOracleDatabasesManually.sql)|
 
-!!! note
-    For Oracle 23ai, extra setup is required since it comes with a Container Database (CDB) by default. For more details, refer to [Oracle 23ai Custom Setup (Pre-User Creation)](custom-pdb-oracle-setup.md).
+!!! Note
+    If you are using Oracle RDS, you will need to configure the database to support XA transactions. In order to support XA transactions for WebEngine, you must remove the default option group. Refer to [Configure Custom Option Groups for Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithOptionGroups.html){target="_blank"} for more information.
 
 ## Configuring an external database
 
