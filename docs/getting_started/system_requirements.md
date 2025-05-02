@@ -27,6 +27,10 @@ DX Compose requires JDK 11.0 or later for installation.
 |-----------|------------------|-----|
 |Apache Derby|10.11*<br/>|9.5|
 |IBM DB2 Standard and Advanced Edition|11.5** and later maintenance releases (acquired separately)|9.5|
+|Oracle Database 19c|19c and later maintenance (acquired separately)|9.5|
+|Oracle Database 21c|21c and later maintenance (acquired separately)|9.5|
+|Oracle on Amazon Relational Database Service|19c and later maintenance (acquired separately)|9.5|
+|Oracle on Amazon Relational Database Service|21c and later maintenance releases (acquired separately)|9.5|
 
 \* Apache Derby is not supported in a product environment.  
 \** DB2 includes support for the DB2 pureScale component.  
