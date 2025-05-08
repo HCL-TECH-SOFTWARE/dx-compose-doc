@@ -1,6 +1,6 @@
-# What's new in HCL DX
+# What's new in HCL DX Compose
 
-Find out the latest features, enhancements, and fixes included in the most recent Cumulative Fix of HCL Digital Experience Compose.
+Find out the latest features, enhancements, and fixes included in the most recent Cumulative Fix (CF) of HCL Digital Experience (DX) Compose.
 
 - **[What's new in CF227](cf227.md)**
 - **[What's new in CF226](cf226.md)**
