@@ -20,7 +20,11 @@ Learn the supported DXClient operations in DX Compose.
 Learn how to resolve issues in your DX Compose deployment.
 -   **[Using custom secrets](custom_secrets.md)**  
 Learn how to use custom secrets through the `values.yaml` file. 
+-   **[Using custom certificates](custom_certificates.md)**  
+Learn how to use custom certificates through the `values.yaml` file. 
 -   **[Upgrading the Helm deployment](helm_upgrade_values.md)**  
 Learn how to upgrade the Helm deployment using the updated `values.yaml` file.
 -   **[Viewing WebEngine server logs](logging_webengine.md)**  
 Learn how to view the WebEngine server logs through Kubernetes.
+-   **[Managing WebEngine-DB2 SSL connection](db2_over_ssl.md)**  
+Learn how to configure ssl connections in WebEngine for DB2
