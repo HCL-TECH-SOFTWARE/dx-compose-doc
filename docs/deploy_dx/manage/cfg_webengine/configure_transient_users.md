@@ -72,3 +72,4 @@ Once the updgrade is applied successfully, you can log in with a transient user 
         </primaryRealm>
    </federatedRepository>
    ```
+    For more information on setting up a federated repository, please refer to [Configuring Federated Repositories](../working_with_compose/cfg_parameters/manage_users_groups_liberty.md#configuring-federated-user-registry).
