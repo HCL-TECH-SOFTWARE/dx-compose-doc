@@ -18,7 +18,7 @@ Each driver must be configured with the following capabilities:
 - Establish trust: Tell the driver where it can find trusted certificates.
 
 ## DB2 over SSL 
-Webengine Configurations for connecting to DB2 databasse on SSL port i.e, 50001
+The sections below provide information on how to configure WebEngine to connect to Db2 over SSL (port 50001).
 
 ### Prerequisite for DB2 over SSL
 Before configuring the WebEngine server, SSL connections must be enabled on the Db2 server.
@@ -38,7 +38,7 @@ sudo lsof -i :50001
 
 Once the Db2 server is listening on the SSL port (50001), we can proceed to configure the WebEngine server to connect to Db2 over SSL.
 
-### customTruststoreSecrets Configuartion
+### customTruststoreSecrets Configuration
 In WebEngine server, the `customTruststoreSecrets` parameter can be used to add Db2 SSL certificate(server.crt) to a secret:
 
 ```bash
