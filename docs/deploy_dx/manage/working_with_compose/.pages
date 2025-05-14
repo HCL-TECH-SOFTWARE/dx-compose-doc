@@ -12,4 +12,4 @@ nav:
  - Using custom secrets in WebEngine: custom_secrets.md
  - Using custom certificates in WebEngine: custom_certificates.md
  - Viewing WebEngine server logs: logging_webengine.md
- - Managing DB2 over SSL: db2_over_ssl.md
+ - Managing Databases over SSL: db_over_ssl.md

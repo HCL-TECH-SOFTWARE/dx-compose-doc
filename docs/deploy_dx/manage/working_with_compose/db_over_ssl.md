@@ -1,10 +1,10 @@
 ---
-id: db2-over-ssl
-title: Managing Db2 over ssl in WebEngine
+id: db-over-ssl
+title: Managing Databases over ssl in WebEngine
 ---
 
 ## Overview
-This document outlines how to enable SSL database connections for Db2 in the WebEngine server. 
+This document outlines how to enable SSL database connections for different databases in the WebEngine server.
 
 ## How are SSL connections established?
 The SSL handshake is a process by which a client and server set the terms for secure communications during a connection. The handshake occurs before any data is exchanged.
@@ -17,7 +17,10 @@ Each driver must be configured with the following capabilities:
 
 - Establish trust: Tell the driver where it can find trusted certificates.
 
-## Prerequisite
+## DB2 over SSL 
+Webengine Configurations for connecting to DB2 databasse on SSL port i.e, 50001
+
+### Prerequisite for DB2 over SSL
 Before configuring the WebEngine server, SSL connections must be enabled on the Db2 server.
 To verify that the Db2 server is listening for SSL connections (e.g., on port 50001), use one of the following commands:
 
@@ -35,7 +38,7 @@ sudo lsof -i :50001
 
 Once the Db2 server is listening on the SSL port (50001), we can proceed to configure the WebEngine server to connect to Db2 over SSL.
 
-## customTruststoreSecrets Configuartion
+### customTruststoreSecrets Configuartion
 In WebEngine server, the `customTruststoreSecrets` parameter can be used to add Db2 SSL certificate(server.crt) to a secret:
 
 ```bash
@@ -57,7 +60,7 @@ We can validate this in `server.xml` with following entry:
  <keyStore id="customTrustStore" location="truststore.p12" password="<trustStore_password>" type="PKCS12"/>
 ```
 
-## Configure DB2 JDBC driver and WebEngine server for SSL connection
+### Configure DB2 JDBC driver and WebEngine server for SSL connection
 - To enable SSL connections on the Db2 driver, add the `sslConnection="true"` attribute to the dataSource properties element.
 
 - Configure `sslTrustStoreLocation`, `sslTrustStorePassword`, and `sslTrustStoreType` attributes on the dataSource properties element that has the trusted certificate.

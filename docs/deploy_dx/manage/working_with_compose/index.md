@@ -26,5 +26,5 @@ Learn how to use custom certificates through the `values.yaml` file.
 Learn how to upgrade the Helm deployment using the updated `values.yaml` file.
 -   **[Viewing WebEngine server logs](logging_webengine.md)**  
 Learn how to view the WebEngine server logs through Kubernetes.
--   **[Managing WebEngine-DB2 SSL connection](db2_over_ssl.md)**  
-Learn how to configure ssl connections in WebEngine for DB2
+-   **[Managing WebEngine SSL Database connections](db_over_ssl.md)**  
+Learn how to configure ssl connections in WebEngine for different databases.
