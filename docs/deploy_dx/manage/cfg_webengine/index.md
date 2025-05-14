@@ -23,3 +23,5 @@ Learn how to trigger WCM modules and import WCM libraries.
 Learn how to perform initial tuning on DX Compose before load testing.
 -   **[Configuring DX Compose to use OpenID Connect (OIDC) identity provider](configure_compose_to_use_oidc.md)**  
 Learn how to use OIDC authentication in DX Compose.
+-   **[Configuring Transient Users in DX Compose with OpenID Connect](configure_transient_users.md)**  
+Learn how to integrate Transient User with OpenID Connect in DX Compose.
