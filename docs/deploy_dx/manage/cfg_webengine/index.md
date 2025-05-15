@@ -1,7 +1,6 @@
 # Configuring WebEngine
 
-<!-- add short description-->
-
+In this topic, you will learn how to configure the different features and services available in HCL Digital Experience (DX) Compose WebEngine.
 
 -   **[WebEngine directory structure](webengine_directory_structure.md)**  
 Learn about the directory structure and know the different configurations used in WebEngine.
@@ -23,5 +22,5 @@ Learn how to trigger WCM modules and import WCM libraries.
 Learn how to perform initial tuning on DX Compose before load testing.
 -   **[Configuring DX Compose to use OpenID Connect (OIDC) identity provider](configure_compose_to_use_oidc.md)**  
 Learn how to use OIDC authentication in DX Compose.
--   **[Configuring Transient Users in DX Compose with OpenID Connect](configure_transient_users.md)**  
-Learn how to integrate Transient User with OpenID Connect in DX Compose.
+-   **[Configuring transient users in DX Compose with OpenID Connect](configure_transient_users.md)**  
+Learn how to integrate transient users with OpenID Connect in DX Compose.

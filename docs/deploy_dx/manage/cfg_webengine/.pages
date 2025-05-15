@@ -10,4 +10,4 @@ nav:
   - WCM modules: wcm_modules.md
   - Tuning the initial DX Compose performance: tune_initial_portal_performance.md
   - Configuring DX Compose to use an OIDC identity provider: configure_compose_to_use_oidc.md
-  - Configuring Transient Users in DX Compose with OpenID Connect: configure_transient_users.md
+  - Configuring transient users in DX Compose with OpenID Connect: configure_transient_users.md
