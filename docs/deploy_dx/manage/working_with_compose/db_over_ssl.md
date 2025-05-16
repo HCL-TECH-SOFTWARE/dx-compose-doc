@@ -39,7 +39,7 @@ sudo lsof -i :50001
 Once the Db2 server is listening on the SSL port (50001), we can proceed to configure the WebEngine server to connect to Db2 over SSL.
 
 ### customTruststoreSecrets Configuration
-In WebEngine server, the `customTruststoreSecrets` parameter can be used to add Db2 SSL certificate(server.crt) to a secret:
+In the WebEngine server, the `customTruststoreSecrets` parameter can be used to add Db2 SSL certificate(server.crt) to a secret:
 
 ```bash
 kubectl create secret generic db-secret --from-file=server.crt -n dxns
@@ -54,11 +54,8 @@ configuration:
       db-secret: db-secret
 ```
 
-We can validate this in `server.xml` with following entry:
-
-```bash
- <keyStore id="customTrustStore" location="truststore.p12" password="<trustStore_password>" type="PKCS12"/>
-```
+The truststore that includes the Db2 SSL certificate is located at:
+`/opt/openliberty/wlp/usr/servers/defaultServer/resources/security/truststore.p12`
 
 ### Configure DB2 JDBC driver and WebEngine server for SSL connection
 - To enable SSL connections on the Db2 driver, add the `sslConnection="true"` attribute to the dataSource properties element.
