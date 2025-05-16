@@ -6,7 +6,7 @@ title: Configuring transient users in DX Compose with OpenID Connect
 This topic provides the steps to enable transient users in HCL Digital Experience (DX) Compose when using an OpenID Connect (OIDC) identity provider. Transient users are authenticated externally through the OIDC provider and do not require a corresponding entry in the local DX Compose user registry. This allows users managed by an external identity provider to access DX Compose without duplicating their accounts locally.
 
 !!!note "Limitation"
-    The transient user suffix is not currently configurable and is set to `o=transparent`. Avoid reusing this DN for non-transient users to prevent conflicts.
+    The transient user suffix is not currently configurable and is set to `o=transparent`. Avoid reusing this identifier for non-transient users to prevent conflicts.
 
 ## Prerequisites
 
