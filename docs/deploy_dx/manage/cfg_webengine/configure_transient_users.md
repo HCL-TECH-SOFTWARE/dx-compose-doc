@@ -31,7 +31,7 @@ Follow these steps to enable transient users in your DX Compose deployment:
       webEngine:
         transientUserRegistry:
           # Enable transient users
-          enableTransientUser: true
+          enabled: true
     ```
 
     This configuration enables the `transientUserRegistry` feature.
