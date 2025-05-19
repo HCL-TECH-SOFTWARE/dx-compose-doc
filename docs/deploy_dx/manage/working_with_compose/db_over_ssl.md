@@ -1,6 +1,6 @@
 ---
 id: db-over-ssl
-title: Managing Databases over ssl in WebEngine
+title: Managing Databases over SSL in WebEngine
 ---
 
 ## Overview
@@ -18,11 +18,11 @@ Each driver must be configured with the following capabilities:
 - Establish trust: Tell the driver where it can find trusted certificates.
 
 ## DB2 over SSL 
-The sections below provide information on how to configure WebEngine to connect to Db2 over SSL (port 50001).
+The sections below provide information on how to configure WebEngine to connect to DB2 over SSL (port 50001).
 
 ### Prerequisite for DB2 over SSL
-Before configuring the WebEngine server, SSL connections must be enabled on the Db2 server.
-To verify that the Db2 server is listening for SSL connections (e.g., on port 50001), use one of the following commands:
+Before configuring the WebEngine server, SSL connections must be enabled on the DB2 server.
+To verify that the DB2 server is listening for SSL connections (e.g. on port 50001), use one of the following commands:
 
 ```
 netstat -tulnp | grep 50001
@@ -36,16 +36,16 @@ Or
 sudo lsof -i :50001
 ```
 
-Once the Db2 server is listening on the SSL port (50001), we can proceed to configure the WebEngine server to connect to Db2 over SSL.
+Once the DB2 server is listening on the SSL port (50001), we can proceed to configure the WebEngine server to connect to DB2 over SSL.
 
 ### customTruststoreSecrets Configuration
-In the WebEngine server, the `customTruststoreSecrets` parameter can be used to add Db2 SSL certificate(server.crt) to a secret:
+kubectl can be used to add the DB2 SSL certificate (in this case 'server.crt') to a secret:
 
 ```bash
 kubectl create secret generic db-secret --from-file=server.crt -n dxns
 ```
 
-Once the above secret is created, we can pass this secret to `customTruststoreSecrets` in values.yaml:
+Once the secret is created, we can pass it to the DX Compose Helm charts via `customTruststoreSecrets` in values.yaml:
 ```yaml
 configuration: 
   webEngine:
@@ -54,15 +54,27 @@ configuration:
       db-secret: db-secret
 ```
 
-The truststore that includes the Db2 SSL certificate is located at:
+The truststore that includes the DB2 SSL certificate will be located at:
 `/opt/openliberty/wlp/usr/servers/defaultServer/resources/security/truststore.p12`
 
 ### Configure DB2 JDBC driver and WebEngine server for SSL connection
-- To enable SSL connections on the Db2 driver, add the `sslConnection="true"` attribute to the dataSource properties element.
+- To enable SSL connections on the DB2 driver, add the `sslConnection="true"` attribute to the dataSource properties element.
+To achieve this, pass `sslConnection="true"` in DbUrl of the DB2 domains inside dbDomainProperties in values.yaml. For e.g.
+
+```yaml
+configuration: 
+  webEngine:
+    . . . 
+    dbDomainProperties: 
+      ....
+      community.DbType: "db2"
+      community.DbUrl: jdbc:db2://local-db2:50000/WPCOMM:sslConnection=true;
+      .....
+```
 
 - Configure `sslTrustStoreLocation`, `sslTrustStorePassword`, and `sslTrustStoreType` attributes on the dataSource properties element that has the trusted certificate.
 
-Following example shows the updated datasource properties for one of the domain for Db2 in WebEngine.
+The following example shows the updated datasource properties for one of the domains for DB2 in WebEngine.
 
 ```yaml
  <dataSource id="community" isolationLevel="TRANSACTION_READ_COMMITTED" jndiName="jdbc/wpcommdbDS" statementCacheSize="10" type="javax.sql.XADataSource">
@@ -73,4 +85,4 @@ Following example shows the updated datasource properties for one of the domain 
 ```
 
 
-**Note:** Preform a [helm upgrade](./helm_upgrade_values.md) to apply the changes.
+**Note:** Perform a [helm upgrade](./helm_upgrade_values.md) to apply the changes.
