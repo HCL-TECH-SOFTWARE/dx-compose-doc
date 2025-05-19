@@ -72,17 +72,16 @@ configuration:
       .....
 ```
 
-- Configure `sslTrustStoreLocation`, `sslTrustStorePassword`, and `sslTrustStoreType` attributes on the dataSource properties element that has the trusted certificate.
+Once sslConnection=true is set in the DbUrl, the datasource elements in the server.xml will be updated with `sslTrustStoreLocation`, `sslTrustStorePassword` and `sslTrustStoreType` attributes of the trusted certificate.
 
-The following example shows the updated datasource properties for one of the domains for DB2 in WebEngine.
+For e.g.
 
 ```yaml
  <dataSource id="community" isolationLevel="TRANSACTION_READ_COMMITTED" jndiName="jdbc/wpcommdbDS" statementCacheSize="10" type="javax.sql.XADataSource">
-        <jdbcDriver javax.sql.XADataSource="com.ibm.db2.jcc.DB2XADataSource" libraryRef="global"/>
-        <properties.db2.jcc databaseName="WPCOMM" driverType="4" password="{xor}OzY6K2s8MDQ6" portNumber="50000" serverName="10.134.210.37" sslConnection="true" sslTrustStoreLocation="/opt/openliberty/wlp/usr/servers/defaultServer/resources/security/truststore.p12" sslTrustStorePassword="<trustStore_password>" sslTrustStoreType="PKCS12" user="db2inst1"/>
-        <connectionManager agedTimeout="7200" connectionTimeout="180" maxIdleTime="1800" maxPoolSize="100" minPoolSize="10" purgePolicy="EntirePool" reapTime="180"/>
-    </dataSource>
+    <jdbcDriver javax.sql.XADataSource="com.ibm.db2.jcc.DB2XADataSource" libraryRef="global"/>
+    <properties.db2.jcc databaseName="WPCOMM" driverType="4" password="{xor}OzY6K2s8MDQ6" portNumber="50000" serverName="10.134.210.37" sslConnection="true" sslTrustStoreLocation="/opt/openliberty/wlp/usr/servers/defaultServer/resources/security/truststore.p12" sslTrustStorePassword="<trustStore_password>" sslTrustStoreType="PKCS12" user="db2inst1"/>
+    <connectionManager agedTimeout="7200" connectionTimeout="180" maxIdleTime="1800" maxPoolSize="100" minPoolSize="10" purgePolicy="EntirePool" reapTime="180"/>
+  </dataSource>
 ```
-
 
 **Note:** Perform a [helm upgrade](./helm_upgrade_values.md) to apply the changes.
