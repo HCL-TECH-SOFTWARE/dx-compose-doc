@@ -57,9 +57,9 @@ Refer to the following steps to add the DB2 certificate to a secret.
 
 Refer to the following steps to enable SSL connections on the DB2 driver.
 
-1. Add the `sslConnection="true"` attribute to the `dataSource` properties element.
+1. Add the `sslConnection=true` attribute to the `dataSource` properties element.
 
-    To do this, add the `sslConnection="true"` parameter to the `DbUrl` of the DB2 domains under `dbDomainProperties` in the `values.yaml` file. For example:
+    To do this, add the `sslConnection=true` parameter to the `DbUrl` of the DB2 domains under `dbDomainProperties` in the `values.yaml` file. For example:
 
     ```yaml
     configuration: 
