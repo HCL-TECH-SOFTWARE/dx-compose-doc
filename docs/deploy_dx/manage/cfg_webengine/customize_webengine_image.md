@@ -28,7 +28,7 @@ This topic provides the steps to build a customized DX Compose WebEngine image t
 
 ## Enabling the customized WebEngine image in DX Compose
 
-Follow these steps to deploy your customized WebEngine image and enable your custom modules in your HCL DX Compose deployment:
+Follow these steps to deploy your customized WebEngine image in your HCL DX Compose deployment:
 
 1. Upload your customized WebEngine image to the repository used for your HCL DX Compose deployment.  For more information see [Load Images to Your Own Repository](../../install/kubernetes_deployment/preparation/get_the_code/prepare_load_images.md#loading-images)
 
