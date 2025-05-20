@@ -15,7 +15,7 @@ This topic provides the steps to build a customized DX Compose WebEngine image t
 
     FROM docker-image-repository.com/build-output/webengine:CF228_20250516-1642_34573
 
-    # Copy the custom modules into the customized image
+    # Copy the custom JARs into the customized image
     COPY --chown=dx_user:dx_users ./MyCompanyJar1.jar /opt/openliberty/wlp/usr/servers/defaultServer/customPlugins/MyCompanyJar1.jar
 
     COPY --chown=dx_user:dx_users ./MyCompanyJar2.jar /opt/openliberty/wlp/usr/servers/defaultServer/customPlugins/MyCompanyJar2.jar
