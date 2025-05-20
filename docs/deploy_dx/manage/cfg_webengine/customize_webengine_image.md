@@ -26,6 +26,12 @@ This topic provides the steps to build a customized DX Compose WebEngine image t
     ```
 </pre>
 
+Build the image
+
+    ```
+    docker -D build --no-cache=true --progress=plain -t <my_custom_repository>/webengine:<my_custom_tag> .
+    ```
+
 ## Enabling the customized WebEngine image in DX Compose
 
 Follow these steps to deploy your customized WebEngine image in your HCL DX Compose deployment:
