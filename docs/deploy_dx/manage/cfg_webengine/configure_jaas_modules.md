@@ -78,11 +78,6 @@ Follow these steps to enable the HCL Sample JAAS modules in your DX Compose depl
                 </jaasLoginModule>
                 <jaasLoginContextEntry id="system.WEB_INBOUND" name="system.WEB_INBOUND" loginModuleRef="HCLDummyJAASSimpleAuth0LoginModule, hashtable" />
               </server>
-        propertiesFilesOverrides:
-            ConfigService.properties:
-                redirect.logout: "true"
-                redirect.logout.ssl: "true"
-                redirect.logout.url: https://<dev-auth0-domain>.us.auth0.com/oidc/logout?returnTo=https://<my-dx-compose-host>.com/wps/portal
     ```
 
     This configuration enables the HCL DX Compose deployment to utilize enhanced functionality for your transient users by mapping additional user attributes from the OIDC provider to the DX user session.
