@@ -39,7 +39,7 @@ Follow these steps to deploy your customized WebEngine image in your HCL DX Comp
 1. Upload your customized WebEngine image to the repository used for your HCL DX Compose deployment.  For more information see [Load Images to Your Own Repository](../../install/kubernetes_deployment/preparation/get_the_code/prepare_load_images.md#loading-images)
 
     ```sh
-    docker push my/test/repository/dx/web-engine:my_custom_tag
+    docker push <my_custom_repository>/webengine:<my_custom_tag>
     ```
 
 2. Fetch the current configuration values from the running Helm release to ensure you preserve existing settings while adding the transient user configuration. Run the following command:
