@@ -44,7 +44,7 @@ Follow these steps to deploy your customized WebEngine image in your HCL DX Comp
 
     Replace `dx-deployment` with your Helm release name and `dxns` with your namespace if they differ. This command saves the current values to a file named `custom-values-all.yaml`.
 
-3. In the `custom-values-all.yaml` file, modify the following sections to upgrade your image, load and configure your custom modules.  Replace example values as needed for your deployment and modules. For more information see [Configuration changes using overrides](configuration_changes_using_overrides.md) and [Updating DX properties using Helm values](./update_properties_with_helm.md).
+3. In the `custom-values-all.yaml` file, modify the following sections to upgrade your image, load and configure your custom modules.  Replace the example values (which are specific to JAAS modules) as needed for your deployment. For more information see [Configuration changes using overrides](configuration_changes_using_overrides.md) and [Updating DX properties using Helm values](./update_properties_with_helm.md).
 
     ```yaml
     images:
