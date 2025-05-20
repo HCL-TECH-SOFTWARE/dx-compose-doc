@@ -46,7 +46,7 @@ HCLDummyJAASGroupsAuth0: In addition to attribute mapping, this module has the a
 
 Follow these steps to enable the HCL Sample JAAS modules in your DX Compose deployment:
 
-1. Fetch the current configuration values from the running Helm release to ensure you preserve existing settings while adding the transient user configuration. Run the following command:
+1. Fetch the current configuration values from the running Helm release to ensure you preserve existing settings while adding the JAAS module configuration. Run the following command:
 
     ```sh
     helm get values dx-deployment -n dxns -o yaml -a > custom-values-all.yaml
