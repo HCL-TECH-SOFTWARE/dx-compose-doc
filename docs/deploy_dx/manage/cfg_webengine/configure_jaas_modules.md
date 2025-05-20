@@ -1,6 +1,6 @@
 ---
 id: configure_jaas_modules
-title: Configuring HCL Sammple JAAS modules for use with transient users in DX Compose
+title: Configuring JAAS modules for use with transient users in DX Compose
 ---
 
 While enabling transient users allows external OIDC users to log in, custom Java Authentication and Authorization Service (JAAS) login modules can provide further integration. This topic provides the steps to enable the HCL provided sample Java Authentication and Authorization Service (JAAS) modules for transient users. For the sample modules deployment instructions, we have configured an [Auth0](https://auth0.auth0.com/){target="_blank"} account and are using the Default App values.
