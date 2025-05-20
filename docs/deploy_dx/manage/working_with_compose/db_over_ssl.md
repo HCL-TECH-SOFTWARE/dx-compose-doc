@@ -1,6 +1,6 @@
 ---
 id: db-over-ssl
-title: Managing databases over SSL in WebEngine
+title: Managing WebEngine SSL database connections
 ---
 
 This document outlines how to enable Secure Sockets Layer (SSL) database connections for different databases in the WebEngine server.
