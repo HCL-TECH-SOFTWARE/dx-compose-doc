@@ -26,5 +26,5 @@ Learn how to use OIDC authentication in DX Compose.
 Learn how to integrate transient users with OpenID Connect in DX Compose.
 -   **[Customizing an HCL DX Compose WebEngine image](customize_webengine_image.md)**
 Learn how to build a customized WebEngine image for use in your DX Compose deployment.
--   **[Configuring HCL Sammple JAAS modules for use with transient users](configure_jaas_modules.md)**
-Learn how to enhance transient users functionality in DX Compose with HCL's custom JAAS modules.
+-   **[Configuring JAAS modules for use with transient users](configure_jaas_modules.md)**
+Learn how to enhance transient users functionality in DX Compose with custom JAAS modules.

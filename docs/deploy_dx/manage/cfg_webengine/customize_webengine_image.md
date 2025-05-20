@@ -7,7 +7,7 @@ This topic provides the steps to build a customized DX Compose WebEngine image t
 
 ## Customizing the HCL DX Compose WebEngine Image
 
-1. Create a Dockerfile that uses an official HCL DX Compose WebEngine image as a parent image.  Beginning with DX Compose 95 CF228 there is a customPlugins directory in the server configuration location in the image to hold custom jar files and a customPluginsLib configured for use with custom jars.
+1. Create a Dockerfile that uses an official HCL DX Compose WebEngine image as a parent image.  Beginning with DX Compose 95 CF228 there is a customPlugins directory in the server configuration location in the image to hold custom jar files and a customPluginsLib configured for use with custom jars. At this time, adding files to the customPlugins directory is the only supported customization of the image.
 
 <pre>
     ```
@@ -44,7 +44,7 @@ Follow these steps to deploy your customized WebEngine image in your HCL DX Comp
 
     Replace `dx-deployment` with your Helm release name and `dxns` with your namespace if they differ. This command saves the current values to a file named `custom-values-all.yaml`.
 
-3. In the `custom-values-all.yaml` file, modify the following sections to upgrade your image, load and configure your custom modules.  Replace example values as needed for your deployment and modules. For more information see [Configuration changes using overrides](configuration_changes_using_overrides.md) and [Updating DX properties using Helm values](./update_properties_with_helm.md).
+3. In the `custom-values-all.yaml` file, modify the following sections to upgrade your image, load and configure your custom modules.  Replace the example values (which are specific to JAAS modules) as needed for your deployment. For more information see [Configuration changes using overrides](configuration_changes_using_overrides.md) and [Updating DX properties using Helm values](./update_properties_with_helm.md).
 
     ```yaml
     images:
