@@ -7,7 +7,7 @@ This topic provides the steps to build a customized DX Compose WebEngine image t
 
 ## Customizing the HCL DX Compose WebEngine Image
 
-1. Create a Dockerfile that uses an official HCL DX Compose WebEngine image as a parent image.  Beginning with DX Compose 95 CF228 there is a customPlugins directory in the server configuration location in the image to hold custom jar files and a customPluginsLib configured for use with custom jars.
+1. Create a Dockerfile that uses an official HCL DX Compose WebEngine image as a parent image.  Beginning with DX Compose 95 CF228 there is a customPlugins directory in the server configuration location in the image to hold custom jar files and a customPluginsLib configured for use with custom jars. At this time, adding files to the customPlugins directory is the only supported customization of the image.
 
 <pre>
     ```
