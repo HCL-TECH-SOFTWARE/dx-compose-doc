@@ -13,7 +13,7 @@ This topic provides the steps to build a customized DX Compose WebEngine image t
     ```
     # Dockerfile contents:
 
-    FROM docker-image-repository.com/build-output/webengine:CF228_20250516-1642_34573
+    FROM oci://hclcr.io/dx-compose/hcl-dx-deployment/webengine:CF228_20250516-1642_34573
 
     # Copy the custom modules into the customized image
     COPY --chown=dx_user:dx_users ./MyCompanyJar1.jar /opt/openliberty/wlp/usr/servers/defaultServer/customPlugins/MyCompanyJar1.jar
@@ -21,7 +21,7 @@ This topic provides the steps to build a customized DX Compose WebEngine image t
     COPY --chown=dx_user:dx_users ./MyCompanyJar2.jar /opt/openliberty/wlp/usr/servers/defaultServer/customPlugins/MyCompanyJar2.jar
 
     # Copy any necessary additional files that are required by the custom jars into the customized image
-    COPY --chown=dx_user:dx_users ./MySupportingInfo.xml /opt/openliberty/wlp/usr/svrcfg/MySupportingInfo.xml
+    COPY --chown=dx_user:dx_users ./MySupportingInfo.xml /opt/openliberty/wlp/usr/servers/defaultServer/customPlugins/MySupportingInfo.xml
 
     ```
 </pre>

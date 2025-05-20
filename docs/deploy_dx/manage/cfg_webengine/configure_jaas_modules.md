@@ -24,7 +24,7 @@ For our sample deployment we used the following Dockerfile contents to build the
     ```
     # Dockerfile contents:
 
-    FROM docker-image-repository.com/build-output/webengine:CF228_20250516-1642_34573
+    FROM oci://hclcr.io/dx-compose/hcl-dx-deployment/webengine:CF228_20250516-1642_34573
 
     # Copy the custom modules into the customized image
     COPY --chown=dx_user:dx_users ./HCLDummyJAASSimpleAuth0LoginModule.jar /opt/openliberty/wlp/usr/servers/defaultServer/customPlugins/HCLDummyJAASSimpleAuth0LoginModule.jar
@@ -32,10 +32,16 @@ For our sample deployment we used the following Dockerfile contents to build the
     COPY --chown=dx_user:dx_users ./HCLDummyJAASGroupsAuth0LoginModule.jar /opt/openliberty/wlp/usr/servers/defaultServer/customPlugins/HCLDummyJAASGroupsAuth0LoginModule.jar
 
     # Copy any necessary additional files that are required by the custom jars into the customized image
-    COPY --chown=dx_user:dx_users ./mary_auto0_opInfo.json /opt/openliberty/wlp/usr/svrcfg/opInfo.json
+    COPY --chown=dx_user:dx_users ./auth0_opInfo.json /opt/openliberty/wlp/usr/servers/defaultServer/customPlugins/opInfo.json
 
     ```
 </pre>
+
+The Docker build command for this sample deployment was
+
+    ```
+    docker -D build --no-cache=true --progress=plain -t <my_custom_repository>/webengine:<my_custom_tag> .
+    ```
 
 
 ## Enabling HCL Sample JAAS modules in DX Compose
@@ -94,7 +100,7 @@ Follow these steps to enable the HCL Sample JAAS modules in your DX Compose depl
                 <server description="HCL Dummy JAAS Group Overrides">
                 <jaasLoginModule id="HCLDummyJAASGroupsAuth0LoginModule" className="com.hcl.HCLDummyJAASGroupsAuth0" controlFlag="REQUIRED" libraryRef="customPluginsLib">
                     <!-- options debug="true" / -->
-                    <options opInfoPath="/opt/openliberty/wlp/usr/svrcfg/opInfo.json"/>
+                    <options opInfoPath="/opt/openliberty/wlp/usr/servers/defaultServer/customPlugins/opInfo.json"/>
                 </jaasLoginModule>
                 <jaasLoginContextEntry id="system.WEB_INBOUND" name="system.WEB_INBOUND" loginModuleRef="HCLDummyJAASGroupsAuth0LoginModule, hashtable" />
                 </server>
@@ -105,10 +111,6 @@ Follow these steps to enable the HCL Sample JAAS modules in your DX Compose depl
                     </basicRegistry>
                 </server>
         propertiesFilesOverrides:
-            ConfigService.properties:
-                redirect.logout: "true"
-                redirect.logout.ssl: "true"
-                redirect.logout.url: https://<dev-auth0-domain>.us.auth0.com/oidc/logout?returnTo=https://<my-dx-compose-host>.com/wps/portal
             PACGroupManagementService.properties:
                 accessControlGroupManagement.useWSSubject: "true"
     ```
