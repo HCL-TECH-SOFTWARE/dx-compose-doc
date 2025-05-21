@@ -46,9 +46,12 @@ The Docker build command for this sample deployment was
 
 ## Enabling HCL Sample JAAS modules in DX Compose
 
-This section describes how to deploy and configure two sample JAAS login modules:
-HCLDummyJAASSimpleAuth0: Provides mapping of common attributes for a transient user.
-HCLDummyJAASGroupsAuth0: In addition to attribute mapping, this module has the ability to assign a transient user to pre-configured DX groups.
+This section describes how to deploy and configure two sample JAAS login modules: </br>
+`HCLDummyJAASSimpleAuth0`</br>
+Provides mapping of common attributes for a transient user.</br>
+
+`HCLDummyJAASGroupsAuth0`</br>
+In addition to attribute mapping, this module has the ability to assign a transient user to pre-configured DX groups.
 
 Follow these steps to enable the HCL Sample JAAS modules in your DX Compose deployment:
 
