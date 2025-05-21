@@ -5,6 +5,9 @@ title: Managing WebEngine SSL database connections
 
 This document outlines how to enable Secure Sockets Layer (SSL) database connections for different databases in the WebEngine server.
 
+!!!note
+    Currently, this documentation only provides steps to connect DB2.
+
 ## How SSL connections are established
 
 The SSL handshake is a process by which a client and server set the terms for secure communications during a connection. The handshake occurs before any data is exchanged.
