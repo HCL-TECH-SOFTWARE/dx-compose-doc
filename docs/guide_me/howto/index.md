@@ -1,10 +1,10 @@
 # How-to articles
 
-This section contains How-to articles to help you learn how to use HCL Digital Experience (DX) and all its features. The How-to articles are classified into the following topics:
+This section contains How-to articles to help you learn how to use HCL Digital Experience Compose (DX Compose) and all its features. The How-to articles are classified into the following topics:
 
-Learn how to configure HCL DX APIs.
+Learn how to configure HCL DX Compose
 - **[Configuration](./configuration/index.md)**  
-Learn how to configure your HCL DX environment.
+Learn how to configure your HCL DX Compose environment.
 
 ## Access the latest HCL Digital Experience 9.5 Education Materials on HCLSoftware U
 
