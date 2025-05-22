@@ -24,3 +24,7 @@ Learn how to perform initial tuning on DX Compose before load testing.
 Learn how to use OIDC authentication in DX Compose.
 -   **[Configuring transient users in DX Compose with OpenID Connect](configure_transient_users.md)**  
 Learn how to integrate transient users with OpenID Connect in DX Compose.
+-   **[Customizing an HCL DX Compose WebEngine image](customize_webengine_image.md)**  
+Learn how to build a customized WebEngine image for use in your DX Compose deployment.
+-   **[Configuring JAAS modules for use with transient users](configure_jaas_modules.md)**  
+Learn how to enhance transient users functionality in DX Compose with custom JAAS modules.
