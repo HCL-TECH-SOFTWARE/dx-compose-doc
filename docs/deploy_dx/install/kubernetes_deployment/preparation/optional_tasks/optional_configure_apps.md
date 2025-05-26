@@ -61,7 +61,7 @@ configuration:
 
 Refer to the following Help Center documentation for more information about LDAP configuration:
 
--   [Enable federated security](../../../../manage/working_with_compose/cfg_parameters/manage_users_groups_liberty.md#configuring-federated-user-registry.md)
+-   [Enable federated security](../../../../manage/working_with_compose/cfg_parameters/manage_users_groups_liberty.md#configuring-federated-user-registry)
 -   [Troubleshooting](../../../../manage/working_with_compose/troubleshooting/index.md)
 
 
