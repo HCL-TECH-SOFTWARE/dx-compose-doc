@@ -2,7 +2,7 @@
 
 ## Creating an MHS deployment instance
 
-An MHS deployment instance is a registered environment (such as development, test, or production) associated with a customer’s account in the MHS portal. It serves as the target for license metering and entitlement tracking, allowing HCL software (for example, HCL DX) to report usage data such as user sessions. Each deployment instance helps monitor consumption against licensed entitlements. In connected environments, the DX License Manager reports directly to the assigned instance.
+An MHS deployment instance is a registered environment (such as development, test, or production) associated with a customer’s account in the MHS portal. It serves as the target for license metering and entitlement tracking, allowing HCL software entitled offerings (for example, HCL Digital Experience Compose) to report usage data such as user sessions. Each deployment instance helps monitor consumption against licensed entitlements. In connected environments, the DX License Manager reports directly to the assigned instance.
 
 Refer to the following steps to create an MHS deployment instance:
 
@@ -85,7 +85,7 @@ type: Opaque
 This section shows what a successful entitlement check should look like. The logs should indicate a successful connection to the entitlement server, as illustrated in the following example:
 
 ```log
-INFO: The connection to the entitlement server is successful. You have a valid HCL Digital Experience Cloud Native 9.5 entitlement. HCL DX Cloud Native 9.5 server starts.
+INFO: The connection to the entitlement server is successful. You have a valid HCL Digital Experience Compose 9.5 entitlement. HCL DX Compose 9.5 server starts.
 INFO: Starting session count of the license manager
 INFO: License validity: true
 ```
