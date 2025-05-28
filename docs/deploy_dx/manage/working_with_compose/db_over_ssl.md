@@ -26,7 +26,9 @@ This section outlines how you can configure WebEngine to connect to DB2 over SSL
 
 ### Prerequisites
 
-Before configuring the WebEngine server, SSL connections must be enabled on the DB2 server. To verify that the DB2 server is listening for SSL connections (for example, on port 50001), use one of the following commands:
+Before configuring the WebEngine server, SSL connections must be enabled on the DB2 server. For more information on how to enable SSL on DB2, refer to [Using an external database and database transfer](../cfg_webengine/external_db_database_transfer.md) and [Using custom certificates in WebEngine](custom_certificates.md).
+
+To verify that the DB2 server is listening for SSL connections (for example, on port 50001), use one of the following commands:
 
 - `netstat -tulnp | grep 50001`
 - `ss -tulnp | grep 50001`
@@ -86,3 +88,7 @@ Refer to the following steps to enable SSL connections on the DB2 driver.
        <connectionManager agedTimeout="7200" connectionTimeout="180" maxIdleTime="1800" maxPoolSize="100" minPoolSize="10" purgePolicy="EntirePool" reapTime="180"/>
     </dataSource>
     ```
+
+???+ info "Related information"
+    - [Using an external database and database transfer](../cfg_webengine/external_db_database_transfer.md)
+    - [Using custom certificates in WebEngine](custom_certificates.md)
