@@ -9,7 +9,7 @@ The following software files are packaged and licensed for use with HCL DX Compo
 - HCL Leap 9.3.x for use with DX Compose
 - HCL Volt Foundry 9.5.x for use with DX Compose
 
-In future continuous delivery updates, entitled customers can obtain the HCL DX 9.5 Compose container updates from the download package entries in the [HCL Software License Portal](https://hclsoftware.flexnetoperations.com/flexnet/operationsportal/logon.do){target="blank"}.
+In future continuous delivery updates, entitled customers can obtain the HCL DX 9.5 Compose container updates from the download package entries in the [MHS portal](https://my.hcltechsw.com/downloads){target="blank"}.
 
 Video: [How to upload HCL DX 9.5 container images to a private repository](https://youtu.be/XJONRdpgCuo)
 
