@@ -8,5 +8,5 @@ Learn how to access and download HCL DX Compose from MHS.
 Learn how to download and deploy DX Compose from a Harbor repository.
 - **[Tracking user session consumption and exporting usage reports](export_usage_report.md)**  
 Learn how to configure user session tracking DX Compose 9.5 deployments and manually export usage reports.
-- **[Entitlement checking in the My HCLSoftware portal](entitlement_check.md)**  
+- **[Entitlement checking in the My HCLSoftware portal](./configure_entitlement_checks/index.md)**  
 Learn how to set up entitlement checking and user session reporting in DX Compose 9.5 deployments.
