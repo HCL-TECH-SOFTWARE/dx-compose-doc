@@ -7,13 +7,7 @@ The [MHS portal](https://support.hcl-software.com/csm?id=kb_article&sysparm_arti
 
 For Kubernetes deployments, the HCL License Manager container service is configured to check entitlements and record usage that can be reported to the MHS delivery portal. If you cannot or do not want to integrate directly with a delivery portal for automatic online reporting, you may use alternative options such as producing report extracts in a simple file format, that can be read, uploaded periodically, and shared in other ways. Refer to [Reporting Options](#reporting-options) to identify how to report usage for Kubernetes and traditional deployments.
 
-!!! note
-    Entitlement checking is not implemented in the HCL Digital Experience Compose v9.5 software that is deployed to support specified operating systems (for example, Windows, Linux or IBM AIX). Customers deploying HCL Digital Experience Compose v9.5 software to these platforms should plan to measure and report the total number of user sessions consumed per contract year.
-
-A standalone tool called the [User Session Reporting Tool](./user_session_reporting_tool.md) was delivered in CF223 and is available from DX entitlements in the MHS delivery portal.
-
-You may also use web analytics reporting software such as Google Analytics to track user session consumption in DX v9.5 and earlier release versions of production deployments. For more information, refer to [Integrate Google Analytics with HCL DX](/theme_overrides/partials/integrations/analytics.html)..
-
+A standalone tool called the [User Session Reporting Tool](./user_session_reporting_tool.md) was delivered and is available from DX Compose entitlements in the MHS delivery portal.
 
 ### Entitlement-check scenarios
 
@@ -40,38 +34,36 @@ The following table describes the possible entitlement-check response scenarios 
 
 ### Reporting options
 
-When reporting product usage in HCL DX, the method of reporting depends on the connectivity of your deployment to external licensing services. Two primary modes are available: online and offline (disconnected) usage reporting.
+When reporting product usage in HCL DX Compose, the method of reporting depends on the connectivity of your deployment to external licensing services. Two primary modes are available: online and offline (disconnected) usage reporting.
 
 1. Online usage reporting: In online mode, the deployment is connected to the internet and can communicate directly with the MHS license service. Usage data such as user sessions or feature utilization is automatically reported in near real-time through integrated APIs. This is the most seamless and automated method of entitlement tracking and compliance.
 
 2. Offline (disconnected) usage reporting: In offline or disconnected mode, the environment has no external connectivity to licensing servers. This is common in air-gapped, on-premises, or highly secure deployments. In this mode, usage data must be collected manually, converted into supported metric formats, and uploaded manually through a web portal.
 
-Refer to the following table to determine the appropriate reporting method for your existing deployment. It outlines the available usage reporting options for both Kubernetes and traditional (on-premises) environments, along with their corresponding software portals and documentation links.
+Refer to the following table to determine the appropriate reporting method for your existing deployment. It outlines the available usage reporting options for Kubernetes environments, along with the corresponding My HCLSoftware portal and documentation links.
 
 | **Reporting Target**     | **Deployment Type** | **Further Information**                                                                                                                                             |
 |-------------------------|---------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **My HCLSoftware**      | Kubernetes          | [Online Reporting](./mhs_license_and_delivery.md)                                                                     |
 |                         | Kubernetes          | [Offline / Disconnected Reporting](./configuring_mhs_file_base_session_reporting.md#mhs-file-based-usage-reporting-for-kubernetes-deployments)                       |
-|                         | Traditional         | [Offline / Disconnected Reporting](./configuring_mhs_file_base_session_reporting.md#mhs-file-based-usage-reporting-for-non-kubernetes-deployments)                   |
 | **Manual Export**       | Kubernetes          | [Manual Report Extracts](./export_usage_report.md)                                                                                                                   |
-|                         | Traditional         | [User Session Reporting Tool](./user_session_reporting_tool.md)                                                                                                      |
 
 ### Monitoring user-session consumption for HCL Digital Experience Compose v9.5 production deployments
 
 !!! note
     Calculating and reporting user session consumption produces the same results, regardless of which software delivery portal is being used.
 
-In addition to verifying entitlement to the contract period for purchased subscription software, HCL Software delivery portals can present usage information of HCL Software offerings that have been developed to report usage metrics. This information includes HCL Digital Experience Compose 9.5 Tiers 1 - 3 offerings for production deployments.
+The My HCLSoftware delivery portal will collect usage information of HCL Software offerings that have been developed to report usage metrics. This information includes HCL Digital Experience Compose 9.5 Tiers 1 - 3 offerings for production deployments.
 
 HCL Digital Experience Compose 9.5 Tiers 1 - 3 offerings are purchased according to the number of user sessions to be consumed annually. A user session is defined as a single web session or other online interaction by anonymous or authenticated users of the program when it is deployed for production use. User sessions also include API calls, which deliver production-use website content or application data to external resources, excluding deliveries to a content-delivery network.
 
-- A user session begins when a user (authenticated or anonymous) visits a DX deployment operating for production use and then interacts with program website pages and is identified through appropriate tags that use the appropriate scripts for each site page view request. User session interactions can include one or more production-use website page views.
+- A user session begins when a user (authenticated or anonymous) visits a DX Compose deployment operating for production use and then interacts with program website pages and is identified through appropriate tags that use the appropriate scripts for each site page view request. User session interactions can include one or more production-use website page views.
 
 - A user session ends when the user interaction with the production-use program is idle for 30 minutes or until the user ends the interaction explicitly by closing their authentication or web session with the site.
 
 - The maximum duration for an individual user session with continuous interactions is four hours.
 
-You can view user-session consumption by using usage reports in the corresponding software delivery portal. To be included in these reports, your HCL Digital Experience Compose 9.5 entitlements must be:
+To be included in these reports, your HCL Digital Experience Compose 9.5 entitlements must be:
 
 - Mapped to the appropriate software delivery portal for entitlement checking.
 - Configured for production use in your deployment Helm charts.
