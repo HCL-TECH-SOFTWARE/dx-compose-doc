@@ -12,7 +12,7 @@ Refer to the following steps to create an MHS deployment instance:
 
 3. In the **Add Deployments** window, enter the **Deployment Name** and select the type of the deployment.
 
-    ![Create Deployment](images/create_deployment.png){ width="500" }
+    ![Create Deployment](../images/create_deployment.png){ width="500" }
 
 4. Click **Add Deployment**.
 
@@ -24,11 +24,11 @@ After creating a deployment, refer to the following steps to get the deployment 
 
 2. Click the three-dot icon on your deployment then select **Create Deployment Key** to create a deployment key.
 
-    ![More menu](images/create_dep_key.png){ width="500" }
+    ![More menu](../images/create_dep_key.png){ width="500" }
 
 3. Copy and save the unique deployment key. This will serve as an initial refresh token.
 
-    ![Deployment key](images/new_deployment_key.png){ width="500" }
+    ![Deployment key](../images/new_deployment_key.png){ width="500" }
 
 !!! Tip
     If you lose your deployment key, you can generate a new one. On the **Deployments** tab, open your deployment and click the three-dot icon. Then, select **Replace Deployment Key** to generate a new key.

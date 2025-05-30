@@ -24,7 +24,7 @@ configuration:
     licenseManualReportUniqueIdentifier: "myUniqueIdentifier-123"
 ```
 
-If no unique DX Compose Kubernetes deployment identity is set in the helm value, the deployment uses the release name and namespace combination by default. See [Kubernetes Overview](../../deploy_dx/install/kubernetes_deployment/containers_overview.md) for deployment and configuration guidance.
+If no unique DX Compose Kubernetes deployment identity is set in the helm value, the deployment uses the release name and namespace combination by default.
 
 ## Exporting the user session usage report in CSV format
 
