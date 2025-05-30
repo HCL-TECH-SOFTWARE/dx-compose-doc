@@ -1,6 +1,6 @@
 # Locating and downloading DX Compose products
 
-After authenticating to the My HCLSoftware (MHS) portal, Digital Experience (DX) Compose software and updates entitled to your organization are presented through selections from the HCL DX offerings tile:
+After authenticating to the [My HCLSoftware (MHS) portal](https://my.hcltechsw.com/){target="_blank"}, Digital Experience (DX) Compose software and updates entitled to your organization are presented through selections from the HCL DX offerings tile:
 
 ![HCL DX Offering](./images/HCL%20DX%20Offering.png)
 
@@ -39,4 +39,4 @@ Refer to the following steps to download the files:
 
 3. Verify or update the path provided to begin downloading.
 
-If you encounter issues with finding software or downloading files, refer to the Customer Support FAQ section for support.
+If you encounter issues with finding software or downloading files, refer to the [Customer Support FAQ](https://help.hcl-software.com/digital-experience/9.5/CF227/guide_me/tutorials/access-software/support-faqs/){target="_blank"} section for support.
