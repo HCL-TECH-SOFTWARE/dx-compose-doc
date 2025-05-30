@@ -2,7 +2,7 @@
 
 New and existing users need to [register](https://support.hcl-software.com/csm?id=kb_article&sysparm_article=KB0069114){target="blank"} at the HCL Software License Portal and download their entitled HCL Digital Experience packages.
 
-The following software files are packaged and licensed for use with HCL Digital Experience Compose v9.5 and are available in your entitlements on the [HCL Software License Portal](https://hclsoftware.flexnetoperations.com/flexnet/operationsportal/logon.do){target="blank"}.
+The following software files are packaged and licensed for use with HCL Digital Experience Compose v9.5 and are available in your entitlements on the [My HCLSoftware (MHS) portal](https://my.hcltechsw.com/){target="blank"}.
 
 - HCL Digital Experience Compose v9.5
 - HCL DX Client
