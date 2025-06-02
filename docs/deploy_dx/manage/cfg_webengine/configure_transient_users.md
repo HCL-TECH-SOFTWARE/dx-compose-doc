@@ -71,13 +71,12 @@ See the following sample configuration:
 
 For more information on setting up a federated repository, refer to [Configuring federated repositories](../working_with_compose/cfg_parameters/manage_users_groups_liberty.md#configuring-federated-user-registry).
 
-!!!note "Accessing the Portal Login Page Directly"
-    You may need to bypass OIDC authentication, for example, when authenticating as an LDAP user. To do this, append the following path to your base portal URL to access the portal login page directly:
+!!!note "Accessing the Portal login page directly"
+    In cases where you may need to bypass OIDC authentication (for example, when authenticating as an LDAP user), you can access the portal login page directly by appending the following path to your base portal URL:
 
     ```
     /poc?uri=nm:oid:wps.Login
     ```
+    For example, `https://example.com/wps/poc?uri=nm:oid:wps.Login`.
 
-    For example, https://example.com/wps/poc?uri=nm:oid:wps.Login
-
-    Alternatively, if a friendly URL for the portal login page is configured in your environment, you can use that as well.
+    Alternatively, you can use a friendly URL configured for your portal login page.
