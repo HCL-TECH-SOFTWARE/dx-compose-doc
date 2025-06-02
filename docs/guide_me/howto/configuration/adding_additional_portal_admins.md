@@ -15,7 +15,7 @@ This document provides detailed steps on how to add new administrators to the HC
 
 Refer to the following steps to add new administrators into HCL DX Compose:  
 
-1. Specify a separate portal administration group in your user repository. Independent, if the user group is specified on LDAP or in a file based repository. For more information, refer to [Managing users and groups in DX Compose](../../../deploy_dx/manage//working_with_compose/cfg_parameters/manage_users_groups_liberty.md).{target="_blank"} <!--what does the 
+1. Specify a separate portal administration group in your user repository. Before proceeding, ensure your user repository is correctly configured, whether it is LDAP or file-based. For more information, refer to [Managing users and groups in DX Compose](../../../deploy_dx/manage//working_with_compose/cfg_parameters/manage_users_groups_liberty.md){target="_blank"}.
 
 2. Login to the DX Compose portal with the current administrator role (default: `wpsadmin`).
 
