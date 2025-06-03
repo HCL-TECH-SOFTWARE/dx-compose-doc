@@ -16,8 +16,6 @@ Learn how to do specific Web Content Manager (WCM) Authoring, Content Composer, 
 Learn how to do specific Digital Asset Management (DAM) tasks in your HCL DX Compose environment.
 - **[Database](./database/index.md)**  
 Learn how to configure your HCL DX Compose atabase.
-- **[Deployment](./deployment/index.md)**  
-Learn how to deploy HCL DX Compose into your environments.
 - **[Development](./development/index.md)**  
 Learn how to develop applications, portlets, JavaServer Pages (JSP), JS, Web Application Builder (WAB), Web Experience Factory (WEF), Web Services, and more on your HCL DX Compose environment.
 - **[Install](./install/index.md)**  
