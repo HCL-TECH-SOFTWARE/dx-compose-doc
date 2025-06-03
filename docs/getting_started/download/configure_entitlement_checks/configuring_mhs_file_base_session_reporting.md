@@ -139,7 +139,7 @@ After generating the metrics file (for example, `{YYYY-MM-DDTHH-MM-SS UTC}_usage
 
 1. Go to the **Deployments** section of the MHS portal to review entitlements and user session consumption reports.
 
-    ![](../../software_licensing_portal/_img/upload_usage_metric_file.png)
+    ![](../images/upload_usage_metric_file.png)
 
 2. Upload the usage metric file to MHS.
     1. On the **Deployments** page, select the deployment to which you want to upload your metrics file.
