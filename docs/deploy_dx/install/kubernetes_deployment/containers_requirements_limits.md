@@ -78,6 +78,9 @@ To deploy HCL Digital Experience Compose 9.5 to the supported Kubernetes platfor
     The overall sums for CPU and memory include all components of HCL DX Compose. 
     In most cases, you only want to deploy a subset of all components. Therefore, the minimal system requirements decrease accordingly.
 
+!!!note
+    This configuration outlines the minimum requirements. For production environments or higher workloads, scale to small config. If you encounter performance issues, increase resource allocations as needed. For guidance on optimizing your deployment, see the [performance tuning guide](../../../guide_me/performance_tuning/kubernetes/index.md).
+
 <!--
 !!!important
     For the recommended disk storage per PersistentVolume, refer to the `values.yaml` file. The relevant values can be found in the `volumes` section of the `values.yaml file` in the `requests.storage` parameter of each Volume. Note that the required size increases with every core upgrade from one cumulative fix to another. For best results, clean up your previous profiles after you confirm that the new profile is working. See related [Core Profile Check](../../../deployment/install/container/helm_deployment/preparation/optional_tasks/optional-core-prereqs-checker.md#core-profile-check) and [Storage Space Check](../../../deployment/install/container/helm_deployment/preparation/optional_tasks/optional-core-prereqs-checker.md#storage-space-check).
