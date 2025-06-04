@@ -16,10 +16,10 @@ Exceptions are permissible only when HCL requests customers to use a specially p
 
 This section describes the requirements and limitations for HCL Digital Experience Compose 9.5 Container deployments that use Helm.
 
-HCL DX Compose 9.5 is designed to run on any certified Kubernetes platform \([https://www.cncf.io/certification/software-conformance](https://www.cncf.io/certification/software-conformance)\), provided that the conditions apply:
+HCL DX Compose 9.5 is designed to run on any certified Kubernetes platform \([https://www.cncf.io/certification/software-conformance](https://www.cncf.io/certification/software-conformance){target="_blank"}\), provided that the conditions apply:
 
 - The Kubernetes platform is hosted on x86\_64 hardware.
-- The Kubernetes platform is officially supported by Helm ([https://helm.sh/docs/topics/kubernetes\_distros/](https://helm.sh/docs/topics/kubernetes_distros/)).
+- The Kubernetes platform is officially supported by Helm ([https://helm.sh/docs/topics/kubernetes\_distros/](https://helm.sh/docs/topics/kubernetes_distros/){target="_blank"}).
 
 <!-- 
 For the list of Kubernetes versions that are tested and supported by HCL, refer to the [HCL DX supported hardware and software statements](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0013514&sys_kb_id=ba230c701b983c50f37655352a4bcb29) page.
@@ -34,7 +34,7 @@ To deploy HCL Digital Experience Compose 9.5 to the supported Kubernetes platfor
 
 - **Helm installation**:
 
-    Download and install Helm to your target environment. The HCL DX Compose 9.5 container deployment is tested and is supported with Helm v3. For more information regarding the supported Helm version for individual Kubernetes versions, refer to [Helm documentation](https://helm.sh/).
+    Download and install Helm to your target environment. The HCL DX Compose 9.5 container deployment is tested and is supported with Helm v3. For more information regarding the supported Helm version for individual Kubernetes versions, refer to [Helm documentation](https://helm.sh/){target="_blank"}.
 
 - **Container platform capacity resource requirements**:
 
@@ -45,7 +45,9 @@ To deploy HCL Digital Experience Compose 9.5 to the supported Kubernetes platfor
    All the following CPU sizings relate to an environment with 2nd generation Intel Xeon scalable processors (Cascade Lake 8223CL) or 1st generation Intel Xeon Platinum 8000 series (Skylake 8124M) processors.
 
 !!!note
-    Every Kubernetes node requires some memory for Kubernetes-specific services. Ensure that your Kubernetes Node has enough capacity to host both the Kubernetes services and HCL DX Compose. The overall requested amount of resources might vary based on disabled and enabled applications.
+    - Every Kubernetes node requires some memory for Kubernetes-specific services. Ensure that your Kubernetes Node has enough capacity to host both the Kubernetes services and HCL DX Compose. The overall requested amount of resources might vary based on disabled and enabled applications.
+    - The overall sums for CPU and memory include all components of HCL DX Compose. In most cases, you only want to deploy a subset of all components. Therefore, the minimal system requirements decrease accordingly.
+    - This configuration outlines the minimum requirements. For production environments or higher workloads, scale to small config. If you encounter performance issues, increase resource allocations as needed. For guidance on optimizing your deployment, see the [Performance Tuning Guide](../../../guide_me/performance_tuning/kubernetes/index.md).
 
 | **Pod name** | **Minimum number of Pods** | **Container** | **Container Image** | **Container CPU request and limit** | **Container Memory request and limit** |
 |---|---|---|---|---|---|
@@ -73,13 +75,6 @@ To deploy HCL Digital Experience Compose 9.5 to the supported Kubernetes platfor
 | file-processor | 1 | file-processor | dx-file-processor | 1000m | 2048Mi |
 |  |  |  |  |  |  |
 | **Overall** |  |  |  | **9800m** | **18304Mi** |
-
-!!!note
-    The overall sums for CPU and memory include all components of HCL DX Compose. 
-    In most cases, you only want to deploy a subset of all components. Therefore, the minimal system requirements decrease accordingly.
-
-!!!note
-    This configuration outlines the minimum requirements. For production environments or higher workloads, scale to small config. If you encounter performance issues, increase resource allocations as needed. For guidance on optimizing your deployment, see the [performance tuning guide](../../../guide_me/performance_tuning/kubernetes/index.md).
 
 <!--
 !!!important
