@@ -9,8 +9,8 @@ This topic provides the steps to build a customized HCL Digital Experience (DX) 
 
 1. Create a Dockerfile that uses an official HCL DX Compose WebEngine image as a parent image. Beginning with DX Compose CF228, the image includes a `customPlugins` directory in the server configuration location to hold custom JAR files and a `customPluginsLib` configured for use with these custom JARs.
 
-!!! note
-    At this time, adding files to the `customPlugins` directory is the only supported customization of the image.
+    !!! note
+        At this time, adding files to the `customPlugins` directory is the only supported customization of the image.
 
     <pre>
         ```
