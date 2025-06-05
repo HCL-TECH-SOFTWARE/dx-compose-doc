@@ -112,7 +112,7 @@ For example, see the following access logs:
 
 | **Field**            | **Example Value**                                                                                              | **Description**                                      |
 |----------------------|---------------------------------------------------------------------------------------------------------------|------------------------------------------------------|
-| Timestamp (`%t`)      | `[17/Jun/2024:09:47:25 +0000]`                                                                                 | Session duration is counted as a single user session based on the conditions mentioned in [Monitoring user-session consumption for HCL Digital Experience Compose v9.5 production deployments](index.md#monitoring-user-session-consumption-for-hcl-digital-experience-compose-v95-production-deployments)|
+| Timestamp (`%t`)      | `[17/Jun/2024:09:47:25 +0000]`                                                                                 | Session duration is counted as a single user session based on the conditions mentioned in [Monitoring user-session consumption for HCL DX Compose v9.5 production deployments](index.md#monitoring-user-session-consumption-for-hcl-dx-compose-v95-production-deployments)|
 | Client IP (`%h`)      | `192.168.243.142`                                                                                              | IP seen by the server        |
 | User-Agent            | `"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"` | Contains the browser info of the request                  |
 | X-Forwarded-For       | `"10.134.209.51"`                                                                                              | Actual client IP passed by a proxy or load balancer    |
@@ -148,7 +148,7 @@ GET /wps/mycontenthandler/wcmrest-v2/categories?type=category HTTP/1.1 200 [DX_U
 
 Once the IP addresses or session keys to be excluded have been identified, you can configure the exclusion parameters when running the tool to ensure those entries are omitted from the session count. See [Excluding specific requests](#excluding-specific-requests) for more information.
 
-## Running the user session reporting tool
+## Running the User Session Reporting Tool
 
 ### Tool parameters
 
@@ -214,7 +214,7 @@ After running the command, the system returns the expected session count within 
     !!! note
         You must save the DAT file and store it securely as it will be used by the tool to continue the session count during the next run. Losing or tampering with this file could result in incorrect session data and an inaccurate count.
 
-### Additional use-cases
+### Additional use cases
 
 - You can run the User Session Reporting Tool either once for all collected log files or incrementally every X days, hours, or minutes. The tool stores its state between runs and only processes logs generated after the last previously processed timestamp to prevent reprocessing old entries. This ensures that you still get the correct overall result, even when processing logs in multiple stages.
 

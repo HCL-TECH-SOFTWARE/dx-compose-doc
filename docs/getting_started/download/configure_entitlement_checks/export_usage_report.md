@@ -4,19 +4,19 @@
 
 With this feature, you can:
 
-- Configure user session tracking for DX Compose 9.5 deployments on supported Kubernetes platforms.
-- View [DX Compose 9.5 user session](./index.md#monitoring-user-session-consumption-for-hcl-dx-cloud-native-v95-production-deployments) consumption in DX Compose 9.5 Kubernetes deployments.
-- Manually export a report of the number of sessions used in specified time periods. The DX Compose Kubernetes deployment user session usage report presents the data in the form of sessions month in a given date range. See examples in the next sections. 
+- Configure user session tracking for HCL Digital Experience (DX) Compose 9.5 deployments on supported Kubernetes platforms.
+- View [DX Compose 9.5 user session](./index.md#monitoring-user-session-consumption-for-hcl-dx-compose-v95-production-deployments) consumption in DX Compose 9.5 Kubernetes deployments.
+- Manually export a report of the number of sessions used in specified time periods. The DX Compose Kubernetes deployment user session usage report presents the data in the form of sessions month in a given date range. See examples in the next sections.
 - Produce a local report from HCL License Manager.
 
 !!!note
-    User session tracking and reporting support the protection of the Personally Identifiable Information (PII) of users. Data such as the User ID and the IP Address are not stored in the server logs or presented in user session consumption reports. These reports present the timestamp and number data to report the user session counts for the requested time period. 
+    User session tracking and reporting support the protection of the Personally Identifiable Information (PII) of users. Data such as the User ID and the IP Address are not stored in the server logs or presented in user session consumption reports. These reports present the timestamp and number data to report the user session counts for the requested time period.
 
-For information on how user sessions are defined and when they begin and end, see [User Session consumption for HCL DX Cloud Native v9.5 production deployments](./index.md#monitoring-user-session-consumption-for-hcl-dx-cloud-native-v95-production-deployments)
+For information on how user sessions are defined and when they begin and end, see [User Session consumption for HCL DX Compose v9.5 production deployments](./index.md#monitoring-user-session-consumption-for-hcl-dx-compose-v95-production-deployments)
 
 ## Unique identifier for the DX Compose deployment session usage report
 
-Optionally, set a unique identifier for the specified DX Compose Kubernetes deployment. This is included in the exported user session data and helps to identify from which deployment any given report was produced.
+Optionally, set a unique identifier for the specified DX Compose Kubernetes deployment. This is included in the exported user session data and helps identify from which deployment any given report was produced.
 
 ```yaml
 configuration:
@@ -119,4 +119,4 @@ Total session usage: 34739664
 ############################################################
 ```
 
-Optionally, you can import the local .txt or .csv file to a spreadsheet or other reporting tools for viewing and further analysis.
+Optionally, you can import the local `.txt` or `.csv` file to a spreadsheet or other reporting tools for viewing and further analysis.

@@ -1,8 +1,10 @@
 # Entitlement checking in the My HCLSoftware portal
 
+The [My HCLSoftware portal (MHS)](https://support.hcl-software.com/csm?id=kb_article&sysparm_article=KB0109011){target="_blank"} is available for the distribution of HCLSoftware products. In MHS, you can find and download the latest HCLSoftware product releases and supported older releases. This topic provides information on how you can check your entitlements in the MHS delivery portal.
+
 ## Creating an MHS deployment instance
 
-An MHS deployment instance is a registered environment (such as development, test, or production) associated with a customer’s account in the MHS portal. It serves as the target for license metering and entitlement tracking, allowing HCL software entitled offerings (for example, HCL Digital Experience Compose) to report usage data such as user sessions. Each deployment instance helps monitor consumption against licensed entitlements. In connected environments, the DX License Manager reports directly to the assigned instance.
+An MHS deployment instance is a registered environment (such as development, test, or production) associated with a customer’s account in the MHS portal. It serves as the target for license metering and entitlement tracking, allowing HCL software entitled offerings (for example, HCL DX Compose) to report usage data such as user sessions. Each deployment instance helps monitor consumption against licensed entitlements. In connected environments, the DX License Manager reports directly to the assigned instance.
 
 Refer to the following steps to create an MHS deployment instance:
 
@@ -58,7 +60,7 @@ To validate the entitlement details for your software, configure the following p
 - `productionEnvironment`: Set to `true` to send usage reports to MHS. For other environments (for example, test or UAT), set to `false`.
 - `licenseServerUri`: Set to the MHS License Server URI (`https://api.hcltechsw.com`).
 - `customMhsDeploymentKeySecret`: The name of a secret that has been created and contains the deployment key in a data element called `deploymentKey`. Use a secret for production environments or in any situation where you prefer not to store the deployment key directly in `values.yaml`.
-- `mhsDeploymentKey`: A unique identifier for a specific deployment of DX, against which the usage information for that environment is reported. You can generate a deployment and its associated deployment key for each environment in which you enable License Manager within the [My HCLSoftware portal](https://my.hcltechsw.com/){target="_blank"}. Put the deployment key in this value element for non-production environments or in situations where storing the key directly in `values.yaml` is acceptable.
+- `mhsDeploymentKey`: A unique identifier for a specific deployment of DX, against which the usage information for that environment is reported. You can generate a deployment and its associated deployment key for each environment in which you enable License Manager within the [MHS portal](https://my.hcltechsw.com/){target="_blank"}. Put the deployment key in this value element for non-production environments or in situations where storing the key directly in `values.yaml` is acceptable.
 
 To create a custom secret, run the following command:
 
