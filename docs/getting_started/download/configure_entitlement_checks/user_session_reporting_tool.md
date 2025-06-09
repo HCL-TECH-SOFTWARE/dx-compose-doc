@@ -19,7 +19,7 @@ This section provides information about the functionalities and use cases of the
 
 ## Availability and system compatibility
 
-The User Session Reporting Tool (UserSessionReporting-v1.2.0.zip and later) is available in the [HCL DX offering](../../../../docs/getting_started/offerings.md) you have purchased entitlements to in the [HCL Software License Portal](https://hclsoftware.flexnetoperations.com/flexnet/operationsportal/logon.do){target="_blank"}. For example:
+The User Session Reporting Tool (UserSessionReporting-v1.2.0.zip and later) is available in the [HCL DX offering](../../../getting_started/offerings.md) you have purchased entitlements to in the [HCL Software License Portal](https://hclsoftware.flexnetoperations.com/flexnet/operationsportal/logon.do){target="_blank"}. For example:
 
 - HCL Portal Server 9.5
 - HCL Web Content Manager 9.5
