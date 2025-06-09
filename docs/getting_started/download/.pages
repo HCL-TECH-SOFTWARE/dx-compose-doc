@@ -5,4 +5,4 @@ nav:
 - locating-downloads.md
 - index.md
 - harbor_container_registry.md
-- export_usage_report.md
+- configure_entitlement_checks
