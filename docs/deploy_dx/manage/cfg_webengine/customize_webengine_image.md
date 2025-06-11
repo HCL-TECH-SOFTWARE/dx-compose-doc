@@ -47,7 +47,7 @@ Follow these steps to deploy your customized WebEngine image in your HCL DX Comp
 
     For more information see [Load images to your own repository](../../install/kubernetes_deployment/preparation/get_the_code/prepare_load_images.md#loading-images).
 
-2. Fetch the current configuration values from the running Helm release to ensure you preserve existing settings while adding the transient user configuration. Run the following command:
+2. Fetch the current configuration values from the running Helm release to ensure you preserve existing settings while adding the new image tag value and configuration. Run the following command:
 
     ```sh
     helm get values dx-deployment -n dxns -o yaml -a > custom-values-all.yaml
