@@ -4,18 +4,19 @@
 
 With this feature, you can:
 
-- Configure user session tracking Digital Experience (DX) Compose 9.5 deployments on supported Kubernetes platforms.
-- View [DX 9.5 user session](https://help.hcl-software.com/digital-experience/9.5/latest/get_started/download/software_licensing_portal/configure_entitlement_checks/entitlement_checks_scenarios/#how-to-monitor-user-session-consumption-for-hcl-dx-cloud-native-v95-production-deployments) consumption in DX 9.5 Kubernetes deployments.
-- Manually export a report of the number of sessions used in specified time periods. The DX Compose Kubernetes deployment user session usage report presents the data in the form of sessions month in a given date range. See examples in the next sections. 
+- Configure user session tracking for HCL Digital Experience (DX) Compose 9.5 deployments on supported Kubernetes platforms.
+- View [DX Compose 9.5 user session](./index.md#monitoring-user-session-consumption-for-hcl-dx-compose-v95-production-deployments) consumption in DX Compose 9.5 Kubernetes deployments.
+- Manually export a report of the number of sessions used in specified time periods. The DX Compose Kubernetes deployment user session usage report presents the data in the form of sessions month in a given date range. See examples in the next sections.
+- Produce a local report from HCL License Manager.
 
 !!!note
-    User session tracking and reporting support the protection of the Personally Identifiable Information (PII) of users. Data such as the User ID and the IP Address are not stored in the server logs or presented in user session consumption reports. These reports present the timestamp and number data to report the user session counts for the requested time period. 
+    User session tracking and reporting support the protection of the Personally Identifiable Information (PII) of users. Data such as the User ID and the IP Address are not stored in the server logs or presented in user session consumption reports. These reports present the timestamp and number data to report the user session counts for the requested time period.
 
-For information on how user sessions are defined and when they begin and end, see [User Session consumption for HCL DX Cloud Native v9.5 production deployments](https://help.hcl-software.com/digital-experience/9.5/latest/get_started/download/software_licensing_portal/configure_entitlement_checks/entitlement_checks_scenarios/#how-to-monitor-user-session-consumption-for-hcl-dx-cloud-native-v95-production-deployments).
+For information on how user sessions are defined and when they begin and end, see [User Session consumption for HCL DX Compose v9.5 production deployments](./index.md#monitoring-user-session-consumption-for-hcl-dx-compose-v95-production-deployments)
 
 ## Unique identifier for the DX Compose deployment session usage report
 
-Optionally, set a unique identifier for the specified DX Compose Kubernetes deployment. This is included in the exported user session data.
+Optionally, set a unique identifier for the specified DX Compose Kubernetes deployment. This is included in the exported user session data and helps identify from which deployment any given report was produced.
 
 ```yaml
 configuration:
@@ -23,7 +24,7 @@ configuration:
     licenseManualReportUniqueIdentifier: "myUniqueIdentifier-123"
 ```
 
-If no unique DX Compose Kubernetes deployment identity is set in the helm value, the deployment uses the release name and namespace combination by default. See [Kubernetes Overview](../../deploy_dx/install/kubernetes_deployment/containers_overview.md) for deployment and configuration guidance.
+If no unique DX Compose Kubernetes deployment identity is set in the helm value, the deployment uses the release name and namespace combination by default.
 
 ## Exporting the user session usage report in CSV format
 
@@ -70,9 +71,9 @@ month,sessions,gaps,environment
 2024-04,,2024-04-01_2024-04-02,UAT-ENV
 ```
 
-## Exporting the user session usage report in human readable format
+## Exporting the user session usage report in human-readable format
 
-To export the user session usage report, use the following command and include the start date, end date, and `--pretty`:
+To export the user session usage report, use the following command and include the start date, end date, and `--pretty` option:
 
 ```
 kubectl exec -it <release name>-license-manager-0 -n <namespace> -- sh exportUsageReport.sh <YYYY-MM-DD> <YYYY-MM-DD> --pretty
@@ -118,4 +119,4 @@ Total session usage: 34739664
 ############################################################
 ```
 
-Optionally, you can import the local .txt or .csv file to a spreadsheet or other reporting tools for viewing and further analysis.
+Optionally, you can import the local `.txt` or `.csv` file to a spreadsheet or other reporting tools for viewing and further analysis.

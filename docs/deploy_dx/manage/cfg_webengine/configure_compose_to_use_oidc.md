@@ -21,7 +21,7 @@ A DX Compose system administrator must create an account in the identity provide
 
 After securing the required information from the OpenID Connect identity provider, the administrator must make these parameters available to DX Compose.
 
-During DX Compose installation, there is a file named `oidc.yaml` located in the `charts/hcl-dx-deployment/oidc` subdirectory of the Kubernetes node where you ran `helm install`. An administrator must fill out the `oidc.yaml` file and use this file during a `helm upgrade` operation to integrate DX Compose to the external identity provider.
+During DX Compose installation, there is a file named `oidc.yaml` located in the `install-hcl-dx-deployment/oidc` subdirectory of the Kubernetes node where you ran `helm install`. An administrator must fill out the `oidc.yaml` file and use this file during a `helm upgrade` operation to integrate DX Compose to the external identity provider.
 
 Refer to the following steps to enable OIDC authentication in DX Compose:
 
@@ -48,3 +48,13 @@ Refer to the following steps to enable OIDC authentication in DX Compose:
     ```
 
     For more information, see [Upgrading the Helm deployment](../working_with_compose/helm_upgrade_values.md).
+
+!!!note "Accessing the Portal login page directly"
+    In cases where you may need to bypass OIDC authentication (for example, when authenticating as an LDAP user), you can access the portal login page directly by appending the following path to your base portal URL:
+
+    ```
+    /poc?uri=nm:oid:wps.Login
+    ```
+    For example, `https://example.com/wps/poc?uri=nm:oid:wps.Login`.
+
+    Alternatively, you can use a friendly URL configured for your portal login page.
