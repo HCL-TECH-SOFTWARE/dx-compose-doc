@@ -1,6 +1,6 @@
 # Configuring DX Compose
 
-In this topic, you will learn how to configuring the different features and services available in HCL Digital Experience (DX) Compose.
+In this topic, you will learn how to configure the different features and services available in HCL Digital Experience (DX) Compose.
 
 -   **[Enabling and disabling Content Composer](./enable_cc.md)**  
 Learn how to enable and disable Content Composer.
