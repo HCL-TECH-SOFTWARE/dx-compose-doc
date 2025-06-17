@@ -28,10 +28,10 @@ java -jar <jarFilepath> -h
 # <endDate> Specifies the end date in YYYY-MM-DD format
 # <deploymentId> String deploymentID from MHS
 # <option> Specify "fileOutput" to write usage into an automatically named file. If option is unspecified, the usage metrics are displayed in the terminal and not saved in a file.
-
-**Note:** The product feature ID is automatically read from the License Manager's environment variable. You do not need to specify it as a parameter when running the User Session Reporting Tool.
-
 ```
+
+!!!note
+    The product feature ID is automatically read from the License Manager's environment variable. You do not need to specify it as a parameter when running the User Session Reporting Tool.
 
 See the sample command for running the User Session Reporting Tool using all the parameters provided:
 
