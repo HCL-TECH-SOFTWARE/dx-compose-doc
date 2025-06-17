@@ -50,7 +50,7 @@ Refer to the following steps to add the DB2 certificate to a secret.
 
     ```yaml
     configuration: 
-    webEngine:
+      webEngine:
         . . . 
         customTruststoreSecrets: 
         db-secret: db-secret
@@ -68,7 +68,7 @@ Refer to the following steps to enable SSL connections on the DB2 driver.
 
     ```yaml
     configuration: 
-    webEngine:
+      webEngine:
         . . . 
         dbDomainProperties: 
         ....
