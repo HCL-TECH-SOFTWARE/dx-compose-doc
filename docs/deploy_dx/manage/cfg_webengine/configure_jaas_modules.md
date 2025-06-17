@@ -64,57 +64,53 @@ Follow these steps to enable the HCL sample JAAS modules in your DX Compose depl
 
     - The `HCLDummyJAASSimpleAuth0` module focuses on mapping essential user attributes from the OIDC token (ID token or UserInfo endpoint) to the JAAS Subject.  This module makes these attributes available within the DX session. Typically mapped attributes include unique ID, username, email, and full name.
 
-    ```yaml
-    images:
-      tags:
-        webEngine: my_custom_tag
-    configuration:
-      webEngine:
-        configOverrideFiles:
-          jaas-simple-overrides.xml: |
-            <server description="HCL Dummy JAAS Simple Overrides">
-              <jaasLoginModule id="HCLDummyJAASSimpleAuth0LoginModule" className="com.hcl.HCLDummyJAASSimpleAuth0" controlFlag="REQUIRED" libraryRef="customPluginsLib">
-                <!-- options debug="true" / -->
-              </jaasLoginModule>
-              <jaasLoginContextEntry id="system.WEB_INBOUND" name="system.WEB_INBOUND" loginModuleRef="HCLDummyJAASSimpleAuth0LoginModule, hashtable" />
-            </server>
-    ```
+        ```yaml
+        images:
+          tags:
+            webEngine: my_custom_tag
+        configuration:
+          webEngine:
+            configOverrideFiles:
+              jaas-simple-overrides.xml: |
+                <server description="HCL Dummy JAAS Simple Overrides">
+                  <jaasLoginModule id="HCLDummyJAASSimpleAuth0LoginModule" className="com.hcl.HCLDummyJAASSimpleAuth0" controlFlag="REQUIRED" libraryRef="customPluginsLib">
+                    <!-- options debug="true" / -->
+                  </jaasLoginModule>
+                  <jaasLoginContextEntry id="system.WEB_INBOUND" name="system.WEB_INBOUND" loginModuleRef="HCLDummyJAASSimpleAuth0LoginModule, hashtable" />
+                </server>
+        ```
 
-
-    This configuration enables the HCL DX Compose deployment to utilize enhanced functionality for your transient users by mapping additional user attributes from the OIDC provider to the DX user session.
-
+        This configuration enables the HCL DX Compose deployment to utilize enhanced functionality for your transient users by mapping additional user attributes from the OIDC provider to the DX user session.
 
     - The `HCLDummyJAASGroupsAuth0` module extends the functionality of `HCLDummyJAASSimpleAuth0`. Besides attribute mapping, it allows you to assign transient users to one or more DX groups based on information present in the OIDC claims (for example, a groups or roles claim). This is useful for controlling access to DX resources (pages, portlets, content) based on group memberships derived from the external OIDC provider without needing to manage these memberships directly in DX for transient users.
 
+        ```yaml
+        images:
+          tags:
+            webEngine: my_custom_tag
+        configuration:
+          webEngine:
+            configOverrideFiles:
+              jaas-group-overrides.xml: |
+                <server description="HCL Dummy JAAS Group Overrides">
+                  <jaasLoginModule id="HCLDummyJAASGroupsAuth0LoginModule" className="com.hcl.HCLDummyJAASGroupsAuth0" controlFlag="REQUIRED" libraryRef="customPluginsLib">
+                    <!-- options debug="true" / -->
+                    <options opInfoPath="/opt/openliberty/wlp/usr/servers/defaultServer/customPlugins/opInfo.json"/>
+                  </jaasLoginModule>
+                  <jaasLoginContextEntry id="system.WEB_INBOUND" name="system.WEB_INBOUND" loginModuleRef="HCLDummyJAASGroupsAuth0LoginModule, hashtable" />
+                </server>
+              user-overrides.xml: |
+                <server descriptions="HCL JAAS User Overrides">
+                  <basicRegistry id="basic" realm="defaultWIMFileBasedRealm">
+                    <group id="cn=testRole01,o=defaultWIMFileBasedRealm" name="testRole01" />
+                  </basicRegistry>
+                </server>
+            propertiesFilesOverrides:
+              PACGroupManagementService.properties:
+                accessControlGroupManagement.useWSSubject: "true"
+        ```
 
-    ```yaml
-    images:
-      tags:
-        webEngine: my_custom_tag
-    configuration:
-      webEngine:
-        configOverrideFiles:
-          jaas-group-overrides.xml: |
-            <server description="HCL Dummy JAAS Group Overrides">
-              <jaasLoginModule id="HCLDummyJAASGroupsAuth0LoginModule" className="com.hcl.HCLDummyJAASGroupsAuth0" controlFlag="REQUIRED" libraryRef="customPluginsLib">
-                <!-- options debug="true" / -->
-                <options opInfoPath="/opt/openliberty/wlp/usr/servers/defaultServer/customPlugins/opInfo.json"/>
-              </jaasLoginModule>
-              <jaasLoginContextEntry id="system.WEB_INBOUND" name="system.WEB_INBOUND" loginModuleRef="HCLDummyJAASGroupsAuth0LoginModule, hashtable" />
-            </server>
-          user-overrides.xml: |
-            <server descriptions="HCL JAAS User Overrides">
-              <basicRegistry id="basic" realm="defaultWIMFileBasedRealm">
-                <group id="cn=testRole01,o=defaultWIMFileBasedRealm" name="testRole01" />
-              </basicRegistry>
-            </server>
-        propertiesFilesOverrides:
-          PACGroupManagementService.properties:
-            accessControlGroupManagement.useWSSubject: "true"
-    ```
-
-    This configuration enables the HCL DX Compose deployment to utilize enhanced functionality for your transient users. This includes mapping additional user attributes from the OIDC provider to the DX user session, or assigning transient users to specific DX groups based on OIDC claims.
-
+        This configuration enables the HCL DX Compose deployment to utilize enhanced functionality for your transient users. This includes mapping additional user attributes from the OIDC provider to the DX user session, or assigning transient users to specific DX groups based on OIDC claims.
 
 3. Use the following `helm upgrade` command to apply the updated configuration. Include both the base values file and the modified `custom-values-all.yaml` file.
 
