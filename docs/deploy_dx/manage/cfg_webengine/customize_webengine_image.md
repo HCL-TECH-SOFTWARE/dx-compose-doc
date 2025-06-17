@@ -59,27 +59,27 @@ Follow these steps to deploy your customized WebEngine image in your HCL DX Comp
 
     ```yaml
     images:
-    tags:
+      tags:
         webEngine: my_custom_tag
     configuration:
-    webEngine:
+      webEngine:
         configOverrideFiles:
-            my-custom-module-1-overrides.xml: |
+          my-custom-module-1-overrides.xml: |
             <server description="My Proprietary Overrides">
-            <customModule id="MyCompanyCustomModule1" className="path.to.your.main.class.in.module.jar.ClassName" controlFlag="REQUIRED" libraryRef="customPluginsLib">
-                <options myCustomOption1="value"/>
-            </customModule>
-            <customModuleContextEntry id="system.WEB_INBOUND" name="system.WEB_INBOUND" loginModuleRef="MyCompanyCustomModule1, hashtable" />
+              <customModule id="MyCompanyCustomModule1" className="path.to.your.main.class.in.module.jar.ClassName" controlFlag="REQUIRED" libraryRef="customPluginsLib">
+              <options myCustomOption1="value"/>
+              </customModule>
+              <customModuleContextEntry id="system.WEB_INBOUND" name="system.WEB_INBOUND" loginModuleRef="MyCompanyCustomModule1, hashtable" />
             </server>
-            my-custom-module-2-overrides.xml: |
+          my-custom-module-2-overrides.xml: |
             <server description="My Proprietary Overrides">
-            <customModule id="MyCompanyCustomModule2" className="path.to.your.main.class.in.module.jar.ClassName" controlFlag="REQUIRED" libraryRef="customPluginsLib">
-                <options myCustomOption2="value"/>
-            </customModule>
-            <customModuleContextEntry id="system.WEB_INBOUND" name="system.WEB_INBOUND" loginModuleRef="MyCompanyCustomModule2, hashtable" />
+              <customModule id="MyCompanyCustomModule2" className="path.to.your.main.class.in.module.jar.ClassName" controlFlag="REQUIRED" libraryRef="customPluginsLib">
+              <options myCustomOption2="value"/>
+              </customModule>
+              <customModuleContextEntry id="system.WEB_INBOUND" name="system.WEB_INBOUND" loginModuleRef="MyCompanyCustomModule2, hashtable" />
             </server>
         propertiesFilesOverrides:
-            <propertiesFileName>:
+          <propertiesFileName>:
             <propertyKey>: <propertyValue>
     ```
 
