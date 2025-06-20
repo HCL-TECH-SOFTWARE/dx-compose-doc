@@ -4,7 +4,7 @@ To be able to work with Content as a Service (CaaS) pages in HCL Digital Experie
 
 Refer to the following steps to install and configure CaaS:
 
-1. On a Kubernetes deployment, change the directory to directory that contains the `install-hcl-dx-deployment` on the main Kubernetes node.
+1. On a Kubernetes deployment, change the directory to directory that contains the `install-hcl-dx-deployment` directory on the "master" Kubernetes node.
 
 2. Run "helm upgrade" to make the CaaS theme available to DX Compose.
 
