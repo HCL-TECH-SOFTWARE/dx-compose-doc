@@ -26,6 +26,8 @@ Refer to the following steps to install and configure CaaS:
 
 Note that you need not be actually logged into Kubernetes nor the pod containing web-engine in order to run the "xmlaccess" command. If you have copied "xmlaccess" to a local machine, you can adjust the fully qualified name for the "xmlaccess" command as well as the "-url" parameter in the example command given. The "url" parameter in the case of a local "xmlaccess" command would contain the actual hostname (and likely NOT "9080") for for DX Compose instance. 
 
+One could also use the "DXClient" command to do "xmlaccess". Either of these 3 methods work and the changes made ultimately are made in the database connected to DX Compose and not the local file system.
+
 5. Run the following command to register the CaaS Page and Portlet in each virtual portal, including the main virtual portal.
 
     ```
