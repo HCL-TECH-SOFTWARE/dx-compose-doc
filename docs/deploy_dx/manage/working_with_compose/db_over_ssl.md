@@ -6,7 +6,7 @@ title: Managing WebEngine SSL database connections
 This document outlines how to enable Secure Sockets Layer (SSL) database connections for different databases in the WebEngine server.
 
 !!!note
-    Currently, this documentation only provides steps to connect DB2.
+    Currently, this documentation only provides steps to connect DB2 and Oracle.
 
 ## How SSL connections are established
 
@@ -19,6 +19,9 @@ Each driver must be configured with the following capabilities:
 - Enable SSL: Tell the driver to use a SSL connection instead of an insecure connection.
 
 - Establish trust: Tell the driver where it can find trusted certificates.
+
+!!!note
+    While SSL ensures secure database connections, it is recommended to evaluate its necessity as it may introduce performance overhead to the application.
 
 ## Connecting WebEngine to DB2 over SSL
 
@@ -53,7 +56,7 @@ Refer to the following steps to add the DB2 certificate to a secret.
       webEngine:
         . . . 
         customTruststoreSecrets: 
-        db-secret: db-secret
+          db-secret: db-secret
     ```
 
     The truststore that includes the DB2 SSL certificate will be located at: `/opt/openliberty/wlp/usr/servers/defaultServer/resources/security/truststore.p12`
@@ -70,22 +73,100 @@ Refer to the following steps to enable SSL connections on the DB2 driver.
     configuration: 
       webEngine:
         . . . 
-        dbDomainProperties: 
-        ....
-        community.DbType: "db2"
-        community.DbUrl: jdbc:db2://local-db2:50000/WPCOMM:sslConnection=true;
-        .....
+        dbDomainProperties:
+          ....
+          community.DbType: "db2"
+          community.DbUrl: jdbc:db2://local-db2:50000/WPCOMM:sslConnection=true;
+          ....
     ```
 
 2. Perform a [helm upgrade](./helm_upgrade_values.md) to apply the changes.
 
     Once the `sslConnection=true` attribute is set in the `DbUrl`, the datasource elements in the `server.xml` file will be updated with the `sslTrustStoreLocation`, `sslTrustStorePassword` and `sslTrustStoreType` attributes of the trusted certificate. For example:
 
-    ```yaml
+    ```xml
     <dataSource id="community" isolationLevel="TRANSACTION_READ_COMMITTED" jndiName="jdbc/wpcommdbDS" statementCacheSize="10" type="javax.sql.XADataSource">
         <jdbcDriver javax.sql.XADataSource="com.ibm.db2.jcc.DB2XADataSource" libraryRef="global"/>
         <properties.db2.jcc databaseName="WPCOMM" driverType="4" password="{xor}OzY6K2s8MDQ6" portNumber="50000" serverName="10.134.210.37" sslConnection="true" sslTrustStoreLocation="/opt/openliberty/wlp/usr/servers/defaultServer/resources/security/truststore.p12" sslTrustStorePassword="<trustStore_password>" sslTrustStoreType="PKCS12" user="db2inst1"/>
        <connectionManager agedTimeout="7200" connectionTimeout="180" maxIdleTime="1800" maxPoolSize="100" minPoolSize="10" purgePolicy="EntirePool" reapTime="180"/>
+    </dataSource>
+    ```
+
+## Connecting WebEngine to Oracle over SSL
+
+This section outlines how you can configure WebEngine to connect to Oracle RDS over SSL (port 2484).
+
+### Prerequisites
+
+Before configuring the WebEngine server, SSL connections must be enabled on the Oracle server.
+
+If you're using an Oracle RDS instance, ensure the following:
+
+- The DB parameter group enables TCPS (SSL on port `2484`).
+- `SSL_VERSION` is set (e.g., `1.2`).
+- The RDS instance has a valid server certificate, and you're using the root CA cert on the client side.
+
+For more information on how to enable SSL on Oracle, also refer to [Using an external database and database transfer](../cfg_webengine/external_db_database_transfer.md) and [Using custom certificates in WebEngine](custom_certificates.md).
+
+To verify that the Oracle server is listening for SSL connections (for example, on port 2484), use one of the following commands:
+
+- `openssl s_client -connect <db-identifier>.<unique-identifier>.<region>.rds.amazonaws.com:2484 -tls1_2`
+- `nc -zv <db-identifier>.<unique-identifier>.<region>.rds.amazonaws.com 2484`
+
+Once the Oracle server is listening on the SSL port (2484), you can configure the WebEngine server to connect to Oracle over SSL.
+
+### Adding the Oracle SSL certificate to a secret
+
+Refer to the following steps to add the DB2 certificate to a secret.
+
+1. Use the following `kubectl` command to add the certificate (for example, `server.crt`) to a secret:
+
+    ```bash
+    kubectl create secret generic db-secret --from-file=server.crt -n dxns
+    ```
+
+2. Once the secret is created, add it to the DX Compose Helm charts using the `customTruststoreSecrets` parameter in the `values.yaml` file:
+
+    ```yaml
+    configuration: 
+      webEngine:
+        . . . 
+        customTruststoreSecrets: 
+          db-secret: db-secret
+    ```
+
+    The truststore that includes the Oracle SSL certificate will be located at: `/opt/openliberty/wlp/usr/servers/defaultServer/resources/security/truststore.p12`
+
+### Configuring the Oracle JDBC driver and WebEngine server for SSL connection
+
+Refer to the following steps to enable SSL connections on the Oracle driver.
+
+1. Add the `connectionProperties` attribute to the `dataSource` properties element.
+
+    To do this, include the `@tcps` protocol with SSL port `2484` in the `DbUrl` of the Oracle domains under `dbDomainProperties` in the `values.yaml` file. For example:
+
+    ```yaml
+    configuration: 
+      webEngine:
+        . . . 
+        dbDomainProperties: 
+          ....
+          community.DbType: "oracle"
+          community.DbUrl: jdbc:oracle:thin:@tcps://<db-identifier>.<unique-identifier>.<region>.rds.amazonaws.com:2484/<service-name>
+          ....
+    ```
+
+    The `@tcps` specifies the use of the TCPS (Transport Layer Security) protocol for secure database connections.
+
+2. Perform a [helm upgrade](./helm_upgrade_values.md) to apply the changes.
+
+    Once the `@tcps` protocol is set with SSL port `2484` in the `DbUrl`, the datasource elements in the `server.xml` file will be updated with the `connectionProperties` attribute with the values of truststore location, truststore password and the truststore type of the trusted certificate. For example:
+
+    ```xml
+    <dataSource id="community" isolationLevel="TRANSACTION_READ_COMMITTED" jndiName="jdbc/wpcommdbDS" statementCacheSize="10" type="javax.sql.XADataSource">
+        <jdbcDriver javax.sql.XADataSource="oracle.jdbc.xa.client.OracleXADataSource" libraryRef="global"/>
+        <properties.oracle URL="jdbc:oracle:thin:@tcps://<db-identifier>.<unique-identifier>.<region>.rds.amazonaws.com:2484/<service-name>" connectionProperties="javax.net.ssl.trustStore=/opt/openliberty/wlp/usr/servers/defaultServer/resources/security/truststore.p12;javax.net.ssl.trustStoreType=PKCS12;javax.net.ssl.trustStorePassword=<truststore-password>" password="{xor}L28tKz4zayo=" user="cwdb01"/>
+        <connectionManager agedTimeout="7200" connectionTimeout="180" maxIdleTime="1800" maxPoolSize="100" minPoolSize="10" purgePolicy="EntirePool" reapTime="180"/>
     </dataSource>
     ```
 
