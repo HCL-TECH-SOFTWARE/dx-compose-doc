@@ -31,6 +31,10 @@ For naming purposes, this document calls the system that you are staging from th
     /opt/openliberty/wlp/usr/svrcfg/scripts/xmlaccess/xmlaccess.sh -d /opt/openliberty/wlp/usr/servers/defaultServer -out /tmp/ExportVirtualPortals.xml -in     /opt/openliberty/wlp/usr/svrcfg/xml-samples/ExportVirtualPortals.xml -user wpsadmin -password wpsadmin -url http://localhost:9080/wps/config
     ```
 
+Note that you need not be actually logged into Kubernetes nor the pod containing web-engine in order to run the "xmlaccess" command. If you have copied "xmlaccess" to a local machine, you can adjust the fully qualified name for the "xmlaccess" command as well as the "-url" parameter in the example command given. The "url" parameter in the case of a local "xmlaccess" command would contain the actual hostname (and likely NOT "9080") for for DX Compose instance. 
+
+One could also use the "DXClient" command to do "xmlaccess". Either of these 3 methods work and the changes made ultimately are made in the database connected to DX Compose and not the local file system.
+
 5. Export XMLAccess with `ExportRelease.xml` on the source Portal **base** virtual Portal. As an example, the result file could be called `baseVPExportRelease.xml`.
 
     From inside the WebEngine portal deployed on your source system (for example, use `kubectl exec -it webengine-pod-0 bash -n dxns`), you can use the following sample command:
@@ -39,6 +43,8 @@ For naming purposes, this document calls the system that you are staging from th
     /opt/openliberty/wlp/usr/svrcfg/scripts/xmlaccess/xmlaccess.sh -d /opt/openliberty/wlp/usr/servers/defaultServer -out /tmp/baseVPExportRelease.xml -in     /opt/openliberty/wlp/usr/svrcfg/xml-samples/ExportRelease.xml -user wpsadmin -password wpsadmin -url http://localhost:9080/wps/config
     ```
 
+Note that one could also use the "DXClient" command to do "xmlaccess".
+
 6. Export XMLAccess export with `ExportUniqueRelease.xml` for the first source Portal Virtual Portal 1. As an example, the result file could be called `vp1Export`.xml.
 
     From inside the WebEngine container deployed on your source system (for example, use `kubectl exec -it webengine-pod-0 bash -n dxns`) you can use the following sample command:
@@ -46,6 +52,8 @@ For naming purposes, this document calls the system that you are staging from th
     ```
     /opt/openliberty/wlp/usr/svrcfg/scripts/xmlaccess/xmlaccess.sh -d /opt/openliberty/wlp/usr/servers/defaultServer -out /tmp/vp1Export.xml -in /opt/openliberty/wlp/usr/svrcfg/xml-samples/ExportUniqueRelease.xml -user wpsadmin -password wpsadmin -url http://localhost:9080/wps/config/vp1
     ```
+
+Note that one could also use the "DXClient" command to do "xmlaccess".
 
 7. Repeat Step 6 for each virtual portal on the source system. Make sure to use a unique name for the XMLAccess output.
 
@@ -63,6 +71,8 @@ For naming purposes, this document calls the system that you are staging from th
     /opt/openliberty/wlp/usr/svrcfg/scripts/xmlaccess/xmlaccess.sh -d /opt/openliberty/wlp/usr/servers/defaultServer -out /tmp/SchedulerCleanupTask.xml.out -in /opt/openliberty/wlp/usr/installer/wp.config/config/templates/SchedulerCleanupTask.xml -user wpsadmin -password wpsadmin -url http://localhost:9080/wps/config
     ```
 
+Note that one could also use the "DXClient" command to do "xmlaccess".
+
 9. Run scheduler through the `Task.xml` on the target WebEngine container.
 
     Sample command: 
@@ -70,6 +80,8 @@ For naming purposes, this document calls the system that you are staging from th
     ```
     /opt/openliberty/wlp/usr/svrcfg/scripts/xmlaccess/xmlaccess.sh -d /opt/openliberty/wlp/usr/servers/defaultServer -out /tmp/Task.xml.out -in /opt/openliberty/wlp/usr/svrcfg/xml-samples/Task.xml -user wpsadmin -password wpsadmin -url http://localhost:9080/wps/config
     ```
+
+Note that one could also use the "DXClient" command to do "xmlaccess".
 
 10. Transfer the WebDav theme from the source server to the target. 
 
@@ -90,6 +102,8 @@ For naming purposes, this document calls the system that you are staging from th
         /opt/openliberty/wlp/usr/svrcfg/scripts/xmlaccess/xmlaccess.sh -d /opt/openliberty/wlp/usr/servers/defaultServer -out /tmp/ExportThemesAndSkins.xml.out -in /opt/openliberty/wlp/usr/svrcfg/xml-samples/ExportThemesAndSkins.xml -user wpsadmin -password wpsadmin -url http://localhost:9080/wps/config
         ```
 
+Note that one could also use the "DXClient" command to do "xmlaccess".
+
     6. Edit the output file (`/tmp/ExportThemesAndSkins.xml.out`) to remove any themes and skins not created using the Theme Manager. This would include all themes included in the base Portal (for example, Portal 8.5 theme).
     
     7. Import the resulting XML file on the target to register the new themes and skins:
@@ -97,6 +111,8 @@ For naming purposes, this document calls the system that you are staging from th
         ```
         /opt/openliberty/wlp/usr/svrcfg/scripts/xmlaccess/xmlaccess.sh -d /opt/openliberty/wlp/usr/servers/defaultServer -in /tmp/ExportThemesAndSkins.xml.out -out /tmp/ExportThemesAndSkins.xml.out.out -user wpsadmin -password wpsadmin -url http://localhost:9080/wps/config
         ```
+
+Note that one could also use the "DXClient" command to do "xmlaccess".
 
 11. Set the properties required for syndication in WCM ConfigService (for example, enable member fixer to run as part of syndication). You can find more information about custom syndication configuration properties in [Member fixer in Syndication](https://opensource.hcltechsw.com/digital-experience/latest/manage_content/wcm_configuration/wcm_adm_tools/wcm_member_fixer/wcm_admin_member-fixer_synd/){target="_blank"}.
 
@@ -107,6 +123,8 @@ For naming purposes, this document calls the system that you are staging from th
     ```
     /opt/openliberty/wlp/usr/svrcfg/scripts/xmlaccess/xmlaccess.sh -d /opt/openliberty/wlp/usr/servers/defaultServer -in /tmp/baseVPExportRelease.xml -out /tmp/baseVPExportRelease.xml.out -user wpsadmin -password wpsadmin -url http://localhost:9080/wps/config
     ```
+
+Note that one could also use the "DXClient" command to do "xmlaccess".
 
 13. Deploy your DAM assets from your source environment to you target environment using DXClient.
 
@@ -131,6 +149,8 @@ For naming purposes, this document calls the system that you are staging from th
     /opt/openliberty/wlp/usr/svrcfg/scripts/xmlaccess/xmlaccess.sh -d /opt/openliberty/wlp/usr/servers/defaultServer -in /tmp/ExportVirtualPortals.xml -out /tmp/ExportVirtualPortals.xml.out -user wpsadmin -password wpsadmin -url http://localhost:9080/wps/config
     ```
 
+Note that one could also use the "DXClient" command to do "xmlaccess".
+
 17. Import the XML file for each virtual Portal on the source into same virtual Portal on the target using XMLAccess. Ensure that the VP context root in the XMLAccess command matches the VP name in the `&quot;/wps/config/&quot;` XMLAccess statement.
 
     Sample command: 
@@ -138,6 +158,8 @@ For naming purposes, this document calls the system that you are staging from th
     ```
     /opt/openliberty/wlp/usr/svrcfg/scripts/xmlaccess/xmlaccess.sh -d /opt/openliberty/wlp/usr/servers/defaultServer -in /tmp/vp1Export.xml -out /tmp/vp1Export_result.xml -user wpsadmin -password wpsadmin -url http://localhost:9080/wps/config/vp1
     ```
+
+Note that one could also use the "DXClient" command to do "xmlaccess".
 
 18. Repeat steps 16 and 17 until all of your virtual Portals are created and filled through XMLAccess on the target Portal.
 
