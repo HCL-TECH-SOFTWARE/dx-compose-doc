@@ -8,6 +8,11 @@ HCL Digital Experience (DX) Compose, Web Content Manager (WCM) and Digital Asset
 
 For naming purposes, this document calls the system that you are staging from the *source* system and the system you are staging to the *target* system.
 
+The detailed examples below are shown using a locally connected XMLAccess command. This implies the the user of the XMLAccess command are logged into the pod containing DX Compose and that XMLAccess is run from inside that pod. This could be problematic is the user of XMLAccess (typically the Portal Administrative user) does NOT have login access to the Kubernetes pod. However, note that one could also (equivantly) install XMLAccess on ones local machine and XMLAccess to the DX Compose remotely (by adjust the URL parameter in the examples below) or by using the "DX Client" command. Using DX Client is the preferred way to do this in a Kubernetes environment.
+
+When using DX Client, note that one must have the ability to "DX Client" into at least the "target" systems to fully complete the tasks below. 
+The put to the target system requires XMLAccess input decks producted by the "source" system. Producing these "source" xml files can also be achieved by a local XMLAccess command, a remote XMLAccess command or (the preferred) DX Client command.
+
 ## Staging from source to target
 
 1. Install and upgrade the target HCL DX Compose system with Helm. The target and source should have exactly the same DX Compose level and preferably be at the latest of both. As both source and target are Kubernetes-based.
@@ -31,9 +36,9 @@ For naming purposes, this document calls the system that you are staging from th
     /opt/openliberty/wlp/usr/svrcfg/scripts/xmlaccess/xmlaccess.sh -d /opt/openliberty/wlp/usr/servers/defaultServer -out /tmp/ExportVirtualPortals.xml -in     /opt/openliberty/wlp/usr/svrcfg/xml-samples/ExportVirtualPortals.xml -user wpsadmin -password wpsadmin -url http://localhost:9080/wps/config
     ```
 
-Note that you need not be actually logged into Kubernetes nor the pod containing web-engine in order to run the "xmlaccess" command. If you have copied "xmlaccess" to a local machine, you can adjust the fully qualified name for the "xmlaccess" command as well as the "-url" parameter in the example command given. The "url" parameter in the case of a local "xmlaccess" command would contain the actual hostname (and likely NOT "9080") for for DX Compose instance. 
+Note that you need not be actually logged into Kubernetes nor the pod containing web-engine in order to run the "xmlaccess" command. If you have copied "xmlaccess" to a local machine, you can adjust the fully qualified name for the "xmlaccess" command as well as the "-url" parameter in the example command given. The "url" parameter in the case of a local "xmlaccess" command would contain the actual hostname (and likely NOT "9080") for DX Compose instance. 
 
-One could also use the "DXClient" command to do "xmlaccess". Either of these 3 methods work and the changes made ultimately are made in the database connected to DX Compose and not the local file system.
+One could also use the "DXClient" command to do "xmlaccess". Either of these 3 methods work and the changes are ultimately made in the database connected to DX Compose and not the local file system.
 
 5. Export XMLAccess with `ExportRelease.xml` on the source Portal **base** virtual Portal. As an example, the result file could be called `baseVPExportRelease.xml`.
 
