@@ -36,7 +36,7 @@ The put to the target system requires XMLAccess input decks producted by the "so
     /opt/openliberty/wlp/usr/svrcfg/scripts/xmlaccess/xmlaccess.sh -d /opt/openliberty/wlp/usr/servers/defaultServer -out /tmp/ExportVirtualPortals.xml -in     /opt/openliberty/wlp/usr/svrcfg/xml-samples/ExportVirtualPortals.xml -user wpsadmin -password wpsadmin -url http://localhost:9080/wps/config
     ```
 
-Note that you need not be actually logged into Kubernetes nor the pod containing web-engine in order to run the "xmlaccess" command. If you have copied "xmlaccess" to a local machine, you can adjust the fully qualified name for the "xmlaccess" command as well as the "-url" parameter in the example command given. The "url" parameter in the case of a local "xmlaccess" command would contain the actual hostname (and likely NOT "9080") for DX Compose instance. 
+Note that you need not be actually logged into Kubernetes nor the pod containing web-engine in order to run the "xmlaccess" command. If you have copied "xmlaccess" to a local machine, you can adjust the fully qualified name for the "xmlaccess" command as well as the "-url" parameter in the example command given. The "url" parameter in the case of a local "xmlaccess" command would contain the actual hostname (and likely NOT "9080") for the DX Compose instance. 
 
 One could also use the "DXClient" command to do "xmlaccess". Either of these 3 methods work and the changes are ultimately made in the database connected to DX Compose and not the local file system.
 
