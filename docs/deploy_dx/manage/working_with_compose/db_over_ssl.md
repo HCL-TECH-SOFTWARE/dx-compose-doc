@@ -115,6 +115,28 @@ To verify that the Oracle server is listening for SSL connections (for example, 
 
 Once the Oracle server is listening on the SSL port (2484), you can configure the WebEngine server to connect to Oracle over SSL.
 
+### High-Level Overview for Oracle SSL Configuration
+
+When configuring WebEngine to connect to [Oracle over SSL](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.Options.SSL.html), it is essential to ensure the following key settings are correctly configured:
+
+- TCPS Protocol: The Oracle JDBC connection URL must use the `@tcps` protocol to enable secure communication over SSL. This ensures that all data transmitted between the WebEngine server and the Oracle database is encrypted.
+
+- SSL Version: The SSL/TLS version must be explicitly set to ensure compatibility with the Oracle RDS instance. During our testing, we used [TLS 1.2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.Options.SSL.html#Appendix.Oracle.Options.SSL.TLS), which is widely supported and provides robust security.
+
+- Configuration Example: The following example demonstrates the correct configuration for the `DbUrl` in the `values.yaml` file:
+     ```yaml
+     community.DbUrl: jdbc:oracle:thin:@tcps://<db-identifier>.<unique-identifier>.<region>.rds.amazonaws.com:2484/<service-name>
+     ```
+
+- Truststore Configuration: Ensure that the Oracle RDS root CA certificate is added to the truststore, and the truststore location, type, and password are correctly specified in the `connectionProperties`.
+
+For detailed steps on enabling SSL for Oracle, refer to the following sections:
+
+- [Adding the Oracle SSL certificate to a secret](#adding-the-oracle-ssl-certificate-to-a-secret)
+- [Configuring the Oracle JDBC driver and WebEngine server for SSL connection](#configuring-the-oracle-jdbc-driver-and-webengine-server-for-ssl-connection)
+
+By following these guidelines, you can establish a secure and reliable SSL connection between WebEngine and Oracle RDS.
+
 ### Adding the Oracle SSL certificate to a secret
 
 Refer to the following steps to add the DB2 certificate to a secret.
@@ -151,7 +173,7 @@ Refer to the following steps to enable SSL connections on the Oracle driver.
         . . . 
         dbDomainProperties: 
           ....
-          community.DbType: "oracle"
+          community.DbType: oracle
           community.DbUrl: jdbc:oracle:thin:@tcps://<db-identifier>.<unique-identifier>.<region>.rds.amazonaws.com:2484/<service-name>
           ....
     ```
