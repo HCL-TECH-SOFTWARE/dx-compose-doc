@@ -35,6 +35,6 @@ Refer to the following steps to install and configure CaaS:
     ```
     -xmlConfigPath /wps/config/{vp context root}
     ```
-	on the dxclient command itself. Run this command for as many virtual portals upon which you want to run CaaS.
+    on the dxclient command itself. Run this command for as many virtual portals upon which you want to run CaaS.
 
 5. Restart your HCL DX Compose server.
