@@ -14,8 +14,8 @@ Refer to the following steps to install and configure CaaS:
 
 3. Run the following command to register the CaaS theme. This theme will then be available to all the virtual portals in DX Compose.
 
-	```
-	dxclient xmlaccess -xmlFile deployCaaSTheme.xml
+    ```
+    dxclient xmlaccess -xmlFile deployCaaSTheme.xml
 
     ```
     
@@ -24,8 +24,8 @@ Refer to the following steps to install and configure CaaS:
     
 4. Run the following command to register the CaaS Page and Portlet in each virtual portal, including the main virtual portal.
 
-	```
-	dxclient xmlaccess -xmlFile deployCaaSPages.xml
+    ```
+    dxclient xmlaccess -xmlFile deployCaaSPages.xml
 
     ```
     The input for this command is an XMLAccess script to deploy the CaaS pages and refer back to the CaaS theme. It is located here: [CaasPages](./deployCaaSPages.xml). Note that there are URLs in this file that refer to NLS properties to be used in the XMLAccess input. These URLs should not be modified as they refer to files in the DX Compose image itself.
