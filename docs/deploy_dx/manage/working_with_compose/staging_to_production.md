@@ -8,16 +8,14 @@ HCL Digital Experience (DX) Compose, Web Content Manager (WCM) and Digital Asset
 
 For naming purposes, this document calls the system that you are staging from the *source* system and the system you are staging to the *target* system.
 
-The detailed examples below are shown using a locally connected XMLAccess command. This implies the the user of the XMLAccess command are logged into the pod containing DX Compose and that XMLAccess is run from inside that pod. This could be problematic is the user of XMLAccess (typically the Portal Administrative user) does NOT have login access to the Kubernetes pod. However, note that one could also (equivantly) install XMLAccess on ones local machine and XMLAccess to the DX Compose remotely (by adjust the URL parameter in the examples below) or by using the "DX Client" command. Using DX Client is the preferred way to do this in a Kubernetes environment.
-
 When using DX Client, note that one must have the ability to "DX Client" into at least the "target" systems to fully complete the tasks below. 
 The put to the target system requires XMLAccess input decks producted by the "source" system. Producing these "source" xml files can also be achieved by a local XMLAccess command, a remote XMLAccess command or (the preferred) DX Client command.
 
 ## Staging from source to target
 
-0. Several of these steps will be completed using the "xmlaccess" function of DXClient. If you need help installing or using DXClient, please refer to this article: [DXClient](https://help.hcl-software.com/digital-experience/9.5/CF228/extend_dx/development_tools/dxclient/)
+0. Several of these steps will be completed using the "xmlaccess" function of DXClient. If you need help installing or using DXClient, please refer to this article: [DXClient](https://help.hcl-software.com/digital-experience/9.5/CF228/extend_dx/development_tools/dxclient/).
 
-1. Install DX Compose and upgrade the target system with "helm". The target and source should have exactly the same DX Compose level and preferably be at the latest of both. As both source and target are Kubernetes-based.
+1. Install DX Compose the target system and upgrade "helm". The target and source should have exactly the same DX Compose level and preferably be at the latest of both.
 
     !!!note
     It is recommended to use the latest cumulative fix (CF) on both the source and target systems.
@@ -39,17 +37,15 @@ The put to the target system requires XMLAccess input decks producted by the "so
 
     ```
 
-   This command produces a list of all the virtual portal on the source system. It can be found on the server itself and is copied here: [ExportVirtualPortals.xml](./ExportVirtualPortals.xml). Call the output from this command "ExportVirtualPortals.xml.out"
+   This command produces a list of all the virtual portals on the source system. It can be found on the server itself and is copied here: [ExportVirtualPortals.xml](./ExportVirtualPortals.xml). Call the output from this command "ExportVirtualPortals.xml.out".
 
 5. Execute "dxclient xmlaccess" with `ExportRelease.xml` on the source Portal's **base** virtual Portal. As an example, the result file could be called `baseVPExportRelease.xml`.
-
-    From inside the DX Compose portal deployed on your source system (for example, use `kubectl exec -it webengine-pod-0 bash -n dxns`), you can use the following sample command:
 
     ```
     dxclient xmlaccess -xmlFile ExportRelease.xml
     ```
 
-This command produces a list of all the virtual portal on the source system. It can be found on the server itself and is copied here: [ExportRelease.xml](./ExportRelease.xml). Call the output from this command "baseVPExportRelease.xml.out"
+    This command produces an export of the base portal on the source system. It can be found on the server itself and is copied here: [ExportRelease.xml](./ExportRelease.xml). Call the output from this command "baseVPExportRelease.xml.out"
 
 6. Execute "dxclient xmlaccess" with `ExportUniqueRelease.xml` for the first source Portal Virtual Portal 1. As an example, the result file could be called `vp1Export`.xml.
 
@@ -118,11 +114,11 @@ This commands forces the cleanup task to run which removes resources that were "
 
 11. Set the properties required for syndication in WCM ConfigService (for example, enable member fixer to run as part of syndication). You can find more information about custom syndication configuration properties in [Member fixer in Syndication](https://opensource.hcltechsw.com/digital-experience/latest/manage_content/wcm_configuration/wcm_adm_tools/wcm_member_fixer/wcm_admin_member-fixer_synd/).
 
-This will require a "helm chart" to be created to update the WCMConfigService properties file. Here is an example of that helm chart: [WCMConfigServiceHelmChart.yaml](./WCMConfigServiceHelmChart.yaml).
+This will require a "helm" values yaml file to be created to update the WCMConfigService properties file. Here is an example of that file: [WCMConfigServiceHelmChart.yaml](./WCMConfigServiceHelmChart.yaml).
 
-Note that the actual values in the helm chart provided as an example need to match the desired values for this situation. 
+Note that the actual values in the helm values yaml provided as an example need to match the desired values for this situation. 
 
-12. Import XMLAccess with `baseExport.xml` into the base virtual Portal of the target system.
+12. Import XMLAccess with `baseExport.xml` into the base Portal of the target system.
 
     Sample command: 
 
@@ -153,7 +149,7 @@ Note that the actual values in the helm chart provided as an example need to mat
     dxclient xmlaccess -xmlFile ExportVirtualPortals.xml.out
     ```
 
-17. Import the XML file generated as the result of "ExportUniqueRelease.xml" for each virtual Portal fronm the source virtual portal into same virtual Portal on the target using "dxclient xmlaccess". Ensure that the VP context root used on the "dxclient xmlaccess" command matches the context root of the target virtual portal.
+17. Import the XML file generated as the result of "ExportUniqueRelease.xml" for each virtual Portal from the source virtual portal into same virtual Portal on the target using "dxclient xmlaccess". Ensure that the VP context root used on the "dxclient xmlaccess" command matches the context root of the target virtual portal.
 
     Sample command: 
 
@@ -161,11 +157,11 @@ Note that the actual values in the helm chart provided as an example need to mat
     dxclient xmlaccess -xmlFile vp1Export.xml -xmlConfigPath /wps/config/vp1
     ```
 
-18. Repeat step until all of your virtual Portals are created and filled through "dxclient xmlaccess" on the target Portal.
+18. Repeat this previous step until all of your Virtual Portals are created and filled through "dxclient xmlaccess" on the target Portal.
 
 19. Validate all DAM artifacts were transferred from your source system to your target system as configured in step 13.
 
-20. Restart webengine pod. 
+20. Restart the webengine pod. 
 
     Sample command:
     
