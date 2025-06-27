@@ -47,10 +47,10 @@ The put to the target system requires XMLAccess input decks producted by the "so
 
     This command produces an export of the base portal on the source system. It can be found on the server itself and is copied here: [ExportRelease.xml](./ExportRelease.xml). Call the output from this command "baseVPExportRelease.xml.out"
 
-6. Execute "dxclient xmlaccess" with `ExportUniqueRelease.xml` for the first source Portal Virtual Portal 1. As an example, the result file could be called `vp1Export`.xml.
+6. Execute "dxclient xmlaccess" with `ExportUniqueRelease.xml` for the first source system Virtual Portal. As an example, the result file could be called `vp1Export.xml`.
 
     ```
-    dxclient xmlaccess -xmlFile ExportUniqueRelease.xml
+    dxclient xmlaccess -xmlFile ExportUniqueRelease.xml -xmlConfigPath /wps/config/vp1
     ```
 
 This command produces a export of all resources on the virtual portal. It can be found on the server itself and is copied here: [ExportUniqueRelease.xml](./ExportUniqueRelease.xml). Call the output from this command "vp1ExportRelease.xml.out"
@@ -71,7 +71,7 @@ This command produces a export of all resources on the virtual portal. It can be
     dxclient xmlaccess -xmlFile SchedulerCleanupTask.xml
     ```
 
-These commands produces a export of all resources on the virtual portal. It can be found on the server itself and is copied here: [CleanPortalWithoutWebApps.xml](./CleanPortalWithoutWebApps.xml), [AddBasePortalResources.xml](./AddBasePortalResources.xml), [SchedulerCleanupTask.xml](./SchedulerCleanupTask.xml). 
+These xmlaccess files can be found on the server itself and are copied here: [CleanPortalWithoutWebApps.xml](./CleanPortalWithoutWebApps.xml), [AddBasePortalResources.xml](./AddBasePortalResources.xml), [SchedulerCleanupTask.xml](./SchedulerCleanupTask.xml). 
 
 9. Run scheduler through the `Task.xml` on the target WebEngine container.
 
@@ -83,7 +83,7 @@ These commands produces a export of all resources on the virtual portal. It can 
 
 This commands forces the cleanup task to run which removes resources that were "soft" deleted. It can be found on the server itself and is copied here: [Task.xml](./Task.xml).
 
-10. Transfer the WebDav theme from the source server to the target. 
+10. Transfer the WebDav themes from the source server to the target. 
 
     !!!note
         WebEngine currently does not support deployment of custom EAR files that persist. Only WebDav-based themes are supported. 
