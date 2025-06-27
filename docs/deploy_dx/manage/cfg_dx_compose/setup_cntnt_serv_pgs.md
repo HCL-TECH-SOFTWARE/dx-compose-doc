@@ -30,7 +30,7 @@ Refer to the following steps to install and configure CaaS:
     ```
     The input for this command is an XMLAccess script to deploy the CaaS pages and refer back to the CaaS theme. It is located here: [CaasPages](./deployCaaSPages.xml). Note that there are URLs in this file that refer to NLS properties to be used in the XMLAccess input. These URLs should not be modified as they refer to files in the DX Compose image itself.
 
-    If you are installing the CaaS pages into a virtual portal apart from the main virtual portal, run the same command except this time insuring the dxclient parameters command includes the `VP Context` in the `url` parameter.For example, you would specify the parameter
+    If you are installing the CaaS pages into a virtual portal rather than the base portal, run the same command except this time ensuring that the dxclient parameters command includes the `VP Context` in the `url` parameter.For example, you would specify the parameter
     
     ```
     -xmlConfigPath /wps/config/{vp context root}
