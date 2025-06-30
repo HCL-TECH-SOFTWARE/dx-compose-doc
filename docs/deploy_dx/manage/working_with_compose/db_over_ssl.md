@@ -121,7 +121,7 @@ When configuring WebEngine to connect to [Oracle over SSL](https://docs.aws.amaz
 
 - TCPS protocol: Ensure the Oracle JDBC connection URL uses the `@tcps` protocol to enable secure communication over SSL. This ensures that all data transmitted between the WebEngine server and the Oracle database is encrypted.
 
-- SSL version: Explicitly set the SSL/TLS version to ensure compatibility with the Oracle RDS instance. For example, you can set the [TLS version to 1.2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.Options.SSL.html#Appendix.Oracle.Options.SSL.TLS){target="_blank"}, which is widely supported and provides robust security.
+- SSL version: Explicitly set the Transport Layer Security (TLS) version to ensure compatibility with the Oracle RDS instance. For example, you can set the [TLS version to 1.2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.Options.SSL.html#Appendix.Oracle.Options.SSL.TLS){target="_blank"}, which is widely supported and provides robust security.
 
 - `DbUrl` parameter setting: Configure the `DbUrl` parameter in the `values.yaml` file using the following configuration:
 
@@ -179,7 +179,7 @@ Refer to the following steps to enable SSL connections on the Oracle driver.
           ....
     ```
 
-    The `@tcps` parameter specifies the use of the TCPS (Transport Layer Security) protocol for secure database connections.
+    The `@tcps` parameter specifies the use of the [TLS protocol](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.Options.SSL.html#Appendix.Oracle.Options.SSL.TLS){target="_blank"} for secure database connections.
 
 2. Perform a [helm upgrade](./helm_upgrade_values.md) to apply the changes.
 
