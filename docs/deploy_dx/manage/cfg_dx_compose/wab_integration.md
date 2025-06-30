@@ -5,7 +5,7 @@ This topic provides the steps to integrate Web Application Bridge (WAB) with Dig
 1. [Enable WAB on a portal.](#enabling-wab-on-a-portal)
 2. [Create and configure the web dock application.](#creating-and-configuring-the-web-dock-application)
 3. [Add the web dock application to a page.](#adding-the-web-dock-application-to-a-page)
-4. [Enable WAB over SSL.](#enabling-wab-over-ssl)
+4. [Enable WAB with SSL.](#enabling-wab-to-support-ssl-secured-websites)
 
 !!! note
     WAB integration is not supported on a portal with the context root removed.
@@ -139,32 +139,10 @@ If a content author experiences issues with viewing the web dock applications, c
     1.  Go to the web dock application and provide the content user the correct permissions.
     2.  Go to the credential vault used for the authentication. Provide the content user the correct permissions to the credential vault.
 
-## Enabling WAB over SSL
+## Enabling WAB to Support SSL-Secured Websites
 
 WAB can be configured to integrate with external websites secured by self-signed certificates (certificates not directly trusted by browsers). This allows portal administrators to securely connect to such applications.
 
-**Steps:**
+The self-signed certificate need to be added in truststore. For instructions, see [Adding Certificates](../working_with_compose/custom_certificates.md).
 
-1. **Download the certificate of the website**  
-   For example, use the following command:
-   ```sh
-   echo -n | openssl s_client -connect <hostname>:<port number> | \
-     sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > <filename>.crt
-   ```
-2. **Create a Kubernetes secret from the certificate file:**
-   ```sh
-   kubectl create secret generic <secret-name> --from-file=<filename>.crt -n <namespace>
-   ```
-3. **Reference the secret in your values.yaml:**  
-   Once the secret is created inside the cluster, you can now reference them in the customTrustoreSecret field inside the values.yaml under WebEngine configuration section. See this example for reference.
-   ```sh
-   configuration:
-     webEngine:
-       customTruststoreSecret:
-         <secret-name>: "<secret-name>"
-   ```
-
-After updating the `values.yaml` file, perform the following actions:
-
-    - If running the server for the first time, refer to [Installing WebEngine](../../install/kubernetes_deployment/install.md).
-    - If upgrading previous configurations, refer to [Upgrading the Helm deployment](../working_with_compose/helm_upgrade_values.md).
+**Note**: The certificate file must begin with `--BEGIN CERTIFICATE--` and end with `--END CERTIFICATE--`.
