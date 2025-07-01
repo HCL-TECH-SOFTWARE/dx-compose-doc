@@ -140,9 +140,9 @@ If a content author experiences issues with viewing the web dock applications, c
 
 ## Enabling WAB to support SSL-secured websites
 
-You can configure WAB to integrate with external websites secured by self-signed certificates (certificates not directly trusted by browsers). This allows portal administrators to securely connect to such applications.
+You can configure WAB to integrate with external websites secured by self-signed certificates if certificates is not directly trusted by browsers.
 
-To enable these secure connections, you must add the self-signed certificate to the truststore. For instructions on adding certificates to the truststore, refer to [Using custom certificates in WebEngine](../working_with_compose/custom_certificates.md).
+To enable secure connections, add the self-signed certificate to the truststore. For detailed steps, see [Using custom certificates in WebEngine](../working_with_compose/custom_certificates.md).
 
 !!!note
     The certificate file must begin with `--BEGIN CERTIFICATE--` and end with `--END CERTIFICATE--`.
