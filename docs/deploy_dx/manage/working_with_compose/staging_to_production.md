@@ -8,60 +8,53 @@ HCL Digital Experience (DX) Compose, Web Content Manager (WCM) and Digital Asset
 
 For naming purposes, this document calls the system that you are staging from the *source* system and the system you are staging to the *target* system.
 
-When using DX Client, note that one must have the ability to "DX Client" into at least the "target" systems to fully complete the tasks below. 
-The put to the target system requires XMLAccess input decks producted by the "source" system. Producing these "source" xml files can also be achieved by a local XMLAccess command, a remote XMLAccess command or (the preferred) DX Client command.
+When using DXClient, you must be able to connect to at least the target systems to fully complete the following tasks. This connection is essential for the deployment process. Deploying to the target system requires XMLAccess input decks (XML files) produced by the source system. These source XML files can be generated using a local XMLAccess command, a remote XMLAccess command, or, preferably, a DXClient command.
 
 ## Staging from source to target
 
-0. Several of these steps will be completed using the "xmlaccess" function of DXClient. If you need help installing or using DXClient, please refer to this article: [DXClient](https://help.hcl-software.com/digital-experience/9.5/CF228/extend_dx/development_tools/dxclient/).
+!!!note
+    Setting up CaaS requires using the `xmlaccess` function in DXClient. For more information on installing and using DXClient, refer to [DXClient](https://help.hcl-software.com/digital-experience/9.5/latest/extend_dx/development_tools/dxclient/){target="_blank"}.
 
-1. Install DX Compose the target system and upgrade "helm". The target and source should have exactly the same DX Compose level and preferably be at the latest of both.
+Refer to the following steps to stage your solutions from the source system to the target system.
 
-    !!!note
-    It is recommended to use the latest cumulative fix (CF) on both the source and target systems.
+1. Install DX Compose to the target system and perform a Helm upgrade. The target and source should have exactly the same DX Compose Cumulative Fix (CF) level. It is recommended to use the latest CF on the source and target systems.
 
-2. Configure security on the target DX Compose system. This might be a different user repository (for example, LDAP) than the source server.
+2. Configure security on the target DX Compose system. This may be a different user repository (for example, LDAP) from that of the source server.
 
     If both systems are using the same user repository and the same administrator, you can copy the appropriate section (for example, `ldap-repository`) from the `server.xml` of the source to the `server.xml` of the target and update the Helm chart of the target to match the source.
 
-3. Transfer the database on the target DX Compose system. Note that this step happens through the Helm chart for the target server.
+3. Transfer the database from the source system to the target DX Compose system. This step is managed through the Helm chart for the target server.
 
-    While transferring database on the source is not critical, it is assumed that the target system will be used for production use and should have gone through database transfer.
+    While transferring the database from the source to the target is not critical, it is assumed that the target system will be used for production use and should have undergone database transfer.
 
-4. Using DXClient, export the virtual Portals from the source system.
-
-    Sample command:
+4. Export the virtual portals from the source system by running the following command using DXClient:
 
     ```
     dxclient xmlaccess -xmlFile ExportVirtualPortals.xml
 
     ```
 
-   This command produces a list of all the virtual portals on the source system. It can be found on the server itself and is copied here: [ExportVirtualPortals.xml](./ExportVirtualPortals.xml). Call the output from this command "ExportVirtualPortals.xml.out".
+    This command produces an XML output file that contains the list of all the virtual portals on the source system. It can be found on the source system and is copied here: [ExportVirtualPortals.xml](./ExportVirtualPortals.xml){target="_blank"}. Name the output file `ExportVirtualPortals.xml.out`.
 
-5. Execute "dxclient xmlaccess" with `ExportRelease.xml` on the source Portal's **base** virtual Portal. As an example, the result file could be called `baseVPExportRelease.xml`.
+5. Export the base portal from the source system by running the following command on the source portal's base virtual portal: As an example, the result file could be called `baseVPExportRelease.xml`.-->
 
     ```
     dxclient xmlaccess -xmlFile ExportRelease.xml
     ```
 
-    This command produces an export of the base portal on the source system. It can be found on the server itself and is copied here: [ExportRelease.xml](./ExportRelease.xml). Call the output from this command "baseVPExportRelease.xml.out"
+    This command produces an XML output file of the base portal on the source system. It can be found on the source system and is copied here: [ExportRelease.xml](./ExportRelease.xml){target="_blank"}. Name the output file `baseVPExportRelease.xml.out`.
 
-6. Execute "dxclient xmlaccess" with `ExportUniqueRelease.xml` for the first source system Virtual Portal. As an example, the result file could be called `vp1Export.xml`.
+6. Export your virtual portals using the following command for the first virtual portal on the source system: As an example, the result file could be called `vp1Export.xml`.
 
     ```
     dxclient xmlaccess -xmlFile ExportUniqueRelease.xml -xmlConfigPath /wps/config/vp1
     ```
 
-This command produces a export of all resources on the virtual portal. It can be found on the server itself and is copied here: [ExportUniqueRelease.xml](./ExportUniqueRelease.xml). Call the output from this command "vp1ExportRelease.xml.out"
+    This command produces an XML output file that contains all the resources on the virtual portal. It can be found on the source system and is copied here: [ExportUniqueRelease.xml](./ExportUniqueRelease.xml){target="_blank"}. Name the output file `vp1ExportRelease.xml.out`.
 
-7. Repeat the previous step for each virtual portal on the source system. Make sure to use a unique name for the "dxclient xmlaccess" output as they will each be the input for a future "dxclient xmlaccess" step.
+    Repeat this step for each virtual portal on the source system. Ensure you use a unique name for each `dxclient xmlaccess` output. Each output file will be used as input when you import the virtual portals to the target system.
 
-8. Remove existing content from the target WebEngine container.
-
-    Ensure that all three XMLAccess tasks are run to complete the operation.
-
-    Sample commands: 
+7. Remove existing content from the target WebEngine container by running the following XMLAccess commands:
 
     ```
     dxclient xmlaccess -xmlFile CleanPortalWithoutWebApps.xml 
@@ -71,114 +64,106 @@ This command produces a export of all resources on the virtual portal. It can be
     dxclient xmlaccess -xmlFile SchedulerCleanupTask.xml
     ```
 
-These xmlaccess files can be found on the server itself and are copied here: [CleanPortalWithoutWebApps.xml](./CleanPortalWithoutWebApps.xml), [AddBasePortalResources.xml](./AddBasePortalResources.xml), [SchedulerCleanupTask.xml](./SchedulerCleanupTask.xml). 
+    Ensure all three XMLAccess tasks are successfully completed to finish the operation.
 
-9. Run scheduler through the `Task.xml` on the target WebEngine container.
+    These XMLAccess files can be found on the source system and are copied here:
 
-    Sample command: 
+    - [CleanPortalWithoutWebApps.xml](./CleanPortalWithoutWebApps.xml){target="_blank"}
+    - [AddBasePortalResources.xml](./AddBasePortalResources.xml){target="_blank"}
+    - [SchedulerCleanupTask.xml](./SchedulerCleanupTask.xml){target="_blank"}
+
+8. Run the scheduler using the `Task.xml` script on the target WebEngine container by executing the following command:
 
     ```
     dxclient xmlaccess -xmlFile Task.xml
     ```
 
-This commands forces the cleanup task to run which removes resources that were "soft" deleted. It can be found on the server itself and is copied here: [Task.xml](./Task.xml).
+    This command forces the cleanup task to run, which removes resources that were *soft*-deleted. It can be found on the source system and is copied here: [Task.xml](./Task.xml){target="_blank"}.
 
-10. Transfer the WebDav themes from the source server to the target. 
+9. Transfer the WebDAV themes from the source system to the target system.
 
     !!!note
-        WebEngine currently does not support deployment of custom EAR files that persist. Only WebDav-based themes are supported. 
+        WebEngine currently does not support deployment of custom EAR files that persist. Only WebDAV-based themes are supported.
 
-    1. Locate your custom themes on the source server using the Theme Manager in WebEngine. Take note of the names you have assigned to the themes.
+    1. Locate your custom themes on the source system using the Theme Manager in WebEngine. Take note of the names you have assigned to the themes.
 
-    2. Using a WebDav client on your local operating system, create an archive using the TAR utility or compress the files in ZIP format for the custom themes from the WebDav file system. 
-    
-    3. After all the files are contained in a tarball or ZIP file, move this file to the target and import the files onto the target WebDav using the same theme names as on the source server.
+    2. Using a WebDAV client on your local operating system, create an archive using the TAR utility or compress the files in ZIP format for the custom themes from the WebDAV file system.
 
-    4. Regardless of the method used to get the theme files onto the target WebDav, you must register the custom themes using XMLAccess. Ensure that one preserves the object id (OID) of the custom theme(s) on the target portal. For example, the OID should be the same on the source and target in the XMLAccess import XML file.
+    3. After all the files are contained in a tarball or ZIP file, move this file to the target and import the files into the target WebDAV directory using the same theme names as on the source system.
 
-    5. Export the themes and skins from the source:
+    4. Regardless of the method used to get the theme files onto the target WebDAV, you must register the custom themes using XMLAccess. Ensure you preserve the object ID (OID) of the custom theme(s) on the target portal. For example, the OID should be the same on the source and target in the XMLAccess import XML file.
+
+    5. Export the themes and skins from the source using the following command:
 
         ```
         dxclient xmlaccess -xmlFile ExportThemesAndSkins.xml
         ```
 
-    This commands exports all the themes and skins from the source portal. It can be found on the server itself and is copied here: [ExportThemesAndSkins.xml](./ExportThemesAndSkins.xml).
-    
-    6. Edit the output of the previous command to remove any themes and skins not created using the Theme Manager. This would include all themes included in the base Portal (for example, Portal 8.5 theme). Call this new file "ExportThemesAndSkins.xml.out"
-    
-    7. Import the resulting XML file on the target to register the new themes and skins:
+        This command exports all the themes and skins from the source portal. It can be found on the source system and is copied here: [ExportThemesAndSkins.xml](./ExportThemesAndSkins.xml){target="_blank"}.
+
+    6. Edit the XML output file created in step 5 to remove any themes and skins not created using the Theme Manager. This includes all the themes in the base portal (for example, Portal 8.5 theme). Name the output file `ExportThemesAndSkins.xml.out`.
+
+    7. Import the resulting XML file on the target system to register the new themes and skins using the following command:
 
         ```
         dxclient xmlaccess -xmlFile ExportThemesAndSkins.xml.out
         ```
 
-11. Set the properties required for syndication in WCM ConfigService (for example, enable member fixer to run as part of syndication). You can find more information about custom syndication configuration properties in [Member fixer in Syndication](https://opensource.hcltechsw.com/digital-experience/latest/manage_content/wcm_configuration/wcm_adm_tools/wcm_member_fixer/wcm_admin_member-fixer_synd/).
+10. Set the properties required for syndication in `WCMConfigService` (for example, enabling the member fixer to run as part of syndication). You can find more information about custom syndication configuration properties in [Member fixer with syndication](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_configuration/wcm_adm_tools/wcm_member_fixer/wcm_admin_member-fixer_synd/){target="_blank"}.
 
-This will require a "helm" values yaml file to be created to update the WCMConfigService properties file. Here is an example of that file: [WCMConfigServiceHelmChart.yaml](./WCMConfigServiceHelmChart.yaml).
+    You need to create a Helm `values.yaml` file to update the `WCMConfigService` properties file. For example: [WCMConfigServiceHelmChart.yaml](./WCMConfigServiceHelmChart.yaml). The actual values in the sample Helm `values.yaml` must match the desired values for your situation.
 
-Note that the actual values in the helm values yaml provided as an example need to match the desired values for this situation. 
-
-12. Import XMLAccess with `baseExport.xml` into the base Portal of the target system.
-
-    Sample command: 
+11. Import the base virtual portal (exported in step 5) into the base virtual portal of the target system using the following command:
 
     ```
     dxclient xmlaccess -xmlFile baseVPExportRelease.xml.out
     ```
 
-13. Deploy your DAM assets from your source environment to your target environment using DXClient.
+    This command imports the `baseVPExportRelease.xml.out` file generated in step 5.
 
-    Run the following commands:
+12. Deploy your DAM assets from your source environment to your target environment using the following commands:
 
     ```
     dxclient manage-dam-staging register-dam-subscriber
     dxclient manage-dam-staging trigger-staging
     ```
 
-14. Export the Personalization rules from the source system and import them to the target server. You can export and import the rules using the Personalization Administration Portlet Export and Import functions. See [Staging Personalization rules to production](https://opensource.hcltechsw.com/digital-experience/latest/manage_content/pzn/pzn_stage_prod){target="_blank"} for more information.
+13. Export the Personalization rules from the source system, then import them to the target system. You can export and import the rules using the Personalization Administration Portlet Export and Import functions. For more information, refer to [Staging Personalization rules to production](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/pzn/pzn_stage_prod/){target="_blank"}.
 
-15. Verify that everything in the base virtual Portal is working. 
+14. Ensure the base virtual portal is working properly. Verify the content, rendering of the theme and pages, Personalization rules, and Script Applications.
 
-    Make sure to check the rendering of the theme and pages, as well as content, Personalization rules, or Script Applications.
-
-16. Create your virtual Portals using the output deck from the XMLAccess command used in step 4 to export the virtual Portal definitions from the source.
-
-    Sample command:
+15. Import the virtual portals (exported in step 4) from the source system into the target system using the following command:
 
     ```
     dxclient xmlaccess -xmlFile ExportVirtualPortals.xml.out
     ```
 
-17. Import the XML file generated as the result of "ExportUniqueRelease.xml" for each virtual Portal from the source virtual portal into same virtual Portal on the target using "dxclient xmlaccess". Ensure that the VP context root used on the "dxclient xmlaccess" command matches the context root of the target virtual portal.
+    This command imports the `ExportVirtualPortals.xml.out` file generated in step 4.
 
-    Sample command: 
+16. Import the XML files generated in step 6 for each virtual portal from the source system into the corresponding virtual portal on the target system using the following command.
 
     ```
     dxclient xmlaccess -xmlFile vp1Export.xml -xmlConfigPath /wps/config/vp1
     ```
 
-18. Repeat this previous step until all of your Virtual Portals are created and filled through "dxclient xmlaccess" on the target Portal.
+    Ensure that the VP context root used in every command matches the context root of each target virtual portal.
 
-19. Validate all DAM artifacts were transferred from your source system to your target system as configured in step 13.
+17. Verify that all DAM artifacts were transferred from your source system to your target system as configured in step 13.
 
-20. Restart the webengine pod. 
+18. Restart the `webengine` pod using the following command on your local machine's terminal:
 
-    Sample command:
-    
     ```
     kubectl delete webengine-pod-0 -n dxns
     ```
 
-21. Make sure that the WebEngine works correctly. 
+19. Ensure that WebEngine is functioning as expected. Address potentially missed artifacts and look for error messages in `SystemOut.log`, `messages.log`, and `trace.log` during startup.
 
-    Address potentially missed artifacts. Watch out for error messages in `SystemOut.log`, `messages.log`, and `trace.log` during startup.
-
-21. Set up syndication for the appropriate libraries between the source and the target system or target to source depending on your requirements (for example, for an Authoring system, subsequent syndications could go from Authoring to Integration Test or Development environment).
+20. Set up syndication for the appropriate libraries between the source and target systems (or target to source depending on your requirements). For example, for an Authoring system, subsequent syndications could go from Authoring to Integration Test or Development environment.
 
     !!!note
         - You need to syndicate the Multilingual configuration library.
-        - You must setup syndication as well between your source system virtual Portals to the target system virtual Portals. 
+        - You must set up syndication between your source system's virtual portals and the target system's virtual portals.
 
-22. After syndication has completed its initial run, set up the library permissions. 
+21. After syndication has completed its initial run, set up the library permissions.
 
-    Library permissions are not syndicated. For more information, see [Set up access to libraries](https://opensource.hcltechsw.com/digital-experience/latest/manage_content/wcm_authoring/authoring_portlet/web_content_libraries/oob_content_accesslib/){target="_blank"}.
+    Library permissions are not syndicated. For more information, refer to [Set up access to libraries](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_authoring/authoring_portlet/web_content_libraries/oob_content_accesslib/){target="_blank"}.
