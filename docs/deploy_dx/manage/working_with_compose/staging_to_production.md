@@ -36,7 +36,7 @@ Refer to the following steps to stage your solutions from the source system to t
 
     This command produces an XML output file that contains the list of all the virtual portals on the source system. It can be found on the source system and is copied here: [ExportVirtualPortals.xml](./ExportVirtualPortals.xml){target="_blank"}. Name the output file `ExportVirtualPortals.xml.out`.
 
-5. Export the base portal from the source system by running the following command on the source portal's base virtual portal: As an example, the result file could be called `baseVPExportRelease.xml`.-->
+5. Export the base portal from the source system by running the following command on the source portal's base virtual portal. For example, the result file could be called `baseVPExportRelease.xml`.
 
     ```
     dxclient xmlaccess -xmlFile ExportRelease.xml
@@ -44,7 +44,7 @@ Refer to the following steps to stage your solutions from the source system to t
 
     This command produces an XML output file of the base portal on the source system. It can be found on the source system and is copied here: [ExportRelease.xml](./ExportRelease.xml){target="_blank"}. Name the output file `baseVPExportRelease.xml.out`.
 
-6. Export your virtual portals using the following command for the first virtual portal on the source system: As an example, the result file could be called `vp1Export.xml`.
+6. Export your virtual portals using the following command for the first virtual portal on the source system. For example, the result file could be called `vp1Export.xml`.
 
     ```
     dxclient xmlaccess -xmlFile ExportUniqueRelease.xml -xmlConfigPath /wps/config/vp1
