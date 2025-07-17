@@ -13,7 +13,7 @@ Learn more about the transition of architecture from the Core container to the W
 -   **[System requirements](system_requirements.md)**  
 See the system requirements to use the WebEngine container in your DX deployment.
 -   **[Download software](./download/index.md)**  
-Download HCL Digital Experience Compose from the [My HCLSoftware (MHS)](https://help.hcl-software.com/digital-experience/dx-compose/CF228/getting_started/).
+Download HCL Digital Experience Compose from the [My HCLSoftware (MHS)](https://my.hcltechsw.com/){target="blank"}.
 -   **[Differences from DX Core](differences.md)**  
 Know the differences of WebEngine from the DX Core container.
 -   **[DX Compose limitations](limitations.md)**  
