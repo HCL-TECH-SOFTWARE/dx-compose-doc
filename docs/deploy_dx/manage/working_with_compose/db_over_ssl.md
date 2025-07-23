@@ -29,9 +29,7 @@ This section outlines how you can configure WebEngine to connect to DB2 over SSL
 
 ### Prerequisites
 
-Before configuring the WebEngine server, SSL connections must be enabled on the DB2 server. For more information on how to enable SSL on DB2, refer to [Using an external database and database transfer](../cfg_webengine/external_db_database_transfer.md) and [Using custom certificates in WebEngine](custom_certificates.md).
-
-To verify that the DB2 server is listening for SSL connections (for example, on port 50001), use one of the following commands:
+Before configuring the WebEngine server, SSL connections must be enabled on the DB2 server. To verify that the DB2 server is listening for SSL connections (for example, on port 50001), use one of the following commands:
 
 - `netstat -tulnp | grep 50001`
 - `ss -tulnp | grep 50001`
@@ -76,7 +74,7 @@ Refer to the following steps to enable SSL connections on the DB2 driver.
         dbDomainProperties:
           ....
           community.DbType: "db2"
-          community.DbUrl: jdbc:db2://local-db2:50000/WPCOMM:sslConnection=true;
+          community.DbUrl: jdbc:db2://local-db2:50001/WPCOMM:sslConnection=true;
           ....
     ```
 
@@ -105,8 +103,6 @@ If you're using an Amazon RDS for Oracle instance, ensure the following:
 - The DB parameter group enables TCP/IP with SSL (TCPS) on port `2484`.
 - `SSL_VERSION` is set (for example, `1.2`).
 - The RDS instance has a valid server certificate, and you're using the root Certificate Authority (CA) certificate on the client side.
-
-For more information on how to enable SSL on Oracle, refer to [Using an external database and database transfer](../cfg_webengine/external_db_database_transfer.md) and [Using custom certificates in WebEngine](custom_certificates.md).
 
 To verify that the Oracle server is listening for SSL connections (for example, on port 2484), use one of the following commands:
 
