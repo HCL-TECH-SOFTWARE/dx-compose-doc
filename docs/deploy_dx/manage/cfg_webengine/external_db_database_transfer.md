@@ -323,4 +323,4 @@ Refer to the following table for more information about the properties you can u
 | oracle.JdbcProviderName | Name of the JDBC provider for ORACLE DB. |
 
 !!! Limitation
-    Currently, simultaneous execution of WebEngine pod scaling and external database transfer may lead to unexpected behavior, as this combination is not yet fully supported.
+    Simultaneous execution of WebEngine pod scaling and external database transfer is not supported. To avoid unexpected behavior, please complete the database transfer before scaling the environment.
