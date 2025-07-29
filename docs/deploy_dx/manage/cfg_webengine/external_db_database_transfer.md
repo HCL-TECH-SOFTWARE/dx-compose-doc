@@ -322,5 +322,5 @@ Refer to the following table for more information about the properties you can u
 | oracle.DbLibrary | Path to the database driver library for ORACLE DB. |
 | oracle.JdbcProviderName | Name of the JDBC provider for ORACLE DB. |
 
-## Note - "Limitation"
-  Currently, simultaneous execution of WebEngine pod scaling and external database transfer may lead to unexpected behavior, as this combination is not yet fully supported.
+!!! Limitation
+    Currently, simultaneous execution of WebEngine pod scaling and external database transfer may lead to unexpected behavior, as this combination is not yet fully supported.
