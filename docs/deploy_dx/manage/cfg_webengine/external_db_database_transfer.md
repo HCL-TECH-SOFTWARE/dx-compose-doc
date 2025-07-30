@@ -321,3 +321,6 @@ Refer to the following table for more information about the properties you can u
 | oracle.DbDriver | Name of the database driver class for ORACLE DB. |
 | oracle.DbLibrary | Path to the database driver library for ORACLE DB. |
 | oracle.JdbcProviderName | Name of the JDBC provider for ORACLE DB. |
+
+!!! Limitation
+    Simultaneous execution of WebEngine pod scaling and external database transfer is not supported. To avoid any unexpected behavior, complete the database transfer before scaling the environment.
