@@ -1,19 +1,19 @@
-# Configuring Access Layer for HCL DX Compose
+# Configuring Access Layer for DX Compose
 
-With HAProxy replacing Ambassador in HCL DX Compose deployments, it is easier to use a custom Access Layer in front of DX to handle advanced requirements for routing, proxying, and other similar use cases. This document explains how to leverage an external Access Layer alongside HAProxy as the internal reverse proxy and load balancer. Sample configurations for some Access Layer controllers and steps to implement them in a Kubernetes environment are also provided.
+With HAProxy replacing Ambassador in HCL Digital Experience (DX) Compose deployments, it is easier to use a custom Access Layer in front of DX to handle advanced requirements for routing, proxying, and other similar use cases. This document explains how to leverage an external Access Layer alongside HAProxy as the internal reverse proxy and load balancer. Sample configurations for some Access Layer controllers and steps to implement them in a Kubernetes environment are also provided.
 
 !!! note
     - HCL DX Compose does not ship any Ingress or Gateway Controllers to reduce DX's deployment footprint in any Kubernetes cluster.
     - Implementing an Ingress or Gateway API for use with a HCL DX Compose deployment in Kubernetes is optional. Consider its implementation based on the Kubernetes cluster’s requirements.
     - These configurations are not proposals, and HCL does not provide official support for them.
 
-![Access Layer Implementation](../../../../../../images/HCL-DX-deployment-diagram-Kubernetes.png)
+![Access Layer Implementation](../../../../../images/HCL-DX-deployment-diagram-Kubernetes.png)
 
-## Access Layer for HCL DX Compose
+## Access Layer for DX Compose
 
-You have two options for implementing the Access Layer in the DX Compose deployment: [Ingress](#ingress-implementation-for-dx-deployments) and [Gateway API](#gateway-api-implementation-for-dx-deployments). Choose the option that fits your specific needs and preferences.
+You have two options for implementing the Access Layer in the DX Compose deployment: [Ingress](#ingress-implementation-for-dx-compose) and [Gateway API](#gateway-api-implementation-for-dx-compose). Choose the option that fits your specific needs and preferences.
 
-### Ingress implementation for HCL DX Compose
+### Ingress implementation for DX Compose
 
 Refer to the following steps to implement a generic Ingress on your Kubernetes cluster for use with HCL DX Compose. The actual implementation might vary depending on the cluster's setup and configuration.
 
@@ -27,7 +27,7 @@ networking:
     serviceType: ClusterIP
 ```
 
-#### Implementing Ingress for HCL DX Compose
+#### Implementing Ingress for DX Compose
 
 1. Install an Ingress controller of your choice (for example, [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/){target="_blank"}, [Traefik](https://doc.traefik.io/traefik/){target="_blank"}, [HAProxy Ingress](https://www.haproxy.com/documentation/kubernetes/latest/){target="_blank"}, or [Kong Ingress Controller](https://docs.konghq.com/kubernetes-ingress-controller/latest/){target="_blank"}). The Ingress controller serves as the entry point to the cluster and applies the rules set in the Ingress resources. This controller is a cluster-wide resource that can be deployed in any namespace and does not have to be in the same namespace as DX. It can also be used to route multiple applications in multiple namespaces.
 
@@ -79,13 +79,11 @@ networking:
 #### Advanced configuration
 
 !!!important
-    The configuration in the **Ingress Implementation** section is the recommended configuration and should be used whenever possible.
-
-    Note that you must map in the Ingress any custom application deployed or certain configurations. This includes the following:
-
-    - Some special functionalities of DX Compose like the [Web Application Bridge](https://opensource.hcltechsw.com/digital-experience/latest/extend_dx/integration/wab/wab){target="blank"}
-    - Deployments with the [context root changed or removed](../../../../manage/working_with_compose/change_context_root_or_home.md)
-    - The [`friendlyUrlContextRoot` available for Digital Asset Management](https://opensource.hcltechsw.com/digital-experience/latest/manage_content/digital_assets/configuration/configure_dam_friendlyUrl){target="blank"}
+    - The configuration in the [Ingress implementation for DX Compose](#ingress-implementation-for-dx-compose) section is the recommended configuration and should be used whenever possible.
+    - You must map any custom application deployed in the WebSphere Application Server or certain configurations in Ingress. This includes the following:
+        - Special DX Compose functionalities such as [Web Application Bridge](https://help.hcl-software.com/digital-experience/9.5/latest/extend_dx/integration/wab/wab/){target="blank"}
+        - Deployments with the [context root changed or removed](../../../../manage/working_with_compose/change_context_root_or_home.md)
+        - The [`friendlyUrlContextRoot` available for Digital Asset Management](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/digital_assets/configuration/configure_dam_friendlyUrl/){target="blank"}
 
 If mapping the root path is not possible for a deployment, map the following paths depending on the configuration of DX Compose:
 
@@ -139,7 +137,7 @@ spec:
               name: haproxy
 ```
 
-### Gateway API implementation for HCL DX Compose
+### Gateway API implementation for DX Compose
 
 Refer to the following steps to configure the optional Gateway API in a Kubernetes environment using Helm and the Gateway API.
 
@@ -155,7 +153,7 @@ Refer to the following steps to configure the optional Gateway API in a Kubernet
         ssl: false
     ```
 
-#### Implementing Gateway API for HCL DX Compose
+#### Implementing Gateway API for DX Compose
 
 1. Install the Gateway API Custom Resource Definitions (CRDs) using the following command:
 
@@ -230,13 +228,11 @@ Refer to the following steps to configure the optional Gateway API in a Kubernet
 #### Advanced configuration
 
 !!!important
-    The configuration in the **Gateway API Implementation** section is the recommended configuration and should be used whenever possible.
-
-    Note that you must map in the any custom application deployed or certain configurations. This includes the following:
-
-    - Some special functionalities of DX Compose like the [Web Application Bridge](https://opensource.hcltechsw.com/digital-experience/latest/extend_dx/integration/wab/wab){target="blank"}
-    - Deployments with the [context root changed or removed](../../../../manage/working_with_compose/change_context_root_or_home.md)
-    - The [`friendlyUrlContextRoot` available for Digital Asset Management](https://opensource.hcltechsw.com/digital-experience/latest/manage_content/digital_assets/configuration/configure_dam_friendlyUrl){target="blank"}
+    - The configuration in the [Gateway API implementation for DX Compose](#gateway-api-implementation-for-dx-compose) section is the recommended configuration and should be used whenever possible.
+    - You must map any custom application deployed in the WebSphere Application Server or certain configurations in the Gateway API. This includes the following:
+        - Special DX Compose functionalities such as [Web Application Bridge](https://help.hcl-software.com/digital-experience/9.5/latest/extend_dx/integration/wab/wab/){target="blank"}
+        - Deployments with the [context root changed or removed](../../../../manage/working_with_compose/change_context_root_or_home.md)
+        - The [`friendlyUrlContextRoot` available for Digital Asset Management](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/digital_assets/configuration/configure_dam_friendlyUrl/){target="blank"}
 
 If mapping the root path is not possible for a deployment, map the following paths depending on the configuration of DX Compose:
 
