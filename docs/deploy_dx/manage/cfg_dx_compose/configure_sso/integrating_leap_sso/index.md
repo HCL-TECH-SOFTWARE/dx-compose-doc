@@ -44,7 +44,7 @@ This guide shows how to enable Single Sign-On (SSO) between HCL DX and HCL Leap 
 
     2. Add OIDC definition as a server customization
 
-        The properties that you need to specify may differ based on your identify provider. For additional information, refer to [Open Liberty documentation on OpenID Connect](https://openliberty.io/docs/latest/reference/config/openidConnectClient.html)
+        The properties that you need to specify may differ based on your identity provider. For additional information, refer to [Open Liberty documentation on OpenID Connect](https://openliberty.io/docs/latest/reference/config/openidConnectClient.html)
 
         Before moving on, verify that the discoveryEndpointURL is valid by opening it in a browser prior to entering it in the yaml file and update the clientSecret with the proper value obtained from your IDP
 
