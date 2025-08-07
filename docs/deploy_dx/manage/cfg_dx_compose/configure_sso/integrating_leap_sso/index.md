@@ -18,7 +18,7 @@ This guide shows how to enable Single Sign-On (SSO) between HCL DX and HCL Leap 
 
 3. Enable OIDC in HCL LEAP
 
-    Leap can be configured to leverage OpenID Connect (OIDC) as the primary authentication mechanism. This means that Leap will be turned into a Relying Party (RP) to the specified identify provider (IDP). When OIDC is used, the user and group lookup feature of Leap is not available and must be disabled as part of the configuration.
+    Leap can be configured to leverage OpenID Connect (OIDC) as the primary authentication mechanism. This means that Leap will be turned into a Relying Party (RP) to the specified identity provider (IDP). When OIDC is used, the user and group lookup feature of Leap is not available and must be disabled as part of the configuration.
 
     1. Configure OIDC identity Provider, the IDP will serve as the OIDC provider
 
