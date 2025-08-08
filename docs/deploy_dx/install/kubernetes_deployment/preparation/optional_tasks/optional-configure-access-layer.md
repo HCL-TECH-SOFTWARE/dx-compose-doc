@@ -3,7 +3,7 @@
 With HAProxy replacing Ambassador in HCL Digital Experience (DX) Compose deployments, it is easier to use a custom Access Layer in front of DX to handle advanced requirements for routing, proxying, and other similar use cases. This document explains how to leverage an external Access Layer alongside HAProxy as the internal reverse proxy and load balancer. Sample configurations for some Access Layer controllers and steps to implement them in a Kubernetes environment are also provided.
 
 !!! note
-    - HCL DX Compose does not ship any Ingress or Gateway Controllers to reduce DX's deployment footprint in any Kubernetes cluster.
+    - HCL DX Compose does not ship any Ingress or Gateway Controllers to reduce its deployment footprint in any Kubernetes cluster.
     - Implementing an Ingress or Gateway API for use with a HCL DX Compose deployment in Kubernetes is optional. Consider its implementation based on the Kubernetes cluster’s requirements.
     - These configurations are not proposals, and HCL does not provide official support for them.
 
