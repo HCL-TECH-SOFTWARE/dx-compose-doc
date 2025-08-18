@@ -145,7 +145,7 @@ configuration:
       jcr.DbNode: "wpsNode"
     dbTypeProperties:
       db2.DbDriver: "com.ibm.db2.jcc.DB2Driver"
-      db2.DbLibrary: "/opt/openliberty/wlp/usr/svrcfg/bin/db2jcc4.jar:/opt/openliberty/wlp/usr/svrcfg/bin/db2jcc_license_cu.jar"
+      db2.DbLibrary: "/opt/openliberty/wlp/usr/svrcfg/templates/jars/db2/db2jcc4.jar"
       db2.JdbcProviderName: "wpdbJDBC_db2"
 ```
 
@@ -321,3 +321,6 @@ Refer to the following table for more information about the properties you can u
 | oracle.DbDriver | Name of the database driver class for ORACLE DB. |
 | oracle.DbLibrary | Path to the database driver library for ORACLE DB. |
 | oracle.JdbcProviderName | Name of the JDBC provider for ORACLE DB. |
+
+!!! Limitation
+    Simultaneous execution of WebEngine pod scaling and external database transfer is not supported. To avoid any unexpected behavior, complete the database transfer before scaling the environment.
