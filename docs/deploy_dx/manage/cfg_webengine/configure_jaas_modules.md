@@ -66,17 +66,17 @@ Follow these steps to enable the HCL sample JAAS modules in your DX Compose depl
 
         ```yaml
         images:
-        tags:
+          tags:
             webEngine: my_custom_tag
         configuration:
-        webEngine:
+          webEngine:
             configOverrideFiles:
-                jaas-simple-overrides.xml: |
+              jaas-simple-overrides.xml: |
                 <server description="HCL Dummy JAAS Simple Overrides">
-                    <jaasLoginModule id="HCLDummyJAASSimpleAuth0LoginModule" className="com.hcl.HCLDummyJAASSimpleAuth0" controlFlag="REQUIRED" libraryRef="customPluginsLib">
+                  <jaasLoginModule id="HCLDummyJAASSimpleAuth0LoginModule" className="com.hcl.HCLDummyJAASSimpleAuth0" controlFlag="REQUIRED" libraryRef="customPluginsLib">
                     <!-- options debug="true" / -->
-                    </jaasLoginModule>
-                    <jaasLoginContextEntry id="system.WEB_INBOUND" name="system.WEB_INBOUND" loginModuleRef="HCLDummyJAASSimpleAuth0LoginModule, hashtable" />
+                  </jaasLoginModule>
+                  <jaasLoginContextEntry id="system.WEB_INBOUND" name="system.WEB_INBOUND" loginModuleRef="HCLDummyJAASSimpleAuth0LoginModule, hashtable" />
                 </server>
         ```
 
@@ -86,28 +86,28 @@ Follow these steps to enable the HCL sample JAAS modules in your DX Compose depl
 
         ```yaml
         images:
-        tags:
+          tags:
             webEngine: my_custom_tag
         configuration:
-        webEngine:
+          webEngine:
             configOverrideFiles:
-                jaas-group-overrides.xml: |
-                    <server description="HCL Dummy JAAS Group Overrides">
-                    <jaasLoginModule id="HCLDummyJAASGroupsAuth0LoginModule" className="com.hcl.HCLDummyJAASGroupsAuth0" controlFlag="REQUIRED" libraryRef="customPluginsLib">
-                        <!-- options debug="true" / -->
-                        <options opInfoPath="/opt/openliberty/wlp/usr/servers/defaultServer/customPlugins/opInfo.json"/>
-                    </jaasLoginModule>
-                    <jaasLoginContextEntry id="system.WEB_INBOUND" name="system.WEB_INBOUND" loginModuleRef="HCLDummyJAASGroupsAuth0LoginModule, hashtable" />
-                    </server>
-                user-overrides.xml: |
-                    <server descriptions="HCL JAAS User Overrides">
-                        <basicRegistry id="basic" realm="defaultWIMFileBasedRealm">
-                            <group id="cn=testRole01,o=defaultWIMFileBasedRealm" name="testRole01" />
-                        </basicRegistry>
-                    </server>
+              jaas-group-overrides.xml: |
+                <server description="HCL Dummy JAAS Group Overrides">
+                  <jaasLoginModule id="HCLDummyJAASGroupsAuth0LoginModule" className="com.hcl.HCLDummyJAASGroupsAuth0" controlFlag="REQUIRED" libraryRef="customPluginsLib">
+                    <!-- options debug="true" / -->
+                    <options opInfoPath="/opt/openliberty/wlp/usr/servers/defaultServer/customPlugins/opInfo.json"/>
+                  </jaasLoginModule>
+                  <jaasLoginContextEntry id="system.WEB_INBOUND" name="system.WEB_INBOUND" loginModuleRef="HCLDummyJAASGroupsAuth0LoginModule, hashtable" />
+                </server>
+              user-overrides.xml: |
+                <server descriptions="HCL JAAS User Overrides">
+                  <basicRegistry id="basic" realm="defaultWIMFileBasedRealm">
+                    <group id="cn=testRole01,o=defaultWIMFileBasedRealm" name="testRole01" />
+                  </basicRegistry>
+                </server>
             propertiesFilesOverrides:
-                PACGroupManagementService.properties:
-                    accessControlGroupManagement.useWSSubject: "true"
+              PACGroupManagementService.properties:
+                accessControlGroupManagement.useWSSubject: "true"
         ```
 
         This configuration enables the HCL DX Compose deployment to utilize enhanced functionality for your transient users. This includes mapping additional user attributes from the OIDC provider to the DX user session, or assigning transient users to specific DX groups based on OIDC claims.
