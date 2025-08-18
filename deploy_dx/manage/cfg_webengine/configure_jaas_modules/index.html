@@ -466,6 +466,8 @@ function OptanonWrapper() { }
       
         
       
+        
+      
     
     
       
@@ -1503,46 +1505,46 @@ docker -D build --no-cache=true --progress=plain -t &lt;my_custom_repository&gt;
 <li>
 <p>The <code>HCLDummyJAASSimpleAuth0</code> module focuses on mapping essential user attributes from the OIDC token (ID token or UserInfo endpoint) to the JAAS Subject.  This module makes these attributes available within the DX session. Typically mapped attributes include unique ID, username, email, and full name.</p>
 <div class="language-yaml highlight"><pre><span></span><code><span class="nt">images</span><span class="p">:</span>
-<span class="nt">tags</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">tags</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">webEngine</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_custom_tag</span>
 <span class="nt">configuration</span><span class="p">:</span>
-<span class="nt">webEngine</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">webEngine</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">configOverrideFiles</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">jaas-simple-overrides.xml</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">&lt;server description=&quot;HCL Dummy JAAS Simple Overrides&quot;&gt;</span>
-<span class="w">            </span><span class="l l-Scalar l-Scalar-Plain">&lt;jaasLoginModule id=&quot;HCLDummyJAASSimpleAuth0LoginModule&quot; className=&quot;com.hcl.HCLDummyJAASSimpleAuth0&quot; controlFlag=&quot;REQUIRED&quot; libraryRef=&quot;customPluginsLib&quot;&gt;</span>
-<span class="w">            </span><span class="l l-Scalar l-Scalar-Plain">&lt;!-- options debug=&quot;true&quot; / --&gt;</span>
-<span class="w">            </span><span class="l l-Scalar l-Scalar-Plain">&lt;/jaasLoginModule&gt;</span>
-<span class="w">            </span><span class="l l-Scalar l-Scalar-Plain">&lt;jaasLoginContextEntry id=&quot;system.WEB_INBOUND&quot; name=&quot;system.WEB_INBOUND&quot; loginModuleRef=&quot;HCLDummyJAASSimpleAuth0LoginModule, hashtable&quot; /&gt;</span>
-<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">&lt;/server&gt;</span>
+<span class="w">      </span><span class="nt">jaas-simple-overrides.xml</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">        </span><span class="no">&lt;server description=&quot;HCL Dummy JAAS Simple Overrides&quot;&gt;</span>
+<span class="w">          </span><span class="no">&lt;jaasLoginModule id=&quot;HCLDummyJAASSimpleAuth0LoginModule&quot; className=&quot;com.hcl.HCLDummyJAASSimpleAuth0&quot; controlFlag=&quot;REQUIRED&quot; libraryRef=&quot;customPluginsLib&quot;&gt;</span>
+<span class="w">            </span><span class="no">&lt;!-- options debug=&quot;true&quot; / --&gt;</span>
+<span class="w">          </span><span class="no">&lt;/jaasLoginModule&gt;</span>
+<span class="w">          </span><span class="no">&lt;jaasLoginContextEntry id=&quot;system.WEB_INBOUND&quot; name=&quot;system.WEB_INBOUND&quot; loginModuleRef=&quot;HCLDummyJAASSimpleAuth0LoginModule, hashtable&quot; /&gt;</span>
+<span class="w">        </span><span class="no">&lt;/server&gt;</span>
 </code></pre></div>
 <p>This configuration enables the HCL DX Compose deployment to utilize enhanced functionality for your transient users by mapping additional user attributes from the OIDC provider to the DX user session.</p>
 </li>
 <li>
 <p>The <code>HCLDummyJAASGroupsAuth0</code> module extends the functionality of <code>HCLDummyJAASSimpleAuth0</code>. Besides attribute mapping, it allows you to assign transient users to one or more DX groups based on information present in the OIDC claims (for example, a groups or roles claim). This is useful for controlling access to DX resources (pages, portlets, content) based on group memberships derived from the external OIDC provider without needing to manage these memberships directly in DX for transient users.</p>
 <div class="language-yaml highlight"><pre><span></span><code><span class="nt">images</span><span class="p">:</span>
-<span class="nt">tags</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">tags</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">webEngine</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_custom_tag</span>
 <span class="nt">configuration</span><span class="p">:</span>
-<span class="nt">webEngine</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">webEngine</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">configOverrideFiles</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">jaas-group-overrides.xml</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<span class="w">            </span><span class="no">&lt;server description=&quot;HCL Dummy JAAS Group Overrides&quot;&gt;</span>
-<span class="w">            </span><span class="no">&lt;jaasLoginModule id=&quot;HCLDummyJAASGroupsAuth0LoginModule&quot; className=&quot;com.hcl.HCLDummyJAASGroupsAuth0&quot; controlFlag=&quot;REQUIRED&quot; libraryRef=&quot;customPluginsLib&quot;&gt;</span>
-<span class="w">                </span><span class="no">&lt;!-- options debug=&quot;true&quot; / --&gt;</span>
-<span class="w">                </span><span class="no">&lt;options opInfoPath=&quot;/opt/openliberty/wlp/usr/servers/defaultServer/customPlugins/opInfo.json&quot;/&gt;</span>
-<span class="w">            </span><span class="no">&lt;/jaasLoginModule&gt;</span>
-<span class="w">            </span><span class="no">&lt;jaasLoginContextEntry id=&quot;system.WEB_INBOUND&quot; name=&quot;system.WEB_INBOUND&quot; loginModuleRef=&quot;HCLDummyJAASGroupsAuth0LoginModule, hashtable&quot; /&gt;</span>
-<span class="w">            </span><span class="no">&lt;/server&gt;</span>
-<span class="w">        </span><span class="nt">user-overrides.xml</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<span class="w">            </span><span class="no">&lt;server descriptions=&quot;HCL JAAS User Overrides&quot;&gt;</span>
-<span class="w">                </span><span class="no">&lt;basicRegistry id=&quot;basic&quot; realm=&quot;defaultWIMFileBasedRealm&quot;&gt;</span>
-<span class="w">                    </span><span class="no">&lt;group id=&quot;cn=testRole01,o=defaultWIMFileBasedRealm&quot; name=&quot;testRole01&quot; /&gt;</span>
-<span class="w">                </span><span class="no">&lt;/basicRegistry&gt;</span>
-<span class="w">            </span><span class="no">&lt;/server&gt;</span>
+<span class="w">      </span><span class="nt">jaas-group-overrides.xml</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">        </span><span class="no">&lt;server description=&quot;HCL Dummy JAAS Group Overrides&quot;&gt;</span>
+<span class="w">          </span><span class="no">&lt;jaasLoginModule id=&quot;HCLDummyJAASGroupsAuth0LoginModule&quot; className=&quot;com.hcl.HCLDummyJAASGroupsAuth0&quot; controlFlag=&quot;REQUIRED&quot; libraryRef=&quot;customPluginsLib&quot;&gt;</span>
+<span class="w">            </span><span class="no">&lt;!-- options debug=&quot;true&quot; / --&gt;</span>
+<span class="w">            </span><span class="no">&lt;options opInfoPath=&quot;/opt/openliberty/wlp/usr/servers/defaultServer/customPlugins/opInfo.json&quot;/&gt;</span>
+<span class="w">          </span><span class="no">&lt;/jaasLoginModule&gt;</span>
+<span class="w">          </span><span class="no">&lt;jaasLoginContextEntry id=&quot;system.WEB_INBOUND&quot; name=&quot;system.WEB_INBOUND&quot; loginModuleRef=&quot;HCLDummyJAASGroupsAuth0LoginModule, hashtable&quot; /&gt;</span>
+<span class="w">        </span><span class="no">&lt;/server&gt;</span>
+<span class="w">      </span><span class="nt">user-overrides.xml</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">        </span><span class="no">&lt;server descriptions=&quot;HCL JAAS User Overrides&quot;&gt;</span>
+<span class="w">          </span><span class="no">&lt;basicRegistry id=&quot;basic&quot; realm=&quot;defaultWIMFileBasedRealm&quot;&gt;</span>
+<span class="w">            </span><span class="no">&lt;group id=&quot;cn=testRole01,o=defaultWIMFileBasedRealm&quot; name=&quot;testRole01&quot; /&gt;</span>
+<span class="w">          </span><span class="no">&lt;/basicRegistry&gt;</span>
+<span class="w">        </span><span class="no">&lt;/server&gt;</span>
 <span class="w">    </span><span class="nt">propertiesFilesOverrides</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">PACGroupManagementService.properties</span><span class="p">:</span>
-<span class="w">            </span><span class="nt">accessControlGroupManagement.useWSSubject</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;true&quot;</span>
+<span class="w">      </span><span class="nt">PACGroupManagementService.properties</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">accessControlGroupManagement.useWSSubject</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;true&quot;</span>
 </code></pre></div>
 <p>This configuration enables the HCL DX Compose deployment to utilize enhanced functionality for your transient users. This includes mapping additional user attributes from the OIDC provider to the DX user session, or assigning transient users to specific DX groups based on OIDC claims.</p>
 </li>
@@ -1579,7 +1581,7 @@ docker -D build --no-cache=true --progress=plain -t &lt;my_custom_repository&gt;
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="May 22, 2025 20:51:11 UTC">May 22, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 17, 2025 17:12:55 UTC">June 17, 2025</span>
   </span>
 
     

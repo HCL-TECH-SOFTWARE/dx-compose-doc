@@ -13,7 +13,7 @@
       
       
       
-        <link rel="canonical" href="https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/install/kubernetes_deployment/preparation/optional_tasks/optional_configure_ingress/">
+        <link rel="canonical" href="https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/install/kubernetes_deployment/preparation/optional_tasks/optional-configure-access-layer/">
       
       
         <link rel="prev" href="../optional_labels_annotations/">
@@ -27,7 +27,7 @@
     
     
       
-        <title>Configure Ingress For DX Compose Deployment - HCL Digital Experience Compose Help Center</title>
+        <title>Configuring Access Layer for DX Compose - HCL Digital Experience Compose Help Center</title>
       
     
     
@@ -102,7 +102,7 @@ function OptanonWrapper() { }
     <div data-md-component="skip">
       
         
-        <a href="#configure-ingress-for-dx-compose-deployment" class="md-skip">
+        <a href="#configuring-access-layer-for-dx-compose" class="md-skip">
           Skip to content
         </a>
       
@@ -154,7 +154,7 @@ function OptanonWrapper() { }
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="../../../../../../../latest/deploy_dx/install/kubernetes_deployment/preparation/optional_tasks/optional_configure_ingress/">
+  <a href="../../../../../../../latest/deploy_dx/install/kubernetes_deployment/preparation/optional_tasks/optional-configure-access-layer/">
     <strong>Click here to go to latest.</strong>
   </a> 
 
@@ -188,7 +188,7 @@ function OptanonWrapper() { }
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Configure Ingress For DX Compose Deployment
+              Configuring Access Layer for DX Compose
             
           </span>
         </div>
@@ -454,6 +454,8 @@ function OptanonWrapper() { }
       
         
           
+        
+      
         
       
         
@@ -1218,7 +1220,7 @@ function OptanonWrapper() { }
           
   
   <span class="md-ellipsis">
-    Configure Ingress For DX Compose Deployment
+    Configuring Access Layer for DX Compose
   </span>
   
 
@@ -1229,7 +1231,7 @@ function OptanonWrapper() { }
         
   
   <span class="md-ellipsis">
-    Configure Ingress For DX Compose Deployment
+    Configuring Access Layer for DX Compose
   </span>
   
 
@@ -1253,20 +1255,101 @@ function OptanonWrapper() { }
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#ingress-implementation" class="md-nav__link">
+  <a href="#access-layer-for-dx-compose" class="md-nav__link">
     <span class="md-ellipsis">
-      Ingress Implementation
+      Access Layer for DX Compose
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Access Layer for DX Compose">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ingress-implementation-for-dx-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ingress implementation for DX Compose
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ingress implementation for DX Compose">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
+  <a href="#implementing-ingress-for-dx-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementing Ingress for DX Compose
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#advanced-configuration" class="md-nav__link">
     <span class="md-ellipsis">
       Advanced configuration
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gateway-api-implementation-for-dx-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gateway API implementation for DX Compose
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gateway API implementation for DX Compose">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementing-gateway-api-for-dx-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementing Gateway API for DX Compose
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-configuration_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1644,20 +1727,101 @@ function OptanonWrapper() { }
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#ingress-implementation" class="md-nav__link">
+  <a href="#access-layer-for-dx-compose" class="md-nav__link">
     <span class="md-ellipsis">
-      Ingress Implementation
+      Access Layer for DX Compose
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Access Layer for DX Compose">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ingress-implementation-for-dx-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ingress implementation for DX Compose
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ingress implementation for DX Compose">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
+  <a href="#implementing-ingress-for-dx-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementing Ingress for DX Compose
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#advanced-configuration" class="md-nav__link">
     <span class="md-ellipsis">
       Advanced configuration
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gateway-api-implementation-for-dx-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gateway API implementation for DX Compose
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gateway API implementation for DX Compose">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementing-gateway-api-for-dx-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementing Gateway API for DX Compose
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-configuration_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1676,7 +1840,7 @@ function OptanonWrapper() { }
                   
 
   
-    <a href="https://github.com/HCL-TECH-SOFTWARE/dx-compose-doc/edit/main/docs/deploy_dx/install/kubernetes_deployment/preparation/optional_tasks/optional_configure_ingress.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/HCL-TECH-SOFTWARE/dx-compose-doc/edit/main/docs/deploy_dx/install/kubernetes_deployment/preparation/optional_tasks/optional-configure-access-layer.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M441 58.9 453.1 71c9.4 9.4 9.4 24.6 0 33.9L424 134.1 377.9 88 407 58.9c9.4-9.4 24.6-9.4 33.9 0zM209.8 256.2 344 121.9l46.1 46.1-134.3 134.2c-2.9 2.9-6.5 5-10.4 6.1L186.9 325l16.7-58.5c1.1-3.9 3.2-7.5 6.1-10.4zM373.1 25 175.8 222.2c-8.7 8.7-15 19.4-18.3 31.1l-28.6 100c-2.4 8.4-.1 17.4 6.1 23.6s15.2 8.5 23.6 6.1l100-28.6c11.8-3.4 22.5-9.7 31.1-18.3L487 138.9c28.1-28.1 28.1-73.7 0-101.8L474.9 25c-28.1-28.1-73.7-28.1-101.8 0M88 64c-48.6 0-88 39.4-88 88v272c0 48.6 39.4 88 88 88h272c48.6 0 88-39.4 88-88V312c0-13.3-10.7-24-24-24s-24 10.7-24 24v112c0 22.1-17.9 40-40 40H88c-22.1 0-40-17.9-40-40V152c0-22.1 17.9-40 40-40h112c13.3 0 24-10.7 24-24s-10.7-24-24-24z"/></svg>
     </a>
@@ -1684,50 +1848,50 @@ function OptanonWrapper() { }
   
 
 
-<h1 id="configure-ingress-for-dx-compose-deployment">Configure Ingress For DX Compose Deployment</h1>
-<p>With HAProxy DX Compose deployments, it is easy to use a custom Ingress in front of DX Compose to handle advance requirements to routing, proxying and other similar use cases. This document explains how to leverage external Ingress alongside with HAProxy as the internal reverse proxy and load balancer.</p>
+<h1 id="configuring-access-layer-for-dx-compose">Configuring Access Layer for DX Compose</h1>
+<p>With HAProxy replacing Ambassador in HCL Digital Experience (DX) Compose deployments, it is easier to use a custom Access Layer in front of DX to handle advanced requirements for routing, proxying, and other similar use cases. This document explains how to leverage an external Access Layer alongside HAProxy as the internal reverse proxy and load balancer. Sample configurations for some Access Layer controllers and steps to implement them in a Kubernetes environment are also provided.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ul>
-<li><strong>HCL DX Compose intentionally does not ship any Ingress to reduce DX Compose's deployment footprint in any Kubernetes cluster.</strong><br></li>
-<li>This document shows an example configuration for some Ingress controllers and briefly describes minimally necessary steps to implement it inside a Kubernetes environment. This configuration is neither a proposal nor does HCL provide official support for it. <br></li>
-<li>Implementing an Ingress for use with a HCL DX Compose deployment in Kubernetes is an optional effort based on the Kubernetes cluster’s requirements and customer’s discretion.</li>
+<li>HCL DX Compose does not ship any Ingress or Gateway Controllers to reduce its deployment footprint in any Kubernetes cluster.</li>
+<li>Implementing an Ingress or Gateway API for use with a HCL DX Compose deployment in Kubernetes is optional. Consider its implementation based on the Kubernetes cluster’s requirements.</li>
+<li>These configurations are not proposals, and HCL does not provide official support for them.</li>
 </ul>
 </div>
-<!-- 
-![Ingress Implementation](../../../../../../images/HCL-DX-deployment-diagram-Kubernetes.png)
--->
-<h2 id="ingress-implementation">Ingress Implementation</h2>
-<p>The following guide is a basic example on implementing a generic Ingress on your Kubernetes cluster for use with HCL DX Compose. The actual implementation might vary depending on the Cluster's setup and configuration.</p>
-<ul>
-<li>In the DX Compose Helm values by default HAProxy <code>serviceType</code> is set to <code>loadBalancer</code>. To use the external Ingress this must be set to the serviceType applicable for the appropriate use case, for this example <code>ClusterIP</code> is used, with that HAProxy service will not have any External IP.</li>
-</ul>
+<p><img alt="Access Layer Implementation" src="../../../../../../images/HCL-DX-deployment-diagram-Kubernetes.png" /></p>
+<h2 id="access-layer-for-dx-compose">Access Layer for DX Compose</h2>
+<p>You have two options for implementing the Access Layer in the DX Compose deployment: <a href="#ingress-implementation-for-dx-compose">Ingress</a> and <a href="#gateway-api-implementation-for-dx-compose">Gateway API</a>. Choose the option that fits your specific needs and preferences.</p>
+<h3 id="ingress-implementation-for-dx-compose">Ingress implementation for DX Compose</h3>
+<p>Refer to the following steps to implement a generic Ingress on your Kubernetes cluster for use with HCL DX Compose. The actual implementation might vary depending on the cluster's setup and configuration.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>In the <code>values.yaml</code> file, HAProxy <code>serviceType</code> is set to <code>loadBalancer</code> by default. To use the external Ingress, set the <code>serviceType</code> appropriate for your specific use case. In the following example, <code>ClusterIP</code> is used, ensuring that the HAProxy service has no external IP.</p>
 <div class="language-yaml highlight"><pre><span></span><code><span class="nt">networking</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">haproxy</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">serviceType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ClusterIP</span>
 </code></pre></div>
-<ul>
-<li>Install an Ingress controller of your choice, this will serve as the entry point to the cluster. The Ingress controller applies the rules that are set in the Ingress resources. By design the Ingress controller is a cluster-wide resource and can be deployed in any namespace and does not have to be in the same namespace as DX Compose. The controller can be used to route multiple applications in multiple namespaces. NGINX Ingress Controller is used here as an example. To install a NGINX Ingress on your cluster, please issue the following command:</li>
-</ul>
+<h4 id="implementing-ingress-for-dx-compose">Implementing Ingress for DX Compose</h4>
+<ol>
+<li>
+<p>Install an Ingress controller of your choice (for example, <a href="https://kubernetes.github.io/ingress-nginx/" target="_blank">NGINX Ingress Controller</a>, <a href="https://doc.traefik.io/traefik/" target="_blank">Traefik</a>, <a href="https://www.haproxy.com/documentation/kubernetes/latest/" target="_blank">HAProxy Ingress</a>, or <a href="https://docs.konghq.com/kubernetes-ingress-controller/latest/" target="_blank">Kong Ingress Controller</a>). The Ingress controller serves as the entry point to the cluster and applies the rules set in the Ingress resources. This controller is a cluster-wide resource that can be deployed in any namespace and does not have to be in the same namespace as DX. It can also be used to route multiple applications in multiple namespaces.</p>
+<p>The following example uses the NGINX Ingress Controller. To install a NGINX Ingress on your cluster, run the following command on your terminal:</p>
 <div class="language-console highlight"><pre><span></span><code><span class="gp">$ </span>helm<span class="w"> </span>upgrade<span class="w"> </span>--install<span class="w"> </span>ingress-nginx<span class="w"> </span>ingress-nginx<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--repo<span class="w"> </span>https://kubernetes.github.io/ingress-nginx<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--namespace<span class="w"> </span>&lt;namespace&gt;
+--repo<span class="w"> </span>https://kubernetes.github.io/ingress-nginx<span class="w"> </span><span class="se">\</span>
+--namespace<span class="w"> </span>&lt;namespace&gt;
 </code></pre></div>
-<ul>
-<li>Check if the Ingress controller pod and service are deployed</li>
-</ul>
+</li>
+<li>
+<p>Check if the Ingress controller pod and service are deployed using the following command:</p>
 <div class="language-console highlight"><pre><span></span><code><span class="gp">$ </span>kubectl<span class="w"> </span>get<span class="w"> </span>pod<span class="w"> </span>-n<span class="w"> </span>&lt;namespace&gt;
 <span class="gp">$ </span>kubectl<span class="w"> </span>get<span class="w"> </span>service<span class="w"> </span>-n<span class="w"> </span>&lt;namespace&gt;
 </code></pre></div>
-<ul>
-<li>
-<p>You can configure the connection between Ingress and HAProxy to use either <code>http</code> or <code>https</code> for the internal traffic. For more information, see the topic <a href="../../mandatory_tasks/prepare_configure_networking/#configure-haproxy-networking">Configure HAProxy networking</a>.</p>
 </li>
 <li>
-<p>Define an <a href="https://kubernetes.io/docs/concepts/services-networking/ingress/#the-ingress-resource">Ingress resource</a> that is used to configure the routing rules that point to the existing deployment of HAProxy as the internal service. Configure a host and all of the requests received by the host are handled by <code>&lt;helm release name&gt;-haproxy</code>. A <code>secretName</code> is passed in the <code>tls</code> section to allow the Ingress controller to serve <code>https</code> traffic. The following configuration maps the root path (<code>/</code>) to the HAProxy of DX Compose. If there are other applications in the cluster handled by the same Ingress controller, their paths must be specified explicitly. All other requests are then handled by DX Compose.</p>
+<p>You can configure the connection between Ingress and HAProxy to use either <code>http</code> or <code>https</code> for the internal traffic. For more information, refer to <a href="../../mandatory_tasks/prepare_configure_networking/#configure-haproxy-networking">Configure HAProxy networking</a>.</p>
 </li>
-</ul>
-<p>Example of an Ingress resource:</p>
+<li>
+<p>Define an <a href="https://kubernetes.io/docs/concepts/services-networking/ingress/#the-ingress-resource" target="_blank">Ingress resource</a> that is used to configure the routing rules that point to the existing deployment of HAProxy as the internal service. You can configure a host in the Ingress resource to ensure all of the requests received by the host are handled by <code>&lt;helm release name&gt;-haproxy</code>. A <code>secretName</code> is passed in the <code>tls</code> section to allow the Ingress controller to serve <code>https</code> traffic.</p>
+<p>The following configuration maps the root path (<code>/</code>) to the HAProxy of DX Compose. If there are other applications in the cluster handled by the same Ingress controller, their paths must be specified explicitly. All other requests are then handled by DX Compose.</p>
+<p>See the following Ingress resource:</p>
 <div class="language-yaml highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">networking.k8s.io/v1</span>
 <span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Ingress</span>
 <span class="nt">metadata</span><span class="p">:</span>
@@ -1748,24 +1912,29 @@ function OptanonWrapper() { }
 <span class="w">            </span><span class="nt">port</span><span class="p">:</span>
 <span class="w">              </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">haproxy</span>
 </code></pre></div>
-<h2 id="advanced-configuration">Advanced configuration</h2>
+</li>
+</ol>
+<h4 id="advanced-configuration">Advanced configuration</h4>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>The configuration in the <strong>Ingress Implementation</strong> section is the recommended configuration and should be used whenever possible.</p>
-<p>Note that you must map in the Ingress any custom application deployed or certain configurations. This includes the following:</p>
 <ul>
-<li>Some special functionalities of DX Compose like the <a href="https://opensource.hcltechsw.com/digital-experience/latest/extend_dx/integration/wab/wab" target="blank">Web Application Bridge</a></li>
+<li>The configuration in the <a href="#ingress-implementation-for-dx-compose">Ingress implementation for DX Compose</a> section is the recommended configuration and should be used whenever possible.</li>
+<li>You must map any custom application deployed in the WebSphere Application Server or certain configurations in Ingress. This includes the following:<ul>
+<li>Special DX Compose functionalities such as <a href="https://help.hcl-software.com/digital-experience/9.5/latest/extend_dx/integration/wab/wab/" target="blank">Web Application Bridge</a></li>
 <li>Deployments with the <a href="../../../../../manage/working_with_compose/change_context_root_or_home/">context root changed or removed</a></li>
-<li>The <a href="https://opensource.hcltechsw.com/digital-experience/latest/manage_content/digital_assets/configuration/configure_dam_friendlyUrl" target="blank"><code>friendlyUrlContextRoot</code> available for Digital Asset Management</a></li>
+<li>The <a href="https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/digital_assets/configuration/configure_dam_friendlyUrl/" target="blank"><code>friendlyUrlContextRoot</code> available for Digital Asset Management</a></li>
+</ul>
+</li>
 </ul>
 </div>
 <p>If mapping the root path is not possible for a deployment, map the following paths depending on the configuration of DX Compose:</p>
 <ul>
-<li><code>/wps</code> (or the custom context root set for WebEngine)</li>
+<li><code>/wps</code> (or the custom context root set for DX Compose)</li>
 <li><code>/dx</code></li>
+<li><code>/ibm</code></li>
 <li><code>/hcl</code></li>
 </ul>
-<p>Example of an Ingress resource:</p>
+<p>See the following Ingress resource:</p>
 <div class="language-yaml highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">networking.k8s.io/v1</span>
 <span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Ingress</span>
 <span class="nt">metadata</span><span class="p">:</span>
@@ -1792,6 +1961,13 @@ function OptanonWrapper() { }
 <span class="w">            </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;release-name&gt;-haproxy</span>
 <span class="w">            </span><span class="nt">port</span><span class="p">:</span>
 <span class="w">              </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">haproxy</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/ibm</span>
+<span class="w">        </span><span class="nt">pathType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Prefix</span>
+<span class="w">        </span><span class="nt">backend</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">service</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;release-name&gt;-haproxy</span>
+<span class="w">            </span><span class="nt">port</span><span class="p">:</span>
+<span class="w">              </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">haproxy</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/hcl</span>
 <span class="w">        </span><span class="nt">pathType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Prefix</span>
 <span class="w">        </span><span class="nt">backend</span><span class="p">:</span>
@@ -1799,6 +1975,155 @@ function OptanonWrapper() { }
 <span class="w">            </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;release-name&gt;-haproxy</span>
 <span class="w">            </span><span class="nt">port</span><span class="p">:</span>
 <span class="w">              </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">haproxy</span>
+</code></pre></div>
+<h3 id="gateway-api-implementation-for-dx-compose">Gateway API implementation for DX Compose</h3>
+<p>Refer to the following steps to configure the optional Gateway API in a Kubernetes environment using Helm and the Gateway API.</p>
+<h4 id="prerequisites_1">Prerequisites</h4>
+<ul>
+<li>Ensure that there are no existing Ingress controllers and Ingress resources in your cluster.</li>
+<li>
+<p>Set the following parameters in the <code>values.yaml</code> file to ensure the HAProxy service has no External IP:</p>
+<div class="language-text highlight"><pre><span></span><code>networking:
+  haproxy:
+    serviceType: ClusterIP
+    ssl: false
+</code></pre></div>
+</li>
+</ul>
+<h4 id="implementing-gateway-api-for-dx-compose">Implementing Gateway API for DX Compose</h4>
+<ol>
+<li>
+<p>Install the Gateway API Custom Resource Definitions (CRDs) using the following command:</p>
+<div class="language-bash highlight"><pre><span></span><code>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>https://github.com/kubernetes-sigs/gateway-api/releases/download/<span class="o">[</span>VERSION_NUMBER<span class="o">]</span>/standard-install.yaml
+</code></pre></div>
+<p>Replace <code>[VERSION_NUMBER]</code> with the desired version number. You can check the official <a href="https://gateway-api.sigs.k8s.io/" target="_blank">Gateway API documentation</a> for the latest standard release.</p>
+</li>
+<li>
+<p>Install NGINX Gateway Fabric using the following Helm command:</p>
+<div class="language-bash highlight"><pre><span></span><code>helm<span class="w"> </span>install<span class="w"> </span>ngf<span class="w"> </span>oci://ghcr.io/nginx/charts/nginx-gateway-fabric<span class="w"> </span>--create-namespace<span class="w"> </span>-n<span class="w"> </span>nginx-gateway
+</code></pre></div>
+</li>
+<li>
+<p>Create a YAML file named <code>dx-gateway.yaml</code> with the following sample parameters to create the Gateway API resources:</p>
+<div class="language-text highlight"><pre><span></span><code>apiVersion: gateway.networking.k8s.io/v1
+kind: Gateway
+metadata:
+  name: gateway
+spec:
+  gatewayClassName: nginx
+  listeners:
+  - name: http
+    port: 80
+    protocol: HTTP
+    hostname: your-kube-deployment.com
+  - name: https
+    port: 443
+    protocol: HTTPS
+    hostname: your-kube-deployment.com
+    tls:
+      mode: Terminate
+      certificateRefs:
+      - kind: Secret
+        name: dx-tls-cert
+</code></pre></div>
+</li>
+<li>
+<p>Apply the Gateway API resources using the <code>kubectl apply -f dx-gateway.yaml</code> command.</p>
+</li>
+<li>
+<p>Create a YAML file named <code>dx-http-route.yaml</code> with the following sample parameters to create the HTTPRoutes resources:</p>
+<div class="language-text highlight"><pre><span></span><code>apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: dx-http-route
+spec:
+  parentRefs:
+  - name: gateway
+    sectionName: https
+  hostnames:
+  - your-kube-deployment.com
+  rules:
+  - matches:
+    - path:
+        type: PathPrefix
+        value: /
+    backendRefs:
+    - name: &lt;release-name&gt;-haproxy
+      port: 80
+</code></pre></div>
+</li>
+<li>
+<p>Apply the HTTPRoutes resources using the <code>kubectl apply -f dx-http-route.yaml</code> command.</p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>Always check the official documentation for the latest version numbers and additional configuration options.</li>
+<li>Ensure that the configurations align with your cluster's requirements and existing resources.</li>
+</ul>
+</div>
+<h4 id="advanced-configuration_1">Advanced configuration</h4>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<ul>
+<li>The configuration in the <a href="#gateway-api-implementation-for-dx-compose">Gateway API implementation for DX Compose</a> section is the recommended configuration and should be used whenever possible.</li>
+<li>You must map any custom application deployed in the WebSphere Application Server or certain configurations in the Gateway API. This includes the following:<ul>
+<li>Special DX Compose functionalities such as <a href="https://help.hcl-software.com/digital-experience/9.5/latest/extend_dx/integration/wab/wab/" target="blank">Web Application Bridge</a></li>
+<li>Deployments with the <a href="../../../../../manage/working_with_compose/change_context_root_or_home/">context root changed or removed</a></li>
+<li>The <a href="https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/digital_assets/configuration/configure_dam_friendlyUrl/" target="blank"><code>friendlyUrlContextRoot</code> available for Digital Asset Management</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>If mapping the root path is not possible for a deployment, map the following paths depending on the configuration of DX Compose:</p>
+<ul>
+<li><code>/wps</code> (or the custom context root set for DX Compose)</li>
+<li><code>/dx</code></li>
+<li><code>/ibm</code></li>
+<li><code>/hcl</code></li>
+</ul>
+<p>See the following Gateway API resource:</p>
+<div class="language-yaml highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gateway.networking.k8s.io/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HTTPRoute</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dx-http-route</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">parentRefs</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gateway</span>
+<span class="w">    </span><span class="nt">sectionName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https</span>
+<span class="w">  </span><span class="nt">hostnames</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">your-kube-deployment.com</span>
+<span class="w">  </span><span class="nt">rules</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">matches</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/wps</span>
+<span class="w">      </span><span class="nt">pathType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Prefix</span>
+<span class="w">      </span><span class="nt">backend</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">service</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;release-name&gt;-haproxy</span>
+<span class="w">          </span><span class="nt">port</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">haproxy</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/dx</span>
+<span class="w">      </span><span class="nt">pathType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Prefix</span>
+<span class="w">      </span><span class="nt">backend</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">service</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;release-name&gt;-haproxy</span>
+<span class="w">          </span><span class="nt">port</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">haproxy</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/ibm</span>
+<span class="w">      </span><span class="nt">pathType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Prefix</span>
+<span class="w">      </span><span class="nt">backend</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">service</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;release-name&gt;-haproxy</span>
+<span class="w">          </span><span class="nt">port</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">haproxy</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/hcl</span>
+<span class="w">      </span><span class="nt">pathType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Prefix</span>
+<span class="w">      </span><span class="nt">backend</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">service</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;release-name&gt;-haproxy</span>
+<span class="w">          </span><span class="nt">port</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">haproxy</span>
 </code></pre></div>
 
 
@@ -1820,7 +2145,7 @@ function OptanonWrapper() { }
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 16, 2024 18:41:22 UTC">December 16, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 8, 2025 12:13:14 UTC">August 8, 2025</span>
   </span>
 
     

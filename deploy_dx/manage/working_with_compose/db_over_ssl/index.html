@@ -466,6 +466,8 @@ function OptanonWrapper() { }
       
         
       
+        
+      
     
     
       
@@ -1390,6 +1392,57 @@ function OptanonWrapper() { }
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#connecting-webengine-to-oracle-over-ssl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connecting WebEngine to Oracle over SSL
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Connecting WebEngine to Oracle over SSL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oracle-ssl-configuration-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Oracle SSL configuration overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-the-oracle-ssl-certificate-to-a-secret" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding the Oracle SSL certificate to a secret
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuring-the-oracle-jdbc-driver-and-webengine-server-for-ssl-connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuring the Oracle JDBC driver and WebEngine server for SSL connection
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1552,6 +1605,57 @@ function OptanonWrapper() { }
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#connecting-webengine-to-oracle-over-ssl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connecting WebEngine to Oracle over SSL
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Connecting WebEngine to Oracle over SSL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oracle-ssl-configuration-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Oracle SSL configuration overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-the-oracle-ssl-certificate-to-a-secret" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding the Oracle SSL certificate to a secret
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuring-the-oracle-jdbc-driver-and-webengine-server-for-ssl-connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuring the Oracle JDBC driver and WebEngine server for SSL connection
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1580,7 +1684,7 @@ function OptanonWrapper() { }
 <p>This document outlines how to enable Secure Sockets Layer (SSL) database connections for different databases in the WebEngine server.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Currently, this documentation only provides steps to connect DB2.</p>
+<p>Currently, this documentation only provides steps to connect DB2 and Oracle.</p>
 </div>
 <h2 id="how-ssl-connections-are-established">How SSL connections are established</h2>
 <p>The SSL handshake is a process by which a client and server set the terms for secure communications during a connection. The handshake occurs before any data is exchanged.</p>
@@ -1594,11 +1698,14 @@ function OptanonWrapper() { }
 <p>Establish trust: Tell the driver where it can find trusted certificates.</p>
 </li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>While SSL ensures secure database connections, it is recommended to evaluate its necessity as it may introduce performance overhead to the application.</p>
+</div>
 <h2 id="connecting-webengine-to-db2-over-ssl">Connecting WebEngine to DB2 over SSL</h2>
 <p>This section outlines how you can configure WebEngine to connect to DB2 over SSL (port 50001).</p>
 <h3 id="prerequisites">Prerequisites</h3>
-<p>Before configuring the WebEngine server, SSL connections must be enabled on the DB2 server. For more information on how to enable SSL on DB2, refer to <a href="../../cfg_webengine/external_db_database_transfer/">Using an external database and database transfer</a> and <a href="../custom_certificates/">Using custom certificates in WebEngine</a>.</p>
-<p>To verify that the DB2 server is listening for SSL connections (for example, on port 50001), use one of the following commands:</p>
+<p>Before configuring the WebEngine server, SSL connections must be enabled on the DB2 server. To verify that the DB2 server is listening for SSL connections (for example, on port 50001), use one of the following commands:</p>
 <ul>
 <li><code>netstat -tulnp | grep 50001</code></li>
 <li><code>ss -tulnp | grep 50001</code></li>
@@ -1614,12 +1721,12 @@ function OptanonWrapper() { }
 </code></pre></div>
 </li>
 <li>
-<p>Once the secret is created, add it to the DX Compose Helm charts using the <code>customTruststoreSecrets</code> parameter in the <code>values.yaml</code> file:</p>
+<p>Once the secret is created, add the secret to the DX Compose Helm charts using the <code>customTruststoreSecrets</code> parameter in the <code>values.yaml</code> file:</p>
 <div class="language-yaml highlight"><pre><span></span><code><span class="nt">configuration</span><span class="p">:</span><span class="w"> </span>
-<span class="nt">webEngine</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">webEngine</span><span class="p">:</span>
 <span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">. . .</span><span class="w"> </span>
 <span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">customTruststoreSecrets</span><span class="p p-Indicator">:</span><span class="w"> </span>
-<span class="w">    </span><span class="nt">db-secret</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db-secret</span>
+<span class="w">      </span><span class="nt">db-secret</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db-secret</span>
 </code></pre></div>
 <p>The truststore that includes the DB2 SSL certificate will be located at: <code>/opt/openliberty/wlp/usr/servers/defaultServer/resources/security/truststore.p12</code></p>
 </li>
@@ -1629,25 +1736,112 @@ function OptanonWrapper() { }
 <ol>
 <li>
 <p>Add the <code>sslConnection=true</code> attribute to the <code>dataSource</code> properties element.</p>
-<p>To do this, add the <code>sslConnection=true</code> parameter to the <code>DbUrl</code> of the DB2 domains under <code>dbDomainProperties</code> in the <code>values.yaml</code> file. For example:</p>
+<p>To do this, add the <code>sslConnection=true</code> parameter to the <code>DbUrl</code> parameter of the DB2 domains under <code>dbDomainProperties</code> in the <code>values.yaml</code> file. For example:</p>
 <div class="language-yaml highlight"><pre><span></span><code><span class="nt">configuration</span><span class="p">:</span><span class="w"> </span>
-<span class="nt">webEngine</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">webEngine</span><span class="p">:</span>
 <span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">. . .</span><span class="w"> </span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">dbDomainProperties</span><span class="p p-Indicator">:</span><span class="w"> </span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">....</span>
-<span class="w">    </span><span class="nt">community.DbType</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;db2&quot;</span>
-<span class="w">    </span><span class="nt">community.DbUrl</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jdbc:db2://local-db2:50000/WPCOMM:sslConnection=true;</span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">.....</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">dbDomainProperties</span><span class="p p-Indicator">:</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">....</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">community.DbType</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&quot;db2&quot;</span>
+<span class="w">      </span><span class="nt">community.DbUrl</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jdbc:db2://local-db2:50001/WPCOMM:sslConnection=true;</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">....</span>
 </code></pre></div>
 </li>
 <li>
 <p>Perform a <a href="../helm_upgrade_values/">helm upgrade</a> to apply the changes.</p>
-<p>Once the <code>sslConnection=true</code> attribute is set in the <code>DbUrl</code>, the datasource elements in the <code>server.xml</code> file will be updated with the <code>sslTrustStoreLocation</code>, <code>sslTrustStorePassword</code> and <code>sslTrustStoreType</code> attributes of the trusted certificate. For example:</p>
-<div class="language-yaml highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">&lt;dataSource id=&quot;community&quot; isolationLevel=&quot;TRANSACTION_READ_COMMITTED&quot; jndiName=&quot;jdbc/wpcommdbDS&quot; statementCacheSize=&quot;10&quot; type=&quot;javax.sql.XADataSource&quot;&gt;</span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">&lt;jdbcDriver javax.sql.XADataSource=&quot;com.ibm.db2.jcc.DB2XADataSource&quot; libraryRef=&quot;global&quot;/&gt;</span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">&lt;properties.db2.jcc databaseName=&quot;WPCOMM&quot; driverType=&quot;4&quot; password=&quot;{xor}OzY6K2s8MDQ6&quot; portNumber=&quot;50000&quot; serverName=&quot;10.134.210.37&quot; sslConnection=&quot;true&quot; sslTrustStoreLocation=&quot;/opt/openliberty/wlp/usr/servers/defaultServer/resources/security/truststore.p12&quot; sslTrustStorePassword=&quot;&lt;trustStore_password&gt;&quot; sslTrustStoreType=&quot;PKCS12&quot; user=&quot;db2inst1&quot;/&gt;</span>
-<span class="w">   </span><span class="l l-Scalar l-Scalar-Plain">&lt;connectionManager agedTimeout=&quot;7200&quot; connectionTimeout=&quot;180&quot; maxIdleTime=&quot;1800&quot; maxPoolSize=&quot;100&quot; minPoolSize=&quot;10&quot; purgePolicy=&quot;EntirePool&quot; reapTime=&quot;180&quot;/&gt;</span>
-<span class="l l-Scalar l-Scalar-Plain">&lt;/dataSource&gt;</span>
+<p>Once the <code>sslConnection=true</code> attribute is set in the <code>DbUrl</code>, the datasource elements in the <code>server.xml</code> file will be updated with the <code>sslTrustStoreLocation</code>, <code>sslTrustStorePassword</code>, and <code>sslTrustStoreType</code> attributes of the trusted certificate. For example:</p>
+<div class="language-xml highlight"><pre><span></span><code><span class="nt">&lt;dataSource</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;community&quot;</span><span class="w"> </span><span class="na">isolationLevel=</span><span class="s">&quot;TRANSACTION_READ_COMMITTED&quot;</span><span class="w"> </span><span class="na">jndiName=</span><span class="s">&quot;jdbc/wpcommdbDS&quot;</span><span class="w"> </span><span class="na">statementCacheSize=</span><span class="s">&quot;10&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;javax.sql.XADataSource&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;jdbcDriver</span><span class="w"> </span><span class="na">javax.sql.XADataSource=</span><span class="s">&quot;com.ibm.db2.jcc.DB2XADataSource&quot;</span><span class="w"> </span><span class="na">libraryRef=</span><span class="s">&quot;global&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;properties.db2.jcc</span><span class="w"> </span><span class="na">databaseName=</span><span class="s">&quot;WPCOMM&quot;</span><span class="w"> </span><span class="na">driverType=</span><span class="s">&quot;4&quot;</span><span class="w"> </span><span class="na">password=</span><span class="s">&quot;{xor}OzY6K2s8MDQ6&quot;</span><span class="w"> </span><span class="na">portNumber=</span><span class="s">&quot;50000&quot;</span><span class="w"> </span><span class="na">serverName=</span><span class="s">&quot;10.134.210.37&quot;</span><span class="w"> </span><span class="na">sslConnection=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="na">sslTrustStoreLocation=</span><span class="s">&quot;/opt/openliberty/wlp/usr/servers/defaultServer/resources/security/truststore.p12&quot;</span><span class="w"> </span><span class="na">sslTrustStorePassword=</span><span class="s">&quot;&lt;trustStore_password&gt;&quot;</span><span class="w"> </span><span class="na">sslTrustStoreType=</span><span class="s">&quot;PKCS12&quot;</span><span class="w"> </span><span class="na">user=</span><span class="s">&quot;db2inst1&quot;</span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;connectionManager</span><span class="w"> </span><span class="na">agedTimeout=</span><span class="s">&quot;7200&quot;</span><span class="w"> </span><span class="na">connectionTimeout=</span><span class="s">&quot;180&quot;</span><span class="w"> </span><span class="na">maxIdleTime=</span><span class="s">&quot;1800&quot;</span><span class="w"> </span><span class="na">maxPoolSize=</span><span class="s">&quot;100&quot;</span><span class="w"> </span><span class="na">minPoolSize=</span><span class="s">&quot;10&quot;</span><span class="w"> </span><span class="na">purgePolicy=</span><span class="s">&quot;EntirePool&quot;</span><span class="w"> </span><span class="na">reapTime=</span><span class="s">&quot;180&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/dataSource&gt;</span>
+</code></pre></div>
+</li>
+</ol>
+<h2 id="connecting-webengine-to-oracle-over-ssl">Connecting WebEngine to Oracle over SSL</h2>
+<p>This section outlines how you can configure WebEngine to connect to Oracle Relational Database Service (RDS) over SSL (port 2484).</p>
+<h3 id="prerequisites_1">Prerequisites</h3>
+<p>Before configuring the WebEngine server, SSL connections must be enabled on the Oracle server.</p>
+<p>If you're using an Amazon RDS for Oracle instance, ensure the following:</p>
+<ul>
+<li>The DB parameter group enables TCP/IP with SSL (TCPS) on port <code>2484</code>.</li>
+<li><code>SSL_VERSION</code> is set (for example, <code>1.2</code>).</li>
+<li>The RDS instance has a valid server certificate, and you're using the root Certificate Authority (CA) certificate on the client side.</li>
+</ul>
+<p>To verify that the Oracle server is listening for SSL connections (for example, on port 2484), use one of the following commands:</p>
+<ul>
+<li><code>openssl s_client -connect &lt;db-identifier&gt;.&lt;unique-identifier&gt;.&lt;region&gt;.rds.amazonaws.com:2484 -tls1_2</code></li>
+<li><code>nc -zv &lt;db-identifier&gt;.&lt;unique-identifier&gt;.&lt;region&gt;.rds.amazonaws.com 2484</code></li>
+</ul>
+<p>Once the Oracle server is listening on the SSL port (2484), you can configure the WebEngine server to connect to Oracle over SSL.</p>
+<h3 id="oracle-ssl-configuration-overview">Oracle SSL configuration overview</h3>
+<p>When configuring WebEngine to connect to <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.Options.SSL.html" target="_blank">Oracle over SSL</a> it is essential to ensure the following key settings are correctly configured:</p>
+<ul>
+<li>
+<p>TCPS protocol: Ensure the Oracle JDBC connection URL uses the <code>@tcps</code> protocol to enable secure communication over SSL. This ensures that all data transmitted between the WebEngine server and the Oracle database is encrypted.</p>
+</li>
+<li>
+<p>SSL version: Explicitly set the Transport Layer Security (TLS) version to ensure compatibility with the Oracle RDS instance. For example, you can set the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.Options.SSL.html#Appendix.Oracle.Options.SSL.TLS" target="_blank">TLS version to 1.2</a>, which is widely supported and provides robust security.</p>
+</li>
+<li>
+<p><code>DbUrl</code> parameter setting: Configure the <code>DbUrl</code> parameter in the <code>values.yaml</code> file using the following configuration:</p>
+<div class="language-yaml highlight"><pre><span></span><code><span class="nt">community.DbUrl</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jdbc:oracle:thin:@tcps://&lt;db-identifier&gt;.&lt;unique-identifier&gt;.&lt;region&gt;.rds.amazonaws.com:2484/&lt;service-name&gt;</span>
+</code></pre></div>
+</li>
+<li>
+<p>Truststore configuration: Ensure that the Oracle RDS root CA certificate is added to the truststore. Then, specify the truststore location, type, and password in the <code>connectionProperties</code> attribute.</p>
+</li>
+</ul>
+<p>For detailed steps on enabling SSL for Oracle, refer to the following sections:</p>
+<ul>
+<li><a href="#adding-the-oracle-ssl-certificate-to-a-secret">Adding the Oracle SSL certificate to a secret</a></li>
+<li><a href="#configuring-the-oracle-jdbc-driver-and-webengine-server-for-ssl-connection">Configuring the Oracle JDBC driver and WebEngine server for SSL connection</a></li>
+</ul>
+<p>By following these guidelines, you can establish a secure and reliable SSL connection between WebEngine and Oracle RDS.</p>
+<h3 id="adding-the-oracle-ssl-certificate-to-a-secret">Adding the Oracle SSL certificate to a secret</h3>
+<p>Refer to the following steps to add the Oracle SSL certificate to a secret.</p>
+<ol>
+<li>
+<p>Use the following <code>kubectl</code> command to add the certificate (for example, <code>server.crt</code>) to a secret:</p>
+<div class="language-bash highlight"><pre><span></span><code>kubectl<span class="w"> </span>create<span class="w"> </span>secret<span class="w"> </span>generic<span class="w"> </span>db-secret<span class="w"> </span>--from-file<span class="o">=</span>server.crt<span class="w"> </span>-n<span class="w"> </span>dxns
+</code></pre></div>
+</li>
+<li>
+<p>Once the secret is created, add the secret to the DX Compose Helm charts using the <code>customTruststoreSecrets</code> parameter in the <code>values.yaml</code> file:</p>
+<div class="language-yaml highlight"><pre><span></span><code><span class="nt">configuration</span><span class="p">:</span><span class="w"> </span>
+<span class="w">  </span><span class="nt">webEngine</span><span class="p">:</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">. . .</span><span class="w"> </span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">customTruststoreSecrets</span><span class="p p-Indicator">:</span><span class="w"> </span>
+<span class="w">      </span><span class="nt">db-secret</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db-secret</span>
+</code></pre></div>
+<p>The truststore that includes the Oracle SSL certificate will be located at: <code>/opt/openliberty/wlp/usr/servers/defaultServer/resources/security/truststore.p12</code></p>
+</li>
+</ol>
+<h3 id="configuring-the-oracle-jdbc-driver-and-webengine-server-for-ssl-connection">Configuring the Oracle JDBC driver and WebEngine server for SSL connection</h3>
+<p>Refer to the following steps to enable SSL connections on the Oracle driver.</p>
+<ol>
+<li>
+<p>Add the <code>connectionProperties</code> attribute to the <code>dataSource</code> properties element.</p>
+<p>To do this, add the <code>@tcps</code> protocol with the SSL port 2484 to the <code>DbUrl</code> parameter of the Oracle domains under <code>dbDomainProperties</code> in the values.yaml file. For example:</p>
+<div class="language-yaml highlight"><pre><span></span><code><span class="nt">configuration</span><span class="p">:</span><span class="w"> </span>
+<span class="w">  </span><span class="nt">webEngine</span><span class="p">:</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">. . .</span><span class="w"> </span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">dbDomainProperties</span><span class="p p-Indicator">:</span><span class="w"> </span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">....</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">community.DbType</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oracle</span>
+<span class="w">      </span><span class="nt">community.DbUrl</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jdbc:oracle:thin:@tcps://&lt;db-identifier&gt;.&lt;unique-identifier&gt;.&lt;region&gt;.rds.amazonaws.com:2484/&lt;service-name&gt;</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">....</span>
+</code></pre></div>
+<p>The <code>@tcps</code> parameter specifies the use of the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.Options.SSL.html#Appendix.Oracle.Options.SSL.TLS" target="_blank">TLS protocol</a> for secure database connections.</p>
+</li>
+<li>
+<p>Perform a <a href="../helm_upgrade_values/">helm upgrade</a> to apply the changes.</p>
+<p>Once the <code>@tcps</code> protocol is set with the SSL port <code>2484</code> in the <code>DbUrl</code>, the datasource elements in the <code>server.xml</code> file will be updated with the <code>connectionProperties</code> attribute with the values of truststore location, truststore password, and the truststore type of the trusted certificate. For example:</p>
+<div class="language-xml highlight"><pre><span></span><code><span class="nt">&lt;dataSource</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;community&quot;</span><span class="w"> </span><span class="na">isolationLevel=</span><span class="s">&quot;TRANSACTION_READ_COMMITTED&quot;</span><span class="w"> </span><span class="na">jndiName=</span><span class="s">&quot;jdbc/wpcommdbDS&quot;</span><span class="w"> </span><span class="na">statementCacheSize=</span><span class="s">&quot;10&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;javax.sql.XADataSource&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;jdbcDriver</span><span class="w"> </span><span class="na">javax.sql.XADataSource=</span><span class="s">&quot;oracle.jdbc.xa.client.OracleXADataSource&quot;</span><span class="w"> </span><span class="na">libraryRef=</span><span class="s">&quot;global&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;properties.oracle</span><span class="w"> </span><span class="na">URL=</span><span class="s">&quot;jdbc:oracle:thin:@tcps://&lt;db-identifier&gt;.&lt;unique-identifier&gt;.&lt;region&gt;.rds.amazonaws.com:2484/&lt;service-name&gt;&quot;</span><span class="w"> </span><span class="na">connectionProperties=</span><span class="s">&quot;javax.net.ssl.trustStore=/opt/openliberty/wlp/usr/servers/defaultServer/resources/security/truststore.p12;javax.net.ssl.trustStoreType=PKCS12;javax.net.ssl.trustStorePassword=&lt;truststore-password&gt;&quot;</span><span class="w"> </span><span class="na">password=</span><span class="s">&quot;{xor}L28tKz4zayo=&quot;</span><span class="w"> </span><span class="na">user=</span><span class="s">&quot;cwdb01&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;connectionManager</span><span class="w"> </span><span class="na">agedTimeout=</span><span class="s">&quot;7200&quot;</span><span class="w"> </span><span class="na">connectionTimeout=</span><span class="s">&quot;180&quot;</span><span class="w"> </span><span class="na">maxIdleTime=</span><span class="s">&quot;1800&quot;</span><span class="w"> </span><span class="na">maxPoolSize=</span><span class="s">&quot;100&quot;</span><span class="w"> </span><span class="na">minPoolSize=</span><span class="s">&quot;10&quot;</span><span class="w"> </span><span class="na">purgePolicy=</span><span class="s">&quot;EntirePool&quot;</span><span class="w"> </span><span class="na">reapTime=</span><span class="s">&quot;180&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/dataSource&gt;</span>
 </code></pre></div>
 </li>
 </ol>
@@ -1678,7 +1872,7 @@ function OptanonWrapper() { }
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="May 27, 2025 16:09:51 UTC">May 27, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 23, 2025 13:14:08 UTC">July 23, 2025</span>
   </span>
 
     

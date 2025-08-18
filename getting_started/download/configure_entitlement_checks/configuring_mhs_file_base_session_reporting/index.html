@@ -466,6 +466,8 @@ function OptanonWrapper() { }
       
         
       
+        
+      
     
     
       
@@ -1409,18 +1411,21 @@ function OptanonWrapper() { }
 # &lt;endDate&gt; Specifies the end date in YYYY-MM-DD format
 # &lt;deploymentId&gt; String deploymentID from MHS
 # &lt;option&gt; Specify &quot;fileOutput&quot; to write usage into an automatically named file. If option is unspecified, the usage metrics are displayed in the terminal and not saved in a file.
-# &lt;productFeatureId&gt; Product name (HCL_DX_CloudNative or HCL_DX_Compose)
 </code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As of CF229, the <code>productFeatureIdName</code> parameter has been removed as a command-line parameter. The product feature ID is automatically read from the License Manager's environment variable. You do not need to specify it as a parameter when running the User Session Reporting Tool.</p>
+</div>
 <p>See the sample command for running the User Session Reporting Tool using all the parameters provided:</p>
-<div class="language-text highlight"><pre><span></span><code>java -jar &lt;jarFilepath&gt; &lt;filePaths...&gt; [-excludeIPFilePath &lt;excludeIPFile&gt;] [-excludeSessionKeyFilePath &lt;excludeSessionKeyFile&gt;] [-excludeIP &lt;excludedIP&gt;] [-excludeSessionKey &lt;excludeSessionKey&gt;] [-productFeatureIdName &lt;productFeatureId&gt;] &lt;startDate&gt; &lt;endDate&gt; &lt;deploymentId&gt; &lt;option&gt; 
+<div class="language-text highlight"><pre><span></span><code>java -jar &lt;jarFilepath&gt; &lt;filePaths...&gt; [-excludeIPFilePath &lt;excludeIPFile&gt;] [-excludeSessionKeyFilePath &lt;excludeSessionKeyFile&gt;] [-excludeIP &lt;excludedIP&gt;] [-excludeSessionKey &lt;excludeSessionKey&gt;] &lt;startDate&gt; &lt;endDate&gt; &lt;deploymentId&gt; &lt;option&gt;
 </code></pre></div>
 <h3 id="example">Example</h3>
 <p>Refer to the following sample commands to generate user session data usage in MHS metrics format for non-Kubernetes deployments:</p>
 <div class="language-text highlight"><pre><span></span><code># Output in the terminal
-java -jar UserSessionReporting.jar input.log -excludeIPFilePath ./excludedIP.txt -excludeSessionKeyFilePath ./excludeSessionKeys1.txt -excludeIP &quot;192.168.243.142&quot; -excludeSessionKey &quot;192.168.243.136 \&quot;axios/1.6.7\&quot; \&quot;-\&quot;&quot; -excludeSessionKey &quot;192.168.243.137 \&quot;axios/1.6.7\&quot; \&quot;-\&quot;&quot; -productFeatureIdName HCL_DX_Compose 2022-07-22 2025-07-28 pnkeq6pk   &gt; /tmp/2022-06-24T02-50-00_usage.metrics
+java -jar UserSessionReporting.jar input.log -excludeIPFilePath ./excludedIP.txt -excludeSessionKeyFilePath ./excludeSessionKeys1.txt -excludeIP &quot;192.168.243.142&quot; -excludeSessionKey &quot;192.168.243.136 \&quot;axios/1.6.7\&quot; \&quot;-\&quot;&quot; -excludeSessionKey &quot;192.168.243.137 \&quot;axios/1.6.7\&quot; \&quot;-\&quot;&quot; 2022-07-22 2025-07-28 pnkeq6pk   &gt; /tmp/2022-06-24T02-50-00_usage.metrics
 
 # Write Output in file
-java -jar UserSessionReporting.jar input.log -excludeIPFilePath ./excludedIPs.txt -excludeSessionKeyFilePath ./excludeSessionKeys1.txt -excludeIP &quot;192.168.243.142&quot; -excludeSessionKey &quot;192.168.243.136 \&quot;axios/1.6.7\&quot; \&quot;-\&quot;&quot; -excludeSessionKey &quot;192.168.243.137 \&quot;axios/1.6.7\&quot; \&quot;-\&quot;&quot; -productFeatureIdName HCL_DX_Compose 2022-07-22 2025-07-28 pnkeq6pk fileOutput 
+java -jar UserSessionReporting.jar input.log -excludeIPFilePath ./excludedIPs.txt -excludeSessionKeyFilePath ./excludeSessionKeys1.txt -excludeIP &quot;192.168.243.142&quot; -excludeSessionKey &quot;192.168.243.136 \&quot;axios/1.6.7\&quot; \&quot;-\&quot;&quot; -excludeSessionKey &quot;192.168.243.137 \&quot;axios/1.6.7\&quot; \&quot;-\&quot;&quot; 2022-07-22 2025-07-28 pnkeq6pk fileOutput 
 </code></pre></div>
 <p>See the sample <code>excludedIPs.txt</code> file:</p>
 <div class="language-text highlight"><pre><span></span><code>192.168.243.142
@@ -1459,15 +1464,14 @@ END,30f0dd458d3ca9463870c1275d344d2361df87d617e32077a5c3c379a7e9e05f413fc1fa491e
 <li><code>startDate</code>: The start date of the user session in YYYY-MM-DD format.</li>
 <li><code>endDate</code>: The end date of the user session in YYYY-MM-DD format.</li>
 <li><code>deploymentId</code>: The deployment identifier. You can find the <code>deploymentId</code> in the MHS portal after clicking the deployment card in the URL. For example, in the URL <code>https://my.hcltechsw.com/deployments/pzneck8m</code>, <code>pzneck8m</code> is the <code>deploymentId</code>.</li>
-<li><code>productFeatureId</code>: The product name (<code>HCL_DX_CloudNative</code> or <code>HCL_DX_Compose</code>).</li>
 </ul>
 <p>To save the generated metrics to a file, use the following command:</p>
-<div class="language-sh highlight"><pre><span></span><code>kubectl<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>&lt;release<span class="w"> </span>name&gt;-license-manager-0<span class="w"> </span>-n<span class="w"> </span>&lt;namespace&gt;<span class="w"> </span>--<span class="w"> </span>java<span class="w"> </span>-jar<span class="w"> </span>UserSessionReporting.jar<span class="w"> </span>GenerateMetricFile<span class="w"> </span>&lt;YYYY-MM-DD&gt;<span class="w"> </span>&lt;YYYY-MM-DD&gt;<span class="w"> </span>&lt;deploymentId&gt;<span class="w"> </span>/tmp/<span class="o">{</span>YYYY-MM-DDTHH-MM-SS<span class="w"> </span>UTC<span class="o">}</span>_usage.metrics<span class="w"> </span><span class="o">[</span>-productFeatureIdName<span class="w"> </span>&lt;productFeatureId&gt;<span class="o">]</span>
+<div class="language-sh highlight"><pre><span></span><code>kubectl<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>&lt;release<span class="w"> </span>name&gt;-license-manager-0<span class="w"> </span>-n<span class="w"> </span>&lt;namespace&gt;<span class="w"> </span>--<span class="w"> </span>java<span class="w"> </span>-jar<span class="w"> </span>UserSessionReporting.jar<span class="w"> </span>GenerateMetricFile<span class="w"> </span>&lt;YYYY-MM-DD&gt;<span class="w"> </span>&lt;YYYY-MM-DD&gt;<span class="w"> </span>&lt;deploymentId&gt;<span class="w"> </span>/tmp/<span class="o">{</span>YYYY-MM-DDTHH-MM-SS<span class="w"> </span>UTC<span class="o">}</span>_usage.metrics
 </code></pre></div>
 <p>The timestamp in the usage metrics file should be earlier than the start date. The timestamp is formatted as <code>{YYYY-MM-DDTHH-MM-SS UTC}_usage.metrics</code>. For example, <code>2024-06-24T02-50-00_usage.metrics</code>.</p>
 <h3 id="example_1">Example</h3>
 <p>Refer to the following sample command to generate user session data usage in MHS metrics format for Kubernetes deployments:</p>
-<div class="language-sh highlight"><pre><span></span><code>kubectl<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>pod/dx-deployment-license-manager-0<span class="w"> </span>-n<span class="w"> </span>dxns<span class="w"> </span>--<span class="w"> </span>java<span class="w"> </span>-jar<span class="w"> </span>UserSessionReporting.jar<span class="w"> </span>GenerateMetricFile<span class="w"> </span><span class="m">2022</span>-07-22<span class="w"> </span><span class="m">2025</span>-07-28<span class="w"> </span>pnkeq6pk<span class="w"> </span>&gt;<span class="w"> </span>/tmp/2022-06-24T02-50-00_usage.metrics<span class="w"> </span>-productFeatureIdName<span class="w"> </span>HCL_DX_Compose
+<div class="language-sh highlight"><pre><span></span><code>kubectl<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>pod/dx-deployment-license-manager-0<span class="w"> </span>-n<span class="w"> </span>dxns<span class="w"> </span>--<span class="w"> </span>java<span class="w"> </span>-jar<span class="w"> </span>UserSessionReporting.jar<span class="w"> </span>GenerateMetricFile<span class="w"> </span><span class="m">2022</span>-07-22<span class="w"> </span><span class="m">2025</span>-07-28<span class="w"> </span>pnkeq6pk<span class="w"> </span>&gt;<span class="w"> </span>/tmp/2022-06-24T02-50-00_usage.metrics
 </code></pre></div>
 <h3 id="expected-result">Expected result</h3>
 <p>Upon running the sample command, the following output is produced:</p>
@@ -1523,7 +1527,7 @@ End,370d193fe0be35950d2707026d23ce595ae46054b77efcc944aa2484eab39399976854c58321
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 3, 2025 05:49:46 UTC">June 3, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 29, 2025 17:44:49 UTC">July 29, 2025</span>
   </span>
 
     

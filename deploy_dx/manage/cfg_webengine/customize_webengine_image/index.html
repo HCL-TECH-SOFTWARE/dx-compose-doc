@@ -466,6 +466,8 @@ function OptanonWrapper() { }
       
         
       
+        
+      
     
     
       
@@ -1491,27 +1493,27 @@ COPY --chown=dx_user:dx_users ./MySupportingInfo.xml /opt/openliberty/wlp/usr/se
 <li>
 <p>In the <code>custom-values-all.yaml</code> file, modify the following sections to upgrade your image and load and configure your custom modules. Replace the JAAS module-specific sample values as needed for your deployment. For more information see <a href="../configuration_changes_using_overrides/">Configuration changes using overrides</a> and <a href="../update_properties_with_helm/">Updating DX properties using Helm values</a>.</p>
 <div class="language-yaml highlight"><pre><span></span><code><span class="nt">images</span><span class="p">:</span>
-<span class="nt">tags</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">tags</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">webEngine</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_custom_tag</span>
 <span class="nt">configuration</span><span class="p">:</span>
-<span class="nt">webEngine</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">webEngine</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">configOverrideFiles</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">my-custom-module-1-overrides.xml</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">&lt;server description=&quot;My Proprietary Overrides&quot;&gt;</span>
-<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">&lt;customModule id=&quot;MyCompanyCustomModule1&quot; className=&quot;path.to.your.main.class.in.module.jar.ClassName&quot; controlFlag=&quot;REQUIRED&quot; libraryRef=&quot;customPluginsLib&quot;&gt;</span>
-<span class="w">            </span><span class="l l-Scalar l-Scalar-Plain">&lt;options myCustomOption1=&quot;value&quot;/&gt;</span>
-<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">&lt;/customModule&gt;</span>
-<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">&lt;customModuleContextEntry id=&quot;system.WEB_INBOUND&quot; name=&quot;system.WEB_INBOUND&quot; loginModuleRef=&quot;MyCompanyCustomModule1, hashtable&quot; /&gt;</span>
-<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">&lt;/server&gt;</span>
-<span class="w">        </span><span class="nt">my-custom-module-2-overrides.xml</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">&lt;server description=&quot;My Proprietary Overrides&quot;&gt;</span>
-<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">&lt;customModule id=&quot;MyCompanyCustomModule2&quot; className=&quot;path.to.your.main.class.in.module.jar.ClassName&quot; controlFlag=&quot;REQUIRED&quot; libraryRef=&quot;customPluginsLib&quot;&gt;</span>
-<span class="w">            </span><span class="l l-Scalar l-Scalar-Plain">&lt;options myCustomOption2=&quot;value&quot;/&gt;</span>
-<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">&lt;/customModule&gt;</span>
-<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">&lt;customModuleContextEntry id=&quot;system.WEB_INBOUND&quot; name=&quot;system.WEB_INBOUND&quot; loginModuleRef=&quot;MyCompanyCustomModule2, hashtable&quot; /&gt;</span>
-<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">&lt;/server&gt;</span>
+<span class="w">      </span><span class="nt">my-custom-module-1-overrides.xml</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">        </span><span class="no">&lt;server description=&quot;My Proprietary Overrides&quot;&gt;</span>
+<span class="w">          </span><span class="no">&lt;customModule id=&quot;MyCompanyCustomModule1&quot; className=&quot;path.to.your.main.class.in.module.jar.ClassName&quot; controlFlag=&quot;REQUIRED&quot; libraryRef=&quot;customPluginsLib&quot;&gt;</span>
+<span class="w">          </span><span class="no">&lt;options myCustomOption1=&quot;value&quot;/&gt;</span>
+<span class="w">          </span><span class="no">&lt;/customModule&gt;</span>
+<span class="w">          </span><span class="no">&lt;customModuleContextEntry id=&quot;system.WEB_INBOUND&quot; name=&quot;system.WEB_INBOUND&quot; loginModuleRef=&quot;MyCompanyCustomModule1, hashtable&quot; /&gt;</span>
+<span class="w">        </span><span class="no">&lt;/server&gt;</span>
+<span class="w">      </span><span class="nt">my-custom-module-2-overrides.xml</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">        </span><span class="no">&lt;server description=&quot;My Proprietary Overrides&quot;&gt;</span>
+<span class="w">          </span><span class="no">&lt;customModule id=&quot;MyCompanyCustomModule2&quot; className=&quot;path.to.your.main.class.in.module.jar.ClassName&quot; controlFlag=&quot;REQUIRED&quot; libraryRef=&quot;customPluginsLib&quot;&gt;</span>
+<span class="w">          </span><span class="no">&lt;options myCustomOption2=&quot;value&quot;/&gt;</span>
+<span class="w">          </span><span class="no">&lt;/customModule&gt;</span>
+<span class="w">          </span><span class="no">&lt;customModuleContextEntry id=&quot;system.WEB_INBOUND&quot; name=&quot;system.WEB_INBOUND&quot; loginModuleRef=&quot;MyCompanyCustomModule2, hashtable&quot; /&gt;</span>
+<span class="w">        </span><span class="no">&lt;/server&gt;</span>
 <span class="w">    </span><span class="nt">propertiesFilesOverrides</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">&lt;propertiesFileName&gt;</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">&lt;propertiesFileName&gt;</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">&lt;propertyKey&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;propertyValue&gt;</span>
 </code></pre></div>
 <p>This configuration enables the WebEngine server to include the custom JARs and required associated settings in your customized WebEngine image when deployed.</p>
@@ -1548,7 +1550,7 @@ COPY --chown=dx_user:dx_users ./MySupportingInfo.xml /opt/openliberty/wlp/usr/se
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 11, 2025 17:08:17 UTC">June 11, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 17, 2025 16:30:54 UTC">June 17, 2025</span>
   </span>
 
     

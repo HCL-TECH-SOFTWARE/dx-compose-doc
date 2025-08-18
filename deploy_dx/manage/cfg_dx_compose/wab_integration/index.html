@@ -466,6 +466,8 @@ function OptanonWrapper() { }
       
         
       
+        
+      
     
     
       
@@ -987,6 +989,15 @@ function OptanonWrapper() { }
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#enabling-wab-to-support-ssl-secured-websites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enabling WAB to support SSL-secured websites
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1415,6 +1426,15 @@ function OptanonWrapper() { }
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#enabling-wab-to-support-ssl-secured-websites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enabling WAB to support SSL-secured websites
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1444,32 +1464,56 @@ function OptanonWrapper() { }
 <li><a href="#enabling-wab-on-a-portal">Enable WAB on a portal.</a></li>
 <li><a href="#creating-and-configuring-the-web-dock-application">Create and configure the web dock application.</a></li>
 <li><a href="#adding-the-web-dock-application-to-a-page">Add the web dock application to a page.</a></li>
+<li><a href="#enabling-wab-to-support-ssl-secured-websites">Enable WAB with SSL.</a></li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>WAB integration is not supported on a portal with the context root removed.</p>
 </div>
 <h2 id="enabling-wab-on-a-portal">Enabling WAB on a portal</h2>
-<p>Before creating the applications, you must enable WAB on a portal that does not have the context root removed. Note that a portal administrator should perform the following steps.</p>
+<p>Before creating the applications, you must enable WAB on a portal that does not have the context root removed.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Perform the following steps as a portal administrator.</p>
+</div>
 <ol>
 <li>
-<p>Update the context root of the <strong>wp.vwat.servlet.ear</strong> application to "/" by adding the following snippet to the respective <code>values.yaml</code> file:</p>
+<p>Configure the <code>values.yaml</code> file to enable WAB. You can use the <code>configOverrideFiles</code> snippet or the <code>wabEnabled</code> parameter.</p>
+<ul>
+<li>
+<p>To enable WAB using <code>configOverrideFiles</code>, update the context root of the <code>wp.vwat.servlet.ear</code> application to <code>/</code> by adding the following snippet to your <code>values.yaml</code> file:</p>
 <div class="language-yaml highlight"><pre><span></span><code><span class="nt">configOverrideFiles</span><span class="p">:</span>
 <span class="nt">vwat-wab-overrides.xml</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
 <span class="w">    </span><span class="no">&lt;server description=&quot;DX Web Engine server&quot;&gt; </span>
-<span class="w">        </span><span class="no">&lt;enterpriseApplication id=&quot;wp.vwat.servlet.ear&quot; location=&quot;${server.config.dir}/resources/portlets/VwatReverseProxyServlet.ear&quot; name=&quot;wp.vwat.servlet.ear&quot; startAfterRef=&quot;engine-ear&quot;&gt;</span>
+<span class="w">    </span><span class="no">&lt;enterpriseApplication id=&quot;wp.vwat.servlet.ear&quot; location=&quot;${server.config.dir}/resources/portlets/VwatReverseProxyServlet.ear&quot; name=&quot;wp.vwat.servlet.ear&quot; startAfterRef=&quot;engine-ear&quot;&gt;</span>
 <span class="w">        </span><span class="no">&lt;web-ext moduleName=&quot;wp.vwat.servlet.war&quot; context-root=&quot;/&quot;&gt;&lt;/web-ext&gt;</span>
 <span class="w">        </span><span class="no">&lt;application-bnd&gt;</span>
-<span class="w">            </span><span class="no">&lt;security-role name=&quot;All Role&quot;&gt;</span>
-<span class="w">                </span><span class="no">&lt;special-subject type=&quot;ALL_AUTHENTICATED_USERS&quot;/&gt;</span>
-<span class="w">            </span><span class="no">&lt;/security-role&gt;</span>
+<span class="w">        </span><span class="no">&lt;security-role name=&quot;All Role&quot;&gt;</span>
+<span class="w">            </span><span class="no">&lt;special-subject type=&quot;ALL_AUTHENTICATED_USERS&quot;/&gt;</span>
+<span class="w">        </span><span class="no">&lt;/security-role&gt;</span>
 <span class="w">        </span><span class="no">&lt;/application-bnd&gt;</span>
-<span class="w">        </span><span class="no">&lt;/enterpriseApplication&gt;</span>
+<span class="w">    </span><span class="no">&lt;/enterpriseApplication&gt;</span>
 <span class="w">    </span><span class="no">&lt;/server&gt;</span>
 </code></pre></div>
 </li>
 <li>
-<p>After updating the context root, perform a <a href="../../working_with_compose/helm_upgrade_values/">Helm upgrade</a> to apply the changes. Open Liberty picks up and applies changes at runtime; this does not require a restart.</p>
+<p>To enable WAB using the <code>wabEnabled</code> parameter, set this parameter to <code>true</code>:</p>
+<div class="language-yaml highlight"><pre><span></span><code><span class="nt">configuration</span><span class="p">:</span>
+<span class="c1"># Configuration for webEngine</span>
+<span class="nt">webEngine</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">wabEnabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</code></pre></div>
+<p>You can also set <code>wabEnabled</code> to false to disable WAB:</p>
+<div class="language-yaml highlight"><pre><span></span><code><span class="nt">configuration</span><span class="p">:</span>
+<span class="c1"># Configuration for webEngine</span>
+<span class="nt">webEngine</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">wabEnabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+</code></pre></div>
+</li>
+</ul>
+</li>
+<li>
+<p>Perform a <a href="../../working_with_compose/helm_upgrade_values/">Helm upgrade</a> to apply the changes. Open Liberty picks up and applies changes at runtime and doesn't require a restart.</p>
 </li>
 </ol>
 <h2 id="creating-and-configuring-the-web-dock-application">Creating and configuring the web dock application</h2>
@@ -1577,6 +1621,12 @@ function OptanonWrapper() { }
 </ol>
 </li>
 </ol>
+<h2 id="enabling-wab-to-support-ssl-secured-websites">Enabling WAB to support SSL-secured websites</h2>
+<p>You can configure WAB to integrate with external websites secured by self-signed certificates not directly trusted by browsers. To enable secure connections, add the self-signed certificate to the truststore. For detailed steps, see <a href="../../working_with_compose/custom_certificates/">Using custom certificates in WebEngine</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The certificate file must begin with <code>--BEGIN CERTIFICATE--</code> and end with <code>--END CERTIFICATE--</code>.</p>
+</div>
 
 
 
@@ -1597,7 +1647,7 @@ function OptanonWrapper() { }
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 18, 2024 09:22:48 UTC">December 18, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 1, 2025 19:38:39 UTC">July 1, 2025</span>
   </span>
 
     

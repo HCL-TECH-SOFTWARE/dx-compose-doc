@@ -466,6 +466,8 @@ function OptanonWrapper() { }
       
         
       
+        
+      
     
     
       
@@ -1484,7 +1486,7 @@ function OptanonWrapper() { }
 </li>
 </ul>
 <h2 id="availability-and-system-compatibility">Availability and system compatibility</h2>
-<p>The User Session Reporting Tool (UserSessionReporting-v1.2.0.zip and later) is available in the <a href="../../../offerings/">HCL DX offering</a> you have purchased entitlements to in the <a href="https://hclsoftware.flexnetoperations.com/flexnet/operationsportal/logon.do" target="_blank">HCL Software License Portal</a>. For example:</p>
+<p>The User Session Reporting Tool (UserSessionReporting-v2.1.0.zip and later) is available in the <a href="../../../offerings/">HCL DX offering</a> you have purchased entitlements to in the <a href="https://hclsoftware.flexnetoperations.com/flexnet/operationsportal/logon.do" target="_blank">HCL Software License Portal</a>. For example:</p>
 <ul>
 <li>HCL Portal Server 9.5</li>
 <li>HCL Web Content Manager 9.5</li>
@@ -1690,10 +1692,10 @@ java -jar &lt;jarFilepath&gt; &lt;filePaths...&gt; &lt;startDate&gt; &lt;endDate
 <div class="language-text highlight"><pre><span></span><code>java -jar &lt;jarFilepath&gt; &lt;filePaths...&gt; [-excludeIPFilePath &lt;excludeIPFile&gt;] [-excludeSessionKeyFilePath &lt;excludeSessionKeyFile&gt;] [-excludeIP &lt;excludedIP&gt;] [-excludeSessionKey &lt;excludeSessionKey&gt;] &lt;startDate&gt; &lt;endDate&gt;
 
 # Example
-java -jar input.log -excludeIPFilePath ./excludedIPs.txt -excludeSessionKeyFilePath ./excludeSessionKeys1.txt -excludeIP &quot;192.168.243.142&quot; -excludeSessionKey &quot;192.168.243.136 \&quot;axios/1.6.7\&quot; \&quot;-\&quot;&quot; -productFeatureIdName HCL_DX_Compose 2022-07-22 2025-07-28 
+java -jar input.log -excludeIPFilePath ./excludedIPs.txt -excludeSessionKeyFilePath ./excludeSessionKeys1.txt -excludeIP &quot;192.168.243.142&quot; -excludeSessionKey &quot;192.168.243.136 \&quot;axios/1.6.7\&quot; \&quot;-\&quot;&quot; 2022-07-22 2025-07-28 
 
 # Example for multiple exludeIP and excludeSessionKey
-java -jar input.log -excludeIPFilePath ./excludedIPs.txt -excludeSessionKeyFilePath ./excludeSessionKeys1.txt -excludeIP &quot;192.168.243.142&quot; -excludeIP &quot;192.168.245.143&quot; -excludeSessionKey &quot;192.168.243.136 \&quot;axios/1.6.7\&quot; \&quot;-\&quot;&quot; -excludeSessionKey &quot;192.168.243.137 \&quot;axios/1.6.7\&quot; \&quot;-\&quot;&quot; -productFeatureIdName HCL_DX_Compose 2022-07-22 2025-07-28 
+java -jar input.log -excludeIPFilePath ./excludedIPs.txt -excludeSessionKeyFilePath ./excludeSessionKeys1.txt -excludeIP &quot;192.168.243.142&quot; -excludeIP &quot;192.168.245.143&quot; -excludeSessionKey &quot;192.168.243.136 \&quot;axios/1.6.7\&quot; \&quot;-\&quot;&quot; -excludeSessionKey &quot;192.168.243.137 \&quot;axios/1.6.7\&quot; \&quot;-\&quot;&quot; 2022-07-22 2025-07-28 
 </code></pre></div>
 <p>See the sample <code>excludedIPs.txt</code> file:</p>
 <div class="language-text highlight"><pre><span></span><code>192.168.243.142
@@ -1747,7 +1749,7 @@ java -jar input.log -excludeIPFilePath ./excludedIPs.txt -excludeSessionKeyFileP
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 9, 2025 12:44:56 UTC">June 9, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 18, 2025 08:29:08 UTC">August 18, 2025</span>
   </span>
 
     
