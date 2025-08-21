@@ -13,3 +13,5 @@ nav:
   - Configuring transient users in DX Compose with OpenID Connect: configure_transient_users.md
   - Customizing the HCL DX Compose WebEngine image: customize_webengine_image.md
   - Configuring JAAS Modules for transient users: configure_jaas_modules.md
+  - Deploying and Configuring EAR-based Themes: deploy_ear_theme.md
+  - Deploying and Configuring WCM Plugins: deploy_wcm_plugins.md
