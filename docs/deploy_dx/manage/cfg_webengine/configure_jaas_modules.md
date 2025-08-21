@@ -10,7 +10,7 @@ While enabling transient users in HCL Digital Experience (DX) Compose allows ext
 
 ## Prerequisites
 
-<!-- Placeholder for instructions on how/where to download the Dummy modules -->
+- Download the sample JAAS login modules from [here](https://support.hcl-software.com/csm?id=kb_article&sysparm_article=KB0121944).
 
 - Ensure that OIDC authentication is already enabled and configured in your HCL DX Compose deployment. For more details, refer to [Configuring DX Compose to use an OIDC identity provider](./configure_compose_to_use_oidc.md).
 
