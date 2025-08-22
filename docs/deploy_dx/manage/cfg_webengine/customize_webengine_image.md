@@ -1,11 +1,11 @@
 ---
 id: customize_webengine_image
-title: Customizing the HCL DX Compose WebEngine image with Custom Scripts
+title: Customizing the HCL DX Compose WebEngine image with custom scripts
 ---
 
 This topic provides the steps to build a customized HCL Digital Experience (DX) Compose WebEngine image with custom scripts for use in HCL DX Compose deployments.
 
-## Adding custom script plugins (CF230 and later)
+## Adding custom script plugins
 
 Starting with CF230, you can extend WebEngine functionality by adding custom shell scripts to designated plugin directories in the container. These scripts can run during container startup or during Cumulative Fix (CF) updates.
 
@@ -13,15 +13,19 @@ Starting with CF230, you can extend WebEngine functionality by adding custom she
 
 The WebEngine container includes the following directories for customer-provided scripts:
 
-- `/opt/openliberty/wlp/usr/svrcfg/bin/customer/startup` - Scripts in this directory run during container startup
-- `/opt/openliberty/wlp/usr/svrcfg/bin/customer/update` - Scripts in this directory run during CF updates (e.g. when updating from CF229 to CF230)
+- `/opt/openliberty/wlp/usr/svrcfg/bin/customer/startup`: Scripts in this directory run during container startup.
+- `/opt/openliberty/wlp/usr/svrcfg/bin/customer/update`: Scripts in this directory run during CF updates (for example, when updating from CF229 to CF230).
 
 !!! important
-    Only scripts placed directly in these two directories will be automatically scanned and executed. You can place helper scripts in any subdirectory (e.g., `/opt/openliberty/wlp/usr/svrcfg/bin/customer/startup/helpers/` or `/opt/openliberty/wlp/usr/svrcfg/bin/customer/update/helpers/` or `/opt/openliberty/wlp/usr/svrcfg/bin/customer/helpers/`) and call them from your startup or update scripts, but they won't be executed automatically.
+    Only scripts placed directly in these two directories will be automatically scanned and executed. You can place helper scripts in any subdirectory and call them from your startup or update scripts, but they won't be executed automatically. Sample subdirectories include the following:
+
+    - `/opt/openliberty/wlp/usr/svrcfg/bin/customer/startup/helpers/`
+    - `/opt/openliberty/wlp/usr/svrcfg/bin/customer/update/helpers/`
+    - `/opt/openliberty/wlp/usr/svrcfg/bin/customer/helpers/`
 
 ### Adding custom scripts to your image
 
-1. Create a Dockerfile that builds upon an official HCL DX Compose WebEngine image. Include your custom scripts in the appropriate directories:
+To add custom scripts to your image, create a Dockerfile that builds upon an official HCL DX Compose WebEngine image. Include your custom scripts in the appropriate directories:
 
     <pre>
         ```
@@ -32,15 +36,15 @@ The WebEngine container includes the following directories for customer-provided
         # Copy custom startup scripts to be automatically executed
         COPY --chown=dx_user:dx_users ./startup-script1.sh /opt/openliberty/wlp/usr/svrcfg/bin/customer/startup/
         COPY --chown=dx_user:dx_users ./startup-script2.sh /opt/openliberty/wlp/usr/svrcfg/bin/customer/startup/
-        
+
         # Copy custom update scripts to be automatically executed
         COPY --chown=dx_user:dx_users ./update-script.sh /opt/openliberty/wlp/usr/svrcfg/bin/customer/update/
-        
+
         # Helper scripts can be placed in any subdirectory - these won't be auto-executed
         COPY --chown=dx_user:dx_users ./helpers/ /opt/openliberty/wlp/usr/svrcfg/bin/customer/helpers/
         # Or in subdirectories under startup/update
         COPY --chown=dx_user:dx_users ./startup-helpers/ /opt/openliberty/wlp/usr/svrcfg/bin/customer/startup/helpers/     
-        
+
         # Make all scripts executable
         RUN chmod -R +x /opt/openliberty/wlp/usr/svrcfg/bin/customer/
         ```
@@ -50,8 +54,8 @@ The WebEngine container includes the following directories for customer-provided
 
 When creating custom scripts, follow these guidelines:
 
-- Scripts must be executable (`chmod +x`)
-- Only scripts placed directly in the designated directories will be executed by the container
+- Scripts must be executable (`chmod +x`).
+- Only scripts placed directly in the designated directories will be executed by the container.
 - For shared logic, use the documented `safe_source` function to include utility scripts:
 
     ```bash
@@ -60,9 +64,9 @@ When creating custom scripts, follow these guidelines:
     safe_source "/opt/openliberty/wlp/usr/svrcfg/bin/common-utility/another_utility.sh"
     ```
 
-- Do not modify or directly reference any scripts in the product feature directories
-- For WebEngine utilities, use only documented utility functions from the `common-utility` directory. These are described in the `README.md` file in that directory and in the individual script files.
-- You can create and use your own helper functions in any subdirectories of the `customer` directory
+- Do not modify or directly reference any scripts in the product feature directories.
+- For WebEngine utilities, only use documented utility functions from the `common-utility` directory. These are described in the `README.md` file in that directory and in the individual script files.
+- You can create and use your own helper functions in any subdirectories of the `customer` directory.
 
 ## Enabling the customized WebEngine image in DX Compose
 
