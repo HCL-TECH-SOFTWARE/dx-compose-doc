@@ -30,7 +30,7 @@ This guide shows how to enable Single Sign-On (SSO) between HCL DX and HCL Leap,
         After copying the .key and .crt to the kubernetes image, create a secret using the following command:
 
         ```bash
-        kubectl -n <namespace> create secret tls oidccert --key="/tmp/oidc.key" --cert="/tmp/oidc.crt"
+        kubectl -n <namespace> create secret tls <tls-secret> --key="/tmp/oidc.key" --cert="/tmp/oidc.crt"
         ```
         
         This secret can be referenced in the values file
@@ -39,7 +39,7 @@ This guide shows how to enable Single Sign-On (SSO) between HCL DX and HCL Leap,
         configuration:
             leap:
                 customCertificateSecrets:
-                    keycloakCert: "keycloakcert"
+                    keycloakCert: <tls-secret>
         ```
 
     2. Add OIDC definition as a server customization
@@ -51,7 +51,8 @@ This guide shows how to enable Single Sign-On (SSO) between HCL DX and HCL Leap,
         Example of an OIDC definition:
 
         ```yaml
-        # Enter appropriate values for <your-oidc-id>, <your-client-id>, <your-client-secret>, <your-oidc-server>. You may have to refer to your identity provider's configuration.
+        # Enter appropriate values for <your-oidc-id>, <your-client-id>, <your-client-secret>, <your-oidc-server>, <your-realm-name>. 
+        # You may have to refer to your identity provider's configuration.
         configuration:
             leap:
                 configOverrideFiles:
