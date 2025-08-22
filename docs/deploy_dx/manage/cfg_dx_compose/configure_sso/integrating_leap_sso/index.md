@@ -82,7 +82,7 @@ This guide shows how to enable Single Sign-On (SSO) between HCL DX and HCL Leap,
         ```
 
         !!!note
-            For more details on defining a server customization, see [Open Liberty server customizations](https://help.hcl-software.com/Leap/latest/helm_open_liberty_custom.html).
+            For more details on defining a server customization, see [Open Liberty server customizations](https://opensource.hcltechsw.com/leap-doc/latest/helm_open_liberty_custom.html).
 
         !!!important
             The openIdConnectClient redirects to `https://<your-domain>/oidcclient/redirect/<your-oidc-id>` after authentication. Make sure that your valid redirect URIs includes an entry that matches this, and that you're using a different id than what you're using for DX. You may also have to modify your Ingress/Gateway API configuration so that `/oidcclient/redirect/<your-oidc-id>` redirects to the Leap service.
@@ -105,7 +105,7 @@ This guide shows how to enable Single Sign-On (SSO) between HCL DX and HCL Leap,
         ```
 
         !!!note
-            For more details on setting Leap properties, see [Leap properties](https://help.hcl-software.com/Leap/latest/helm_leap_properties.html).
+            For more details on setting Leap properties, see [Leap properties](https://opensource.hcltechsw.com/leap-doc/latest/helm_leap_properties.html).
 
     5. Run a helm upgrade.
 
