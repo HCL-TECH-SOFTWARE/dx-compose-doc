@@ -5,7 +5,7 @@ This topic provides more information about the differences of the Digital Experi
 ## Java
 
 - To ensure improved security, modern features, and enhanced performance, WebEngine transitioned from Java 7/8 to Java 11 and is planned to eventually support later versions of Java.
-- WebEngine moved from IBM Java Development Kit (JDK) to Open JDK, specifically Temurin, to benefit from the latest updates and community support.
+- WebEngine moved from IBM Java Development Kit (JDK) to Open JDK, specifically Semeru, to benefit from the latest updates and community support.
 
 ## J2EE
 
@@ -49,10 +49,6 @@ DX Compose uses new Search containers based on OpenSearch.
 - With DX Offerings, using Core on WAS, the internal default ports are `10039` for `http` and `10041` or `10042` for `https`.
 - For DX Compose core WebEngine, the internal default ports are `9080` and `9043` for `https`.
 - For both Core on WAS and WebEngine when accessing through Docker Compose or Kubernetes, the default ports are `80` for `http` and `443` for `https`.
-
-## Theme
-
-When customizing a theme on DX Compose, you can only update and modify the static theme and skin resources deployed to WebDAV. Currently, the dynamic theme resources cannot be modified.
 
 ## Limitations
 
