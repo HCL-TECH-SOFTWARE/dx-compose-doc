@@ -16,7 +16,7 @@ This section provides the custom scripts for setting up the external database sc
 |--------|--------------------|
 |DB2|[DB2 custom setup script](SetupDb2DatabasesManually.sql)|
 |Oracle|[Oracle custom setup script](SetupOracleDatabasesManually.sql)|
-|Sql Server|Sql Server custom setup script|(SetupSqlServerDatabasesManually.sql)|
+|SQL Server|SQL Server custom setup script|(SetupSqlServerDatabasesManually.sql)|
 
 
 !!! Note
