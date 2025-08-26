@@ -33,6 +33,35 @@ This section provides details for the Kubernetes cluster, Load Balancer, JMeter 
 
 The Kubernetes platform ran on an Amazon EC2 instance with the DX images installed and configured. In AWS/Native Kubernetes, the tests were executed in EC2 instances with 1 c5.2xlarge master node and 14 c5.4xlarge worker nodes. Refer to the following node setup details:
 
+#### c2.4xlarge instance details
+
+| Attribute          | Details                          |
+|--------------------|----------------------------------|
+| vCPUs              | 8                                |
+| Memory             | 16 GiB                           |
+| EBS-Optimized      | Yes (7500 Mbps bandwidth)        |
+| Network Bandwidth  | Up to 10 Gbps                    |
+| EBS Volume Type    | General Purpose (gp3/gp2), io1/io2 |
+| Processor          | Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz |
+| Architecture       | x86_64                           |
+| ENA Support        | Yes                              |
+| NVMe Support       | Yes (EBS via NVMe)               |
+
+#### c5.4xlarge instance details
+
+| Attribute          | Details                          |
+|--------------------|----------------------------------|
+| vCPUs              | 16                               |
+| Memory             | 32 GiB                           |
+| EBS-Optimized      | Yes (8500 Mbps bandwidth)        |
+| Network Bandwidth  | Up to 10 Gbps                    |
+| EBS Volume Type    | General Purpose (gp3/gp2), io1/io2 |
+| Processor          | Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz |
+| Architecture       | x86_64                           |
+| ENA Support        | Yes                              |
+| NVMe Support       | Yes (EBS via NVMe)               |
+
+
 - **c5.2xlarge master node**
 
       - Node details
@@ -65,6 +94,11 @@ The Kubernetes platform ran on an Amazon EC2 instance with the DX images install
 
       ![](../../../../images/c5_4xlarge_volume_info.png){ width="600" }
 
+- **c5.2xlarge NFS**
+    
+     ![](../../../../images/C5.2xlarge.png){ width="1000" }
+
+
 ### DB2 instance
 
 The tests used a c5.4xlarge remote DB2 instance for the webEngine database. Refer to the following DB2 setup details:
@@ -86,23 +120,11 @@ The tests used a c5.4xlarge remote DB2 instance for the webEngine database. Refe
       ![](../../../../images/Remote-DB2-Volume-Info-Med.png){ width="600" }
 
 
-### NFS  instance details
+### NFS  tuning details
 
-Increasing the IOPS provided the necessary "horsepower" for our NFS storage to handle the high I/O demands of the PostgreSQL database. This improvement has significantly stabilized the persistence layer.
+We initially conducted tests with a 12 worker node setup and observed that, during a 20,000 Vuser load test, most worker nodes exhibited high CPU usage exceeding 80%. To achieve our target of supporting 30,000 Vusers,IOPS and throught put of nfs instance volume is doubled now.
 
-- NFS details
-
-      ![](../../../../images/Header-1-AWS-Med.png){ width="1000" }
-
-      ![](../../../../images/C5.4xlarge.png){ width="1000" }
-
-- Processor details
-
-      ![](../../../../images/Processor_Info_RemoteDB2_Med.png){ width="600" }
-
-- Volume details
-
-      ![](../../../../images/Remote-DB2-Volume-Info-Med.png){ width="600" }
+Effect: Increasing the IOPS provided the necessary "horsepower" for our NFS storage to keep up with the intense I/O demands of your PostgreSQL database, thus stabilizing the entire persistence layer.
 
 
 ### Load Balancer setup
@@ -147,20 +169,22 @@ The following list contains details about the tuning and enhancements done to th
 
 Modifications were also made to the initial Helm chart configuration during the tests. The following table outlines the pod count and limits for each pod. After applying these values, the setup showed significantly improved responsiveness. These changes allowed the system to handle 30,000 concurrent users with a substantial reduction in average response time and a minimal error rate.
 
-| Component                     | No. of pods | Request cpu (m)  | Request memory (Mi)  | Limit cpu (m)  | Limit memory (Mi)   |
-|---------------------------    |-------------|------------------|----------------------|----------------|---------------------|
-| contentComposer               | 1           | 100              | 128                  | 100            | 128                 |
-| **webEngine**                 | **25**      | **5600**         | **8192**             | **5600**       | **8192**            |
-| **digitalAssetManagement**.   | **4**       | **2000**         | **4096**             | **2000**       | **4096**            |
-| imageProcessor                | 1           | 200              | 2048                 | 200            | 2048                |
-| **openLdap**                  | **1**       | **300**          | **2048**             | **300**        | **2048**            |
-| **persistenceNode**           | **3**       | **3800**         | **2048**             | **3800**       | **2048**            |
-| **persistenceConnectionPool** | **3**       | **700**          | **1024**             | **700**        | **1024**            |
-| **ringApi**                   | **2**       | **500**          | **2048**             | **500**        | **2048**            |
-| runtimeController             | 1           | 100              | 256                  | 100            | 256                 |
-| **haproxy**                   | **3**       | **2500**         | **2048**             | **2500**       | **2048**            |
-| licenseManager                | 1           | 100              | 300                  | 100            | 300                 |
-| **Total**                     | **45**      | **222300**       | **310000**           | **222300**     | **310000**          |
+|  |  | Request | Request | Limit | Limit |
+|---|---|---:|---|---|---|
+| **Component** | **No. of pods** | **cpu (m)<br>** | **memory (Mi)<br>** | **cpu (m)<br>** | **memory (Mi)<br>** |
+| contentComposer | 1 | 100 | 128 | 100 | 128 |
+| **webEngine** | **25** | **5600** | **8192** | **5600** | **8192** |
+| **digitalAssetManagement** | **4** | **2000** | **4096** | **2000** | **4096** |
+| imageProcessor | 1 | 200 | 2048 | 200 | 2048 |
+| **openLdap** | **1** | **300** | **2048** | **300** | **2048** |
+| **persistenceNode** | **3** | **3800** | **2048** | **3800** | **2048** |
+| **persistenceConnectionPool** | **3** | **700** | **1024** | **700** | **1024** |
+| **ringApi** | **2** | **500** | **2048** | **500** | **2048** |
+| runtimeController | 1 | 100 | 256 | 100 | 256 |
+| **haproxy** | **3** | **2500** | **2048** | **2500** | **2048** |
+| licenseManager | 1 | 100 | 300 | 100 | 300 |
+| **Total** | **45** | **222300** | **310000** | **222300** | **310000** |
+
 
 
 
