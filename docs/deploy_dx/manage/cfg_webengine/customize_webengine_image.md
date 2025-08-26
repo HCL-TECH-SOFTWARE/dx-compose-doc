@@ -54,7 +54,7 @@ To add custom scripts to your image, create a Dockerfile that builds upon an off
 
 When creating custom scripts, follow these guidelines:
 
-- Scripts must be executable (`chmod +x`).
+- Scripts must be executable. You can ensure this in your Dockerfile by running a `chmod +x` command against any copied script files.
 - Only scripts placed directly in the designated directories will be executed by the container.
 - For shared logic, use the documented `safe_source` function to include utility scripts:
 
