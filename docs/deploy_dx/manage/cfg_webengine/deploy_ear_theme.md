@@ -1,6 +1,6 @@
 ---
 id: deploy_ear_theme
-title: Deploying and Configuring EAR-based Themes
+title: Deploying and configuring EAR-based themes
 ---
 
 This topic provides the steps to deploy and configure customer-built EAR-based themes to be used in HCL DX Compose deployments.
@@ -37,7 +37,7 @@ Follow these steps to deploy your customized WebEngine image in your HCL DX Comp
     docker push <my_custom_repository>/webengine:<my_custom_tag>
     ```
 
-    For more information see [Load images to your own repository](../../install/kubernetes_deployment/preparation/get_the_code/prepare_load_images.md#loading-images).
+    For more information, refer to [Load images to your own repository](../../install/kubernetes_deployment/preparation/get_the_code/prepare_load_images.md#loading-images).
 
 2. Fetch the current configuration values from the running Helm release to ensure you preserve existing settings while adding the new image tag value and configuration. Run the following command:
 
@@ -47,7 +47,7 @@ Follow these steps to deploy your customized WebEngine image in your HCL DX Comp
 
     Replace `dx-deployment` with your Helm release name and `dxns` with your namespace if they differ. This command saves the current values to a file named `custom-values-all.yaml`.
 
-3. In the `custom-values-all.yaml` file, modify the following sections to upgrade your image and load and configure your custom enterprise application. For more information see [Configuration changes using overrides](configuration_changes_using_overrides.md) and [Updating DX properties using Helm values](./update_properties_with_helm.md).
+3. In the `custom-values-all.yaml` file, modify the following sections to upgrade your image and load and configure your custom enterprise application. For more information, refer to [Configuration changes using overrides](configuration_changes_using_overrides.md) and [Updating DX properties using Helm values](./update_properties_with_helm.md).
 
     ```yaml
     images:
@@ -74,15 +74,15 @@ Follow these steps to deploy your customized WebEngine image in your HCL DX Comp
     - Replace `dxns` with your namespace, and adjust the paths to `install-hcl-dx-deployment` and the values files (`install-deploy-values.yaml` and `custom-values-all.yaml`) according to your environment.
     - The `-f` flags specify the base configuration (`install-deploy-values.yaml`) and the updated configuration (`custom-values-all.yaml`).
 
-    For more information, see [Upgrading the Helm deployment](../working_with_compose/helm_upgrade_values.md).
+    For more information, refer to [Upgrading the Helm deployment](../working_with_compose/helm_upgrade_values.md).
 
-Once the upgrade is successfully applied and DX WebEngine pod(s) started, you can then register your new theme in DX Compose.
+Once the upgrade is successfully applied and the DX WebEngine pod(s) have started, you can then register your new theme in DX Compose.
 
 ## Registering the theme in DX Compose
 
 To register the theme, you must customize and import an XML file.
 
-1. Create your XML by taking the snippet below and updating / expanding it to match your theme and any skins:
+1. Create your XML by taking the following snippet and updating or expanding it to match your theme and any skins:
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -103,18 +103,16 @@ To register the theme, you must customize and import an XML file.
     </request>
     ```
 
-then save this XML into a file such as `RegisterMyCustomTheme.xml`.
+    Save this XML into a file such as `RegisterMyCustomTheme.xml`.
 
-2. You can then import the file using the `xmlaccess` function of DXClient or another method. For more information on installing and using DXClient, refer to [DXClient](https://help.hcl-software.com/digital-experience/9.5/latest/extend_dx/development_tools/dxclient/){target="_blank"}.
+2. Import the file using the `xmlaccess` function of DXClient or another method. For more information on installing and using DXClient, refer to [DXClient](https://help.hcl-software.com/digital-experience/9.5/latest/extend_dx/development_tools/dxclient/){target="_blank"}. Alternative methods to import the XML include the "Import XML" page in Practitioner Studio.
 
-The DXClient command is:
+    Run the following DXClient command:
 
-    <pre>
-        ```
-        dxclient xmlaccess -xmlFile RegisterMyCustomTheme.xml
-        ```
-    </pre>
+        <pre>
+            ```
+            dxclient xmlaccess -xmlFile RegisterMyCustomTheme.xml
+            ```
+        </pre>
 
-Alternative methods to import the XML include the "Import XML" page in Practitioner Studio.
-
-3. After registering the theme you may need to restart your DX WebEngine pods for the theme to be fully functional.
+3. After registering the theme, you may need to restart your DX WebEngine pods for the theme to be fully functional.
