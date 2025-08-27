@@ -1,5 +1,5 @@
 --------------------------------------------------------------
--- RELEASE DATABASE creation
+-- WPREL DATABASE creation
 --------------------------------------------------------------
 CREATE DATABASE WPREL 
 ON PRIMARY
@@ -23,7 +23,7 @@ COLLATE SQL_Latin1_General_CP1_CS_AS;
 ALTER DATABASE WPREL SET READ_COMMITTED_SNAPSHOT ON;
 
 --------------------------------------------------------------
--- COMMUNITY DATABASE creation
+-- WPCOMM DATABASE creation
 --------------------------------------------------------------
 CREATE DATABASE WPCOMM 
 ON PRIMARY
@@ -47,7 +47,7 @@ COLLATE SQL_Latin1_General_CP1_CS_AS;
 ALTER DATABASE WPCOMM SET READ_COMMITTED_SNAPSHOT ON;
 
 --------------------------------------------------------------
--- CUSTOMISATION DATABASE creation
+-- WPCUST DATABASE creation
 --------------------------------------------------------------
 CREATE DATABASE WPCUST 
 ON PRIMARY
@@ -71,7 +71,7 @@ COLLATE SQL_Latin1_General_CP1_CS_AS;
 ALTER DATABASE WPCUST SET READ_COMMITTED_SNAPSHOT ON;
 
 --------------------------------------------------------------
--- JCR DATABASE creation
+-- WPJCR DATABASE creation
 --------------------------------------------------------------
 CREATE DATABASE WPJCR 
 ON PRIMARY
@@ -95,7 +95,7 @@ COLLATE SQL_Latin1_General_CP1_CS_AS;
 ALTER DATABASE WPJCR SET READ_COMMITTED_SNAPSHOT ON;
 
 --------------------------------------------------------------
--- FEEDBACK DATABASE creation
+-- WPFDBK DATABASE creation
 --------------------------------------------------------------
 CREATE DATABASE WPFDBK 
 ON PRIMARY
@@ -117,7 +117,7 @@ LOG ON
 COLLATE SQL_Latin1_General_CP1_CS_AS;
 
 --------------------------------------------------------------
--- LIKEMINDS DATABASE creation
+-- WPLM DATABASE creation
 --------------------------------------------------------------
 CREATE DATABASE WPLM 
 ON PRIMARY
