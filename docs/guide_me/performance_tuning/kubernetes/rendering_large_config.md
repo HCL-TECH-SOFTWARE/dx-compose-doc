@@ -199,7 +199,6 @@ For convenience, these values were added to the `large-config-values.yaml` file 
 3. In the extracted folder, navigate to `hcl-dx-deployment/value-samples/webEngine/large-config-values.yaml` and copy the `large-config-values.yaml` file.
 
 !!!note
-      - Applying topology spread constraints for each component helps ensure high availability and resilience for your HCL DX application. These constraints distribute pods for services like webEngine and HAProxy across multiple worker nodes, reducing the risk of a single node failure impacting critical components.
       -  For enhanced performance, we recommend increasing the validationSleepTimer to 600 seconds (10 minutes) to reduce the frequency of persistence cluster health checks. This adjustment is ideal for stable environments, as it lowers overhead from continuous monitoring.
 
 
