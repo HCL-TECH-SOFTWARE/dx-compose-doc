@@ -122,9 +122,9 @@ The tests used a c5.4xlarge remote DB2 instance for the webEngine database. Refe
 
 ### NFS tuning details
 
-During the 20,000 concurrent user load test with 14 worker nodes, we observed that the PostgreSQL pool and node pods occasionally went down due to high I/O pressure on the NFS storage. To address this, we increased the NFS instance volume IOPS from the default 3,000 to 6,000 and throughput from 128 MiB/s to 256 MiB/s.
+During the 20,000 concurrent user load test with 14 worker nodes, we observed that the PostgreSQL pool and node pods occasionally became unstable due to high I/O pressure on the NFS storage. To resolve this, we increased the NFS instance volume IOPS from the default 3,000 to 6,000 and raised the throughput from 128 MiB/s to 256 MiB/s. The NFS instance (c5.4xlarge) was also resized from the default 200 GB to 500 GB, as we encountered issues such as the NFS instance not initializing and pods failing to remain steady.
 
-**Effect:** Doubling the IOPS and throughput provided the necessary capacity for our NFS storage to handle the intense I/O demands of the PostgreSQL database, resulting in a stabilized persistence layer and improved overall system reliability under heavy load.
+Doubling the IOPS and throughput provided the necessary capacity for our NFS storage to handle the intense I/O demands of the PostgreSQL database, resulting in a stabilized persistence layer and improved overall system reliability under heavy load.
 
 
 ### Load Balancer setup
@@ -189,6 +189,7 @@ Modifications were also made to the initial Helm chart configuration during the 
      - Values in bold are tuned Helm values while the rest are default minimal values.
      - Cache value changes depending on the test data. It is recommended to monitor cache statistics regularly and update them as necessary. To learn how to monitor cache statistics, refer to the [WebEngine Cache Statistics Tool](./rendering_small_config.md#webengine-cache-statistics-tool).
 
+
 For convenience, these values were added to the `large-config-values.yaml` file in the hcl-dx-deployment Helm chart. To use these values, refer to the following steps:
 
 1. Download the `hcl-dx-deployment` Helm chart from FlexNet or Harbor.
@@ -196,7 +197,11 @@ For convenience, these values were added to the `large-config-values.yaml` file 
 2. Extract the `hcl-dx-deployment-XXX.tgz` file.
 
 3. In the extracted folder, navigate to `hcl-dx-deployment/value-samples/webEngine/large-config-values.yaml` and copy the `large-config-values.yaml` file.
-  
+
+!!!note
+      - Applying topology spread constraints for each component helps ensure high availability and resilience for your HCL DX application. These constraints distribute pods for services like webEngine and HAProxy across multiple worker nodes, reducing the risk of a single node failure impacting critical components.
+      -  For enhanced performance, we recommend increasing the validationSleepTimer to 600 seconds (10 minutes) to reduce the frequency of persistence cluster health checks. This adjustment is ideal for stable environments, as it lowers overhead from continuous monitoring.
+
 
 ## Results
 
