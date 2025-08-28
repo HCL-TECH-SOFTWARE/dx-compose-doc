@@ -12,7 +12,6 @@ This sizing activity rendered scenarios for the Web Content Manager (WCM), Digit
 
 To achieve the 30,000 concurrent users mark, initial test runs started with 12 worker nodes. As the user load increased, the number of worker nodes was scaled up to 14 to handle the 30,000 user load with an acceptable error rate (< 0.01%). After establishing the required node count, further optimizations were made to pod resource limits and the ratios of key pods to each other to ensure stable performance.
 
-
 The following table contains the rendering scenario details for a large configuration. 
 
 | Concurrent users     |  WCM pages         |  DAM content         |  Pages and portlets content   |
@@ -66,38 +65,37 @@ The Kubernetes platform ran on an Amazon EC2 instance with the DX images install
 
       - Node details
 
-      ![](../../../../images/Header-1-AWS-Med.png){ width="1000" }
+      ![](../../../images/Header-1-AWS-Med.png){ width="1000" }
 
-      ![](../../../../images/C5.2xlarge.png){ width="1000" }
+      ![](../../../images/C5.2xlarge.png){ width="1000" }
 
       - Processor details
 
-      ![](../../../../images/c5_large_cpu_info.png){ width="1000" }
+      ![](../../../images/c5_large_cpu_info.png){ width="1000" }
 
       - Volume details
 
-      ![](../../../../images/Remote-DB2-Volume-Info-Med.png){ width="600" }
+      ![](../../../images/Remote-DB2-Volume-Info-Med.png){ width="600" }
 
 - **c5.4xlarge worker nodes**
 
       - Node details
       
-      ![](../../../../images/Header-1-AWS-Med.png){ width="1000" }
+      ![](../../../images/Header-1-AWS-Med.png){ width="1000" }
       
-      ![](../../../../images/ec2_c5_4xlarge_info.png){ width="1000" }
+      ![](../../../images/ec2_c5_4xlarge_info.png){ width="1000" }
 
       - Processor details
 
-      ![](../../../../images/c5_4xlarge_cpu_info.png){ width="1000" }
+      ![](../../../images/c5_4xlarge_cpu_info.png){ width="1000" }
 
       - Volume details
 
-      ![](../../../../images/c5_4xlarge_volume_info.png){ width="600" }
+      ![](../../../images/c5_4xlarge_volume_info.png){ width="600" }
 
 - **c5.2xlarge NFS**
-    
-     ![](../../../../images/C5.2xlarge.png){ width="1000" }
 
+      ![](../../../images/C5.2xlarge.png){ width="1000" }
 
 ### DB2 instance
 
@@ -107,25 +105,23 @@ The tests used a c5.4xlarge remote DB2 instance for the webEngine database. Refe
 
 - DB2 details
 
-      ![](../../../../images/Header-1-AWS-Med.png){ width="1000" }
+      ![](../../../images/Header-1-AWS-Med.png){ width="1000" }
 
-      ![](../../../../images/C5.4xlarge.png){ width="1000" }
+      ![](../../../images/C5.4xlarge.png){ width="1000" }
 
 - Processor details
 
-      ![](../../../../images/Processor_Info_RemoteDB2_Med.png){ width="600" }
+      ![](../../../images/Processor_Info_RemoteDB2_Med.png){ width="600" }
 
 - Volume details
 
-      ![](../../../../images/Remote-DB2-Volume-Info-Med.png){ width="600" }
-
+      ![](../../../images/Remote-DB2-Volume-Info-Med.png){ width="600" }
 
 ### NFS tuning details
 
 During the 20,000 concurrent user load test with 14 worker nodes, we observed that the PostgreSQL pool and node pods occasionally became unstable due to high I/O pressure on the NFS storage. To resolve this, we increased the NFS instance volume IOPS from the default 3,000 to 6,000 and raised the throughput from 128 MiB/s to 256 MiB/s. The NFS instance (c5.4xlarge) was also resized from the default 200 GB to 500 GB, as we encountered issues such as the NFS instance not initializing and pods failing to remain steady.
 
 Doubling the IOPS and throughput provided the necessary capacity for our NFS storage to handle the intense I/O demands of the PostgreSQL database, resulting in a stabilized persistence layer and improved overall system reliability under heavy load.
-
 
 ### Load Balancer setup
 
@@ -141,17 +137,17 @@ To run the tests, a distributed AWS/JMeter agents setup consisting of 1 primary 
 
 - Instance details
 
-      ![](../../../../images/Header-1-AWS-Med.png){ width="1000" }
+      ![](../../../images/Header-1-AWS-Med.png){ width="1000" }
 
-      ![](../../../../images/C5.2xlarge.png){ width="1000" }
+      ![](../../../images/C5.2xlarge.png){ width="1000" }
 
 - Processor details
 
-      ![](../../../../images/Processor_Info_RemoteDB2_Med.png){ width="600" }
+      ![](../../../images/Processor_Info_RemoteDB2_Med.png){ width="600" }
 
 - Volume details
 
-      ![](../../../../images/Remote-DB2-Volume-Info-Med.png){ width="600" }
+      ![](../../../images/Remote-DB2-Volume-Info-Med.png){ width="600" }
 
 !!!note
       Ramp-up time is five virtual users every two seconds. The test duration includes the ramp-up time plus one hour at the peak load of concurrent users.
@@ -183,12 +179,9 @@ Modifications were also made to the initial Helm chart configuration during the 
 | licenseManager | 1 | 100 | 300 | 100 | 300 |
 | **Total** | **45** | **222300** | **310000** | **222300** | **310000** |
 
-
-
 !!!note
      - Values in bold are tuned Helm values while the rest are default minimal values.
      - Cache value changes depending on the test data. It is recommended to monitor cache statistics regularly and update them as necessary. To learn how to monitor cache statistics, refer to the [WebEngine Cache Statistics Tool](./rendering_small_config.md#webengine-cache-statistics-tool).
-
 
 For convenience, these values were added to the `large-config-values.yaml` file in the hcl-dx-deployment Helm chart. To use these values, refer to the following steps:
 
@@ -200,7 +193,6 @@ For convenience, these values were added to the `large-config-values.yaml` file 
 
 !!!note
       -  For enhanced performance, we recommend increasing the validationSleepTimer to 600 seconds (10 minutes) to reduce the frequency of persistence cluster health checks. This adjustment is ideal for stable environments, as it lowers overhead from continuous monitoring.
-
 
 ## Results
 
@@ -255,8 +247,8 @@ To ensure optimal performance and stability of HCL DX on Kubernetes, it is essen
 !!!note
      Do not set your JVM heap size larger than the allotted memory for the pod.
 
-- Ensure your minimum heap size (`-Xms`) is equal to your maximum heap size (`-Xmx`). 
-      - Setting the minimum and maximum heap sizes to the same value prevents the JVM from dynamically requesting additional memory (`malloc()`). 
+- Ensure your minimum heap size (`-Xms`) is equal to your maximum heap size (`-Xmx`).
+      - Setting the minimum and maximum heap sizes to the same value prevents the JVM from dynamically requesting additional memory (`malloc()`).
       - This eliminates the overhead of heap expansion and improves performance consistency.
 
 - Ensure the Kubernetes pod resource limits match the JVM heap settings
