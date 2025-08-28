@@ -10,7 +10,7 @@ This topic provides the details of the environments used for rendering in a larg
 
 This sizing activity rendered scenarios for the Web Content Manager (WCM), Digital Asset Management (DAM), and HCL Digital Experience (DX) pages and portlets. This activity used a rendering setup enabled in AWS/Native-Kubernetes, where Kubernetes is installed directly in Amazon Elastic Cloud Compute (EC2) instances. A combination run was performed that rendered WCM content, DAM assets, and DX pages and portlets. The load distribution was WCM content (40%), DAM assets (30%), and DX pages and portlets (30%). All systems were pre-populated before performing the rendering tests.
 
-To achieve the 30,000 concurrent users mark, an initial set of runs was done with a lower number of users on a multiple node setup with varying numbers of worker nodes. The tests started with 14 worker nodes. The number of worker nodes and pods were increased as needed to achieve the desired load with an acceptable error rate (< 0.01%). After establishing the number of nodes, further steps were taken to optimize the limits on the available resources for each pod, as well as the ratios of key pods to each other.
+To achieve the 30,000 concurrent users mark, initial test runs started with 12 worker nodes. As the user load increased, the number of worker nodes was scaled up to 14 to handle the 30,000 user load with an acceptable error rate (< 0.01%). After establishing the required node count, further optimizations were made to pod resource limits and the ratios of key pods to each other to ensure stable performance.
 
 
 The following table contains the rendering scenario details for a large configuration. 
@@ -31,7 +31,7 @@ This section provides details for the Kubernetes cluster, Load Balancer, JMeter 
 
 ### AWS/Native Kubernetes
 
-The Kubernetes platform ran on an Amazon EC2 instance with the DX images installed and configured. In AWS/Native Kubernetes, the tests were executed in EC2 instances with 1 c5.2xlarge master node and 14 c5.4xlarge worker nodes. Refer to the following node setup details:
+The Kubernetes platform ran on an Amazon EC2 instance with the DX images installed and configured. In AWS/Native Kubernetes, the tests were executed in EC2 instances with 1 c5.4xlarge master node and 14 c5.4xlarge worker nodes. Refer to the following node setup details:
 
 #### c2.4xlarge instance details
 
@@ -120,11 +120,11 @@ The tests used a c5.4xlarge remote DB2 instance for the webEngine database. Refe
       ![](../../../../images/Remote-DB2-Volume-Info-Med.png){ width="600" }
 
 
-### NFS  tuning details
+### NFS tuning details
 
-We initially conducted tests with a 12 worker node setup and observed that, during a 20,000 Vuser load test, most worker nodes exhibited high CPU usage exceeding 80%. To achieve our target of supporting 30,000 Vusers,IOPS and throught put of nfs instance volume is doubled now.
+During the 20,000 concurrent user load test with 14 worker nodes, we observed that the PostgreSQL pool and node pods occasionally went down due to high I/O pressure on the NFS storage. To address this, we increased the NFS instance volume IOPS from the default 3,000 to 6,000 and throughput from 128 MiB/s to 256 MiB/s.
 
-Effect: Increasing the IOPS provided the necessary "horsepower" for our NFS storage to keep up with the intense I/O demands of your PostgreSQL database, thus stabilizing the entire persistence layer.
+**Effect:** Doubling the IOPS and throughput provided the necessary capacity for our NFS storage to handle the intense I/O demands of the PostgreSQL database, resulting in a stabilized persistence layer and improved overall system reliability under heavy load.
 
 
 ### Load Balancer setup
@@ -135,7 +135,7 @@ During the DX Kubernetes deployment, the HAProxy service type was updated from `
 
 ### JMeter agents
 
-To run the tests, a distributed AWS/JMeter agents setup consisting of 1 primary and 40 subordinate c5.2xlarge JMeter instances was used. Refer to the following JMeter setup details:
+To run the tests, a distributed AWS/JMeter agents setup consisting of 1 primary and 10 subordinate c5.2xlarge JMeter instances was used. Refer to the following JMeter setup details:
 
 **c5.2xlarge JMeter instance**
 
@@ -156,16 +156,14 @@ To run the tests, a distributed AWS/JMeter agents setup consisting of 1 primary 
 !!!note
       Ramp-up time is five virtual users every two seconds. The test duration includes the ramp-up time plus one hour at the peak load of concurrent users.
 
-### DX webEngine tuning
+### DX Compose tuning
 
-The following list contains details about the tuning and enhancements done to the DX webEngine during testing:
+Modifications to the initial Helm chart configuration were applied during testing. The following table specifies the pod count and resource limits for each pod. Additionally, certain WCM Dynacache sizes, lifetimes, and JVM heap sizes were adjusted based on cache statistics. For further details, see the [Recommendations](./rendering_small_config.md#recommendations) section on performing a Helm upgrade using `webengine-performance-rendering.yaml`
 
-- Followed the same tunings used in the sizing activity for a [medium-sized configuration](./rendering_medium_config.md#dx-web engine-tuning).
-
-- Increased the LTPA token timeout from 120 minutes to 600 minutes for the rendering tests.
+After applying the updated Helm values and cache adjustments, the system showed significantly improved responsiveness. These changes enabled the setup to handle 1,000 concurrent users with better error rates, reduced average response times, increased throughput, and improved 95th percentile response times.
 
 !!!note
-      For DAM, no tuning details are mentioned in this topic except for the pod resources like CPU and memory limits for all pods related to DAM, such as ring-api, persistence-node, persistence-connection-pool, and web engine. Since DAM uses `Node.js`, you can monitor CPU and memory usage using Prometheus and Grafana. Based on your observations, you can modify memory requests and limits in Kubernetes accordingly.
+      For DAM, no tuning details are mentioned in this topic except for the pod resources like CPU and memory limits for all pods related to DAM, such as ring-api, persistence-node, persistence-connection-pool. Since DAM uses `Node.js`, you can monitor CPU and memory usage using Prometheus and Grafana. Based on your observations, you can modify memory requests and limits in Kubernetes accordingly.
 
 Modifications were also made to the initial Helm chart configuration during the tests. The following table outlines the pod count and limits for each pod. After applying these values, the setup showed significantly improved responsiveness. These changes allowed the system to handle 30,000 concurrent users with a substantial reduction in average response time and a minimal error rate.
 
@@ -187,25 +185,30 @@ Modifications were also made to the initial Helm chart configuration during the 
 
 
 
-
 !!!note
-     Values in bold are tuned Helm values while the rest are default minimal values.
+     - Values in bold are tuned Helm values while the rest are default minimal values.
+     - Cache value changes depending on the test data. It is recommended to monitor cache statistics regularly and update them as necessary. To learn how to monitor cache statistics, refer to the [WebEngine Cache Statistics Tool](./rendering_small_config.md#webengine-cache-statistics-tool).
 
-For convenience, these values were added to the `large-config-values.yaml` file in the `hcl-dx-deployment` Helm chart. To use these values, complete the following steps:
+For convenience, these values were added to the `large-config-values.yaml` file in the hcl-dx-deployment Helm chart. To use these values, refer to the following steps:
 
 1. Download the `hcl-dx-deployment` Helm chart from FlexNet or Harbor.
 
 2. Extract the `hcl-dx-deployment-XXX.tgz` file.
 
-3. In the extracted folder, navigate to `hcl-dx-deployment/value-samples/large-config-values.yaml` and copy the `large-config-values.yaml` file.  
+3. In the extracted folder, navigate to `hcl-dx-deployment/value-samples/webEngine/large-config-values.yaml` and copy the `large-config-values.yaml` file.
+  
 
 ## Results
 
-The initial test runs were conducted on an AWS-distributed Kubernetes setup with one master and eight worker nodes. The system successfully handled concurrent user loads of 10,000 and 15,000 with a low error rate (< 0.0001%). At 20,000 users, error rates increased dramatically and response times went up. For a response time to be considered optimal, it should be under one second.
+The initial test runs were conducted on an AWS-distributed Kubernetes setup with one master and twelve worker nodes. The system successfully handled concurrent user loads of 10,000 and 15,000 with a low error rate (< 0.0001%). At 20,000 users, error rates increased dramatically and response times went up. For a response time to be considered optimal, it should be under one second.
 
-Subsequent tests were conducted on a setup with 14 worker nodes which evaluated various user loads up to 30,000 concurrent users. The error rates remained low (<0.0001%) and response times were satisfactory. Adjustments were made to the number of pods, CPU, and memory for the following containers: HAProxy, web engine, RingAPI, digitalAssetManagement, persistenceNode, and persistenceConnectionPool. These changes aimed to identify the most beneficial factors for the sizing activity And Increasing the IOPS provided the necessary "horsepower" for our NFS storage to handle the high I/O demands of the PostgreSQL database. This improvement has significantly stabilized the persistence layer.
+Subsequent tests were conducted on a setup with 14 worker nodes, evaluating user loads up to 30,000 concurrent users. Error rates remained low (<0.0001%) and response times were satisfactory. Adjustments were made to the number of pods, CPU, and memory for the following containers: HAProxy, webEngine, RingAPI, digitalAssetManagement, persistenceNode, and persistenceConnectionPool. These changes aimed to identify the most beneficial factors for the sizing activity.
 
-For the webEngine pod, increasing the CPU limit gave a boost to performance, but this effect eventually saturated at 5600 millicore. This result indicated that increasing the number of webEngine pods at this point provided additional benefits.
+For details on how NFS tuning contributed to stabilizing the persistence layer under heavy load, see the [NFS tuning details](#nfs-tuning-details) section above.
+
+The test results were analyzed using Prometheus and Grafana dashboards. Resource limits were adjusted based on CPU and memory usage observations from Grafana during the load tests. For the webEngine pod, increasing the CPU limit gave a boost to performance, but this effect eventually saturated at 5600 millicore. This result indicated that increasing the number of webEngine pods at this point provided additional benefits.
+
+There was a notable improvement in both total average response time and overall throughput after the optimizations. Additionally, the average response time for the top five requests showed significant enhancement, further validating the effectiveness of the tuning measures.
 
 ## Conclusion
 
@@ -216,23 +219,30 @@ There are several factors that can affect the performance of DX in Kubernetes. C
 
 ### Recommendations
 
-- For a large-sized workload in AWS, start the Kubernetes cluster with 1 master and 14 worker nodes.
+- For large-scale DX Compose deployments targeting 30,000 concurrent users in AWS, it is recommended to initialize the Kubernetes cluster with 1 master node and 14 worker nodes.
 
-- To increase the throughput for the HAProxy and RingAPI containers, increase their CPU allocations. Note that increasing the number of pods does not increase throughput.
-
-- To boost performance for the DAM and persistence-node pods, increase the CPU limits first, then increase the number of pod replicas. Increasing the number of pods also increases throughput for DAM.
-
-- We have 25 pods for webengine,4 pods of DAM, 3 node pods,3 pool pods,3 pods of Haproxy and 2 Ring.We have 1 Master ,14 worker and 1 dedicated NFS node as the set up And Increasing the IOPS provided the necessary "horsepower" for our NFS storage to handle the high I/O demands of the PostgreSQL database. This improvement has significantly stabilized the persistence layer
-
-- To hold more authenticated users for testing purposes, increase the OpenLDAP pod values. Note that the deployment of the OpenLDAP container in a production environment is not supported. For more information, refer to [Configure Applications - OpenLDAP configuration](../../../../deployment/install/container/helm_deployment/preparation/optional_tasks/optional_configure_apps.md#openldap-configuration).
+- To hold more authenticated users for testing purposes, increase the OpenLDAP pod values. Note that the deployment of the OpenLDAP container in a production environment is not supported.
 
 - To optimize the webEngine container, increase the CPU allocation until the container saturates. After the optimal CPU level is determined, increase the number of pods to boost performance.
 
 - To improve response times, increase the number of webEngine pods proportionally to the user load. For example, 8 webEngine pods were used for a load of 10,000 concurrent users, and 25 webEngine pods for a load of 30,000 concurrent users.
 
-- To prevent Out of Memory (OOM) issues, increase the memory allocation for the DAM and HAProxy pods by approximately 1024Mi for every 10,000 concurrent users.
+- To maintain DAM performance, add approximately 1-2 additional pods to the Digital Asset Management (DAM) service for every 10,000 concurrent users.
 
-- To ensure optimal CPU allocation for the HAProxy pod, allocate 1 additional CPU for every 10,000 concurrent users.
+- To ensure proper load balancing, add 1 additional pod to the HAProxy service for every 10,000 concurrent users.
+
+- To manage database connections efficiently, add 1 additional pod to the Persistence Connection Pool service for every 10,000 concurrent users.
+
+- For effective data persistence, add 1 additional pod to the Persistence Node service for every 10,000 concurrent users.
+
+- To support API requests, add approximately 1 additional pod to the Ring API service for every 10,000 concurrent users.
+
+- To improve the response times, please perform the Helm upgrade using the `webengine-performance-rendering.yaml` file. This file is available in the HCL DX Compose Deployment Helm chart. To use this file, complete the following steps:
+       1. Download the hcl-dx-deployment Helm chart from FlexNet or Harbor.
+       2. Extract the hcl-dx-deployment-XXX.tgz file.
+       3. In the extracted folder, navigate to `hcl-dx-deployment/performance/webengine-performance-rendering.yaml` and copy the `webengine-performance-rendering.yaml`.
+
+       After performing a Helm upgrade using the `webengine-performance-rendering.yaml` file, the tuned cache values for rendering will be updated.
 
 ### Recommended heap size configuration
 
@@ -253,6 +263,3 @@ To ensure optimal performance and stability of HCL DX on Kubernetes, it is essen
       - To determine the optimal memory configuration, you should conduct local testing with your specific portlets, pages, and customizations. You should also perform synthetic load testing using tools like JMeter to simulate realistic usage scenarios.
       - The required memory is highly dependent on Service Level Agreements (SLAs) and transaction rates.
       - A minimum of 3.5GB is recommended, but higher memory allocations may be necessary depending on actual usage patterns.
-
-???+ info "Related information"
-    - [Performance Tuning Guide for Traditional Deployments](../traditional_deployments.md)
