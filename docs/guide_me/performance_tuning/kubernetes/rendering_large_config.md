@@ -30,21 +30,7 @@ This section provides details for the Kubernetes cluster, Load Balancer, JMeter 
 
 ### AWS/Native Kubernetes
 
-The Kubernetes platform ran on an Amazon EC2 instance with the DX images installed and configured. In AWS/Native Kubernetes, the tests were executed in EC2 instances with 1 c5.4xlarge master node and 14 c5.4xlarge worker nodes. Refer to the following node setup details:
-
-#### c2.4xlarge instance details
-
-| Attribute          | Details                          |
-|--------------------|----------------------------------|
-| vCPUs              | 8                                |
-| Memory             | 16 GiB                           |
-| EBS-Optimized      | Yes (7500 Mbps bandwidth)        |
-| Network Bandwidth  | Up to 10 Gbps                    |
-| EBS Volume Type    | General Purpose (gp3/gp2), io1/io2 |
-| Processor          | Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz |
-| Architecture       | x86_64                           |
-| ENA Support        | Yes                              |
-| NVMe Support       | Yes (EBS via NVMe)               |
+The Kubernetes platform was deployed directly on Amazon EC2 instances, with DX images installed and configured. For the AWS/Native Kubernetes environment, the test setup included 1 master node and 14 worker nodes, all provisioned as c5.4xlarge EC2 instances. This configuration also incorporated DB2 and NFS server instances. Detailed node setup information is provided below:
 
 #### c5.4xlarge instance details
 
@@ -61,23 +47,7 @@ The Kubernetes platform ran on an Amazon EC2 instance with the DX images install
 | NVMe Support       | Yes (EBS via NVMe)               |
 
 
-- **c5.2xlarge master node**
-
-      - Node details
-
-      ![](../../../images/Header-1-AWS-Med.png){ width="1000" }
-
-      ![](../../../images/C5.2xlarge.png){ width="1000" }
-
-      - Processor details
-
-      ![](../../../images/c5_large_cpu_info.png){ width="1000" }
-
-      - Volume details
-
-      ![](../../../images/Remote-DB2-Volume-Info-Med.png){ width="600" }
-
-- **c5.4xlarge worker nodes**
+- **c5.4xlarge nodes**
 
       - Node details
       
@@ -93,29 +63,6 @@ The Kubernetes platform ran on an Amazon EC2 instance with the DX images install
 
       ![](../../../images/c5_4xlarge_volume_info.png){ width="600" }
 
-- **c5.2xlarge NFS**
-
-      ![](../../../images/C5.2xlarge.png){ width="1000" }
-
-### DB2 instance
-
-The tests used a c5.4xlarge remote DB2 instance for the webEngine database. Refer to the following DB2 setup details:
-
-**c5.4xlarge remote DB2 instance**
-
-- DB2 details
-
-      ![](../../../images/Header-1-AWS-Med.png){ width="1000" }
-
-      ![](../../../images/C5.4xlarge.png){ width="1000" }
-
-- Processor details
-
-      ![](../../../images/Processor_Info_RemoteDB2_Med.png){ width="600" }
-
-- Volume details
-
-      ![](../../../images/Remote-DB2-Volume-Info-Med.png){ width="600" }
 
 ### NFS tuning details
 
@@ -154,16 +101,13 @@ To run the tests, a distributed AWS/JMeter agents setup consisting of 1 primary 
 
 ### DX Compose tuning
 
-Modifications to the initial Helm chart configuration were applied during testing. The following table specifies the pod count and resource limits for each pod. Additionally, certain WCM Dynacache sizes, lifetimes, and JVM heap sizes were adjusted based on cache statistics. For further details, see the [Recommendations](./rendering_small_config.md#recommendations) section on performing a Helm upgrade using `webengine-performance-rendering.yaml`
-
-After applying the updated Helm values and cache adjustments, the system showed significantly improved responsiveness. These changes enabled the setup to handle 1,000 concurrent users with better error rates, reduced average response times, increased throughput, and improved 95th percentile response times.
+Modifications to the initial Helm chart configuration were applied during testing. The following table specifies the pod count and resource limits for each pod.
 
 !!!note
       For DAM, no tuning details are mentioned in this topic except for the pod resources like CPU and memory limits for all pods related to DAM, such as ring-api, persistence-node, persistence-connection-pool. Since DAM uses `Node.js`, you can monitor CPU and memory usage using Prometheus and Grafana. Based on your observations, you can modify memory requests and limits in Kubernetes accordingly.
 
 Modifications were also made to the initial Helm chart configuration during the tests. The following table outlines the pod count and limits for each pod. After applying these values, the setup showed significantly improved responsiveness. These changes allowed the system to handle 30,000 concurrent users with a substantial reduction in average response time and a minimal error rate.
 
-Of course. Here is the table with two new columns, **"Total CPU Request (m)"** and **"Total Memory Request (Mi)"**, showing the multiplied values.
 
 | | | Request | Request | Limit | Limit | **Total** | **Total** |
 |---|---|---:|---:|---:|---:|---:|---:|
@@ -235,7 +179,7 @@ There are several factors that can affect the performance of DX in Kubernetes. C
 - To support API requests, add approximately 1 additional pod to the Ring API service for every 10,000 concurrent users.
 
 - To improve the response times, please perform the Helm upgrade using the `webengine-performance-rendering.yaml` file. This file is available in the HCL DX Compose Deployment Helm chart. To use this file, complete the following steps:
-       1. Download the hcl-dx-deployment Helm chart from FlexNet or Harbor.
+       1. Download the hcl-dx-deployment Helm chart from Harbor.
        2. Extract the hcl-dx-deployment-XXX.tgz file.
        3. In the extracted folder, navigate to `hcl-dx-deployment/performance/webengine-performance-rendering.yaml` and copy the `webengine-performance-rendering.yaml`.
 
