@@ -12,7 +12,6 @@ This sizing activity rendered scenarios for the Web Content Manager (WCM), Digit
 
 To achieve the 30,000 concurrent users mark, initial test runs started with 12 worker nodes. As the user load increased, the number of worker nodes was scaled up to 14 to handle the 30,000 user load with an acceptable error rate (< 0.01%). After establishing the required node count, further optimizations were made to pod resource limits and the ratios of key pods to each other to ensure stable performance.
 
-
 The following table contains the rendering scenario details for a large configuration. 
 
 | Concurrent users     |  WCM pages         |  DAM content         |  Pages and portlets content   |
@@ -181,7 +180,7 @@ Modifications were also made to the initial Helm chart configuration during the 
 | runtimeController | 1 | 100 | 256 | 100 | 256 |
 | **haproxy** | **3** | **2500** | **2048** | **2500** | **2048** |
 | licenseManager | 1 | 100 | 300 | 100 | 300 |
-| **Total** | **45** | **222300** | **310000** | **222300** | **310000** |
+| **Total** | **45** | **15900** | **24236** | **15900** | **24236** |
 
 
 
@@ -192,7 +191,7 @@ Modifications were also made to the initial Helm chart configuration during the 
 
 For convenience, these values were added to the `large-config-values.yaml` file in the hcl-dx-deployment Helm chart. To use these values, refer to the following steps:
 
-1. Download the `hcl-dx-deployment` Helm chart from FlexNet or Harbor.
+1. Download the `hcl-dx-deployment` Helm chart from  Harbor.
 
 2. Extract the `hcl-dx-deployment-XXX.tgz` file.
 
