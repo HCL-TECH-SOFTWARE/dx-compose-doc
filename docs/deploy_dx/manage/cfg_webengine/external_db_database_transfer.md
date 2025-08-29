@@ -16,8 +16,7 @@ This section provides the custom scripts for setting up the external database sc
 |--------|--------------------|
 |DB2|[DB2 custom setup script](SetupDb2DatabasesManually.sql)|
 |Oracle|[Oracle custom setup script](SetupOracleDatabasesManually.sql)|
-|SQL Server|SQL Server custom setup script|(SetupSqlServerDatabasesManually.sql)|
-
+|SQL Server|[SQL Server custom setup script](SetupSqlServerDatabasesManually.sql)|
 
 !!! Note
     If you are using the Amazon RDS for Oracle, you need to create a custom option group, add the JVM option, and then attach that group to your Amazon RDS instance to support Extended Architecture (XA) transactions for WebEngine. Attaching this custom option group to your instance replaces the default option group. For more information, refer to [Configure Custom Option Groups for Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithOptionGroups.html){target="_blank"}.
