@@ -20,14 +20,10 @@ Know the existing limitations of Digital Experience (DX) Compose.
 
 ## Applications and extensions
 
-- You cannot deploy Java-based applications such as portlets, EAR-based themes, and WCM extensions.
+- You cannot deploy custom portlets.
 - Social Media Publisher, Content Template Catalog (CTC), and other WCM extensions are not supported except Multilingual Solution.
 - WCM AI Sentiment Analysis in the WCM Authoring user interface (UI) is not supported with the TinyMCE Rich text editor but is supported with CKEditor.
 - The SpellCheck service for the TinyMCE Rich text editor is currently not supported in DX Compose.
-
-## Image customization
-
-- Not supported.
 
 ## User and group management
 
@@ -38,10 +34,6 @@ Know the existing limitations of Digital Experience (DX) Compose.
 
 - Step-up authentication is not supported.
 - Impersonation is supported. However, you must disable the authentication cache for it to work. For more information, see [Disabling Authentication Cache for Impersonation](../deploy_dx/manage/cfg_webengine/configuration_changes_using_overrides.md#disabling-authentication-cache-for-impersonation).
-
-## Theme customization of dynamic resources
-
-- Not supported.
 
 ## Product features
 
