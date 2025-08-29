@@ -163,21 +163,22 @@ After applying the updated Helm values and cache adjustments, the system showed 
 
 Modifications were also made to the initial Helm chart configuration during the tests. The following table outlines the pod count and limits for each pod. After applying these values, the setup showed significantly improved responsiveness. These changes allowed the system to handle 30,000 concurrent users with a substantial reduction in average response time and a minimal error rate.
 
-|  |  | Request | Request | Limit | Limit |
-|---|---|---:|---|---|---|
-| **Component** | **No. of pods** | **cpu (m)<br>** | **memory (Mi)<br>** | **cpu (m)<br>** | **memory (Mi)<br>** |
-| contentComposer | 1 | 100 | 128 | 100 | 128 |
-| **webEngine** | **25** | **5600** | **8192** | **5600** | **8192** |
-| **digitalAssetManagement** | **4** | **2000** | **4096** | **2000** | **4096** |
-| imageProcessor | 1 | 200 | 2048 | 200 | 2048 |
-| **openLdap** | **1** | **300** | **2048** | **300** | **2048** |
-| **persistenceNode** | **3** | **3800** | **2048** | **3800** | **2048** |
-| **persistenceConnectionPool** | **3** | **700** | **1024** | **700** | **1024** |
-| **ringApi** | **2** | **500** | **2048** | **500** | **2048** |
-| runtimeController | 1 | 100 | 256 | 100 | 256 |
-| **haproxy** | **3** | **2500** | **2048** | **2500** | **2048** |
-| licenseManager | 1 | 100 | 300 | 100 | 300 |
-| **Total** | **45** | **15900** | **24236** | **15900** | **24236** |
+Of course. Here is the table with two new columns, **"Total CPU Request (m)"** and **"Total Memory Request (Mi)"**, showing the multiplied values.
+
+| | | Request | Request | Limit | Limit | **Total** | **Total** |
+|---|---|---:|---:|---:|---:|---:|---:|
+| **Component** | **No. of pods** | **cpu (m)** | **memory (Mi)** | **cpu (m)** | **memory (Mi)** | **CPU Request (m)** | **Memory Request (Mi)** |
+| **webEngine** | **25** | **5600** | **8192** | **5600** | **8192** | **140000** | **204800** |
+| **digitalAssetManagement** | **4** | **2000** | **4096** | **2000** | **4096** | **8000** | **16384** |
+| imageProcessor | 1 | 200 | 2048 | 200 | 2048 | 200 | 2048 |
+| **openLdap** | **1** | **300** | **2048** | **300** | **2048** | **300** | **2048** |
+| **persistenceNode** | **3** | **3800** | **2048** | **3800** | **2048** | **11400** | **6144** |
+| **persistenceConnectionPool** | **3** | **700** | **1024** | **700** | **1024** | **2100** | **3072** |
+| **ringApi** | **2** | **500** | **2048** | **500** | **2048** | **1000** | **4096** |
+| runtimeController | 1 | 100 | 256 | 100 | 256 | 100 | 256 |
+| **haproxy** | **3** | **2500** | **2048** | **2500** | **2048** | **7500** | **6144** |
+| licenseManager | 1 | 100 | 300 | 100 | 300 | 100 | 300 |
+| **Total** | **45** | **-** | **-** | **-** | **-** | **170700** | **245292** |
 
 !!!note
      - Values in bold are tuned Helm values while the rest are default minimal values.
