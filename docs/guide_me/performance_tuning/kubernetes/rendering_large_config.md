@@ -32,7 +32,6 @@ This section provides details for the Kubernetes cluster, Load Balancer, JMeter 
 
 The Kubernetes platform ran on an Amazon EC2 instance with the DX images installed and configured. In AWS/Native Kubernetes, the tests were executed in EC2 instances with 1 c5.4xlarge master node and 14 c5.4xlarge worker nodes. Refer to the following node setup details:
 
-<<<<<<< HEAD
 #### instance details
 
 - **c5.4xlarge worker nodes**
@@ -62,53 +61,6 @@ The Kubernetes platform ran on an Amazon EC2 instance with the DX images install
 | Architecture       | x86_64                           |
 | ENA Support        | Yes                              |
 | NVMe Support       | Yes (EBS via NVMe)               |
-=======
-- **c2.4xlarge instance details**
-
-      | Attribute          | Details                          |
-      |--------------------|----------------------------------|
-      | vCPUs              | 8                                |
-      | Memory             | 16 GiB                           |
-      | EBS-Optimized      | Yes (7500 Mbps bandwidth)        |
-      | Network Bandwidth  | Up to 10 Gbps                    |
-      | EBS Volume Type    | General Purpose (gp3/gp2), io1/io2 |
-      | Processor          | Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz |
-      | Architecture       | x86_64                           |
-      | ENA Support        | Yes                              |
-      | NVMe Support       | Yes (EBS via NVMe)               |
-
-- **c5.4xlarge instance details**
-
-      | Attribute          | Details                          |
-      |--------------------|----------------------------------|
-      | vCPUs              | 16                               |
-      | Memory             | 32 GiB                           |
-      | EBS-Optimized      | Yes (8500 Mbps bandwidth)        |
-      | Network Bandwidth  | Up to 10 Gbps                    |
-      | EBS Volume Type    | General Purpose (gp3/gp2), io1/io2 |
-      | Processor          | Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz |
-      | Architecture       | x86_64                           |
-      | ENA Support        | Yes                              |
-      | NVMe Support       | Yes (EBS via NVMe)               |
-
-- **c5.4xlarge worker nodes**
-
-      - Node details
-
-      ![](../../../images/Header-1-AWS-Med.png){ width="1000" }
-
-      ![](../../../images/ec2_c5_4xlarge_info.png){ width="1000" }
-
-      - Processor details
-
-      ![](../../../images/c5_4xlarge_cpu_info.png){ width="1000" }
-
-      - Volume details
-
-      ![](../../../images/c5_4xlarge_volume_info.png){ width="600" }
-
-- **c5.2xlarge NFS**
->>>>>>> 6a0a0a61dbb0bd744e7ad2f6139a5288c47f620b
 
 
 ### DB2 instance
@@ -129,20 +81,6 @@ The tests used a c5.4xlarge remote DB2 instance for the webEngine database. Refe
 | ENA Support        | Yes                              |
 | NVMe Support       | Yes (EBS via NVMe)               |
 
-<<<<<<< HEAD
-=======
-      ![](../../../images/Header-1-AWS-Med.png){ width="1000" }
-
-      ![](../../../images/C5.4xlarge.png){ width="1000" }
-
-- Processor details
-
-      ![](../../../images/Processor_Info_RemoteDB2_Med.png){ width="600" }
-
-- Volume details
-
-      ![](../../../images/Remote-DB2-Volume-Info-Med.png){ width="600" }
->>>>>>> 6a0a0a61dbb0bd744e7ad2f6139a5288c47f620b
 
 ### NFS tuning details
 
