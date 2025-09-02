@@ -36,18 +36,17 @@ Refer to the following setup details:
 
 **c5.2xlarge**
 
-    | Attribute          | Details                          |
-    |--------------------|----------------------------------|
-    | vCPUs              | 8                                |
-    | Memory             | 16 GiB                           |
-    | EBS-Optimized      | Yes (7500 Mbps bandwidth)        |
-    | Network Bandwidth  | Up to 10 Gbps                    |
-    | EBS Volume Type    | General Purpose (gp3/gp2), io1/io2 |
-    | Processor          | Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz |
-    | Architecture       | x86_64                           |
-    | ENA Support        | Yes                              |
-    | NVMe Support       | Yes (EBS using NVMe)             |
-
+| Attribute          | Details                          |
+|--------------------|----------------------------------|
+| vCPUs              | 8                                |
+| Memory             | 16 GiB                           |
+| EBS-Optimized      | Yes (7500 Mbps bandwidth)        |
+| Network Bandwidth  | Up to 10 Gbps                    |
+| EBS Volume Type    | General Purpose (gp3/gp2), io1/io2 |
+| Processor          | Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz |
+| Architecture       | x86_64                           |
+| ENA Support        | Yes                              |
+| NVMe Support       | Yes (EBS using NVMe)             |
 
 !!!note
     Ramp-up time is 0.4 seconds per user. The test duration includes the ramp-up time plus one hour at the peak load of concurrent users.
