@@ -32,36 +32,33 @@ This section provides details for the Kubernetes cluster, Load Balancer, JMeter 
 
 The Kubernetes platform ran on an Amazon EC2 instance with the DX images installed and configured. In AWS/Native Kubernetes, the tests were executed in EC2 instances with 1 c5.4xlarge master node and 14 c5.4xlarge worker nodes. Refer to the following node setup details:
 
-#### instance details
-
 - **c5.4xlarge worker nodes**
 
-| Attribute          | Details                          |
-|--------------------|----------------------------------|
-| vCPUs              | 16                               |
-| Memory             | 32 GiB                           |
-| EBS-Optimized      | Yes (8500 Mbps bandwidth)        |
-| Network Bandwidth  | Up to 10 Gbps                    |
-| EBS Volume Type    | General Purpose (gp3/gp2), io1/io2 |
-| Processor          | Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz |
-| Architecture       | x86_64                           |
-| ENA Support        | Yes                              |
-| NVMe Support       | Yes (EBS via NVMe)               |
+    | Attribute          | Details                          |
+    |--------------------|----------------------------------|
+    | vCPUs              | 16                               |
+    | Memory             | 32 GiB                           |
+    | EBS-Optimized      | Yes (8500 Mbps bandwidth)        |
+    | Network Bandwidth  | Up to 10 Gbps                    |
+    | EBS Volume Type    | General Purpose (gp3/gp2), io1/io2 |
+    | Processor          | Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz |
+    | Architecture       | x86_64                           |
+    | ENA Support        | Yes                              |
+    | NVMe Support       | Yes (EBS using NVMe)             |
 
 - **c5.2xlarge NFS**
-    
-| Attribute          | Details                          |
-|--------------------|----------------------------------|
-| vCPUs              | 8                                |
-| Memory             | 16 GiB                           |
-| EBS-Optimized      | Yes (7500 Mbps bandwidth)        |
-| Network Bandwidth  | Up to 10 Gbps                    |
-| EBS Volume Type    | General Purpose (gp3/gp2), io1/io2 |
-| Processor          | Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz |
-| Architecture       | x86_64                           |
-| ENA Support        | Yes                              |
-| NVMe Support       | Yes (EBS via NVMe)               |
 
+    | Attribute          | Details                          |
+    |--------------------|----------------------------------|
+    | vCPUs              | 8                                |
+    | Memory             | 16 GiB                           |
+    | EBS-Optimized      | Yes (7500 Mbps bandwidth)        |
+    | Network Bandwidth  | Up to 10 Gbps                    |
+    | EBS Volume Type    | General Purpose (gp3/gp2), io1/io2 |
+    | Processor          | Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz |
+    | Architecture       | x86_64                           |
+    | ENA Support        | Yes                              |
+    | NVMe Support       | Yes (EBS using NVMe)             |
 
 ### DB2 instance
 
@@ -79,8 +76,7 @@ The tests used a c5.4xlarge remote DB2 instance for the webEngine database. Refe
 | Processor          | Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz |
 | Architecture       | x86_64                           |
 | ENA Support        | Yes                              |
-| NVMe Support       | Yes (EBS via NVMe)               |
-
+| NVMe Support       | Yes (EBS using NVMe)             |
 
 ### NFS tuning details
 
@@ -110,18 +106,17 @@ To run the tests, a distributed AWS/JMeter agents setup consisting of 1 primary 
 | Processor          | Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz |
 | Architecture       | x86_64                           |
 | ENA Support        | Yes                              |
-| NVMe Support       | Yes (EBS via NVMe)               |
-
+| NVMe Support       | Yes (EBS using NVMe)             |
 
 !!!note
-      Ramp-up time is five virtual users every two seconds. The test duration includes the ramp-up time plus one hour at the peak load of concurrent users.
+    Ramp-up time is five virtual users every two seconds. The test duration includes the ramp-up time plus one hour at the peak load of concurrent users.
 
 ### DX Compose tuning
 
 Modifications to the initial Helm chart configuration were applied during testing. The following table specifies the pod count and resource limits for each pod.
 
 !!!note
-      For DAM, no tuning details are mentioned in this topic except for the pod resources like CPU and memory limits for all pods related to DAM, such as `ring-api`, `persistence-node`, and `persistence-connection-pool`. Since DAM uses `Node.js`, you can monitor CPU and memory usage using Prometheus and Grafana. Based on your observations, you can modify memory requests and limits in Kubernetes accordingly.
+    For DAM, no tuning details are mentioned in this topic except for the pod resources like CPU and memory limits for all pods related to DAM, such as `ring-api`, `persistence-node`, and `persistence-connection-pool`. Since DAM uses `Node.js`, you can monitor CPU and memory usage using Prometheus and Grafana. Based on your observations, you can modify memory requests and limits in Kubernetes accordingly.
 
 Modifications were also made to the initial Helm chart configuration during the tests. The following table outlines the pod count and limits for each pod. After applying these values, the setup showed significantly improved responsiveness. These changes allowed the system to handle 30,000 concurrent users with a substantial reduction in average response time and a minimal error rate.
 
@@ -141,8 +136,8 @@ Modifications were also made to the initial Helm chart configuration during the 
 | **Total** | **45** | **-** | **-** | **-** | **-** | **170700** | **245292** |
 
 !!!note
-     - Values in bold are tuned Helm values while the rest are default minimal values.
-     - Cache value changes depending on the test data. It is recommended to monitor cache statistics regularly and update them as necessary. To learn how to monitor cache statistics, refer to the [WebEngine Cache Statistics Tool](./rendering_small_config.md#webengine-cache-statistics-tool).
+    - Values in bold are tuned Helm values while the rest are default minimal values.
+    - Cache value changes depending on the test data. It is recommended to monitor cache statistics regularly and update them as necessary. To learn how to monitor cache statistics, refer to the [WebEngine Cache Statistics Tool](./rendering_small_config.md#webengine-cache-statistics-tool).
 
 For convenience, these values were added to the `large-config-values.yaml` file in the hcl-dx-deployment Helm chart. To use these values, refer to the following steps:
 
@@ -153,7 +148,7 @@ For convenience, these values were added to the `large-config-values.yaml` file 
 3. In the extracted folder, navigate to `hcl-dx-deployment/value-samples/webEngine/large-config-values.yaml` and copy the `large-config-values.yaml` file.
 
 !!!note
-      -  For enhanced performance, it is recommended to increase the `validationSleepTimer` to 600 seconds (10 minutes) to reduce the frequency of persistence cluster health checks. This adjustment is ideal for stable environments as it lowers overhead from continuous monitoring.
+    For enhanced performance, it is recommended to increase the `validationSleepTimer` to 600 seconds (10 minutes) to reduce the frequency of persistence cluster health checks. This adjustment is ideal for stable environments as it lowers overhead from continuous monitoring.
 
 ## Results
 
@@ -175,7 +170,7 @@ There are several factors that can affect the performance of DX in Kubernetes. C
 
 - For large-scale DX Compose deployments targeting 30,000 concurrent users in AWS, initialize the Kubernetes cluster with 1 master node and 14 worker nodes.
 
-- To hold more authenticated users for testing purposes, increase the `OpenLDAP` pod values. Note that the deployment of the `OpenLDAP `container in a production environment is not supported.
+- To hold more authenticated users for testing purposes, increase the `OpenLDAP` pod values. Note that the deployment of the `OpenLDAP`container in a production environment is not supported.
 
 - To optimize the `webEngine` container, increase the CPU allocation until the container saturates. After the optimal CPU level is determined, increase the number of pods to boost performance.
 
@@ -192,11 +187,12 @@ There are several factors that can affect the performance of DX in Kubernetes. C
 - To support API requests, add approximately 1 additional pod to the Ring API service for every 10,000 concurrent users.
 
 - To improve the response times, perform the Helm upgrade using the `webengine-performance-rendering.yaml` file. This file is available in the HCL DX Compose Deployment Helm chart. To use this file, complete the following steps:
-       1. Download the `hcl-dx-deployment` Helm chart from Harbor.
-       2. Extract the `hcl-dx-deployment-XXX.tgz` file.
-       3. In the extracted folder, navigate to `hcl-dx-deployment/performance/webengine-performance-rendering.yaml` and copy the `webengine-performance-rendering.yaml`.
 
-       After performing a Helm upgrade using the `webengine-performance-rendering.yaml` file, the tuned cache values for rendering will be updated.
+    1. Download the `hcl-dx-deployment` Helm chart from Harbor.
+    2. Extract the `hcl-dx-deployment-XXX.tgz` file.
+    3. In the extracted folder, navigate to `hcl-dx-deployment/performance/webengine-performance-rendering.yaml` and copy the `webengine-performance-rendering.yaml`.
+
+    After performing a Helm upgrade using the `webengine-performance-rendering.yaml` file, the tuned cache values for rendering will be updated.
 
 ### Recommended heap size configuration
 
