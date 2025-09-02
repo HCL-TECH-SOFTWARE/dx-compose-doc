@@ -5,7 +5,7 @@ Know the existing limitations of Digital Experience (DX) Compose.
 ## Deployment
 
 - You cannot deploy the Core container used in the DX offerings deployment and the DX Compose WebEngine Core container together on the same deployment.
-- Supported databases are Derby, DB2 and Oracle. For Oracle on Amazon RDS, versions 19c and 21c (Single-tenant configuration) are supported at this time.
+- Supported databases include Derby, DB2, and Oracle. When using Amazon RDS, the service currently supports Oracle versions 19c and 21c (for both single-tenant and multi-tenant configurations) and SQL Server version 2022.
 - It is not possible to use the Remote Search service provided with HCL DX offerings in DX Compose. DX Compose provides support for OpenSearch.
 - No ReadWriteMany (RWX) shared volume is used.
 - Portal Application Archive (PAA) deployment is not supported.
