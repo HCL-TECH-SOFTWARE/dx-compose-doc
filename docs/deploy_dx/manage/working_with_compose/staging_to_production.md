@@ -23,6 +23,8 @@ Refer to the following steps to stage your solutions from the source system to t
 
     If both systems are using the same user repository and the same administrator, you can copy the appropriate section (for example, `ldap-repository`) from the `server.xml` of the source to the `server.xml` of the target and update the Helm chart of the target to match the source.
 
+    For more information on configuring security, refer to [Configuring LDAP](../cfg_webengine/ldap_configuration.md) and [Configuring DX Compose to use an OIDC identity provider](../cfg_webengine/configure_compose_to_use_oidc.md).
+
 3. Transfer the database from the source system to the target DX Compose system. This step is managed through the Helm chart for the target server.
 
     While transferring the database from the source to the target is not critical, it is assumed that the target system will be used for production use and should have undergone database transfer.
@@ -87,9 +89,9 @@ Refer to the following steps to stage your solutions from the source system to t
 
     1. Locate your custom themes on the source system using the Theme Manager in WebEngine. Take note of the names you have assigned to the themes.
 
-    2. Using a WebDAV client on your local operating system, create an archive using the TAR utility or compress the files in ZIP format for the custom themes from the WebDAV file system.
+    2. Using [a WebDAV client](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_delivery/webdav/){target="_blank"} on your local operating system, create an archive using the TAR utility or compress the files in ZIP format for the custom themes from the WebDAV file system.
 
-    3. After all the files are contained in a tarball or ZIP file, move this file to the target and import the files into the target WebDAV directory using the same theme names as on the source system.
+    3. After all the files are contained in a tarball or ZIP file, move this file to the target and import the files into the target [WebDAV](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_delivery/webdav/){target="_blank"} directory using the same theme names as on the source system.
 
     4. Regardless of the method used to get the theme files onto the target WebDAV, you must register the custom themes using XMLAccess. Ensure you preserve the object ID (OID) of the custom theme(s) on the target portal. For example, the OID should be the same on the source and target in the XMLAccess import XML file.
 
