@@ -25,9 +25,7 @@ Refer to the following steps to stage your solutions from the source system to t
 
     For more information on configuring security, refer to [Configuring LDAP](../cfg_webengine/ldap_configuration.md) and [Configuring DX Compose to use an OIDC identity provider](../cfg_webengine/configure_compose_to_use_oidc.md).
 
-3. Transfer the database from the source system to the target DX Compose system. This step is managed through the Helm chart for the target server.
-
-    While transferring the database from the source to the target is not critical, it is assumed that the target system will be used for production use and should have undergone database transfer.
+3. Ensure you have transferred the external database to the target DX Compose system that is used for the production environment. For more information, refer to [Database Management - Using the external database and triggering the database transfer](https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/cfg_webengine/external_db_database_transfer/#using-the-external-database-and-triggering-the-database-transfer){target="_blank"}. <!--Transfer the database from the source system to the target DX Compose system. This step is managed through the Helm chart for the target server. While transferring the database from the source to the target is not critical, it is assumed that the target system will be used for production use and should have undergone database transfer.-->
 
 4. Export the virtual portals from the source system by running the following command using DXClient:
 
