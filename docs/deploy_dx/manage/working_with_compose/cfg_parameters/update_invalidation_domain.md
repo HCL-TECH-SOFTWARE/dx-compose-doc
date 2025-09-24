@@ -2,7 +2,7 @@
 title: Change the domain/schema for `dynacache` invalidation table in the database
 ---
 # Introduction
-HCL DX Compose relies heavily on a type of hashmap known as a `dynacache`. A  dynacache is an instance of the Java object `DistributedMap` or `com.ibm.websphere.cache.DistributedMap` if one prefers the fully qualified class name.
+HCL DX Compose relies heavily on a type of hashmap known as a `dynacache`. A dynacache is an instance of the Java object `DistributedMap` or `com.ibm.websphere.cache.DistributedMap` if one prefers the fully qualified class name.
 
 A dynacache is merely a cluster aware HashMap. That means that if a particular instance of a dynacache changes (say on one cluster member in a WebSphere Application Server cluster), all other cluster members are made aware of that change.
 
