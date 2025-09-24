@@ -10,7 +10,7 @@ However, in Kubernetes, there are no Open Liberty clusters. All DX Compose insta
 
 By default, the database INVALIDATION_TABLE resides in the the `RELEASE` domain/schema. However, there may be use cases whereby this table would be better stored in one of the other 3 domain/schemas (e.g. `JCR`, `COMMUNITY` or `CUSTOMIZATION`). Changing the location of this table can (only) be achieved via a properties override in the ConfigService.properties file. This is done via a helm upgrade.
 
-A sample over ride file named `invalidationDomain.yaml` is provided in the directory `/native-kube/install-hcl-dx-deployment/invalidationDomain`. Details on the use of this sample file are included below.
+A sample over ride file named `invalidationDomain.yaml` is provided in the directory `/native-kube/install-hcl-dx-deployment/invalidationDomain`. Details on the use of this sample file are included below. 
 
 
 
