@@ -36,22 +36,20 @@ Refer to the following setup details:
 
 **c5.2xlarge**
 
-- Node details
-
-      ![](../../../images/Header-1-AWS.png){ width="1000" }
-      
-      ![](../../../images/C5.2xlarge.png){ width="1000" }
-
-- Processor details
-
-      ![](../../../images/Processor_Info_Native-Kube.png){ width="600" }
-
-- Volume details
-
-      ![](../../../images/Remote-DB2-Volume-Info-Compose-Small.png){ width="400" }
+| Attribute          | Details                          |
+|--------------------|----------------------------------|
+| vCPUs              | 8                                |
+| Memory             | 16 GiB                           |
+| EBS-Optimized      | Yes (7500 Mbps bandwidth)        |
+| Network Bandwidth  | Up to 10 Gbps                    |
+| EBS Volume Type    | General Purpose (gp3/gp2), io1/io2 |
+| Processor          | Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz |
+| Architecture       | x86_64                           |
+| ENA Support        | Yes                              |
+| NVMe Support       | Yes (EBS using NVMe)             |
 
 !!!note
-      Ramp-up time is 0.4 seconds per user. The test duration includes the ramp-up time plus one hour at the peak load of concurrent users.
+    Ramp-up time is 0.4 seconds per user. The test duration includes the ramp-up time plus one hour at the peak load of concurrent users.
 
 ## Results
 
@@ -96,14 +94,13 @@ After applying the updated Helm values and cache adjustments, the system showed 
 | licenseManager | 1 | 100 | 300 | 100 | 300 |
 | **Total** | | **6500** | **11436** | **6500** | **11436** |
 
-
 !!!note
-     - Values in bold are tuned Helm values while the rest are default minimal values.
-     - Cache value changes depending on the test data. It is recommended to monitor cache statistics regularly and update them as necessary. To learn how to monitor cache statistics, refer to the [WebEngine Cache Statistics Tool](./rendering_small_config.md#webengine-cache-statistics-tool).
+    - Values in bold are tuned Helm values while the rest are default minimal values.
+    - Cache value changes depending on the test data. It is recommended to monitor cache statistics regularly and update them as necessary. To learn how to monitor cache statistics, refer to the [WebEngine Cache Statistics Tool](./rendering_small_config.md#webengine-cache-statistics-tool).
 
 For convenience, these values were added to the `small-config-values.yaml` file in the hcl-dx-deployment Helm chart. To use these values, refer to the following steps:
 
-1. Download the `hcl-dx-deployment` Helm chart from FlexNet or Harbor.
+1. Download the `hcl-dx-deployment` Helm chart from Harbor.
 
 2. Extract the `hcl-dx-deployment-XXX.tgz` file.
 
@@ -120,11 +117,11 @@ This guidance outlines the maximum capacity for a single-node Kubernetes cluster
 - To hold more authenticated users for testing purposes, increase the OpenLDAP pod CPU and memory values. Note that the OpenLDAP pod is not for production use.
 
 - To improve response times, perform the Helm upgrade using the `webengine-performance-rendering.yaml` file. This file is available in the HCL DX Compose Deployment Helm chart. To use this file, complete the following steps:
-       1. Download the hcl-dx-deployment Helm chart from FlexNet or Harbor.
-       2. Extract the hcl-dx-deployment-XXX.tgz file.
-       3. In the extracted folder, navigate to `hcl-dx-deployment/performance/webengine-performance-rendering.yaml` and copy the `webengine-performance-rendering.yaml`.
+    1. Download the `hcl-dx-deployment` Helm chart from Harbor.
+    2. Extract the `hcl-dx-deployment-XXX.tgz` file.
+    3. In the extracted folder, navigate to `hcl-dx-deployment/performance/webengine-performance-rendering.yaml` and copy the `webengine-performance-rendering.yaml`.
 
-       After performing a Helm upgrade using the `webengine-performance-rendering.yaml` file, the tuned cache values for rendering will be updated.
+    After performing a Helm upgrade using the `webengine-performance-rendering.yaml` file, the tuned cache values for rendering will be updated.
 
 ### Recommended heap size configuration
 
