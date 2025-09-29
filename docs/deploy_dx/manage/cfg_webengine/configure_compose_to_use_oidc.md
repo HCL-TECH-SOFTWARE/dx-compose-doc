@@ -26,10 +26,14 @@ During DX Compose installation, there is a file named `oidc.yaml` located in the
 Refer to the following steps to enable OIDC authentication in DX Compose:
 
 1. Edit the `oidc.yaml` file and enter the following required parameters from the identity provider:
+    - id (see Important below)
     - clientID
     - clientSecret
     - hostname (for the discovery endpoint URL and jwt URL)
     - userIdentifier
+
+!!!important
+    The openIdConnectClient redirects to `https://<your-domain>/oidcclient/redirect/<id>` after authentication. Make sure that your valid redirect URIs includes an entry that matches this.
 
 2. In the `oidc.yaml` file, configure the following properties under `ConfigService.properties`:
     

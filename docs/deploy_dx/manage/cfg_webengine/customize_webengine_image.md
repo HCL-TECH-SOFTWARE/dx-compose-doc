@@ -1,39 +1,72 @@
 ---
 id: customize_webengine_image
-title: Customizing the HCL DX Compose WebEngine image
+title: Customizing the HCL DX Compose WebEngine image with custom scripts
 ---
 
-This topic provides the steps to build a customized HCL Digital Experience (DX) Compose WebEngine image that includes customer-built JARs to be used in HCL DX Compose deployments.
+This topic provides the steps to build a customized HCL Digital Experience (DX) Compose WebEngine image with custom scripts for use in HCL DX Compose deployments.
 
-## Customizing the HCL DX Compose WebEngine image
+## Adding custom script plugins
 
-1. Create a Dockerfile that uses an official HCL DX Compose WebEngine image as a parent image. Beginning with DX Compose CF228, the image includes a `customPlugins` directory in the server configuration location to hold custom JAR files and a `customPluginsLib` configured for use with these custom JARs.
+Starting with CF230, you can extend WebEngine functionality by adding custom shell scripts to designated plugin directories in the container. These scripts can run during container startup or during Cumulative Fix (CF) updates.
 
-    !!! note
-        At this time, adding files to the `customPlugins` directory is the only supported customization of the image.
+### Custom script directories
+
+The WebEngine container includes the following directories for customer-provided scripts:
+
+- `/opt/openliberty/wlp/usr/svrcfg/bin/customer/startup`: Scripts in this directory run during container startup.
+- `/opt/openliberty/wlp/usr/svrcfg/bin/customer/update`: Scripts in this directory run during CF updates (for example, when updating from CF229 to CF230).
+
+!!! important
+    Only scripts placed directly in these two directories will be automatically scanned and executed. You can place helper scripts in any subdirectory and call them from your startup or update scripts, but they won't be executed automatically. Sample subdirectories include the following:
+
+    - `/opt/openliberty/wlp/usr/svrcfg/bin/customer/startup/helpers/`
+    - `/opt/openliberty/wlp/usr/svrcfg/bin/customer/update/helpers/`
+    - `/opt/openliberty/wlp/usr/svrcfg/bin/customer/helpers/`
+
+### Adding custom scripts to your image
+
+To add custom scripts to your image, create a Dockerfile that builds upon an official HCL DX Compose WebEngine image. Include your custom scripts in the appropriate directories:
 
     <pre>
         ```
         # Dockerfile contents:
 
-        FROM oci://hclcr.io/dx-compose/hcl-dx-deployment/webengine:CF228_20250516-1642_34573
+        FROM oci://hclcr.io/dx-compose/hcl-dx-deployment/webengine:CF230_20250724-1642_34573
 
-        # Copy the custom JARs into the customized image
-        COPY --chown=dx_user:dx_users ./MyCompanyJar1.jar /opt/openliberty/wlp/usr/servers/defaultServer/customPlugins/MyCompanyJar1.jar
+        # Copy custom startup scripts to be automatically executed
+        COPY --chown=dx_user:dx_users ./startup-script1.sh /opt/openliberty/wlp/usr/svrcfg/bin/customer/startup/
+        COPY --chown=dx_user:dx_users ./startup-script2.sh /opt/openliberty/wlp/usr/svrcfg/bin/customer/startup/
 
-        COPY --chown=dx_user:dx_users ./MyCompanyJar2.jar /opt/openliberty/wlp/usr/servers/defaultServer/customPlugins/MyCompanyJar2.jar
+        # Copy custom update scripts to be automatically executed
+        COPY --chown=dx_user:dx_users ./update-script.sh /opt/openliberty/wlp/usr/svrcfg/bin/customer/update/
 
-        # Copy any necessary additional files that are required by the custom jars into the customized image
-        COPY --chown=dx_user:dx_users ./MySupportingInfo.xml /opt/openliberty/wlp/usr/servers/defaultServer/customPlugins/MySupportingInfo.xml
+        # Helper scripts can be placed in any subdirectory - these won't be auto-executed
+        COPY --chown=dx_user:dx_users ./helpers/ /opt/openliberty/wlp/usr/svrcfg/bin/customer/helpers/
+        # Or in subdirectories under startup/update
+        COPY --chown=dx_user:dx_users ./startup-helpers/ /opt/openliberty/wlp/usr/svrcfg/bin/customer/startup/helpers/     
 
+        # Make all scripts executable
+        RUN chmod -R +x /opt/openliberty/wlp/usr/svrcfg/bin/customer/
         ```
     </pre>
 
-2. Use the following command to build the image:
+### Script guidelines and restrictions
 
+When creating custom scripts, follow these guidelines:
+
+- Scripts must be executable. You can ensure this in your Dockerfile by running a `chmod +x` command against any copied script files.
+- Only scripts placed directly in the designated directories will be executed by the container.
+- For shared logic, use the documented `safe_source` function to include utility scripts:
+
+    ```bash
+    # In your custom script
+    source /opt/openliberty/wlp/usr/svrcfg/scripts/utility.sh
+    safe_source "/opt/openliberty/wlp/usr/svrcfg/bin/common-utility/another_utility.sh"
     ```
-    docker -D build --no-cache=true --progress=plain -t <my_custom_repository>/webengine:<my_custom_tag> .
-    ```
+
+- Do not modify or directly reference any scripts in the product feature directories.
+- For WebEngine utilities, only use documented utility functions from the `common-utility` directory. These are described in the `README.md` file in that directory and in the individual script files.
+- You can create and use your own helper functions in any subdirectories of the `customer` directory.
 
 ## Enabling the customized WebEngine image in DX Compose
 
@@ -55,35 +88,13 @@ Follow these steps to deploy your customized WebEngine image in your HCL DX Comp
 
     Replace `dx-deployment` with your Helm release name and `dxns` with your namespace if they differ. This command saves the current values to a file named `custom-values-all.yaml`.
 
-3. In the `custom-values-all.yaml` file, modify the following sections to upgrade your image and load and configure your custom modules. Replace the JAAS module-specific sample values as needed for your deployment. For more information see [Configuration changes using overrides](configuration_changes_using_overrides.md) and [Updating DX properties using Helm values](./update_properties_with_helm.md).
+3. In the `custom-values-all.yaml` file, modify the following section to upgrade your image:
 
     ```yaml
     images:
       tags:
         webEngine: my_custom_tag
-    configuration:
-      webEngine:
-        configOverrideFiles:
-          my-custom-module-1-overrides.xml: |
-            <server description="My Proprietary Overrides">
-              <customModule id="MyCompanyCustomModule1" className="path.to.your.main.class.in.module.jar.ClassName" controlFlag="REQUIRED" libraryRef="customPluginsLib">
-              <options myCustomOption1="value"/>
-              </customModule>
-              <customModuleContextEntry id="system.WEB_INBOUND" name="system.WEB_INBOUND" loginModuleRef="MyCompanyCustomModule1, hashtable" />
-            </server>
-          my-custom-module-2-overrides.xml: |
-            <server description="My Proprietary Overrides">
-              <customModule id="MyCompanyCustomModule2" className="path.to.your.main.class.in.module.jar.ClassName" controlFlag="REQUIRED" libraryRef="customPluginsLib">
-              <options myCustomOption2="value"/>
-              </customModule>
-              <customModuleContextEntry id="system.WEB_INBOUND" name="system.WEB_INBOUND" loginModuleRef="MyCompanyCustomModule2, hashtable" />
-            </server>
-        propertiesFilesOverrides:
-          <propertiesFileName>:
-            <propertyKey>: <propertyValue>
     ```
-
-    This configuration enables the WebEngine server to include the custom JARs and required associated settings in your customized WebEngine image when deployed.
 
 4. Use the following `helm upgrade` command to apply the updated configuration. Include both the base values file and the modified `custom-values-all.yaml` file.
 
@@ -96,4 +107,4 @@ Follow these steps to deploy your customized WebEngine image in your HCL DX Comp
 
     For more information, see [Upgrading the Helm deployment](../working_with_compose/helm_upgrade_values.md).
 
-Once the upgrade is successfully applied, you can log in and begin using your custom modules in DX Compose.
+Once the upgrade is successfully applied, your custom startup scripts will execute in DX Compose.
