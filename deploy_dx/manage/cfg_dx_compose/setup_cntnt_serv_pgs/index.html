@@ -19,7 +19,7 @@
         <link rel="prev" href="../integrate_ddc/integrating_voltmx_foundry/configuring_voltmx_foundry_to_connect_to_ddc/">
       
       
-        <link rel="next" href="../../cfg_webengine/">
+        <link rel="next" href="../configure_sso/">
       
       
       <link rel="icon" href="../../../../assets/favicon.png">
@@ -122,9 +122,9 @@ function OptanonWrapper() { }
 <div class="dropdown">
   <button class="dropbtn">Resources <i class="fa fa-caret-down"></i></button> 
   <div class="dropdown-content">
-  <a href="https://support.hcltechsw.com" target="_blank">Customer Support</a>
+  <a href="https://support.hcl-software.com/csm" target="_blank">Customer Support</a>
   <a href="https://hclsoftwareu.hcltechsw.com/hcl-dx" target="_blank">HCLSoftware U</a>
-  <a href="https://support.hcltechsw.com/community" target="_blank">Community Forums</a>
+  <a href="https://developer.ds.hcl-software.com/c/hcl-dx/dx-forum/25" target="_blank">Community Forums</a>
 
 </div>
 </div>
@@ -468,6 +468,8 @@ function OptanonWrapper() { }
       
         
       
+        
+      
     
     
       
@@ -778,6 +780,8 @@ function OptanonWrapper() { }
       
         
       
+        
+      
     
     
       
@@ -1029,6 +1033,57 @@ function OptanonWrapper() { }
 
               
             
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../configure_sso/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Integrating SSO in DX Compose
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1048,6 +1103,10 @@ function OptanonWrapper() { }
       
         
           
+        
+      
+        
+      
         
       
         
@@ -1299,34 +1358,37 @@ function OptanonWrapper() { }
 
 
 <h1 id="setting-up-content-as-a-service">Setting up Content as a Service</h1>
-<p>To be able to work with Content as a Service (CaaS) pages in HCL Digital Experience (DX) Compose, you must enable it using the steps listed in this topic. The setup for CaaS is comprised of resources that are shared across virtual portals and virtual portal scoped resources.</p>
+<p>To work with Content as a Service (CaaS) pages in HCL Digital Experience (DX) Compose, you must enable it by following the steps listed in this topic. The setup for CaaS is comprised of resources that are shared across virtual portals and resources scoped to virtual portals. Setting up CaaS requires using the <code>xmlaccess</code> function of DXClient. For more information on installing and using DXClient, refer to <a href="https://help.hcl-software.com/digital-experience/9.5/latest/extend_dx/development_tools/dxclient/" target="_blank">DXClient</a>.</p>
 <p>Refer to the following steps to install and configure CaaS:</p>
 <ol>
 <li>
-<p>On a Kubernetes deployment, change the directory to <code>/home/centos/native-kube</code> on the main Kubernetes node.</p>
-</li>
-<li>
-<p>Run the following command to make the CaaS theme available to DX Compose.</p>
+<p>Run the following command to make the CaaS theme available to DX Compose. This command applies configuration changes that affect the <code>server.xml</code> for the DX Compose image.</p>
 <div class="language-text highlight"><pre><span></span><code>helm upgrade -n dxns -f install-deploy-values.yaml -f ./install-hcl-dx-deployment/caas/install-caas.yaml dx-deployment ./install-hcl-dx-deployment
 </code></pre></div>
 </li>
 <li>
-<p>Run the following command to enter a bash shell on the DX Compose WebEngine pod.</p>
-<div class="language-text highlight"><pre><span></span><code>kubectl exec -it dx-deployment-web-engine-0 bash -n dxns
+<p>Run the following command to register the CaaS theme. This command enables the theme for all the virtual portals in DX Compose.</p>
+<div class="language-text highlight"><pre><span></span><code>dxclient xmlaccess -xmlFile deployCaaSTheme.xml
 </code></pre></div>
+<p>The input for this command is an XMLAccess script to deploy the CaaS theme, located at <a href="../deployCaaSTheme.xml">CaasTheme</a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not modify the URLs in the XML file that refer to National Language Support (NLS) properties. These URLs refer to files in the DX Compose image itself.</p>
+</div>
 </li>
 <li>
-<p>Run the following command to register the CaaS theme to all the virtual portals in DX Compose.</p>
-<div class="language-text highlight"><pre><span></span><code>/opt/openliberty/wlp/usr/svrcfg/scripts/xmlaccess/xmlaccess.sh -d /opt/openliberty/wlp/usr/servers/defaultServer -url http://localhost:9080/wps/config -in /opt/openliberty/wlp/usr/svrcfg/templates/caas/deployCaaSTheme.xml -out /tmp/deployCaaSTheme.xml.out -user &quot;your Portal Admin userid&quot; -password &quot;your password&quot;
+<p>Run the following command to register the CaaS pages and portlet in each virtual portal, including the main virtual portal.</p>
+<div class="language-text highlight"><pre><span></span><code>dxclient xmlaccess -xmlFile deployCaaSPages.xml
 </code></pre></div>
-</li>
-<li>
-<p>Run the following command to register the CaaS Page and Portlet in each virtual portal, including the main virtual portal.</p>
-<div class="language-text highlight"><pre><span></span><code>/opt/openliberty/wlp/usr/svrcfg/scripts/xmlaccess/xmlaccess.sh -d /opt/openliberty/wlp/usr/servers/defaultServer -url http://localhost:9080/wps/config -in /opt/openliberty/wlp/usr/svrcfg/templates/caas/deployCaaSPages.xml -out /tmp/deployCaaSPages.xml.out -user &quot;your Portal Admin userid&quot; -password &quot;your password&quot;
+<p>The input for this command is an XMLAccess script that deploys the CaaS pages and references the CaaS theme, located at <a href="../deployCaaSPages.xml">CaasPages</a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not modify the URLs in the XML file that refer to NLS properties. These URLs refer to files in the DX Compose image itself.</p>
+</div>
+<p>If you are installing the CaaS pages into a virtual portal instead of the base portal, run the same <code>dxclient</code> command with the <code>vp Context</code> included in the <code>url</code> parameter. For example, you would specify the following parameter:</p>
+<div class="language-text highlight"><pre><span></span><code>-xmlConfigPath /wps/config/{vp context root}
 </code></pre></div>
-<p>If you are installing the CaaS pages into a virtual portal apart from the main virtual portal, run the following command. This command includes the <code>VP Context</code> in the <code>url</code> parameter.</p>
-<div class="language-text highlight"><pre><span></span><code>/opt/openliberty/wlp/usr/svrcfg/scripts/xmlaccess/xmlaccess.sh -d /opt/openliberty/wlp/usr/servers/defaultServer -url http://localhost:9080/wps/config/&quot;VP Context&quot; -in /opt/openliberty/wlp/usr/svrcfg/templates/caas/deployCaaSPages.xml -out /tmp/deployCaaSPages.xml.out -user &quot;your Portal Admin userid&quot; -password &quot;your password&quot;
-</code></pre></div>
+<p>Run this command for all the virtual portals where you want to run CaaS.</p>
 </li>
 <li>
 <p>Restart your HCL DX Compose server.</p>
@@ -1352,7 +1414,7 @@ function OptanonWrapper() { }
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 25, 2025 20:26:00 UTC">March 25, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 3, 2025 16:03:52 UTC">July 3, 2025</span>
   </span>
 
     

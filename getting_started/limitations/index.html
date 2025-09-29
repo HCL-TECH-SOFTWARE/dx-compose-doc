@@ -122,9 +122,9 @@ function OptanonWrapper() { }
 <div class="dropdown">
   <button class="dropbtn">Resources <i class="fa fa-caret-down"></i></button> 
   <div class="dropdown-content">
-  <a href="https://support.hcltechsw.com" target="_blank">Customer Support</a>
+  <a href="https://support.hcl-software.com/csm" target="_blank">Customer Support</a>
   <a href="https://hclsoftwareu.hcltechsw.com/hcl-dx" target="_blank">HCLSoftware U</a>
-  <a href="https://support.hcltechsw.com/community" target="_blank">Community Forums</a>
+  <a href="https://developer.ds.hcl-software.com/c/hcl-dx/dx-forum/25" target="_blank">Community Forums</a>
 
 </div>
 </div>
@@ -454,6 +454,8 @@ function OptanonWrapper() { }
       
         
           
+        
+      
         
       
         
@@ -850,15 +852,6 @@ function OptanonWrapper() { }
 </li>
       
         <li class="md-nav__item">
-  <a href="#image-customization" class="md-nav__link">
-    <span class="md-ellipsis">
-      Image customization
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#user-and-group-management" class="md-nav__link">
     <span class="md-ellipsis">
       User and group management
@@ -871,15 +864,6 @@ function OptanonWrapper() { }
   <a href="#authentication" class="md-nav__link">
     <span class="md-ellipsis">
       Authentication
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#theme-customization-of-dynamic-resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Theme customization of dynamic resources
     </span>
   </a>
   
@@ -1071,15 +1055,6 @@ function OptanonWrapper() { }
 </li>
       
         <li class="md-nav__item">
-  <a href="#image-customization" class="md-nav__link">
-    <span class="md-ellipsis">
-      Image customization
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#user-and-group-management" class="md-nav__link">
     <span class="md-ellipsis">
       User and group management
@@ -1092,15 +1067,6 @@ function OptanonWrapper() { }
   <a href="#authentication" class="md-nav__link">
     <span class="md-ellipsis">
       Authentication
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#theme-customization-of-dynamic-resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Theme customization of dynamic resources
     </span>
   </a>
   
@@ -1143,7 +1109,7 @@ function OptanonWrapper() { }
 <h2 id="deployment">Deployment</h2>
 <ul>
 <li>You cannot deploy the Core container used in the DX offerings deployment and the DX Compose WebEngine Core container together on the same deployment.</li>
-<li>Supported databases are Derby, DB2 and Oracle. For Oracle on Amazon RDS, versions 19c and 21c (Single-tenant configuration) are supported at this time.</li>
+<li>Supported databases include Derby, DB2, and Oracle. When using Amazon RDS, the service currently supports Oracle versions 19c and 21c (for both single-tenant and multi-tenant configurations) and SQL Server version 2022.</li>
 <li>It is not possible to use the Remote Search service provided with HCL DX offerings in DX Compose. DX Compose provides support for OpenSearch.</li>
 <li>No ReadWriteMany (RWX) shared volume is used.</li>
 <li>Portal Application Archive (PAA) deployment is not supported.</li>
@@ -1158,14 +1124,10 @@ function OptanonWrapper() { }
 </ul>
 <h2 id="applications-and-extensions">Applications and extensions</h2>
 <ul>
-<li>You cannot deploy Java-based applications such as portlets, EAR-based themes, and WCM extensions.</li>
+<li>You cannot deploy custom portlets.</li>
 <li>Social Media Publisher, Content Template Catalog (CTC), and other WCM extensions are not supported except Multilingual Solution.</li>
 <li>WCM AI Sentiment Analysis in the WCM Authoring user interface (UI) is not supported with the TinyMCE Rich text editor but is supported with CKEditor.</li>
 <li>The SpellCheck service for the TinyMCE Rich text editor is currently not supported in DX Compose.</li>
-</ul>
-<h2 id="image-customization">Image customization</h2>
-<ul>
-<li>Not supported.</li>
 </ul>
 <h2 id="user-and-group-management">User and group management</h2>
 <ul>
@@ -1176,10 +1138,6 @@ function OptanonWrapper() { }
 <ul>
 <li>Step-up authentication is not supported.</li>
 <li>Impersonation is supported. However, you must disable the authentication cache for it to work. For more information, see <a href="../../deploy_dx/manage/cfg_webengine/configuration_changes_using_overrides/#disabling-authentication-cache-for-impersonation">Disabling Authentication Cache for Impersonation</a>.</li>
-</ul>
-<h2 id="theme-customization-of-dynamic-resources">Theme customization of dynamic resources</h2>
-<ul>
-<li>Not supported.</li>
 </ul>
 <h2 id="product-features">Product features</h2>
 <ul>
@@ -1205,7 +1163,7 @@ function OptanonWrapper() { }
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 11, 2025 16:09:41 UTC">August 11, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 29, 2025 18:38:19 UTC">August 29, 2025</span>
   </span>
 
     

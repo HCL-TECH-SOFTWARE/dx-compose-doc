@@ -122,9 +122,9 @@ function OptanonWrapper() { }
 <div class="dropdown">
   <button class="dropbtn">Resources <i class="fa fa-caret-down"></i></button> 
   <div class="dropdown-content">
-  <a href="https://support.hcltechsw.com" target="_blank">Customer Support</a>
+  <a href="https://support.hcl-software.com/csm" target="_blank">Customer Support</a>
   <a href="https://hclsoftwareu.hcltechsw.com/hcl-dx" target="_blank">HCLSoftware U</a>
-  <a href="https://support.hcltechsw.com/community" target="_blank">Community Forums</a>
+  <a href="https://developer.ds.hcl-software.com/c/hcl-dx/dx-forum/25" target="_blank">Community Forums</a>
 
 </div>
 </div>
@@ -468,6 +468,8 @@ function OptanonWrapper() { }
       
         
       
+        
+      
     
     
       
@@ -776,6 +778,8 @@ function OptanonWrapper() { }
       
         
       
+        
+      
     
     
       
@@ -825,6 +829,10 @@ function OptanonWrapper() { }
       
         
           
+        
+      
+        
+      
         
       
         
@@ -1077,6 +1085,15 @@ function OptanonWrapper() { }
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#sample-valuesyaml-file-for-sql-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sample values.yaml file for SQL Server
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1278,7 +1295,7 @@ function OptanonWrapper() { }
         
   
   <span class="md-ellipsis">
-    Customizing the HCL DX Compose WebEngine image
+    Customizing the HCL DX Compose WebEngine image with custom scripts
   </span>
   
 
@@ -1300,6 +1317,48 @@ function OptanonWrapper() { }
   
   <span class="md-ellipsis">
     Configuring JAAS Modules for transient users
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deploy_ear_theme/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deploying and configuring EAR-based themes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deploy_wcm_plugins/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deploying and configuring WCM plugins
   </span>
   
 
@@ -1533,6 +1592,15 @@ function OptanonWrapper() { }
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#sample-valuesyaml-file-for-sql-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sample values.yaml file for SQL Server
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1635,6 +1703,10 @@ function OptanonWrapper() { }
 <tr>
 <td>Oracle</td>
 <td><a href="../SetupOracleDatabasesManually.sql">Oracle custom setup script</a></td>
+</tr>
+<tr>
+<td>SQL Server</td>
+<td><a href="../SetupSqlServerDatabasesManually.sql">SQL Server custom setup script</a></td>
 </tr>
 </tbody>
 </table>
@@ -1771,7 +1843,7 @@ function OptanonWrapper() { }
 <span class="w">    </span><span class="nt">dbDomainProperties</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">InitializeFeedbackDB</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;true&quot;</span>
 <span class="w">      </span><span class="nt">feedback.DbType</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;oracle&quot;</span>
-<span class="w">      </span><span class="nt">feedback.DbName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;WPFDBK&quot;</span>
+<span class="w">      </span><span class="nt">feedback.DbName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;feedback&quot;</span>
 <span class="w">      </span><span class="nt">feedback.DbSchema</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;feedback&quot;</span>
 <span class="w">      </span><span class="nt">feedback.DataSourceName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;wpfdbkdbDS&quot;</span>
 <span class="w">      </span><span class="nt">feedback.DbUrl</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;jdbc:oracle:thin:@//&lt;replace-db-host&gt;:&lt;replace-db-port&gt;/&lt;replace-service-name&gt;&quot;</span>
@@ -1786,7 +1858,7 @@ function OptanonWrapper() { }
 <span class="w">      </span><span class="nt">feedback.XDbName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;WPFDBK&quot;</span>
 <span class="w">      </span><span class="nt">feedback.DbNode</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;pznNode&quot;</span>
 <span class="w">      </span><span class="nt">likeminds.DbType</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;oracle&quot;</span>
-<span class="w">      </span><span class="nt">likeminds.DbName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;WPLM&quot;</span>
+<span class="w">      </span><span class="nt">likeminds.DbName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;likeminds&quot;</span>
 <span class="w">      </span><span class="nt">likeminds.DbSchema</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;likeminds&quot;</span>
 <span class="w">      </span><span class="nt">likeminds.DataSourceName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;wplmdbDS&quot;</span>
 <span class="w">      </span><span class="nt">likeminds.DbUrl</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;jdbc:oracle:thin:@//&lt;replace-db-host&gt;:&lt;replace-db-port&gt;/&lt;replace-service-name&gt;&quot;</span>
@@ -1801,7 +1873,7 @@ function OptanonWrapper() { }
 <span class="w">      </span><span class="nt">likeminds.XDbName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;WPLM&quot;</span>
 <span class="w">      </span><span class="nt">likeminds.DbNode</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;pznNode&quot;</span>
 <span class="w">      </span><span class="nt">release.DbType</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;oracle&quot;</span>
-<span class="w">      </span><span class="nt">release.DbName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;WPREL&quot;</span>
+<span class="w">      </span><span class="nt">release.DbName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;release&quot;</span>
 <span class="w">      </span><span class="nt">release.DbSchema</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;release&quot;</span>
 <span class="w">      </span><span class="nt">release.DataSourceName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;wpreldbDS&quot;</span>
 <span class="w">      </span><span class="nt">release.DbUrl</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;jdbc:oracle:thin:@//&lt;replace-db-host&gt;:&lt;replace-db-port&gt;/&lt;replace-service-name&gt;&quot;</span>
@@ -1816,7 +1888,7 @@ function OptanonWrapper() { }
 <span class="w">      </span><span class="nt">release.XDbName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;WPREL&quot;</span>
 <span class="w">      </span><span class="nt">release.DbNode</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;wpsNode&quot;</span>
 <span class="w">      </span><span class="nt">community.DbType</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;oracle&quot;</span>
-<span class="w">      </span><span class="nt">community.DbName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;WPCOMM&quot;</span>
+<span class="w">      </span><span class="nt">community.DbName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;community&quot;</span>
 <span class="w">      </span><span class="nt">community.DbSchema</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;community&quot;</span>
 <span class="w">      </span><span class="nt">community.DataSourceName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;wpcommdbDS&quot;</span>
 <span class="w">      </span><span class="nt">community.DbUrl</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;jdbc:oracle:thin:@//&lt;replace-db-host&gt;:&lt;replace-db-port&gt;/&lt;replace-service-name&gt;&quot;</span>
@@ -1846,7 +1918,7 @@ function OptanonWrapper() { }
 <span class="w">      </span><span class="nt">customization.XDbName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;WPCUST&quot;</span>
 <span class="w">      </span><span class="nt">customization.DbNode</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;wpsNode&quot;</span>
 <span class="w">      </span><span class="nt">jcr.DbType</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;oracle&quot;</span>
-<span class="w">      </span><span class="nt">jcr.DbName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;WPJCR&quot;</span>
+<span class="w">      </span><span class="nt">jcr.DbName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;jcr&quot;</span>
 <span class="w">      </span><span class="nt">jcr.DbSchema</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;jcr&quot;</span>
 <span class="w">      </span><span class="nt">jcr.DataSourceName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;wpjcrdbDS&quot;</span>
 <span class="w">      </span><span class="nt">jcr.DbUrl</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;jdbc:oracle:thin:@//&lt;replace-db-host&gt;:&lt;replace-db-port&gt;/&lt;replace-service-name&gt;&quot;</span>
@@ -1864,6 +1936,107 @@ function OptanonWrapper() { }
 <span class="w">      </span><span class="nt">oracle.DbDriver</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;oracle.jdbc.driver.OracleDriver&quot;</span>
 <span class="w">      </span><span class="nt">oracle.DbLibrary</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/opt/openliberty/wlp/usr/svrcfg/templates/jars/oracle/ojdbc11.jar:/opt/openliberty/wlp/usr/svrcfg/templates/jars/oracle/xdb6-11.2.0.4.jar&quot;</span>
 <span class="w">      </span><span class="nt">oracle.JdbcProviderName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;wpdbJDBC_oracle&quot;</span>
+</code></pre></div>
+<h4 id="sample-valuesyaml-file-for-sql-server">Sample <code>values.yaml</code> file for SQL Server</h4>
+<div class="language-yaml highlight"><pre><span></span><code><span class="nt">configuration</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">webEngine</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">dbDomainProperties</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">InitializeFeedbackDB</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;true&quot;</span>
+<span class="w">      </span><span class="nt">feedback.DbType</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;sqlserver&quot;</span>
+<span class="w">      </span><span class="nt">feedback.DbName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;WPFDBK&quot;</span>
+<span class="w">      </span><span class="nt">feedback.DbSchema</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;FEEDBACK&quot;</span>
+<span class="w">      </span><span class="nt">feedback.DataSourceName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;wpfdbkdbDS&quot;</span>
+<span class="w">      </span><span class="nt">feedback.DbUrl</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;jdbc:sqlserver://DB_HOST_PLACEHOLDER:1433;databaseName=WPFDBK;encrypt=false&quot;</span>
+<span class="w">      </span><span class="nt">feedback.DbUser</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;replace-db-user&gt;&quot;</span>
+<span class="w">      </span><span class="nt">feedback.DbPassword</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;replace-db-password&gt;&quot;</span>
+<span class="w">      </span><span class="nt">feedback.DbRuntimeUser</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;replace-db-user&gt;&quot;</span>
+<span class="w">      </span><span class="nt">feedback.DbRuntimePassword</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;replace-db-password&gt;&quot;</span>
+<span class="w">      </span><span class="nt">feedback.DBA.DbUser</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;replace-db-user&gt;&quot;</span>
+<span class="w">      </span><span class="nt">feedback.DBA.DbPassword</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;replace-db-password&gt;&quot;</span>
+<span class="w">      </span><span class="nt">feedback.DbConfigRoleName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;WP_PZN_CONFIG_USERS&quot;</span>
+<span class="w">      </span><span class="nt">feedback.DbRuntimeRoleName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;WP_PZN_RUNTIME_USERS&quot;</span>
+<span class="w">      </span><span class="nt">feedback.XDbName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;WPFDBK&quot;</span>
+<span class="w">      </span><span class="nt">feedback.DbNode</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;pznNode&quot;</span>
+<span class="w">      </span><span class="nt">likeminds.DbType</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;sqlserver&quot;</span>
+<span class="w">      </span><span class="nt">likeminds.DbName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;WPLM&quot;</span>
+<span class="w">      </span><span class="nt">likeminds.DbSchema</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;LIKEMINDS&quot;</span>
+<span class="w">      </span><span class="nt">likeminds.DataSourceName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;wplmdbDS&quot;</span>
+<span class="w">      </span><span class="nt">likeminds.DbUrl</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;jdbc:sqlserver://DB_HOST_PLACEHOLDER:1433;databaseName=WPLM;encrypt=false&quot;</span>
+<span class="w">      </span><span class="nt">likeminds.DbUser</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;replace-db-user&gt;&quot;</span>
+<span class="w">      </span><span class="nt">likeminds.DbPassword</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;replace-db-password&gt;&quot;</span>
+<span class="w">      </span><span class="nt">likeminds.DbRuntimeUser</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;replace-db-user&gt;&quot;</span>
+<span class="w">      </span><span class="nt">likeminds.DbRuntimePassword</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;replace-db-password&gt;&quot;</span>
+<span class="w">      </span><span class="nt">likeminds.DBA.DbUser</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;replace-db-user&gt;&quot;</span>
+<span class="w">      </span><span class="nt">likeminds.DBA.DbPassword</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;replace-db-password&gt;&quot;</span>
+<span class="w">      </span><span class="nt">likeminds.DbConfigRoleName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;WP_PZN_CONFIG_USERS&quot;</span>
+<span class="w">      </span><span class="nt">likeminds.DbRuntimeRoleName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;WP_PZN_RUNTIME_USERS&quot;</span>
+<span class="w">      </span><span class="nt">likeminds.XDbName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;WPLM&quot;</span>
+<span class="w">      </span><span class="nt">likeminds.DbNode</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;pznNode&quot;</span>
+<span class="w">      </span><span class="nt">release.DbType</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;sqlserver&quot;</span>
+<span class="w">      </span><span class="nt">release.DbName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;WPREL&quot;</span>
+<span class="w">      </span><span class="nt">release.DbSchema</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;RELEASE&quot;</span>
+<span class="w">      </span><span class="nt">release.DataSourceName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;wpreldbDS&quot;</span>
+<span class="w">      </span><span class="nt">release.DbUrl</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;jdbc:sqlserver://DB_HOST_PLACEHOLDER:1433;databaseName=WPREL;encrypt=false&quot;</span>
+<span class="w">      </span><span class="nt">release.DbUser</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;replace-db-user&gt;&quot;</span>
+<span class="w">      </span><span class="nt">release.DbPassword</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;replace-db-password&gt;&quot;</span>
+<span class="w">      </span><span class="nt">release.DbRuntimeUser</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;replace-db-user&gt;&quot;</span>
+<span class="w">      </span><span class="nt">release.DbRuntimePassword</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;replace-db-password&gt;&quot;</span>
+<span class="w">      </span><span class="nt">release.DBA.DbUser</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;replace-db-user&gt;&quot;</span>
+<span class="w">      </span><span class="nt">release.DBA.DbPassword</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;replace-db-password&gt;&quot;</span>
+<span class="w">      </span><span class="nt">release.DbConfigRoleName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;WP_BASE_CONFIG_USERS&quot;</span>
+<span class="w">      </span><span class="nt">release.DbRuntimeRoleName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;WP_BASE_RUNTIME_USERS&quot;</span>
+<span class="w">      </span><span class="nt">release.XDbName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;WPREL&quot;</span>
+<span class="w">      </span><span class="nt">release.DbNode</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;wpsNode&quot;</span>
+<span class="w">      </span><span class="nt">community.DbType</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;sqlserver&quot;</span>
+<span class="w">      </span><span class="nt">community.DbName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;WPCOMM&quot;</span>
+<span class="w">      </span><span class="nt">community.DbSchema</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;COMMUNITY&quot;</span>
+<span class="w">      </span><span class="nt">community.DataSourceName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;wpcommdbDS&quot;</span>
+<span class="w">      </span><span class="nt">community.DbUrl</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;jdbc:sqlserver://DB_HOST_PLACEHOLDER:1433;databaseName=WPCOMM;encrypt=false&quot;</span>
+<span class="w">      </span><span class="nt">community.DbUser</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;replace-db-user&gt;&quot;</span>
+<span class="w">      </span><span class="nt">community.DbPassword</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;replace-db-password&gt;&quot;</span>
+<span class="w">      </span><span class="nt">community.DbRuntimeUser</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;replace-db-user&gt;&quot;</span>
+<span class="w">      </span><span class="nt">community.DbRuntimePassword</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;replace-db-password&gt;&quot;</span>
+<span class="w">      </span><span class="nt">community.DBA.DbUser</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;replace-db-user&gt;&quot;</span>
+<span class="w">      </span><span class="nt">community.DBA.DbPassword</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;replace-db-password&gt;&quot;</span>
+<span class="w">      </span><span class="nt">community.DbConfigRoleName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;WP_BASE_CONFIG_USERS&quot;</span>
+<span class="w">      </span><span class="nt">community.DbRuntimeRoleName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;WP_BASE_RUNTIME_USERS&quot;</span>
+<span class="w">      </span><span class="nt">community.XDbName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;WPCOMM&quot;</span>
+<span class="w">      </span><span class="nt">community.DbNode</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;wpsNode&quot;</span>
+<span class="w">      </span><span class="nt">customization.DbType</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;sqlserver&quot;</span>
+<span class="w">      </span><span class="nt">customization.DbName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;WPCUST&quot;</span>
+<span class="w">      </span><span class="nt">customization.DbSchema</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;CUSTOMIZATION&quot;</span>
+<span class="w">      </span><span class="nt">customization.DataSourceName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;wpcustdbDS&quot;</span>
+<span class="w">      </span><span class="nt">customization.DbUrl</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;jdbc:sqlserver://DB_HOST_PLACEHOLDER:1433;databaseName=WPCUST;encrypt=false&quot;</span>
+<span class="w">      </span><span class="nt">customization.DbUser</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;replace-db-user&gt;&quot;</span>
+<span class="w">      </span><span class="nt">customization.DbPassword</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;replace-db-password&gt;&quot;</span>
+<span class="w">      </span><span class="nt">customization.DbRuntimeUser</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;replace-db-user&gt;&quot;</span>
+<span class="w">      </span><span class="nt">customization.DbRuntimePassword</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;replace-db-password&gt;&quot;</span>
+<span class="w">      </span><span class="nt">customization.DBA.DbUser</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;replace-db-user&gt;&quot;</span>
+<span class="w">      </span><span class="nt">customization.DBA.DbPassword</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;replace-db-password&gt;&quot;</span>
+<span class="w">      </span><span class="nt">customization.DbConfigRoleName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;WP_BASE_CONFIG_USERS&quot;</span>
+<span class="w">      </span><span class="nt">customization.DbRuntimeRoleName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;WP_BASE_RUNTIME_USERS&quot;</span>
+<span class="w">      </span><span class="nt">customization.XDbName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;WPCUST&quot;</span>
+<span class="w">      </span><span class="nt">customization.DbNode</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;wpsNode&quot;</span>
+<span class="w">      </span><span class="nt">jcr.DbType</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;sqlserver&quot;</span>
+<span class="w">      </span><span class="nt">jcr.DbName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;WPJCR&quot;</span>
+<span class="w">      </span><span class="nt">jcr.DbSchema</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;JCR&quot;</span>
+<span class="w">      </span><span class="nt">jcr.DataSourceName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;wpjcrdbDS&quot;</span>
+<span class="w">      </span><span class="nt">jcr.DbUrl</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;jdbc:sqlserver://DB_HOST_PLACEHOLDER:1433;databaseName=WPJCR;encrypt=false&quot;</span>
+<span class="w">      </span><span class="nt">jcr.DbUser</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;replace-db-user&gt;&quot;</span>
+<span class="w">      </span><span class="nt">jcr.DbPassword</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;replace-db-password&gt;&quot;</span>
+<span class="w">      </span><span class="nt">jcr.DbRuntimeUser</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;replace-db-user&gt;&quot;</span>
+<span class="w">      </span><span class="nt">jcr.DbRuntimePassword</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;replace-db-password&gt;&quot;</span>
+<span class="w">      </span><span class="nt">jcr.DBA.DbUser</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;replace-db-user&gt;&quot;</span>
+<span class="w">      </span><span class="nt">jcr.DBA.DbPassword</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;replace-db-password&gt;&quot;</span>
+<span class="w">      </span><span class="nt">jcr.DbConfigRoleName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;WP_JCR_CONFIG_USERS&quot;</span>
+<span class="w">      </span><span class="nt">jcr.DbRuntimeRoleName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;WP_JCR_RUNTIME_USERS&quot;</span>
+<span class="w">      </span><span class="nt">jcr.XDbName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;WPJCR&quot;</span>
+<span class="w">      </span><span class="nt">jcr.DbNode</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;wpsNode&quot;</span>
+<span class="w">    </span><span class="nt">dbTypeProperties</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">sqlserver.DbDriver</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;com.microsoft.sqlserver.jdbc.SQLServerDriver&quot;</span>
+<span class="w">      </span><span class="nt">sqlserver.DbLibrary</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/opt/openliberty/wlp/usr/svrcfg/templates/jars/sqlserver/mssql-jdbc.jar&quot;</span>
+<span class="w">      </span><span class="nt">sqlserver.JdbcProviderName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;wpdbJDBC_sqlserver&quot;</span>
+<span class="w">      </span><span class="nt">sqlserver.DbConnectionPoolDataSource</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;com.microsoft.sqlserver.jdbc.SQLServerConnectionPoolDataSource&quot;</span>
 </code></pre></div>
 <h3 id="external-database-configuration-in-the-custom-secrets-file">External database configuration in the custom secrets file</h3>
 <div class="language-yaml highlight"><pre><span></span><code><span class="nt">configuration</span><span class="p">:</span>
@@ -1996,6 +2169,18 @@ kubectl<span class="w"> </span>create<span class="w"> </span>secret<span class="
 <td>oracle.JdbcProviderName</td>
 <td>Name of the JDBC provider for ORACLE DB.</td>
 </tr>
+<tr>
+<td>sqlserver.DbDriver</td>
+<td>Name of the database driver class for sqlserver DB.</td>
+</tr>
+<tr>
+<td>sqlserver.DbLibrary</td>
+<td>Path to the database driver library for sqlserver DB.</td>
+</tr>
+<tr>
+<td>sqlserver.JdbcProviderName</td>
+<td>Name of the JDBC provider for sqlserver DB.</td>
+</tr>
 </tbody>
 </table>
 <div class="admonition limitation">
@@ -2022,7 +2207,7 @@ kubectl<span class="w"> </span>create<span class="w"> </span>secret<span class="
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 30, 2025 14:37:26 UTC">July 30, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 29, 2025 18:38:19 UTC">August 29, 2025</span>
   </span>
 
     

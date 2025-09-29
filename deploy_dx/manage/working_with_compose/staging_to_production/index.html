@@ -122,9 +122,9 @@ function OptanonWrapper() { }
 <div class="dropdown">
   <button class="dropbtn">Resources <i class="fa fa-caret-down"></i></button> 
   <div class="dropdown-content">
-  <a href="https://support.hcltechsw.com" target="_blank">Customer Support</a>
+  <a href="https://support.hcl-software.com/csm" target="_blank">Customer Support</a>
   <a href="https://hclsoftwareu.hcltechsw.com/hcl-dx" target="_blank">HCLSoftware U</a>
-  <a href="https://support.hcltechsw.com/community" target="_blank">Community Forums</a>
+  <a href="https://developer.ds.hcl-software.com/c/hcl-dx/dx-forum/25" target="_blank">Community Forums</a>
 
 </div>
 </div>
@@ -468,6 +468,8 @@ function OptanonWrapper() { }
       
         
       
+        
+      
     
     
       
@@ -776,6 +778,8 @@ function OptanonWrapper() { }
       
         
       
+        
+      
     
     
       
@@ -823,6 +827,10 @@ function OptanonWrapper() { }
       
         
           
+        
+      
+        
+      
         
       
         
@@ -1504,159 +1512,159 @@ function OptanonWrapper() { }
 <p>Staging is only possible between the same product release or version. In contrast, upgrading from one release to a newer release is called migration.</p>
 <p>HCL Digital Experience (DX) Compose, Web Content Manager (WCM) and Digital Asset Manager (DAM) solutions can consist of many artifacts. These artifacts include portlets, themes and skins, portlet services, page layouts, wires, portlet configurations, portlet data, content, and personalization rules. Staging helps you move these artifacts to the production environment in a controlled way.</p>
 <p>For naming purposes, this document calls the system that you are staging from the <em>source</em> system and the system you are staging to the <em>target</em> system.</p>
+<p>When using DXClient, you must be able to connect to at least the target systems to fully complete the following tasks. This connection is essential for the deployment process. Deploying to the target system requires XMLAccess input decks (XML files) produced by the source system. These source XML files can be generated using a local XMLAccess command, a remote XMLAccess command, or, preferably, a DXClient command.</p>
 <h2 id="staging-from-source-to-target">Staging from source to target</h2>
-<ol>
-<li>
-<p>Install and upgrade the target HCL DX Compose system with Helm. The target and source should have exactly the same DX Compose level and preferably be at the latest of both. As both source and target are Kubernetes-based.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>It is recommended to use the latest cumulative fix (CF) on both the source and target systems.</p>
+<p>Setting up CaaS requires using the <code>xmlaccess</code> function in DXClient. For more information on installing and using DXClient, refer to <a href="https://help.hcl-software.com/digital-experience/9.5/latest/extend_dx/development_tools/dxclient/" target="_blank">DXClient</a>.</p>
 </div>
+<p>Refer to the following steps to stage your solutions from the source system to the target system.</p>
+<ol>
+<li>
+<p>Install DX Compose to the target system and perform a Helm upgrade. The target and source should have exactly the same DX Compose Cumulative Fix (CF) level. It is recommended to use the latest CF on the source and target systems.</p>
 </li>
 <li>
-<p>Configure security on the target DX Compose system. This might be a different user repository (for example, LDAP) than the source server.</p>
+<p>Configure security on the target DX Compose system. This may be a different user repository (for example, LDAP) from that of the source server.</p>
 <p>If both systems are using the same user repository and the same administrator, you can copy the appropriate section (for example, <code>ldap-repository</code>) from the <code>server.xml</code> of the source to the <code>server.xml</code> of the target and update the Helm chart of the target to match the source.</p>
+<p>For more information on configuring security, refer to <a href="../../cfg_webengine/ldap_configuration/">Configuring LDAP</a> and <a href="../../cfg_webengine/configure_compose_to_use_oidc/">Configuring DX Compose to use an OIDC identity provider</a>.</p>
 </li>
 <li>
-<p>Transfer the database to DB2 on the target DX Compose system. Note that this step happens through the Helm chart for the target server.</p>
-<p>While transferring database on the source is not critical, it is assumed that the target system will be used for production use and should have gone through database transfer.</p>
+<p>Ensure you have transferred to an external database on the target DX Compose system that is used for the production environment. For more information, refer to <a href="https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/cfg_webengine/external_db_database_transfer/#using-the-external-database-and-triggering-the-database-transfer" target="_blank">Database Management - Using the external database and triggering the database transfer</a>.</p>
 </li>
 <li>
-<p>Using XMLAccess, export the virtual Portals from the source system.</p>
-<p>Sample command:</p>
-<div class="language-text highlight"><pre><span></span><code>/opt/openliberty/wlp/usr/svrcfg/scripts/xmlaccess/xmlaccess.sh -d /opt/openliberty/wlp/usr/servers/defaultServer -out /tmp/ExportVirtualPortals.xml -in     /opt/openliberty/wlp/usr/svrcfg/xml-samples/ExportVirtualPortals.xml -user wpsadmin -password wpsadmin -url http://localhost:9080/wps/config
+<p>Export the virtual portals from the source system by running the following command using DXClient:</p>
+<div class="language-text highlight"><pre><span></span><code>dxclient xmlaccess -xmlFile ExportVirtualPortals.xml
 </code></pre></div>
+<p>This command produces an XML output file that contains the list of all the virtual portals on the source system. It can be found on the source system and is copied here: <a href="../ExportVirtualPortals.xml" target="_blank">ExportVirtualPortals.xml</a>. Name the output file <code>ExportVirtualPortals.xml.out</code>.</p>
 </li>
 <li>
-<p>Export XMLAccess with <code>ExportRelease.xml</code> on the source Portal <strong>base</strong> virtual Portal. As an example, the result file could be called <code>baseVPExportRelease.xml</code>.</p>
-<p>From inside the WebEngine portal deployed on your source system (for example, use <code>kubectl exec -it webengine-pod-0 bash -n dxns</code>), you can use the following sample command:</p>
-<div class="language-text highlight"><pre><span></span><code>/opt/openliberty/wlp/usr/svrcfg/scripts/xmlaccess/xmlaccess.sh -d /opt/openliberty/wlp/usr/servers/defaultServer -out /tmp/baseVPExportRelease.xml -in     /opt/openliberty/wlp/usr/svrcfg/xml-samples/ExportRelease.xml -user wpsadmin -password wpsadmin -url http://localhost:9080/wps/config
+<p>Export the base portal from the source system by running the following command on the source portal's base virtual portal. For example, the result file could be called <code>baseVPExportRelease.xml</code>.</p>
+<div class="language-text highlight"><pre><span></span><code>dxclient xmlaccess -xmlFile ExportRelease.xml
 </code></pre></div>
+<p>This command produces an XML output file of the base portal on the source system. It can be found on the source system and is copied here: <a href="../ExportRelease.xml" target="_blank">ExportRelease.xml</a>. Name the output file <code>baseVPExportRelease.xml.out</code>.</p>
 </li>
 <li>
-<p>Export XMLAccess export with <code>ExportUniqueRelease.xml</code> for the first source Portal Virtual Portal 1. As an example, the result file could be called <code>vp1Export</code>.xml.</p>
-<p>From inside the WebEngine container deployed on your source system (for example, use <code>kubectl exec -it webengine-pod-0 bash -n dxns</code>) you can use the following sample command:</p>
-<div class="language-text highlight"><pre><span></span><code>/opt/openliberty/wlp/usr/svrcfg/scripts/xmlaccess/xmlaccess.sh -d /opt/openliberty/wlp/usr/servers/defaultServer -out /tmp/vp1Export.xml -in /opt/openliberty/wlp/usr/svrcfg/xml-samples/ExportUniqueRelease.xml -user wpsadmin -password wpsadmin -url http://localhost:9080/wps/config/vp1
+<p>Export your virtual portals using the following command for the first virtual portal on the source system. For example, the result file could be called <code>vp1Export.xml</code>.</p>
+<div class="language-text highlight"><pre><span></span><code>dxclient xmlaccess -xmlFile ExportUniqueRelease.xml -xmlConfigPath /wps/config/vp1
 </code></pre></div>
+<p>This command produces an XML output file that contains all the resources on the virtual portal. It can be found on the source system and is copied here: <a href="../ExportUniqueRelease.xml" target="_blank">ExportUniqueRelease.xml</a>. Name the output file <code>vp1ExportRelease.xml.out</code>.</p>
+<p>Repeat this step for each virtual portal on the source system. Ensure you use a unique name for each <code>dxclient xmlaccess</code> output. Each output file will be used as input when you import the virtual portals to the target system.</p>
 </li>
 <li>
-<p>Repeat Step 6 for each virtual portal on the source system. Make sure to use a unique name for the XMLAccess output.</p>
-</li>
-<li>
-<p>Remove existing content from the target WebEngine container.</p>
-<p>Ensure that all three XMLAccess tasks are run to complete the operation.</p>
-<p>Sample commands: </p>
-<div class="language-text highlight"><pre><span></span><code>/opt/openliberty/wlp/usr/svrcfg/scripts/xmlaccess/xmlaccess.sh -d /opt/openliberty/wlp/usr/servers/defaultServer -out /tmp/CleanPortalWithoutWebApps.xml.out -in /opt/openliberty/wlp/usr/svrcfg/xml-samples/CleanPortalWithoutWebApps.xml -user wpsadmin -password wpsadmin -url http://localhost:9080/wps/config
+<p>Remove existing content from the target WebEngine container by running the following XMLAccess commands:</p>
+<div class="language-text highlight"><pre><span></span><code>dxclient xmlaccess -xmlFile CleanPortalWithoutWebApps.xml 
 
-/opt/openliberty/wlp/usr/svrcfg/scripts/xmlaccess/xmlaccess.sh -d /opt/openliberty/wlp/usr/servers/defaultServer -out /tmp/AddBasePortalResources.xml.out -in ./engine/engine-ear/target/liberty/wlp/usr/installer/wp.config/config/templates/AddBasePortalResources.xml -user wpsadmin -password wpsadmin -url http://localhost:9080/wps/config
+dxclient xmlaccess -xmlFile AddBasePortalResources.xml
 
-/opt/openliberty/wlp/usr/svrcfg/scripts/xmlaccess/xmlaccess.sh -d /opt/openliberty/wlp/usr/servers/defaultServer -out /tmp/SchedulerCleanupTask.xml.out -in /opt/openliberty/wlp/usr/installer/wp.config/config/templates/SchedulerCleanupTask.xml -user wpsadmin -password wpsadmin -url http://localhost:9080/wps/config
+dxclient xmlaccess -xmlFile SchedulerCleanupTask.xml
 </code></pre></div>
+<p>Ensure all three XMLAccess tasks are successfully completed to finish the operation.</p>
+<p>These XMLAccess files can be found on the source system and are copied here:</p>
+<ul>
+<li><a href="../CleanPortalWithoutWebApps.xml" target="_blank">CleanPortalWithoutWebApps.xml</a></li>
+<li><a href="../AddBasePortalResources.xml" target="_blank">AddBasePortalResources.xml</a></li>
+<li><a href="../SchedulerCleanupTask.xml" target="_blank">SchedulerCleanupTask.xml</a></li>
+</ul>
 </li>
 <li>
-<p>Run scheduler through the <code>Task.xml</code> on the target WebEngine container.</p>
-<p>Sample command: </p>
-<div class="language-text highlight"><pre><span></span><code>/opt/openliberty/wlp/usr/svrcfg/scripts/xmlaccess/xmlaccess.sh -d /opt/openliberty/wlp/usr/servers/defaultServer -out /tmp/Task.xml.out -in /opt/openliberty/wlp/usr/svrcfg/xml-samples/Task.xml -user wpsadmin -password wpsadmin -url http://localhost:9080/wps/config
+<p>Run the scheduler using the <code>Task.xml</code> script on the target WebEngine container by executing the following command:</p>
+<div class="language-text highlight"><pre><span></span><code>dxclient xmlaccess -xmlFile Task.xml
 </code></pre></div>
+<p>This command forces the cleanup task to run, which removes resources that were <em>soft</em>-deleted. It can be found on the source system and is copied here: <a href="../Task.xml" target="_blank">Task.xml</a>.</p>
 </li>
 <li>
-<p>Transfer the WebDav theme from the source server to the target. </p>
+<p>Transfer the WebDAV themes from the source system to the target system.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>WebEngine currently does not support deployment of custom EAR files that can persist. Only WebDav-based themes are supported. </p>
+<p>WebEngine currently does not support deployment of custom EAR files that persist. Only WebDAV-based themes are supported.</p>
 </div>
 <ol>
 <li>
-<p>Locate your custom themes on the source server using the Theme Manager in WebEngine. Take note of the names you have assigned to the themes.</p>
+<p>Locate your custom themes on the source system using the Theme Manager in WebEngine. Take note of the names you have assigned to the themes.</p>
 </li>
 <li>
-<p>Using a WebDav client on your local operating system, create an archive using the TAR utility or compress the files in ZIP format for the custom themes from the WebDav file system. </p>
+<p>Using <a href="https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_delivery/webdav/" target="_blank">a WebDAV client</a> on your local operating system, create an archive using the TAR utility or compress the files in ZIP format for the custom themes from the WebDAV file system.</p>
 </li>
 <li>
-<p>After all the files are contained in a tarball or ZIP file, move this file to the target and import the files onto the target WebDav using the same theme names as on the source server.</p>
+<p>After all the files are contained in a tarball or ZIP file, move this file to the target and import the files into the target <a href="https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_delivery/webdav/" target="_blank">WebDAV</a> directory using the same theme names as on the source system.</p>
 </li>
 <li>
-<p>Regardless of the method used to get the theme files onto the target WebDav, you must register the custom themes using XMLAccess. Ensure that one preserves the object id (OID) of the custom theme(s) on the target portal. For example, the OID should be the same on the source and target in the XMLAccess import XML file.</p>
+<p>Regardless of the method used to get the theme files onto the target WebDAV, you must register the custom themes using XMLAccess. Ensure you preserve the object ID (OID) of the custom theme(s) on the target portal. For example, the OID should be the same on the source and target in the XMLAccess import XML file.</p>
 </li>
 <li>
-<p>Export the themes and skins from the source:</p>
-<div class="language-text highlight"><pre><span></span><code>/opt/openliberty/wlp/usr/svrcfg/scripts/xmlaccess/xmlaccess.sh -d /opt/openliberty/wlp/usr/servers/defaultServer -out /tmp/ExportThemesAndSkins.xml.out -in /opt/openliberty/wlp/usr/svrcfg/xml-samples/ExportThemesAndSkins.xml -user wpsadmin -password wpsadmin -url http://localhost:9080/wps/config
+<p>Export the themes and skins from the source using the following command:</p>
+<div class="language-text highlight"><pre><span></span><code>dxclient xmlaccess -xmlFile ExportThemesAndSkins.xml
 </code></pre></div>
+<p>This command exports all the themes and skins from the source portal. It can be found on the source system and is copied here: <a href="../ExportThemesAndSkins.xml" target="_blank">ExportThemesAndSkins.xml</a>.</p>
 </li>
 <li>
-<p>Edit the output file (<code>/tmp/ExportThemesAndSkins.xml.out</code>) to remove any themes and skins not created using the Theme Manager. This would include all themes included in the base Portal (for example, Portal 8.5 theme).</p>
+<p>Edit the XML output file created in step 5 to remove any themes and skins not created using the Theme Manager. This includes all the themes in the base portal (for example, Portal 8.5 theme). Name the output file <code>ExportThemesAndSkins.xml.out</code>.</p>
 </li>
 <li>
-<p>Import the resulting XML file on the target to register the new themes and skins:</p>
-<div class="language-text highlight"><pre><span></span><code>/opt/openliberty/wlp/usr/svrcfg/scripts/xmlaccess/xmlaccess.sh -d /opt/openliberty/wlp/usr/servers/defaultServer -in /tmp/ExportThemesAndSkins.xml.out -out /tmp/ExportThemesAndSkins.xml.out.out -user wpsadmin -password wpsadmin -url http://localhost:9080/wps/config
+<p>Import the resulting XML file on the target system to register the new themes and skins using the following command:</p>
+<div class="language-text highlight"><pre><span></span><code>dxclient xmlaccess -xmlFile ExportThemesAndSkins.xml.out
 </code></pre></div>
 </li>
 </ol>
 </li>
 <li>
-<p>Set the properties required for syndication in WCM ConfigService (for example, enable member fixer to run as part of syndication). You can find more information about custom syndication configuration properties in <a href="https://opensource.hcltechsw.com/digital-experience/latest/manage_content/wcm_configuration/wcm_adm_tools/wcm_member_fixer/wcm_admin_member-fixer_synd/" target="_blank">Member fixer in Syndication</a>.</p>
+<p>Set the properties required for syndication in <code>WCMConfigService</code> (for example, enabling the member fixer to run as part of syndication). You can find more information about custom syndication configuration properties in <a href="https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_configuration/wcm_adm_tools/wcm_member_fixer/wcm_admin_member-fixer_synd/" target="_blank">Member fixer with syndication</a>.</p>
+<p>You need to create a Helm <code>values.yaml</code> file to update the <code>WCMConfigService</code> properties file. For example: <a href="../WCMConfigServiceHelmChart.yaml">WCMConfigServiceHelmChart.yaml</a>. The actual values in the sample Helm <code>values.yaml</code> must match the desired values for your situation.</p>
 </li>
 <li>
-<p>Import XMLAccess with <code>baseExport.xml</code> into the base virtual Portal of the target system.</p>
-<p>Sample command: </p>
-<div class="language-text highlight"><pre><span></span><code>/opt/openliberty/wlp/usr/svrcfg/scripts/xmlaccess/xmlaccess.sh -d /opt/openliberty/wlp/usr/servers/defaultServer -in /tmp/baseVPExportRelease.xml -out /tmp/baseVPExportRelease.xml.out -user wpsadmin -password wpsadmin -url http://localhost:9080/wps/config
+<p>Import the base virtual portal (exported in step 5) into the base virtual portal of the target system using the following command:</p>
+<div class="language-text highlight"><pre><span></span><code>dxclient xmlaccess -xmlFile baseVPExportRelease.xml.out
 </code></pre></div>
+<p>This command imports the <code>baseVPExportRelease.xml.out</code> file generated in step 5.</p>
 </li>
 <li>
-<p>Deploy your DAM assets from your source environment to you target environment using DXClient.</p>
-<p>Run the following commands:</p>
+<p>Deploy your DAM assets from your source environment to your target environment using the following commands:</p>
 <div class="language-text highlight"><pre><span></span><code>dxclient manage-dam-staging register-dam-subscriber
 dxclient manage-dam-staging trigger-staging
 </code></pre></div>
 </li>
 <li>
-<p>Export the Personalization rules from the source system and import them to the target server. You can export and import the rules using the Personalization Administration Portlet Export and Import functions. See <a href="https://opensource.hcltechsw.com/digital-experience/latest/manage_content/pzn/pzn_stage_prod" target="_blank">Staging Personalization rules to production</a> for more information.</p>
+<p>Export the Personalization rules from the source system, then import them to the target system. You can export and import the rules using the Personalization Administration Portlet Export and Import functions. For more information, refer to <a href="https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/pzn/pzn_stage_prod/" target="_blank">Staging Personalization rules to production</a>.</p>
 </li>
 <li>
-<p>Verify that everything in the base virtual Portal is working. </p>
-<p>Make sure to check the rendering of the theme and pages, as well as content, Personalization rules, or Script Applications.</p>
+<p>Ensure the base virtual portal is working properly. Verify the content, rendering of the theme and pages, Personalization rules, and Script Applications.</p>
 </li>
 <li>
-<p>Create your virtual Portals using the output deck from the XMLAccess command used in step 4 to export the virtual Portal definitions from the source.</p>
-<p>Sample command:</p>
-<div class="language-text highlight"><pre><span></span><code>/opt/openliberty/wlp/usr/svrcfg/scripts/xmlaccess/xmlaccess.sh -d /opt/openliberty/wlp/usr/servers/defaultServer -in /tmp/ExportVirtualPortals.xml -out /tmp/ExportVirtualPortals.xml.out -user wpsadmin -password wpsadmin -url http://localhost:9080/wps/config
+<p>Import the virtual portals (exported in step 4) from the source system into the target system using the following command:</p>
+<div class="language-text highlight"><pre><span></span><code>dxclient xmlaccess -xmlFile ExportVirtualPortals.xml.out
 </code></pre></div>
+<p>This command imports the <code>ExportVirtualPortals.xml.out</code> file generated in step 4.</p>
 </li>
 <li>
-<p>Import the XML file for each virtual Portal on the source into same virtual Portal on the target using XMLAccess. Ensure that the VP context root in the XMLAccess command matches the VP name in the <code>&amp;quot;/wps/config/&amp;quot;</code> XMLAccess statement.</p>
-<p>Sample command: </p>
-<div class="language-text highlight"><pre><span></span><code>/opt/openliberty/wlp/usr/svrcfg/scripts/xmlaccess/xmlaccess.sh -d /opt/openliberty/wlp/usr/servers/defaultServer -in /tmp/vp1Export.xml -out /tmp/vp1Export_result.xml -user wpsadmin -password wpsadmin -url http://localhost:9080/wps/config/vp1
+<p>Import the XML files generated in step 6 for each virtual portal from the source system into the corresponding virtual portal on the target system using the following command.</p>
+<div class="language-text highlight"><pre><span></span><code>dxclient xmlaccess -xmlFile vp1Export.xml -xmlConfigPath /wps/config/vp1
 </code></pre></div>
+<p>Ensure that the VP context root used in every command matches the context root of each target virtual portal.</p>
 </li>
 <li>
-<p>Repeat steps 16 and 17 until all of your virtual Portals are created and filled through XMLAccess on the target Portal.</p>
+<p>Verify that all DAM artifacts were transferred from your source system to your target system as configured in step 13.</p>
 </li>
 <li>
-<p>Validate all DAM artifacts were transferred from your source system to your target system as configured in step 13.</p>
-</li>
-<li>
-<p>Delete your WebEngine pod and wait for Kubernetes to restart the pod. </p>
-<p>Sample command:</p>
+<p>Restart the <code>webengine</code> pod using the following command on your local machine's terminal:</p>
 <div class="language-text highlight"><pre><span></span><code>kubectl delete webengine-pod-0 -n dxns
 </code></pre></div>
 </li>
 <li>
-<p>Make sure that the WebEngine works correctly. </p>
-<p>Address potentially missed artifacts. Watch out for error messages in <code>SystemOut.log</code>, <code>messages.log</code>, and <code>trace.log</code> during startup.</p>
+<p>Ensure that WebEngine is functioning as expected. Address potentially missed artifacts and look for error messages in <code>SystemOut.log</code>, <code>messages.log</code>, and <code>trace.log</code> during startup.</p>
 </li>
 <li>
-<p>Set up syndication for the appropriate libraries between the source and the target system or target to source depending on your requirements (for example, for an Authoring system, subsequent syndications could go from Authoring to Integration Test or Development environment).</p>
+<p>Set up syndication for the appropriate libraries between the source and target systems (or target to source depending on your requirements). For example, for an Authoring system, subsequent syndications could go from Authoring to Integration Test or Development environment.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ul>
 <li>You need to syndicate the Multilingual configuration library.</li>
-<li>You must setup syndication as well between your source system virtual Portals to the target system virtual Portals. </li>
+<li>You must set up syndication between your source system's virtual portals and the target system's virtual portals.</li>
 </ul>
 </div>
 </li>
 <li>
-<p>After syndication has completed its initial run, set up the library permissions. </p>
-<p>Library permissions are not syndicated. For more information, see <a href="https://opensource.hcltechsw.com/digital-experience/latest/manage_content/wcm_authoring/authoring_portlet/web_content_libraries/oob_content_accesslib/" target="_blank">Set up access to libraries</a>.</p>
+<p>After syndication has completed its initial run, set up the library permissions.</p>
+<p>Library permissions are not syndicated. For more information, refer to <a href="https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_authoring/authoring_portlet/web_content_libraries/oob_content_accesslib/" target="_blank">Set up access to libraries</a>.</p>
 </li>
 </ol>
 
@@ -1679,7 +1687,7 @@ dxclient manage-dam-staging trigger-staging
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 18, 2025 13:36:19 UTC">March 18, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 25, 2025 11:47:42 UTC">September 25, 2025</span>
   </span>
 
     

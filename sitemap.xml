@@ -2,586 +2,610 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/install/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/install/docker_compose/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/install/kubernetes_deployment/containers_overview/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/install/kubernetes_deployment/containers_requirements_limits/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/install/kubernetes_deployment/download_sw/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/install/kubernetes_deployment/helm_install_commands/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/install/kubernetes_deployment/helm_uninstall/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/install/kubernetes_deployment/image_list/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/install/kubernetes_deployment/install/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/install/kubernetes_deployment/kubernetes_runtime/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/install/kubernetes_deployment/locating_downloads/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/install/kubernetes_deployment/overview/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/install/kubernetes_deployment/supported_platforms/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/install/kubernetes_deployment/update_helm_deployment/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/install/kubernetes_deployment/preparation/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/install/kubernetes_deployment/preparation/get_the_code/configure_harbor_helm_repo/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/install/kubernetes_deployment/preparation/get_the_code/prepare_load_images/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/install/kubernetes_deployment/preparation/mandatory_tasks/prepare_configuration/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/install/kubernetes_deployment/preparation/mandatory_tasks/prepare_configure_networking/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/install/kubernetes_deployment/preparation/mandatory_tasks/prepare_ingress_certificate/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/install/kubernetes_deployment/preparation/mandatory_tasks/prepare_namespace/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/install/kubernetes_deployment/preparation/mandatory_tasks/prepare_persistent_volume_claims/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/install/kubernetes_deployment/preparation/mandatory_tasks/probes_configuration/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/install/kubernetes_deployment/preparation/optional_tasks/optional-configure-access-layer/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/install/kubernetes_deployment/preparation/optional_tasks/optional_configure_apps/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/install/kubernetes_deployment/preparation/optional_tasks/optional_configure_credentials/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/install/kubernetes_deployment/preparation/optional_tasks/optional_configure_dam_custom_cert/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/install/kubernetes_deployment/preparation/optional_tasks/optional_configure_scaling/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/install/kubernetes_deployment/preparation/optional_tasks/optional_configure_timezone/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/install/kubernetes_deployment/preparation/optional_tasks/optional_container_resources/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/install/kubernetes_deployment/preparation/optional_tasks/optional_disable_apps/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/install/kubernetes_deployment/preparation/optional_tasks/optional_imagepullsecrets/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/install/kubernetes_deployment/preparation/optional_tasks/optional_internal_networking/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/install/kubernetes_deployment/preparation/optional_tasks/optional_labels_annotations/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/install/kubernetes_deployment/preparation/optional_tasks/optional_options_host_alias/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/install/kubernetes_deployment/preparation/optional_tasks/optional_options_spread_pods_across_nodes/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/cfg_dx_compose/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/cfg_dx_compose/enable_cc/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/cfg_dx_compose/enable_content_ai/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/cfg_dx_compose/enable_dam/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/cfg_dx_compose/enable_people_service/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/cfg_dx_compose/enable_search/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/cfg_dx_compose/setup_cntnt_serv_pgs/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/cfg_dx_compose/wab_integration/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
+    </url>
+    <url>
+         <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/cfg_dx_compose/configure_sso/</loc>
+         <lastmod>2025-09-29</lastmod>
+    </url>
+    <url>
+         <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/cfg_dx_compose/configure_sso/integrating_leap_sso/</loc>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/cfg_dx_compose/integrate_ddc/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/cfg_dx_compose/integrate_ddc/integrating_voltmx_foundry/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/cfg_dx_compose/integrate_ddc/integrating_voltmx_foundry/configuring_voltmx_foundry_to_connect_to_ddc/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/cfg_webengine/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/cfg_webengine/configuration_changes_using_overrides/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/cfg_webengine/configure_compose_to_use_oidc/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/cfg_webengine/configure_jaas_modules/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/cfg_webengine/configure_transient_users/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/cfg_webengine/customize_webengine_image/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
+    </url>
+    <url>
+         <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/cfg_webengine/deploy_ear_theme/</loc>
+         <lastmod>2025-09-29</lastmod>
+    </url>
+    <url>
+         <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/cfg_webengine/deploy_wcm_plugins/</loc>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/cfg_webengine/external_db_database_transfer/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/cfg_webengine/ldap_configuration/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/cfg_webengine/server_configuration/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/cfg_webengine/tune_initial_portal_performance/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/cfg_webengine/update_properties_with_helm/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/cfg_webengine/update_wpsadmin_password/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/cfg_webengine/wcm_modules/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/cfg_webengine/webengine_directory_structure/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/working_with_compose/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/working_with_compose/change_context_root_or_home/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/working_with_compose/custom_certificates/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/working_with_compose/custom_secrets/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/working_with_compose/db_over_ssl/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/working_with_compose/dxclient/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/working_with_compose/helm_upgrade_values/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/working_with_compose/logging_webengine/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/working_with_compose/manage_outbound_connections/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/working_with_compose/monitor_metrics/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/working_with_compose/restart_webengine_server/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/working_with_compose/staging_to_production/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/working_with_compose/cfg_parameters/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/working_with_compose/cfg_parameters/adding_custom_attributes/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/working_with_compose/cfg_parameters/manage_users_groups_liberty/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/working_with_compose/troubleshooting/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/working_with_compose/troubleshooting/message_codes/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/working_with_compose/troubleshooting/wcm_support_tools/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/working_with_compose/troubleshooting/logging_and_tracing/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/working_with_compose/troubleshooting/logging_and_tracing/adsyslog/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/working_with_compose/troubleshooting/logging_and_tracing/logging_tracing_containers_and_new_services/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/working_with_compose/troubleshooting/logging_and_tracing/open_liberty_logs/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/working_with_compose/troubleshooting/logging_and_tracing/run_logs/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/working_with_compose/troubleshooting/logging_and_tracing/verbosegc/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/working_with_compose/troubleshooting/logging_and_tracing/wcm_logs/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/working_with_compose/troubleshooting/logging_and_tracing/logging_and_tracing_clientside/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/working_with_compose/troubleshooting/logging_and_tracing/logging_and_tracing_clientside/csa2t_trbl_captlogs/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/working_with_compose/troubleshooting/logging_and_tracing/logging_and_tracing_clientside/csa2t_trbl_nbllogtrc/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/working_with_compose/troubleshooting/logging_and_tracing/logging_and_tracing_clientside/csa2t_trble_tracemod/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/working_with_compose/troubleshooting/maintenance_mode/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/getting_started/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/getting_started/architecture_dependencies/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/getting_started/differences/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/getting_started/limitations/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/getting_started/offerings/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/getting_started/overview/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/getting_started/system_requirements/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/getting_started/download/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/getting_started/download/harbor_container_registry/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/getting_started/download/locating-downloads/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/getting_started/download/configure_entitlement_checks/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/getting_started/download/configure_entitlement_checks/configuring_mhs_file_base_session_reporting/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/getting_started/download/configure_entitlement_checks/export_usage_report/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/getting_started/download/configure_entitlement_checks/mhs_license_and_delivery/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/getting_started/download/configure_entitlement_checks/user_session_reporting_tool/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/getting_started/product_overview/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/getting_started/product_overview/application_integration/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/getting_started/product_overview/content/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/getting_started/product_overview/dam/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/getting_started/product_overview/features/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/guide_me/howto/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/guide_me/howto/administration/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/guide_me/howto/api/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/guide_me/howto/configuration/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/guide_me/howto/configuration/adding_additional_portal_admins/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/guide_me/howto/container/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/guide_me/howto/content/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/guide_me/howto/dam/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/guide_me/howto/database/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/guide_me/howto/development/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/guide_me/howto/install/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/guide_me/howto/migration/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/guide_me/howto/performance/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/guide_me/howto/personalization/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/guide_me/howto/search/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/guide_me/howto/security/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/guide_me/howto/syndication/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/guide_me/howto/themes/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/guide_me/howto/tools/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/guide_me/howto/troubleshooting/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/guide_me/howto/upgrade/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/guide_me/howto/wcmlibrarymanagement/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/guide_me/performance_tuning/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/guide_me/performance_tuning/kubernetes/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
+    </url>
+    <url>
+         <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/guide_me/performance_tuning/kubernetes/rendering_large_config/</loc>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/guide_me/performance_tuning/kubernetes/rendering_small_config/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/whats_new/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/whats_new/cf224/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/whats_new/cf225/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/whats_new/cf226/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/whats_new/cf227/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/whats_new/cf228/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
     </url>
     <url>
          <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/whats_new/cf229/</loc>
-         <lastmod>2025-08-18</lastmod>
+         <lastmod>2025-09-29</lastmod>
+    </url>
+    <url>
+         <loc>https://help.hcl-software.com/digital-experience/dx-compose/latest/whats_new/cf230/</loc>
+         <lastmod>2025-09-29</lastmod>
     </url>
 </urlset>

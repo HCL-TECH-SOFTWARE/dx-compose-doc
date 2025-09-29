@@ -19,7 +19,7 @@
         <link rel="prev" href="../">
       
       
-        <link rel="next" href="../../../howto/">
+        <link rel="next" href="../rendering_large_config/">
       
       
       <link rel="icon" href="../../../../assets/favicon.png">
@@ -122,9 +122,9 @@ function OptanonWrapper() { }
 <div class="dropdown">
   <button class="dropbtn">Resources <i class="fa fa-caret-down"></i></button> 
   <div class="dropdown-content">
-  <a href="https://support.hcltechsw.com" target="_blank">Customer Support</a>
+  <a href="https://support.hcl-software.com/csm" target="_blank">Customer Support</a>
   <a href="https://hclsoftwareu.hcltechsw.com/hcl-dx" target="_blank">HCLSoftware U</a>
-  <a href="https://support.hcltechsw.com/community" target="_blank">Community Forums</a>
+  <a href="https://developer.ds.hcl-software.com/c/hcl-dx/dx-forum/25" target="_blank">Community Forums</a>
 
 </div>
 </div>
@@ -470,6 +470,8 @@ function OptanonWrapper() { }
       
         
       
+        
+      
     
     
       
@@ -747,6 +749,8 @@ function OptanonWrapper() { }
       
         
       
+        
+      
     
     
       
@@ -947,6 +951,27 @@ function OptanonWrapper() { }
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rendering_large_config/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rendering - Large-Sized Configuration
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1250,21 +1275,52 @@ function OptanonWrapper() { }
 <p>The Kubernetes platform was deployed on an Amazon EC2 instance with DX Compose images installed and configured. In the AWS/Native Kubernetes setup, the tests were conducted on three EC2 instances using a c5.2xlarge node. This instance type was used for the remote DB2 instance (core database) and the JMeter instance.</p>
 <p>Refer to the following setup details:</p>
 <p><strong>c5.2xlarge</strong></p>
-<ul>
-<li>
-<p>Node details</p>
-<p><img alt="" src="../../../../images/Header-1-AWS.png" width="1000" /></p>
-<p><img alt="" src="../../../../images/C5.2xlarge.png" width="1000" /></p>
-</li>
-<li>
-<p>Processor details</p>
-<p><img alt="" src="../../../../images/Processor_Info_Native-Kube.png" width="600" /></p>
-</li>
-<li>
-<p>Volume details</p>
-<p><img alt="" src="../../../../images/Remote-DB2-Volume-Info-Compose-Small.png" width="400" /></p>
-</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>vCPUs</td>
+<td>8</td>
+</tr>
+<tr>
+<td>Memory</td>
+<td>16 GiB</td>
+</tr>
+<tr>
+<td>EBS-Optimized</td>
+<td>Yes (7500 Mbps bandwidth)</td>
+</tr>
+<tr>
+<td>Network Bandwidth</td>
+<td>Up to 10 Gbps</td>
+</tr>
+<tr>
+<td>EBS Volume Type</td>
+<td>General Purpose (gp3/gp2), io1/io2</td>
+</tr>
+<tr>
+<td>Processor</td>
+<td>Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz</td>
+</tr>
+<tr>
+<td>Architecture</td>
+<td>x86_64</td>
+</tr>
+<tr>
+<td>ENA Support</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>NVMe Support</td>
+<td>Yes (EBS using NVMe)</td>
+</tr>
+</tbody>
+</table>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Ramp-up time is 0.4 seconds per user. The test duration includes the ramp-up time plus one hour at the peak load of concurrent users.</p>
@@ -1411,7 +1467,7 @@ To access the cache statistics, open the following URL in your browser: <code>ht
 <p>For convenience, these values were added to the <code>small-config-values.yaml</code> file in the hcl-dx-deployment Helm chart. To use these values, refer to the following steps:</p>
 <ol>
 <li>
-<p>Download the <code>hcl-dx-deployment</code> Helm chart from FlexNet or Harbor.</p>
+<p>Download the <code>hcl-dx-deployment</code> Helm chart from Harbor.</p>
 </li>
 <li>
 <p>Extract the <code>hcl-dx-deployment-XXX.tgz</code> file.</p>
@@ -1433,8 +1489,8 @@ To access the cache statistics, open the following URL in your browser: <code>ht
 <li>
 <p>To improve response times, perform the Helm upgrade using the <code>webengine-performance-rendering.yaml</code> file. This file is available in the HCL DX Compose Deployment Helm chart. To use this file, complete the following steps:</p>
 <ol>
-<li>Download the hcl-dx-deployment Helm chart from FlexNet or Harbor.</li>
-<li>Extract the hcl-dx-deployment-XXX.tgz file.</li>
+<li>Download the <code>hcl-dx-deployment</code> Helm chart from Harbor.</li>
+<li>Extract the <code>hcl-dx-deployment-XXX.tgz</code> file.</li>
 <li>In the extracted folder, navigate to <code>hcl-dx-deployment/performance/webengine-performance-rendering.yaml</code> and copy the <code>webengine-performance-rendering.yaml</code>.</li>
 </ol>
 <p>After performing a Helm upgrade using the <code>webengine-performance-rendering.yaml</code> file, the tuned cache values for rendering will be updated.</p>
@@ -1484,7 +1540,7 @@ To access the cache statistics, open the following URL in your browser: <code>ht
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 20, 2025 20:34:23 UTC">April 20, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 2, 2025 13:56:17 UTC">September 2, 2025</span>
   </span>
 
     
