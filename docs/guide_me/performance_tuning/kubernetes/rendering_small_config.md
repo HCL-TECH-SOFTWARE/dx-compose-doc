@@ -2,15 +2,15 @@
 title: Rendering - Small-Sized configuration
 ---
 
-# Sizing guidance for rendering in a small-sized Kubernetes configuration
+# Sizing guidance for rendering in a small Kubernetes configuration
 
-This topic provides the details of the environments used for rendering in a small-sized Kubernetes configuration. You can also find the test results and recommendations for small configurations on this page.
+This section describes the environments used for rendering in a small Kubernetes configuration. It also includes test results and recommendations. 
 
 ## Methodology
 
 This sizing activity rendered scenarios for the Web Content Manager (WCM), Digital Asset Management (DAM), and HCL Digital Experience (DX) Compose pages and portlets. This activity used a rendering setup enabled in AWS/Native-Kubernetes, where Kubernetes is installed directly in Amazon Elastic Cloud Compute (EC2) instances. A combination run was performed that rendered WCM content, DAM assets, and DX Compose pages and portlets. The load distribution was WCM content (40%), DAM assets (30%), and DX Compose pages and portlets (30%). All systems were pre-populated before performing the rendering tests.
 
-To achieve the 1,000 concurrent users mark, an initial set of runs was done with a lower number of users on a single node setup. The tests started with the desired load of 1,000 users and an acceptable error rate (< 0.01%). Further steps were taken to optimize the limits on the available resources for each pod.
+To achieve the 1,000 concurrent users mark, the tests started with fewer users on a single-node setup. The tests started with the desired load of 1,000 users and an acceptable error rate (< 0.01%). Further steps were taken to optimize the limits on the available resources for each pod.
 
 The following table contains the rendering scenario details for a small configuration. 
 
@@ -18,7 +18,7 @@ The following table contains the rendering scenario details for a small configur
 | -------------------- | ------------------ | -------------------- | ----------------------------- |
 | 1,000 users          | 20                 | 2,500                |    6                          |
 
-For more information about the setup of test data, refer to the following sections:
+For more information about the setup of test data, See the following sections:
 
 - [WCM default test data](./index.md#wcm-default-test-data)
 - [DAM default test data](./index.md#dam-default-test-data)
@@ -32,7 +32,7 @@ This section provides details for the Kubernetes cluster, JMeter agents, and dat
 
 The Kubernetes platform was deployed on an Amazon EC2 instance with DX Compose images installed and configured. In the AWS/Native Kubernetes setup, the tests were conducted on three EC2 instances using a c5.2xlarge node. This instance type was used for the remote DB2 instance (core database) and the JMeter instance.
 
-Refer to the following setup details:
+See the following setup details:
 
 **c5.2xlarge**
 
@@ -80,7 +80,7 @@ After applying the updated Helm values and cache adjustments, the system showed 
 
 |  |  | Request | Request | Limit | Limit |
 |---|---|---:|---|---|---|
-| **Component** | **No. of pods** | **cpu (m)<br>** | **memory (Mi)<br>** | **cpu (m)<br>** | **memory (Mi)<br>** |
+| **Component** | **No. of pods** | **CPU (m)<br>** | **memory (MiB)<br>** | **CPU (m)<br>** | **memory (MiB)<br>** |
 | contentComposer | 1 | 100 | 128 | 100 | 128 |
 | **webEngine** | 1 | **4300** | **5120** | **4300** | **5120** |
 | digitalAssetManagement | 1 | 500 | 1536 | 500 | 1536 |
@@ -96,9 +96,9 @@ After applying the updated Helm values and cache adjustments, the system showed 
 
 !!!note
     - Values in bold are tuned Helm values while the rest are default minimal values.
-    - Cache value changes depending on the test data. It is recommended to monitor cache statistics regularly and update them as necessary. To learn how to monitor cache statistics, refer to the [WebEngine Cache Statistics Tool](./rendering_small_config.md#webengine-cache-statistics-tool).
+    - Cache value changes depending on the test data. It is recommended to monitor cache statistics regularly and update them as necessary. To learn how to monitor cache statistics, See the [WebEngine Cache Statistics Tool](./rendering_small_config.md#webengine-cache-statistics-tool).
 
-For convenience, these values were added to the `small-config-values.yaml` file in the hcl-dx-deployment Helm chart. To use these values, refer to the following steps:
+For convenience, these values were added to the `small-config-values.yaml` file in the hcl-dx-deployment Helm chart. To use these values, See the following steps:
 
 1. Download the `hcl-dx-deployment` Helm chart from Harbor.
 
@@ -125,7 +125,7 @@ This guidance outlines the maximum capacity for a single-node Kubernetes cluster
 
 ### Recommended heap size configuration
 
-To ensure optimal performance and stability of HCL DX Compose on Kubernetes, it is essential for you to configure JVM heap memory and pod resource limits correctly. Refer to the following best practices when tuning memory allocation.
+To ensure optimal performance and stability of HCL DX Compose on Kubernetes, it is essential for you to configure JVM heap memory and pod resource limits correctly. See the following best practices when tuning memory allocation.
 
 !!!note
      Do not set your JVM heap size larger than the allotted memory for the pod.
