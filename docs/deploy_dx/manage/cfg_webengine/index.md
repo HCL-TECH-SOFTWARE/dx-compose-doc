@@ -32,3 +32,5 @@ Learn how to enhance transient users functionality in DX Compose with custom JAA
 Learn how to deploy and configure customer-built EAR-based themes for use in HCL DX Compose deployments.
 - **[Deploying and configuring WCM plugins](./deploy_wcm_plugins.md)**  
 Learn how to deploy and configure customer-built WCM plugins for use in HCL DX Compose deployments.
+- **[Importing the Site Builder Template library onto a new virtual portal](./import_site_builder_library.md)**  
+Learn how to use the Web Content Manager (WCM) Module utility to export and import WCM libraries such as the Site Builder Template library onto a new virtual portal.
