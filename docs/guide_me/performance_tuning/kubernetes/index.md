@@ -179,7 +179,7 @@ During performance testing, aligning JVM heap settings with pod resource limits 
 - Set `-Xms` and `-Xmx` to the same value (for example, `4g`) for performance runs.  
 - This configuration prevents dynamic heap expansion, reduces overhead, and ensures stable, predictable performance.
 
-### Determine Final Memory Requirements
+### Determine final memory requirements
 
 - Conduct local testing with your specific portlets, pages, and customizations.  
 - Perform synthetic load testing by using tools such as **JMeter** to simulate realistic usage scenarios.  
