@@ -156,7 +156,7 @@ Once the authoring steps are completed, both anonymous and authenticated portal 
 
 ## JVM heap and pod resource guidelines (performance runs)
 
-During performance testing, aligning JVM heap settings with pod resource limits ensures consistent performance and avoids unexpected memory issues.
+During performance testing, align JVM heap settings with pod resource limits to maintain consistent performance and prevent memory issues.
 
 ### Memory Requests and Limits
 
