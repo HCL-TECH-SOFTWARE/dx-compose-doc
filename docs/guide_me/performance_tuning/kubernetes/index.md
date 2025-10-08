@@ -160,8 +160,10 @@ During performance testing, aligning JVM heap settings with pod resource limits 
 
 ### Memory Requests and Limits
 
-* Set the pod's **requested memory** (`requests.memory`) equal to the **memory limit** (`limits.memory`).
-* This guarantees the container receives a fixed memory allocation, preventing memory overcommit and potential OOM (Out Of Memory) errors.
+*### Memory requests and limits
+
+Set the pod’s `requests.memory` value to match its `limits.memory` value.  
+This configuration ensures that the container receives a fixed memory allocation and prevents memory overcommit or out-of-memory (OOM) errors.
 
 ### JVM heap size alignment
 
