@@ -195,9 +195,9 @@ During performance testing, aligning JVM heap settings with pod resource limits 
 
 ## Key Benefits
 
-* Avoids OOM (Out Of Memory) errors during high-load scenarios.
-* Provides stable JVM performance.
-* Prevents performance degradation caused by memory contention.
+- Prevents out-of-memory (OOM) errors during high-load scenarios  
+- Provides consistent JVM performance  
+- Reduces performance degradation caused by memory contention  
 
 ## Limitations
 
