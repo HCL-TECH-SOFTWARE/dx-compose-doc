@@ -165,17 +165,19 @@ During performance testing, aligning JVM heap settings with pod resource limits 
 
 ### JVM Heap Size Alignment
 
-* The JVM heap (`-Xms` / `-Xmx`) should be **smaller than the pod memory limit**.
-* Keep headroom for:
+### JVM heap size alignment
 
-  * Non-heap memory (Metaspace, thread stacks, direct buffers)
-  * Sidecar containers (if any)
-  * Additional JVM processes (e.g., `server1`)
+- The JVM heap (`-Xms` and `-Xmx`) should be smaller than the pod’s memory limit.  
+- Leave headroom for:
 
-### Equal Minimum and Maximum Heap
+  - Non-heap memory, such as Metaspace, thread stacks, and direct buffers  
+  - Sidecar containers (if any)  
+  - Additional JVM processes (for example, `server1`)
 
-* Set `-Xms` = `-Xmx` (in this case, 4 GB) for performance runs.
-* This prevents dynamic heap expansion, eliminating overhead and ensuring stable, predictable performance.
+### Equal minimum and maximum heap
+
+- Set `-Xms` and `-Xmx` to the same value (for example, `4g`) for performance runs.  
+- This configuration prevents dynamic heap expansion, reduces overhead, and ensures stable, predictable performance.
 
 ### Determine Final Memory Requirements
 
