@@ -10,7 +10,9 @@ This section describes the environments used for rendering in a small Kubernetes
 
 This sizing activity rendered scenarios for the Web Content Manager (WCM), Digital Asset Management (DAM), and HCL Digital Experience (DX) Compose pages and portlets. This activity used a rendering setup enabled in AWS/Native-Kubernetes, where Kubernetes is installed directly in Amazon Elastic Cloud Compute (EC2) instances. A combination run was performed that rendered WCM content, DAM assets, and DX Compose pages and portlets. The load distribution was WCM content (40%), DAM assets (30%), and DX Compose pages and portlets (30%). All systems were pre-populated before performing the rendering tests.
 
-To achieve the 1,000 concurrent users mark, the tests started with fewer users on a single-node setup. The tests started with the desired load of 1,000 users and an acceptable error rate (< 0.01%). Further steps were taken to optimize the limits on the available resources for each pod.
+To achieve 1,000 concurrent users, the tests began with fewer users on a single-node setup.  
+The desired load of 1,000 users was reached with an acceptable error rate (< 0.01%).  
+Additional steps were taken to optimize resource limits for each pod.
 
 The following table contains the rendering scenario details for a small configuration. 
 
