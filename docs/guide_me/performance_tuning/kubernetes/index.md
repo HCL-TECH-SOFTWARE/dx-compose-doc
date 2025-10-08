@@ -1,6 +1,8 @@
 # Performance sizing guide for Kubernetes deployments
 
-This section provides sizing guides for HCL Digital Experience (DX) Compose rendering scenarios in a Kubernetes configuration. These sizing guides identify the optimal Kubernetes configurations for small, medium, and large DX workloads. Additionally, this guide provides tuning recommendations for Kubernetes pods based on their specific workloads, such as rendering-intensive tasks.
+This section provides sizing guidance for HCL Digital Experience (DX) Compose rendering scenarios in a Kubernetes configuration.  
+The guidance identifies the optimal Kubernetes configurations for small, medium, and large DX workloads.  
+It also includes tuning recommendations for Kubernetes pods based on their specific workloads, such as rendering-intensive tasks.
 
 ## Introduction
 
