@@ -186,7 +186,7 @@ During performance testing, aligning JVM heap settings with pod resource limits 
 - Adjust memory allocations based on service-level agreements (SLAs) and transaction rates.  
 - Allocate a minimum of **3.5 GB** of heap memory. Higher allocations might be required depending on actual usage patterns.
 
-### Example of Recommended Configuration for Performance Runs (Core pod)
+### Example: Recommended configuration for performance runs (core pod)
 
 | Resource type | Setting | Notes |
 |----------------|----------|-------|
