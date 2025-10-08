@@ -30,7 +30,7 @@ Refer to the following definition of terms used throughout the performance tests
         This means JMeter will simulate loading 100 users over 10 seconds, leading to approximately 10 users per second.
 
 - Authenticated user: A Portal “User” role.
-- Unauthenticated user:  A Portal “unauthenticated user” role.
+- Unauthenticated user:  A Portal “anonymous portal user” role.
 - OpenLDAP:  An open-source implementation of LDAP (Lightweight Directory Access Protocol). All authenticated Users are added to OpenLDAP.
 
 **Metrics**
