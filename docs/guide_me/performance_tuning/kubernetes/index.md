@@ -154,7 +154,7 @@ The following setup includes different types of commonly used portlets. Performa
 
 Once the authoring steps are completed, both anonymous and authenticated portal users will render the pages. Each page request is triggered using a `/GET` API call such as `/wps/portal/portletsperf/page1`. A response assertion in the sampler also validates the HTML content in the response body.
 
-## JVM Heap and Pod Resource Guidelines (Performance Runs)
+## JVM heap and pod resource guidelines (performance runs)
 
 During performance testing, aligning JVM heap settings with pod resource limits ensures consistent performance and avoids unexpected memory issues.
 
