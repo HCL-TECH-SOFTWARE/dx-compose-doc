@@ -15,3 +15,4 @@ nav:
   - Configuring JAAS Modules for transient users: configure_jaas_modules.md
   - Deploying and configuring EAR-based themes: deploy_ear_theme.md
   - Deploying and configuring WCM plugins: deploy_wcm_plugins.md
+  - Importing the Site Builder Template library onto a new virtual portal: import_site_builder_library.md
