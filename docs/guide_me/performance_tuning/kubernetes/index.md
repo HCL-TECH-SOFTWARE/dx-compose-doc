@@ -17,9 +17,9 @@ Refer to the following definition of terms used throughout the performance tests
 - Concurrent user: The number of virtual users actively sending requests to the target application simultaneously.
 
 - Thread Groups: Concurrent users are simulated using thread groups and are configured using the threads (Users), the ramp-up period, and the loop count.
-    - Number of Threads (Users): The number of concurrent users.
-    - Ramp-up Period: The time taken to start all the Threads (Users).
-    - Loop Count: The number of iterations each user performs.
+    - **Number of threads (users):** The number of concurrent users.  
+- **Ramp-up period:** The time required to start all threads (users).  
+- **Loop count:** The number of iterations each user performs.
     - Think Time: A timer that can be added to simulate real user behavior. Adding Think Time introduces delays between user actions, which may cause fluctuations in the number of concurrent users at any moment.
     
         For example, Threads (Users): 100, Ramp-up Period: 10 seconds, Loop Count: 1.
