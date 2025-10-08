@@ -4,7 +4,8 @@ This section provides sizing guides for HCL Digital Experience (DX) Compose rend
 
 ## Introduction
 
-DX Compose performance testing determines container sizing and the relationships between DX components. This guide evaluates configurations that support 1,000 (small) and 30,000 (large) virtual users.
+DX Compose performance testing determines container sizing and the relationships between DX components.  
+This guide evaluates configurations that support 1,000 (small) and 30,000 (large) virtual users.
 
 The key performance indicators in these tests are the number of concurrent users, the average response time, and throughput. These metrics serve as benchmarks for evaluating the performance of small DX Compose configurations and offer insights into the system's capacity to handle varying loads. This sizing guidance demonstrates how strategic adjustments can result in significant performance improvements.
 
