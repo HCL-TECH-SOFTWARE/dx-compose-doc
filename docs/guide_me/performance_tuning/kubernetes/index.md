@@ -16,7 +16,7 @@ Refer to the following definition of terms used throughout the performance tests
 
 - Concurrent user: The number of virtual users actively sending requests to the target application simultaneously.
 
-- Thread Groups: Concurrent users are simulated using thread groups and are configured using the threads (Users), the ramp-up period, and the loop count.
+- **Thread groups:** Concurrent users are simulated using thread groups, which are configured with the number of threads (users), the ramp-up period, and the loop count.
     - **Number of threads (users):** The number of concurrent users.  
 - **Ramp-up period:** The time required to start all threads (users).  
 - **Loop count:** The number of iterations each user performs.
