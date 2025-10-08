@@ -96,7 +96,9 @@ After applying the updated Helm values and cache adjustments, the system showed 
 
 !!!note
     - Values in bold are tuned Helm values while the rest are default minimal values.
-    - Cache value changes depending on the test data. It is recommended to monitor cache statistics regularly and update them as necessary. To learn how to monitor cache statistics, See the [WebEngine Cache Statistics Tool](./rendering_small_config.md#webengine-cache-statistics-tool).
+    Cache values vary based on the test data.  
+Monitor cache statistics regularly and update them as needed.  
+For more information, see the [WebEngine Cache Statistics Tool](./rendering_small_config.md#webengine-cache-statistics-tool).
 
 For convenience, these values were added to the `small-config-values.yaml` file in the hcl-dx-deployment Helm chart. To use these values, See the following steps:
 
