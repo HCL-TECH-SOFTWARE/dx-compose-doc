@@ -188,11 +188,13 @@ During performance testing, aligning JVM heap settings with pod resource limits 
 
 ### Example of Recommended Configuration for Performance Runs (Core pod)
 
-* **Pod Memory (requests & limits):** 8 GB
-* **JVM Heap (`-Xms` / `-Xmx`):** 4 GB ( maximum 6 GB if 8GB of pod memory )
-* **CPU (requests & limits):** 5.6 CPUs
-* This leaves **~4 GB of memory headroom** for non-heap usage and container overhead, ensuring stability during load testing.
+| Resource type | Setting | Notes |
+|----------------|----------|-------|
+| **Pod memory (`requests` and `limits`)** | 8 GB | Fixed allocation |
+| **JVM heap (`-Xms` / `-Xmx`)** | 4 GB (up to 6 GB if pod memory is 8 GB) | Leaves sufficient headroom |
+| **CPU (`requests` and `limits`)** | 5.6 CPUs | Recommended for stable performance |
 
+This configuration leaves approximately **4 GB** of memory headroom for non-heap usage and container overhead, ensuring stability during load testing.
 ## Key Benefits
 
 - Prevents out-of-memory (OOM) errors during high-load scenarios  
