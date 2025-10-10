@@ -154,27 +154,20 @@ The following setup includes different types of commonly used portlets. Performa
 
 Once the authoring steps are completed, both anonymous and authenticated portal users will render the pages. Each page request is triggered using a `/GET` API call such as `/wps/portal/portletsperf/page1`. A response assertion in the sampler also validates the HTML content in the response body.
 
-## JVM heap and pod resource guidelines (performance runs)
-
-During performance testing, align JVM heap settings with pod resource limits to maintain consistent performance and prevent memory issues.
+## JVM heap and pod resource guidelines for performance runs
+During performance testing, align JVM heap settings with pod resource limits to ensure consistent performance and prevent unexpected memory issues.
 
 ### Memory Requests and Limits
 
-*### Memory requests and limits
-
-Set the pod’s `requests.memory` value to match its `limits.memory` value.  
-This configuration ensures that the container receives a fixed memory allocation and prevents memory overcommit or out-of-memory (OOM) errors.
+Set the pod’s `requests.memory` value to match its `limits.memory` value. This configuration ensures that the container receives a fixed memory allocation and prevents memory overcommit or out-of-memory (OOM) errors.
 
 ### JVM heap size alignment
-
-### JVM heap size alignment
-
-- The JVM heap (`-Xms` and `-Xmx`) should be smaller than the pod’s memory limit.  
+- Ensure the JVM heap (`-Xms` and `-Xmx`) is smaller than the pod’s memory limit.  
 - Leave headroom for:
-
-  - Non-heap memory, such as Metaspace, thread stacks, and direct buffers  
-  - Sidecar containers (if any)  
-  - Additional JVM processes (for example, `server1`)
+      - Non-heap memory (Metaspace, thread stacks, direct buffers)
+      - Sidecar containers (if any)
+      - Additional JVM processes (for example, `server1`)
+- Set `-Xms` and `-Xmx` to the same value (for example, 4GB) for performance runs.  This setting prevents dynamic heap expansion, reduces overhead, and ensures stable, predictable performance.
 
 ### Equal minimum and maximum heap
 
@@ -184,29 +177,24 @@ This configuration ensures that the container receives a fixed memory allocation
 ### Determine final memory requirements
 
 - Conduct local testing with your specific portlets, pages, and customizations.  
-- Perform synthetic load testing by using tools such as **JMeter** to simulate realistic usage scenarios.  
+- Perform synthetic load testing by using tools such as JMeter to simulate realistic usage scenarios.  
 - Adjust memory allocations based on service-level agreements (SLAs) and transaction rates.  
-- Allocate a minimum of **3.5 GB** of heap memory. Higher allocations might be required depending on actual usage patterns.
+- Allocate a minimum of 3.5 GB of heap memory. Higher allocations might be required depending on actual usage patterns.
 
-### Example: Recommended configuration for performance runs (core pod)
+### Recommended configuration for performance runs (Core pod)
+
 
 | Resource type | Setting | Notes |
 |----------------|----------|-------|
-| **Pod memory (`requests` and `limits`)** | 8 GB | Fixed allocation |
-| **JVM heap (`-Xms` / `-Xmx`)** | 4 GB (up to 6 GB if pod memory is 8 GB) | Leaves sufficient headroom |
-| **CPU (`requests` and `limits`)** | 5.6 CPUs | Recommended for stable performance |
+| Pod memory (`requests` and `limits`) | 8 GB | Fixed allocation |
+| JVM heap (`-Xms` / `-Xmx`) | 4 GB (up to 6 GB if pod memory is 8 GB) | Leaves sufficient headroom |
+| CPU (`requests` and `limits`) | 5.6 CPUs | Recommended for stable performance |
 
-This configuration leaves approximately **4 GB** of memory headroom for non-heap usage and container overhead, ensuring stability during load testing.
-## Key Benefits
-
-- Prevents out-of-memory (OOM) errors during high-load scenarios  
-- Provides consistent JVM performance  
-- Reduces performance degradation caused by memory contention  
+This configuration leaves approximately **4 GB of memory headroom for non-heap usage and container overhead, ensuring stability during load testing.
 
 ## Limitations
 
 These performance tests are primarily focused on DAM API. Client-side rendering, such as browser-based rendering, is excluded from the tests.
 
 ???+ info "Related information"
-    - For details about the environments used, test results, and recommendations for each configuration, refer to the following pages:
-        - [Sizing guidance for rendering in a small-sized Kubernetes configuration](./rendering_small_config.md)
+    - For details about the environments used, test results, and recommendations for each configuration, see [Sizing guidance for rendering in a small Kubernetes configuration](./rendering_small_config.md)
