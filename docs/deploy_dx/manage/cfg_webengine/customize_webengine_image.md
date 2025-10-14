@@ -56,18 +56,18 @@ When adding custom scripts to your customized version of the WebEngine image, it
 
 #### Execution order and flow
 
-- **Startup scripts**: Scripts in the `/opt/openliberty/wlp/usr/svrcfg/bin/customer/startup` directory run during container startup, after all core WebEngine configuration tasks are completed and just before the WebEngine server starts.
-- **Update scripts**: Scripts in the `/opt/openliberty/wlp/usr/svrcfg/bin/customer/update` directory run during Cumulative Fix (CF) updates, after product update tasks are completed.
-- **Execution sequence**: Scripts are executed in lexicographical order by filename. If you need a specific execution order, consider adding zero-padded numeric prefixes to filenames (e.g., `01-first.sh`, `02-second.sh`, `10-third.sh`) to ensure correct sorting.
-- **Independence**: Each script is executed separately. The system will continue executing subsequent scripts even if a previous script fails. There is no built-in dependency management between scripts.
+- Startup scripts in the `/opt/openliberty/wlp/usr/svrcfg/bin/customer/startup` directory run during container startup, after all core WebEngine configuration tasks are completed and just before the WebEngine server starts.
+- Update scripts in the `/opt/openliberty/wlp/usr/svrcfg/bin/customer/update` directory run during CF updates, after product update tasks are completed.
+- The container executes scripts in lexicographical order by filename. If you need a specific execution order, consider adding zero-padded numeric prefixes to filenames (for example, `01-first.sh`, `02-second.sh`, `10-third.sh`) to ensure correct sorting.
+- Each script is executed separately. The system will continue executing subsequent scripts even if a previous script fails. There is no built-in dependency management between scripts.
 
 #### Script capabilities and limitations
 
-- **Server control**: Scripts can start and stop the Liberty server using the available functions in utility scripts, but this should be done with caution. The WebEngine container manages the server lifecycle, and custom scripts that interfere with this management may cause unexpected behavior.
-- **Configuration changes**: Scripts can modify configuration files, update database entries, and perform other configuration tasks. These are the primary intended use cases.
-- **Error handling**: Scripts must implement their own error handling and logging. If a script encounters an error, subsequent scripts will still be executed. The container does not provide additional error handling around custom scripts.
-- **Dependencies**: If your scripts have dependencies (e.g., database access), they should include appropriate validation and error handling. Failure of one script will not prevent other scripts from running.
-- **Resource usage**: Scripts should be designed to complete in a reasonable time frame and use system resources efficiently. Long-running operations should be avoided in startup scripts.
+- Scripts can start and stop the Liberty server using the available functions in utility scripts, but you should perform this with caution. The WebEngine container manages the server lifecycle, and custom scripts that interfere with this management may cause unexpected behavior.
+- Scripts primarily modify configuration files, update database entries, and perform other configuration tasks.
+- Scripts must implement their own error handling and logging. If a script encounters an error, subsequent scripts will still be executed. The container does not provide additional error handling around custom scripts.
+- If your scripts have dependencies (for example, database access), ensure they include appropriate validation and error handling. Failure of one script will not prevent other scripts from running.
+- Design scripts to complete in a reasonable timeframe and use system resources efficiently. Avoid long-running operations in startup scripts.
 
 #### Intended use cases
 
@@ -78,7 +78,7 @@ Custom scripts are primarily intended for:
 - Implementing custom validation or monitoring logic
 - Extending WebEngine with configuration that can't be accomplished through standard configuration mechanisms
 
-Custom scripts are **not** intended for:
+Custom scripts are not intended for:
 
 - Installing third-party servers or services within the container
 - Performing heavy workloads that would significantly delay container startup
@@ -92,10 +92,10 @@ Custom scripts are **not** intended for:
 
 When creating custom scripts, follow these guidelines:
 
-- Scripts must be executable. You can ensure this in your Dockerfile by running a `chmod +x` command against any copied script files.
-- Only scripts placed directly in the designated directories will be executed by the container.
-- Script filenames must end with `.sh` and must not begin with a dot (hidden files are ignored).
-- Scripts are processed in lexicographical order.
+- Ensure scripts are executable. In your Dockerfile, run a `chmod +x` command against any copied script files.
+- Place scripts directly in the designated directories. Only scripts in the designated directories are executed by the container.
+- Ensure script filenames end with `.sh` and do not begin with a dot (hidden files are ignored).
+- Consider adding zero-padded numeric prefixes to filenames. Scripts are processed in lexicographical order.
 - For shared logic, use the documented `safe_source` function to include utility scripts:
 
     ```bash
@@ -106,7 +106,7 @@ When creating custom scripts, follow these guidelines:
 
 - Do not modify or directly reference any scripts in the product feature directories.
 - For WebEngine utilities, only use documented utility functions from the `common-utility` directory. These are described in the `README.md` file in that directory and in the individual script files.
-- You can create and use your own helper functions in any subdirectories of the `customer` directory.
+- Create and use your own helper functions in any subdirectories of the `customer` directory.
 - Include appropriate error handling in your scripts, especially if they have external dependencies.
 
 ## Enabling the customized WebEngine image in DX Compose
