@@ -94,6 +94,8 @@ When creating custom scripts, follow these guidelines:
 
 - Scripts must be executable. You can ensure this in your Dockerfile by running a `chmod +x` command against any copied script files.
 - Only scripts placed directly in the designated directories will be executed by the container.
+- Script filenames must end with `.sh` and must not begin with a dot (hidden files are ignored).
+- Scripts are processed in lexicographical order.
 - For shared logic, use the documented `safe_source` function to include utility scripts:
 
     ```bash
