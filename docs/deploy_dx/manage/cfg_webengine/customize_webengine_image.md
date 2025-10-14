@@ -52,13 +52,13 @@ To add custom scripts to your image, create a Dockerfile that builds upon an off
 
 ### Script execution behavior
 
-When adding custom scripts to the WebEngine container, it's important to understand how and when they execute:
+When adding custom scripts to your customized version of the WebEngine image, it's important to understand how and when they execute:
 
 #### Execution order and flow
 
 - **Startup scripts**: Scripts in the `/opt/openliberty/wlp/usr/svrcfg/bin/customer/startup` directory run during container startup, after all core WebEngine configuration tasks are completed and just before the WebEngine server starts.
 - **Update scripts**: Scripts in the `/opt/openliberty/wlp/usr/svrcfg/bin/customer/update` directory run during Cumulative Fix (CF) updates, after product update tasks are completed.
-- **Execution sequence**: Scripts are executed in lexicographical order by filename. If you need specific execution order, consider adding zero-padded numeric prefixes to filenames (e.g., `01-first.sh`, `02-second.sh`, `10-third.sh`) to ensure correct sorting.
+- **Execution sequence**: Scripts are executed in lexicographical order by filename. If you need a specific execution order, consider adding zero-padded numeric prefixes to filenames (e.g., `01-first.sh`, `02-second.sh`, `10-third.sh`) to ensure correct sorting.
 - **Independence**: Each script is executed separately. The system will continue executing subsequent scripts even if a previous script fails. There is no built-in dependency management between scripts.
 
 #### Script capabilities and limitations
