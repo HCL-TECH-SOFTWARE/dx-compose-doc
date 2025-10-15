@@ -197,6 +197,3 @@ There are several factors that can affect the performance of DX in Kubernetes. C
 ### Recommended heap size configuration
 
 To ensure optimal performance and stability of HCL DX on Kubernetes, it is essential for you to configure JVM heap memory and pod resource limits correctly. Refer to the following best practices in the [JVM heap and pod resource guidelines for performance runs](./index.md#jvm-heap-and-pod-resource-guidelines-performance-runs) when tuning memory allocation.
-
-!!!note
-     Do not set your JVM heap size larger than the allotted memory for the pod.  For more information, [JVM Heap and Pod Resource Guidelines](./index.md#jvm-heap-and-pod-resource-guidelines-performance-runs)
