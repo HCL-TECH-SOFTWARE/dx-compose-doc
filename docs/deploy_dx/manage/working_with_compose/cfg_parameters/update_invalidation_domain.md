@@ -6,9 +6,9 @@ HCL DX Compose relies heavily on a type of hashmap known as a `dynacache`. A dyn
 
 A dynacache is merely a cluster aware HashMap. That means that if a particular instance of a dynacache changes (say on one cluster member in a WebSphere Application Server cluster), all other cluster members are made aware of that change.
 
-However, in Kubernetes, there are no Open Liberty clusters. All DX Compose instances are running as non-clustered Open Liberty instances. But the dynacaches in these instances need to know if a dynacache in a particular DX Compose instance running in another pod changes a dynacache value. In Kubernetes, this is achieved thru the use a database table named `INVALIDATION_TABLE`. 
+However, in Kubernetes, there is no such entity as an OpenLiberty cluster. All DX Compose instances are running as non-clustered OpenLiberty instances. But the dynacaches in these instances need to know if a dynacache in a particular DX Compose instance running in another pod changes a dynacache value. In Kubernetes, this is achieved thru the use a database table named `INVALIDATION_TABLE`. 
 
-By default, the database INVALIDATION_TABLE resides in the the `RELEASE` domain/schema. However, there may be use cases whereby this table would be better stored in one of the other 3 domain/schemas (e.g. `JCR`, `COMMUNITY` or `CUSTOMIZATION`). Changing the location of this table can (only) be achieved via a properties override in the ConfigService.properties file. This is done via a helm upgrade.
+By default, the database INVALIDATION_TABLE resides in the the `RELEASE` domain/schema. However, there may be use cases whereby this table would be better stored in one of the other 3 domain/schemas (e.g. `JCR`, `COMMUNITY` or `CUSTOMIZATION`). Changing the domain/schema of this table can (only) be achieved via a properties override in the ConfigService.properties file. This is done via a helm upgrade.
 
 A sample over ride file named `invalidationDomain.yaml` is provided in the directory `/native-kube/install-hcl-dx-deployment/invalidationDomain`. Details on the use of this sample file are included below.
 
