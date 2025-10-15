@@ -188,7 +188,7 @@ There are several factors that can affect the performance of DX in Kubernetes. C
 
 - To improve the response times, perform the Helm upgrade using the `webengine-performance-rendering.yaml` file. This file is available in the HCL DX Compose Deployment Helm chart. To use this file, complete the following steps:
 
-    1. Download the `hcl-dx-deployment` Helm chart from Harbor.
+    1. Download the `hcl-dx-deployment` Helm chart from Harbor. 
     2. Extract the `hcl-dx-deployment-XXX.tgz` file.
     3. In the extracted folder, navigate to `hcl-dx-deployment/performance/webengine-performance-rendering.yaml` and copy the `webengine-performance-rendering.yaml`.
 
@@ -196,4 +196,4 @@ There are several factors that can affect the performance of DX in Kubernetes. C
 
 ### Recommended heap size configuration
 
-To ensure optimal performance and stability of HCL DX on Kubernetes, it is essential for you to configure JVM heap memory and pod resource limits correctly. Refer to the following best practices in the [JVM heap and pod resource guidelines for performance runs](./index.md#jvm-heap-and-pod-resource-guidelines-performance-runs) when tuning memory allocation.
+To ensure optimal performance and stability of HCL DX on Kubernetes, it is essential for you to configure JVM heap memory and pod resource limits correctly. Refer to the following best practices in the [JVM heap and pod resource guidelines for performance runs](./index.md#jvm-heap-and-pod-resource-guidelines-performance-runs) when tuning memory allocation. 

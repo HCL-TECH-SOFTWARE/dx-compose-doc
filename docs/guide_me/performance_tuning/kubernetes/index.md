@@ -2,7 +2,7 @@
 
 This section provides sizing guidance for HCL Digital Experience (DX) Compose rendering scenarios in a Kubernetes configuration.  
 The guidance identifies the optimal Kubernetes configurations for small, medium, and large DX workloads.  
-It also includes tuning recommendations for Kubernetes pods based on their specific workloads, such as rendering-intensive tasks.
+It also includes tuning recommendations for Kubernetes pods based on their specific workloads, such as rendering-intensive tasks. 
 
 ## Introduction
 
@@ -15,11 +15,11 @@ The sizing tests examined rendering scenarios for the Web Content Manager (WCM),
 
 ## Definition of terms
 
-Refer to the following definition of terms used throughout the performance tests and sizing guidances:
+Refer to the following definition of terms used throughout the performance tests and sizing guidances: 
 
 - Concurrent user: The number of virtual users actively sending requests to the target application simultaneously.
 
-- **Thread groups:** Concurrent users are simulated using thread groups, which are configured with the number of threads (users), the ramp-up period, and the loop count.
+- **Thread groups:** Concurrent users are simulated using thread groups, which are configured with the number of threads (users), the ramp-up period, and the loop count. 
     - **Number of threads (users):** The number of concurrent users.  
 - **Ramp-up period:** The time required to start all threads (users).  
 - **Loop count:** The number of iterations each user performs.
