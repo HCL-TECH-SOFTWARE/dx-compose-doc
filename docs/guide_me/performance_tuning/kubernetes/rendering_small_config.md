@@ -1,5 +1,5 @@
 ---
-title: Rendering - Small-Sized configuration
+title: Rendering - Small configuration
 ---
 
 # Sizing guidance for rendering in a small Kubernetes configuration
@@ -117,7 +117,7 @@ This guidance outlines the maximum capacity for a single-node Kubernetes cluster
 
 ## Recommendations
 
-- For a small-sized workload in AWS, start the Kubernetes cluster with a single node using at least a c5.2xlarge instance to support a load of 1,000 users.
+- For a small workload in AWS, start the Kubernetes cluster with a single node using at least a c5.2xlarge instance to support a load of 1,000 users.
 
 - To hold more authenticated users for testing purposes, increase the OpenLDAP pod CPU and memory values. Note that the OpenLDAP pod is not for production use.
 
@@ -130,8 +130,5 @@ This guidance outlines the maximum capacity for a single-node Kubernetes cluster
 
 ### Recommended heap size configuration
 
-To ensure optimal performance and stability of HCL DX Compose on Kubernetes, it is essential for you to configure JVM heap memory and pod resource limits correctly. See the following best practices when tuning memory allocation.
+To ensure optimal performance and stability of HCL DX on Kubernetes, it is essential for you to configure JVM heap memory and pod resource limits correctly. Refer to the following best practices in the [JVM heap and pod resource guidelines for performance runs](./index.md#jvm-heap-and-pod-resource-guidelines-performance-runs) when tuning memory allocation.
 
-!!!note
-     Do not set your JVM heap size larger than the allotted memory for the pod.
-     Please refer guidelines here [JVM Heap and Pod Resource Guidelines](./index.md#jvm-heap-and-pod-resource-guidelines-performance-runs)

@@ -1,10 +1,10 @@
 ---
-title: Rendering - Large-Sized Configuration
+title: Rendering - Large Configuration
 ---
 
-# Sizing guidance for rendering in a large-sized Kubernetes configuration
+# Sizing guidance for rendering in a large Kubernetes configuration
 
-This topic provides the details of the environments used for rendering in a large-sized Kubernetes configuration. You can also find the test results and recommendations for large configurations on this page.
+This topic provides the details of the environments used for rendering in a large Kubernetes configuration. You can also find the test results and recommendations for large configurations on this page.
 
 ## Methodology
 
@@ -196,9 +196,4 @@ There are several factors that can affect the performance of DX in Kubernetes. C
 
 ### Recommended heap size configuration
 
-To ensure optimal performance and stability of HCL DX Compose on Kubernetes, configure JVM heap memory and pod resource limits correctly.  
-Use the following best practices to tune memory allocation.
-
-!!!note
-     Do not set your JVM heap size larger than the allotted memory for the pod.
-     Please refer guidelines here [JVM Heap and Pod Resource Guidelines](./index.md#jvm-heap-and-pod-resource-guidelines-performance-runs)
+To ensure optimal performance and stability of HCL DX on Kubernetes, it is essential for you to configure JVM heap memory and pod resource limits correctly. Refer to the following best practices in the [JVM heap and pod resource guidelines for performance runs](./index.md#jvm-heap-and-pod-resource-guidelines-performance-runs) when tuning memory allocation.
