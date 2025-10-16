@@ -34,3 +34,6 @@ Learn how to deploy and configure customer-built EAR-based themes for use in HCL
 Learn how to deploy and configure customer-built WCM plugins for use in HCL DX Compose deployments.
 - **[Importing the Site Builder Template library onto a new virtual portal](./import_site_builder_library.md)**  
 Learn how to use the Web Content Manager (WCM) Module utility to export and import WCM libraries such as the Site Builder Template library onto a new virtual portal.
+- **[Checking the Liberty server status](custom_liberty_status.md)**  
+Learn how to check the Liberty/Open Liberty server status inside the WebEngine container and how to call these checks from customer startup scripts.
+
