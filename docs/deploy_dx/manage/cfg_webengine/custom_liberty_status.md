@@ -3,12 +3,12 @@ id: custom_liberty_status
 title: CLiberty Status Table Management in custom script
 ---
 
-The `custom_liberty_status.sh` script provides a simple interface for managing customer-specific key-value pairs in the `LIBERTY_STATUS` table. Customers can include and call this script from their custom startup or update scripts.
+The `custom_liberty_status.sh` script provides a simple interface for managing customer-specific key‑value pairs in the `LIBERTY_STATUS` table in the release schema. Customers can include and call this script from their custom startup or update scripts.
 
 Usage:
 
 ```bash
-./custom_liberty_status.sh <operation> [key] [value]
+/opt/openliberty/wlp/usr/svrcfg/bin/customer/custom_liberty_status.sh <operation> [key] [value]
 ```
 
 Operations:
