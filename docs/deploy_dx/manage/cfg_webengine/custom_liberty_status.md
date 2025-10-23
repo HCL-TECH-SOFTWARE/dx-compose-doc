@@ -1,6 +1,6 @@
 ---
 id: custom_liberty_status
-title: CLiberty Status Table Management in custom script
+title: Liberty Status Table Management in custom scripts
 ---
 
 The `custom_liberty_status.sh` script provides a simple interface for managing customer-specific key‑value pairs in the `LIBERTY_STATUS` table in the release schema. Customers can include and call this script from their custom startup or update scripts.
