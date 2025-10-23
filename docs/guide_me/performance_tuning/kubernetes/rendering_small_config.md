@@ -9,13 +9,13 @@ It also provides test results and recommendations.
 
 ## Methodology
 
-This sizing activity rendered scenarios for the Web Content Manager (WCM), Digital Asset Management (DAM), and HCL Digital Experience (DX) Compose pages and portlets. This activity used a rendering setup enabled in AWS/Native-Kubernetes, where Kubernetes is installed directly in Amazon Elastic Cloud Compute (EC2) instances. A combination run was performed that rendered WCM content, DAM assets, and DX Compose pages and portlets. The load distribution was WCM content (40%), DAM assets (30%), and DX Compose pages and portlets (30%). All systems were pre-populated before performing the rendering tests. 
+This sizing activity rendered scenarios for the Web Content Manager (WCM), Digital Asset Management (DAM), and HCL Digital Experience (DX) Compose pages and portlets. This activity used a rendering setup enabled in AWS/Native-Kubernetes, where Kubernetes is installed directly in Amazon Elastic Cloud Compute (EC2) instances. A combination run was performed that rendered WCM content, DAM assets, and DX Compose pages and portlets. The load distribution was WCM content (40%), DAM assets (30%), and DX Compose pages and portlets (30%). All systems were pre-populated before performing the rendering tests.
 
 To achieve 1,000 concurrent users, the tests began with fewer users on a single-node setup.  
 The desired load of 1,000 users was reached with an acceptable error rate (< 0.01%).  
 Additional steps were taken to optimize resource limits for each pod.
 
-The following table contains the rendering scenario details for a small configuration. 
+The following table contains the rendering scenario details for a small configuration.
 
 | Concurrent users     |  WCM pages         |  DAM content         |  Pages and portlets content   |
 | -------------------- | ------------------ | -------------------- | ----------------------------- |
@@ -73,6 +73,7 @@ To use the Dynacache Statistics tool, copy the [LibertyCacheStatistics](./Libert
 ```
 kubectl cp LibertyCacheStatistics.war dx-deployment-web-engine-0:/opt/openliberty/wlp/usr/servers/defaultServer/dropins -n <namespace>
 ```
+
 To access the cache statistics, open the following URL in your browser: `https://<hostName>/LibertyCacheStatistics/`. This page displays detailed cache information, including sizes, explicit removals, and Least Recently Used (LRU) removals.
 
 ### DX Compose tuning
@@ -130,5 +131,4 @@ This guidance outlines the maximum capacity for a single-node Kubernetes cluster
 
 ### Recommended heap size configuration
 
-To ensure optimal performance and stability of HCL DX on Kubernetes, it is essential for you to configure JVM heap memory and pod resource limits correctly. Refer to the following best practices in the [JVM heap and pod resource guidelines for performance runs](./index.md#jvm-heap-and-pod-resource-guidelines-performance-runs) when tuning memory allocation.
-
+To ensure optimal performance and stability of HCL DX on Kubernetes, it is essential for you to configure JVM heap memory and pod resource limits correctly. Refer to the following best practices in the [JVM heap and pod resource guidelines for performance runs](./index.md#jvm-heap-and-pod-resource-guidelines-for-performance-runs) when tuning memory allocation.
