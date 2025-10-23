@@ -5,6 +5,12 @@ title: Liberty Status Table Management in custom scripts
 
 The `custom_liberty_status.sh` script provides a simple interface for managing customer-specific key‑value pairs in the `LIBERTY_STATUS` table in the release schema. Customers can include and call this script from their custom startup or update scripts.
 
+Common use cases include:
+- Setting a flag after registering a custom theme, portlet, or resource so the operation is not repeated on subsequent startups.
+- Recording the version of a customer plugin or configuration to control upgrade logic or trigger migrations only when needed.
+- Tracking whether a one-time data migration or initialization step has been completed.
+- Storing timestamps of the last successful execution of a script or update.
+
 Usage:
 
 ```bash
