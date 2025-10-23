@@ -35,4 +35,4 @@ Learn how to deploy and configure customer-built WCM plugins for use in HCL DX C
 - **[Importing the Site Builder Template library onto a new virtual portal](./import_site_builder_library.md)**  
 Learn how to use the Web Content Manager (WCM) Module utility to export and import WCM libraries such as the Site Builder Template library onto a new virtual portal.
 - **[CRUD operations on the Liberty status table](custom_liberty_status.md)**  
-Learn how to manage customer entries (create, read, update, delete) in the `LIBERTY_STATUS` table using the `custom_liberty_status.sh` helper, and how to call this helper from customer startup or update scripts.
+Learn how to manage customer entries (create, read, update, delete) in the `LIBERTY_STATUS` table using the `custom_liberty_status.sh` helper, and how to call this helper function from customer startup or update scripts.
