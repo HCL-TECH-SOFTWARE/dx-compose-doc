@@ -1,7 +1,7 @@
 # Configuration Sharing for co-deployments
 
 !!!warning
-    The Configuration Sharing feature is currently in **incubator** status and is **not ready for production-use**. Features in the incubator phase are experimental, subject to change, and intended for evaluation and feedback only. For more information, refer to [Experimental Features](https://help.hcl-software.com/digital-experience/9.5/latest/deployment/install/container/helm_deployment/preparation/optional_tasks/optional_experimental_features/){target="_blank"}.
+    The Configuration Sharing feature is currently in **Incubator** status and is **not ready for production use**. This feature is experimental, subject to change, and intended for information and evaluation. For more information, refer to [Experimental Features](https://help.hcl-software.com/digital-experience/9.5/latest/deployment/install/container/helm_deployment/preparation/optional_tasks/optional_experimental_features/){target="_blank"}.
 
 This guide explains how you can use the standardized Configuration Sharing feature between HCL products such as HCL DX Compose, HCL Leap, and Volt MX Foundry (MX) deployed within the same Kubernetes namespace. This feature simplifies integration, reduces manual configuration, and creates a single source of truth for common settings.
 
