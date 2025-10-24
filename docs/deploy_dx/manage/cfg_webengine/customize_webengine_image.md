@@ -149,3 +149,6 @@ Follow these steps to deploy your customized WebEngine image in your HCL DX Comp
     For more information, see [Upgrading the Helm deployment](../working_with_compose/helm_upgrade_values.md).
 
 Once the upgrade is successfully applied, your custom startup scripts will execute in DX Compose.
+
+???+ info "Related information"
+    - [Managing the Liberty Status table in custom scripts](custom_liberty_status.md)
