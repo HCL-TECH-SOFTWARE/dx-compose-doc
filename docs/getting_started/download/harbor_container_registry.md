@@ -43,13 +43,14 @@ Refer to the following list of Helm chart versions and their corresponding CF ve
 
 |HCL DX Deployment version|HCL DX Search version|CF version|
 |-------------------------|---------------------|----------|
-|2.33.0||CF224|
-|2.34.0|2.23.0|CF225|
-|2.35.0|2.24.0|CF226|
-|2.36.0|2.25.0|CF227|
-|2.37.3|2.26.0|CF228|
-|2.40.0|2.27.0|CF229|
-|2.41.0|2.28.0|CF230|
+| 2.33.0                  |                     | CF224    |
+| 2.34.0                  | 2.23.0              | CF225    |
+| 2.35.0                  | 2.24.0              | CF226    |
+| 2.36.0                  | 2.25.0              | CF227    |
+| 2.37.3                  | 2.26.0              | CF228    |
+| 2.40.0                  | 2.27.0              | CF229    |
+| 2.41.0                  | 2.28.0              | CF230    |
+| 2.42.1                  | 2.29.0              | CF231    |
 
 You downloaded your DX Compose 9.5 Container Update Helm chart from the HCL repository on Harbor and can continue with your deployment.
 
