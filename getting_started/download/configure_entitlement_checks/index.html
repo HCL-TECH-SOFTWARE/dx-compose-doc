@@ -470,6 +470,8 @@ function OptanonWrapper() { }
       
         
       
+        
+      
     
     
       
@@ -518,6 +520,8 @@ function OptanonWrapper() { }
       
         
           
+        
+      
         
       
         
@@ -821,8 +825,6 @@ function OptanonWrapper() { }
       
         
       
-        
-      
     
     
       
@@ -929,27 +931,6 @@ function OptanonWrapper() { }
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="user_session_reporting_tool/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    User Session Reporting Tool
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -1003,6 +984,53 @@ function OptanonWrapper() { }
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../integration/configmap_sharing/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Integrate Applications
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
     </li>
   
 
@@ -1225,11 +1253,10 @@ function OptanonWrapper() { }
 <h1 id="hcl-digital-experience-compose-95-entitlement-checks-and-usage-reporting">HCL Digital Experience Compose 9.5 entitlement checks and usage reporting</h1>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>Starting March 31, 2025, the software download packages for all current and future HCL Digital Experience (DX) offering product releases will be available through the <a href="https://my.hcltechsw.com/" target="_blank">My HCLSoftware (MHS)</a> portal. Customers should plan to transition to access their entitled DX software using the MHS portal by June 30, 2025. For more information refer to <a href="https://support.hcl-software.com/csm?id=kb_article&amp;sysparm_article=KB0120373" target="_blank">HCL Digital Experience offerings are now available for download from the MyHCLSoftware portal</a></p>
+<p>Starting March 31, 2025, the software download packages for all current and future HCL Digital Experience (DX) offering product releases are available through the <a href="https://my.hcltechsw.com/" target="_blank">My HCLSoftware (MHS)</a> portal. For more information refer to <a href="https://support.hcl-software.com/csm?id=kb_article&amp;sysparm_article=KB0120373" target="_blank">HCL Digital Experience offerings are now available for download from the MyHCLSoftware portal</a></p>
 </div>
-<p>The <a href="https://support.hcl-software.com/csm?id=kb_article&amp;sysparm_article=KB0109011" target="_blank">MHS portal</a> supports entitlement checking and usage reporting for several HCL Software solutions, including the HCL DX Compose 9.5 Tiers 1 - 3 offerings in the HCL DX portfolio. By checking entitlements, you can track purchased software entitlement periods and usage levels.</p>
+<p>The <a href="https://support.hcl-software.com/csm?id=kb_article&amp;sysparm_article=KB0109011" target="_blank">MHS portal</a> supports entitlement checking and usage reporting for several HCL Software solutions, including the HCL DX Compose 9.5 Tiers 1 - 7 offerings in the HCL DX portfolio. By checking entitlements, you can track purchased software entitlement periods and usage levels.</p>
 <p>For Kubernetes deployments, the HCL License Manager container service is configured to check entitlements and record usage that can be reported to the MHS delivery portal. If you cannot or do not want to integrate directly with a delivery portal for automatic online reporting, you may use alternative options such as producing report extracts in a simple file format, that can be read, uploaded periodically, and shared in other ways. Refer to <a href="#reporting-options">Reporting Options</a> to identify how to report usage for Kubernetes and traditional deployments.</p>
-<p>A standalone tool called the <a href="user_session_reporting_tool/">User Session Reporting Tool</a> was delivered and is available from DX Compose entitlements in the MHS delivery portal.</p>
 <h3 id="entitlement-check-scenarios">Entitlement-check scenarios</h3>
 <p>When the HCL DX Compose 9.5 License Manager container service starts, and entitlement checking and usage reporting are enabled, it will perform an entitlement check against the configured software delivery portal and report the result of that check in log messages.</p>
 <p>During the grace period and beyond, messages are displayed in the License Manager container logs as a reminder that the contracted entitlement has expired. If you encounter these messages, contact your HCL salesperson to discuss the entitlement.</p>
@@ -1240,7 +1267,7 @@ function OptanonWrapper() { }
 <li>To confirm that your entitlement is verified and that your HCL DX Compose 9.5 server is not in the grace period, access the HCL DX v9.5 Container Update Log Manager pod logs. However, you must first ensure that your DX Compose 9.5 deployment Helm chart is configured for entitlement checking to verify that there are no HCL DX Compose 9.5 entitlement messages.</li>
 </ul>
 </div>
-<p>The following table describes the possible entitlement-check response scenarios and the corresponding behavior of the HCL DX Compose 9.5 Tiers 1 - 3 services.</p>
+<p>The following table describes the possible entitlement-check response scenarios and the corresponding behavior of the HCL DX Compose 9.5 Tiers 1 - 7 services.</p>
 <table>
 <thead>
 <tr>
@@ -1318,8 +1345,8 @@ function OptanonWrapper() { }
 <p class="admonition-title">Note</p>
 <p>Calculating and reporting user session consumption produces the same results, regardless of which software delivery portal is being used.</p>
 </div>
-<p>The MHS delivery portal will collect usage information of HCL Software offerings that have been developed to report usage metrics. This information includes HCL DX Compose 9.5 Tiers 1 - 3 offerings for production deployments.</p>
-<p>HCL DX Compose 9.5 Tiers 1 - 3 offerings are purchased according to the number of user sessions to be consumed annually. A user session is defined as a single web session or other online interaction by anonymous or authenticated users of the program when it is deployed for production use. User sessions also include API calls, which deliver production-use website content or application data to external resources, excluding deliveries to a content-delivery network.</p>
+<p>The MHS delivery portal will collect usage information of HCL Software offerings that have been developed to report usage metrics. This information includes HCL DX Compose 9.5 Tiers 1 - 7 offerings for production deployments.</p>
+<p>HCL DX Compose 9.5 Tiers 1 - 7 offerings are purchased according to the number of user sessions to be consumed annually. A user session is defined as a single web session or other online interaction by anonymous or authenticated users of the program when it is deployed for production use. User sessions also include API calls, which deliver production-use website content or application data to external resources, excluding deliveries to a content-delivery network.</p>
 <ul>
 <li>
 <p>A user session begins when a user (authenticated or anonymous) visits a DX Compose deployment operating for production use and then interacts with program website pages and is identified through appropriate tags that use the appropriate scripts for each site page view request. User session interactions can include one or more production-use website page views.</p>
@@ -1370,7 +1397,7 @@ function OptanonWrapper() { }
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 5, 2025 21:52:52 UTC">June 5, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 14, 2025 16:15:47 UTC">October 14, 2025</span>
   </span>
 
     

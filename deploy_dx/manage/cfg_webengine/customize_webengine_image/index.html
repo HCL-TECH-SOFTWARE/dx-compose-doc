@@ -470,6 +470,8 @@ function OptanonWrapper() { }
       
         
       
+        
+      
     
     
       
@@ -516,6 +518,8 @@ function OptanonWrapper() { }
       
         
           
+        
+      
         
       
         
@@ -829,6 +833,10 @@ function OptanonWrapper() { }
       
         
           
+        
+      
+        
+      
         
       
         
@@ -1214,6 +1222,48 @@ function OptanonWrapper() { }
 </li>
         
           <li class="md-nav__item">
+  <a href="#script-execution-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      Script execution behavior
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Script execution behavior">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#execution-order-and-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Execution order and flow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#script-capabilities-and-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Script capabilities and limitations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#intended-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intended use cases
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#script-guidelines-and-restrictions" class="md-nav__link">
     <span class="md-ellipsis">
       Script guidelines and restrictions
@@ -1299,6 +1349,48 @@ function OptanonWrapper() { }
   
   <span class="md-ellipsis">
     Deploying and configuring WCM plugins
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../import_site_builder_library/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Importing the Site Builder Template library onto a new virtual portal
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../custom_liberty_status/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Managing the Liberty Status table in custom scripts
   </span>
   
 
@@ -1514,6 +1606,48 @@ function OptanonWrapper() { }
 </li>
         
           <li class="md-nav__item">
+  <a href="#script-execution-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      Script execution behavior
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Script execution behavior">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#execution-order-and-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Execution order and flow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#script-capabilities-and-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Script capabilities and limitations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#intended-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intended use cases
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#script-guidelines-and-restrictions" class="md-nav__link">
     <span class="md-ellipsis">
       Script guidelines and restrictions
@@ -1604,11 +1738,49 @@ function OptanonWrapper() { }
     ```
 &lt;/pre&gt;
 </code></pre></div>
+<h3 id="script-execution-behavior">Script execution behavior</h3>
+<p>When adding custom scripts to your customized version of the WebEngine image, it's important to understand how and when they execute:</p>
+<h4 id="execution-order-and-flow">Execution order and flow</h4>
+<ul>
+<li>Startup scripts in the <code>/opt/openliberty/wlp/usr/svrcfg/bin/customer/startup</code> directory run during container startup, after all core WebEngine configuration tasks are completed and just before the WebEngine server starts.</li>
+<li>Update scripts in the <code>/opt/openliberty/wlp/usr/svrcfg/bin/customer/update</code> directory run during CF updates, after product update tasks are completed.</li>
+<li>The container executes scripts in lexicographical order by filename. If you need a specific execution order, consider adding zero-padded numeric prefixes to filenames (for example, <code>01-first.sh</code>, <code>02-second.sh</code>, <code>10-third.sh</code>) to ensure correct sorting.</li>
+<li>Each script is executed separately. The system will continue executing subsequent scripts even if a previous script fails. There is no built-in dependency management between scripts.</li>
+</ul>
+<h4 id="script-capabilities-and-limitations">Script capabilities and limitations</h4>
+<ul>
+<li>Scripts can start and stop the Liberty server using the available functions in utility scripts, but you should perform this with caution. The WebEngine container manages the server lifecycle, and custom scripts that interfere with this management may cause unexpected behavior.</li>
+<li>Scripts primarily modify configuration files, update database entries, and perform other configuration tasks.</li>
+<li>Scripts must implement their own error handling and logging. If a script encounters an error, subsequent scripts will still be executed. The container does not provide additional error handling around custom scripts.</li>
+<li>If your scripts have dependencies (for example, database access), ensure they include appropriate validation and error handling. Failure of one script will not prevent other scripts from running.</li>
+<li>Design scripts to complete in a reasonable timeframe and use system resources efficiently. Avoid long-running operations in startup scripts.</li>
+</ul>
+<h4 id="intended-use-cases">Intended use cases</h4>
+<p>Custom scripts are primarily intended for:</p>
+<ul>
+<li>Applying configuration changes specific to your environment</li>
+<li>Setting up connections to external systems</li>
+<li>Implementing custom validation or monitoring logic</li>
+<li>Extending WebEngine with configuration that can't be accomplished through standard configuration mechanisms</li>
+</ul>
+<p>Custom scripts are not intended for:</p>
+<ul>
+<li>Installing third-party servers or services within the container</li>
+<li>Performing heavy workloads that would significantly delay container startup</li>
+<li>Replacing core WebEngine functionality</li>
+<li>Running persistent background processes</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>While the custom script support provides flexibility to perform a wide range of actions, it is recommended to use this feature primarily for lightweight, configuration-related tasks. Using scripts beyond the intended scope may impact startup time, container stability, or product supportability.</p>
+</div>
 <h3 id="script-guidelines-and-restrictions">Script guidelines and restrictions</h3>
 <p>When creating custom scripts, follow these guidelines:</p>
 <ul>
-<li>Scripts must be executable. You can ensure this in your Dockerfile by running a <code>chmod +x</code> command against any copied script files.</li>
-<li>Only scripts placed directly in the designated directories will be executed by the container.</li>
+<li>Ensure scripts are executable. In your Dockerfile, run a <code>chmod +x</code> command against any copied script files.</li>
+<li>Place scripts directly in the designated directories. Only scripts in the designated directories are executed by the container.</li>
+<li>Ensure script filenames end with <code>.sh</code> and do not begin with a dot (hidden files are ignored).</li>
+<li>Consider adding zero-padded numeric prefixes to filenames. Scripts are processed in lexicographical order.</li>
 <li>
 <p>For shared logic, use the documented <code>safe_source</code> function to include utility scripts:</p>
 <div class="language-bash highlight"><pre><span></span><code><span class="c1"># In your custom script</span>
@@ -1620,7 +1792,8 @@ safe_source<span class="w"> </span><span class="s2">&quot;/opt/openliberty/wlp/u
 <p>Do not modify or directly reference any scripts in the product feature directories.</p>
 </li>
 <li>For WebEngine utilities, only use documented utility functions from the <code>common-utility</code> directory. These are described in the <code>README.md</code> file in that directory and in the individual script files.</li>
-<li>You can create and use your own helper functions in any subdirectories of the <code>customer</code> directory.</li>
+<li>Create and use your own helper functions in any subdirectories of the <code>customer</code> directory.</li>
+<li>Include appropriate error handling in your scripts, especially if they have external dependencies.</li>
 </ul>
 <h2 id="enabling-the-customized-webengine-image-in-dx-compose">Enabling the customized WebEngine image in DX Compose</h2>
 <p>Follow these steps to deploy your customized WebEngine image in your HCL DX Compose deployment:</p>
@@ -1656,6 +1829,12 @@ safe_source<span class="w"> </span><span class="s2">&quot;/opt/openliberty/wlp/u
 </li>
 </ol>
 <p>Once the upgrade is successfully applied, your custom startup scripts will execute in DX Compose.</p>
+<details class="info" open="open">
+<summary>Related information</summary>
+<ul>
+<li><a href="../custom_liberty_status/">Managing the Liberty Status table in custom scripts</a></li>
+</ul>
+</details>
 
 
 
@@ -1676,7 +1855,7 @@ safe_source<span class="w"> </span><span class="s2">&quot;/opt/openliberty/wlp/u
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 26, 2025 08:55:37 UTC">August 26, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 23, 2025 19:24:19 UTC">October 23, 2025</span>
   </span>
 
     

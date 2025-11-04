@@ -470,6 +470,8 @@ function OptanonWrapper() { }
       
         
       
+        
+      
     
     
       
@@ -518,6 +520,8 @@ function OptanonWrapper() { }
       
         
           
+        
+      
         
       
         
@@ -821,8 +825,6 @@ function OptanonWrapper() { }
       
         
       
-        
-      
     
     
       
@@ -1045,27 +1047,6 @@ function OptanonWrapper() { }
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../user_session_reporting_tool/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    User Session Reporting Tool
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -1119,6 +1100,53 @@ function OptanonWrapper() { }
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../integration/configmap_sharing/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Integrate Applications
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
     </li>
   
 
@@ -1370,16 +1398,16 @@ function OptanonWrapper() { }
 <p>Make sure you have the following elements before configuring the HCL Digital Experience (DX) Compose V9.5 entitlements to be deployed on supported Kubernetes platforms using the MHS delivery portal for entitlement checking:  </p>
 <ul>
 <li>An MHS account and access to the <a href="https://my.hcltechsw.com/" target="_blank">MHS portal</a>.</li>
-<li>A valid HCL DX Compose (Tier 1 – 3) offering part purchased and issued by the HCL Software licensing team.</li>
-<li>Your DX Compose (Tier 1 – 3) entitlements are mapped to your MHS portal instances.</li>
+<li>A valid HCL DX Compose (Tier 1 – 7) offering part purchased and issued by the HCL Software licensing team.</li>
+<li>Your DX Compose (Tier 1 – 7) entitlements are mapped to your MHS portal instances.</li>
 <li>A plan to deploy or update to <a href="../../../../whats_new/cf227/">HCL DX Compose Container Update CF227</a> or to a later release, if you are currently using a prior version.</li>
 <li>An instance deployment. To create an instance deployment, refer to the steps in <a href="#creating-an-mhs-deployment-instance">Creating an MHS deployment instance</a> in the <a href="https://my.hcltechsw.com/" target="_blank">MHS portal</a>.</li>
 </ul>
 <p>In addition to these elements, review the <a href="#architecture">architecture</a> that presents the License Manager component of the HCL DX Compose software.</p>
 <h2 id="architecture">Architecture</h2>
-<p>The License Manager component communicates with the MHS entitlement service. This is to validate license entitlement at set periods for HCL DX Compose Tier 1 – 3 software after configuring the DX Compose deployment through the Helm chart. The License Manager component can also transmit user session consumption from your production HCL DX Compose deployments to the <a href="https://my.hcltechsw.com/downloads" target="_blank">MHS</a> usage reporting services.</p>
+<p>The License Manager component communicates with the MHS entitlement service. This is to validate license entitlement at set periods for HCL DX Compose Tier 1 – 7 software after configuring the DX Compose deployment through the Helm chart. The License Manager component can also transmit user session consumption from your production HCL DX Compose deployments to the <a href="https://my.hcltechsw.com/downloads" target="_blank">MHS</a> usage reporting services.</p>
 <p><img alt="Architecture" src="../../images/Entitlement_checking_MHS_portal_Architecture.png" /></p>
-<p>Follow the configuration steps in <a href="#configuring-the-dx-compose-entitlement">Configuring the DX Compose entitlement</a> before you deploy a new or update an existing DX Compose deployment. By completing these steps, you configure the DX Compose Tier 1 – 3 using a Helm chart and enable the License Manager entitlement-checking functions.</p>
+<p>Follow the configuration steps in <a href="#configuring-the-dx-compose-entitlement">Configuring the DX Compose entitlement</a> before you deploy a new or update an existing DX Compose deployment. By completing these steps, you configure the DX Compose Tier 1 – 7 using a Helm chart and enable the License Manager entitlement-checking functions.</p>
 <h2 id="configuring-the-dx-compose-entitlement">Configuring the DX Compose entitlement</h2>
 <p>HCL DX Compose uses the License Manager to connect with MHS to check license validity and track user sessions. This helps make sure your deployment stays within the allowed usage and provides insights for license management.</p>
 <ul>
@@ -1494,7 +1522,7 @@ INFO: License validity: true
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 24, 2025 17:59:12 UTC">June 24, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 14, 2025 16:15:47 UTC">October 14, 2025</span>
   </span>
 
     

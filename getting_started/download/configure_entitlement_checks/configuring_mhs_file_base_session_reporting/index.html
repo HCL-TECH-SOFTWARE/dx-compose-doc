@@ -470,6 +470,8 @@ function OptanonWrapper() { }
       
         
       
+        
+      
     
     
       
@@ -518,6 +520,8 @@ function OptanonWrapper() { }
       
         
           
+        
+      
         
       
         
@@ -821,8 +825,6 @@ function OptanonWrapper() { }
       
         
       
-        
-      
     
     
       
@@ -1060,27 +1062,6 @@ function OptanonWrapper() { }
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../user_session_reporting_tool/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    User Session Reporting Tool
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -1134,6 +1115,53 @@ function OptanonWrapper() { }
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../integration/configmap_sharing/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Integrate Applications
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
     </li>
   
 
@@ -1398,7 +1426,7 @@ function OptanonWrapper() { }
 <p>My HCLSoftware (MHS) allows you to manually report your session data consumption using a file-based upload method. This approach is available for both Kubernetes and traditional (on-premises) deployments, specifically for customers who cannot or choose not to integrate directly with the MHS metering APIs for automatic online reporting.</p>
 <p>In both scenarios, the User Session Reporting Tool is used to export session data in the MHS metric file format—the only format accepted by the MHS portal’s file upload feature. This ensures consistency in license usage reporting across disconnected or non-integrated environments.</p>
 <h2 id="mhs-file-based-usage-reporting-for-non-kubernetes-deployments">MHS file-based usage reporting for non-Kubernetes deployments</h2>
-<p>Using the <a href="../user_session_reporting_tool/">User Session Reporting Tool</a>, data from <a href="../user_session_reporting_tool/#enabling-access-logs">generated National Center for Supercomputing Applications (NCSA) access log files</a> can be exported and converted into an MHS-readable metrics format. This allows you to generate MHS metric files that contain the session data, which you can upload directly to the MHS portal.</p>
+<p>Using the <a href="./user_session_reporting_tool.md">User Session Reporting Tool</a>, data from <a href="./user_session_reporting_tool.md#enabling-access-logs">generated National Center for Supercomputing Applications (NCSA) access log files</a> can be exported and converted into an MHS-readable metrics format. This allows you to generate MHS metric files that contain the session data, which you can upload directly to the MHS portal.</p>
 <h3 id="generating-user-session-data-usage-in-mhs-metrics-format-traditional-deployment">Generating user session data usage in MHS metrics format (traditional deployment)</h3>
 <p>To generate the user session data usage from NCSA access logs in MHS metrics format, the report must include session data that has been encrypted for each user session. A deployment ID from a <a href="../mhs_license_and_delivery/#creating-an-mhs-deployment-instance">created MHS deployment instance</a> is needed as a parameter to know which deployment instance the sessions are being reported or recorded to. You can find the <code>deploymentId</code> in the MHS portal after clicking the deployment card in the URL. For example, in <code>https://my.hcltechsw.com/deployments/pzneck8m</code> the <code>deploymentID</code> is <code>pzneck8m</code>.</p>
 <p>The User Session Reporting Tool is packaged as an executable JAR file. Run the tool using the following parameters:</p>
@@ -1456,7 +1484,7 @@ END,30f0dd458d3ca9463870c1275d344d2361df87d617e32077a5c3c379a7e9e05f413fc1fa491e
 <p>You can run the User Session Reporting Tool either once for all collected log files or incrementally every X days, hours, or minutes. The tool stores its state between runs and only processes logs generated after the last previously processed timestamp to prevent reprocessing old entries. This ensures that you still get the correct overall result, even when processing logs in multiple stages.</p>
 <p>Additionally, if there are logs from multiple deployments belonging to the same system (for example, in Active-Active setups or backups), you must process those logs together in one run because the tool will merge them to provide a comprehensive and accurate session count.</p>
 <h2 id="mhs-file-based-usage-reporting-for-kubernetes-deployments">MHS file-based usage reporting for Kubernetes deployments</h2>
-<p>For file-based usage reporting on Kubernetes deployments, usage data export is done using the DX License Manager, utilizing the <a href="../user_session_reporting_tool/">User Session Reporting Tool</a> packaged with it. The User Session Reporting Tool analyzes session data recorded by the license manager through HAProxy and exports it into an MHS-readable metrics file for upload.</p>
+<p>For file-based usage reporting on Kubernetes deployments, usage data export is done using the DX License Manager, utilizing the <a href="./user_session_reporting_tool.md">User Session Reporting Tool</a> packaged with it. The User Session Reporting Tool analyzes session data recorded by the license manager through HAProxy and exports it into an MHS-readable metrics file for upload.</p>
 <h3 id="generating-user-session-data-usage-in-mhs-metrics-format-kubernetes-deployment">Generating user session data usage in MHS metrics format (Kubernetes deployment)</h3>
 <p>To generate the user session data usage in metrics format, the report must include the session data encrypted for each user session.</p>
 <p>Use the following command to generate usage metrics from the user session data. Make sure to specify the appropriate <code>startDate</code>, <code>endDate</code> and <code>deploymentId</code> values.</p>
