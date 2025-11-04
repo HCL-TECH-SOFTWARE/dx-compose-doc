@@ -9,8 +9,8 @@ The [My HCLSoftware portal (MHS)](https://support.hcl-software.com/csm?id=kb_art
 Make sure you have the following elements before configuring the HCL Digital Experience (DX) Compose V9.5 entitlements to be deployed on supported Kubernetes platforms using the MHS delivery portal for entitlement checking:  
 
 - An MHS account and access to the [MHS portal](https://my.hcltechsw.com/){target="_blank"}.
-- A valid HCL DX Compose (Tier 1 – 3) offering part purchased and issued by the HCL Software licensing team.
-- Your DX Compose (Tier 1 – 3) entitlements are mapped to your MHS portal instances.
+- A valid HCL DX Compose (Tier 1 – 7) offering part purchased and issued by the HCL Software licensing team.
+- Your DX Compose (Tier 1 – 7) entitlements are mapped to your MHS portal instances.
 - A plan to deploy or update to [HCL DX Compose Container Update CF227](../../../whats_new/cf227.md) or to a later release, if you are currently using a prior version.
 - An instance deployment. To create an instance deployment, refer to the steps in [Creating an MHS deployment instance](#creating-an-mhs-deployment-instance) in the [MHS portal](https://my.hcltechsw.com/){target="_blank"}.
 
@@ -18,11 +18,11 @@ In addition to these elements, review the [architecture](#architecture) that pre
 
 ## Architecture
 
-The License Manager component communicates with the MHS entitlement service. This is to validate license entitlement at set periods for HCL DX Compose Tier 1 – 3 software after configuring the DX Compose deployment through the Helm chart. The License Manager component can also transmit user session consumption from your production HCL DX Compose deployments to the [MHS](https://my.hcltechsw.com/downloads){target="_blank"} usage reporting services.
+The License Manager component communicates with the MHS entitlement service. This is to validate license entitlement at set periods for HCL DX Compose Tier 1 – 7 software after configuring the DX Compose deployment through the Helm chart. The License Manager component can also transmit user session consumption from your production HCL DX Compose deployments to the [MHS](https://my.hcltechsw.com/downloads){target="_blank"} usage reporting services.
 
 ![Architecture](../images/Entitlement_checking_MHS_portal_Architecture.png)
 
-Follow the configuration steps in [Configuring the DX Compose entitlement](#configuring-the-dx-compose-entitlement) before you deploy a new or update an existing DX Compose deployment. By completing these steps, you configure the DX Compose Tier 1 – 3 using a Helm chart and enable the License Manager entitlement-checking functions.
+Follow the configuration steps in [Configuring the DX Compose entitlement](#configuring-the-dx-compose-entitlement) before you deploy a new or update an existing DX Compose deployment. By completing these steps, you configure the DX Compose Tier 1 – 7 using a Helm chart and enable the License Manager entitlement-checking functions.
 
 ## Configuring the DX Compose entitlement
 
