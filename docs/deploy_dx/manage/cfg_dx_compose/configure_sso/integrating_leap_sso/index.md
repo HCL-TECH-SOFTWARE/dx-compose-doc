@@ -2,7 +2,7 @@
 
 This page provides information on how to configure the Single Sign-On (SSO) layer between HCL DX Compose and HCL Leap.
 
-## Enabling SSO between HCL Leap and HCL DX Compose in Kubernetes
+## Enable SSO between HCL Leap and HCL DX Compose in Kubernetes
 
 This guide explains how to enable SSO between HCL DX Compose and HCL Leap. You can use the modern, natively supported OpenID Connect (OIDC) protocol because both applications run on Open Liberty. The protocol connects directly to your preferred identity provider (IdP), such as Azure AD, Keycloak, Okta, or any OIDC-compliant provider. By configuring HCL DX Compose and Leap to trust your central IdP, users get a seamless single sign-on experience.
 
