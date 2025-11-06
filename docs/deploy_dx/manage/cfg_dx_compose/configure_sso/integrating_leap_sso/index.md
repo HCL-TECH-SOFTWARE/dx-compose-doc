@@ -99,7 +99,7 @@ Create a client registration for each product (HCL DX Compose and HCL Leap). You
                 leapProperties: |
                     ibm.nitro.NitroConfig.userLookup=false
                     ibm.nitro.NitroConfig.userGroups=false
-                    ibm.nitro.LogoutServlet.postLogoutRedirectURL=<your-idp-logout-url>?client_id=<your-client-id>&post_logout_redirect_uri=<your-leap-url>
+                    `ibm.nitro.LogoutServlet.postLogoutRedirectURL=<your-idp-logout-url>?client_id=<your-client-id>&post_logout_redirect_uri=<your-leap-url>`
         ```
 
         For more details on setting Leap properties, refer to [Leap properties](https://opensource.hcltechsw.com/leap-doc/latest/helm_leap_properties.html).
