@@ -1,6 +1,6 @@
 # Downloading and deploying DX Compose from a Harbor repository
 
-Customers with entitlements to HCL Digital Experience (DX) Compose 9.5 may access the DX Compose container images and Helm charts from the [HCL Harbor container repository](https://hclcr.io/){:target="_blank"}. Customers with credentials to access entitled software on the HCL Software Licensing Portal can apply those credentials to optionally access these components of DX Compose v9.5.
+Customers with entitlements to HCL Digital Experience (DX) Compose 9.5 may access the DX Compose container images and Helm charts from the [HCL Harbor container repository](https://hclcr.io/){:target="_blank"}. Customers with credentials to access entitled software on the [My HCLSoftware (MHS) portal](https://my.hcltechsw.com/){target="blank"} can apply those credentials to optionally access these components of DX Compose v9.5.
 
 The Harbor repository provides a registry based on Open Container Initiative (OCI). The Helm chart command is updated to be OCI-compliant.
 
