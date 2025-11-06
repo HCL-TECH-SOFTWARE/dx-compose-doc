@@ -10,7 +10,7 @@ This guide explains how to enable SSO between HCL DX Compose and HCL Leap. You c
 
 1. Choose and configure your IdP.
 
-Create a client registration for each product (HCL DX Compose and Leap). Your IdP will serve as the single point of truth for credential inputs.
+Create a client registration for each product (HCL DX Compose and HCL Leap). Your IdP serves as the single source of truth for credential input.
 
 2. Enable OIDC in HCL DX.
 
