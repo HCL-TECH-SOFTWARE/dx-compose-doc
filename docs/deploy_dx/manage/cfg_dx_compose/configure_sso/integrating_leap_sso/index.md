@@ -102,7 +102,9 @@ Create a client registration for each product (HCL DX Compose and HCL Leap). You
                     `ibm.nitro.LogoutServlet.postLogoutRedirectURL=<your-idp-logout-url>?client_id=<your-client-id>&post_logout_redirect_uri=<your-leap-url>`
         ```
 
-        For more details on setting Leap properties, refer to [Leap properties](https://opensource.hcltechsw.com/leap-doc/latest/helm_leap_properties.html).
+        For more information about setting Leap properties, see [Leap properties](https://opensource.hcltechsw.com/leap-doc/latest/helm_leap_properties.html).
+
+5. Perform a Helm upgrade to apply your changes.
 
     5. Perform a Helm upgrade to apply your changes.
 
