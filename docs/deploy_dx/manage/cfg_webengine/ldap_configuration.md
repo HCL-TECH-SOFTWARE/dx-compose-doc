@@ -3,11 +3,9 @@ id: ldap-configuration
 title: Configuring LDAP
 ---
 
-## Introduction
-
 This guide provides instructions for configuring an (Lightweight Directory Access Protocol) LDAP registry in HCL Digital Experience (DX) Compose. This covers how to integrate an LDAP server with the WebEngine container using Helm.
 
-### LDAP configuration in the `values.yaml`
+## LDAP configuration in the `values.yaml`
 
 Refer to the following sample snippet to configure the DX WebEngine server to use an LDAP server.
 
@@ -84,3 +82,75 @@ kubectl create secret generic custom-web-engine-secret --from-literal=bindUser=d
 ## LDAP configuration using overrides
 
 For information on how to configure LDAP using configuration overrides, refer to [DX Compose configuration changes using overrides](configuration_changes_using_overrides.md).
+
+## Sample LDAP configurations
+
+Refer to the following sample LDAP configurations for HCL DX Compose:
+
+- [Microsoft Active Directory server](#microsoft-active-directory-server)
+
+### Microsoft Active Directory server
+
+```bash
+<?xml version="1.0" encoding="UTF-8"?><server description="DX Web Engine server">
+
+        <ldapRegistry id="ldap" realm="SampleLdapADRealm" host="your_LDAP_Server_HostName" port="389" ignoreCase="true" baseDN="DC=ad,DC=test,DC=com" bindDN="CN=Administrator,CN=Users,DC=ad,DC=test,DC=com" bindPassword="your_password" ldapType="Microsoft Active Directory" sslEnabled="false" referral="ignore" recursiveSearch="true" bindAuthMechanism="simple" returnToPrimaryServer="true">
+
+            <customFilters userFilter="(&amp;(sAMAccountName=%v)(objectcategory=user)" groupFilter="(&amp;(cn=%v)(objectcategory=group))" userIdMap="user:sAMAccountName" groupIdMap="*:cn" groupMemberIdMap="memberOf:member">
+
+            </customFilters>            
+
+           <ldapEntityType name="PersonAccount">
+
+              <objectClass>user</objectClass>
+
+           </ldapEntityType>              
+
+            
+
+            <ldapEntityType name="Group">
+
+               <objectClass>group</objectClass>
+
+           </ldapEntityType>
+
+           <groupProperties>
+
+              <memberAttribute name="member" scope="direct" objectClass="group"/>
+
+              <membershipAttribute name="memberOf" scope="direct"/>
+
+           </groupProperties>
+
+           <loginProperty name="uid">uid</loginProperty>
+
+        </ldapRegistry>
+
+          <federatedRepository>
+
+            <primaryRealm name="FederatedRealm" allowOpIfRepoDown="true" delimiter="/">
+
+              <participatingBaseEntry name="o=defaultWIMFileBasedRealm" id="FileBasedEntry"/>
+
+              <participatingBaseEntry name="DC=ad,DC=test,DC=com" id="LDAPEntry"/>
+
+              
+
+              <uniqueUserIdMapping inputProperty="uniqueName" outputProperty="uniqueName"/>
+
+              <userSecurityNameMapping inputProperty="principalName" outputProperty="principalName"/>            
+
+              <userDisplayNameMapping inputProperty="principalName" outputProperty="principalName"/>
+
+              <uniqueGroupIdMapping inputProperty="uniqueName" outputProperty="uniqueName"/>              
+
+              <groupSecurityNameMapping inputProperty="cn" outputProperty="cn"/>
+
+              <groupDisplayNameMapping inputProperty="cn" outputProperty="cn"/>          
+
+            </primaryRealm>
+
+          </federatedRepository>         
+
+</server>
+```
