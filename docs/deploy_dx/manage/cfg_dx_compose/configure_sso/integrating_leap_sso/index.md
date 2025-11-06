@@ -91,7 +91,7 @@ Create a client registration for each product (HCL DX Compose and HCL Leap). You
 
         - `userLookups`: Set this to `false` to disable user lookups, which is not available when configured with OIDC.
         - `userGroups`: Set this to `false` to disable group lookups, which is not available when configured with OIDC.
-        - `postLogoutRedirectURL`: Set this to the URL to which Leap will redirect the browser after a user logs out. This is necessary to complete the loop with the OIDC IdP. The format of this URL varies by IdP (refer to your IdP's documentation for the correct logout endpoint).
+        - - `postLogoutRedirectURL`: Specify the URL where Leap redirects the browser after a user logs out. This setting completes the sign-out flow with the OIDC IdP. The URL format varies by IdP. For more information, see your IdP documentation.
 
         ```yaml
         configuration:
