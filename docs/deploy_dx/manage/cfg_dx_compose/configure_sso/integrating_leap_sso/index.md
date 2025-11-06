@@ -22,7 +22,7 @@ Create a client registration for each product (HCL DX Compose and HCL Leap). You
 
     1. Configure the OIDC IdP, which will serve as the OIDC provider.
 
-        As part of the configuration process for your identity provider, you will have created or obtained a digital certificate for configuring HTTPS. This certificate will also need to be deployed to Leap so that the two servers can communicate with each other.
+        As part of the configuration process for your identity provider, create or obtain a digital certificate for HTTPS. Deploy this certificate to Leap so that the two servers can communicate securely.
 
         !!!note
             The SSL certificate (`.crt`) and public key (`.key`) should be in PKCS12 format.
