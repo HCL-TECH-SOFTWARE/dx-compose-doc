@@ -118,7 +118,7 @@ To set up a custom LDAP server in Liberty, see [Configuring LDAP with Liberty](l
 
 ## Additional LDAP Configuration samples
 
-### Microsoft Active Directory server
+### Microsoft Active Directory Server
 
 ```xml
     configOverrideFiles:
@@ -156,7 +156,7 @@ To set up a custom LDAP server in Liberty, see [Configuring LDAP with Liberty](l
         </server>  
 ```
 
-### IBM Directory server
+### IBM Directory Server
 
 ```xml
     configOverrideFiles:
