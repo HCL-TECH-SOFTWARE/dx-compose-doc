@@ -82,7 +82,7 @@ The `attributeConfiguration` element in the LDAP registry configuration allows y
 - `name` - The name of the attribute in the LDAP directory
 - `propertyName` - The name of the attribute to be mapped to. In the following example, the LDAP `mail` attribute is mapped to `ibm-primaryEmail`, which is the attribute used to display the email address of a user. The LDAP `title` attribute is mapped to `ibm-jobTitle`, which is the attribute used to display job title of a user.
 
-```yaml
+```xml
 configOverrideFiles:
   ldapOverride.xml: | 
     <server description="DX Web Engine server"> 
