@@ -68,7 +68,7 @@ For example:
 kubectl create secret generic custom-web-engine-secret --from-literal=bindUser=dx_user --from-literal=bindPassword=p0rtal4u --namespace=dxns
 ```
 
-## LDAP configuration using overrides
+## LDAP configuration using overrides (Advanced Configuration)
 
 Advanced configuration settings for LDAP can be done by using configuration overrides.  
 For information on how to configure LDAP using configuration overrides, refer to [DX Compose configuration changes using overrides](configuration_changes_using_overrides.md#configuring-ldap).  
