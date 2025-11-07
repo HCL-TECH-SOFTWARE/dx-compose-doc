@@ -125,8 +125,27 @@ To set up a custom LDAP server in Liberty, see [Configuring LDAP with Liberty](l
       myCustomOverride.xml: |
         <?xml version="1.0" encoding="UTF-8"?>  
         <server description="DX Web Engine server">  
-                <ldapRegistry id="ldap" realm="SampleLdapADRealm" host="your_LDAP_Server_HostName" port="389" ignoreCase="true" baseDN="DC=ad,DC=test,DC=com" bindDN="CN=Administrator,CN=Users,DC=ad,DC=test,DC=com" bindPassword="your_password" ldapType="Microsoft Active Directory" sslEnabled="false" referral="ignore" recursiveSearch="true" bindAuthMechanism="simple" returnToPrimaryServer="true">  
-                    <customFilters userFilter="(&amp;(sAMAccountName=%v)(objectcategory=user)" groupFilter="(&amp;(cn=%v)(objectcategory=group))" userIdMap="user:sAMAccountName" groupIdMap="*:cn" groupMemberIdMap="memberOf:member">  
+                <ldapRegistry  
+                  id="ldap"  
+                  realm="SampleLdapADRealm"  
+                  host="your_LDAP_Server_HostName"  
+                  port="389"  
+                  ignoreCase="true"  
+                  baseDN="DC=ad,DC=test,DC=com"  
+                  bindDN="CN=Administrator,CN=Users,DC=ad,DC=test,DC=com"  
+                  bindPassword="your_password"  
+                  ldapType="Microsoft Active Directory"  
+                  sslEnabled="false"  
+                  referral="ignore"  
+                  recursiveSearch="true"  
+                  bindAuthMechanism="simple"  
+                  returnToPrimaryServer="true">  
+                    <customFilters 
+                    userFilter="(&amp;(sAMAccountName=%v)(objectcategory=user)" 
+                    groupFilter="(&amp;(cn=%v)(objectcategory=group))" 
+                    userIdMap="user:sAMAccountName" 
+                    groupIdMap="*:cn" 
+                    groupMemberIdMap="memberOf:member">  
                     </customFilters>  
                     <ldapEntityType name="PersonAccount">  
                       <objectClass>user</objectClass>  
