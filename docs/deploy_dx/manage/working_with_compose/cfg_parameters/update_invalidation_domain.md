@@ -21,7 +21,7 @@ HCL DX Compose examines the `ConfigService.properties` file in the `dx-deploymen
 
 The default domain or schema for this table is `RELEASE`. This default value is also found in the helm chart `values.yaml` as `invalidationDomain: RELEASE`. 
 
-# Changing the Domain/Schema of the Invalidation Table`
+## Updating the domain or schema for the table
 
 Refer to the following steps to change the domain or schema of the invalidation table from the default of `RELEASE`:
 
