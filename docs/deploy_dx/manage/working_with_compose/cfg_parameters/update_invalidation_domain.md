@@ -7,7 +7,9 @@ HCL Digital Experience (DX) Compose relies heavily on a type of hash map called 
 
 A dynacache is a cluster-aware hash map. This means that when a dynacache instance changes on one cluster member in a WebSphere Application Server cluster, all other cluster members are notified of the change.
 
-However, in Kubernetes, there is no such entity as an OpenLiberty cluster. All DX Compose instances are running as non-clustered OpenLiberty instances. But the dynacaches in these instances need to know if a dynacache in a particular DX Compose instance running in another pod changes a dynacache value. In Kubernetes, this is achieved thru the use a database table named `INVALIDATION_TABLE`. 
+In Kubernetes, there is no concept of an OpenLiberty cluster. All HCL DX Compose instances run as non-clustered OpenLiberty instances. However, the dynacaches in these instances must detect when a dynacache value changes in another DX Compose instance running in a different pod.
+
+In Kubernetes, this synchronization is managed through a database table named `INVALIDATION_TABLE`.
 
 By default, the database INVALIDATION_TABLE resides in the the `RELEASE` domain/schema. However, there may be use cases whereby this table would be better stored in one of the other 3 domain/schemas (e.g. `JCR`, `COMMUNITY` or `CUSTOMIZATION`). Changing the domain/schema of this table can (only) be achieved via a properties override in the ConfigService.properties file. This is done via a helm upgrade.
 
