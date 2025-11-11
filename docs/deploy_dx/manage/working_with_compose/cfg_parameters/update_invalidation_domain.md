@@ -15,7 +15,7 @@ You can change the domain or schema of this table by overriding a property in th
 
 AA sample override file named `invalidationDomain.yaml` is provided in the `/native-kube/install-hcl-dx-deployment/invalidationDomain` directory. Details about how to use this sample file are provided below.
 
-# How DX Compose Determines the Location of Invalidation Table
+## How DX Compose determines the location of invalidation table
 
 HCL DX Compose examines the `ConfigService.properties` file in the `dx-deployment-web-engine` pod. It retrieves the value of the custom property `db.cache.invalidation.domain` and uses that value as the domain or schema for the `INVALIDATION_TABLE` for all DX Compose code that uses a dynacache.
 
