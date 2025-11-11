@@ -5,7 +5,7 @@ title: Changing the domain or schema for the dynacache invalidation table in the
 
 HCL Digital Experience (DX) Compose relies heavily on a type of hash map called a `dynacache`. A `dynacache` is an instance of the Java object `com.ibm.websphere.cache.DistributedMap`.
 
-A dynacache is a cluster-aware hash map. This means that when a dynacache instance changes on one cluster member in a WebSphere Application Server cluster, all other cluster members are notified of the change.
+A `dynacache` is a cluster-aware hash map. When a `dynacache` instance changes on one cluster member in a WebSphere Application Server cluster, all other cluster members are automatically notified of the change.
 
 In Kubernetes, there is no concept of an OpenLiberty cluster. All HCL DX Compose instances run as non-clustered OpenLiberty instances. However, the dynacaches in these instances must detect when a dynacache value changes in another DX Compose instance running in a different pod.
 
