@@ -2,9 +2,10 @@
 title: Change the Domain/Schema For Dynacache Invalidation Table in the Database
 ---
 # Introduction
-HCL DX Compose relies heavily on a type of hashmap known as a `dynacache`. A dynacache is an instance of the Java object `DistributedMap` or `com.ibm.websphere.cache.DistributedMap` if one prefers the fully qualified class name.
 
-A dynacache is merely a cluster aware HashMap. That means that if a particular instance of a dynacache changes (say on one cluster member in a WebSphere Application Server cluster), all other cluster members are made aware of that change.
+HCL Digital Experience (DX) Compose relies heavily on a type of hash map called a `dynacache`. A dynacache is an instance of the Java object `DistributedMap`, or, using its fully qualified class name, `com.ibm.websphere.cache.DistributedMap`.
+
+A dynacache is a cluster-aware hash map. This means that when a dynacache instance changes on one cluster member in a WebSphere Application Server cluster, all other cluster members are notified of the change.
 
 However, in Kubernetes, there is no such entity as an OpenLiberty cluster. All DX Compose instances are running as non-clustered OpenLiberty instances. But the dynacaches in these instances need to know if a dynacache in a particular DX Compose instance running in another pod changes a dynacache value. In Kubernetes, this is achieved thru the use a database table named `INVALIDATION_TABLE`. 
 
