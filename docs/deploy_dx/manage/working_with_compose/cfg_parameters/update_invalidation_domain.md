@@ -20,7 +20,7 @@ AA sample override file named `invalidationDomain.yaml` is provided in the `/nat
 # How DX Compose Determines the Location of Invalidation Table
 HCL DX Compose examines the `ConfigService.properties` file in the `dx-deployment-web-engine` pod. It retrieves the value of the custom property `db.cache.invalidation.domain` and uses that value as the domain or schema for the `INVALIDATION_TABLE` for all DX Compose code that uses a dynacache.
 
-As mentioned in the introduction, the default domain/schema for this table is `RELEASE`. This default value is also found in the helm chart `values.yaml` as `invalidationDomain: RELEASE`.
+As mentioned in the introduction, the default domain/schema for this table is `RELEASE`. This default value is also found in the helm chart `values.yaml` as `invalidationDomain: RELEASE`. 
 
 # Changing the Domain/Schema of the Invalidation Table`
 Changing the Domain/Schema of the invalidation table from the default of `RELEASE` involves two steps:
