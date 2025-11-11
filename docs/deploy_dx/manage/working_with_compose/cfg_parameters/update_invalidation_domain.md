@@ -8,7 +8,6 @@ A `dynacache` is a cluster-aware hash map. When a `dynacache` instance changes o
 
 In Kubernetes, there is no concept of an OpenLiberty cluster. HCL DX Compose instances run as non-clustered Open Liberty instances. However, the system requires that Dynacaches in one pod detect value changes occurring in another pod. This synchronization is managed through the `INVALIDATION_TABLE` in the database.
 
-
 By default, the `INVALIDATION_TABLE` resides in the `RELEASE` domain or schema. In some deployments, it may be preferable to store this table in one of the other domains, such as `JCR`, `COMMUNITY`, or `CUSTOMIZATION`.
 
 You can change the domain or schema of this table by overriding a property in the `ConfigService.properties` file. Apply the change by running a Helm upgrade.
@@ -19,7 +18,7 @@ AA sample override file named `invalidationDomain.yaml` is provided in the `/nat
 
 HCL DX Compose examines the `ConfigService.properties` file in the `dx-deployment-web-engine` pod. It retrieves the value of the custom property `db.cache.invalidation.domain` and uses that value as the domain or schema for the `INVALIDATION_TABLE` for all DX Compose code that uses a dynacache.
 
-The default domain or schema for this table is `RELEASE`. This default value is also found in the helm chart `values.yaml` as `invalidationDomain: RELEASE`. 
+The default domain or schema for this table is `RELEASE`. This default value is also found in the helm chart `values.yaml` as `invalidationDomain: RELEASE`.
 
 ## Updating the domain or schema for the table
 
@@ -28,21 +27,19 @@ Refer to the following steps to change the domain or schema of the invalidation 
 1. Update the value of `invalidationDomain` in the sample file `invalidationDomain.yaml`.
 2. Run `helm upgrade` after changing the value. Assuming you have your specific helm values in a file called `install-deploy-values.yaml`, the helm upgrade command might be this:
 
-```
-helm upgrade -n dxns -f install-deploy-values.yaml -f invalidationDomain/invalidationDomain.yaml dx-deployment ./install-hcl-dx-deployment
-```
-- `dxns` is the namespace for this deployment.  
-- `install-deploy-values.yaml` is the YAML file containing all other DX Compose configurations.  
-- `invalidationDomain/invalidationDomain.yaml` is the YAML file that specifies the new location of the invalidation table.
-`- `dx-deployment` is the name of the DX deployment.  
-- `install-hcl-dx-deployment` is the directory that contains the Helm charts.
+    ```
+    helm upgrade -n dxns -f install-deploy-values.yaml -f invalidationDomain/invalidationDomain.yaml dx-deployment ./install-hcl-dx-deployment
+    ```
 
-!!! note
-    The command includes two `-f` parameters. You must include both the base YAML file and the YAML file that contains the configuration override for the invalidation parameter.
+    - `dxns` is the namespace for this deployment.  
+    - `install-deploy-values.yaml` is the YAML file containing all other DX Compose configurations.  
+    - `invalidationDomain/invalidationDomain.yaml` is the YAML file that specifies the new location of the invalidation table.
+    - `dx-deployment` is the name of the DX deployment.  
+    - `install-hcl-dx-deployment` is the directory that contains the Helm chart(s).
+
+    !!! note
+        The command includes two `-f` parameters. You must include both the base YAML file and the YAML file that contains the configuration override for the invalidation parameter.
 
 Running the `helm upgrade` command will delete the pods and restart the portal pod with the updated domain or schema.
 
 For more information on performing a helm upgrade, refer to [Upgrading Helm Deployment](../../../install/kubernetes_deployment/update_helm_deployment.md).
-
-Consult the page [Upgrading Helm Deployment](../../../install/kubernetes_deployment/update_helm_deployment.md) for more details on doing a `helm upgrade`.
-
