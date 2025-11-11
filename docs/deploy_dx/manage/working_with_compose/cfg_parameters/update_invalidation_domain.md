@@ -8,7 +8,6 @@ A `dynacache` is a cluster-aware hash map. When a `dynacache` instance changes o
 
 In Kubernetes, there is no concept of an OpenLiberty cluster. HCL DX Compose instances run as non-clustered Open Liberty instances. However, the system requires that Dynacaches in one pod detect value changes occurring in another pod. This synchronization is managed through the `INVALIDATION_TABLE` in the database.
 
-In Kubernetes, this synchronization is managed through a database table named `INVALIDATION_TABLE`.
 
 By default, the `INVALIDATION_TABLE` resides in the `RELEASE` domain or schema. In some deployments, it may be preferable to store this table in one of the other domains, such as `JCR`, `COMMUNITY`, or `CUSTOMIZATION`.
 
