@@ -3,7 +3,7 @@ title: Changing the domain or schema for the dynacache invalidation table in the
 ---
 # Introduction
 
-HCL Digital Experience (DX) Compose relies heavily on a type of hash map called a `dynacache`. A dynacache is an instance of the Java object `DistributedMap`, or, using its fully qualified class name, `com.ibm.websphere.cache.DistributedMap`.
+HCL Digital Experience (DX) Compose relies heavily on a type of hash map called a `dynacache`. A `dynacache` is an instance of the Java object `com.ibm.websphere.cache.DistributedMap`.
 
 A dynacache is a cluster-aware hash map. This means that when a dynacache instance changes on one cluster member in a WebSphere Application Server cluster, all other cluster members are notified of the change.
 
