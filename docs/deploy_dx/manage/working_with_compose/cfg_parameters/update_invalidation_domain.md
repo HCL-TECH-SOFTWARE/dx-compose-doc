@@ -31,7 +31,9 @@ Changing the Domain/Schema of the invalidation table from the default of `RELEAS
 ```
 helm upgrade -n dxns -f install-deploy-values.yaml -f invalidationDomain/invalidationDomain.yaml dx-deployment ./install-hcl-dx-deployment
 ```
-where `dxns` is the name space for this deployment, `install-deploy-values.yaml` is the yaml file with all other configurations to DX Compose, `invalidationDomain/invalidationDomain.yaml` is the yaml file with the new location of the invalidation table,
+- `dxns` is the namespace for this deployment.  
+- `install-deploy-values.yaml` is the YAML file containing all other DX Compose configurations.  
+- `invalidationDomain/invalidationDomain.yaml` is the YAML file that specifies the new location of the invalidation table.
 `dx-deployment` is the DX deployment name and `install-hcl-dx-deployment` is the directory containing the helm chart(s).
 
 Note that there are two `-f` parameters in the command. You must include the `base` yaml along with the yaml which includes the configuration override for the invalidation parameter in the command.
