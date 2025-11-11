@@ -35,7 +35,7 @@ helm upgrade -n dxns -f install-deploy-values.yaml -f invalidationDomain/invalid
 - `install-deploy-values.yaml` is the YAML file containing all other DX Compose configurations.  
 - `invalidationDomain/invalidationDomain.yaml` is the YAML file that specifies the new location of the invalidation table.
 `- `dx-deployment` is the name of the DX deployment.  
-- `install-hcl-dx-deployment` is the directory that contains the Helm chart(s).
+- `install-hcl-dx-deployment` is the directory that contains the Helm charts.
 
 !!! note
     The command includes two `-f` parameters. You must include both the base YAML file and the YAML file that contains the configuration override for the invalidation parameter.
