@@ -1,5 +1,5 @@
 ---
-title: Change the Domain/Schema For Dynacache Invalidation Table in the Database 
+title: Changing the domain or schema for the dynacache invalidation table in the database 
 ---
 # Introduction
 
