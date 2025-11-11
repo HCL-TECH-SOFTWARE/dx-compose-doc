@@ -7,7 +7,7 @@ HCL Digital Experience (DX) Compose relies heavily on a type of hash map called 
 
 A `dynacache` is a cluster-aware hash map. When a `dynacache` instance changes on one cluster member in a WebSphere Application Server cluster, all other cluster members are automatically notified of the change.
 
-In Kubernetes, there is no concept of an OpenLiberty cluster. All HCL DX Compose instances run as non-clustered OpenLiberty instances. However, the dynacaches in these instances must detect when a dynacache value changes in another DX Compose instance running in a different pod.
+In Kubernetes, there is no concept of an OpenLiberty cluster. HCL DX Compose instances run as non-clustered Open Liberty instances. However, the system requires that Dynacaches in one pod detect value changes occurring in another pod. This synchronization is managed through the `INVALIDATION_TABLE` in the database.
 
 In Kubernetes, this synchronization is managed through a database table named `INVALIDATION_TABLE`.
 
