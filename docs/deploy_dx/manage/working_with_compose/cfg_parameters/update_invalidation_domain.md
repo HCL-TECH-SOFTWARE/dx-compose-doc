@@ -1,7 +1,6 @@
 ---
 title: Changing the domain or schema for the dynacache invalidation table in the database 
 ---
-# Introduction
 
 HCL Digital Experience (DX) Compose relies heavily on a type of hash map called a `dynacache`. A `dynacache` is an instance of the Java object `com.ibm.websphere.cache.DistributedMap`.
 
