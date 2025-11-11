@@ -11,7 +11,9 @@ In Kubernetes, there is no concept of an OpenLiberty cluster. All HCL DX Compose
 
 In Kubernetes, this synchronization is managed through a database table named `INVALIDATION_TABLE`.
 
-By default, the database INVALIDATION_TABLE resides in the the `RELEASE` domain/schema. However, there may be use cases whereby this table would be better stored in one of the other 3 domain/schemas (e.g. `JCR`, `COMMUNITY` or `CUSTOMIZATION`). Changing the domain/schema of this table can (only) be achieved via a properties override in the ConfigService.properties file. This is done via a helm upgrade.
+By default, the `INVALIDATION_TABLE` database table resides in the `RELEASE` domain or schema. However, in some cases, it may be preferable to store this table in one of the other three domains or schemas, such as `JCR`, `COMMUNITY`, or `CUSTOMIZATION`.
+
+You can change the domain or schema of this table by overriding a property in the `ConfigService.properties` file. Apply the change by running a Helm upgrade.
 
 A sample over ride file named `invalidationDomain.yaml` is provided in the directory `/native-kube/install-hcl-dx-deployment/invalidationDomain`. Details on the use of this sample file are included below.
 
