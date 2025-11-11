@@ -40,7 +40,9 @@ helm upgrade -n dxns -f install-deploy-values.yaml -f invalidationDomain/invalid
 !!! note
     The command includes two `-f` parameters. You must include both the base YAML file and the YAML file that contains the configuration override for the invalidation parameter.
 
-Running the `helm upgrade` command will delete the pod(s) and restart the portal pod with the updated domain/schema.
+Running the `helm upgrade` command will delete the pods and restart the portal pod with the updated domain or schema.
+
+For more information on performing a helm upgrade, refer to [Upgrading Helm Deployment](../../../install/kubernetes_deployment/update_helm_deployment.md).
 
 Consult the page [Upgrading Helm Deployment](../../../install/kubernetes_deployment/update_helm_deployment.md) for more details on doing a `helm upgrade`.
 
