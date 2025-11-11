@@ -1,10 +1,10 @@
 ---
-title: Rendering - Large-Sized Configuration
+title: Rendering - Large Configuration
 ---
 
-# Sizing guidance for rendering in a large-sized Kubernetes configuration
+# Sizing guidance for rendering in a large Kubernetes configuration
 
-This topic provides the details of the environments used for rendering in a large-sized Kubernetes configuration. You can also find the test results and recommendations for large configurations on this page.
+This topic provides the details of the environments used for rendering in a large Kubernetes configuration. You can also find the test results and recommendations for large configurations on this page.
 
 ## Methodology
 
@@ -12,7 +12,7 @@ This sizing activity rendered scenarios for the Web Content Manager (WCM), Digit
 
 To achieve the 30,000 concurrent users mark, initial test runs started with 12 worker nodes. As the user load increased, the number of worker nodes was scaled up to 14 to handle the 30,000 user load with an acceptable error rate (< 0.01%). After establishing the required node count, further optimizations were made to pod resource limits and the ratios of key pods to each other to ensure stable performance.
 
-The following table contains the rendering scenario details for a large configuration. 
+The following table contains the rendering scenario details for a large configuration.
 
 | Concurrent users     |  WCM pages         |  DAM content         |  Pages and portlets content   |
 | -------------------- | ------------------ | -------------------- | ----------------------------- |
@@ -196,20 +196,4 @@ There are several factors that can affect the performance of DX in Kubernetes. C
 
 ### Recommended heap size configuration
 
-To ensure optimal performance and stability of HCL DX on Kubernetes, it is essential for you to configure JVM heap memory and pod resource limits correctly. Refer to the following best practices when tuning memory allocation.
-
-!!!note
-     Do not set your JVM heap size larger than the allotted memory for the pod.
-
-- Ensure your minimum heap size (`-Xms`) is equal to your maximum heap size (`-Xmx`).
-      - Setting the minimum and maximum heap sizes to the same value prevents the JVM from dynamically requesting additional memory (`malloc()`).
-      - This eliminates the overhead of heap expansion and improves performance consistency.
-
-- Ensure the Kubernetes pod resource limits match the JVM heap settings
-      - The requested memory (`requests.memory`) should match the limit (`limits.memory`) in the pod specification.
-      - This ensures that the container is allocated a fixed memory block and prevents unexpected memory reallocation, which could lead to performance degradation or out-of-memory (OOM) errors.
-
-- Determine the final memory requirements based on load testing
-      - To determine the optimal memory configuration, you should conduct local testing with your specific portlets, pages, and customizations. You should also perform synthetic load testing using tools like JMeter to simulate realistic usage scenarios.
-      - The required memory is highly dependent on Service Level Agreements (SLAs) and transaction rates.
-      - A minimum of 3.5GB is recommended, but higher memory allocations may be necessary depending on actual usage patterns.
+To ensure optimal performance and stability of HCL DX on Kubernetes, configure the JVM heap memory and pod resource limits properly. Refer to the following best practices in the [JVM heap and pod resource guidelines for performance runs](./index.md#jvm-heap-and-pod-resource-guidelines-for-performance-runs) when tuning memory allocation.
