@@ -118,62 +118,8 @@ To set up a custom LDAP server in Liberty, see [Configuring LDAP with Liberty](l
 
 ## Additional LDAP Configuration samples
 
-### Microsoft Active Directory Server
-
-```xml
-    configOverrideFiles:
-      myCustomOverride.xml: |
-        <?xml version="1.0" encoding="UTF-8"?>  
-        <server description="DX Web Engine server">  
-                <ldapRegistry  
-                  id="ldap"  
-                  realm="SampleLdapADRealm"  
-                  host="your_LDAP_Server_HostName"  
-                  port="389"  
-                  ignoreCase="true"  
-                  baseDN="DC=ad,DC=test,DC=com"  
-                  bindDN="CN=Administrator,CN=Users,DC=ad,DC=test,DC=com"  
-                  bindPassword="your_password"  
-                  ldapType="Microsoft Active Directory"  
-                  sslEnabled="false"  
-                  referral="ignore"  
-                  recursiveSearch="true"  
-                  bindAuthMechanism="simple"  
-                  returnToPrimaryServer="true">  
-                    <customFilters 
-                    userFilter="(&amp;(sAMAccountName=%v)(objectcategory=user)" 
-                    groupFilter="(&amp;(cn=%v)(objectcategory=group))" 
-                    userIdMap="user:sAMAccountName" 
-                    groupIdMap="*:cn" 
-                    groupMemberIdMap="memberOf:member">  
-                    </customFilters>  
-                    <ldapEntityType name="PersonAccount">  
-                      <objectClass>user</objectClass>  
-                    </ldapEntityType>  
-                    <ldapEntityType name="Group">  
-                      <objectClass>group</objectClass>  
-                  </ldapEntityType>  
-                  <groupProperties>  
-                      <memberAttribute name="member" scope="direct" objectClass="group"/>  
-                      <membershipAttribute name="memberOf" scope="direct"/>  
-                  </groupProperties>  
-                  <loginProperty name="uid">uid</loginProperty>  
-
-                </ldapRegistry>  
-                  <federatedRepository>  
-                    <primaryRealm name="FederatedRealm" allowOpIfRepoDown="true" delimiter="/">  
-                      <participatingBaseEntry name="o=defaultWIMFileBasedRealm" id="FileBasedEntry"/>  
-                      <participatingBaseEntry name="DC=ad,DC=test,DC=com" id="LDAPEntry"/>  
-                      <uniqueUserIdMapping inputProperty="uniqueName" outputProperty="uniqueName"/>  
-                      <userSecurityNameMapping inputProperty="principalName" outputProperty="principalName"/>  
-                      <userDisplayNameMapping inputProperty="principalName" outputProperty="principalName"/>  
-                      <uniqueGroupIdMapping inputProperty="uniqueName" outputProperty="uniqueName"/>      
-                      <groupSecurityNameMapping inputProperty="cn" outputProperty="cn"/>  
-                      <groupDisplayNameMapping inputProperty="cn" outputProperty="cn"/>         
-                    </primaryRealm>  
-                  </federatedRepository>  
-        </server>  
-```
+- [IBM Directory Server](#ibm-directory-server)
+- [Microsoft Active Directory Server](#microsoft-active-directory-server)
 
 ### IBM Directory Server
 
@@ -233,7 +179,64 @@ To set up a custom LDAP server in Liberty, see [Configuring LDAP with Liberty](l
               </group>
           </basicRegistry>          
         </server>
-```  
+```
+
+### Microsoft Active Directory Server
+
+```xml
+    configOverrideFiles:
+      myCustomOverride.xml: |
+        <?xml version="1.0" encoding="UTF-8"?>  
+        <server description="DX Web Engine server">  
+                <ldapRegistry  
+                  id="ldap"  
+                  realm="SampleLdapADRealm"  
+                  host="your_LDAP_Server_HostName"  
+                  port="389"  
+                  ignoreCase="true"  
+                  baseDN="DC=ad,DC=test,DC=com"  
+                  bindDN="CN=Administrator,CN=Users,DC=ad,DC=test,DC=com"  
+                  bindPassword="your_password"  
+                  ldapType="Microsoft Active Directory"  
+                  sslEnabled="false"  
+                  referral="ignore"  
+                  recursiveSearch="true"  
+                  bindAuthMechanism="simple"  
+                  returnToPrimaryServer="true">  
+                    <customFilters 
+                    userFilter="(&amp;(sAMAccountName=%v)(objectcategory=user)" 
+                    groupFilter="(&amp;(cn=%v)(objectcategory=group))" 
+                    userIdMap="user:sAMAccountName" 
+                    groupIdMap="*:cn" 
+                    groupMemberIdMap="memberOf:member">  
+                    </customFilters>  
+                    <ldapEntityType name="PersonAccount">  
+                      <objectClass>user</objectClass>  
+                    </ldapEntityType>  
+                    <ldapEntityType name="Group">  
+                      <objectClass>group</objectClass>  
+                  </ldapEntityType>  
+                  <groupProperties>  
+                      <memberAttribute name="member" scope="direct" objectClass="group"/>  
+                      <membershipAttribute name="memberOf" scope="direct"/>  
+                  </groupProperties>  
+                  <loginProperty name="uid">uid</loginProperty>  
+
+                </ldapRegistry>  
+                  <federatedRepository>  
+                    <primaryRealm name="FederatedRealm" allowOpIfRepoDown="true" delimiter="/">  
+                      <participatingBaseEntry name="o=defaultWIMFileBasedRealm" id="FileBasedEntry"/>  
+                      <participatingBaseEntry name="DC=ad,DC=test,DC=com" id="LDAPEntry"/>  
+                      <uniqueUserIdMapping inputProperty="uniqueName" outputProperty="uniqueName"/>  
+                      <userSecurityNameMapping inputProperty="principalName" outputProperty="principalName"/>  
+                      <userDisplayNameMapping inputProperty="principalName" outputProperty="principalName"/>  
+                      <uniqueGroupIdMapping inputProperty="uniqueName" outputProperty="uniqueName"/>      
+                      <groupSecurityNameMapping inputProperty="cn" outputProperty="cn"/>  
+                      <groupDisplayNameMapping inputProperty="cn" outputProperty="cn"/>         
+                    </primaryRealm>  
+                  </federatedRepository>  
+        </server>  
+```
 
 ## Security hardening
 
