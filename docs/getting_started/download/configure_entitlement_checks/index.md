@@ -1,13 +1,11 @@
 # HCL Digital Experience Compose 9.5 entitlement checks and usage reporting
 
 !!!Important
-    Starting March 31, 2025, the software download packages for all current and future HCL Digital Experience (DX) offering product releases will be available through the [My HCLSoftware (MHS)](https://my.hcltechsw.com/){target="_blank"} portal. Customers should plan to transition to access their entitled DX software using the MHS portal by June 30, 2025. For more information refer to [HCL Digital Experience offerings are now available for download from the MyHCLSoftware portal](https://support.hcl-software.com/csm?id=kb_article&sysparm_article=KB0120373){target="_blank"}
+    Starting March 31, 2025, the software download packages for all current and future HCL Digital Experience (DX) offering product releases are available through the [My HCLSoftware (MHS)](https://my.hcltechsw.com/){target="_blank"} portal. For more information refer to [HCL Digital Experience offerings are now available for download from the MyHCLSoftware portal](https://support.hcl-software.com/csm?id=kb_article&sysparm_article=KB0120373){target="_blank"}
 
-The [MHS portal](https://support.hcl-software.com/csm?id=kb_article&sysparm_article=KB0109011){target="_blank"} supports entitlement checking and usage reporting for several HCL Software solutions, including the HCL DX Compose 9.5 Tiers 1 - 3 offerings in the HCL DX portfolio. By checking entitlements, you can track purchased software entitlement periods and usage levels.
+The [MHS portal](https://support.hcl-software.com/csm?id=kb_article&sysparm_article=KB0109011){target="_blank"} supports entitlement checking and usage reporting for several HCL Software solutions, including the HCL DX Compose 9.5 Tiers 1 - 7 offerings in the HCL DX portfolio. By checking entitlements, you can track purchased software entitlement periods and usage levels.
 
 For Kubernetes deployments, the HCL License Manager container service is configured to check entitlements and record usage that can be reported to the MHS delivery portal. If you cannot or do not want to integrate directly with a delivery portal for automatic online reporting, you may use alternative options such as producing report extracts in a simple file format, that can be read, uploaded periodically, and shared in other ways. Refer to [Reporting Options](#reporting-options) to identify how to report usage for Kubernetes and traditional deployments.
-
-A standalone tool called the [User Session Reporting Tool](./user_session_reporting_tool.md) was delivered and is available from DX Compose entitlements in the MHS delivery portal.
 
 ### Entitlement-check scenarios
 
@@ -19,7 +17,7 @@ During the grace period and beyond, messages are displayed in the License Manage
     - The grace period is 28 days. This period is determined and defined by the entitlement server. During this time, the DX Compose 9.5 server starts, despite failing an entitlement check.
     - To confirm that your entitlement is verified and that your HCL DX Compose 9.5 server is not in the grace period, access the HCL DX v9.5 Container Update Log Manager pod logs. However, you must first ensure that your DX Compose 9.5 deployment Helm chart is configured for entitlement checking to verify that there are no HCL DX Compose 9.5 entitlement messages.
 
-The following table describes the possible entitlement-check response scenarios and the corresponding behavior of the HCL DX Compose 9.5 Tiers 1 - 3 services.
+The following table describes the possible entitlement-check response scenarios and the corresponding behavior of the HCL DX Compose 9.5 Tiers 1 - 7 services.
 
 | Entitlement-Check Response Scenario | HCL DX Compose 9.5 Server Behavior |
 | ----------- | ----------- |
@@ -53,9 +51,9 @@ Refer to the following table to determine the appropriate reporting method for y
 !!! note
     Calculating and reporting user session consumption produces the same results, regardless of which software delivery portal is being used.
 
-The MHS delivery portal will collect usage information of HCL Software offerings that have been developed to report usage metrics. This information includes HCL DX Compose 9.5 Tiers 1 - 3 offerings for production deployments.
+The MHS delivery portal will collect usage information of HCL Software offerings that have been developed to report usage metrics. This information includes HCL DX Compose 9.5 Tiers 1 - 7 offerings for production deployments.
 
-HCL DX Compose 9.5 Tiers 1 - 3 offerings are purchased according to the number of user sessions to be consumed annually. A user session is defined as a single web session or other online interaction by anonymous or authenticated users of the program when it is deployed for production use. User sessions also include API calls, which deliver production-use website content or application data to external resources, excluding deliveries to a content-delivery network.
+HCL DX Compose 9.5 Tiers 1 - 7 offerings are purchased according to the number of user sessions to be consumed annually. A user session is defined as a single web session or other online interaction by anonymous or authenticated users of the program when it is deployed for production use. User sessions also include API calls, which deliver production-use website content or application data to external resources, excluding deliveries to a content-delivery network.
 
 - A user session begins when a user (authenticated or anonymous) visits a DX Compose deployment operating for production use and then interacts with program website pages and is identified through appropriate tags that use the appropriate scripts for each site page view request. User session interactions can include one or more production-use website page views.
 

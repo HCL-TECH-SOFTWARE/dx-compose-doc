@@ -1,6 +1,6 @@
 # Downloading and deploying DX Compose from a Harbor repository
 
-Customers with entitlements to HCL Digital Experience (DX) Compose 9.5 may access the DX Compose container images and Helm charts from the [HCL Harbor container repository](https://hclcr.io/){:target="_blank"}. Customers with credentials to access entitled software on the HCL Software Licensing Portal can apply those credentials to optionally access these components of DX Compose v9.5.
+Customers with entitlements to HCL Digital Experience (DX) Compose 9.5 may access the DX Compose container images and Helm charts from the [HCL Harbor container repository](https://hclcr.io/){:target="_blank"}. Customers with credentials to access entitled software on the [My HCLSoftware (MHS) portal](https://my.hcltechsw.com/){target="blank"} can apply those credentials to optionally access these components of DX Compose v9.5.
 
 The Harbor repository provides a registry based on Open Container Initiative (OCI). The Helm chart command is updated to be OCI-compliant.
 
@@ -43,10 +43,14 @@ Refer to the following list of Helm chart versions and their corresponding CF ve
 
 |HCL DX Deployment version|HCL DX Search version|CF version|
 |-------------------------|---------------------|----------|
-|2.33.0||CF224|
-|2.34.0|2.23.0|CF225|
-|2.35.0|2.24.0|CF226|
-|2.36.0|2.25.0|CF227|
+| 2.33.0                  |                     | CF224    |
+| 2.34.0                  | 2.23.0              | CF225    |
+| 2.35.0                  | 2.24.0              | CF226    |
+| 2.36.0                  | 2.25.0              | CF227    |
+| 2.37.3                  | 2.26.0              | CF228    |
+| 2.40.0                  | 2.27.0              | CF229    |
+| 2.41.0                  | 2.28.0              | CF230    |
+| 2.42.1                  | 2.29.0              | CF231    |
 
 You downloaded your DX Compose 9.5 Container Update Helm chart from the HCL repository on Harbor and can continue with your deployment.
 

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<request require-defined-oids="true" type="update" version="8.5.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="PortalConfig_8.5.0.xsd">
+	<portal action="locate">
+
+		<theme action="update" active="true" context-root="/wps/CaaSTheme" default="false" domain="rel" objectid="ZJ_00000000000000AIPRNM2B1000" resourceroot="CaaSTheme" uniquename="wp.theme.caas">
+			<localedata locale="ar" prefix="themes.caas">
+				<url>file://$server_root$/svrcfg/templates/caas/deployTheme_ar.properties</url>
+			</localedata>
+			<localedata locale="ca" prefix="themes.caas">
+				<url>file://$server_root$/svrcfg/templates/caas/deployTheme_ca.properties</url>
+			</localedata>
+			<localedata locale="cs" prefix="themes.caas">
+				<url>file://$server_root$/svrcfg/templates/caas/deployTheme_cs.properties</url>
+			</localedata>
+			<localedata locale="da" prefix="themes.caas">
+				<url>file://$server_root$/svrcfg/templates/caas/deployTheme_da.properties</url>
+			</localedata>
+			<localedata locale="de" prefix="themes.caas">
+				<url>file://$server_root$/svrcfg/templates/caas/deployTheme_de.properties</url>
+			</localedata>
+			<localedata locale="el" prefix="themes.caas">
+				<url>file://$server_root$/svrcfg/templates/caas/deployTheme_el.properties</url>
+			</localedata>
+			<localedata locale="en" prefix="themes.caas">
+				<url>file://$server_root$/svrcfg/templates/caas/deployTheme_en.properties</url>
+			</localedata>
+			<localedata locale="es" prefix="themes.caas">
+				<url>file://$server_root$/svrcfg/templates/caas/deployTheme_es.properties</url>
+			</localedata>
+			<localedata locale="fi" prefix="themes.caas">
+				<url>file://$server_root$/svrcfg/templates/caas/deployTheme_fi.properties</url>
+			</localedata>
+			<localedata locale="fr" prefix="themes.caas">
+				<url>file://$server_root$/svrcfg/templates/caas/deployTheme_fr.properties</url>
+			</localedata>
+			<localedata locale="hr" prefix="themes.caas">
+				<url>file://$server_root$/svrcfg/templates/caas/deployTheme_hr.properties</url>
+			</localedata>
+			<localedata locale="hu" prefix="themes.caas">
+				<url>file://$server_root$/svrcfg/templates/caas/deployTheme_hu.properties</url>
+			</localedata>
+			<localedata locale="it" prefix="themes.caas">
+				<url>file://$server_root$/svrcfg/templates/caas/deployTheme_it.properties</url>
+			</localedata>
+			<localedata locale="iw" prefix="themes.caas">
+				<url>file://$server_root$/svrcfg/templates/caas/deployTheme_iw.properties</url>
+			</localedata>
+			<localedata locale="ja" prefix="themes.caas">
+				<url>file://$server_root$/svrcfg/templates/caas/deployTheme_ja.properties</url>
+			</localedata>
+			<localedata locale="kk" prefix="themes.caas">
+				<url>file://$server_root$/svrcfg/templates/caas/deployTheme_kk.properties</url>
+			</localedata>
+			<localedata locale="ko" prefix="themes.caas">
+				<url>file://$server_root$/svrcfg/templates/caas/deployTheme_ko.properties</url>
+			</localedata>
+			<localedata locale="nl" prefix="themes.caas">
+				<url>file://$server_root$/svrcfg/templates/caas/deployTheme_nl.properties</url>
+			</localedata>
+			<localedata locale="no" prefix="themes.caas">
+				<url>file://$server_root$/svrcfg/templates/caas/deployTheme_no.properties</url>
+			</localedata>
+			<localedata locale="pl" prefix="themes.caas">
+				<url>file://$server_root$/svrcfg/templates/caas/deployTheme_pl.properties</url>
+			</localedata>
+			<localedata locale="pt_BR" prefix="themes.caas">
+				<url>file://$server_root$/svrcfg/templates/caas/deployTheme_pt_BR.properties</url>
+			</localedata>
+			<localedata locale="pt" prefix="themes.caas">
+				<url>file://$server_root$/svrcfg/templates/caas/deployTheme_pt.properties</url>
+			</localedata>
+			<localedata locale="ro" prefix="themes.caas">
+				<url>file://$server_root$/svrcfg/templates/caas/deployTheme_ro.properties</url>
+			</localedata>
+			<localedata locale="ru" prefix="themes.caas">
+				<url>file://$server_root$/svrcfg/templates/caas/deployTheme_ru.properties</url>
+			</localedata>
+			<localedata locale="sk" prefix="themes.caas">
+				<url>file://$server_root$/svrcfg/templates/caas/deployTheme_sk.properties</url>
+			</localedata>
+			<localedata locale="sl" prefix="themes.caas">
+				<url>file://$server_root$/svrcfg/templates/caas/deployTheme_sl.properties</url>
+			</localedata>
+			<localedata locale="sv" prefix="themes.caas">
+				<url>file://$server_root$/svrcfg/templates/caas/deployTheme_sv.properties</url>
+			</localedata>
+			<localedata locale="th" prefix="themes.caas">
+				<url>file://$server_root$/svrcfg/templates/caas/deployTheme_th.properties</url>
+			</localedata>
+			<localedata locale="tr" prefix="themes.caas">
+				<url>file://$server_root$/svrcfg/templates/caas/deployTheme_tr.properties</url>
+			</localedata>
+			<localedata locale="uk" prefix="themes.caas">
+				<url>file://$server_root$/svrcfg/templates/caas/deployTheme_uk.properties</url>
+			</localedata>
+			<localedata locale="zh_TW" prefix="themes.caas">
+				<url>file://$server_root$/svrcfg/templates/caas/deployTheme_zh_TW.properties</url>
+			</localedata>
+			<localedata locale="zh" prefix="themes.caas">
+				<url>file://$server_root$/svrcfg/templates/caas/deployTheme_zh.properties</url>
+			</localedata>
+			<parameter name="com.ibm.portal.Hidden" type="string" update="set"><![CDATA[true]]></parameter>
+			<parameter name="com.ibm.portal.remote-cache-expiry" type="string" update="set">2627388</parameter>
+			<parameter name="com.ibm.portal.layout.template.ref" type="string" update="set"><![CDATA[none]]></parameter>
+			<parameter name="com.ibm.portal.theme.hasBaseURL" type="string" update="set"><![CDATA[true]]></parameter>
+			<!-- relative path to the JSON file that describes the contributions to 
+				the theme -->
+			<parameter name="resourceaggregation.profile" type="string" update="set">
+				profiles/profile_default.json
+			</parameter>
+			<!-- addresses the profiles listing -->
+			<parameter name="resourceaggregation.profiles.folder" type="string" update="set">
+				profiles/
+			</parameter>	
+		</theme>
+	</portal>
+
+</request>
