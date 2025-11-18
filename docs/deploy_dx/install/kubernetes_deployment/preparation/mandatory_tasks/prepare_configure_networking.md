@@ -1,6 +1,6 @@
 # Configure Networking
 
-This section explains what must be configured from a networking perspective to get HCL Digital Experience Compose 9.5 running in your Kubernetes or OpenShift cluster, and to provide accessibility to your deployment from outside the Cluster.
+This section explains what must be configured from a networking perspective to get HCL Digital Experience (DX) Compose 9.5 running in your Kubernetes or OpenShift cluster, and to provide accessibility to your deployment from outside the Cluster.
 
 ## Full Kubernetes or OpenShift deployment
 
@@ -27,7 +27,7 @@ If you do not know the hostname beforehand, you can leave it blank and run an ad
 
 ## Configure Cross Origin Resource Sharing (CORS)
 
-The HCL Digital Experience Compose 9.5 Helm Chart allows you to configure CORS configuration for all the `addon` to WebEngine applications such as Digital Asset Management or Ring API. This allows you to access the APIs provided by those applications in other applications with ease.
+The HCL DX Compose 9.5 Helm chart allows you to configure CORS configuration for all the `addon` to WebEngine applications such as Digital Asset Management or Ring API. This allows you to access the APIs provided by those applications in other applications with ease.
 
 You can define a list of allowed hosts for a specific application using the following syntax in your `custom-values.yaml`:
 
@@ -51,7 +51,7 @@ For HAProxy to allow forward requests to your applications, you must provide it 
 
 ## Configure HAProxy networking
 
-HAProxy is deployed with a `LoadBalancer` type service to handle the incoming traffic as well as the SSL offloading for HCL Digital Experience. In addition, the Helm deployment offers adjustability for HAProxy and its services to allow for more flexible deployment and use of custom `Ingress Controllers`.
+HAProxy is deployed with a `LoadBalancer` type service to handle the incoming traffic as well as the SSL offloading for HCL DX. In addition, the Helm deployment offers adjustability for HAProxy and its services to allow for more flexible deployment and use of custom `Ingress Controllers`.
 
 |Parameter|Description| Type | Default value|
 |---------|-----------|-------------|------|
@@ -127,7 +127,7 @@ To have your deployment and HAProxy to use the certificate, you must store it in
 The secret can be created using the following commands:
 
 !!!note
-    The secret name can be chosen by you and must be referenced in the next configuration step (the following example uses `dx-tls-cert`). The namespace is the Kubernetes namespace where you want to deploy HCL Digital Experience Compose 9.5 to (the example uses `digital-experience-compose`).
+    The secret name can be chosen by you and must be referenced in the next configuration step (the following example uses `dx-tls-cert`). The namespace is the Kubernetes namespace where you want to deploy HCL DX Compose 9.5 to (the example uses `digital-experience-compose`).
 
 ```sh
 # Create secret with the name "dx-tls-cert"
@@ -189,7 +189,7 @@ spec:
 
 ## Configuring Content-Security-Policy Frame Options
 
-The HCL Digital Experience Compose 9.5 Helm Chart allows you to configure **[Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/frame-ancestors){target="blank"}: frame-ancestors** for DX WebEngine and all other components, such as Digital Asset Management, Ring API, etc.
+The HCL DX Compose 9.5 Helm chart allows you to configure **[Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/frame-ancestors){target="blank"}: frame-ancestors** for DX WebEngine and all other components, such as Digital Asset Management, Ring API, etc.
 
 Setting `cspFrameAncestorsEnabled` to true adds `content-security-policy: frame-ancestor 'self'` headers to the responses, enabling you to frame DX and other add-on applications.
 
@@ -220,7 +220,7 @@ Refer to the HCL DX Compose 9.5 `values.yaml` detail for all possible applicatio
 
 ## Configuring SameSite Cookie Attribute
 
-The HCL Digital Experience Compose 9.5 Helm Chart allows you to configure **[SameSite Cookie Attribute](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie/SameSite){target="blank"}** for DX WebEngine. This configuration sets the `WASReqURL` Cookie Attributes `Secure` and `SameSite`.
+The HCL DX Compose 9.5 Helm chart allows you to configure **[SameSite Cookie Attribute](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie/SameSite){target="blank"}** for DX WebEngine. This configuration sets the `WASReqURL` Cookie Attributes `Secure` and `SameSite`.
 
 !!!note
     This should only be set in an HTTPS environment to prevent unwanted behaviors.
@@ -239,20 +239,20 @@ networking:
 
 Refer to the HCL DX Compose 9.5 `values.yaml` detail for all possible applications that can be configured.
 
-## HAProxy Custom Headers
+## HAProxy custom headers
 
-The HCL Digital Experience 9.5 Helm Chart allows you to configure custom HTTP headers in the HAProxy configuration. You can both add new headers and remove existing headers from responses generated by HAProxy.
+The HCL DX 9.5 Helm chart allows you to configure custom HTTP headers in the HAProxy configuration. You can both add new headers and remove existing headers from responses generated by HAProxy.
 
-### Adding Custom Headers
+### Adding custom headers
 
 You can add custom HTTP headers to all responses from HAProxy using the `customHeader` property. This is useful for implementing security best practices or adding specific information to responses.
 
 Each header entry supports the following properties:
 
-- **name**: The name of the HTTP header to be added
-- **value**: The value that should be set for the header
+- `name`: The name of the HTTP header to be added
+- `value`: The value that should be set for the header
 
-Example configuration in your `custom-values.yaml`:
+Example configuration in your `custom-values.yaml` file:
 
 ```yaml
 networking:
@@ -264,11 +264,11 @@ networking:
         value: no-referrer
 ```
 
-### Removing Headers
+### Removing headers
 
 You can specify header names that should be removed from HAProxy responses using the `deleteHeader` property. This is useful for removing headers that might reveal internal information or that you do not wish to forward.
 
-Example configuration in your `custom-values.yaml`:
+Example configuration in your `custom-values.yaml` file:
 
 ```yaml
 networking:
