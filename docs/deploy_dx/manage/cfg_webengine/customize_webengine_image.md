@@ -108,6 +108,63 @@ When creating custom scripts, follow these guidelines:
 - For WebEngine utilities, only use documented utility functions from the `common-utility` directory. These are described in the `README.md` file in that directory and in the individual script files.
 - Create and use your own helper functions in any subdirectories of the `customer` directory.
 - Include appropriate error handling in your scripts, especially if they have external dependencies.
+- Use the `abort_container` function to stop container startup if your script detects a critical failure that requires immediate attention.
+
+### Using abort_container for critical failures
+
+Starting with CF232, custom scripts can use the `abort_container` function to immediately stop container startup when a critical failure is detected. This is useful when your script identifies a condition that makes it unsafe or impossible to continue, such as missing required configuration, unavailable external dependencies, or failed validation checks.
+
+#### When to use abort_container
+
+Use `abort_container` in situations where:
+
+- Required configuration files or environment variables are missing
+- Essential external services (databases, APIs) are unreachable
+- Critical validation checks fail
+- Required resources or permissions are not available
+- Data integrity issues are detected that would prevent normal operation
+
+#### Syntax
+
+```bash
+abort_container "Your error message describing the critical failure"
+```
+
+When `abort_container` is called:
+
+1. The error message is logged with a `CRITICAL ERROR` prefix
+2. A marker file is created to signal the failure to the container orchestration
+3. The script exits immediately with a non-zero status code
+4. The container startup process is halted
+
+#### Example usage
+
+```bash
+#!/bin/bash
+source /opt/openliberty/wlp/usr/svrcfg/scripts/utility.sh
+
+log_message_customer "Validating required configuration"
+
+# Check for required environment variable
+if [ -z "$REQUIRED_API_KEY" ]; then
+    abort_container "REQUIRED_API_KEY environment variable is not set. Cannot proceed with startup."
+fi
+
+# Check external service availability
+if ! curl -s -f "http://external-service/health" > /dev/null; then
+    abort_container "External service at http://external-service is not accessible. Cannot proceed with startup."
+fi
+
+# Check database connectivity
+if ! /opt/openliberty/wlp/usr/svrcfg/scripts/db/test_connection.sh; then
+    abort_container "Database connection test failed. Verify database configuration and network connectivity."
+fi
+
+log_message_customer "All validation checks passed"
+```
+
+!!! warning
+    Use `abort_container` only for truly critical failures. For non-critical issues, log a warning and allow the container to start. Overuse of `abort_container` may prevent legitimate startups and complicate troubleshooting.
 
 ## Enabling the customized WebEngine image in DX Compose
 
