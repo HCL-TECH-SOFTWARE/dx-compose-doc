@@ -110,19 +110,17 @@ When creating custom scripts, follow these guidelines:
 - Include appropriate error handling in your scripts, especially if they have external dependencies.
 - Use the `abort_container` function to stop container startup if your script detects a critical failure that requires immediate attention.
 
-### Using abort_container for critical failures
+### Using the `abort_container` function for critical failures
 
-Starting with CF232, custom scripts can use the `abort_container` function to immediately stop container startup when a critical failure is detected. This is useful when your script identifies a condition that makes it unsafe or impossible to continue, such as missing required configuration, unavailable external dependencies, or failed validation checks.
-
-#### When to use abort_container
+Starting with CF232, custom scripts can use the `abort_container` function to stop container startup when a critical failure is detected. This function is useful when your script identifies a condition that makes continued operation unsafe or impossible, such as missing required configuration, unavailable external dependencies, or failed validation checks.
 
 Use `abort_container` in situations where:
 
-- Required configuration files or environment variables are missing
-- Essential external services (databases, APIs) are unreachable
-- Critical validation checks fail
-- Required resources or permissions are not available
-- Data integrity issues are detected that would prevent normal operation
+- Required configuration files or environment variables are missing.
+- Essential external services (databases, APIs) are unreachable.
+- Critical validation checks fail.
+- Required resources or permissions are not available.
+- Data integrity issues are detected that would prevent normal operation.
 
 #### Syntax
 
@@ -132,12 +130,12 @@ abort_container "Your error message describing the critical failure"
 
 When `abort_container` is called:
 
-1. The error message is logged with a `CRITICAL ERROR` prefix
-2. A marker file is created to signal the failure to the container orchestration
-3. The script exits immediately with a non-zero status code
-4. The container startup process is halted
+1. The error message is logged with a `CRITICAL ERROR` prefix.
+2. A marker file is created to signal the failure to the container orchestration.
+3. The script exits immediately with a non-zero status code.
+4. The container startup process is halted.
 
-#### Example usage
+#### Sample usage
 
 ```bash
 #!/bin/bash
@@ -164,7 +162,7 @@ log_message_customer "All validation checks passed"
 ```
 
 !!! warning
-    Use `abort_container` only for truly critical failures. For non-critical issues, log a warning and allow the container to start. Overuse of `abort_container` may prevent legitimate startups and complicate troubleshooting.
+    Use `abort_container` only for critical failures. For non-critical issues, log a warning and allow the container to start. Overusing the function may prevent legitimate startups and complicate troubleshooting.
 
 ## Enabling the customized WebEngine image in DX Compose
 
