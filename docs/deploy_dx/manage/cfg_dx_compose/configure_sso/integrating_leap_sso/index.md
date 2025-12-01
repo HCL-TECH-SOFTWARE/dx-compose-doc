@@ -2,15 +2,15 @@
 
 This page provides information on how to configure the Single Sign-On (SSO) layer between HCL DX Compose and HCL Leap.
 
-## Enable SSO between HCL Leap and HCL DX Compose in Kubernetes
+## Enabling SSO between HCL Leap and HCL DX Compose in Kubernetes
 
-This guide explains how to enable SSO between HCL DX Compose and HCL Leap. You can use the modern, natively supported OpenID Connect (OIDC) protocol because both applications run on Open Liberty. The protocol connects directly to your preferred identity provider (IdP), such as Azure AD, Keycloak, Okta, or any OIDC-compliant provider. By configuring HCL DX Compose and Leap to trust your central IdP, users get a seamless single sign-on experience.
+This guide shows how you can enable SSO between HCL DX Compose and HCL Leap. You can use the modern and natively supported OpenID Connect (OIDC) protocol since both applications run on Open Liberty. The protocol connects directly to your preferred Identity Provider (IdP), such as Azure AD, Keycloak, Okta, or any OIDC-compliant provider. By configuring HCL DX Compose and Leap to trust your central IdP, users get a seamless, single log-in experience.
 
-### Implement OIDC SSO
+### Implementing OIDC SSO
 
 1. Choose and configure your IdP.
 
-Create a client registration for each product (HCL DX Compose and HCL Leap). Your IdP serves as the single source of truth for credential input.
+    Create a client registration for each product (HCL DX Compose and HCL Leap). Your IdP serves as the single source of truth for credential input.
 
 2. Enable OIDC in HCL DX.
 
@@ -22,7 +22,7 @@ Create a client registration for each product (HCL DX Compose and HCL Leap). You
 
     1. Configure the OIDC IdP, which will serve as the OIDC provider.
 
-        As part of the configuration process for your identity provider, create or obtain a digital certificate for HTTPS. Deploy this certificate to Leap so that the two servers can communicate securely.
+        As part of the configuration process for your identity provider, create or obtain a digital certificate for HTTPS. Deploy this certificate to Leap so the two servers can communicate securely.
 
         !!!note
             The SSL certificate (`.crt`) and public key (`.key`) should be in PKCS12 format.
@@ -91,7 +91,7 @@ Create a client registration for each product (HCL DX Compose and HCL Leap). You
 
         - `userLookups`: Set this to `false` to disable user lookups, which is not available when configured with OIDC.
         - `userGroups`: Set this to `false` to disable group lookups, which is not available when configured with OIDC.
-        - - `postLogoutRedirectURL`: Specify the URL where Leap redirects the browser after a user logs out. This setting completes the sign-out flow with the OIDC IdP. The URL format varies by IdP. For more information, see your IdP documentation.
+        - `postLogoutRedirectURL`: Set this to the URL where Leap redirects the browser after a user logs out. This setting completes the sign-out flow with the OIDC IdP. The URL format varies by IdP. For more information, refer to your IdP documentation.
 
         ```yaml
         configuration:
@@ -104,8 +104,8 @@ Create a client registration for each product (HCL DX Compose and HCL Leap). You
 
         For more information about setting Leap properties, see [Leap properties](https://opensource.hcltechsw.com/leap-doc/latest/helm_leap_properties.html).
 
-5. Perform a Helm upgrade to apply your changes.
-
     5. Perform a Helm upgrade to apply your changes.
 
-    6. Restart the Leap pod. After restarting the Leap pod, accessing Leap should redirect you to authenticate using your OIDC IdP.
+    6. Restart the Leap pod.
+
+        After restarting the Leap pod, accessing Leap should redirect you to authenticate using your OIDC IdP.
