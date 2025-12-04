@@ -56,7 +56,7 @@ Follow these steps to deploy your customized WebEngine image in your HCL DX Comp
     configuration:
       webEngine:
         configOverrideFiles:
-          my-custom-theme.xml: |
+          my-custom-plugin.xml: |
             <server description="DX Web Engine server">
               <enterpriseApplication id="MyCustomPlugins.ear" location="${server.config.dir}/resources/customApplications/MyCustomPlugins.ear" name="MyCustomPlugins.ear">
               </enterpriseApplication>
