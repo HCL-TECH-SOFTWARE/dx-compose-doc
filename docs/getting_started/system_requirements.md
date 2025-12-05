@@ -32,7 +32,7 @@ DX Compose requires JDK 11.0 or later for installation.
 |Oracle on Amazon Relational Database Service|19c and later maintenance releases (acquired separately)|9.5|
 |Oracle on Amazon Relational Database Service|21c and later maintenance releases (acquired separately)|9.5|
 
-\* Apache Derby is not supported in a product environment.  
+\* Apache Derby is not supported in a production environment.  
 \** DB2 includes support for the DB2 pureScale component.  
 
 ## LDAP servers
