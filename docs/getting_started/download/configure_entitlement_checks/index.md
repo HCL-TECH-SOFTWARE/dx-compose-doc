@@ -40,11 +40,10 @@ When reporting product usage in HCL DX Compose, the method of reporting depends 
 
 Refer to the following table to determine the appropriate reporting method for your existing deployment. It outlines the available usage reporting options for Kubernetes environments, along with the corresponding MHS portal and documentation links.
 
-| **Reporting Target**     | **Deployment Type** | **Further Information**                                                                                                                                             |
-|-------------------------|---------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **My HCLSoftware**      | Kubernetes          | [Online Reporting](./mhs_license_and_delivery.md)                                                                     |
-|                         | Kubernetes          | [Offline / Disconnected Reporting](./configuring_mhs_file_base_session_reporting.md#mhs-file-based-usage-reporting-for-kubernetes-deployments)                       |
-| **Manual Export**       | Kubernetes          | [Manual Report Extracts](./export_usage_report.md)                                                                                                                   |
+| **Reporting Target**    | **Deployment Type** | **Further Information**|
+|-------------------------|---------------------|------------------------|
+| **My HCLSoftware**      | Kubernetes          | [Online Reporting](./mhs_license_and_delivery.md) |
+| **Manual Export**       | Kubernetes          | [Manual Report Extracts](./export_usage_report.md)|
 
 ### Monitoring user-session consumption for HCL DX Compose v9.5 production deployments
 

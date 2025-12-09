@@ -6,10 +6,6 @@ My HCLSoftware (MHS) allows you to manually report your session data consumption
 
 In both scenarios, the User Session Reporting Tool is used to export session data in the MHS metric file format—the only format accepted by the MHS portal’s file upload feature. This ensures consistency in license usage reporting across disconnected or non-integrated environments.
 
-## MHS file-based usage reporting for non-Kubernetes deployments
-
-Using the [User Session Reporting Tool](./user_session_reporting_tool.md), data from [generated National Center for Supercomputing Applications (NCSA) access log files](./user_session_reporting_tool.md#enabling-access-logs) can be exported and converted into an MHS-readable metrics format. This allows you to generate MHS metric files that contain the session data, which you can upload directly to the MHS portal.
-
 ### Generating user session data usage in MHS metrics format (traditional deployment)
 
 To generate the user session data usage from NCSA access logs in MHS metrics format, the report must include session data that has been encrypted for each user session. A deployment ID from a [created MHS deployment instance](./mhs_license_and_delivery.md#creating-an-mhs-deployment-instance) is needed as a parameter to know which deployment instance the sessions are being reported or recorded to. You can find the `deploymentId` in the MHS portal after clicking the deployment card in the URL. For example, in `https://my.hcltechsw.com/deployments/pzneck8m` the `deploymentID` is `pzneck8m`.
@@ -86,10 +82,6 @@ After running the command, the system returns the expected session count within 
 You can run the User Session Reporting Tool either once for all collected log files or incrementally every X days, hours, or minutes. The tool stores its state between runs and only processes logs generated after the last previously processed timestamp to prevent reprocessing old entries. This ensures that you still get the correct overall result, even when processing logs in multiple stages.
 
 Additionally, if there are logs from multiple deployments belonging to the same system (for example, in Active-Active setups or backups), you must process those logs together in one run because the tool will merge them to provide a comprehensive and accurate session count.
-
-## MHS file-based usage reporting for Kubernetes deployments
-
-For file-based usage reporting on Kubernetes deployments, usage data export is done using the DX License Manager, utilizing the [User Session Reporting Tool](./user_session_reporting_tool.md) packaged with it. The User Session Reporting Tool analyzes session data recorded by the license manager through HAProxy and exports it into an MHS-readable metrics file for upload.
 
 ### Generating user session data usage in MHS metrics format (Kubernetes deployment)
 
