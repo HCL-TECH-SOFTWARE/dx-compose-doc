@@ -6,7 +6,7 @@ HCL Digital Experience (DX) Compose is a lightweight, fast performing, cloud–o
 
 DX Compose supports site design and web content authoring features such as Web Content Management (WCM), Personalization, secure and role-based delivery, virtual portals, Script Applications, Digital Asset Management (DAM), and Content Composer. Integration capabilities are also available, including custom Script Applications, HCL Volt Foundry services, and HCL Leap, and support for open-standards APIs.
 
-HCL DX Compose 9.5 is available in the [HCL Software License Portal (Flexnet)](https://support.hcl-software.com/csm?id=kb_article&sysparm_article=KB0073344){target="_blank"} to customers licensed for the [HCL Digital Experience Compose v9.5](https://www.hcl-software.com/resources/license-agreements){target="_blank"} offering.
+HCL DX Compose 9.5 is available in [My HCLSoftware](https://my.hcltechsw.com/downloads){target="_blank"} to customers licensed for the [HCL Digital Experience Compose v9.5](https://www.hcl-software.com/resources/license-agreements){target="_blank"} offering.
 
 For the latest list of Digital Experience Compose 9.5 components for deployments to Docker and certified Kubernetes platforms, refer to the [Container file listings](../deploy_dx/install/kubernetes_deployment/image_list.md) topic in the Help Center.
 
@@ -20,7 +20,7 @@ HCL DX Cloud Native also includes:
 
 - Entitlements to [HCL Leap](https://opensource.hcltechsw.com/digital-experience/latest/extend_dx/integration/leap/){target="_blank"}, with the capability to create web applications for data collection and process automation. Easily integrate with DX Compose solutions to deliver customer and employee facing applications and forms, and transform processes to be more efficient.
 
-- HCL DX Cloud Native 9.5.1 and higher releases are available in the [HCL Software License Portal (Flexnet)](https://support.hcl-software.com/csm?id=kb_article&sysparm_article=KB0073344){target="_blank"} to customers licensed for the [HCL DX Cloud Native 9.5](https://www.hcl-software.com/wps/wcm/connect/61f40a7e-d2ca-42d4-b24c-d5adfd4fe54d/HCL+Digital+Experience+Cloud+Native+v9.5.pdf?MOD=AJPERES&CONVERT_TO=url&CACHEID=ROOTWORKSPACE-61f40a7e-d2ca-42d4-b24c-d5adfd4fe54d-ofP.t-Y){target="_blank"} offering.
+- HCL DX Cloud Native 9.5.1 and higher releases are available in [My HCLSoftware](https://my.hcltechsw.com/downloads){target="_blank"} to customers licensed for the [HCL DX Cloud Native 9.5](https://www.hcl-software.com/wps/wcm/connect/61f40a7e-d2ca-42d4-b24c-d5adfd4fe54d/HCL+Digital+Experience+Cloud+Native+v9.5.pdf?MOD=AJPERES&CONVERT_TO=url&CACHEID=ROOTWORKSPACE-61f40a7e-d2ca-42d4-b24c-d5adfd4fe54d-ofP.t-Y){target="_blank"} offering.
 
 For the latest list of DX 9.5 components available for HCL DX Cloud Native 9.5 offering deployments to Docker and certified Kubernetes platforms, refer to the [Docker image list](https://opensource.hcltechsw.com/digital-experience/latest/deployment/install/container/image_list/){target="_blank"} topic in the Help Center.
 
