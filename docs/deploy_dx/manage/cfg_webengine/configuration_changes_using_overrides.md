@@ -3,7 +3,7 @@ id: web-engine-configuration-changes-using-overrides
 title: DX WebEngine configuration changes using overrides
 ---
 
-This guide provides detailed steps for updating the `server.xml` properties and for configuring the Digital Experience (DX) Compose server using `configOverrideFiles`.
+This guide provides detailed steps for updating the `server.xml` properties and for configuring the Digital Experience (DX) Compose server using `configuration.webEngine.configOverrideFiles`.
 
 The snippets are merged into the Open Liberty `server.xml` file. After making changes to the respective `values.yaml` file, apply them by using the `helm upgrade` command. Open Liberty picks up and applies changes at runtime; this does not require a restart.
 
