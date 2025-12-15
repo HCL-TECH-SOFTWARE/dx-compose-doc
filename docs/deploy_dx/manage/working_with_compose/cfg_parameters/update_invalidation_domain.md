@@ -12,7 +12,7 @@ By default, the `INVALIDATION_TABLE` resides in the `RELEASE` domain or schema. 
 
 You can change the domain or schema of this table by overriding a property in the `ConfigService.properties` file. Apply the change by running a Helm upgrade.
 
-AA sample override file named `invalidationDomain.yaml` is provided in the `/native-kube/install-hcl-dx-deployment/invalidationDomain` directory. Details about how to use this sample file are provided below.
+A sample override file named `invalidationDomain.yaml` is provided in the `/native-kube/install-hcl-dx-deployment/invalidationDomain` directory. Details about how to use this sample file are provided below.
 
 ## How DX Compose determines the location of invalidation table
 
