@@ -2,7 +2,6 @@ title: Configure entitlement checks and usage reporting
 
 nav:
 - index.md
-- mhs_license_and_delivery.md
+- Entitlement checking in the My HCLSoftware delivery portal: mhs_license_and_delivery.md
 - configuring_mhs_file_base_session_reporting.md
 - export_usage_report.md
-- user_session_reporting_tool.md

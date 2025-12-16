@@ -27,5 +27,5 @@ To import WCM libraries, ensure that the file is copied into the WebEngine conta
 The command would be similar to the following:
 
 ```
-https://myserver.hcl.com/wps/wcm/myconnect?MOD=data&processLibraries=false&taskType=import&input.dir="/opt/openliberty/test"&skipScheduleActions=false&renameConflict=false&importLibrary=importLibrary
+https://myserver.hcl.com/wps/wcm/myconnect?MOD=data&processLibraries=false&taskType=import&input.dir=/opt/openliberty/test&skipScheduleActions=false&renameConflict=false&importLibrary=importLibrary
 ```

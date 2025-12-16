@@ -3,7 +3,7 @@ id: web-engine-configuration-changes-using-overrides
 title: DX WebEngine configuration changes using overrides
 ---
 
-This guide provides detailed steps for updating the `server.xml` properties and for configuring the Digital Experience (DX) Compose server using `configOverrideFiles`.
+This guide provides detailed steps for updating the `server.xml` properties and for configuring the Digital Experience (DX) Compose server using `configuration.webEngine.configOverrideFiles`.
 
 The snippets are merged into the Open Liberty `server.xml` file. After making changes to the respective `values.yaml` file, apply them by using the `helm upgrade` command. Open Liberty picks up and applies changes at runtime; this does not require a restart.
 
@@ -82,7 +82,7 @@ The `attributeConfiguration` element in the LDAP registry configuration allows y
 - `name` - The name of the attribute in the LDAP directory
 - `propertyName` - The name of the attribute to be mapped to. In the following example, the LDAP `mail` attribute is mapped to `ibm-primaryEmail`, which is the attribute used to display the email address of a user. The LDAP `title` attribute is mapped to `ibm-jobTitle`, which is the attribute used to display job title of a user.
 
-```yaml
+```xml
 configOverrideFiles:
   ldapOverride.xml: | 
     <server description="DX Web Engine server"> 
@@ -115,6 +115,128 @@ configOverrideFiles:
 ```
 
 To set up a custom LDAP server in Liberty, see [Configuring LDAP with Liberty](ldap_configuration.md).
+
+## Additional LDAP Configuration samples
+
+- [IBM Directory Server](#ibm-directory-server)
+- [Microsoft Active Directory Server](#microsoft-active-directory-server)
+
+### IBM Directory Server
+
+```xml
+    configOverrideFiles:
+      myCustomOverride.xml: |
+        <?xml version="1.0" encoding="UTF-8"?> 
+        <server description="DX Web Engine server">
+          <ldapRegistry id="ldap" realm="SampleLdapIDSRealm"
+            host='your_LDAP_Server_HostName'
+            port='1389' ignoreCase="true"
+            baseDN='dc=dx,dc=com'
+            ldapType='Custom'
+            sslEnabled='false'
+            bindDN='${LDAP_BIND_USER}'
+            bindPassword='${LDAP_BIND_PASSWORD}'>
+            <customFilters
+              userFilter="(&amp;(uid=%v)(objectclass=inetOrgPerson))"
+              groupFilter="(&amp;(cn=%v)(objectclass=groupOfUniqueNames))"
+              userIdMap="*:uid"
+              groupIdMap="*:cn"
+              groupMemberIdMap="groupOfUniqueNames:uniqueMember">
+            </customFilters>
+            <ldapCache>
+              <attributesCache size="4000" sizeLimit="4000" timeout="2400s" />
+              <searchResultsCache resultsSizeLimit="4000" size="4000" timeout="2400s" />
+            </ldapCache>
+            <contextPool preferredSize="20"/>
+            <attributeConfiguration>
+              <attribute name="mail" propertyName="ibm-primaryEmail" entityType="PersonAccount"/>
+              <attribute name="title" propertyName="ibm-jobTitle" entityType="PersonAccount"/>
+            </attributeConfiguration>
+          </ldapRegistry>
+          <federatedRepository>
+            <primaryRealm name="FederatedRealm" allowOpIfRepoDown="true">
+              <participatingBaseEntry name="o=defaultWIMFileBasedRealm"/>
+              <participatingBaseEntry name='dc=dx,dc=com' />
+              <uniqueUserIdMapping inputProperty="uniqueName" outputProperty="uniqueName"/>  
+              <userSecurityNameMapping inputProperty="principalName" outputProperty="principalName"/>  
+              <userDisplayNameMapping inputProperty="principalName" outputProperty="principalName"/>  
+              <uniqueGroupIdMapping inputProperty="uniqueName" outputProperty="uniqueName"/>      
+              <groupSecurityNameMapping inputProperty="cn" outputProperty="cn"/>  
+              <groupDisplayNameMapping inputProperty="cn" outputProperty="cn"/>                
+            </primaryRealm>
+          </federatedRepository>   
+          <basicRegistry id="basic" realm="defaultWIMFileBasedRealm">
+              <user name="${DX_ADMIN}" password="${DX_PASSWORD}" id="uid=wpsadmin,o=defaultWIMFileBasedRealm"/>
+              <user name="nonadmin" password="nonadminpwd" id="uid=nonadmin,o=defaultWIMFileBasedRealm"/>
+              <user name="admin1" password="admin1pwd" id="uid=admin1,o=defaultWIMFileBasedRealm"/>
+              <group name="wpsadmins" id="cn=wpsadmins,o=defaultWIMFileBasedRealm">
+                  <member name="${DX_ADMIN}" />
+                  <member name="admin1" />
+                  <member  name="tuser1"/>
+              </group>
+              <group name="nonadmins" id="cn=nonadmins,o=defaultWIMFileBasedRealm">
+                  <member name="nonadmin" />
+              </group>
+          </basicRegistry>          
+        </server>
+```
+
+### Microsoft Active Directory Server
+
+```xml
+    configOverrideFiles:
+      myCustomOverride.xml: |
+        <?xml version="1.0" encoding="UTF-8"?>  
+        <server description="DX Web Engine server">  
+                <ldapRegistry  
+                  id="ldap"  
+                  realm="SampleLdapADRealm"  
+                  host="your_LDAP_Server_HostName"  
+                  port="389"  
+                  ignoreCase="true"  
+                  baseDN="DC=ad,DC=test,DC=com"  
+                  bindDN="CN=Administrator,CN=Users,DC=ad,DC=test,DC=com"  
+                  bindPassword="your_password"  
+                  ldapType="Microsoft Active Directory"  
+                  sslEnabled="false"  
+                  referral="ignore"  
+                  recursiveSearch="true"  
+                  bindAuthMechanism="simple"  
+                  returnToPrimaryServer="true">  
+                    <customFilters 
+                    userFilter="(&amp;(sAMAccountName=%v)(objectcategory=user)" 
+                    groupFilter="(&amp;(cn=%v)(objectcategory=group))" 
+                    userIdMap="user:sAMAccountName" 
+                    groupIdMap="*:cn" 
+                    groupMemberIdMap="memberOf:member">  
+                    </customFilters>  
+                    <ldapEntityType name="PersonAccount">  
+                      <objectClass>user</objectClass>  
+                    </ldapEntityType>  
+                    <ldapEntityType name="Group">  
+                      <objectClass>group</objectClass>  
+                  </ldapEntityType>  
+                  <groupProperties>  
+                      <memberAttribute name="member" scope="direct" objectClass="group"/>  
+                      <membershipAttribute name="memberOf" scope="direct"/>  
+                  </groupProperties>  
+                  <loginProperty name="uid">uid</loginProperty>  
+
+                </ldapRegistry>  
+                  <federatedRepository>  
+                    <primaryRealm name="FederatedRealm" allowOpIfRepoDown="true" delimiter="/">  
+                      <participatingBaseEntry name="o=defaultWIMFileBasedRealm" id="FileBasedEntry"/>  
+                      <participatingBaseEntry name="DC=ad,DC=test,DC=com" id="LDAPEntry"/>  
+                      <uniqueUserIdMapping inputProperty="uniqueName" outputProperty="uniqueName"/>  
+                      <userSecurityNameMapping inputProperty="principalName" outputProperty="principalName"/>  
+                      <userDisplayNameMapping inputProperty="principalName" outputProperty="principalName"/>  
+                      <uniqueGroupIdMapping inputProperty="uniqueName" outputProperty="uniqueName"/>      
+                      <groupSecurityNameMapping inputProperty="cn" outputProperty="cn"/>  
+                      <groupDisplayNameMapping inputProperty="cn" outputProperty="cn"/>         
+                    </primaryRealm>  
+                  </federatedRepository>  
+        </server>  
+```
 
 ## Security hardening
 

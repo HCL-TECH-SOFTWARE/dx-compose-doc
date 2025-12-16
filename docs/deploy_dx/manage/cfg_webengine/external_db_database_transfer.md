@@ -16,6 +16,7 @@ This section provides the custom scripts for setting up the external database sc
 |--------|--------------------|
 |DB2|[DB2 custom setup script](SetupDb2DatabasesManually.sql)|
 |Oracle|[Oracle custom setup script](SetupOracleDatabasesManually.sql)|
+|SQL Server|[SQL Server custom setup script](SetupSqlServerDatabasesManually.sql)|
 
 !!! Note
     If you are using the Amazon RDS for Oracle, you need to create a custom option group, add the JVM option, and then attach that group to your Amazon RDS instance to support Extended Architecture (XA) transactions for WebEngine. Attaching this custom option group to your instance replaces the default option group. For more information, refer to [Configure Custom Option Groups for Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithOptionGroups.html){target="_blank"}.
@@ -145,7 +146,7 @@ configuration:
       jcr.DbNode: "wpsNode"
     dbTypeProperties:
       db2.DbDriver: "com.ibm.db2.jcc.DB2Driver"
-      db2.DbLibrary: "/opt/openliberty/wlp/usr/svrcfg/bin/db2jcc4.jar:/opt/openliberty/wlp/usr/svrcfg/bin/db2jcc_license_cu.jar"
+      db2.DbLibrary: "/opt/openliberty/wlp/usr/svrcfg/templates/jars/db2/db2jcc4.jar"
       db2.JdbcProviderName: "wpdbJDBC_db2"
 ```
 
@@ -157,7 +158,7 @@ configuration:
     dbDomainProperties:
       InitializeFeedbackDB: "true"
       feedback.DbType: "oracle"
-      feedback.DbName: "WPFDBK"
+      feedback.DbName: "feedback"
       feedback.DbSchema: "feedback"
       feedback.DataSourceName: "wpfdbkdbDS"
       feedback.DbUrl: "jdbc:oracle:thin:@//<replace-db-host>:<replace-db-port>/<replace-service-name>"
@@ -172,7 +173,7 @@ configuration:
       feedback.XDbName: "WPFDBK"
       feedback.DbNode: "pznNode"
       likeminds.DbType: "oracle"
-      likeminds.DbName: "WPLM"
+      likeminds.DbName: "likeminds"
       likeminds.DbSchema: "likeminds"
       likeminds.DataSourceName: "wplmdbDS"
       likeminds.DbUrl: "jdbc:oracle:thin:@//<replace-db-host>:<replace-db-port>/<replace-service-name>"
@@ -187,7 +188,7 @@ configuration:
       likeminds.XDbName: "WPLM"
       likeminds.DbNode: "pznNode"
       release.DbType: "oracle"
-      release.DbName: "WPREL"
+      release.DbName: "release"
       release.DbSchema: "release"
       release.DataSourceName: "wpreldbDS"
       release.DbUrl: "jdbc:oracle:thin:@//<replace-db-host>:<replace-db-port>/<replace-service-name>"
@@ -202,7 +203,7 @@ configuration:
       release.XDbName: "WPREL"
       release.DbNode: "wpsNode"
       community.DbType: "oracle"
-      community.DbName: "WPCOMM"
+      community.DbName: "community"
       community.DbSchema: "community"
       community.DataSourceName: "wpcommdbDS"
       community.DbUrl: "jdbc:oracle:thin:@//<replace-db-host>:<replace-db-port>/<replace-service-name>"
@@ -232,7 +233,7 @@ configuration:
       customization.XDbName: "WPCUST"
       customization.DbNode: "wpsNode"
       jcr.DbType: "oracle"
-      jcr.DbName: "WPJCR"
+      jcr.DbName: "jcr"
       jcr.DbSchema: "jcr"
       jcr.DataSourceName: "wpjcrdbDS"
       jcr.DbUrl: "jdbc:oracle:thin:@//<replace-db-host>:<replace-db-port>/<replace-service-name>"
@@ -252,6 +253,110 @@ configuration:
       oracle.JdbcProviderName: "wpdbJDBC_oracle"
 ```
 
+#### Sample `values.yaml` file for SQL Server
+
+```yaml
+configuration:
+  webEngine:
+    dbDomainProperties:
+      InitializeFeedbackDB: "true"
+      feedback.DbType: "sqlserver"
+      feedback.DbName: "WPFDBK"
+      feedback.DbSchema: "FEEDBACK"
+      feedback.DataSourceName: "wpfdbkdbDS"
+      feedback.DbUrl: "jdbc:sqlserver://DB_HOST_PLACEHOLDER:1433;databaseName=WPFDBK;encrypt=false"
+      feedback.DbUser: "<replace-db-user>"
+      feedback.DbPassword: "<replace-db-password>"
+      feedback.DbRuntimeUser: "<replace-db-user>"
+      feedback.DbRuntimePassword: "<replace-db-password>"
+      feedback.DBA.DbUser: "<replace-db-user>"
+      feedback.DBA.DbPassword: "<replace-db-password>"
+      feedback.DbConfigRoleName: "WP_PZN_CONFIG_USERS"
+      feedback.DbRuntimeRoleName: "WP_PZN_RUNTIME_USERS"
+      feedback.XDbName: "WPFDBK"
+      feedback.DbNode: "pznNode"
+      likeminds.DbType: "sqlserver"
+      likeminds.DbName: "WPLM"
+      likeminds.DbSchema: "LIKEMINDS"
+      likeminds.DataSourceName: "wplmdbDS"
+      likeminds.DbUrl: "jdbc:sqlserver://DB_HOST_PLACEHOLDER:1433;databaseName=WPLM;encrypt=false"
+      likeminds.DbUser: "<replace-db-user>"
+      likeminds.DbPassword: "<replace-db-password>"
+      likeminds.DbRuntimeUser: "<replace-db-user>"
+      likeminds.DbRuntimePassword: "<replace-db-password>"
+      likeminds.DBA.DbUser: "<replace-db-user>"
+      likeminds.DBA.DbPassword: "<replace-db-password>"
+      likeminds.DbConfigRoleName: "WP_PZN_CONFIG_USERS"
+      likeminds.DbRuntimeRoleName: "WP_PZN_RUNTIME_USERS"
+      likeminds.XDbName: "WPLM"
+      likeminds.DbNode: "pznNode"
+      release.DbType: "sqlserver"
+      release.DbName: "WPREL"
+      release.DbSchema: "RELEASE"
+      release.DataSourceName: "wpreldbDS"
+      release.DbUrl: "jdbc:sqlserver://DB_HOST_PLACEHOLDER:1433;databaseName=WPREL;encrypt=false"
+      release.DbUser: "<replace-db-user>"
+      release.DbPassword: "<replace-db-password>"
+      release.DbRuntimeUser: "<replace-db-user>"
+      release.DbRuntimePassword: "<replace-db-password>"
+      release.DBA.DbUser: "<replace-db-user>"
+      release.DBA.DbPassword: "<replace-db-password>"
+      release.DbConfigRoleName: "WP_BASE_CONFIG_USERS"
+      release.DbRuntimeRoleName: "WP_BASE_RUNTIME_USERS"
+      release.XDbName: "WPREL"
+      release.DbNode: "wpsNode"
+      community.DbType: "sqlserver"
+      community.DbName: "WPCOMM"
+      community.DbSchema: "COMMUNITY"
+      community.DataSourceName: "wpcommdbDS"
+      community.DbUrl: "jdbc:sqlserver://DB_HOST_PLACEHOLDER:1433;databaseName=WPCOMM;encrypt=false"
+      community.DbUser: "<replace-db-user>"
+      community.DbPassword: "<replace-db-password>"
+      community.DbRuntimeUser: "<replace-db-user>"
+      community.DbRuntimePassword: "<replace-db-password>"
+      community.DBA.DbUser: "<replace-db-user>"
+      community.DBA.DbPassword: "<replace-db-password>"
+      community.DbConfigRoleName: "WP_BASE_CONFIG_USERS"
+      community.DbRuntimeRoleName: "WP_BASE_RUNTIME_USERS"
+      community.XDbName: "WPCOMM"
+      community.DbNode: "wpsNode"
+      customization.DbType: "sqlserver"
+      customization.DbName: "WPCUST"
+      customization.DbSchema: "CUSTOMIZATION"
+      customization.DataSourceName: "wpcustdbDS"
+      customization.DbUrl: "jdbc:sqlserver://DB_HOST_PLACEHOLDER:1433;databaseName=WPCUST;encrypt=false"
+      customization.DbUser: "<replace-db-user>"
+      customization.DbPassword: "<replace-db-password>"
+      customization.DbRuntimeUser: "<replace-db-user>"
+      customization.DbRuntimePassword: "<replace-db-password>"
+      customization.DBA.DbUser: "<replace-db-user>"
+      customization.DBA.DbPassword: "<replace-db-password>"
+      customization.DbConfigRoleName: "WP_BASE_CONFIG_USERS"
+      customization.DbRuntimeRoleName: "WP_BASE_RUNTIME_USERS"
+      customization.XDbName: "WPCUST"
+      customization.DbNode: "wpsNode"
+      jcr.DbType: "sqlserver"
+      jcr.DbName: "WPJCR"
+      jcr.DbSchema: "JCR"
+      jcr.DataSourceName: "wpjcrdbDS"
+      jcr.DbUrl: "jdbc:sqlserver://DB_HOST_PLACEHOLDER:1433;databaseName=WPJCR;encrypt=false"
+      jcr.DbUser: "<replace-db-user>"
+      jcr.DbPassword: "<replace-db-password>"
+      jcr.DbRuntimeUser: "<replace-db-user>"
+      jcr.DbRuntimePassword: "<replace-db-password>"
+      jcr.DBA.DbUser: "<replace-db-user>"
+      jcr.DBA.DbPassword: "<replace-db-password>"
+      jcr.DbConfigRoleName: "WP_JCR_CONFIG_USERS"
+      jcr.DbRuntimeRoleName: "WP_JCR_RUNTIME_USERS"
+      jcr.XDbName: "WPJCR"
+      jcr.DbNode: "wpsNode"
+    dbTypeProperties:
+      sqlserver.DbDriver: "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+      sqlserver.DbLibrary: "/opt/openliberty/wlp/usr/svrcfg/templates/jars/sqlserver/mssql-jdbc.jar"
+      sqlserver.JdbcProviderName: "wpdbJDBC_sqlserver"
+      sqlserver.DbConnectionPoolDataSource: "com.microsoft.sqlserver.jdbc.SQLServerConnectionPoolDataSource"
+```
+
 ### External database configuration in the custom secrets file
 
 ```yaml
@@ -264,8 +369,8 @@ configuration:
 Make sure to create the secrets before the deployment of the Helm chart. You must reference the secret names in the custom `values.yaml` file. To create the secrets, use the following commands:
 
 ```sh
-kubectl create secret generic custom-credentials-webengine-dbtype-secret --from-file=dx_dbdomain.properties
-kubectl create secret generic custom-credentials-webengine-dbdomain-secret --from-file=dx_dbtype.properties
+kubectl create secret generic custom-credentials-webengine-dbtype-secret --from-file=dx_dbtype.properties
+kubectl create secret generic custom-credentials-webengine-dbdomain-secret --from-file=dx_dbdomain.properties
 ```
 
 Create the properties files with the same properties as in the custom `values.yaml` file in the format `key=value`. For example:
@@ -321,3 +426,9 @@ Refer to the following table for more information about the properties you can u
 | oracle.DbDriver | Name of the database driver class for ORACLE DB. |
 | oracle.DbLibrary | Path to the database driver library for ORACLE DB. |
 | oracle.JdbcProviderName | Name of the JDBC provider for ORACLE DB. |
+| sqlserver.DbDriver | Name of the database driver class for sqlserver DB. |
+| sqlserver.DbLibrary | Path to the database driver library for sqlserver DB. |
+| sqlserver.JdbcProviderName | Name of the JDBC provider for sqlserver DB. |
+
+!!! Limitation
+    Simultaneous execution of WebEngine pod scaling and external database transfer is not supported. To avoid any unexpected behavior, complete the database transfer before scaling the environment.

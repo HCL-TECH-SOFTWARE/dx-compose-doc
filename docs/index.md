@@ -16,7 +16,7 @@ hide:
 
     ---
 
-    [:octicons-arrow-right-24: Go to What's New](./whats_new/cf226.md)
+    [:octicons-arrow-right-24: Go to What's New](./whats_new/cf232.md)
     
 -   :material-code-braces-box:{ .lg .middle } __DX Architecture__
 
@@ -76,7 +76,7 @@ hide:
 
     ---
 
-    [:octicons-arrow-right-24: Go to Community Forums](https://support.hcltechsw.com/community){target="_blank"}
+    [:octicons-arrow-right-24: Go to Community Forums](https://developer.ds.hcl-software.com/c/hcl-dx/dx-forum/25){target="_blank"}
 
 -   :material-account-group:{ .lg .middle } __DXers User Group__
 

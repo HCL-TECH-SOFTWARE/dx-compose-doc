@@ -104,7 +104,7 @@ TAIs intercept requests and perform custom authentication logic before passing t
 
 By implementing these security features and configurations, the system ensures robust protection of data, secure communication, and effective identity and access management.
 
-## Data and transaction Mmanagement
+## Data and transaction management
 
 ### Data sources and JNDI
 

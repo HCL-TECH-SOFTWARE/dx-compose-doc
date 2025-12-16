@@ -13,14 +13,6 @@ HCL DX Compose v9.5 is designed to run on any [Certified Kubernetes platform](ht
 - The Kubernetes platform must be hosted on x86-64 hardware.
 - The Kubernetes platform must be officially supported by Helm. For more information, see [Kubernetes Distribution Guide](https://helm.sh/docs/topics/kubernetes_distros){target="_blank"}.
 
-## Java SDK
-
-DX Compose requires JDK 11.0 or later for installation.
-
-|Prerequisite|Prerequisite minimum and supported versions|Product minimum|
-|----------|----------|-----|
-|Apache Termurin, Java Technology Edition|11.0 and later maintenance releases|9.5|
-
 ## Databases
 
 |Supported software|Supported software minimum|Product minimum
@@ -32,7 +24,7 @@ DX Compose requires JDK 11.0 or later for installation.
 |Oracle on Amazon Relational Database Service|19c and later maintenance releases (acquired separately)|9.5|
 |Oracle on Amazon Relational Database Service|21c and later maintenance releases (acquired separately)|9.5|
 
-\* Apache Derby is not supported in a product environment.  
+\* Apache Derby is not supported in a production environment.  
 \** DB2 includes support for the DB2 pureScale component.  
 
 ## LDAP servers

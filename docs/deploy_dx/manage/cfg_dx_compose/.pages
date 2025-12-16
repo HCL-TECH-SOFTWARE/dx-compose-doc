@@ -8,3 +8,4 @@ nav:
   - enable_search.md
   - integrate_ddc
   - setup_cntnt_serv_pgs.md
+  - configure_sso

@@ -13,6 +13,156 @@ In future continuous delivery updates, entitled customers can obtain the HCL DX 
 
 Video: [How to upload HCL DX 9.5 container images to a private repository](https://youtu.be/XJONRdpgCuo)
 
+## HCL DX 9.5 Compose CF232
+
+If you are deploying the HCL DX 9.5 Compose CF232 release, the following software packages are available in your MHS portal HCL DX Compose v9.5 entitlements:
+
+- HCL DX Compose v9.5
+- HCL DXClient
+- HCL Leap 9.3.x for use with DX Compose
+- HCL Volt Foundry 9.5.x for use with DX Compose
+
+## hcl-compose-kubernetes-CF232.zip
+
+```shell
+HCL DX Compose notices CF232.txt
+hcl-dx-content-composer-image-v1.45.0_20251204-1947.tar.gz
+hcl-dx-dam-plugin-google-vision-image-v1.0.0_20251204-1947.tar.gz
+hcl-dx-dam-plugin-kaltura-image-v1.0.0_20251204-1946.tar.gz
+hcl-dx-deployment-v2.43.0_20251211-1531.tgz
+hcl-dx-digital-asset-manager-image-v1.44.0_20251204-2000.tar.gz
+hcl-dx-file-processor-image-v2.0.0_20251204-1927.tar.gz
+hcl-dx-haproxy-image-v1.28.0_20251204-1927.tar.gz
+hcl-dx-image-processor-image-v1.45.0_20251204-1930.tar.gz
+hcl-dx-license-manager-image-v95_CF232_20251204-1943.tar.gz
+hcl-dx-logging-sidecar-image-v1.0.0_20251204-1942.tar.gz
+hcl-dx-openldap-image-v2.6.8_20251204-1957.tar.gz
+hcl-dx-opensearch-image-v2.0.0_20251204-1942.tar.gz
+hcl-dx-people-service-image-v1.0.0_20251204-1940.tar.gz
+hcl-dx-persistence-connection-pool-image-v1.42.0_20251204-1931.tar.gz
+hcl-dx-persistence-metrics-exporter-image-v1.40.0_20251204-1931.tar.gz
+hcl-dx-persistence-node-image-v1.32_20251204-1931.tar.gz
+hcl-dx-prereqs-checker-image-v1.0.0_20251204-1938.tar.gz
+hcl-dx-ringapi-image-v1.45.0_20251204-1932.tar.gz
+hcl-dx-runtime-controller-image-v95_CF232_20251204-1936.tar.gz
+hcl-dx-search-middleware-image-v2.0.0_20251204-1944.tar.gz
+hcl-dx-search-v2.30.0_20251211-1530.tgz
+hcl-dx-webengine-image-CF232_20251205-0057.tar.gz
+out.txt
+```
+
+<!--
+## HCL DX 9.5 Compose CF231
+
+If you are deploying the HCL DX 9.5 Compose CF231 release, the following software packages are available in your MHS portal HCL DX Compose v9.5 entitlements:
+
+- HCL DX Compose v9.5
+- HCL DXClient
+- HCL Leap 9.3.x for use with DX Compose
+- HCL Volt Foundry 9.5.x for use with DX Compose
+
+## hcl-compose-kubernetes-CF231.zip
+
+```shell
+HCL DX Compose notices CF231.txt
+hcl-dx-content-composer-image-v1.44.0_20251024-1345.tar.gz
+hcl-dx-dam-plugin-google-vision-image-v1.0.0_20251024-1346.tar.gz
+hcl-dx-dam-plugin-kaltura-image-v1.0.0_20251024-1346.tar.gz
+hcl-dx-deployment-v2.42.1_20251027-1918.tgz
+hcl-dx-digital-asset-manager-image-v1.43.0_20251024-1357.tar.gz
+hcl-dx-file-processor-image-v2.0.0_20251024-1351.tar.gz
+hcl-dx-haproxy-image-v1.27.0_20251024-1338.tar.gz
+hcl-dx-image-processor-image-v1.44.0_20251024-1405.tar.gz
+hcl-dx-license-manager-image-v95_CF231_20251024-1349.tar.gz
+hcl-dx-logging-sidecar-image-v1.0.0_20251024-1349.tar.gz
+hcl-dx-openldap-image-v2.6.8_20251024-1348.tar.gz
+hcl-dx-opensearch-image-v2.0.0_20251024-1408.tar.gz
+hcl-dx-people-service-image-v1.0.0_20251024-1349.tar.gz
+hcl-dx-persistence-connection-pool-image-v1.41.0_20251024-1356.tar.gz
+hcl-dx-persistence-metrics-exporter-image-v1.39.0_20251024-1357.tar.gz
+hcl-dx-persistence-node-image-v1.31_20251024-1354.tar.gz
+hcl-dx-prereqs-checker-image-v1.0.0_20251024-1353.tar.gz
+hcl-dx-ringapi-image-v1.44.0_20251024-1347.tar.gz
+hcl-dx-runtime-controller-image-v95_CF231_20251024-1351.tar.gz
+hcl-dx-search-middleware-image-v2.0.0_20251025-2200.tar.gz
+hcl-dx-search-v2.29.0_20251027-1916.tgz
+hcl-dx-webengine-image-CF231_20251025-2351.tar.gz
+```
+
+## HCL DX 9.5 Compose CF230
+
+If you are deploying the HCL DX 9.5 Compose CF230 release, the following software packages are available in your MHS portal HCL DX Compose v9.5 entitlements:
+
+- HCL DX Compose v9.5
+- HCL DXClient
+- HCL Leap 9.3.x for use with DX Compose
+- HCL Volt Foundry 9.5.x for use with DX Compose
+
+## hcl-compose-kubernetes-CF230.zip
+
+```shell
+HCL DX Compose notices CF230.txt
+hcl-dx-content-composer-image-v1.43.0_20250922-1241.tar.gz
+hcl-dx-dam-plugin-google-vision-image-v1.0.0_20250922-1235.tar.gz
+hcl-dx-dam-plugin-kaltura-image-v1.0.0_20250922-1235.tar.gz
+hcl-dx-deployment-v2.41.0_20250924-1733.tgz
+hcl-dx-digital-asset-manager-image-v1.42.0_20250922-1244.tar.gz
+hcl-dx-file-processor-image-v2.0.0_20250922-1241.tar.gz
+hcl-dx-haproxy-image-v1.26.0_20250922-1242.tar.gz
+hcl-dx-image-processor-image-v1.43.0_20250922-1244.tar.gz
+hcl-dx-license-manager-image-v95_CF230_20250922-1237.tar.gz
+hcl-dx-logging-sidecar-image-v1.0.0_20250922-1237.tar.gz
+hcl-dx-openldap-image-v2.6.8_20250922-1237.tar.gz
+hcl-dx-opensearch-image-v2.0.0_20250922-1233.tar.gz
+hcl-dx-people-service-image-v1.0.0_20250922-1234.tar.gz
+hcl-dx-persistence-connection-pool-image-v1.40.0_20250922-1247.tar.gz
+hcl-dx-persistence-metrics-exporter-image-v1.38.0_20250922-1248.tar.gz
+hcl-dx-persistence-node-image-v1.30_20250922-1248.tar.gz
+hcl-dx-prereqs-checker-image-v1.0.0_20250922-1238.tar.gz
+hcl-dx-ringapi-image-v1.43.0_20250922-1249.tar.gz
+hcl-dx-runtime-controller-image-v95_CF230_20250922-1239.tar.gz
+hcl-dx-search-middleware-image-v2.0.0_20250922-1232.tar.gz
+hcl-dx-search-v2.28.0_20250923-1517.tgz
+hcl-dx-webengine-image-CF230_20250924-1550.tar.gz
+```
+
+## HCL DX 9.5 Compose CF229
+
+If you are deploying the HCL DX 9.5 Compose CF229 release, the following software packages are available in your MHS portal HCL DX Compose v9.5 entitlements:
+
+- HCL DX Compose v9.5
+- HCL DXClient
+- HCL Leap 9.3.x for use with DX Compose
+- HCL Volt Foundry 9.5.x for use with DX Compose
+
+## hcl-compose-kubernetes-CF229.zip
+
+```shell
+HCL DX Compose notices CF229.txt
+hcl-dx-content-composer-image-v1.42.0_20250813-1922.tar.gz
+hcl-dx-dam-plugin-google-vision-image-v1.0.0_20250813-1928.tar.gz
+hcl-dx-dam-plugin-kaltura-image-v1.0.0_20250813-1923.tar.gz
+hcl-dx-deployment-v2.40.0_20250815-1248.tgz
+hcl-dx-digital-asset-manager-image-v1.41.0_20250813-1937.tar.gz
+hcl-dx-file-processor-image-v2.0.0_20250813-1932.tar.gz
+hcl-dx-haproxy-image-v1.25.0_20250813-1933.tar.gz
+hcl-dx-image-processor-image-v1.42.0_20250813-1925.tar.gz
+hcl-dx-license-manager-image-v95_CF229_20250813-1924.tar.gz
+hcl-dx-logging-sidecar-image-v1.0.0_20250813-1924.tar.gz
+hcl-dx-openldap-image-v2.6.8_20250813-1924.tar.gz
+hcl-dx-opensearch-image-v2.0.0_20250813-1925.tar.gz
+hcl-dx-people-service-image-v1.0.0_20250813-1924.tar.gz
+hcl-dx-persistence-connection-pool-image-v1.39.0_20250813-1926.tar.gz
+hcl-dx-persistence-metrics-exporter-image-v1.37.0_20250813-1926.tar.gz
+hcl-dx-persistence-node-image-v1.29_20250813-1926.tar.gz
+hcl-dx-prereqs-checker-image-v1.0.0_20250813-1927.tar.gz
+hcl-dx-ringapi-image-v1.42.0_20250813-1926.tar.gz
+hcl-dx-runtime-controller-image-v95_CF229_20250813-1931.tar.gz
+hcl-dx-search-middleware-image-v2.0.0_20250813-1938.tar.gz
+hcl-dx-search-v2.27.0_20250815-1247.tgz
+hcl-dx-webengine-image-CF229_20250815-0004.tar.gz
+```
+<!--
 ## HCL DX 9.5 Compose CF228
 
 If you are deploying the HCL DX 9.5 Compose CF228 release, the following software packages are available in your MHS portal HCL DX Compose v9.5 entitlements:
