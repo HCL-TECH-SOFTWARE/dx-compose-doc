@@ -3,12 +3,12 @@ id: custom_liberty_status
 title: Managing the Liberty Status table in custom scripts
 ---
 
-The `custom_liberty_status.sh` script provides a simple interface for managing customer-specific key‑value pairs in the `LIBERTY_STATUS` table in the release schema. You can include and call this script from your custom startup or update scripts.
+The `custom_liberty_status.sh` script provides a simple interface for managing custom-specific key‑value pairs in the `LIBERTY_STATUS` table in the release schema. You can include and call this script from your custom startup or update scripts.
 
 ### Common use cases
 
 - Setting a flag after registering a custom theme, portlet, or resource so the operation is not repeated on subsequent startups.
-- Recording the version of a customer plugin or configuration to control upgrade logic or trigger migrations only when needed.
+- Recording the version of a custom plugin or configuration to control upgrade logic or trigger migrations only when needed.
 - Tracking whether a one-time data migration or initialization step has been completed.
 - Storing timestamps of the last successful execution of a script or update.
 
@@ -36,7 +36,7 @@ The script supports the following operations:
 # Read a specific key
 ./custom_liberty_status.sh read MyKey
 
-# Read all customer keys
+# Read all custom keys
 ./custom_liberty_status.sh read
 
 # Update an existing key
@@ -50,7 +50,7 @@ All custom keys are automatically prefixed with `cust_` to prevent access to sys
 
 ### Deploying the script
 
-To deploy the script, place it in your customer plugin directory (for example, `/opt/openliberty/wlp/usr/svrcfg/bin/customer/`) and make sure it is executable. When calling the script from custom startup scripts, use the documented `safe_source` pattern and follow the guidelines described in the [Script guidelines and restrictions](./customize_webengine_image.md#script-guidelines-and-restrictions).
+To deploy the script, place it in your custom plugin directory (for example, `/opt/openliberty/wlp/usr/svrcfg/bin/customer/`) and make sure it is executable. When calling the script from custom startup scripts, use the documented `safe_source` pattern and follow the guidelines described in the [Script guidelines and restrictions](./customize_webengine_image.md#script-guidelines-and-restrictions).
 
 !!!note
     For step-by-step instructions on adding these scripts to a custom WebEngine image, refer to [Customizing the HCL DX Compose WebEngine image with custom scripts](./customize_webengine_image.md). This topic explains how to copy your startup or update scripts into the image and make them executable so they run automatically at container startup or during Cumulative Fix (CF) updates.

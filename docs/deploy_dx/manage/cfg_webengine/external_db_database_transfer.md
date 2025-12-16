@@ -369,8 +369,8 @@ configuration:
 Make sure to create the secrets before the deployment of the Helm chart. You must reference the secret names in the custom `values.yaml` file. To create the secrets, use the following commands:
 
 ```sh
-kubectl create secret generic custom-credentials-webengine-dbtype-secret --from-file=dx_dbdomain.properties
-kubectl create secret generic custom-credentials-webengine-dbdomain-secret --from-file=dx_dbtype.properties
+kubectl create secret generic custom-credentials-webengine-dbtype-secret --from-file=dx_dbtype.properties
+kubectl create secret generic custom-credentials-webengine-dbdomain-secret --from-file=dx_dbdomain.properties
 ```
 
 Create the properties files with the same properties as in the custom `values.yaml` file in the format `key=value`. For example:

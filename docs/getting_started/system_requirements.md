@@ -13,14 +13,6 @@ HCL DX Compose v9.5 is designed to run on any [Certified Kubernetes platform](ht
 - The Kubernetes platform must be hosted on x86-64 hardware.
 - The Kubernetes platform must be officially supported by Helm. For more information, see [Kubernetes Distribution Guide](https://helm.sh/docs/topics/kubernetes_distros){target="_blank"}.
 
-## Java SDK
-
-DX Compose requires JDK 11.0 or later for installation.
-
-|Prerequisite|Prerequisite minimum and supported versions|Product minimum|
-|----------|----------|-----|
-|Apache Termurin, Java Technology Edition|11.0 and later maintenance releases|9.5|
-
 ## Databases
 
 |Supported software|Supported software minimum|Product minimum
