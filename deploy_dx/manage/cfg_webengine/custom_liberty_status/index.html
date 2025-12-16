@@ -472,6 +472,8 @@ function OptanonWrapper() { }
       
         
       
+        
+      
     
     
       
@@ -1581,11 +1583,11 @@ function OptanonWrapper() { }
 
   <h1>Managing the Liberty Status table in custom scripts</h1>
 
-<p>The <code>custom_liberty_status.sh</code> script provides a simple interface for managing customer-specific key‑value pairs in the <code>LIBERTY_STATUS</code> table in the release schema. You can include and call this script from your custom startup or update scripts.</p>
+<p>The <code>custom_liberty_status.sh</code> script provides a simple interface for managing custom-specific key‑value pairs in the <code>LIBERTY_STATUS</code> table in the release schema. You can include and call this script from your custom startup or update scripts.</p>
 <h3 id="common-use-cases">Common use cases</h3>
 <ul>
 <li>Setting a flag after registering a custom theme, portlet, or resource so the operation is not repeated on subsequent startups.</li>
-<li>Recording the version of a customer plugin or configuration to control upgrade logic or trigger migrations only when needed.</li>
+<li>Recording the version of a custom plugin or configuration to control upgrade logic or trigger migrations only when needed.</li>
 <li>Tracking whether a one-time data migration or initialization step has been completed.</li>
 <li>Storing timestamps of the last successful execution of a script or update.</li>
 </ul>
@@ -1607,7 +1609,7 @@ function OptanonWrapper() { }
 <span class="c1"># Read a specific key</span>
 ./custom_liberty_status.sh<span class="w"> </span><span class="nb">read</span><span class="w"> </span>MyKey
 
-<span class="c1"># Read all customer keys</span>
+<span class="c1"># Read all custom keys</span>
 ./custom_liberty_status.sh<span class="w"> </span><span class="nb">read</span>
 
 <span class="c1"># Update an existing key</span>
@@ -1618,7 +1620,7 @@ function OptanonWrapper() { }
 </code></pre></div>
 <p>All custom keys are automatically prefixed with <code>cust_</code> to prevent access to system values.</p>
 <h3 id="deploying-the-script">Deploying the script</h3>
-<p>To deploy the script, place it in your customer plugin directory (for example, <code>/opt/openliberty/wlp/usr/svrcfg/bin/customer/</code>) and make sure it is executable. When calling the script from custom startup scripts, use the documented <code>safe_source</code> pattern and follow the guidelines described in the <a href="../customize_webengine_image/#script-guidelines-and-restrictions">Script guidelines and restrictions</a>.</p>
+<p>To deploy the script, place it in your custom plugin directory (for example, <code>/opt/openliberty/wlp/usr/svrcfg/bin/customer/</code>) and make sure it is executable. When calling the script from custom startup scripts, use the documented <code>safe_source</code> pattern and follow the guidelines described in the <a href="../customize_webengine_image/#script-guidelines-and-restrictions">Script guidelines and restrictions</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>For step-by-step instructions on adding these scripts to a custom WebEngine image, refer to <a href="../customize_webengine_image/">Customizing the HCL DX Compose WebEngine image with custom scripts</a>. This topic explains how to copy your startup or update scripts into the image and make them executable so they run automatically at container startup or during Cumulative Fix (CF) updates.</p>
@@ -1643,7 +1645,7 @@ function OptanonWrapper() { }
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 23, 2025 19:21:49 UTC">October 23, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 6, 2025 23:40:02 UTC">November 6, 2025</span>
   </span>
 
     

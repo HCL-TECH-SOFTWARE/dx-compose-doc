@@ -472,6 +472,8 @@ function OptanonWrapper() { }
       
         
       
+        
+      
     
     
       
@@ -1272,6 +1274,39 @@ function OptanonWrapper() { }
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#using-the-abort_container-function-for-critical-failures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using the abort_container function for critical failures
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Using the abort_container function for critical failures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#syntax" class="md-nav__link">
+    <span class="md-ellipsis">
+      Syntax
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sample-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sample usage
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1656,6 +1691,39 @@ function OptanonWrapper() { }
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#using-the-abort_container-function-for-critical-failures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using the abort_container function for critical failures
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Using the abort_container function for critical failures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#syntax" class="md-nav__link">
+    <span class="md-ellipsis">
+      Syntax
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sample-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sample usage
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1794,7 +1862,55 @@ safe_source<span class="w"> </span><span class="s2">&quot;/opt/openliberty/wlp/u
 <li>For WebEngine utilities, only use documented utility functions from the <code>common-utility</code> directory. These are described in the <code>README.md</code> file in that directory and in the individual script files.</li>
 <li>Create and use your own helper functions in any subdirectories of the <code>customer</code> directory.</li>
 <li>Include appropriate error handling in your scripts, especially if they have external dependencies.</li>
+<li>Use the <code>abort_container</code> function to stop container startup if your script detects a critical failure that requires immediate attention.</li>
 </ul>
+<h3 id="using-the-abort_container-function-for-critical-failures">Using the <code>abort_container</code> function for critical failures</h3>
+<p>Starting with CF232, custom scripts can use the <code>abort_container</code> function to stop container startup when a critical failure is detected. This function is useful when your script identifies a condition that makes continued operation unsafe or impossible, such as missing required configuration, unavailable external dependencies, or failed validation checks.</p>
+<p>Use <code>abort_container</code> in situations where:</p>
+<ul>
+<li>Required configuration files or environment variables are missing.</li>
+<li>Essential external services (databases, APIs) are unreachable.</li>
+<li>Critical validation checks fail.</li>
+<li>Required resources or permissions are not available.</li>
+<li>Data integrity issues are detected that would prevent normal operation.</li>
+</ul>
+<h4 id="syntax">Syntax</h4>
+<div class="language-bash highlight"><pre><span></span><code>abort_container<span class="w"> </span><span class="s2">&quot;Your error message describing the critical failure&quot;</span>
+</code></pre></div>
+<p>When <code>abort_container</code> is called:</p>
+<ol>
+<li>The error message is logged with a <code>CRITICAL ERROR</code> prefix.</li>
+<li>A marker file is created to signal the failure to the container orchestration.</li>
+<li>The script exits immediately with a non-zero status code.</li>
+<li>The container startup process is halted.</li>
+</ol>
+<h4 id="sample-usage">Sample usage</h4>
+<div class="language-bash highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="nb">source</span><span class="w"> </span>/opt/openliberty/wlp/usr/svrcfg/scripts/utility.sh
+
+log_message_customer<span class="w"> </span><span class="s2">&quot;Validating required configuration&quot;</span>
+
+<span class="c1"># Check for required environment variable</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-z<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$REQUIRED_API_KEY</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span>abort_container<span class="w"> </span><span class="s2">&quot;REQUIRED_API_KEY environment variable is not set. Cannot proceed with startup.&quot;</span>
+<span class="k">fi</span>
+
+<span class="c1"># Check external service availability</span>
+<span class="k">if</span><span class="w"> </span>!<span class="w"> </span>curl<span class="w"> </span>-s<span class="w"> </span>-f<span class="w"> </span><span class="s2">&quot;http://external-service/health&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>/dev/null<span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span>abort_container<span class="w"> </span><span class="s2">&quot;External service at http://external-service is not accessible. Cannot proceed with startup.&quot;</span>
+<span class="k">fi</span>
+
+<span class="c1"># Check database connectivity</span>
+<span class="k">if</span><span class="w"> </span>!<span class="w"> </span>/opt/openliberty/wlp/usr/svrcfg/scripts/db/test_connection.sh<span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span>abort_container<span class="w"> </span><span class="s2">&quot;Database connection test failed. Verify database configuration and network connectivity.&quot;</span>
+<span class="k">fi</span>
+
+log_message_customer<span class="w"> </span><span class="s2">&quot;All validation checks passed&quot;</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Use <code>abort_container</code> only for critical failures. For non-critical issues, log a warning and allow the container to start. Overusing the function may prevent legitimate startups and complicate troubleshooting.</p>
+</div>
 <h2 id="enabling-the-customized-webengine-image-in-dx-compose">Enabling the customized WebEngine image in DX Compose</h2>
 <p>Follow these steps to deploy your customized WebEngine image in your HCL DX Compose deployment:</p>
 <ol>
@@ -1855,7 +1971,7 @@ safe_source<span class="w"> </span><span class="s2">&quot;/opt/openliberty/wlp/u
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 23, 2025 19:24:19 UTC">October 23, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 25, 2025 16:12:00 UTC">November 25, 2025</span>
   </span>
 
     

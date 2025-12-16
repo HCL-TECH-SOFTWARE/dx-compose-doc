@@ -472,6 +472,8 @@ function OptanonWrapper() { }
       
         
       
+        
+      
     
     
       
@@ -1041,6 +1043,39 @@ function OptanonWrapper() { }
 </li>
       
         <li class="md-nav__item">
+  <a href="#additional-ldap-configuration-samples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional LDAP Configuration samples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Additional LDAP Configuration samples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ibm-directory-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      IBM Directory Server
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#microsoft-active-directory-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      Microsoft Active Directory Server
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#security-hardening" class="md-nav__link">
     <span class="md-ellipsis">
       Security hardening
@@ -1599,6 +1634,39 @@ function OptanonWrapper() { }
 </li>
       
         <li class="md-nav__item">
+  <a href="#additional-ldap-configuration-samples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional LDAP Configuration samples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Additional LDAP Configuration samples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ibm-directory-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      IBM Directory Server
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#microsoft-active-directory-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      Microsoft Active Directory Server
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#security-hardening" class="md-nav__link">
     <span class="md-ellipsis">
       Security hardening
@@ -1723,37 +1791,153 @@ function OptanonWrapper() { }
 <li><code>name</code> - The name of the attribute in the LDAP directory</li>
 <li><code>propertyName</code> - The name of the attribute to be mapped to. In the following example, the LDAP <code>mail</code> attribute is mapped to <code>ibm-primaryEmail</code>, which is the attribute used to display the email address of a user. The LDAP <code>title</code> attribute is mapped to <code>ibm-jobTitle</code>, which is the attribute used to display job title of a user.</li>
 </ul>
-<div class="language-yaml highlight"><pre><span></span><code><span class="nt">configOverrideFiles</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">ldapOverride.xml</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"> </span>
-<span class="w">    </span><span class="no">&lt;server description=&quot;DX Web Engine server&quot;&gt; </span>
-<span class="w">      </span><span class="no">&lt;ldapRegistry id=&quot;ldap&quot; realm=&quot;SampleLdapIDSRealm&quot;</span>
-<span class="w">        </span><span class="no">host=&quot;127.0.0.1&quot; port=&quot;1389&quot; ignoreCase=&quot;true&quot;</span>
-<span class="w">        </span><span class="no">baseDN=&quot;dc=dx,dc=com&quot;</span>
-<span class="w">        </span><span class="no">ldapType=&quot;Custom&quot;</span>
-<span class="w">        </span><span class="no">sslEnabled=&quot;false&quot;</span>
-<span class="w">        </span><span class="no">bindDN=&quot;cn=dx_user,dc=dx,dc=com&quot;</span>
-<span class="w">        </span><span class="no">bindPassword=&quot;p0rtal4u&quot;&gt;</span>
-<span class="w">          </span><span class="no">&lt;customFilters</span>
-<span class="w">            </span><span class="no">userFilter=&quot;(&amp;amp;(uid=%v)(objectclass=inetOrgPerson))&quot;</span>
-<span class="w">            </span><span class="no">groupFilter=&quot;(&amp;amp;(cn=%v)(objectclass=groupOfUniqueNames))&quot;</span>
-<span class="w">            </span><span class="no">userIdMap=&quot;*:uid&quot;</span>
-<span class="w">            </span><span class="no">groupIdMap=&quot;*:cn&quot;</span>
-<span class="w">            </span><span class="no">groupMemberIdMap=&quot;groupOfUniqueNames:uniqueMember&quot;&gt;</span>
-<span class="w">          </span><span class="no">&lt;/customFilters&gt;</span>
-<span class="w">          </span><span class="no">&lt;attributeConfiguration&gt;</span>
-<span class="w">            </span><span class="no">&lt;attribute name=&quot;mail&quot; propertyName=&quot;ibm-primaryEmail&quot; entityType=&quot;PersonAccount&quot;/&gt;</span>
-<span class="w">            </span><span class="no">&lt;attribute name=&quot;title&quot; propertyName=&quot;ibm-jobTitle&quot; entityType=&quot;PersonAccount&quot;/&gt;</span>
-<span class="w">          </span><span class="no">&lt;/attributeConfiguration&gt;</span>
-<span class="w">      </span><span class="no">&lt;/ldapRegistry&gt;</span>
-<span class="w">      </span><span class="no">&lt;federatedRepository&gt;</span>
-<span class="w">        </span><span class="no">&lt;primaryRealm name=&quot;FederatedRealm&quot; allowOpIfRepoDown=&quot;true&quot;&gt;</span>
-<span class="w">          </span><span class="no">&lt;participatingBaseEntry name=&quot;o=defaultWIMFileBasedRealm&quot;/&gt;</span>
-<span class="w">          </span><span class="no">&lt;participatingBaseEntry name=&quot;dc=dx,dc=com&quot;/&gt;</span>
-<span class="w">        </span><span class="no">&lt;/primaryRealm&gt;</span>
-<span class="w">      </span><span class="no">&lt;/federatedRepository&gt;</span>
-<span class="w">    </span><span class="no">&lt;/server&gt;</span>
+<div class="language-xml highlight"><pre><span></span><code>configOverrideFiles:
+<span class="w">  </span>ldapOverride.xml:<span class="w"> </span>|<span class="w"> </span>
+<span class="w">    </span><span class="nt">&lt;server</span><span class="w"> </span><span class="na">description=</span><span class="s">&quot;DX Web Engine server&quot;</span><span class="nt">&gt;</span><span class="w"> </span>
+<span class="w">      </span><span class="nt">&lt;ldapRegistry</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;ldap&quot;</span><span class="w"> </span><span class="na">realm=</span><span class="s">&quot;SampleLdapIDSRealm&quot;</span>
+<span class="w">        </span><span class="na">host=</span><span class="s">&quot;127.0.0.1&quot;</span><span class="w"> </span><span class="na">port=</span><span class="s">&quot;1389&quot;</span><span class="w"> </span><span class="na">ignoreCase=</span><span class="s">&quot;true&quot;</span>
+<span class="w">        </span><span class="na">baseDN=</span><span class="s">&quot;dc=dx,dc=com&quot;</span>
+<span class="w">        </span><span class="na">ldapType=</span><span class="s">&quot;Custom&quot;</span>
+<span class="w">        </span><span class="na">sslEnabled=</span><span class="s">&quot;false&quot;</span>
+<span class="w">        </span><span class="na">bindDN=</span><span class="s">&quot;cn=dx_user,dc=dx,dc=com&quot;</span>
+<span class="w">        </span><span class="na">bindPassword=</span><span class="s">&quot;p0rtal4u&quot;</span><span class="nt">&gt;</span>
+<span class="w">          </span><span class="nt">&lt;customFilters</span>
+<span class="w">            </span><span class="na">userFilter=</span><span class="s">&quot;(&amp;amp;(uid=%v)(objectclass=inetOrgPerson))&quot;</span>
+<span class="w">            </span><span class="na">groupFilter=</span><span class="s">&quot;(&amp;amp;(cn=%v)(objectclass=groupOfUniqueNames))&quot;</span>
+<span class="w">            </span><span class="na">userIdMap=</span><span class="s">&quot;*:uid&quot;</span>
+<span class="w">            </span><span class="na">groupIdMap=</span><span class="s">&quot;*:cn&quot;</span>
+<span class="w">            </span><span class="na">groupMemberIdMap=</span><span class="s">&quot;groupOfUniqueNames:uniqueMember&quot;</span><span class="nt">&gt;</span>
+<span class="w">          </span><span class="nt">&lt;/customFilters&gt;</span>
+<span class="w">          </span><span class="nt">&lt;attributeConfiguration&gt;</span>
+<span class="w">            </span><span class="nt">&lt;attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;mail&quot;</span><span class="w"> </span><span class="na">propertyName=</span><span class="s">&quot;ibm-primaryEmail&quot;</span><span class="w"> </span><span class="na">entityType=</span><span class="s">&quot;PersonAccount&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;title&quot;</span><span class="w"> </span><span class="na">propertyName=</span><span class="s">&quot;ibm-jobTitle&quot;</span><span class="w"> </span><span class="na">entityType=</span><span class="s">&quot;PersonAccount&quot;</span><span class="nt">/&gt;</span>
+<span class="w">          </span><span class="nt">&lt;/attributeConfiguration&gt;</span>
+<span class="w">      </span><span class="nt">&lt;/ldapRegistry&gt;</span>
+<span class="w">      </span><span class="nt">&lt;federatedRepository&gt;</span>
+<span class="w">        </span><span class="nt">&lt;primaryRealm</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;FederatedRealm&quot;</span><span class="w"> </span><span class="na">allowOpIfRepoDown=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
+<span class="w">          </span><span class="nt">&lt;participatingBaseEntry</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;o=defaultWIMFileBasedRealm&quot;</span><span class="nt">/&gt;</span>
+<span class="w">          </span><span class="nt">&lt;participatingBaseEntry</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;dc=dx,dc=com&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/primaryRealm&gt;</span>
+<span class="w">      </span><span class="nt">&lt;/federatedRepository&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/server&gt;</span>
 </code></pre></div>
 <p>To set up a custom LDAP server in Liberty, see <a href="../ldap_configuration/">Configuring LDAP with Liberty</a>.</p>
+<h2 id="additional-ldap-configuration-samples">Additional LDAP Configuration samples</h2>
+<ul>
+<li><a href="#ibm-directory-server">IBM Directory Server</a></li>
+<li><a href="#microsoft-active-directory-server">Microsoft Active Directory Server</a></li>
+</ul>
+<h3 id="ibm-directory-server">IBM Directory Server</h3>
+<div class="language-xml highlight"><pre><span></span><code><span class="w">    </span>configOverrideFiles:
+<span class="w">      </span>myCustomOverride.xml:<span class="w"> </span>|
+<span class="w">        </span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><span class="w"> </span>
+<span class="w">        </span><span class="nt">&lt;server</span><span class="w"> </span><span class="na">description=</span><span class="s">&quot;DX Web Engine server&quot;</span><span class="nt">&gt;</span>
+<span class="w">          </span><span class="nt">&lt;ldapRegistry</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;ldap&quot;</span><span class="w"> </span><span class="na">realm=</span><span class="s">&quot;SampleLdapIDSRealm&quot;</span>
+<span class="w">            </span><span class="na">host=</span><span class="s">&#39;your_LDAP_Server_HostName&#39;</span>
+<span class="w">            </span><span class="na">port=</span><span class="s">&#39;1389&#39;</span><span class="w"> </span><span class="na">ignoreCase=</span><span class="s">&quot;true&quot;</span>
+<span class="w">            </span><span class="na">baseDN=</span><span class="s">&#39;dc=dx,dc=com&#39;</span>
+<span class="w">            </span><span class="na">ldapType=</span><span class="s">&#39;Custom&#39;</span>
+<span class="w">            </span><span class="na">sslEnabled=</span><span class="s">&#39;false&#39;</span>
+<span class="w">            </span><span class="na">bindDN=</span><span class="s">&#39;${LDAP_BIND_USER}&#39;</span>
+<span class="w">            </span><span class="na">bindPassword=</span><span class="s">&#39;${LDAP_BIND_PASSWORD}&#39;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;customFilters</span>
+<span class="w">              </span><span class="na">userFilter=</span><span class="s">&quot;(&amp;amp;(uid=%v)(objectclass=inetOrgPerson))&quot;</span>
+<span class="w">              </span><span class="na">groupFilter=</span><span class="s">&quot;(&amp;amp;(cn=%v)(objectclass=groupOfUniqueNames))&quot;</span>
+<span class="w">              </span><span class="na">userIdMap=</span><span class="s">&quot;*:uid&quot;</span>
+<span class="w">              </span><span class="na">groupIdMap=</span><span class="s">&quot;*:cn&quot;</span>
+<span class="w">              </span><span class="na">groupMemberIdMap=</span><span class="s">&quot;groupOfUniqueNames:uniqueMember&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/customFilters&gt;</span>
+<span class="w">            </span><span class="nt">&lt;ldapCache&gt;</span>
+<span class="w">              </span><span class="nt">&lt;attributesCache</span><span class="w"> </span><span class="na">size=</span><span class="s">&quot;4000&quot;</span><span class="w"> </span><span class="na">sizeLimit=</span><span class="s">&quot;4000&quot;</span><span class="w"> </span><span class="na">timeout=</span><span class="s">&quot;2400s&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">              </span><span class="nt">&lt;searchResultsCache</span><span class="w"> </span><span class="na">resultsSizeLimit=</span><span class="s">&quot;4000&quot;</span><span class="w"> </span><span class="na">size=</span><span class="s">&quot;4000&quot;</span><span class="w"> </span><span class="na">timeout=</span><span class="s">&quot;2400s&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/ldapCache&gt;</span>
+<span class="w">            </span><span class="nt">&lt;contextPool</span><span class="w"> </span><span class="na">preferredSize=</span><span class="s">&quot;20&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;attributeConfiguration&gt;</span>
+<span class="w">              </span><span class="nt">&lt;attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;mail&quot;</span><span class="w"> </span><span class="na">propertyName=</span><span class="s">&quot;ibm-primaryEmail&quot;</span><span class="w"> </span><span class="na">entityType=</span><span class="s">&quot;PersonAccount&quot;</span><span class="nt">/&gt;</span>
+<span class="w">              </span><span class="nt">&lt;attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;title&quot;</span><span class="w"> </span><span class="na">propertyName=</span><span class="s">&quot;ibm-jobTitle&quot;</span><span class="w"> </span><span class="na">entityType=</span><span class="s">&quot;PersonAccount&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/attributeConfiguration&gt;</span>
+<span class="w">          </span><span class="nt">&lt;/ldapRegistry&gt;</span>
+<span class="w">          </span><span class="nt">&lt;federatedRepository&gt;</span>
+<span class="w">            </span><span class="nt">&lt;primaryRealm</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;FederatedRealm&quot;</span><span class="w"> </span><span class="na">allowOpIfRepoDown=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
+<span class="w">              </span><span class="nt">&lt;participatingBaseEntry</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;o=defaultWIMFileBasedRealm&quot;</span><span class="nt">/&gt;</span>
+<span class="w">              </span><span class="nt">&lt;participatingBaseEntry</span><span class="w"> </span><span class="na">name=</span><span class="s">&#39;dc=dx,dc=com&#39;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">              </span><span class="nt">&lt;uniqueUserIdMapping</span><span class="w"> </span><span class="na">inputProperty=</span><span class="s">&quot;uniqueName&quot;</span><span class="w"> </span><span class="na">outputProperty=</span><span class="s">&quot;uniqueName&quot;</span><span class="nt">/&gt;</span><span class="w">  </span>
+<span class="w">              </span><span class="nt">&lt;userSecurityNameMapping</span><span class="w"> </span><span class="na">inputProperty=</span><span class="s">&quot;principalName&quot;</span><span class="w"> </span><span class="na">outputProperty=</span><span class="s">&quot;principalName&quot;</span><span class="nt">/&gt;</span><span class="w">  </span>
+<span class="w">              </span><span class="nt">&lt;userDisplayNameMapping</span><span class="w"> </span><span class="na">inputProperty=</span><span class="s">&quot;principalName&quot;</span><span class="w"> </span><span class="na">outputProperty=</span><span class="s">&quot;principalName&quot;</span><span class="nt">/&gt;</span><span class="w">  </span>
+<span class="w">              </span><span class="nt">&lt;uniqueGroupIdMapping</span><span class="w"> </span><span class="na">inputProperty=</span><span class="s">&quot;uniqueName&quot;</span><span class="w"> </span><span class="na">outputProperty=</span><span class="s">&quot;uniqueName&quot;</span><span class="nt">/&gt;</span><span class="w">      </span>
+<span class="w">              </span><span class="nt">&lt;groupSecurityNameMapping</span><span class="w"> </span><span class="na">inputProperty=</span><span class="s">&quot;cn&quot;</span><span class="w"> </span><span class="na">outputProperty=</span><span class="s">&quot;cn&quot;</span><span class="nt">/&gt;</span><span class="w">  </span>
+<span class="w">              </span><span class="nt">&lt;groupDisplayNameMapping</span><span class="w"> </span><span class="na">inputProperty=</span><span class="s">&quot;cn&quot;</span><span class="w"> </span><span class="na">outputProperty=</span><span class="s">&quot;cn&quot;</span><span class="nt">/&gt;</span><span class="w">                </span>
+<span class="w">            </span><span class="nt">&lt;/primaryRealm&gt;</span>
+<span class="w">          </span><span class="nt">&lt;/federatedRepository&gt;</span><span class="w">   </span>
+<span class="w">          </span><span class="nt">&lt;basicRegistry</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;basic&quot;</span><span class="w"> </span><span class="na">realm=</span><span class="s">&quot;defaultWIMFileBasedRealm&quot;</span><span class="nt">&gt;</span>
+<span class="w">              </span><span class="nt">&lt;user</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;${DX_ADMIN}&quot;</span><span class="w"> </span><span class="na">password=</span><span class="s">&quot;${DX_PASSWORD}&quot;</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;uid=wpsadmin,o=defaultWIMFileBasedRealm&quot;</span><span class="nt">/&gt;</span>
+<span class="w">              </span><span class="nt">&lt;user</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;nonadmin&quot;</span><span class="w"> </span><span class="na">password=</span><span class="s">&quot;nonadminpwd&quot;</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;uid=nonadmin,o=defaultWIMFileBasedRealm&quot;</span><span class="nt">/&gt;</span>
+<span class="w">              </span><span class="nt">&lt;user</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;admin1&quot;</span><span class="w"> </span><span class="na">password=</span><span class="s">&quot;admin1pwd&quot;</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;uid=admin1,o=defaultWIMFileBasedRealm&quot;</span><span class="nt">/&gt;</span>
+<span class="w">              </span><span class="nt">&lt;group</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;wpsadmins&quot;</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;cn=wpsadmins,o=defaultWIMFileBasedRealm&quot;</span><span class="nt">&gt;</span>
+<span class="w">                  </span><span class="nt">&lt;member</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;${DX_ADMIN}&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">                  </span><span class="nt">&lt;member</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;admin1&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">                  </span><span class="nt">&lt;member</span><span class="w">  </span><span class="na">name=</span><span class="s">&quot;tuser1&quot;</span><span class="nt">/&gt;</span>
+<span class="w">              </span><span class="nt">&lt;/group&gt;</span>
+<span class="w">              </span><span class="nt">&lt;group</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;nonadmins&quot;</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;cn=nonadmins,o=defaultWIMFileBasedRealm&quot;</span><span class="nt">&gt;</span>
+<span class="w">                  </span><span class="nt">&lt;member</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;nonadmin&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">              </span><span class="nt">&lt;/group&gt;</span>
+<span class="w">          </span><span class="nt">&lt;/basicRegistry&gt;</span><span class="w">          </span>
+<span class="w">        </span><span class="nt">&lt;/server&gt;</span>
+</code></pre></div>
+<h3 id="microsoft-active-directory-server">Microsoft Active Directory Server</h3>
+<div class="language-xml highlight"><pre><span></span><code><span class="w">    </span>configOverrideFiles:
+<span class="w">      </span>myCustomOverride.xml:<span class="w"> </span>|
+<span class="w">        </span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><span class="w">  </span>
+<span class="w">        </span><span class="nt">&lt;server</span><span class="w"> </span><span class="na">description=</span><span class="s">&quot;DX Web Engine server&quot;</span><span class="nt">&gt;</span><span class="w">  </span>
+<span class="w">                </span><span class="nt">&lt;ldapRegistry</span><span class="w">  </span>
+<span class="w">                  </span><span class="na">id=</span><span class="s">&quot;ldap&quot;</span><span class="w">  </span>
+<span class="w">                  </span><span class="na">realm=</span><span class="s">&quot;SampleLdapADRealm&quot;</span><span class="w">  </span>
+<span class="w">                  </span><span class="na">host=</span><span class="s">&quot;your_LDAP_Server_HostName&quot;</span><span class="w">  </span>
+<span class="w">                  </span><span class="na">port=</span><span class="s">&quot;389&quot;</span><span class="w">  </span>
+<span class="w">                  </span><span class="na">ignoreCase=</span><span class="s">&quot;true&quot;</span><span class="w">  </span>
+<span class="w">                  </span><span class="na">baseDN=</span><span class="s">&quot;DC=ad,DC=test,DC=com&quot;</span><span class="w">  </span>
+<span class="w">                  </span><span class="na">bindDN=</span><span class="s">&quot;CN=Administrator,CN=Users,DC=ad,DC=test,DC=com&quot;</span><span class="w">  </span>
+<span class="w">                  </span><span class="na">bindPassword=</span><span class="s">&quot;your_password&quot;</span><span class="w">  </span>
+<span class="w">                  </span><span class="na">ldapType=</span><span class="s">&quot;Microsoft Active Directory&quot;</span><span class="w">  </span>
+<span class="w">                  </span><span class="na">sslEnabled=</span><span class="s">&quot;false&quot;</span><span class="w">  </span>
+<span class="w">                  </span><span class="na">referral=</span><span class="s">&quot;ignore&quot;</span><span class="w">  </span>
+<span class="w">                  </span><span class="na">recursiveSearch=</span><span class="s">&quot;true&quot;</span><span class="w">  </span>
+<span class="w">                  </span><span class="na">bindAuthMechanism=</span><span class="s">&quot;simple&quot;</span><span class="w">  </span>
+<span class="w">                  </span><span class="na">returnToPrimaryServer=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span><span class="w">  </span>
+<span class="w">                    </span><span class="nt">&lt;customFilters</span><span class="w"> </span>
+<span class="w">                    </span><span class="na">userFilter=</span><span class="s">&quot;(&amp;amp;(sAMAccountName=%v)(objectcategory=user)&quot;</span><span class="w"> </span>
+<span class="w">                    </span><span class="na">groupFilter=</span><span class="s">&quot;(&amp;amp;(cn=%v)(objectcategory=group))&quot;</span><span class="w"> </span>
+<span class="w">                    </span><span class="na">userIdMap=</span><span class="s">&quot;user:sAMAccountName&quot;</span><span class="w"> </span>
+<span class="w">                    </span><span class="na">groupIdMap=</span><span class="s">&quot;*:cn&quot;</span><span class="w"> </span>
+<span class="w">                    </span><span class="na">groupMemberIdMap=</span><span class="s">&quot;memberOf:member&quot;</span><span class="nt">&gt;</span><span class="w">  </span>
+<span class="w">                    </span><span class="nt">&lt;/customFilters&gt;</span><span class="w">  </span>
+<span class="w">                    </span><span class="nt">&lt;ldapEntityType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;PersonAccount&quot;</span><span class="nt">&gt;</span><span class="w">  </span>
+<span class="w">                      </span><span class="nt">&lt;objectClass&gt;</span>user<span class="nt">&lt;/objectClass&gt;</span><span class="w">  </span>
+<span class="w">                    </span><span class="nt">&lt;/ldapEntityType&gt;</span><span class="w">  </span>
+<span class="w">                    </span><span class="nt">&lt;ldapEntityType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Group&quot;</span><span class="nt">&gt;</span><span class="w">  </span>
+<span class="w">                      </span><span class="nt">&lt;objectClass&gt;</span>group<span class="nt">&lt;/objectClass&gt;</span><span class="w">  </span>
+<span class="w">                  </span><span class="nt">&lt;/ldapEntityType&gt;</span><span class="w">  </span>
+<span class="w">                  </span><span class="nt">&lt;groupProperties&gt;</span><span class="w">  </span>
+<span class="w">                      </span><span class="nt">&lt;memberAttribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;member&quot;</span><span class="w"> </span><span class="na">scope=</span><span class="s">&quot;direct&quot;</span><span class="w"> </span><span class="na">objectClass=</span><span class="s">&quot;group&quot;</span><span class="nt">/&gt;</span><span class="w">  </span>
+<span class="w">                      </span><span class="nt">&lt;membershipAttribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;memberOf&quot;</span><span class="w"> </span><span class="na">scope=</span><span class="s">&quot;direct&quot;</span><span class="nt">/&gt;</span><span class="w">  </span>
+<span class="w">                  </span><span class="nt">&lt;/groupProperties&gt;</span><span class="w">  </span>
+<span class="w">                  </span><span class="nt">&lt;loginProperty</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;uid&quot;</span><span class="nt">&gt;</span>uid<span class="nt">&lt;/loginProperty&gt;</span><span class="w">  </span>
+
+<span class="w">                </span><span class="nt">&lt;/ldapRegistry&gt;</span><span class="w">  </span>
+<span class="w">                  </span><span class="nt">&lt;federatedRepository&gt;</span><span class="w">  </span>
+<span class="w">                    </span><span class="nt">&lt;primaryRealm</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;FederatedRealm&quot;</span><span class="w"> </span><span class="na">allowOpIfRepoDown=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="na">delimiter=</span><span class="s">&quot;/&quot;</span><span class="nt">&gt;</span><span class="w">  </span>
+<span class="w">                      </span><span class="nt">&lt;participatingBaseEntry</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;o=defaultWIMFileBasedRealm&quot;</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;FileBasedEntry&quot;</span><span class="nt">/&gt;</span><span class="w">  </span>
+<span class="w">                      </span><span class="nt">&lt;participatingBaseEntry</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;DC=ad,DC=test,DC=com&quot;</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;LDAPEntry&quot;</span><span class="nt">/&gt;</span><span class="w">  </span>
+<span class="w">                      </span><span class="nt">&lt;uniqueUserIdMapping</span><span class="w"> </span><span class="na">inputProperty=</span><span class="s">&quot;uniqueName&quot;</span><span class="w"> </span><span class="na">outputProperty=</span><span class="s">&quot;uniqueName&quot;</span><span class="nt">/&gt;</span><span class="w">  </span>
+<span class="w">                      </span><span class="nt">&lt;userSecurityNameMapping</span><span class="w"> </span><span class="na">inputProperty=</span><span class="s">&quot;principalName&quot;</span><span class="w"> </span><span class="na">outputProperty=</span><span class="s">&quot;principalName&quot;</span><span class="nt">/&gt;</span><span class="w">  </span>
+<span class="w">                      </span><span class="nt">&lt;userDisplayNameMapping</span><span class="w"> </span><span class="na">inputProperty=</span><span class="s">&quot;principalName&quot;</span><span class="w"> </span><span class="na">outputProperty=</span><span class="s">&quot;principalName&quot;</span><span class="nt">/&gt;</span><span class="w">  </span>
+<span class="w">                      </span><span class="nt">&lt;uniqueGroupIdMapping</span><span class="w"> </span><span class="na">inputProperty=</span><span class="s">&quot;uniqueName&quot;</span><span class="w"> </span><span class="na">outputProperty=</span><span class="s">&quot;uniqueName&quot;</span><span class="nt">/&gt;</span><span class="w">      </span>
+<span class="w">                      </span><span class="nt">&lt;groupSecurityNameMapping</span><span class="w"> </span><span class="na">inputProperty=</span><span class="s">&quot;cn&quot;</span><span class="w"> </span><span class="na">outputProperty=</span><span class="s">&quot;cn&quot;</span><span class="nt">/&gt;</span><span class="w">  </span>
+<span class="w">                      </span><span class="nt">&lt;groupDisplayNameMapping</span><span class="w"> </span><span class="na">inputProperty=</span><span class="s">&quot;cn&quot;</span><span class="w"> </span><span class="na">outputProperty=</span><span class="s">&quot;cn&quot;</span><span class="nt">/&gt;</span><span class="w">         </span>
+<span class="w">                    </span><span class="nt">&lt;/primaryRealm&gt;</span><span class="w">  </span>
+<span class="w">                  </span><span class="nt">&lt;/federatedRepository&gt;</span><span class="w">  </span>
+<span class="w">        </span><span class="nt">&lt;/server&gt;</span><span class="w">  </span>
+</code></pre></div>
 <h2 id="security-hardening">Security hardening</h2>
 <h3 id="out-of-the-box-configuration">Out-of-the-box configuration</h3>
 <p>Several out of the box security hardenings have been applied based on <a href="https://openliberty.io/docs/latest/security-hardening.html">Security hardening for production</a>(https://openliberty.io/docs/latest/reference/config/ldapRegistry.html){target="_blank"}:</p>
@@ -1834,7 +2018,7 @@ function OptanonWrapper() { }
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 9, 2025 16:40:31 UTC">December 9, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 12, 2025 13:40:58 UTC">December 12, 2025</span>
   </span>
 
     
