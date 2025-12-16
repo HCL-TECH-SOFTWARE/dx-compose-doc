@@ -4,7 +4,7 @@ This topic provides more information about the differences of the Digital Experi
 
 ## Java
 
-- To ensure improved security, modern features, and enhanced performance, WebEngine transitioned from Java 7/8 to Java 11 and is planned to eventually support later versions of Java.
+- To ensure improved security, modern features, and enhanced performance, WebEngine transitioned from Java 7/8 to Java 21 and is planned to eventually support later versions of Java.
 - WebEngine moved from IBM Java Development Kit (JDK) to Open JDK, specifically Semeru, to benefit from the latest updates and community support.
 
 ## J2EE
