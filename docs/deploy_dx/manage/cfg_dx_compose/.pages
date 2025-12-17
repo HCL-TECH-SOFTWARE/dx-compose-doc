@@ -6,6 +6,7 @@ nav:
   - wab_integration.md
   - enable_people_service.md
   - enable_search.md
+  - optional_install_new_search.md
   - integrate_ddc
   - setup_cntnt_serv_pgs.md
   - configure_sso
