@@ -377,9 +377,12 @@ Create the properties files with the same properties as in the custom `values.ya
 
 ```properties
 db2.DbDriver=com.ibm.db2.jcc.DB2Driver
-db2.DbLibrary=/opt/openliberty/wlp/usr/svrcfg/bin/db2jcc4.jar:/opt/openliberty/wlp/usr/svrcfg/bin/db2jcc_license_cu.jar
+db2.DbLibrary=/opt/openliberty/wlp/usr/svrcfg/templates/jars/db2/db2jcc4.jar
 db2.JdbcProviderName=wpdbJDBC_db2
 ```
+
+!!! note
+    Values in the properties format should not be quoted (as opposed to the example YAML snippets above).
 
 ### Changing the database configuration
 
