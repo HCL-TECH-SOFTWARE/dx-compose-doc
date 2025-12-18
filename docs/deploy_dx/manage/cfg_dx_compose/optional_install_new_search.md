@@ -7,7 +7,7 @@ The search currently provides the following capabilities:
 - WCM crawling
 - Pushing API for use with WCM Content Sources
 - Searching using REST API
-- Searching [Digital Asset Management (DAM) indexes]()
+- Searching [Digital Asset Management (DAM) indexes](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/digital_assets/configuration/dam_indexing/){target="_blank"}
 
 ## Prerequisites
 
@@ -203,7 +203,7 @@ configuration:
 
 ### Common fields mapping for fallback  
 
-Common field mappings are the default mappings for WCM, DAM, JCR, PORTAL, and PEOPLE in the `documentObject` parameter. You can find appropriate mappings for each field in this parameter. Use an empty string if none of the mappings apply. For more information about the `documentObject` parameter, see [Indexed documents]().
+Common field mappings are the default mappings for WCM, DAM, JCR, PORTAL, and PEOPLE in the `documentObject` parameter. You can find appropriate mappings for each field in this parameter. Use an empty string if none of the mappings apply. For more information about the `documentObject` parameter, see [Indexed documents](https://help.hcl-software.com/digital-experience/9.5/latest/deployment/manage/container_configuration/configure_opensearch/architectural_overview/#indexed-documents){target="_blank"}.
 
 ```yaml
 commonFieldMappings:
