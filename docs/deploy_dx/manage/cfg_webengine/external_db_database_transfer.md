@@ -373,7 +373,7 @@ kubectl create secret generic custom-credentials-webengine-dbtype-secret --from-
 kubectl create secret generic custom-credentials-webengine-dbdomain-secret --from-file=dx_dbdomain.properties
 ```
 
-Create the properties files with the same properties as in the custom `values.yaml` file in the format `key=value`. For example:
+Create the properties files with the same properties as in the custom `values.yaml` file in the format `key=value`. For example: 
 
 ```properties
 db2.DbDriver=com.ibm.db2.jcc.DB2Driver
