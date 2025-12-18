@@ -34,7 +34,3 @@ Know the existing limitations of Digital Experience (DX) Compose.
 
 - Step-up authentication is not supported.
 - Impersonation is supported. However, you must disable the authentication cache for it to work. For more information, see [Disabling Authentication Cache for Impersonation](../deploy_dx/manage/cfg_webengine/configuration_changes_using_overrides.md#disabling-authentication-cache-for-impersonation).
-
-## Product features
-
-- Site Template Builder is not supported.
