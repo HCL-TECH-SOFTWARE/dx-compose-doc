@@ -35,6 +35,31 @@ Refer to the following steps to enable OIDC authentication in DX Compose:
 !!!important
     The openIdConnectClient redirects to `https://<your-domain>/oidcclient/redirect/<id>` after authentication. Make sure that your valid redirect URIs includes an entry that matches this.
 
+!!!note "Prevent XMLAccess redirection to the OIDC provider"
+    The `oidc.yaml` file includes an `authFilter` that excludes XMLAccess endpoints from OIDC authentication. This prevents XMLAccess configuration scripts from being redirected to the OIDC provider.
+    
+    **If your `oidc.yaml` does not have the authFilter**, add the following before the `<openidConnectClient>` element:
+    
+    ```xml
+    <authFilter id="oidcAuthFilter">
+        <requestUrl id="excludeXMLAccess" urlPattern="/wps/config" matchType="notContain"/>
+    </authFilter>
+    ```
+    
+    Then add `authFilterRef="oidcAuthFilter"` to the `<openidConnectClient>` element:
+    
+    ```xml
+    <openidConnectClient id="client01" authFilterRef="oidcAuthFilter"
+    ```
+    
+    **If your DX Compose environment uses a different context root**, update the `urlPattern` value in the authFilter:
+    
+    - Default context root `wps`: `urlPattern="/wps/config"` (already configured)
+    - No context root: `urlPattern="/config"`
+    - Custom context root `custom`: `urlPattern="/custom/config"`
+    
+    The context root is configured in your Helm values.
+
 2. In the `oidc.yaml` file, configure the following properties under `ConfigService.properties`:
     
     - `redirect.logout` to `true`
