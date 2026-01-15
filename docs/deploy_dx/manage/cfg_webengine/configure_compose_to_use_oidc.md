@@ -35,7 +35,7 @@ Refer to the following steps to enable OIDC authentication in DX Compose:
     !!!important
         The openIdConnectClient redirects to `https://<your-domain>/oidcclient/redirect/<id>` after authentication. Make sure that your valid redirect URIs includes an entry that matches this.
 
-2. Configure the XMLAccess Authentication Filter (`authFilter`) to prevent XMLAccess configuration scripts from being redirected to the OIDC provider. This filter excludes XMLAccess endpoints from OIDC authentication.
+2. Configure the XMLAccess and Search Authentication Filter (`authFilter`) to prevent XMLAccess configuration scripts and Search V2 endpoints from being redirected to the OIDC provider. This filter excludes XMLAccess and seedlist endpoints from OIDC authentication.
 
     - If your `oidc.yaml` does not have the `authFilter`:
 
@@ -44,6 +44,7 @@ Refer to the following steps to enable OIDC authentication in DX Compose:
             ```xml
             <authFilter id="oidcAuthFilter">
                 <requestUrl id="excludeXMLAccess" urlPattern="/wps/config" matchType="notContain"/>
+                <requestUrl id="excludeSeedlist" urlPattern="/wps/seedlist/myserver" matchType="notContain"/>
             </authFilter>
             ```
 
@@ -55,9 +56,15 @@ Refer to the following steps to enable OIDC authentication in DX Compose:
 
     - If your DX Compose environment uses a different context root, update the `urlPattern` value in the `authFilter` to the following:
 
-        - Default (`wps`): `urlPattern="/wps/config"` (already configured)
-        - No context root: `urlPattern="/config"`
-        - Custom (`custom`): `urlPattern="/custom/config"`
+        - Default (`wps`): 
+            - `urlPattern="/wps/config"` (already configured)
+            - `urlPattern="/wps/seedlist/myserver"` (already configured)
+        - No context root: 
+            - `urlPattern="/config"`
+            - `urlPattern="/seedlist/myserver"`
+        - Custom (`custom`): 
+            - `urlPattern="/custom/config"`
+            - `urlPattern="/custom/seedlist/myserver"`
 
         The context root is configured in your Helm values.
 
