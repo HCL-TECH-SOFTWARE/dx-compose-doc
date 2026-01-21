@@ -43,11 +43,9 @@ You can use the following secrets instead of the provided values:
 #### Sample `values.yaml` file for DB2
 
 !!! note
-    With DX Compose 9.5 CF226 the location of the DB2 library jar in the container is /opt/openliberty/wlp/usr/svrcfg/templates/jars/db2
+    - With DX Compose 9.5 CF226 the location of the DB2 library `.jar` file in the container is `/opt/openliberty/wlp/usr/svrcfg/templates/jars/db2`. The value for `db2.DbLibrary` is now `/opt/openliberty/wlp/usr/svrcfg/templates/jars/db2/db2jcc4.jar`. The `db2jcc_license_cu.jar` is no longer provided or required.
 
-    So the value for db2.DbLibrary is now /opt/openliberty/wlp/usr/svrcfg/templates/jars/db2/db2jcc4.jar
-
-    The db2jcc_license_cu.jar is no longer provided or required.
+    - The `returnAlias=0` parameter is mandatory.
 
 ```yaml
 configuration:
