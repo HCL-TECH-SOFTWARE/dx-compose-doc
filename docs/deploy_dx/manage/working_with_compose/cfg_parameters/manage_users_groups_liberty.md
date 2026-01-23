@@ -103,7 +103,7 @@ To view detailed information about users, such as passwords, User IDs, first nam
 !!!note
     Editing user profile information is currently not supported.
 
-## Disabling the Profile view
+## Disabling Edit My Profile
 
 DX Compose does not support saving changes to user profiles. To prevent users from attempting to update their information, hide the **Edit My Profile** page.
 
