@@ -30,6 +30,7 @@ Know the existing limitations of Digital Experience (DX) Compose.
 
 - Creating, updating, and deleting users and groups using the DX Compose Admin UI, REST APIs, or scripting tools are not supported with this initial release.
 - Lookaside database, application groups, custom user registries, and transient users are not supported.
+- User Profile editing is not supported. To disable the Profile view, refer to [Disabling the Profile view](../deploy_dx/manage/working_with_compose/cfg_parameters/manage_users_groups_liberty.md#disabling-the-profile-view).
 
 ## Authentication
 

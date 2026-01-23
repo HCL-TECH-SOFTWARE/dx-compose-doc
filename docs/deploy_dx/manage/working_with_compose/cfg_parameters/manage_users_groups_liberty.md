@@ -69,8 +69,7 @@ Replace the placeholder values with the actual details of your LDAP server:
 
 For more information about using additional properties, see the [LDAP User Registry](https://openliberty.io/docs/latest/reference/feature/ldapRegistry-3.0.html){target="_blank"} feature.
 
-
-### Configuring Federated User Registry
+### Configuring federated user registry
 
 When user and group data reside in various registries, DX Compose offers the capability to consolidate this dispersed information into a single, cohesive registry. This unified registry integrates data from different sources, including LDAP, basic, and custom user registries, into one centralized repository.
 
@@ -91,7 +90,7 @@ The following configuration specifies the sample basic and LDAP registries to be
 
 After the registry is configured, you can view users and groups through the Manage Users and Groups portlet.
 
-1. Log in to HCL Digital Experience as an administrator.
+1. Log in to DX Compose as an administrator.
 
 2. Click the **Administration menu** icon. Then, click **Access > Users and Groups**.
 
@@ -103,6 +102,27 @@ To view detailed information about users, such as passwords, User IDs, first nam
 
 !!!note
     Editing user profile information is currently not supported.
+
+## Disabling the Profile view
+
+DX Compose does not support saving changes to user profiles. To prevent users from attempting to update their information, hide the **Edit My Profile** page.
+
+1. Sign in to DX Compose as an administrator.
+
+2. Select **Open applications menu**, and then go to **Administration > Site Management > Pages**.
+
+3. Select **Content Root > Hidden Pages**.
+
+4. Find **Edit My Profile**.
+
+5. In the **Status** column, select **Active**.
+
+6. In the confirmation dialog box, select **OK**. The status changes to **Inactive**.
+
+7. Sign out, and then sign in with a user ID to verify the profile settings.
+
+!!!note
+    To re-enable the profile view when the feature is available, follow these steps and change the status of the **Edit My Profile** page to **Active**.
 
 ## Defining custom attributes
 
