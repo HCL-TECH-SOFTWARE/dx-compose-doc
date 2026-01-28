@@ -1,12 +1,10 @@
 # LTPA Configuration
 
-## Overview
+LTPA (Lightweight Third Party Authentication) enables single sign-on (SSO) capabilities for the WebEngine component. Unlike Core, which supports both inline values and custom secrets, WebEngine exclusively uses custom Kubernetes secrets for LTPA configuration.
 
-LTPA (Lightweight Third Party Authentication) enables single sign-on (SSO) capabilities for the WebEngine component. Unlike Core which supports both inline values and custom secrets, WebEngine **exclusively uses custom Kubernetes secrets** for LTPA configuration.
+## Configuration method
 
-## Configuration Method
-
-WebEngine LTPA configuration uses a **custom secret reference** approach:
+To configure LTPA in WebEngine, you need to reference an existing Kubernetes Secret containing LTPA credentials. Specify the following properties:
 
 ```yaml
 configuration:
@@ -15,132 +13,140 @@ configuration:
       customLtpaSecret: "my-webengine-ltpa-secret"
 ```
 
-**Note:** WebEngine does not support inline LTPA values configuration. You must use a pre-created Kubernetes secret.
+!!!note
+    WebEngine does not support inline LTPA values configuration. You must use a pre-created Kubernetes secret.
 
 ## Generating LTPA Keys
 
-To generate LTPA keys for WebEngine, you can use the OpenLiberty `securityUtility` command:
+To generate LTPA keys for WebEngine, use the OpenLiberty `securityUtility` command:
 
-1. Exec into the WebEngine pod:
-   ```bash
-   kubectl -n <namespace> exec -it pod/<release>-web-engine-0 -- /bin/bash
-   ```
+1. Open a command shell in the WebEngine pod:
 
-2. Generate an LTPA key using the securityUtility command:
-   ```bash
-   /opt/openliberty/wlp/bin/securityUtility createLTPAKeys --file=/opt/hcl/ltpa.keys --password=<your-password>
-   ```
+    ```bash
+    kubectl -n <namespace> exec -it pod/<release>-web-engine-0 -- /bin/bash
+    ```
 
-3. Print the LTPA key file content:
-   ```bash
-   cat /opt/hcl/ltpa.keys
-   ```
+2. Generate an LTPA key using the `securityUtility` command:
+
+    ```bash
+    /opt/openliberty/wlp/bin/securityUtility createLTPAKeys --file=/opt/hcl/ltpa.keys --password=<your-password>
+    ```
+
+3. Display the LTPA keys:
+
+    ```bash
+    cat /opt/hcl/ltpa.keys
+    ```
 
 4. Exit the pod:
-   ```bash
-   exit
-   ```
 
-5. Save the LTPA key file content for creating the secret in the next section
+    ```bash
+    exit
+    ```
 
-## Secret Structure
+5. Save the command output as a local file for use in the next section.
 
-The custom LTPA secret must contain these data keys:
+### Creating a Custom LTPA Secret for WebEngine
+
+When using a custom LTPS Secret, the Secret must contain the following data keys:
 
 | Key | Description | Format |
 |-----|-------------|--------|
 | `ltpa.keys` | LTPA keys file content | Base64-encoded binary data |
 | `password` | Password for LTPA keys | Plain text string |
 
-### Creating a Custom LTPA Secret for WebEngine
+- To create a custom Secret using `kubectl`, run the following command:
 
-#### Using kubectl
+    ```bash
+    kubectl create secret generic my-webengine-ltpa-secret \
+      --from-file=ltpa.keys=/path/to/ltpa.keys \
+      --from-literal=password='your-ltpa-password' \
+      -n <your-namespace>
+    ```
 
-```bash
-kubectl create secret generic my-webengine-ltpa-secret \
-  --from-file=ltpa.keys=/path/to/ltpa.keys \
-  --from-literal=password='your-ltpa-password' \
-  -n <your-namespace>
-```
+- To create a custom Secret using a YAML manifest, define the following resource in a separate YAML file (for example, `my-webengine-ltpa-secret.yaml`) and apply it to your cluster:
 
-#### Using a YAML manifest
+    ```yaml
+    apiVersion: v1
+    kind: Secret
+    metadata:
+      name: my-webengine-ltpa-secret
+      namespace: dx-namespace
+    type: Opaque
+    stringData:
+      password: "your-ltpa-password"
+    data:
+      ltpa.keys: <base64-encoded-binary-content>
+    ```
 
-```yaml
-apiVersion: v1
-kind: Secret
-metadata:
-  name: my-webengine-ltpa-secret
-  namespace: dx-namespace
-type: Opaque
-stringData:
-  password: "your-ltpa-password"
-data:
-  ltpa.keys: <base64-encoded-binary-content>
-```
+## Configuration examples
 
-## Configuration Examples
+The following examples demonstrate how to configure LTPA for different environments:
 
-### Example 1: Basic WebEngine LTPA Setup
+- **Configure WebEngine with its own LTPA keys**
 
-```yaml
-applications:
-  webEngine: true
-  core: false
+    1. Create the Kubernetes Secret in your target namespace using an existing key file before you deploy:
 
-configuration:
-  webEngine:
-    ltpa:
-      customLtpaSecret: "webengine-ltpa"
-```
+        ```bash
+        kubectl create secret generic webengine-ltpa \
+          --from-file=ltpa.keys=./ltpa.keys \
+          --from-literal=password='myLtpaPassword' \
+          -n production
+        ```
 
-**Pre-requisite:** Create the secret
+    2. Reference the created Secret in your `values.yaml` file:
 
-```bash
-kubectl create secret generic webengine-ltpa \
-  --from-file=ltpa.keys=./ltpa.keys \
-  --from-literal=password='myLtpaPassword' \
-  -n production
-```
+        ```yaml
+        applications:
+          webEngine: true
+          core: false
 
-### Example 2: WebEngine with Core LTPA Sharing
+        configuration:
+          webEngine:
+            ltpa:
+              customLtpaSecret: "webengine-ltpa"
+        ```
 
-Synchronize WebEngine LTPA with Core:
+- **Configure WebEngine and Core to share LTPA keys**
 
-```yaml
-applications:
-  core: true
-  webEngine: true
+    Synchronize WebEngine and Core by configuring both applications to use the same `customLtpaSecret` in your `values.yaml` file:
 
-configuration:
-  core:
-    ltpa:
-      enabled: true
-      customLtpaSecret: "dx-ltpa-credentials"
-  webEngine:
-    ltpa:
-      customLtpaSecret: "dx-ltpa-credentials"  # Use same secret
-```
+    ```yaml
+    applications:
+      core: true
+      webEngine: true
 
-**Note:** Both must use the same secret to maintain consistent LTPA tokens.
+    configuration:
+      core:
+        ltpa:
+          enabled: true
+          customLtpaSecret: "dx-ltpa-credentials"
+      webEngine:
+        ltpa:
+          customLtpaSecret: "dx-ltpa-credentials"  # Use same secret
+    ```
 
-### Example 3: WebEngine with Configuration Sharing
+    !!!note
+        Both must use the same secret to maintain consistent LTPA tokens.
 
-Enable shared LTPA configuration for other applications:
+- **Share WebEngine LTPA configuration with other applications**
 
-```yaml
-incubator:
-  enableConfigurationSharing: true
+    Enable configuration sharing in your `values.yaml` file to export WebEngine's LTPA settings:
 
-applications:
-  webEngine: true
+    ```yaml
+    incubator:
+      enableConfigurationSharing: true
 
-configuration:
-  webEngine:
-    ltpa:
-      customLtpaSecret: "webengine-ltpa"
-```
+    applications:
+      webEngine: true
 
-The WebEngine LTPA configuration is exported to `dx-shared-config-v1` secret for consumption by other products (LEAP, MX, etc.).
+    configuration:
+      webEngine:
+        ltpa:
+          customLtpaSecret: "webengine-ltpa"
+    ```
+
+    When enabled, WebEngine exports the LTPA configuration to the dx-shared-config-v1 Secret for use by other products, such as HCL Leap or HCL Volt MX.
 
 ## Kubernetes Secret Details
 
@@ -161,26 +167,29 @@ stringData:
 
 ## Troubleshooting
 
-### Issue: LTPA Keys File Not Found
+**LTPA keys file not found error**
 
-**Symptom:** WebEngine pod fails with error indicating LTPA keys file is missing.
+Deploying WebEngine with a Secret that is missing the required ltpa.keys data key results in a pod failure.
 
-**Solution:**
+To resolve this, verify the Secret configuration and recreate it if necessary:
 
-1. Verify secret exists:
-   ```bash
-   kubectl get secret my-webengine-ltpa-secret -n <namespace>
-   ```
+1. Verify the Secret exists:
 
-2. Verify key name:
-   ```bash
-   kubectl describe secret my-webengine-ltpa-secret -n <namespace>
-   ```
+    ```bash
+    kubectl get secret my-webengine-ltpa-secret -n <namespace>
+    ```
 
-3. Recreate secret with correct key:
-   ```bash
-   kubectl delete secret my-webengine-ltpa-secret
-   kubectl create secret generic my-webengine-ltpa-secret \
-     --from-file=ltpa.keys=/path/to/ltpa.keys \
-     --from-literal=password='password'
-   ```
+2. Verify the key name in the Secret data:
+
+    ```bash
+    kubectl describe secret my-webengine-ltpa-secret -n <namespace>
+    ```
+
+3. If the key is missing or incorrect, recreate the Secret:
+
+    ```bash
+    kubectl delete secret my-webengine-ltpa-secret
+    kubectl create secret generic my-webengine-ltpa-secret \
+      --from-file=ltpa.keys=/path/to/ltpa.keys \
+      --from-literal=password='password'
+    ```
