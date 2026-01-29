@@ -1,6 +1,6 @@
-# LTPA Configuration
+# Configuring LTPA
 
-LTPA (Lightweight Third Party Authentication) enables single sign-on (SSO) capabilities for the WebEngine component. Unlike Core, which supports both inline values and custom secrets, WebEngine exclusively uses custom Kubernetes secrets for LTPA configuration.
+Lightweight Third Party Authentication (LTPA) enables Single Sign-On (SSO) capabilities for the WebEngine component. Unlike Core, which supports both inline values and custom secrets, WebEngine exclusively uses custom Kubernetes secrets for LTPA configuration.
 
 ## Configuration method
 
@@ -128,42 +128,6 @@ The following examples demonstrate how to configure LTPA for different environme
 
     !!!note
         Both must use the same secret to maintain consistent LTPA tokens.
-
-- **Share WebEngine LTPA configuration with other applications**
-
-    Enable configuration sharing in your `values.yaml` file to export WebEngine's LTPA settings:
-
-    ```yaml
-    incubator:
-      enableConfigurationSharing: true
-
-    applications:
-      webEngine: true
-
-    configuration:
-      webEngine:
-        ltpa:
-          customLtpaSecret: "webengine-ltpa"
-    ```
-
-    When enabled, WebEngine exports the LTPA configuration to the dx-shared-config-v1 Secret for use by other products, such as HCL Leap or HCL Volt MX.
-
-## Kubernetes Secret Details
-
-### Generated/Referenced Secret Structure
-
-```yaml
-apiVersion: v1
-kind: Secret
-metadata:
-  name: my-webengine-ltpa-secret
-  namespace: dx-namespace
-type: Opaque
-data:
-  ltpa.keys: <base64-encoded-binary>
-stringData:
-  password: "your-password"
-```
 
 ## Troubleshooting
 
