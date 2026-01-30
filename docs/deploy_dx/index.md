@@ -3,7 +3,7 @@
 Learn how to efficiently deploy Digital Experience (DX) Compose and its WebEngine Core container within your environment. Starting with environment preparation, this guide covers the deployment process, focusing on Helm-based deployments to Kubernetes environments. Steps for installation, configuration, uninstallation, and troubleshooting to ensure a smooth setup and maintenance of the service are provided.
 
 !!!note
-    In this release, instructions for using select features are located in the [HCL Digital Experience Help Center](https://opensource.hcltechsw.com/digital-experience/latest/){target="_blank"}. These will be documented in the HCL Digital Experience Compose Help Center in future releases.
+    In this release, instructions for using select features are located in the [HCL Digital Experience Help Center](https://help.hcl-software.com/digital-experience/9.5/latest/){target="_blank"}. These will be documented in the HCL DX Compose Help Center in future releases.
 
 ## HCLSoftware U learning materials
 

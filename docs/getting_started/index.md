@@ -21,4 +21,4 @@ This topic enumerates the current limitations of DX Compose.
 
 ## HCLSoftware U learning materials
 
-For an introduction to HCL Digital Experience, go to [HDX-INTRO HCL Digital Experience Introduction](https://hclsoftwareu.hcltechsw.com/component/axs/?view=sso_config&id=3&forward=https%3A%2F%2Fhclsoftwareu.hcltechsw.com%2Fcourses%2Fcourse%2Fhcl-digital-experience-introduction){target="_blank"}.
+For an introduction to HCL DX Compose, go to [HDX-INTRO HCL Digital Experience Introduction](https://hclsoftwareu.hcltechsw.com/component/axs/?view=sso_config&id=3&forward=https%3A%2F%2Fhclsoftwareu.hcltechsw.com%2Fcourses%2Fcourse%2Fhcl-digital-experience-introduction){target="_blank"}.
