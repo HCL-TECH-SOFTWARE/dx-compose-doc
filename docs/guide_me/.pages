@@ -1,4 +1,5 @@
 title: Guide Me
 nav:
-    - performance_tuning
+    - index.md
+    - Performance Tuning Guides: performance_tuning
     - How-to articles: howto
