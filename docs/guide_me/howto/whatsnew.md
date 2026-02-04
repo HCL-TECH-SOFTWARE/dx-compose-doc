@@ -7,7 +7,6 @@ This section contains the newly created and migrated how-to articles. The articl
 | Type | Category | Article |
 |------|----------|---------|
 |Referenced|Administration|[How to clear WebSphere Dynacache caches](https://help.hcl-software.com/digital-experience/9.5/latest/guide_me/howto/administration/ClearWebSphereDynacache/){target="_blank"}|
-|Referenced|Administration|[](){target="_blank"}|
 |Referenced|Administration|[How to decode long Portal URLs](https://help.hcl-software.com/digital-experience/9.5/latest/guide_me/howto/administration/DecodeLongURLs/){target="_blank"}|
 |Referenced|API|[How to use the WCM API to search for pages in the Portal site library](https://help.hcl-software.com/digital-experience/9.5/latest/guide_me/howto/api/searchPagesInPortalSiteLibrary/){target="_blank"}|
 |Referenced|Configuration|[How to add a robots.txt in DX container environments](https://help.hcl-software.com/digital-experience/9.5/latest/guide_me/howto/configuration/DeployRobots/){target="_blank"}|
@@ -16,11 +15,17 @@ This section contains the newly created and migrated how-to articles. The articl
 |Referenced|Database|[How to use the `RUNSTATS` and `REORG` commands](https://help.hcl-software.com/digital-experience/9.5/latest/guide_me/howto/database/RunstatsandReorg/){target="_blank"}|
 |Referenced|Development|[How to access portlet development utilities and page creation samples](https://help.hcl-software.com/digital-experience/9.5/latest/guide_me/howto/development/Portletdevelopmentutilitiesandpagecreationsamples/){target="_blank"}|
 |Referenced|Development|[How to convert a file to base64 encoded format](https://help.hcl-software.com/digital-experience/9.5/latest/guide_me/howto/development/SampleJSPtoConvertAfileToBase64EncodedFormat/){target="_blank"}|
+|Referenced|Development|[How to count WCM items and versions using the WCM API sample code](https://help.hcl-software.com/digital-experience/9.5/latest/guide_me/howto/development/APIToCountWCMItems/){target="_blank"}|
 |Referenced|Performance|[How to improve HCL DX database performance on a IBM DB2 database](https://help.hcl-software.com/digital-experience/9.5/latest/guide_me/howto/performance/DB2DatabasePerformance/){target="_blank"}|
 |Referenced|Requirements|[How to choose the correct JDBC driver](https://help.hcl-software.com/digital-experience/9.5/latest/guide_me/howto/requirements/JDBCDriverSupport/){target="_blank"}|
 |Referenced|Search|[How to use DX Search and the DX Search Center](https://help.hcl-software.com/digital-experience/9.5/latest/guide_me/howto/search/DX_Search_and_Search_Center/){target="_blank"}|
-|Referenced|Troubleshooting|[](){target="_blank"}|
+|Referenced|Troubleshooting|[How to collect a Fiddler trace (HAR-file)](https://help.hcl-software.com/digital-experience/9.5/latest/guide_me/troubleshooting/web-browser/collecting_fiddler_har/){target="_blank"}|
 |Referenced|Upgrade|[How to use XML Access to export and import portal pages](https://help.hcl-software.com/digital-experience/9.5/latest/guide_me/howto/upgrade/XMLAccessExportImport/){target="_blank"}|
+
+<!--confirm if working:
+How to collect a Fiddler trace (HAR-file)
+How to count WCM items and versions using the WCM API sample code
+-->
 
 ## CF232
 
@@ -40,4 +45,6 @@ None
 
 ## CF228
 
+| Type | Category | Article |
+|------|----------|---------|
 |New|Configuration|[How to add new portal administrators in DX Compose](./configuration/adding_additional_portal_admins.md)|
