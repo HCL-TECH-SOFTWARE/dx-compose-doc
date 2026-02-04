@@ -2,6 +2,8 @@
 
 This section contains How-to articles to help you learn how to use HCL Digital Experience (DX) Compose and all its features. The How-to articles are classified into the following topics:
 
+- **[New and migrated articles](./whatsnew.md)**  
+See the newly created and migrated articles per Cumulative Fix (CF) version. How-to articles that apply to both HCL DX and HCL DX Compose are also referenced.
 - **[Administration](./administration/index.md)**  
 Learn how to do specific administration tasks in your HCL DX Compose environment.
 - **[API](./api/index.md)**  
