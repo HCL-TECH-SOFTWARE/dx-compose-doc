@@ -23,8 +23,8 @@ This section contains the newly created and migrated how-to articles. The articl
 |Referenced|Upgrade|[How to use XML Access to export and import portal pages](https://help.hcl-software.com/digital-experience/9.5/latest/guide_me/howto/upgrade/XMLAccessExportImport/){target="_blank"}|
 
 <!--confirm if working:
-How to collect a Fiddler trace (HAR-file)
-How to count WCM items and versions using the WCM API sample code
+How to collect a Fiddler trace (HAR-file) --- check this page and its index page (Troubleshooting)
+How to count WCM items and versions using the WCM API sample code --- check this page and its index page (Development)
 -->
 
 ## CF232
