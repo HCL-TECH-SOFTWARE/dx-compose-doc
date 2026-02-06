@@ -2,3 +2,6 @@ title: Development
 
 nav:
     - index.md
+    - How to access portlet development utilities and page creation samples: https://help.hcl-software.com/digital-experience/9.5/latest/guide_me/howto/development/Portletdevelopmentutilitiesandpagecreationsamples/
+    - How to convert a file to base64 encoded format: https://help.hcl-software.com/digital-experience/9.5/latest/guide_me/howto/development/SampleJSPtoConvertAfileToBase64EncodedFormat/
+    - How to count WCM items and versions using the WCM API sample code: https://help.hcl-software.com/digital-experience/9.5/latest/guide_me/howto/development/APIToCountWCMItems/
