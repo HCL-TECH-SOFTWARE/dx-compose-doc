@@ -2,3 +2,4 @@ title: Requirements
 
 nav:
     - index.md
+    - How to choose the correct JDBC driver: https://help.hcl-software.com/digital-experience/9.5/latest/guide_me/howto/requirements/JDBCDriverSupport/
