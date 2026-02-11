@@ -2,6 +2,8 @@
 
 This section contains How-to articles to help you learn how to use HCL Digital Experience (DX) Compose and all its features. The How-to articles are classified into the following topics:
 
+- **[New and migrated articles](./whatsnew.md)**  
+See the newly created and migrated articles per Cumulative Fix (CF) version. How-to articles that apply to both HCL DX and HCL DX Compose are also referenced.
 - **[Administration](./administration/index.md)**  
 Learn how to do specific administration tasks in your HCL DX Compose environment.
 - **[API](./api/index.md)**  
@@ -36,8 +38,6 @@ Learn how to do specific syndication tasks in your HCL DX Compose environment.
 Learn how to do specific Web Distributed Authoring and Versioning (WebDAV) and theme-related tasks in your HCL DX Compose environment.
 - **[Tools](./tools/index.md)**  
 Learn how to use specific tools such as XMLAccess, DXClient, WCM Support Tools portlet, and other tools for your HCL DX Compose environment.
-- **[Troubleshooting](./troubleshooting/index.md)**  
-Learn how to troubleshoot issues affecting your HCL DX Compose environment.
 - **[Upgrade](./upgrade/index.md)**  
 Learn how to do specific upgrade tasks in your HCL DX Compose environment.
 - **[Web Content Manager Library Management](./wcmlibrarymanagement/index.md)**  

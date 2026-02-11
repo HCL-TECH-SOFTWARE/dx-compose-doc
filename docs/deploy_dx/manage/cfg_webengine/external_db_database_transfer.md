@@ -43,11 +43,9 @@ You can use the following secrets instead of the provided values:
 #### Sample `values.yaml` file for DB2
 
 !!! note
-    With DX Compose 9.5 CF226 the location of the DB2 library jar in the container is /opt/openliberty/wlp/usr/svrcfg/templates/jars/db2
+    - With DX Compose 9.5 CF226 the location of the DB2 library `.jar` file in the container is `/opt/openliberty/wlp/usr/svrcfg/templates/jars/db2`. The value for `db2.DbLibrary` is now `/opt/openliberty/wlp/usr/svrcfg/templates/jars/db2/db2jcc4.jar`. The `db2jcc_license_cu.jar` is no longer provided or required.
 
-    So the value for db2.DbLibrary is now /opt/openliberty/wlp/usr/svrcfg/templates/jars/db2/db2jcc4.jar
-
-    The db2jcc_license_cu.jar is no longer provided or required.
+    - The `returnAlias=0` parameter is mandatory.
 
 ```yaml
 configuration:
@@ -373,13 +371,16 @@ kubectl create secret generic custom-credentials-webengine-dbtype-secret --from-
 kubectl create secret generic custom-credentials-webengine-dbdomain-secret --from-file=dx_dbdomain.properties
 ```
 
-Create the properties files with the same properties as in the custom `values.yaml` file in the format `key=value`. For example:
+Create a properties file using the `key=value` format, matching the entries in your `values.yaml` file. For example:
 
 ```properties
 db2.DbDriver=com.ibm.db2.jcc.DB2Driver
-db2.DbLibrary=/opt/openliberty/wlp/usr/svrcfg/bin/db2jcc4.jar:/opt/openliberty/wlp/usr/svrcfg/bin/db2jcc_license_cu.jar
+db2.DbLibrary=/opt/openliberty/wlp/usr/svrcfg/templates/jars/db2/db2jcc4.jar
 db2.JdbcProviderName=wpdbJDBC_db2
 ```
+
+!!! note
+    Do not enclose values in quotation marks. Unlike YAML, properties files treat quotes as part of the value.
 
 ### Changing the database configuration
 

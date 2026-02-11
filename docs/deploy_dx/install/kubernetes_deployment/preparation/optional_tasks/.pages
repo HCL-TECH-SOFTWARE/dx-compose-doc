@@ -12,4 +12,5 @@ nav:
   - optional_configure_timezone.md
   - optional_configure_dam_custom_cert.md
   - optional_options_host_alias.md
+  - optional_configure_ltpa_key.md
   - '...'
