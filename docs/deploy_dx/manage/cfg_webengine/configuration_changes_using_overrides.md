@@ -297,24 +297,3 @@ You can use virtual hosts to limit the domains the server responds to. In the fo
 </virtualHost>
 ```
 
-## Disabling Authentication Cache for Impersonation
-
-To ensure the impersonation feature works in HCL DX Compose, you must disable the authentication cache. By default, the authentication cache is enabled. Disabling the cache ensures that the impersonated user is not prompted to authenticate again.
-
-!!!note
-    Disabling the authentication cache might affect performance.
-
-To disable the authentication cache, use the following configuration snippet in your `values.yaml` file:
-
-```yaml
-configOverrideFiles:
-  authOverride.xml: | 
-    <server description="DX Web Engine server">
-      <authentication cacheEnabled="false" />
-    </server>
-```
-
-The name of the customization in the example (`authOverride`) can be any unique string. However, it is recommended that you use a name that describes the change it applies.
-
-???+ info "Related information"
-    - [Update custom values.yaml with configOverrideFiles using HELM upgrade](../working_with_compose/helm_upgrade_values.md).

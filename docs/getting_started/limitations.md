@@ -24,17 +24,14 @@ Know the existing limitations of Digital Experience (DX) Compose.
 - Social Media Publisher, Content Template Catalog (CTC), and other WCM extensions are not supported except Multilingual Solution.
 - WCM AI Sentiment Analysis in the WCM Authoring user interface (UI) is not supported with the TinyMCE Rich text editor but is supported with CKEditor.
 - The SpellCheck service for the TinyMCE Rich text editor is currently not supported in DX Compose.
+- No command-line interface exists for exporting or importing Personalization rules.
 
 ## User and group management
 
 - Creating, updating, and deleting users and groups using the DX Compose Admin UI, REST APIs, or scripting tools are not supported with this initial release.
-- Lookaside database, application groups, custom user registries, and transient users are not supported.
+- Lookaside database, application groups, and custom user registries are not supported.
+- User Profile editing is not supported. To hide the profile page, refer to [Disabling Edit My Profile](../deploy_dx/manage/working_with_compose/cfg_parameters/manage_users_groups_liberty.md#disabling-edit-my-profile).
 
 ## Authentication
 
 - Step-up authentication is not supported.
-- Impersonation is supported. However, you must disable the authentication cache for it to work. For more information, see [Disabling Authentication Cache for Impersonation](../deploy_dx/manage/cfg_webengine/configuration_changes_using_overrides.md#disabling-authentication-cache-for-impersonation).
-
-## Product features
-
-- Site Template Builder is not supported.

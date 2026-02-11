@@ -2,6 +2,10 @@
 
 [Search V2](https://help.hcl-software.com/digital-experience/9.5/latest/build_sites/search_v2/){target="_blank"} introduces a new user interface with a backend service that utilizes OpenSearch to provide a seamless search experience. Search V2 is enabled by default for HCL Digital Experience (DX) Compose when the parameter `configuration.searchMiddleware.enabled` is set to `true` in the HCL DX Deployment Helm chart.
 
+## Prerequisites
+
+Ensure that the Search V2 backend is installed before proceeding with the configuration. For detailed instructions, refer to [Installing the Search V2 backend](./optional_install_new_search.md).
+
 ## Search configuration
 
 Refer to the following sample snippet for configuring the DX Compose server to enable Search V2:
