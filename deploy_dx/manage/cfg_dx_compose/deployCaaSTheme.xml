@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <request require-defined-oids="true" type="update" version="8.5.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="PortalConfig_8.5.0.xsd">
 	<portal action="locate">
-
-		<theme action="update" active="true" context-root="/wps/CaaSTheme" default="false" domain="rel" objectid="ZJ_00000000000000AIPRNM2B1000" resourceroot="CaaSTheme" uniquename="wp.theme.caas">
+    <theme action="update" active="true" context-root="/wps/CaaSTheme" default="false" domain="rel" objectid="ZJ_00000000000000AIPRNM2B1000" resourceroot="CaaSTheme" uniquename="wp.theme.caas">
 			<localedata locale="ar" prefix="themes.caas">
 				<url>file://$server_root$/svrcfg/templates/caas/deployTheme_ar.properties</url>
 			</localedata>
@@ -114,5 +113,4 @@
 			</parameter>	
 		</theme>
 	</portal>
-
 </request>

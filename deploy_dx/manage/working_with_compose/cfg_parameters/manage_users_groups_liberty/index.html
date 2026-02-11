@@ -356,14 +356,8 @@ function OptanonWrapper() { }
   
     
     
-      
-  
-  
-  
-    
-    
       <li class="md-tabs__item">
-        <a href="../../../../../guide_me/performance_tuning/" class="md-tabs__link">
+        <a href="../../../../../guide_me/" class="md-tabs__link">
           
   
     
@@ -372,9 +366,6 @@ function OptanonWrapper() { }
 
         </a>
       </li>
-    
-  
-
     
   
 
@@ -454,6 +445,8 @@ function OptanonWrapper() { }
       
         
           
+        
+      
         
       
         
@@ -766,6 +759,8 @@ function OptanonWrapper() { }
       
         
           
+        
+      
         
       
         
@@ -1174,7 +1169,7 @@ function OptanonWrapper() { }
           <li class="md-nav__item">
   <a href="#configuring-federated-user-registry" class="md-nav__link">
     <span class="md-ellipsis">
-      Configuring Federated User Registry
+      Configuring federated user registry
     </span>
   </a>
   
@@ -1189,6 +1184,15 @@ function OptanonWrapper() { }
   <a href="#viewing-users-and-groups" class="md-nav__link">
     <span class="md-ellipsis">
       Viewing users and groups
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disabling-edit-my-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disabling Edit My Profile
     </span>
   </a>
   
@@ -1529,6 +1533,12 @@ function OptanonWrapper() { }
     
       
         
+          
+        
+      
+        
+      
+        
       
         
       
@@ -1548,10 +1558,7 @@ function OptanonWrapper() { }
         
   
   
-    
-  
-  
-    <a href="../../../../../guide_me/performance_tuning/" class="md-nav__link">
+    <a href="../../../../../guide_me/" class="md-nav__link">
       
   
   <span class="md-ellipsis">
@@ -1563,8 +1570,6 @@ function OptanonWrapper() { }
         <span class="md-nav__icon md-icon"></span>
       
     </a>
-  
-
   
 
       
@@ -1629,7 +1634,7 @@ function OptanonWrapper() { }
           <li class="md-nav__item">
   <a href="#configuring-federated-user-registry" class="md-nav__link">
     <span class="md-ellipsis">
-      Configuring Federated User Registry
+      Configuring federated user registry
     </span>
   </a>
   
@@ -1644,6 +1649,15 @@ function OptanonWrapper() { }
   <a href="#viewing-users-and-groups" class="md-nav__link">
     <span class="md-ellipsis">
       Viewing users and groups
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disabling-edit-my-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disabling Edit My Profile
     </span>
   </a>
   
@@ -1743,7 +1757,7 @@ function OptanonWrapper() { }
 <p>If the LDAP server does not support recursive server-side searches, you can set the value of <code>recursiveSearch</code> to <code>true</code> to allow recursive searches for users.</p>
 </div>
 <p>For more information about using additional properties, see the <a href="https://openliberty.io/docs/latest/reference/feature/ldapRegistry-3.0.html" target="_blank">LDAP User Registry</a> feature.</p>
-<h3 id="configuring-federated-user-registry">Configuring Federated User Registry</h3>
+<h3 id="configuring-federated-user-registry">Configuring federated user registry</h3>
 <p>When user and group data reside in various registries, DX Compose offers the capability to consolidate this dispersed information into a single, cohesive registry. This unified registry integrates data from different sources, including LDAP, basic, and custom user registries, into one centralized repository.</p>
 <p>By default, if your <code>server.xml</code> file includes configurations for multiple basic, LDAP, or custom user registries, these are automatically unified under the <a href="https://openliberty.io/docs/latest/reference/feature/federatedRegistry-1.0.html" target="_blank">Federated User Registry</a>  feature. This federation applies to LDAP user registries as well, whether they represent distinct data sources or are parts of the same LDAP directory.</p>
 <p>The following configuration specifies the sample basic and LDAP registries to be included in the federation by referring to them by name within the <code>federatedRepository</code> element.</p>
@@ -1758,7 +1772,7 @@ function OptanonWrapper() { }
 <p>After the registry is configured, you can view users and groups through the Manage Users and Groups portlet.</p>
 <ol>
 <li>
-<p>Log in to HCL Digital Experience as an administrator.</p>
+<p>Log in to DX Compose as an administrator.</p>
 </li>
 <li>
 <p>Click the <strong>Administration menu</strong> icon. Then, click <strong>Access &gt; Users and Groups</strong>.</p>
@@ -1776,6 +1790,35 @@ function OptanonWrapper() { }
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Editing user profile information is currently not supported.</p>
+</div>
+<h2 id="disabling-edit-my-profile">Disabling Edit My Profile</h2>
+<p>DX Compose does not support saving changes to user profiles. To prevent users from attempting to update their information, hide the <strong>Edit My Profile</strong> page.</p>
+<ol>
+<li>
+<p>Sign in to DX Compose as an administrator.</p>
+</li>
+<li>
+<p>Select <strong>Open applications menu</strong>, and then go to <strong>Administration &gt; Site Management &gt; Pages</strong>.</p>
+</li>
+<li>
+<p>Select <strong>Content Root &gt; Hidden Pages</strong>.</p>
+</li>
+<li>
+<p>Find <strong>Edit My Profile</strong>.</p>
+</li>
+<li>
+<p>In the <strong>Status</strong> column, select <strong>Active</strong>.</p>
+</li>
+<li>
+<p>In the confirmation dialog box, select <strong>OK</strong>. The status changes to <strong>Inactive</strong>.</p>
+</li>
+<li>
+<p>Sign out, and then sign in with a user ID to verify the profile settings.</p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To re-enable the profile view when the feature is available, follow these steps and change the status of the <strong>Edit My Profile</strong> page to <strong>Active</strong>.</p>
 </div>
 <h2 id="defining-custom-attributes">Defining custom attributes</h2>
 <p>You can add multiple custom attributes at once or individually by specifying them in the <code>server.xml</code> file. For more information, refer to <a href="../adding_custom_attributes/">Defining Custom Attributes</a>.</p>
@@ -1811,7 +1854,7 @@ function OptanonWrapper() { }
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 28, 2024 12:00:08 UTC">November 28, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 23, 2026 08:42:55 UTC">January 23, 2026</span>
   </span>
 
     
