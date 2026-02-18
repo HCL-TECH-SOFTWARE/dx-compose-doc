@@ -2,3 +2,4 @@ title: Content
 
 nav:
     - index.md
+    - How to get the UUID and Path of WCM content objects using a command line: https://help.hcl-software.com/digital-experience/9.5/latest/guide_me/howto/content/GetUUIDAndPathOfContent/

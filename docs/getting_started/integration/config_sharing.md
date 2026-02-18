@@ -56,6 +56,8 @@ The entire mechanism is controlled using the feature flags in the Helm `values.y
     # to share configuration with other HCL products in the same namespace.
     enableConfigurationSharing: false  # Change this to true
     ```
+    !!! note
+        For the LTPA keys to be shared, ensure that LTPA is enabled and properly configured in the producer product (for example, DX Compose). Refer to [LTPA Configuration](../../deploy_dx/install/kubernetes_deployment/preparation/optional_tasks/optional_configure_ltpa_key.md) for more information.
 
 2. Configure the Consumer product to look for a specific shared Secret by defining which version of the shared configuration it intends to use for greater control.
 

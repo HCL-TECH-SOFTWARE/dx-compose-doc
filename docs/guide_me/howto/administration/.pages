@@ -2,3 +2,5 @@ title: Administration
 
 nav:
     - index.md
+    - How to clear WebSphere Dynacache caches: https://help.hcl-software.com/digital-experience/9.5/latest/guide_me/howto/administration/ClearWebSphereDynacache/
+    - How to decode long Portal URLs: https://help.hcl-software.com/digital-experience/9.5/latest/guide_me/howto/administration/DecodeLongURLs/

@@ -2,3 +2,5 @@ title: Database
 
 nav:
     - index.md
+    - How to determine portal database size when using DB2: https://help.hcl-software.com/digital-experience/9.5/latest/guide_me/howto/database/DB2DatabaseSize/
+    - How to use the `RUNSTATS` and `REORG` commands: https://help.hcl-software.com/digital-experience/9.5/latest/guide_me/howto/database/RunstatsandReorg/

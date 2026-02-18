@@ -2,3 +2,4 @@ title: Performance
 
 nav:
     - index.md
+    - How to improve HCL DX database performance on a IBM DB2 database: https://help.hcl-software.com/digital-experience/9.5/latest/guide_me/howto/performance/DB2DatabasePerformance/
