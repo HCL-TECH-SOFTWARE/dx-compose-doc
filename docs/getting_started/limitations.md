@@ -20,7 +20,10 @@ Know the existing limitations of Digital Experience (DX) Compose.
 
 ## Applications and extensions
 
-- You cannot deploy custom portlets.
+- You can deploy custom portlets if you have purchased the Java Transition Module. Please see the Java Transition Module documentation for the steps to deploy portlets.
+- Only JSR 168 and JSR 286 portlets are supported.
+- Note that DX Compose runs on different Java and JavaEE levels than DX Core on WAS. Your portlets may need to be updated for compatibility with Java 21 and JavaEE 8.
+- JSF portlets are not supported.
 - Social Media Publisher, Content Template Catalog (CTC), and other WCM extensions are not supported except Multilingual Solution.
 - WCM AI Sentiment Analysis in the WCM Authoring user interface (UI) is not supported with the TinyMCE Rich text editor but is supported with CKEditor.
 - The SpellCheck service for the TinyMCE Rich text editor is currently not supported in DX Compose.
