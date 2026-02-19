@@ -23,7 +23,6 @@ Know the existing limitations of Digital Experience (DX) Compose.
 - You cannot deploy custom portlets.
 - Social Media Publisher, Content Template Catalog (CTC), and other WCM extensions are not supported except Multilingual Solution.
 - WCM AI Sentiment Analysis in the WCM Authoring user interface (UI) is not supported with the TinyMCE Rich text editor but is supported with CKEditor.
-- The SpellCheck service for the TinyMCE Rich text editor is currently not supported in DX Compose.
 - No command-line interface exists for exporting or importing Personalization rules.
 
 ## User and group management
