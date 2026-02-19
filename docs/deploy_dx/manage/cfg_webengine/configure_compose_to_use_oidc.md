@@ -54,7 +54,10 @@ Refer to the following steps to enable OIDC authentication in DX Compose:
             <openidConnectClient id="client01" authFilterRef="oidcAuthFilter"
             ```
 
-    - If your DX Compose environment uses a different context root, add additional `urlPattern` entries to the `authFilter` for your custom context root. You must always keep the default `/wps/config` entry, because the server initially starts with the default `/wps` context root and XMLAccess runs before the custom context root is applied.
+    - If your DX Compose environment uses a different context root, add additional `urlPattern` entries to the `authFilter` for your custom context root. 
+
+        !!!note
+            You must always keep the default `/wps/config` entry, because the server initially starts with the default `/wps` context root and XMLAccess runs before the custom context root is applied.
 
         - Default (`wps`): 
             - `urlPattern="/wps/config"` (already configured)
