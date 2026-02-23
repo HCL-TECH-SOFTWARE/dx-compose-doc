@@ -9,7 +9,7 @@ This topic provides information about the default basic registry configuration i
 
 The following changes have been made to the basic registry configuration:
 
-- The basic registry is now controlled via Helm values.
+- The default basic registry is now controlled via Helm values.
 - The test users `admin1` and `nonadmin` have been removed from the default configuration. If your scripts, tests, or applications rely on these users, you must either recreate them using configuration overrides.
 - The `nonadmins` user group has been removed from the default configuration.
 
