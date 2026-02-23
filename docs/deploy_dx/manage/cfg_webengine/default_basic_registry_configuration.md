@@ -28,6 +28,6 @@ security:
 This configuration creates a single administrator user (`wpsadmin`) that belongs to the `wpsadmins` group, which is granted the administrator role.
 
 !!!warning
-    The PUMA code still relies on the `wpsadmin` user from the default basic registry. Disabling the basic registry may cause unexpected behavior or failures. Support for LDAP-only deployments without the default basic registry (wpsadmin) is planned for a future release. For now, keep `basicRegistry.enabled: true` even if you are using LDAP for external user authentication. Additionally, while the realm name is configurable via Helm values, **continue to use the default realm value** (`defaultWIMFileBasedRealm`) to maintain compatibility with internal PUMA code dependencies.
+    The PUMA code still relies on the `wpsadmin` user from the default basic registry. Disabling the basic registry may cause unexpected behavior or failures. Support for LDAP-only deployments without the default basic registry (wpsadmin) is planned for a future release. For now, keep `basicRegistry.enabled: true` even if you are using LDAP for external user authentication. Additionally, while the realm name is configurable via Helm values, continue to use the default realm value (`defaultWIMFileBasedRealm`) to maintain compatibility with internal PUMA code dependencies.
 
 
