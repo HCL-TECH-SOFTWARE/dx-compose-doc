@@ -71,7 +71,7 @@ After enabling the Content AI analysis, refer to the steps in [WCM REST V2 AI An
 
 ### OPEN_AI provider configuration 
 
-If you are using the bundled `OPEN_AI` provider, you can configure its behavior via additional properties in the Helm chart. These must be set in the property overrides for `WCMConfigService.properties` e.g.:
+If you are using the bundled `OPEN_AI` provider, you can configure its behavior via additional properties in the Helm `values.yaml` file. These must be set in the property overrides for `WCMConfigService.properties` e.g.:
 
 ```yaml
 configuration:
