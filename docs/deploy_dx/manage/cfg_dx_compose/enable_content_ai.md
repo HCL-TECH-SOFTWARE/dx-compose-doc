@@ -69,9 +69,9 @@ After updating the `values.yaml` file, perform the following actions:
 
 After enabling the Content AI analysis, refer to the steps in [WCM REST V2 AI Analysis API](https://opensource.hcltechsw.com/digital-experience/latest/manage_content/wcm_development/wcm_rest_v2_ai_analysis/){target="_blank"} to call the AI Analyzer APIs of the configured Content AI Provider.
 
-### OPEN_AI provider configuration 
+### OPEN_AI provider configuration
 
-If you are using the bundled `OPEN_AI` provider, you can configure its behavior via additional properties in the Helm `values.yaml` file. These must be set in the property overrides for `WCMConfigService.properties` e.g.:
+If you are using the bundled `OPEN_AI` provider, you can configure its behavior using additional properties in the Helm `values.yaml` file. These must be set in the property overrides for `WCMConfigService.properties`. For example:
 
 ```yaml
 configuration:
