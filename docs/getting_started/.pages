@@ -9,6 +9,4 @@ nav:
   - Architecture overview: architecture_dependencies.md
   - System requirements: system_requirements.md
   - Download software: download
-  - differences.md
-  - Limitations: limitations.md
   - Integrate Applications: integration
