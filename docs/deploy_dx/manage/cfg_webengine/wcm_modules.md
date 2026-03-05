@@ -26,7 +26,10 @@ The browser command might time out for long-running calls. It is recommended to 
 
 ## Importing WCM libraries
 
-Create a directory on the server. For example: `/opt/openliberty/test`.
+Use the following steps to import a WCM library:
+
+1. Create a directory on the server. For example: `/opt/openliberty/test`.
+2. Copy the WCM library data into the directory.
 
 The command would be similar to the following:
 
