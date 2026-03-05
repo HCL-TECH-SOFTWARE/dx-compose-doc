@@ -1,6 +1,10 @@
 # WCM modules
 
-This topic provides the commands for starting Web Content Manager (WCM) modules and importing WCM libraries in DX Compose.
+
+
+This topic explains how to start Web Content Manager (WCM) modules and import or export WCM libraries in DX Compose.
+
+## Exporting WCM Libraries
 
 When running Digital Experience (DX) Core on WebSphere Application Server (WAS), WCM modules such as workflow checker, importing or exporting libraries, member fixer, and others would be triggered through the ConfigEngine as documented in [Exporting and importing web content libraries](https://opensource.hcltechsw.com/digital-experience/latest/manage_content/wcm_configuration/wcm_adm_tools/wcmlibrary_export/index.html){target="_blank"}.
 
@@ -22,7 +26,7 @@ The browser command might time out for long-running calls. It is recommended to 
 
 ## Importing WCM libraries
 
-To import WCM libraries, ensure that the file is copied into the WebEngine container (for example, `/opt/openliberty/test`). 
+Create a directory on the server. For example: `/opt/openliberty/test`.
 
 The command would be similar to the following:
 
