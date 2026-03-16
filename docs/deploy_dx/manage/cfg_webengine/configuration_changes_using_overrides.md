@@ -75,7 +75,9 @@ The name of the customization in the example (`sslOverride`) can be any string. 
 
 The following is a sample snippet that shows how to configure the DX Compose server to use an OpenLDAP server. Replace the values for `baseDN`, `bindDN`, `bindPassword`, and `host` with the proper values.
 
-For custom LDAP types, use `customFilters` to define your own search filters for users and groups. For predefined LDAP types supported by Open Liberty, use `idsFilters`. If your LDAP directory uses nested groups or hierarchical structures, consider enabling `recursiveSearch` to ensure all relevant entries are retrieved. For more information, refer to the [Open Liberty LDAP Registry documentation](https://openliberty.io/docs/latest/reference/config/ldapRegistry.html){target="_blank"}.
+For predefined LDAP types supported by OpenLiberty, use the corresponding filters tags (idsFilters, activedFilters, domino50Filters, edirectoryFilters, iplanetFilters, netscapeFilters, securewayFilters) etc. For custom LDAP types, use `customFilters` to define your own search filters for users and groups.  
+
+If your LDAP directory uses nested groups or hierarchical structures, consider enabling `recursiveSearch` to ensure all relevant entries are retrieved. For more information, refer to the [Open Liberty LDAP Registry documentation](https://openliberty.io/docs/latest/reference/config/ldapRegistry.html){target="_blank"}.
 
 The `attributeConfiguration` element in the LDAP registry configuration allows you to map LDAP attributes to user registry attributes. This is useful when the attribute names in your LDAP directory do not match the expected attribute names. Each `attribute` element specifies a mapping:
 
@@ -93,13 +95,13 @@ configOverrideFiles:
         sslEnabled="false"
         bindDN="cn=dx_user,dc=dx,dc=com"
         bindPassword="p0rtal4u">
-          <customFilters
+          <idsFilters
             userFilter="(&amp;(uid=%v)(objectclass=inetOrgPerson))"
             groupFilter="(&amp;(cn=%v)(objectclass=groupOfUniqueNames))"
             userIdMap="*:uid"
             groupIdMap="*:cn"
             groupMemberIdMap="groupOfUniqueNames:uniqueMember">
-          </customFilters>
+          </idsFilters>
           <attributeConfiguration>
             <attribute name="mail" propertyName="ibm-primaryEmail" entityType="PersonAccount"/>
             <attribute name="title" propertyName="ibm-jobTitle" entityType="PersonAccount"/>
@@ -136,13 +138,13 @@ To set up a custom LDAP server in Liberty, see [Configuring LDAP with Liberty](l
             sslEnabled='false'
             bindDN='${LDAP_BIND_USER}'
             bindPassword='${LDAP_BIND_PASSWORD}'>
-            <customFilters
+            <idsFilters
               userFilter="(&amp;(uid=%v)(objectclass=inetOrgPerson))"
               groupFilter="(&amp;(cn=%v)(objectclass=groupOfUniqueNames))"
               userIdMap="*:uid"
               groupIdMap="*:cn"
               groupMemberIdMap="groupOfUniqueNames:uniqueMember">
-            </customFilters>
+            </idsFilters>
             <ldapCache>
               <attributesCache size="4000" sizeLimit="4000" timeout="2400s" />
               <searchResultsCache resultsSizeLimit="4000" size="4000" timeout="2400s" />
@@ -203,13 +205,13 @@ To set up a custom LDAP server in Liberty, see [Configuring LDAP with Liberty](l
                   recursiveSearch="true"  
                   bindAuthMechanism="simple"  
                   returnToPrimaryServer="true">  
-                    <customFilters 
+                    <activedFilters 
                     userFilter="(&amp;(sAMAccountName=%v)(objectcategory=user)" 
                     groupFilter="(&amp;(cn=%v)(objectcategory=group))" 
                     userIdMap="user:sAMAccountName" 
                     groupIdMap="*:cn" 
                     groupMemberIdMap="memberOf:member">  
-                    </customFilters>  
+                    </activedFilters>  
                     <ldapEntityType name="PersonAccount">  
                       <objectClass>user</objectClass>  
                     </ldapEntityType>  
@@ -221,7 +223,10 @@ To set up a custom LDAP server in Liberty, see [Configuring LDAP with Liberty](l
                       <membershipAttribute name="memberOf" scope="direct"/>  
                   </groupProperties>  
                   <loginProperty name="uid">uid</loginProperty>  
-
+                  <ldapCache>
+                    <attributesCache size="4000" timeout="5s" enabled="true" sizeLimit="2000"/>
+                    <searchResultsCache size="2000" timeout="5s" enabled="true" resultsSizeLimit="1000"/>
+                  </ldapCache>
                 </ldapRegistry>  
                   <federatedRepository>  
                     <primaryRealm name="FederatedRealm" allowOpIfRepoDown="true" delimiter="/">  
