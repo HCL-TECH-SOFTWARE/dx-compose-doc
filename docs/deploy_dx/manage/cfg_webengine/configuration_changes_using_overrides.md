@@ -226,8 +226,8 @@ To set up a custom LDAP server in Liberty, see [Configuring LDAP with Liberty](l
                   </groupProperties>  
                   <loginProperty name="uid">uid</loginProperty>  
                   <ldapCache>
-                    <attributesCache size="4000" timeout="5s" enabled="true" sizeLimit="2000"/>
-                    <searchResultsCache size="2000" timeout="5s" enabled="true" resultsSizeLimit="1000"/>
+                    <attributesCache size="4000" timeout="1200s" enabled="true" sizeLimit="2000"/>
+                    <searchResultsCache size="2000" timeout="1200s" enabled="true" resultsSizeLimit="1000"/>
                   </ldapCache>
                 </ldapRegistry>  
                   <federatedRepository>  
