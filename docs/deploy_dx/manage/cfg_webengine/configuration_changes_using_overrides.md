@@ -75,14 +75,16 @@ The name of the customization in the example (`sslOverride`) can be any string. 
 
 The following is a sample snippet that shows how to configure the DX Compose server to use an OpenLDAP server. Replace the values for `baseDN`, `bindDN`, `bindPassword`, and `host` with the proper values.
 
-For predefined LDAP types supported by OpenLiberty, use the corresponding filters tags (idsFilters, activedFilters, domino50Filters, edirectoryFilters, iplanetFilters, netscapeFilters, securewayFilters) etc. For custom LDAP types, use `customFilters` to define your own search filters for users and groups.  
+- For predefined LDAP types supported by OpenLiberty, use the corresponding filters tags (for example, `idsFilters`, `activedFilters`, `domino50Filters`, `edirectoryFilter`s, `iplanetFilters`, `netscapeFilters`, and `securewayFilters`).
+- For custom LDAP types, use `customFilters` to define your own search filters for users and groups.  
+- If your LDAP directory uses nested groups or hierarchical structures, consider enabling `recursiveSearch` to ensure all relevant entries are retrieved.
 
-If your LDAP directory uses nested groups or hierarchical structures, consider enabling `recursiveSearch` to ensure all relevant entries are retrieved. For more information, refer to the [Open Liberty LDAP Registry documentation](https://openliberty.io/docs/latest/reference/config/ldapRegistry.html){target="_blank"}.
+For more information, refer to the [Open Liberty LDAP Registry documentation](https://openliberty.io/docs/latest/reference/config/ldapRegistry.html){target="_blank"}.
 
 The `attributeConfiguration` element in the LDAP registry configuration allows you to map LDAP attributes to user registry attributes. This is useful when the attribute names in your LDAP directory do not match the expected attribute names. Each `attribute` element specifies a mapping:
 
-- `name` - The name of the attribute in the LDAP directory
-- `propertyName` - The name of the attribute to be mapped to. In the following example, the LDAP `mail` attribute is mapped to `ibm-primaryEmail`, which is the attribute used to display the email address of a user. The LDAP `title` attribute is mapped to `ibm-jobTitle`, which is the attribute used to display job title of a user.
+- `name`: The name of the attribute in the LDAP directory
+- `propertyName`: The name of the attribute to be mapped to. In the following example, the LDAP `mail` attribute is mapped to `ibm-primaryEmail`, which is the attribute used to display the email address of a user. The LDAP `title` attribute is mapped to `ibm-jobTitle`, which is the attribute used to display job title of a user.
 
 ```xml
 configOverrideFiles:
@@ -118,7 +120,7 @@ configOverrideFiles:
 
 To set up a custom LDAP server in Liberty, see [Configuring LDAP with Liberty](ldap_configuration.md).
 
-## Additional LDAP Configuration samples
+## Additional LDAP configuration samples
 
 - [IBM Directory Server](#ibm-directory-server)
 - [Microsoft Active Directory Server](#microsoft-active-directory-server)
@@ -301,4 +303,3 @@ You can use virtual hosts to limit the domains the server responds to. In the fo
     <hostAlias>sample.hcl.com:443</hostAlias>
 </virtualHost>
 ```
-
