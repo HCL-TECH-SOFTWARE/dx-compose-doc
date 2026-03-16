@@ -88,20 +88,20 @@ The `attributeConfiguration` element in the LDAP registry configuration allows y
 configOverrideFiles:
   ldapOverride.xml: | 
     <server description="DX Web Engine server"> 
-      <ldapRegistry id="ldap" realm="SampleLdapIDSRealm"
+      <ldapRegistry id="ldap" realm="SampleLdapCustomRealm"
         host="127.0.0.1" port="1389" ignoreCase="true"
         baseDN="dc=dx,dc=com"
         ldapType="Custom"
         sslEnabled="false"
         bindDN="cn=dx_user,dc=dx,dc=com"
         bindPassword="p0rtal4u">
-          <idsFilters
+          <customFilters
             userFilter="(&amp;(uid=%v)(objectclass=inetOrgPerson))"
             groupFilter="(&amp;(cn=%v)(objectclass=groupOfUniqueNames))"
             userIdMap="*:uid"
             groupIdMap="*:cn"
             groupMemberIdMap="groupOfUniqueNames:uniqueMember">
-          </idsFilters>
+          </customFilters>
           <attributeConfiguration>
             <attribute name="mail" propertyName="ibm-primaryEmail" entityType="PersonAccount"/>
             <attribute name="title" propertyName="ibm-jobTitle" entityType="PersonAccount"/>
@@ -134,7 +134,7 @@ To set up a custom LDAP server in Liberty, see [Configuring LDAP with Liberty](l
             host='your_LDAP_Server_HostName'
             port='1389' ignoreCase="true"
             baseDN='dc=dx,dc=com'
-            ldapType='Custom'
+            ldapType='IBM Tivoli Directory Server'
             sslEnabled='false'
             bindDN='${LDAP_BIND_USER}'
             bindPassword='${LDAP_BIND_PASSWORD}'>
