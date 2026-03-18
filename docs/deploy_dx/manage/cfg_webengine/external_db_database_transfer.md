@@ -29,7 +29,7 @@ The database must be created with Unicode character sets:
 
 **JDBC driver**
 
-For Oracle 19c and Oracle 21c, use the `ojdbc11.jar` driver. Refer to the [Oracle JDBC Downloads page](https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html){target="_blank"} for the latest driver for your Oracle version.
+For Oracle 19c and Oracle 21c, use the `ojdbc11.jar` driver. Refer to the [Oracle JDBC Downloads page](https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html) for the latest driver for your Oracle version.
 
 Set the `oracle.DbLibrary` property in your Helm `values.yaml` to reference the driver location:
 
@@ -64,7 +64,7 @@ The following settings are recommended for optimal performance with HCL DX Compo
 
 The Oracle setup script (`SetupOracleDatabasesManually.sql`) creates the following:
 
-- **Schema users** (`release`, `community`, `customization`, `jcr`, `feedback`, `likeminds`): Each represents a separate Oracle schema for a DX database domain. These map to the `<domain>.DbSchema` property.
+- **Schema users** (`release`, `community`, `customization`, `jcr`, `feedback`, `likeminds`): Each represents a separate Oracle schema for a DX Compose database domain. These map to the `<domain>.DbSchema` property.
 - **DX application user** (`<replace-with-user>`): A single Oracle user that is granted both config and runtime roles across all domains. This user maps to `<domain>.DbUser`, `<domain>.DbRuntimeUser`, and `<domain>.DBA.DbUser` in your Helm `values.yaml`.
 
 The table below shows how Oracle users created in the script map to Helm properties:
@@ -72,12 +72,15 @@ The table below shows how Oracle users created in the script map to Helm propert
 | Helm property | Oracle user | Purpose |
 |---------------|-------------|---------|
 | `<domain>.DbUser` | `<replace-with-user>` | Configuration user — used during database transfer and schema setup. Granted `WP_*_CONFIG_USERS` role. |
-| `<domain>.DbRuntimeUser` | `<replace-with-user>` | Runtime user — used during day-to-day portal operations. Granted `WP_*_RUNTIME_USERS` role. Can be the same user as `DbUser`. |
-| `<domain>.DBA.DbUser` | `<replace-with-user>` | Privileged DBA user — used for tablespace and advanced DDL operations. Can be the same user as `DbUser`. |
+| `<domain>.DbRuntimeUser` | `<replace-with-user>` | Runtime user — used during day-to-day portal operations. Granted `WP_*_RUNTIME_USERS` role. <br>**Currently, this is the same user as `DbUser`, but future releases may require a separate user.** |
+| `<domain>.DBA.DbUser` | `<replace-with-user>` | Privileged DBA user — used for tablespace and advanced DDL operations. <br>**Currently, this is the same user as `DbUser`, but future releases may require a separate user.** |
 | `<domain>.DbSchema` | `release`, `community`, `customization`, `jcr`, `feedback`, `likeminds` | The Oracle schema user that owns the tables for each domain. |
 
+
 !!! note
-    In HCL DX Compose for Oracle, a single application user can be used for all three roles (`DbUser`, `DbRuntimeUser`, `DBA.DbUser`). The Oracle schema users (domain names) are separate and own the actual tables but are not used as connection credentials.
+  **Current script behavior:** In HCL DX Compose for Oracle, a single application user is used for all three roles (`DbUser`, `DbRuntimeUser`, `DBA.DbUser`). The Oracle schema users (domain names) are separate and own the actual tables but are not used as connection credentials.
+
+  **Future change notice:** In a future release, the setup script will require you to provide separate users for each of these roles (`DbUser`, `DbRuntimeUser`, `DBA.DbUser`). Review the script and documentation for updates before upgrading or deploying to production, and plan to create and configure distinct users for each role as per the updated requirements.
 
 !!! Note
     If you are using the Amazon RDS for Oracle, you need to create a custom option group, add the JVM option, and then attach that group to your Amazon RDS instance to support Extended Architecture (XA) transactions for WebEngine. Attaching this custom option group to your instance replaces the default option group. For more information, refer to [Configure Custom Option Groups for Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithOptionGroups.html){target="_blank"}.
