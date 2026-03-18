@@ -12,11 +12,72 @@ By default, WebEngine comes with a local Derby database included in the image an
 
 This section provides the custom scripts for setting up the external database schemas (or users).
 
+### Oracle database prerequisites
+
+Before running the Oracle setup script, ensure your Oracle database meets the following requirements.
+
+**Supported versions**
+
+HCL DX Compose is tested against Oracle 19c and Oracle 21c.
+
+**Character set**
+
+The database must be created with Unicode character sets:
+
+- Character Set: `AL32UTF8`
+- National Character Set: `AL16UTF16`
+
+**JDBC driver**
+
+For Oracle 19c and Oracle 21c, use the `ojdbc11.jar` driver. Refer to the [Oracle JDBC Downloads page](https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html){target="_blank"} for the latest driver for your Oracle version.
+
+Set the `oracle.DbLibrary` property in your Helm `values.yaml` to reference the driver location:
+
+```yaml
+dbTypeProperties:
+  oracle.DbLibrary: "/opt/openliberty/wlp/usr/svrcfg/templates/jars/oracle/ojdbc11.jar:/opt/openliberty/wlp/usr/svrcfg/templates/jars/oracle/xdb6-11.2.0.4.jar"
+```
+
+**Recommended Oracle database settings**
+
+The following settings are recommended for optimal performance with HCL DX Compose, especially for the JCR domain:
+
+| Parameter | Recommended value |
+|-----------|-------------------|
+| `db_block_size` | 8192 bytes |
+| `db_cache_size` | 1 gigabyte |
+| `open_cursors` | 1500 cursors |
+| `pga_aggregate_target` | 200 megabytes |
+| `processes` | 300 processes |
+| `shared_pool_size` | 200 megabytes |
+
+!!! note
+    If your deployment uses the JCR domain extensively, you may need to increase `open_cursors` further depending on the number of JCR tables in your schema.
+
 |Database| Custom setup script|
 |--------|--------------------|
 |DB2|[DB2 custom setup script](SetupDb2DatabasesManually.sql)|
 |Oracle|[Oracle custom setup script](SetupOracleDatabasesManually.sql)|
 |SQL Server|[SQL Server custom setup script](SetupSqlServerDatabasesManually.sql)|
+
+### Oracle user and property mapping
+
+The Oracle setup script (`SetupOracleDatabasesManually.sql`) creates the following:
+
+- **Schema users** (`release`, `community`, `customization`, `jcr`, `feedback`, `likeminds`): Each represents a separate Oracle schema for a DX database domain. These map to the `<domain>.DbSchema` property.
+- **DX application user** (`<replace-with-user>`): A single Oracle user that is granted both config and runtime roles across all domains. This user maps to `<domain>.DbUser`, `<domain>.DbRuntimeUser`, and `<domain>.DBA.DbUser` in your Helm `values.yaml`.
+
+The table below shows how Oracle users created in the script map to Helm properties:
+
+| Helm property | Oracle user | Purpose |
+|---------------|-------------|---------|
+| `<domain>.DbUser` | `<replace-with-user>` | Configuration user — used during database transfer and schema setup. Granted `WP_*_CONFIG_USERS` role. |
+| `<domain>.DbRuntimeUser` | `<replace-with-user>` | Runtime user — used during day-to-day portal operations. Granted `WP_*_RUNTIME_USERS` role. Can be the same user as `DbUser`. |
+| `<domain>.DBA.DbUser` | `<replace-with-user>` | Privileged DBA user — used for tablespace and advanced DDL operations. Can be the same user as `DbUser`. |
+| `<domain>.DbSchema` | `release`, `community`, `customization`, `jcr`, `feedback`, `likeminds` | The Oracle schema user that owns the tables for each domain. |
+
+!!! note
+    In HCL DX Compose for Oracle, a single application user can be used for all three roles (`DbUser`, `DbRuntimeUser`, `DBA.DbUser`). The Oracle schema users (domain names) are separate and own the actual tables but are not used as connection credentials.
 
 !!! Note
     If you are using the Amazon RDS for Oracle, you need to create a custom option group, add the JVM option, and then attach that group to your Amazon RDS instance to support Extended Architecture (XA) transactions for WebEngine. Attaching this custom option group to your instance replaces the default option group. For more information, refer to [Configure Custom Option Groups for Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithOptionGroups.html){target="_blank"}.
