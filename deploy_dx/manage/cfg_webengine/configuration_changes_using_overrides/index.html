@@ -467,6 +467,8 @@ function OptanonWrapper() { }
       
         
       
+        
+      
     
     
       
@@ -513,10 +515,6 @@ function OptanonWrapper() { }
       
         
           
-        
-      
-        
-      
         
       
         
@@ -866,6 +864,8 @@ function OptanonWrapper() { }
       
         
       
+        
+      
     
     
       
@@ -1040,11 +1040,11 @@ function OptanonWrapper() { }
         <li class="md-nav__item">
   <a href="#additional-ldap-configuration-samples" class="md-nav__link">
     <span class="md-ellipsis">
-      Additional LDAP Configuration samples
+      Additional LDAP configuration samples
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Additional LDAP Configuration samples">
+    <nav class="md-nav" aria-label="Additional LDAP configuration samples">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1124,6 +1124,27 @@ function OptanonWrapper() { }
   
   <span class="md-ellipsis">
     Configuring LDAP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../default_basic_registry_configuration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuring the default basic registry
   </span>
   
 
@@ -1623,11 +1644,11 @@ function OptanonWrapper() { }
         <li class="md-nav__item">
   <a href="#additional-ldap-configuration-samples" class="md-nav__link">
     <span class="md-ellipsis">
-      Additional LDAP Configuration samples
+      Additional LDAP configuration samples
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Additional LDAP Configuration samples">
+    <nav class="md-nav" aria-label="Additional LDAP configuration samples">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1763,16 +1784,21 @@ function OptanonWrapper() { }
 <p>The name of the customization in the example (<code>sslOverride</code>) can be any string. However, it is recommended that you use a name that describes the change it applies.</p>
 <h2 id="configuring-ldap">Configuring LDAP</h2>
 <p>The following is a sample snippet that shows how to configure the DX Compose server to use an OpenLDAP server. Replace the values for <code>baseDN</code>, <code>bindDN</code>, <code>bindPassword</code>, and <code>host</code> with the proper values.</p>
-<p>For custom LDAP types, use <code>customFilters</code> to define your own search filters for users and groups. For predefined LDAP types supported by Open Liberty, use <code>idsFilters</code>. If your LDAP directory uses nested groups or hierarchical structures, consider enabling <code>recursiveSearch</code> to ensure all relevant entries are retrieved. For more information, refer to the <a href="https://openliberty.io/docs/latest/reference/config/ldapRegistry.html" target="_blank">Open Liberty LDAP Registry documentation</a>.</p>
+<ul>
+<li>For predefined LDAP types supported by OpenLiberty, use the corresponding filters tags (for example, <code>idsFilters</code>, <code>activedFilters</code>, <code>domino50Filters</code>, <code>edirectoryFilter</code>s, <code>iplanetFilters</code>, <code>netscapeFilters</code>, and <code>securewayFilters</code>).</li>
+<li>For custom LDAP types, use <code>customFilters</code> to define your own search filters for users and groups.  </li>
+<li>If your LDAP directory uses nested groups or hierarchical structures, consider enabling <code>recursiveSearch</code> to ensure all relevant entries are retrieved.</li>
+</ul>
+<p>For more information, refer to the <a href="https://openliberty.io/docs/latest/reference/config/ldapRegistry.html" target="_blank">Open Liberty LDAP Registry documentation</a>.</p>
 <p>The <code>attributeConfiguration</code> element in the LDAP registry configuration allows you to map LDAP attributes to user registry attributes. This is useful when the attribute names in your LDAP directory do not match the expected attribute names. Each <code>attribute</code> element specifies a mapping:</p>
 <ul>
-<li><code>name</code> - The name of the attribute in the LDAP directory</li>
-<li><code>propertyName</code> - The name of the attribute to be mapped to. In the following example, the LDAP <code>mail</code> attribute is mapped to <code>ibm-primaryEmail</code>, which is the attribute used to display the email address of a user. The LDAP <code>title</code> attribute is mapped to <code>ibm-jobTitle</code>, which is the attribute used to display job title of a user.</li>
+<li><code>name</code>: The name of the attribute in the LDAP directory</li>
+<li><code>propertyName</code>: The name of the attribute to be mapped to. In the following example, the LDAP <code>mail</code> attribute is mapped to <code>ibm-primaryEmail</code>, which is the attribute used to display the email address of a user. The LDAP <code>title</code> attribute is mapped to <code>ibm-jobTitle</code>, which is the attribute used to display job title of a user.</li>
 </ul>
 <div class="language-xml highlight"><pre><span></span><code>configOverrideFiles:
 <span class="w">  </span>ldapOverride.xml:<span class="w"> </span>|<span class="w"> </span>
 <span class="w">    </span><span class="nt">&lt;server</span><span class="w"> </span><span class="na">description=</span><span class="s">&quot;DX Web Engine server&quot;</span><span class="nt">&gt;</span><span class="w"> </span>
-<span class="w">      </span><span class="nt">&lt;ldapRegistry</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;ldap&quot;</span><span class="w"> </span><span class="na">realm=</span><span class="s">&quot;SampleLdapIDSRealm&quot;</span>
+<span class="w">      </span><span class="nt">&lt;ldapRegistry</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;ldap&quot;</span><span class="w"> </span><span class="na">realm=</span><span class="s">&quot;SampleLdapCustomRealm&quot;</span>
 <span class="w">        </span><span class="na">host=</span><span class="s">&quot;127.0.0.1&quot;</span><span class="w"> </span><span class="na">port=</span><span class="s">&quot;1389&quot;</span><span class="w"> </span><span class="na">ignoreCase=</span><span class="s">&quot;true&quot;</span>
 <span class="w">        </span><span class="na">baseDN=</span><span class="s">&quot;dc=dx,dc=com&quot;</span>
 <span class="w">        </span><span class="na">ldapType=</span><span class="s">&quot;Custom&quot;</span>
@@ -1800,7 +1826,7 @@ function OptanonWrapper() { }
 <span class="w">    </span><span class="nt">&lt;/server&gt;</span>
 </code></pre></div>
 <p>To set up a custom LDAP server in Liberty, see <a href="../ldap_configuration/">Configuring LDAP with Liberty</a>.</p>
-<h2 id="additional-ldap-configuration-samples">Additional LDAP Configuration samples</h2>
+<h2 id="additional-ldap-configuration-samples">Additional LDAP configuration samples</h2>
 <ul>
 <li><a href="#ibm-directory-server">IBM Directory Server</a></li>
 <li><a href="#microsoft-active-directory-server">Microsoft Active Directory Server</a></li>
@@ -1814,17 +1840,17 @@ function OptanonWrapper() { }
 <span class="w">            </span><span class="na">host=</span><span class="s">&#39;your_LDAP_Server_HostName&#39;</span>
 <span class="w">            </span><span class="na">port=</span><span class="s">&#39;1389&#39;</span><span class="w"> </span><span class="na">ignoreCase=</span><span class="s">&quot;true&quot;</span>
 <span class="w">            </span><span class="na">baseDN=</span><span class="s">&#39;dc=dx,dc=com&#39;</span>
-<span class="w">            </span><span class="na">ldapType=</span><span class="s">&#39;Custom&#39;</span>
+<span class="w">            </span><span class="na">ldapType=</span><span class="s">&#39;IBM Tivoli Directory Server&#39;</span>
 <span class="w">            </span><span class="na">sslEnabled=</span><span class="s">&#39;false&#39;</span>
 <span class="w">            </span><span class="na">bindDN=</span><span class="s">&#39;${LDAP_BIND_USER}&#39;</span>
 <span class="w">            </span><span class="na">bindPassword=</span><span class="s">&#39;${LDAP_BIND_PASSWORD}&#39;</span><span class="nt">&gt;</span>
-<span class="w">            </span><span class="nt">&lt;customFilters</span>
+<span class="w">            </span><span class="nt">&lt;idsFilters</span>
 <span class="w">              </span><span class="na">userFilter=</span><span class="s">&quot;(&amp;amp;(uid=%v)(objectclass=inetOrgPerson))&quot;</span>
 <span class="w">              </span><span class="na">groupFilter=</span><span class="s">&quot;(&amp;amp;(cn=%v)(objectclass=groupOfUniqueNames))&quot;</span>
 <span class="w">              </span><span class="na">userIdMap=</span><span class="s">&quot;*:uid&quot;</span>
 <span class="w">              </span><span class="na">groupIdMap=</span><span class="s">&quot;*:cn&quot;</span>
 <span class="w">              </span><span class="na">groupMemberIdMap=</span><span class="s">&quot;groupOfUniqueNames:uniqueMember&quot;</span><span class="nt">&gt;</span>
-<span class="w">            </span><span class="nt">&lt;/customFilters&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/idsFilters&gt;</span>
 <span class="w">            </span><span class="nt">&lt;ldapCache&gt;</span>
 <span class="w">              </span><span class="nt">&lt;attributesCache</span><span class="w"> </span><span class="na">size=</span><span class="s">&quot;4000&quot;</span><span class="w"> </span><span class="na">sizeLimit=</span><span class="s">&quot;4000&quot;</span><span class="w"> </span><span class="na">timeout=</span><span class="s">&quot;2400s&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">              </span><span class="nt">&lt;searchResultsCache</span><span class="w"> </span><span class="na">resultsSizeLimit=</span><span class="s">&quot;4000&quot;</span><span class="w"> </span><span class="na">size=</span><span class="s">&quot;4000&quot;</span><span class="w"> </span><span class="na">timeout=</span><span class="s">&quot;2400s&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
@@ -1882,13 +1908,13 @@ function OptanonWrapper() { }
 <span class="w">                  </span><span class="na">recursiveSearch=</span><span class="s">&quot;true&quot;</span><span class="w">  </span>
 <span class="w">                  </span><span class="na">bindAuthMechanism=</span><span class="s">&quot;simple&quot;</span><span class="w">  </span>
 <span class="w">                  </span><span class="na">returnToPrimaryServer=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span><span class="w">  </span>
-<span class="w">                    </span><span class="nt">&lt;customFilters</span><span class="w"> </span>
+<span class="w">                    </span><span class="nt">&lt;activedFilters</span><span class="w"> </span>
 <span class="w">                    </span><span class="na">userFilter=</span><span class="s">&quot;(&amp;amp;(sAMAccountName=%v)(objectcategory=user)&quot;</span><span class="w"> </span>
 <span class="w">                    </span><span class="na">groupFilter=</span><span class="s">&quot;(&amp;amp;(cn=%v)(objectcategory=group))&quot;</span><span class="w"> </span>
 <span class="w">                    </span><span class="na">userIdMap=</span><span class="s">&quot;user:sAMAccountName&quot;</span><span class="w"> </span>
 <span class="w">                    </span><span class="na">groupIdMap=</span><span class="s">&quot;*:cn&quot;</span><span class="w"> </span>
 <span class="w">                    </span><span class="na">groupMemberIdMap=</span><span class="s">&quot;memberOf:member&quot;</span><span class="nt">&gt;</span><span class="w">  </span>
-<span class="w">                    </span><span class="nt">&lt;/customFilters&gt;</span><span class="w">  </span>
+<span class="w">                    </span><span class="nt">&lt;/activedFilters&gt;</span><span class="w">  </span>
 <span class="w">                    </span><span class="nt">&lt;ldapEntityType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;PersonAccount&quot;</span><span class="nt">&gt;</span><span class="w">  </span>
 <span class="w">                      </span><span class="nt">&lt;objectClass&gt;</span>user<span class="nt">&lt;/objectClass&gt;</span><span class="w">  </span>
 <span class="w">                    </span><span class="nt">&lt;/ldapEntityType&gt;</span><span class="w">  </span>
@@ -1900,7 +1926,10 @@ function OptanonWrapper() { }
 <span class="w">                      </span><span class="nt">&lt;membershipAttribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;memberOf&quot;</span><span class="w"> </span><span class="na">scope=</span><span class="s">&quot;direct&quot;</span><span class="nt">/&gt;</span><span class="w">  </span>
 <span class="w">                  </span><span class="nt">&lt;/groupProperties&gt;</span><span class="w">  </span>
 <span class="w">                  </span><span class="nt">&lt;loginProperty</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;uid&quot;</span><span class="nt">&gt;</span>uid<span class="nt">&lt;/loginProperty&gt;</span><span class="w">  </span>
-
+<span class="w">                  </span><span class="nt">&lt;ldapCache&gt;</span>
+<span class="w">                    </span><span class="nt">&lt;attributesCache</span><span class="w"> </span><span class="na">size=</span><span class="s">&quot;4000&quot;</span><span class="w"> </span><span class="na">timeout=</span><span class="s">&quot;1200s&quot;</span><span class="w"> </span><span class="na">enabled=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="na">sizeLimit=</span><span class="s">&quot;2000&quot;</span><span class="nt">/&gt;</span>
+<span class="w">                    </span><span class="nt">&lt;searchResultsCache</span><span class="w"> </span><span class="na">size=</span><span class="s">&quot;2000&quot;</span><span class="w"> </span><span class="na">timeout=</span><span class="s">&quot;1200s&quot;</span><span class="w"> </span><span class="na">enabled=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="na">resultsSizeLimit=</span><span class="s">&quot;1000&quot;</span><span class="nt">/&gt;</span>
+<span class="w">                  </span><span class="nt">&lt;/ldapCache&gt;</span>
 <span class="w">                </span><span class="nt">&lt;/ldapRegistry&gt;</span><span class="w">  </span>
 <span class="w">                  </span><span class="nt">&lt;federatedRepository&gt;</span><span class="w">  </span>
 <span class="w">                    </span><span class="nt">&lt;primaryRealm</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;FederatedRealm&quot;</span><span class="w"> </span><span class="na">allowOpIfRepoDown=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="na">delimiter=</span><span class="s">&quot;/&quot;</span><span class="nt">&gt;</span><span class="w">  </span>
@@ -1976,7 +2005,7 @@ function OptanonWrapper() { }
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 27, 2026 18:14:39 UTC">January 27, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 16, 2026 16:55:38 UTC">March 16, 2026</span>
   </span>
 
     

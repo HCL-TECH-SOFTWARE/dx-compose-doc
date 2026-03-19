@@ -467,6 +467,8 @@ function OptanonWrapper() { }
       
         
       
+        
+      
     
     
       
@@ -513,10 +515,6 @@ function OptanonWrapper() { }
       
         
           
-        
-      
-        
-      
         
       
         
@@ -866,6 +864,8 @@ function OptanonWrapper() { }
       
         
       
+        
+      
     
     
       
@@ -1000,6 +1000,27 @@ function OptanonWrapper() { }
   
   
     <li class="md-nav__item">
+      <a href="../default_basic_registry_configuration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuring the default basic registry
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../external_db_database_transfer/" class="md-nav__link">
         
   
@@ -1109,6 +1130,15 @@ function OptanonWrapper() { }
       On this page
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#exporting-wcm-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exporting WCM Libraries
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#importing-wcm-libraries" class="md-nav__link">
@@ -1498,6 +1528,15 @@ function OptanonWrapper() { }
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#exporting-wcm-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exporting WCM Libraries
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#importing-wcm-libraries" class="md-nav__link">
     <span class="md-ellipsis">
       Importing WCM libraries
@@ -1530,7 +1569,8 @@ function OptanonWrapper() { }
 
 
 <h1 id="wcm-modules">WCM modules</h1>
-<p>This topic provides the commands for starting Web Content Manager (WCM) modules and importing WCM libraries in DX Compose.</p>
+<p>This topic explains how to start Web Content Manager (WCM) modules and import or export WCM libraries in DX Compose.</p>
+<h2 id="exporting-wcm-libraries">Exporting WCM Libraries</h2>
 <p>When running Digital Experience (DX) Core on WebSphere Application Server (WAS), WCM modules such as workflow checker, importing or exporting libraries, member fixer, and others would be triggered through the ConfigEngine as documented in <a href="https://opensource.hcltechsw.com/digital-experience/latest/manage_content/wcm_configuration/wcm_adm_tools/wcmlibrary_export/index.html" target="_blank">Exporting and importing web content libraries</a>.</p>
 <p>In DX Compose, you can start WCM modules using HTTP -- through a browser, postman, or other tools. For example, the previous command in Core on WAS was:</p>
 <div class="language-text highlight"><pre><span></span><code>./ConfigEngine.sh export-wcm-data -DWasPassword=password -DPortalAdminPwd=password -Dexport.directory=/opt/HCL/wp_profile/export -Dexport.libraryname=&quot;Web Content&quot;
@@ -1541,7 +1581,11 @@ function OptanonWrapper() { }
 <p>You must log in first to HCL DX or WCM in the same browser before running the command.</p>
 <p>The browser command might time out for long-running calls. It is recommended to connect to the container and run <code>wget</code> or <code>curl</code> with the URL after logging in.</p>
 <h2 id="importing-wcm-libraries">Importing WCM libraries</h2>
-<p>To import WCM libraries, ensure that the file is copied into the WebEngine container (for example, <code>/opt/openliberty/test</code>). </p>
+<p>Use the following steps to import a WCM library:</p>
+<ol>
+<li>Create a directory on the server. For example: <code>/opt/openliberty/test</code>.</li>
+<li>Copy the WCM library data into the directory.</li>
+</ol>
 <p>The command would be similar to the following:</p>
 <div class="language-text highlight"><pre><span></span><code>https://myserver.hcl.com/wps/wcm/myconnect?MOD=data&amp;processLibraries=false&amp;taskType=import&amp;input.dir=/opt/openliberty/test&amp;skipScheduleActions=false&amp;renameConflict=false&amp;importLibrary=importLibrary
 </code></pre></div>
@@ -1565,7 +1609,7 @@ function OptanonWrapper() { }
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 20, 2025 12:48:57 UTC">June 20, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 5, 2026 15:45:45 UTC">March 5, 2026</span>
   </span>
 
     

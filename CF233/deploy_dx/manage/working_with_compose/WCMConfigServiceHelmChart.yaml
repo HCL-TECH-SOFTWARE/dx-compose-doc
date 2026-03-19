@@ -1,9 +1,0 @@
-configuration:
-    propertiesFilesOverrides:
-      WCMConfigService.properties:
-        syndication.memberfixer.altDn: "update"
-        syndication.memberfixer.fixCase: "update"
-        syndication.memberfixer.mismatchid: "update"
-        syndication.memberfixer.realm: "defaultWIMFileBasedRealm"
-        syndication.memberfixer.invalidDn: "update"
-        deployment.fixMembers: "true"
