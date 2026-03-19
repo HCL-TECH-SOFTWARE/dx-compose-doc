@@ -68,3 +68,23 @@ After updating the `values.yaml` file, perform the following actions:
 - If upgrading previous configurations, refer to [Upgrading the Helm deployment](../working_with_compose/helm_upgrade_values.md).
 
 After enabling the Content AI analysis, refer to the steps in [WCM REST V2 AI Analysis API](https://opensource.hcltechsw.com/digital-experience/latest/manage_content/wcm_development/wcm_rest_v2_ai_analysis/){target="_blank"} to call the AI Analyzer APIs of the configured Content AI Provider.
+
+### OPEN_AI provider configuration
+
+If you are using the bundled `OPEN_AI` provider, you can configure its behavior using additional properties in the Helm `values.yaml` file. These must be set in the property overrides for `WCMConfigService.properties`. For example:
+
+```yaml
+configuration:
+  webEngine:
+    propertiesFilesOverrides: 
+      WCMConfigService.properties:
+        OPENAI_SCHEME: "http"
+```
+
+The available properties are:
+
+1. ```OPENAI_MODEL```: The currently supported AI model is ```gpt-4o```. However, AI model can be overriden by overriding this property.
+2. ```OPENAI_MAX_TOKENS```: Set a positive integer value for GPT-3 models like ```text-davinci-003```. It specifies the maximum number of tokens that the model can output in its response and defaults to ```256```.
+3. ```OPENAI_TEMPERATURE```: Set positive float values ranging from ```0.0``` to ```1.0```. This parameter in OpenAI's GPT-3 API controls the randomness and creativity of the generated text. Higher values produce more diverse and random output. Lower values produce more focused and deterministic output.
+4. ```OPENAI_HOST```: The host to connect to for AI calls, defaults to ```api.openai.com```. Configuring this could allow you to connect to a different service that offers an OpenAI-compatible API, such as LiteLLM.
+5. ```OPENAI_SCHEME```: The scheme which AI calls will use, defaults to ```https```.
