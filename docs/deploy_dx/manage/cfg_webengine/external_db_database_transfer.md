@@ -78,25 +78,29 @@ The following settings are baseline recommendations for Oracle databases used wi
 
 ### Oracle user and property mapping
 
+
 The Oracle setup script (`SetupOracleDatabasesManually.sql`) creates the following:
 
 - **Schema users** (`release`, `community`, `customization`, `jcr`, `feedback`, `likeminds`): Each represents a separate Oracle schema for a DX Compose database domain. These map to the `<domain>.DbSchema` property.
-- **DX application user** (`<replace-with-user>`): A single Oracle user that is granted both config and runtime roles across all domains. This user maps to `<domain>.DbUser`, `<domain>.DbRuntimeUser`, and `<domain>.DBA.DbUser` in your Helm `values.yaml`.
+- **DX application users**: The script currently creates a single user (e.g., `<replace-with-dbuser>`) and grants it all required roles for configuration, runtime, and DBA operations. The product and Helm properties are designed to support separate users for each role — `<replace-with-dbuser>`, `<replace-with-runtime-user>`, and `<replace-with-dba-user>` — if desired, to align with your security and operational policies. Using separate users for each role is recommended for least-privilege access. However, you may use the same user for all roles if your security policy allows.
 
-The table below shows how Oracle users created in the script map to Helm properties:
+> **Note:** Currently, the provided sample script (`SetupOracleDatabasesManually.sql`) creates only a single user for all roles. Support for separate users is being validated and the script will be updated once testing is complete.
 
-| Helm property | Oracle user | Purpose |
-|---------------|-------------|---------|
-| `<domain>.DbUser` | `<replace-with-user>` | Configuration user — used during database transfer and schema setup. Granted `WP_*_CONFIG_USERS` role. |
-| `<domain>.DbRuntimeUser` | `<replace-with-user>` | Runtime user — used during day-to-day portal operations. Granted `WP_*_RUNTIME_USERS` role. <br>**Currently, this is the same user as `DbUser`, but future releases may require a separate user.** |
-| `<domain>.DBA.DbUser` | `<replace-with-user>` | Privileged DBA user — used for tablespace and advanced DDL operations. <br>**Currently, this is the same user as `DbUser`, but future releases may require a separate user.** |
+The table below shows how Oracle users map to Helm properties. You may use the same user for all roles, or specify different users for each:
+
+| Helm property | Oracle user placeholder | Purpose |
+|---------------|------------------------|---------|
+| `<domain>.DbUser` | `<replace-with-dbuser>` | Configuration user — used during database transfer and schema setup. Granted `WP_*_CONFIG_USERS` role. |
+| `<domain>.DbRuntimeUser` | `<replace-with-runtime-user>` | Runtime user — used during day-to-day portal operations. Granted `WP_*_RUNTIME_USERS` role. |
+| `<domain>.DBA.DbUser` | `<replace-with-dba-user>` | Privileged DBA user — used for tablespace and advanced DDL operations. |
 | `<domain>.DbSchema` | `release`, `community`, `customization`, `jcr`, `feedback`, `likeminds` | The Oracle schema user that owns the tables for each domain. |
 
 
-!!! note
-  **Current script behavior:** In HCL DX Compose for Oracle, a single application user is used for all three roles (`DbUser`, `DbRuntimeUser`, `DBA.DbUser`). The Oracle schema users (domain names) are separate and own the actual tables but are not used as connection credentials.
 
-  **Future change notice:** In a future release, the setup script will require you to provide separate users for each of these roles (`DbUser`, `DbRuntimeUser`, `DBA.DbUser`). Review the script and documentation for updates before upgrading or deploying to production, and plan to create and configure distinct users for each role as per the updated requirements.
+!!! note
+    **Current script behavior:** The provided sample script creates a single application user (e.g., `<replace-with-dbuser>`) and grants it all required roles. However, you may specify different users for `<domain>.DbUser`, `<domain>.DbRuntimeUser`, and `<domain>.DBA.DbUser>` in your Helm `values.yaml` and database configuration. This is supported today and is recommended for environments where separation of duties and least-privilege access are required. The Oracle schema users (domain names) are always separate and own the actual tables but are not used as connection credentials.
+
+    **Future script enhancement:** A future version of the setup script may provide explicit steps to create and grant roles to separate users for each role, but you can already implement this pattern by manually creating and assigning the users as needed.
 
 !!! Note
     If you are using the Amazon RDS for Oracle, you need to create a custom option group, add the JVM option, and then attach that group to your Amazon RDS instance to support Extended Architecture (XA) transactions for WebEngine. Attaching this custom option group to your instance replaces the default option group. For more information, refer to [Configure Custom Option Groups for Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithOptionGroups.html){target="_blank"}.
