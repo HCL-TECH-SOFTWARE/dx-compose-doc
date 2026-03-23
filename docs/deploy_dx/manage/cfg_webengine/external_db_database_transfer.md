@@ -40,19 +40,35 @@ dbTypeProperties:
 
 **Recommended Oracle database settings**
 
-The following settings are recommended for optimal performance with HCL DX Compose, especially for the JCR domain:
+The following settings are baseline recommendations for Oracle databases used with HCL DX Compose, particularly for workloads involving the JCR domain. Actual values may need adjustment based on workload characteristics, infrastructure capacity, and usage patterns.
 
-| Parameter | Recommended value |
-|-----------|-------------------|
-| `db_block_size` | 8192 bytes |
-| `db_cache_size` | 1 gigabyte |
-| `open_cursors` | 1500 cursors |
-| `pga_aggregate_target` | 200 megabytes |
-| `processes` | 300 processes |
-| `shared_pool_size` | 200 megabytes |
+| Parameter | Recommended Value | Purpose |
+|-----------|------------------|---------|
+| `db_block_size` | 8192 | Standard block size for optimal I/O performance |
+| `db_cache_size` | 1 GB | Improves buffer cache efficiency for frequent reads |
+| `open_cursors` | 1500 cursors | Supports a high number of concurrent JCR queries |
+| `pga_aggregate_target` | 200 MB | Allocates memory for session-level operations |
+| `processes` | 300 processes | Supports concurrent database connections |
+| `shared_pool_size` | 200 MB | Optimizes parsing and execution of SQL statements |
 
-!!! note
-    If your deployment uses the JCR domain extensively, you may need to increase `open_cursors` further depending on the number of JCR tables in your schema.
+> These values are suitable for small to medium environments. Large-scale or high-concurrency deployments should perform workload-based tuning.
+
+**Additional Considerations**
+
+- **`db_files` and `log_buffer`:**  
+  In Oracle 19c, 21c, and later, default values are typically sufficient for most HCL DX Compose deployments.
+
+  - `db_files` (maximum number of database files):  
+    Consider increasing this if your environment uses a large number of tablespaces or datafiles (for example, due to extensive JCR usage or custom partitioning).
+
+  - `log_buffer` (redo log buffer size):  
+    Consider tuning this if you observe high redo log generation, high commit rates, or write-intensive workloads.
+
+  For most standard deployments, out-of-the-box settings are adequate.
+
+- **JCR-heavy deployments:**  
+  If your deployment uses the JCR domain extensively, consider increasing `open_cursors` beyond 1500.  
+  The appropriate value depends on the number of JCR tables in your schema and the level of concurrent activity.
 
 |Database| Custom setup script|
 |--------|--------------------|
