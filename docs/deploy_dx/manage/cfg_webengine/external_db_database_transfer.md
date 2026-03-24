@@ -12,11 +12,74 @@ By default, WebEngine comes with a local Derby database included in the image an
 
 This section provides the custom scripts for setting up the external database schemas (or users).
 
+### Oracle database prerequisites
+
+Before running the Oracle setup script, ensure your Oracle database meets the following requirements:
+
+- Use a supported database version (Oracle 19c or Oracle 21c).
+
+- Create the database with Unicode character sets:
+    - Character Set: `AL32UTF8`
+    - National Character Set: `AL16UTF16`
+
+- Use the `ojdbc11.jar` driver and set the `oracle.DbLibrary` property in your Helm `values.yaml` to reference the driver location:
+
+    ```yaml
+    dbTypeProperties:
+      oracle.DbLibrary: "/opt/openliberty/wlp/usr/svrcfg/templates/jars/oracle/ojdbc11.jar:/opt/openliberty/wlp/usr/svrcfg/templates/jars/oracle/xdb6-11.2.0.4.jar"
+    ```
+
+    See the [Oracle JDBC Downloads page](https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html){target="_blank"} for the latest driver for your Oracle version.
+
+- Refer to the baseline recommendations for Oracle databases used with HCL DX Compose, particularly for workloads involving the Java Content Repository (JCR) domain. Adjust the values based on workload characteristics, infrastructure capacity, and usage patterns.
+
+    | Parameter | Recommended Value | Purpose |
+    |-----------|------------------|---------|
+    | `db_block_size` | 8192 | Standard block size for optimal I/O performance |
+    | `db_cache_size` | 1 GB | Improves buffer cache efficiency for frequent reads |
+    | `open_cursors` | 1500 cursors | Supports a high number of concurrent JCR queries |
+    | `pga_aggregate_target` | 200 MB | Allocates memory for session-level operations |
+    | `processes` | 300 processes | Supports concurrent database connections |
+    | `shared_pool_size` | 200 MB | Optimizes parsing and execution of SQL statements |
+
+    !!!note
+        The recommended values are suitable for small to medium environments. For large-scale deployments, high-concurrency environments, or bulk content imports (such as tens of thousands of WCM items), the baseline values for `open_cursors`, `processes`, `shared_pool_size`, and `pga_aggregate_target` might be insufficient. Perform workload-based tuning and increase these values based on your content volume and concurrent activity. See the Oracle documentation for sizing guidance.
+
+- Configure the following parameters based on your deployment. In Oracle 19c, 21c, and later, default values are typically sufficient for most HCL DX Compose deployments.
+
+    - `db_files` (maximum number of database files): Consider increasing this parameter if your environment uses a large number of tablespaces or datafiles (for example, due to extensive JCR usage or custom partitioning).
+
+    - `log_buffer` (redo log buffer size): Consider tuning this parameter if you observe high redo log generation, high commit rates, or write-intensive workloads.
+
+    - `open_cursors` (for JCR-heavy deployments): If your deployment uses the JCR domain extensively, consider increasing this parameter beyond `1500`. The appropriate value depends on the number of JCR tables in your schema and the level of concurrent activity.
+
+### Custom setup scripts
+
 |Database| Custom setup script|
 |--------|--------------------|
 |DB2|[DB2 custom setup script](SetupDb2DatabasesManually.sql)|
 |Oracle|[Oracle custom setup script](SetupOracleDatabasesManually.sql)|
 |SQL Server|[SQL Server custom setup script](SetupSqlServerDatabasesManually.sql)|
+
+### Oracle user and property mapping
+
+The sample Oracle setup script (`SetupOracleDatabasesManually.sql`) creates the following:
+
+- Schema users: Oracle schemas for DX Compose database domains. Examples include `release`, `community`, `customization`, `jcr`, `feedback`, and `likeminds`. These schemas map to the `<domain>.DbSchema` property.
+- DX application users: The script creates a single user, such as `<replace-with-dbuser>`, and grants it all required roles for configuration, runtime, and database administrator (DBA) operations. Helm properties support separate users for each role. Examples include `<replace-with-dbuser>`, `<replace-with-runtime-user>,` and `<replace-with-dba-user>`. Using separate users is recommended for least-privilege access, but you can use the same user for all roles if your security policy allows.
+
+!!!note
+    - By default, the sample script creates a single application user and grants it all required roles. For environments that require separation of duties and least-privilege access, manually create separate application users. Then, specify these users for `<domain>.DbUser`, `<domain>.DbRuntimeUser`, and `<domain>.DBA.DbUser>` in your Helm values.yaml file and database configuration.
+    - The Oracle schema users (domain names) are always separate and own the actual tables, but they are not used as connection credentials.
+
+The following table shows how Oracle users map to Helm properties. You may use the same user for all roles, or specify different users for each:
+
+| Helm property | Oracle user placeholder | Purpose |
+|---------------|------------------------|---------|
+| `<domain>.DbUser` | `<replace-with-dbuser>` | Configuration user — used during database transfer and schema setup. Granted `WP_*_CONFIG_USERS` role. |
+| `<domain>.DbRuntimeUser` | `<replace-with-runtime-user>` | Runtime user — used during day-to-day portal operations. Granted `WP_*_RUNTIME_USERS` role. |
+| `<domain>.DBA.DbUser` | `<replace-with-dba-user>` | Privileged DBA user — used for tablespace and advanced DDL operations. |
+| `<domain>.DbSchema` | `release`, `community`, `customization`, `jcr`, `feedback`, `likeminds` | The Oracle schema user that owns the tables for each domain. |
 
 !!! Note
     If you are using the Amazon RDS for Oracle, you need to create a custom option group, add the JVM option, and then attach that group to your Amazon RDS instance to support Extended Architecture (XA) transactions for WebEngine. Attaching this custom option group to your instance replaces the default option group. For more information, refer to [Configure Custom Option Groups for Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithOptionGroups.html){target="_blank"}.
