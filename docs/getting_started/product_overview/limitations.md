@@ -21,6 +21,9 @@ Know the existing limitations of Digital Experience (DX) Compose.
 ## Applications and extensions
 
 - You cannot deploy custom portlets unless you have purchased the Java Transition Module for DX Compose. Refer to the Java Transition Module documentation, available to entitled customers in their MHS downloads for the HCL Java Transition Module for DX Compose, for the steps to deploy portlets.
+- Only JSR 168 and JSR 286 portlets are supported.
+- DX Compose runs on different Java and Java EE levels than DX Core on WAS. Your portlets may need to be updated for compatibility with Java 21 and Java EE 8.
+- JSF portlets are not supported.
 - Social Media Publisher, Content Template Catalog (CTC), and other WCM extensions are not supported except Multilingual Solution.
 - No command-line interface exists for exporting or importing Personalization rules.
 

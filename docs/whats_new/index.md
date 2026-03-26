@@ -2,6 +2,7 @@
 
 Find out the latest features, enhancements, and fixes included in the most recent Cumulative Fix (CF) of HCL Digital Experience (DX) Compose.
 
+- **[What's new in CF235](cf235.md)**
 - **[What's new in CF234](cf234.md)**
 - **[What's new in CF233](cf233.md)**
 - **[What's new in CF232](cf232.md)**
