@@ -1,4 +1,4 @@
-# How to to set generic JVM arguments in the DX Compose Webengine container
+# How to set generic JVM arguments in the DX Compose WebEngine container
 
 ## Applies to  
 
@@ -6,36 +6,26 @@
 
 ## Introduction  
 
-There might be situations in which you want to add additional generic jvm arugments to the HCL DX Compose Webegine container. For example, when it is needed to enable detailed SSL-traces or when other kind of JVM settings need to be changed. This guide helps you to set those generic jvm arguments on the Webengine container. 
+This article describes how to add generic JVM arguments to the HCL DX Compose WebEngine container to enable detailed SSL traces or change other JVM settings.
 
 ## Instructions
 
-It is possible to add additional generic jvm arguments in the helm-chart (values.yaml file) as following: 
+1. Open the Helm chart `values.yaml` file and locate the following section:
 
-Search for the following section:
+    ```yaml
+    environment:
+      pod:
+        webEngine:[]
+    ```
 
-```yaml
-environment:
-  pod:
-    webEngine:[]
-```
+2. Add the `JVM_ARGS` variable to this section and set your generic JVM arguments in the `value` parameter.
 
-It is possible then to add generic jvm arguments in that section as following: 
+    For example, to enable detailed SSL traces, use the following syntax:
 
-```yaml
-environment:
-  pod:
-    webEngine:
-    -name: JVM_ARGS
-     value: "<set here the generic jvm argument>"
-```
-
-For example:
-
-```yaml
-environment:
-  pod:
-    webEngine:
-    -name: JVM_ARGS
-     value: "-Djavax.net.debug=all"
-```
+    ```yaml
+    environment:
+      pod:
+        webEngine:
+        -name: JVM_ARGS
+        value: "-Djavax.net.debug=all"
+    ```
