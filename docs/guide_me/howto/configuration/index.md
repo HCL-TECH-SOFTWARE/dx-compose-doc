@@ -6,3 +6,5 @@ This section includes How-to articles about configuration in HCL Digital Experie
 Learn how to add a robots.txt file in your HCL DX environment to control how search engines crawl and index your site.
 - **[How to add new portal administrators in DX Compose](./adding_additional_portal_admins.md)**  
 Learn how to add new portal administrators to the DX Compose runtime.
+- **[How to to set generic JVM arguments in the DX Compose Webengine container](./settingGenericJVMArgs.md)**  
+Learn how to set generic JVM arguments in the HCL DX Compose Webengine container.
