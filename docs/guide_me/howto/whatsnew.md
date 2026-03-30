@@ -2,7 +2,25 @@
 
 This section contains the newly created and migrated how-to articles. The articles are arranged by Cumulative Fix (CF) and category. How-to articles that apply to both HCL DX and HCL DX Compose are also referenced.
 
-<!--If a link breaks, it means the internal URL was moved. Delete the row with the broken link then create a new row in the latest CF. Set the **Type** to **Moved** then set their new **Category** and **Article** URL.-->
+<!--If a link breaks, it means the internal URL was moved. Delete the row with the broken link then create a new row in the latest CF. Set the **Type** to **Moved** then set their new **Category** and **Article** URL.
+
+## CF###
+
+| Type | Category | Article |
+|------|----------|---------|
+||||
+
+-->
+
+## CF235
+
+| Type | Category | Article |
+|------|----------|---------|
+|New|Configuration|[How to set generic JVM arguments in the DX Compose WebEngine container](./configuration/settingGenericJVMArgs.md)|
+
+## CF234
+
+None
 
 ## CF233
 
