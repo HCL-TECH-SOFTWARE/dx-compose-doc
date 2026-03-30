@@ -7,4 +7,4 @@ Learn how to add a robots.txt file in your HCL DX environment to control how sea
 - **[How to add new portal administrators in DX Compose](./adding_additional_portal_admins.md)**  
 Learn how to add new portal administrators to the DX Compose runtime.
 - **[How to set generic JVM arguments in the DX Compose WebEngine container](./settingGenericJVMArgs.md)**  
-Learn how to configure additional JVM settings, such as enabling detailed SSL traces, for the HCL DX Compose WebEngine container.
+Learn how to configure additional JVM settings, such as enabling detailed SSL traces, for the HCL DX Compose WebEngine container.  
