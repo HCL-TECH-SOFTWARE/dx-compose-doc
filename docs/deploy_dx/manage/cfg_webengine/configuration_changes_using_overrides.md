@@ -124,6 +124,7 @@ To set up a custom LDAP server in Liberty, see [Configuring LDAP with Liberty](l
 
 - [IBM Directory Server](#ibm-directory-server)
 - [Microsoft Active Directory Server](#microsoft-active-directory-server)
+- [Microsoft Active Directory Server Using SSL](#microsoft-active-directory-server-using-ssl)
 
 ### IBM Directory Server
 
@@ -229,6 +230,68 @@ To set up a custom LDAP server in Liberty, see [Configuring LDAP with Liberty](l
                     <attributesCache size="4000" timeout="1200s" enabled="true" sizeLimit="2000"/>
                     <searchResultsCache size="2000" timeout="1200s" enabled="true" resultsSizeLimit="1000"/>
                   </ldapCache>
+                </ldapRegistry>  
+                  <federatedRepository>  
+                    <primaryRealm name="FederatedRealm" allowOpIfRepoDown="true" delimiter="/">  
+                      <participatingBaseEntry name="o=defaultWIMFileBasedRealm" id="FileBasedEntry"/>  
+                      <participatingBaseEntry name="DC=ad,DC=test,DC=com" id="LDAPEntry"/>  
+                      <uniqueUserIdMapping inputProperty="uniqueName" outputProperty="uniqueName"/>  
+                      <userSecurityNameMapping inputProperty="principalName" outputProperty="principalName"/>  
+                      <userDisplayNameMapping inputProperty="principalName" outputProperty="principalName"/>  
+                      <uniqueGroupIdMapping inputProperty="uniqueName" outputProperty="uniqueName"/>      
+                      <groupSecurityNameMapping inputProperty="cn" outputProperty="cn"/>  
+                      <groupDisplayNameMapping inputProperty="cn" outputProperty="cn"/>         
+                    </primaryRealm>  
+                  </federatedRepository>  
+        </server>  
+```
+
+### Microsoft Active Directory Server Using SSL
+
+```xml
+    configOverrideFiles:
+      myCustomOverride.xml: |
+        <?xml version="1.0" encoding="UTF-8"?>  
+        <server description="DX Web Engine server">  
+                <ldapRegistry  
+                  id="ldap"  
+                  realm="SampleLdapADRealm"  
+                  host="your_LDAP_Server_HostName"  
+                  port="636"  
+                  ignoreCase="true"  
+                  baseDN="DC=ad,DC=test,DC=com"  
+                  bindDN="CN=Administrator,CN=Users,DC=ad,DC=test,DC=com"  
+                  bindPassword="your_password"  
+                  ldapType="Microsoft Active Directory"  
+                  sslEnabled="true"
+                  sslRef="customSSLConfig"
+                  referral="ignore"  
+                  recursiveSearch="true"  
+                  bindAuthMechanism="simple"  
+                  returnToPrimaryServer="true">  
+                    <activedFilters 
+                    userFilter="(&amp;(sAMAccountName=%v)(objectcategory=user)" 
+                    groupFilter="(&amp;(cn=%v)(objectcategory=group))" 
+                    userIdMap="user:sAMAccountName" 
+                    groupIdMap="*:cn" 
+                    groupMemberIdMap="memberOf:member">  
+                    </activedFilters>  
+                    <ldapEntityType name="PersonAccount">  
+                      <objectClass>user</objectClass>  
+                    </ldapEntityType>  
+                    <ldapEntityType name="Group">  
+                      <objectClass>group</objectClass>  
+                  </ldapEntityType>  
+                  <groupProperties>  
+                      <memberAttribute name="member" scope="direct" objectClass="group"/>  
+                      <membershipAttribute name="memberOf" scope="direct"/>  
+                  </groupProperties>
+                  <attributeConfiguration>
+                    <attribute name="sAMAccountName" propertyName="uid" entityType="PersonAccount"/>
+                    <attribute name="mail" propertyName="ibm-primaryEmail" entityType="PersonAccount"/>
+                    <attribute name="title" propertyName="ibm-jobTitle" entityType="PersonAccount"/>                    
+                  </attributeConfiguration>
+                  <loginProperty name="uid">uid</loginProperty>  
                 </ldapRegistry>  
                   <federatedRepository>  
                     <primaryRealm name="FederatedRealm" allowOpIfRepoDown="true" delimiter="/">  
