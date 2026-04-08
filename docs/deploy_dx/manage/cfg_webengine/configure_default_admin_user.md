@@ -115,6 +115,15 @@ When using an external LDAP directory, the username and group must be full DNs a
 
 For configuring the LDAP registry itself, see [Configuring LDAP](ldap_configuration.md).
 
+## After changing the administrator
+
+After the new administrator is active, update any services or configurations that were using the previous administrator credentials. Failing to update these may cause authentication failures in dependent services.
+
+Services that commonly store administrator credentials and may require updating:
+
+- **Credential Vault**: If the administrator credentials are stored in the Credential Vault, update the relevant vault slot with the new credentials. Features such as Syndication use Credential Vault slots to authenticate and will fail if the stored credentials no longer match the active administrator. 
+- **Any custom scheduled tasks or scripts** that authenticate using the previous administrator username or password.
+
 ## Rollback
 
 If you provided incorrect credentials or configuration and lost administrator access, use one of the following options to revert to a working state.
