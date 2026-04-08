@@ -59,7 +59,7 @@ To change the administrator to a custom user in the basic registry:
 
 3. Do a [Helm upgrade](../working_with_compose/helm_upgrade_values.md).
 
-4. [Restart the server](../working_with_compose/restart_webengine_server.md) to apply the changes if the pod doesn't automatically gets recreated.
+4. [Restart the server](../working_with_compose/restart_webengine_server.md) to apply the changes if the pod doesn't automatically get recreated.
 
 5. Verify the change by logging in to DX Compose using the new administrator credentials and confirming that the user has full administrator access.
 
