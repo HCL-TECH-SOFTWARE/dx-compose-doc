@@ -65,7 +65,7 @@ To change the administrator to a custom user in the basic registry:
 
 ## Changing to an LDAP user as administrator
 
-When using an external LDAP directory, the username and group must be full DNs and `basicRegistry.enabled` must be set to `false`.
+When setting the administrator to a user in an external LDAP directory, the username and group must be full DNs and `basicRegistry.enabled` must be set to `false`.
 
 !!!warning
     Setting `basicRegistry.enabled: false` removes the `wpsadmin` user entirely. Verify that your LDAP credentials and group DN are correct before applying this change to avoid losing administrator access. If something goes wrong, see the [Rollback](#rollback) section.
