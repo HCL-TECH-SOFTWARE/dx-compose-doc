@@ -109,7 +109,10 @@ When using an external LDAP directory, the username and group must be full DNs a
 
 3. Do a [Helm upgrade](../working_with_compose/helm_upgrade_values.md).
 
-4. [Restart the server](../working_with_compose/restart_webengine_server.md) to apply the changes.
+4. If the pod does not restart automatically after the Helm upgrade, [restart the server](../working_with_compose/restart_webengine_server.md) manually to apply the changes.
+
+    !!!note
+        A pod restart is triggered automatically when the Helm upgrade changes the pod spec, for example when using a different secret name or changing `webEngineAdminGroup`. If only the contents of an existing secret were updated without changing the secret name referenced in the values, the pod will not restart automatically and a manual restart is required.
 
 5. Verify the change by logging in to DX Compose using the LDAP user credentials and confirming that the user has full administrator access.
 

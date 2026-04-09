@@ -34,18 +34,21 @@ This configuration creates a single administrator user (`wpsadmin`) that belongs
 
 ## Disabling the basic registry
 
-You can disable the basic registry to rely exclusively on LDAP authentication. Set `enabled` to `false` and ensure `webEngineAdminGroup` points to a valid group DN in your LDAP directory:
+You can disable the basic registry to rely exclusively on LDAP authentication. Set `enabled` to `false`, ensure `webEngineAdminGroup` points to a valid LDAP group DN, and provide the LDAP administrator credentials via `customWebEngineSecret`:
 
 ```yaml
 security:
   webEngine:
+    webEngineUser: ""
+    webEnginePassword: ""
     webEngineAdminGroup: "cn=admins,ou=groups,dc=example,dc=com"
+    customWebEngineSecret: "CUSTOM_SECRET_NAME"
     basicRegistry:
       enabled: false
 ```
 
 !!!note
-    When disabling the basic registry, ensure that `webEngineAdminGroup` is set to a valid LDAP Distinguished Name (DN) or group DN that exists in your LDAP directory. The WebEngine requires at least one administrator to be defined at startup.
+    When disabling the basic registry, both `webEngineAdminGroup` and the credentials in `customWebEngineSecret` must reference valid entries in your LDAP directory. The WebEngine requires at least one administrator to be defined at startup. For steps on creating the secret with LDAP credentials, see [Configuring the administrator user and group](configure_default_admin_user.md#changing-to-an-ldap-user-as-administrator).
 
 ## Customizing the basic registry realm
 
