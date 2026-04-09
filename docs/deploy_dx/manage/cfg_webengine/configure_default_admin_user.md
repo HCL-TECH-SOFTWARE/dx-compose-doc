@@ -105,7 +105,7 @@ When setting the administrator to a user in an external LDAP directory, the user
     - `CUSTOM_SECRET_NAME` with the name of the secret created in Step 1.
 
     !!!note
-        Both the secret username (`webEngineUser`) and `webEngineAdminGroup` must be full DNs when using LDAP authentication.
+        Both the username in the secret and `webEngineAdminGroup` must be full DNs when using LDAP authentication.
 
 3. Do a [Helm upgrade](../working_with_compose/helm_upgrade_values.md).
 
