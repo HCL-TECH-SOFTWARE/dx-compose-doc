@@ -39,7 +39,7 @@ https://myserver.hcl.com/wps/wcm/myconnect?MOD=data&processLibraries=false&taskT
 
 3. Use the dxFileTransfer endpoint to download the exported WCM library files as a ZIP archive.
 
-- Format: `curl -u <admin>:<password> -o ./<filename>.zip "https://<hostname:port>/wps/dxFileTransfer/dft?action=download&subDirectory=wcm_library_export&file="`
+- Format: `curl -u <admin>:<password> -o ./<filename>.zip "https://<hostname:port>/wps/dxFileTransfer/dft?action=download&subDirectory=<subdirectory-under-the-root-xfer-dir>&file="`
 - Example: `curl -u myAdmin:myPassword -o ./wcm_library_export.zip "https://myserver.hcl.com:443/wps/dxFileTransfer/dft?action=download&subDirectory=library_export&file="`
 
 !!! note
