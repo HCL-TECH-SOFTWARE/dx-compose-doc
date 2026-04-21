@@ -3,20 +3,21 @@ id: configure-admin-user-group
 title: Configuring the administrator user and group
 ---
 
-This topic provides the steps for configuring the administrator user and group in HCL Digital Experience (DX) Compose. You can set an administrator from the basic registry or from an external LDAP directory.
-
-!!!note
-    To update the administrator password only, see [Updating the default administrator password](update_wpsadmin_password.md).
+This topic explains how to configure the administrator user and group in HCL Digital Experience (DX) Compose. You can set the administrator by using either the basic registry or an external LDAP directory. To update only the administrator password, see [Updating the default administrator password](update_wpsadmin_password.md).
 
 ## Before you begin
 
-Review the following constraints before changing the administrator:
+Review these constraints before you change the administrator:
 
-- **Basic registry administrator**: Set `webEngineUser` to a **short username only** (for example, `dxadmin`). Do not use a Distinguished Name (DN). The system automatically constructs the full DN as `uid=<username>,o=<realm>`.
-- **LDAP administrator**: The username stored in the Kubernetes secret must be the **full DN** of the LDAP user (for example, `uid=admin,ou=users,dc=example,dc=com`). Partial or short IDs are not supported and will fail to authenticate.
-- **LDAP group**: `webEngineAdminGroup` must also be the **full DN** of the LDAP group (for example, `cn=admins,ou=groups,dc=example,dc=com`).
-- **Disabling the basic registry**: When `basicRegistry.enabled` is set to `false`, the `wpsadmin` user no longer exists and cannot be used for authentication. Ensure your LDAP configuration is correct before disabling.
-- **Replacing the administrator**: Changing the administrator replaces `wpsadmin`. The previous administrator no longer has administrative access after the change is applied.
+- **Basic registry administrator**: Set `webEngineUser` to a short username (for example, `dxadmin`). Don’t use a Distinguished Name (DN). The system constructs the full DN automatically as `uid=<username>,o=<realm>`.
+
+- **LDAP administrator**: The username in the Kubernetes secret must be the full DN of the LDAP user (for example, `uid=admin,ou=users,dc=example,dc=com`). Partial or short IDs aren’t supported.
+
+- **LDAP group**: Set `webEngineAdminGroup` to the full DN of the LDAP group (for example, `cn=admins,ou=groups,dc=example,dc=com`).
+
+- **Disable the basic registry**: When `basicRegistry.enabled` is set to `false`, the `wpsadmin` user is removed and can’t be used for authentication. Verify your LDAP configuration before disabling it.
+
+- **Replace the administrator**: Changing the administrator replaces `wpsadmin`. The previous administrator no longer has access after the change is applied.
 
 ## Changing to a custom basic registry administrator
 
@@ -32,8 +33,11 @@ To change the administrator to a custom user in the basic registry:
     ```
 
     Replace the values for the following:
+
     - `CUSTOM_SECRET_NAME` with the name of the secret.
+
     - `CUSTOM_ADMIN_USERNAME` with the new short username (for example, `dxadmin`). Do not use a full DN.
+
     - `CUSTOM_ADMIN_PASSWORD` with the administrator password.
 
 2. Update the `values.yaml` file. See the following sample:
@@ -51,15 +55,17 @@ To change the administrator to a custom user in the basic registry:
     ```
 
     Replace the values for the following:
+
     - `CUSTOM_ADMIN_GROUP` with the short group name (for example, `dxadmins`). The system constructs the full group DN as `cn=<group>,o=<realm>`.
+
     - `CUSTOM_SECRET_NAME` with the name of the secret created in Step 1.
 
-    !!!note
-        When using `customWebEngineSecret`, leave `webEngineUser` and `webEnginePassword` empty. Do not set both.
+    !!! note
+        When you use `customWebEngineSecret`, leave `webEngineUser` and `webEnginePassword` empty. Don’t set both.
 
-3. Do a [Helm upgrade](../working_with_compose/helm_upgrade_values.md).
+3. Run a [Helm upgrade](../working_with_compose/helm_upgrade_values.md).
 
-4. [Restart the server](../working_with_compose/restart_webengine_server.md) to apply the changes if the pod doesn't automatically get recreated.
+4. [Restart the server](../working_with_compose/restart_webengine_server.md) to apply the changes if the pod is not automatically recreated.
 
 5. Verify the change by logging in to DX Compose using the new administrator credentials and confirming that the user has full administrator access.
 
@@ -67,7 +73,7 @@ To change the administrator to a custom user in the basic registry:
 
 When setting the administrator to a user in an external LDAP directory, the username and group must be full DNs and `basicRegistry.enabled` must be set to `false`.
 
-!!!warning
+!!! warning
     Setting `basicRegistry.enabled: false` removes the `wpsadmin` user entirely. Verify that your LDAP credentials and group DN are correct before applying this change to avoid losing administrator access. If something goes wrong, see the [Rollback](#rollback) section.
 
 1. Create a Kubernetes secret with the LDAP user credentials. The username must be the full DN of the LDAP user:
@@ -78,14 +84,14 @@ When setting the administrator to a user in an external LDAP directory, the user
       --from-literal=password=LDAP_USER_PASSWORD \
       --namespace=<NAMESPACE>
     ```
-
     Replace the values for the following:
+
     - `CUSTOM_SECRET_NAME` with the name of the secret.
     - `uid=admin,ou=users,dc=example,dc=com` with the full DN of your LDAP user.
     - `LDAP_USER_PASSWORD` with the LDAP user's password.
 
-    !!!note
-        The username must be the complete DN including all organizational units. For example, `uid=admin,ou=users,dc=example,dc=com` is valid. A partial DN such as `uid=admin,dc=example,dc=com` (missing `ou=users`) may fail to resolve correctly.
+    !!! note
+        The username must be the complete DN, including all organizational. For example, `uid=admin,ou=users,dc=example,dc=com` is valid. A partial DN such as `uid=admin,dc=example,dc=com` (missing `ou=users`) may fail to resolve correctly.
 
 2. Update the `values.yaml` file. See the following sample:
 
@@ -101,18 +107,18 @@ When setting the administrator to a user in an external LDAP directory, the user
     ```
 
     Replace the values for the following:
+
     - `cn=admins,ou=groups,dc=example,dc=com` with the full DN of the LDAP administrator group.
     - `CUSTOM_SECRET_NAME` with the name of the secret created in Step 1.
 
-    !!!note
+    !!! note
         Both the username in the secret and `webEngineAdminGroup` must be full DNs when using LDAP authentication.
 
-3. Do a [Helm upgrade](../working_with_compose/helm_upgrade_values.md).
+3. Run a [Helm upgrade](../working_with_compose/helm_upgrade_values.md).
 
 4. If the pod does not restart automatically after the Helm upgrade, [restart the server](../working_with_compose/restart_webengine_server.md) manually to apply the changes.
 
-    !!!note
-        A pod restart is triggered automatically when the Helm upgrade changes the pod spec, for example when using a different secret name or changing `webEngineAdminGroup`. If only the contents of an existing secret were updated without changing the secret name referenced in the values, the pod will not restart automatically and a manual restart is required.
+    A pod restart is triggered automatically when the Helm upgrade changes the pod spec, for example when using a different secret name or changing `webEngineAdminGroup`. If only the contents of an existing secret were updated without changing the secret name referenced in the values, the pod will not restart automatically and a manual restart is required.
 
 5. Verify the change by logging in to DX Compose using the LDAP user credentials and confirming that the user has full administrator access.
 
@@ -120,16 +126,17 @@ For configuring the LDAP registry itself, see [Configuring LDAP](ldap_configurat
 
 ## After changing the administrator
 
-After the new administrator is active, update any services or configurations that were using the previous administrator credentials. Failing to update these may cause authentication failures in dependent services.
+After the new administrator is active, update any services or configurations that used the previous administrator credentials. If you don’t update them, authentication failures may occur in dependent services.
 
-Services that commonly store administrator credentials and may require updating:
+Update the following services that commonly store administrator credentials:
 
-- **Credential Vault**: If the administrator credentials are stored in the Credential Vault, update the relevant vault slot with the new credentials. Features such as Syndication use Credential Vault slots to authenticate and will fail if the stored credentials no longer match the active administrator. 
-- **Any custom scheduled tasks or scripts** that authenticate using the previous administrator username or password.
+- **Credential Vault**: If administrator credentials are stored in the Credential Vault, update the relevant vault slot with the new credentials. Features such as Syndication use these slots for authentication and fail if the stored credentials don’t match the active administrator.
+
+- **Custom scheduled tasks or scripts**: Update any tasks or scripts that authenticate by using the previous administrator username or password.
 
 ## Rollback
 
-If you provided incorrect credentials or configuration and lost administrator access, use one of the following options to revert to a working state.
+If you provided incorrect credentials or configuration and lost administrator access, use one of the following options to restore a working state.
 
 ### Option 1: Revert using Helm values
 
@@ -183,7 +190,7 @@ If the pod is failing to start due to incorrect configuration, you can roll back
     kubectl rollout undo statefulset/<RELEASE_NAME>-web-engine -n <NAMESPACE> --to-revision=<REVISION_NUMBER>
     ```
 
-3. Monitor the pod restart:
+3. Monitor the pod status:
 
     ```sh
     kubectl get pods -n <NAMESPACE>
@@ -191,7 +198,6 @@ If the pod is failing to start due to incorrect configuration, you can roll back
 
     Once the pod is running, verify the rollback by logging in to DX Compose using the restored administrator credentials and confirming full administrator access.
 
-!!!note
-    Rolling back the StatefulSet restores the previous pod spec but does not revert Helm values or Kubernetes secrets. After the pod is stable, update your Helm values to match the restored configuration to prevent the mismatch from causing issues on the next Helm upgrade.
+Rolling back the StatefulSet restores the previous pod specification, but it does not revert Helm values or Kubernetes secrets. After the pod is stable, update your Helm values to match the restored configuration. This prevents configuration mismatches during the next Helm upgrade.
 
-For adding other administrators and users with no administrator access, see [configOverrideFiles](configuration_changes_using_overrides.md#configuring-users-or-user-groups).
+For adding other administrators and non-administrator users, see [configOverrideFiles](configuration_changes_using_overrides.md#configuring-users-or-user-groups).
