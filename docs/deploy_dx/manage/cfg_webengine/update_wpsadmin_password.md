@@ -2,10 +2,10 @@
 id: update-default-admin-password
 title: Updating the default administrator password
 ---
-This topic provides the steps for updating the default administrator (wpsadmin) password.
+This topic provides the steps for updating the default administrator password.
 
-!!!note "Limitation" 
-    It is not possible to change the `wpsadmin` username at this time. However, you can update the `wpsadmin` password.
+!!!note
+    To change the administrator username, see [Changing the default administrator user](configure_default_admin_user.md).
 
 To update the default administrator password, refer to the following steps:
 
