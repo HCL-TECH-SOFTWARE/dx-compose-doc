@@ -4,8 +4,7 @@
 
 This topic explains how to start Web Content Manager (WCM) modules and import or export WCM libraries in DX Compose.
 
-A file transfer utility endpoint can be used for uploading and downloading the WCM library files in dynamic subdirectories on the server under a specified root directory. Example usage of dxFileTransfer can be found in the export and import sections below.
-
+Use a file transfer utility endpoint to upload and download WCM library files in dynamic subdirectories under a specified root directory on the server. For examples of using dxFileTransfer, see the export and import sections.
 ## Exporting WCM Libraries
 
 When running Digital Experience (DX) Core on WebSphere Application Server (WAS), WCM modules such as workflow checker, importing or exporting libraries, member fixer, and others would be triggered through the ConfigEngine as documented in [Exporting and importing web content libraries](https://opensource.hcltechsw.com/digital-experience/latest/manage_content/wcm_configuration/wcm_adm_tools/wcmlibrary_export/index.html){target="_blank"}.
