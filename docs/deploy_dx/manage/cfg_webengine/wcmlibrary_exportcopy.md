@@ -77,12 +77,12 @@ Use the `dxFileTransfer` endpoint to download WCM library `.zip` file from the s
 - curl format
 
 ```bash
-curl -u <admin>:<password> -X POST -F "file=@/<zip-file-path>" "https://<hostname:port>/wps/dxFileTransfer/dft?action=upload&unzip=false&deleteZip=false&subDirectory=wcm_library_import&file=<zip-file-path>"
+curl -u <admin>:<password> -o <zip-file-path> "https://<hostname:port>/wps/dxFileTransfer/dft?action=download&subDirectory=<subdirectory-under-the-root-xfer-dir>&file=<zip-file-name>"
 ```
 
 - Download WCM library `.zip` file from the export subdirectory on the server:  
   ```bash
-  curl -u myAdmin:myPassword -X POST "https://myserver.hcl.com:443/wps/dxFileTransfer/dft?action=download&subDirectory=wcm_library_export&file=testLibrary-copy.zip"
+  curl -u myAdmin:myPassword -o ./testLibrary-copy.zip  "https://myserver.hcl.com:443/wps/dxFileTransfer/dft?action=download&subDirectory=wcm_library_export&file=testLibrary-copy.zip"
   ```
 
 ## Import copy
