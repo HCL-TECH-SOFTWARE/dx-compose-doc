@@ -20,7 +20,7 @@ For DX Compose, use the following steps to export a WCM library:
 
 	Format:
 	```  
-	curl -u <admin>:<password> -X POST "https://<hostname:port>/wps/dxFileTransfer/dft?action=createDir&subDirectory=<subdirectory-under-the-root-xfer-dir>"
+	curl -u <admin>:<password> -X POST "https://<hostname:port>/<context-root>/dxFileTransfer/dft?action=createDir&subDirectory=<subdirectory-under-the-root-xfer-dir>"
 	```
 
 	Example:  
@@ -40,7 +40,7 @@ For DX Compose, use the following steps to export a WCM library:
 
 	Format:
 	``` 
-	curl -u <admin>:<password> -o ./<filename>.zip "https://<hostname:port>/wps/dxFileTransfer/dft?action=download&subDirectory=<subdirectory-under-the-root-xfer-dir>&file="
+	curl -u <admin>:<password> -o ./<filename>.zip "https://<hostname:port>/<context-root>/dxFileTransfer/dft?action=download&subDirectory=<subdirectory-under-the-root-xfer-dir>&file="
 	```
 
 	Example:
@@ -61,7 +61,7 @@ Use the following steps to import a WCM library:
 
 	Format:
 	``` 
-	curl -u <admin>:<password> -X POST -F "file=@/<zip-file-path>" "https://<hostname:port>/wps/dxFileTransfer/dft?action=upload&unzip=true&deleteZip=true&subDirectory=<subdirectory-under-the-root-xfer-dir>&file=<zip-file-name>"
+	curl -u <admin>:<password> -X POST -F "file=@/<zip-file-path>" "https://<hostname:port>/<context-root>/dxFileTransfer/dft?action=upload&unzip=true&deleteZip=true&subDirectory=<subdirectory-under-the-root-xfer-dir>&file=<zip-file-name>"
 	```
 
 	Example:

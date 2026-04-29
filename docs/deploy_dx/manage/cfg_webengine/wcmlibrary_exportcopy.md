@@ -23,7 +23,7 @@ Use the `dxFileTransfer` endpoint to create a subdirectory on the server to stor
 **curl format**
 
 ```bash
-curl -u <admin>:<password> -X POST "https://<hostname:port>/wps/dxFileTransfer/dft?action=createDir&subDirectory=<subdirectory-under-the-root-xfer-dir>"
+curl -u <admin>:<password> -X POST "https://<hostname:port>/<context-root>/dxFileTransfer/dft?action=createDir&subDirectory=<subdirectory-under-the-root-xfer-dir>"
 ```
 
  Create export subdirectory on server:  
@@ -51,7 +51,7 @@ Use the full WCM data module URL format when invoking copy export:
 
 - URL format  
   ```text
-  https://<hostname>/wps/wcm/myconnect?MOD=data&processLibraries=false&taskType=export-copy&exportLibrary=<library-name-or-list>&output.file=<zip-file-path>
+  https://<hostname>/<context-root>/wcm/myconnect?MOD=data&processLibraries=false&taskType=export-copy&exportLibrary=<library-name-or-list>&output.file=<zip-file-path>
   ```
 
 - Single library  
@@ -77,7 +77,7 @@ Use the `dxFileTransfer` endpoint to download WCM library `.zip` file from the s
 - curl format
 
 ```bash
-curl -u <admin>:<password> -o <zip-file-path> "https://<hostname:port>/wps/dxFileTransfer/dft?action=download&subDirectory=<subdirectory-under-the-root-xfer-dir>&file=<zip-file-name>"
+curl -u <admin>:<password> -o <zip-file-path> "https://<hostname:port>/<context-root>/dxFileTransfer/dft?action=download&subDirectory=<subdirectory-under-the-root-xfer-dir>&file=<zip-file-name>"
 ```
 
 - Download WCM library `.zip` file from the export subdirectory on the server:  
@@ -98,7 +98,7 @@ Follow these steps to import a copy of a web content library:
 
 	-  curl format
  ```bash
- curl -u <admin>:<password> -X POST -F "file=@/<zip-file-path>" "https://<hostname:port>/wps/dxFileTransfer/dft?action=upload&unzip=false&deleteZip=false&subDirectory=<subdirectory-under-the-root-xfer-dir>&file=<zip-file-path>"
+ curl -u <admin>:<password> -X POST -F "file=@/<zip-file-path>" "https://<hostname:port>/<context-root>/dxFileTransfer/dft?action=upload&unzip=false&deleteZip=false&subDirectory=<subdirectory-under-the-root-xfer-dir>&file=<zip-file-path>"
  ```
 
 2. Create an import URL request to WCM data module with the following parameters:
@@ -145,7 +145,7 @@ Use the full WCM data module URL format when invoking copy import:
 
 - URL format  
   ```text
-  https://<hostname>/wps/wcm/myconnect?MOD=data&processLibraries=false&taskType=import-copy&input.file=<zip-file-path>&importLibrary=<optional-library-name-or-list>&library.exportName=<optional-exported-name-list>
+  https://<hostname>/<context-root>/wcm/myconnect?MOD=data&processLibraries=false&taskType=import-copy&input.file=<zip-file-path>&importLibrary=<optional-library-name-or-list>&library.exportName=<optional-exported-name-list>
   ```
 
 #### Single library from ZIP file
