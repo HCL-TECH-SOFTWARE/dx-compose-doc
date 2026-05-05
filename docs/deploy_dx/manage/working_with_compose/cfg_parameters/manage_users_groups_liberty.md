@@ -50,8 +50,7 @@ Add the following configuration to define the `ldapRegistry`:
               bindPassword="adminpassword"
               ldapType="Custom"
               ignoreCase="true"
-              recursiveSearch="true">
-
+              recursiveSearch="false">
 </ldapRegistry>
 ```
 
@@ -65,7 +64,8 @@ Replace the placeholder values with the actual details of your LDAP server:
 - `ldapType`: Type of LDAP server (for example, Custom, AD)
 
 !!!note
-    If the LDAP server does not support recursive server-side searches, you can set the value of `recursiveSearch` to `true` to allow recursive searches for users.
+    By default, `recursiveSearch` is set to `false`. If your users belong to nested LDAP groups and the expected group memberships are not found, set `recursiveSearch="true"` and test again to confirm nested group search works.
+    Nested group membership is supported either when your LDAP server supports recursive server-side group search, or when `recursiveSearch` is enabled in Liberty.
 
 For more information about using additional properties, see the [LDAP User Registry](https://openliberty.io/docs/latest/reference/feature/ldapRegistry-3.0.html){target="_blank"} feature.
 
@@ -132,10 +132,8 @@ You can add multiple custom attributes at once or individually by specifying the
 
 - Write operations such as creating, updating, and deleting users and groups are currently not supported in DX Compose.
 - You cannot assign attribute definitions to a user or group in a basic user registry.
-- Nested group search is not supported.
 
 More complex or less common scenarios that are supported in the WebSphere Application Server (WAS) have not been thoroughly tested with DX Compose and are not supported at this time. These include the following:
 
 - Lookaside database
 - Application groups
-- Transient users
