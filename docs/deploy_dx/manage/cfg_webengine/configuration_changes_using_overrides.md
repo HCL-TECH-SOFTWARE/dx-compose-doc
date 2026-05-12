@@ -124,7 +124,7 @@ To set up a custom LDAP server in Liberty, see [Configuring LDAP with Liberty](l
 
 - [IBM Directory Server](#ibm-directory-server)
 - [Microsoft Active Directory Server](#microsoft-active-directory-server)
-- [Microsoft Active Directory Server Using SSL](#microsoft-active-directory-server-using-ssl)
+- [Microsoft Active Directory Server using SSL](#microsoft-active-directory-server-using-ssl)
 
 ### IBM Directory Server
 
@@ -246,7 +246,7 @@ To set up a custom LDAP server in Liberty, see [Configuring LDAP with Liberty](l
         </server>  
 ```
 
-### Microsoft Active Directory Server Using SSL
+### Microsoft Active Directory Server using SSL
 
 ```xml
     configOverrideFiles:
