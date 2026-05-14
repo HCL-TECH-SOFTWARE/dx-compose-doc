@@ -18,18 +18,16 @@ The following API end point and response are used to create this sample document
 
   ![](../../../../../assets/Volt_MX_Sample_Endpoint.png "VOLTMX Sample API Endpoint."){ width="1500" }
 
-
 - Sample API end point for **POST**
 
   ![](../../../../../assets/Volt_MX_Sample_POST_Endpoint.png "VOLTMX Sample POST API Endpoint."){ width="1500" }
-
 
 ### Creating the list-rendering profile
 
 Use Helm to add list-rendering profile properties in `ListRenderingProfileService.properties`. Refer to the following steps:
 
 1. Update the `values.yaml` file with the following snippet:
-    
+
     ```yaml
     propertiesFilesOverrides:
       ListRenderingProfileService.properties:
@@ -128,17 +126,15 @@ Under Authoring Templates, create a Content Template.
 
     ![](../../../../../assets/WCM_Content_Template.png "Add Content Template."){ width="1500" }
 
- 
 2. Add the **Name**, **Display title**, and **Description** for your Content Template. 
 
     The recommended name is **Volt MX Content Template**.
-    
+
 3. Under **Item Properties**, select the presentation template you created in [Creating a presentation template](#creating-a-presentation-template) as the **Default Presentation Template**.
 
     ![](../../../../../assets/WCM_Create_Content_Template.png "Create Content Template and select its attribute."){ width="1500" }
 
-
-3. Click **Manage Element** and add the following elements to the content template:
+4. Click **Manage Element** and add the following elements to the content template:
 
     | Element type                   | Name                                       | Display title              |
     | ------------------------------ | ------------------------------------------ | ---------------------------|
@@ -148,7 +144,6 @@ Under Authoring Templates, create a Content Template.
     | Short Text                     | provider                                   | DDC Plugin                 |
 
     ![](../../../../../assets/WCM_Manage_Element.png "Create Content Template and select its attribute."){ width="1500" }
-
 
     !!!note
         In case of **GET** resource method, adding **httpmethod** element is not necessary. Vy default, the connection is initially set to **GET**.
@@ -161,13 +156,11 @@ Under Authoring Templates, create a Content Template.
 
     ![](../../../../../assets/WCM_Manage_Element_Post.png "Create Content Template and select its attribute for Post."){ width="1500" }
 
-
-4. Click **Default Content Properties** and add **Express workflow**.
+5. Click **Default Content Properties** and add **Express workflow**.
 
     ![](../../../../../assets/WCM_Add_Workflow.png "Select Express workflow."){ width="1500" }
 
-
-5. Click **Save and Close**.
+6. Click **Save and Close**.
 
 !!!note
     If you selected any other **Resource Method** (for example, **POST** from `Advanced` > `Front End API` > `Resource Method`) while creating a new integration service with Volt MX Foundry, you might need the capability to submit data to the API which DDC will try to parse as **sourceParams** using the Presentation Template you created in the previous section. In that case, you must add a content field in your Content Template that will save this. It can have any name but this example uses **params**.
@@ -184,11 +177,9 @@ Under Authoring Templates, create a Content Template.
 
     ![](../../../../../assets/WCM_Library_Component.png "WCM Library default components"){ width="1500" }
 
-
 2. Create an **Appearances** folder under **Components**. This is to ensure that your personalization components use the DDC selection rule. Select pluggable resources can be found easily in one place.
 
     ![](../../../../../assets/WCM_Appearance.png "WCM Appearance"){ width="1500" }
-
 
 3. Under the **Appearances** folder, create a new Personalization component.
 
@@ -196,19 +187,16 @@ Under Authoring Templates, create a Content Template.
 
         ![](../../../../../assets/WCM_Personalization_Component.png "WCM Personalization Component"){ width="1500" }
 
-
     2. Enter the **Name**, **Display title**, and **Description**. The recommended name is **DDC Volt MX List Appearances**.
 
         ![](../../../../../assets/WCM_Personalization_Title.png "WCM Personalization Title"){ width="1500" }
 
+    3. Under **Personalization Element**, click **New**.
 
-    3. Under **Personalization Element**, click **New**. 
-    
     4. Under **New Rule**, click **Web Content** and select **Pluggable Resources**. Click **Save**.
 
         ![](../../../../../assets/WCM_Personalization_Rule.png "Create a rule for New Personalization Element"){ width="1500" }
 
- 
     5. In the List Presentation Markup, add the following:
         - Header: `<ul>`
         - Result design:
@@ -223,30 +211,27 @@ Under Authoring Templates, create a Content Template.
 
         ![](../../../../../assets/WCM_List_Markup.png "Use HTML to define how list results are presented to your site visitors, including a header, footer, and separator."){ width="1500" }
 
-
     6. Click **Save and Close**.
 
 ### Creating a Content item
 
-1. Under your libraries, click **Content > Articles**. 
+1. Under your libraries, click **Content > Articles**.
 
 2. Create a new Content item from the Content Template that you created in [Creating a Content Template](#creating-a-content-template).
 
     ![](../../../../../assets/WCM_Create_Main_Content.png "Create Main Content."){ width="1500" }
-
 
 3. Add the **Name**, **Display title**, and **Description** of the Content item.
     The recommended name is **Volt MX Main Content**, and in the content fields / elements, provide the following values:
 
     | Content field title            | Value                                                        |
     | ------------------------------ | ------------------------------------------                   |
-    | **Appearance**                     | auto filled once you've chosen a component                   |
-    | **Data Source URI**                | https://hcl-dx-dev.hclvoltmx.net/services/account/id?id=1    |
-    | **List Rendering Profile**         | ddcDemo.profile.json                                         |
-    | **DDC Plugin**                     | ibm.portal.ddc.json                                          |
+    | **Appearance**                 | auto filled once you've chosen a component                   |
+    | **Data Source URI**            | https://hcl-dx-dev.hclvoltmx.net/services/account/id?id=1    |
+    | **List Rendering Profile**     | ddcDemo.profile.json                                         |
+    | **DDC Plugin**                 | ibm.portal.ddc.json                                          |
 
     ![](../../../../../assets/WCM_Input_Content_Element.png "Input Main Content."){ width="1500" }
-
 
     !!!note
         If you selected any other **Resource Method** (for example - **POST** from `Advanced` > `Front End API` > `Resource Method`) while creating a new integration service with Volt MX Foundry then you need to provide value for **httpmethod**. Also, the value of **Data Source URI** would be the POST URL endpoint in this case.
@@ -257,7 +242,6 @@ Under Authoring Templates, create a Content Template.
     | Select Http Method             | post                                                         |
 
     ![](../../../../../assets/WCM_Input_Content_Element_Post.png "Input Main Content for Post."){ width="1500" }
-
 
 4. Click **Save and Close**.
 
@@ -297,9 +281,18 @@ Now you can use all the WCM artifacts that you created on a DX Compose page.
 
     ![](../../../../../assets/WCM_Set_Page_Content.png "Select Edit Shared Settings."){ width="1500" }
 
-6. Click **OK**. 
+6. Click **OK**.
 
     The following output page is displayed.
 
     ![](../../../../../assets/WCM_Output_Page.png "Result output."){ width="1500" }
 
+## HCLSoftware U learning materials
+
+For an introduction and a demo on how to integrate DX with HCL Volt MX as a business user, go to [DX Integration with HCL Volt MX for Business Users](https://hclsoftwareu.hcl-software.com/component/axs/?view=sso_config&id=4&forward=https%3A%2F%2Fhclsoftwareu.hcl-software.com%2Fcourses%2Flesson%2F%3Fid%3D747){target="_blank"}. To try it out yourself, refer to [DX Integration with
+HCL Volt MX for Business Users Lab](https://hclsoftwareu.hcl-software.com/images/Lc4sMQCcN5uxXmL13gSlsxClNTU3Mjc3NTc4MTc2/DS_Academy/DX/Integration/HDX-INT-BU_DX_Integration_with_HCL_Volt_MX_for_Business_Users.pdf){target="_blank"}.
+
+For an introduction and a demo on how to integrate DX with HCL Volt MX as a developer, go to [DX Integration with HCL Volt MX for Developers](https://hclsoftwareu.hcl-software.com/component/axs/?view=sso_config&id=4&forward=https%3A%2F%2Fhclsoftwareu.hcl-software.com%2Fcourses%2Flesson%2F%3Fid%3D1458){target="_blank"}. To try it out yourself, refer to [DX Integration with
+HCL Volt MX for Developers Lab](https://hclsoftwareu.hcl-software.com/images/Lc4sMQCcN5uxXmL13gSlsxClNTU3Mjc3NTc4MTc2/DS_Academy/DX/Integration/HDX-INT-DEV_DX_Integration_with_HCL_Volt_MX_for_Developers.pdf){target="_blank"}.
+
+You can also use the dedicated course [HCL Volt MX Integration with HCL DX](https://hclsoftwareu.hcl-software.com/courses/course/hvmx-int-hdx-integrate-hcl-volt-mx-with-hcl-digital-experience){target="_blank"}. This course explains the benefits of integrating HCL Volt MX with HCL DX and provides integration guidance for business users, developers, and administrators.
