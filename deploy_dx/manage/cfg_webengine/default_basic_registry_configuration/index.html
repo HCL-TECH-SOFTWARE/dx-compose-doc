@@ -19,7 +19,7 @@
         <link rel="prev" href="../ldap_configuration/">
       
       
-        <link rel="next" href="../external_db_database_transfer/">
+        <link rel="next" href="../configure_default_admin_user/">
       
       
       <link rel="icon" href="../../../../assets/favicon.png">
@@ -469,6 +469,10 @@ function OptanonWrapper() { }
       
         
       
+        
+      
+        
+      
     
     
       
@@ -866,6 +870,8 @@ function OptanonWrapper() { }
       
         
       
+        
+      
     
     
       
@@ -1052,10 +1058,58 @@ function OptanonWrapper() { }
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#disabling-the-basic-registry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disabling the basic registry
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#customizing-the-basic-registry-realm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Customizing the basic registry realm
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-additional-users-to-the-basic-registry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add additional users to the basic registry
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configure_default_admin_user/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuring the administrator user and group
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1521,6 +1575,33 @@ function OptanonWrapper() { }
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#disabling-the-basic-registry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disabling the basic registry
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#customizing-the-basic-registry-realm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Customizing the basic registry realm
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-additional-users-to-the-basic-registry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add additional users to the basic registry
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1546,7 +1627,7 @@ function OptanonWrapper() { }
 
   <h1>Configuring the default basic registry</h1>
 
-<p>This topic provides information about the default basic registry configuration in HCL Digital Experience (DX) Compose. The basic registry is a file-based user registry that stores user credentials directly in the Liberty server configuration. Starting with CF234, the default basic registry configuration has been externalized to Helm values.</p>
+<p>This topic provides information about the default basic registry configuration in HCL Digital Experience (DX) Compose. The basic registry is a file-based user registry that stores user credentials in the Liberty server configuration. Starting with CF234, the default basic registry configuration is externalized to Helm values. Starting with CF235, all registry settings—including enabling or disabling the basic registry, the realm name, and the administrator username and group—are fully configurable.</p>
 <p>The following changes have been made to the basic registry configuration:</p>
 <ul>
 <li>The default basic registry is now controlled using Helm values.</li>
@@ -1570,10 +1651,37 @@ function OptanonWrapper() { }
 <span class="w">      </span><span class="nt">realm</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;defaultWIMFileBasedRealm&quot;</span>
 </code></pre></div>
 <p>This configuration creates a single administrator user (<code>wpsadmin</code>) that belongs to the <code>wpsadmins</code> group, which is granted the administrator role.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>The PUMA code still relies on the <code>wpsadmin</code> user from the default basic registry. Disabling the basic registry may cause unexpected behavior or failures. Support for LDAP-only deployments without the default basic registry (<code>wpsadmin</code>) is planned for a future release. For now, keep <code>basicRegistry.enabled: true</code> even if you are using LDAP for external user authentication. Additionally, while the realm name is configurable using Helm values, continue to use the default realm value (<code>defaultWIMFileBasedRealm</code>) to maintain compatibility with internal PUMA code dependencies.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Starting with CF235, you can change the administrator username, disable the basic registry for LDAP-only deployments, and customize the realm name. For more information, see <a href="../configure_default_admin_user/">Configuring the administrator user and group</a> and <a href="../update_wpsadmin_password/">Updating the default administrator password</a>.</p>
 </div>
+<h2 id="disabling-the-basic-registry">Disabling the basic registry</h2>
+<p>You can disable the basic registry to rely exclusively on LDAP authentication. Set <code>enabled</code> to <code>false</code>, ensure that <code>webEngineAdminGroup</code> points to a valid LDAP group DN, and provide the LDAP administrator credentials by using <code>customWebEngineSecret</code>:</p>
+<div class="language-yaml highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">webEngine</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">webEngineUser</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span>
+<span class="w">    </span><span class="nt">webEnginePassword</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span>
+<span class="w">    </span><span class="nt">webEngineAdminGroup</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;cn=admins,ou=groups,dc=example,dc=com&quot;</span>
+<span class="w">    </span><span class="nt">customWebEngineSecret</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;CUSTOM_SECRET_NAME&quot;</span>
+<span class="w">    </span><span class="nt">basicRegistry</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When you disable the basic registry, both <code>webEngineAdminGroup</code> and the credentials in <code>customWebEngineSecret</code> must reference valid entries in your LDAP directory. WebEngine requires at least one administrator to be defined at startup. For steps to create the secret with LDAP credentials, see <a href="../configure_default_admin_user/#changing-to-an-ldap-user-as-administrator">Configuring the administrator user and group</a>.</p>
+</div>
+<h2 id="customizing-the-basic-registry-realm">Customizing the basic registry realm</h2>
+<p>You can customize the realm name for the basic registry by modifying the <code>realm</code> value:</p>
+<div class="language-yaml highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">webEngine</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">basicRegistry</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">realm</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;myCustomRealm&quot;</span>
+</code></pre></div>
+<p>The realm name is used in the <code>basicRegistry</code> configuration and in the federated repository <code>participatingBaseEntry</code>.</p>
+<h2 id="add-additional-users-to-the-basic-registry">Add additional users to the basic registry</h2>
+<p>To add additional users or groups to the basic registry, use configuration overrides. For more information, see <a href="../configuration_changes_using_overrides/">Configuration changes by using overrides</a>.</p>
+<p>For administrator identity configuration, including changing the administrator username and group, see <a href="../configure_default_admin_user/">Change the default administrator user</a>.</p>
 
 
 
@@ -1594,7 +1702,7 @@ function OptanonWrapper() { }
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="February 23, 2026 15:14:42 UTC">February 23, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 21, 2026 06:52:33 UTC">April 21, 2026</span>
   </span>
 
     

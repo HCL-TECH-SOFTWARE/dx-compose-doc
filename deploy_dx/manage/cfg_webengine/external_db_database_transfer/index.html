@@ -16,7 +16,7 @@
         <link rel="canonical" href="https://help.hcl-software.com/digital-experience/dx-compose/latest/deploy_dx/manage/cfg_webengine/external_db_database_transfer/">
       
       
-        <link rel="prev" href="../default_basic_registry_configuration/">
+        <link rel="prev" href="../configure_default_admin_user/">
       
       
         <link rel="next" href="../update_properties_with_helm/">
@@ -469,6 +469,10 @@ function OptanonWrapper() { }
       
         
       
+        
+      
+        
+      
     
     
       
@@ -866,6 +870,8 @@ function OptanonWrapper() { }
       
         
       
+        
+      
     
     
       
@@ -1018,6 +1024,27 @@ function OptanonWrapper() { }
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../configure_default_admin_user/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuring the administrator user and group
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -1070,6 +1097,39 @@ function OptanonWrapper() { }
       Setup external database (schema / user creation)
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Setup external database (schema / user creation)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#oracle-database-prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Oracle database prerequisites
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-setup-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom setup scripts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oracle-user-and-property-mapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      Oracle user and property mapping
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1621,6 +1681,39 @@ function OptanonWrapper() { }
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Setup external database (schema / user creation)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#oracle-database-prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Oracle database prerequisites
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-setup-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom setup scripts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oracle-user-and-property-mapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      Oracle user and property mapping
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1757,6 +1850,90 @@ function OptanonWrapper() { }
 </div>
 <h2 id="setup-external-database-schema-user-creation">Setup external database (schema / user creation)</h2>
 <p>This section provides the custom scripts for setting up the external database schemas (or users).</p>
+<h3 id="oracle-database-prerequisites">Oracle database prerequisites</h3>
+<p>Before running the Oracle setup script, ensure your Oracle database meets the following requirements:</p>
+<ul>
+<li>
+<p>Use a supported database version (Oracle 19c or Oracle 21c).</p>
+</li>
+<li>
+<p>Create the database with Unicode character sets:</p>
+<ul>
+<li>Character Set: <code>AL32UTF8</code></li>
+<li>National Character Set: <code>AL16UTF16</code></li>
+</ul>
+</li>
+<li>
+<p>Use the <code>ojdbc11.jar</code> driver and set the <code>oracle.DbLibrary</code> property in your Helm <code>values.yaml</code> to reference the driver location:</p>
+<div class="language-yaml highlight"><pre><span></span><code><span class="nt">dbTypeProperties</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">oracle.DbLibrary</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/opt/openliberty/wlp/usr/svrcfg/templates/jars/oracle/ojdbc11.jar:/opt/openliberty/wlp/usr/svrcfg/templates/jars/oracle/xdb6-11.2.0.4.jar&quot;</span>
+</code></pre></div>
+<p>See the <a href="https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html" target="_blank">Oracle JDBC Downloads page</a> for the latest driver for your Oracle version.</p>
+</li>
+<li>
+<p>Refer to the baseline recommendations for Oracle databases used with HCL DX Compose, particularly for workloads involving the Java Content Repository (JCR) domain. Adjust the values based on workload characteristics, infrastructure capacity, and usage patterns.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Recommended Value</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>db_block_size</code></td>
+<td>8192</td>
+<td>Standard block size for optimal I/O performance</td>
+</tr>
+<tr>
+<td><code>db_cache_size</code></td>
+<td>1 GB</td>
+<td>Improves buffer cache efficiency for frequent reads</td>
+</tr>
+<tr>
+<td><code>open_cursors</code></td>
+<td>1500 cursors</td>
+<td>Supports a high number of concurrent JCR queries</td>
+</tr>
+<tr>
+<td><code>pga_aggregate_target</code></td>
+<td>200 MB</td>
+<td>Allocates memory for session-level operations</td>
+</tr>
+<tr>
+<td><code>processes</code></td>
+<td>300 processes</td>
+<td>Supports concurrent database connections</td>
+</tr>
+<tr>
+<td><code>shared_pool_size</code></td>
+<td>200 MB</td>
+<td>Optimizes parsing and execution of SQL statements</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The recommended values are suitable for small to medium environments. For large-scale deployments, high-concurrency environments, or bulk content imports (such as tens of thousands of WCM items), the baseline values for <code>open_cursors</code>, <code>processes</code>, <code>shared_pool_size</code>, and <code>pga_aggregate_target</code> might be insufficient. Perform workload-based tuning and increase these values based on your content volume and concurrent activity. See the Oracle documentation for sizing guidance.</p>
+</div>
+</li>
+<li>
+<p>Configure the following parameters based on your deployment. In Oracle 19c, 21c, and later, default values are typically sufficient for most HCL DX Compose deployments.</p>
+<ul>
+<li>
+<p><code>db_files</code> (maximum number of database files): Consider increasing this parameter if your environment uses a large number of tablespaces or datafiles (for example, due to extensive JCR usage or custom partitioning).</p>
+</li>
+<li>
+<p><code>log_buffer</code> (redo log buffer size): Consider tuning this parameter if you observe high redo log generation, high commit rates, or write-intensive workloads.</p>
+</li>
+<li>
+<p><code>open_cursors</code> (for JCR-heavy deployments): If your deployment uses the JCR domain extensively, consider increasing this parameter beyond <code>1500</code>. The appropriate value depends on the number of JCR tables in your schema and the level of concurrent activity.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="custom-setup-scripts">Custom setup scripts</h3>
 <table>
 <thead>
 <tr>
@@ -1776,6 +1953,51 @@ function OptanonWrapper() { }
 <tr>
 <td>SQL Server</td>
 <td><a href="../SetupSqlServerDatabasesManually.sql">SQL Server custom setup script</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="oracle-user-and-property-mapping">Oracle user and property mapping</h3>
+<p>The sample Oracle setup script (<code>SetupOracleDatabasesManually.sql</code>) creates the following:</p>
+<ul>
+<li>Schema users: Oracle schemas for DX Compose database domains. Examples include <code>release</code>, <code>community</code>, <code>customization</code>, <code>jcr</code>, <code>feedback</code>, and <code>likeminds</code>. These schemas map to the <code>&lt;domain&gt;.DbSchema</code> property.</li>
+<li>DX application users: The script creates a single user, such as <code>&lt;replace-with-dbuser&gt;</code>, and grants it all required roles for configuration, runtime, and database administrator (DBA) operations. Helm properties support separate users for each role. Examples include <code>&lt;replace-with-dbuser&gt;</code>, <code>&lt;replace-with-runtime-user&gt;,</code> and <code>&lt;replace-with-dba-user&gt;</code>. Using separate users is recommended for least-privilege access, but you can use the same user for all roles if your security policy allows.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>By default, the sample script creates a single application user and grants it all required roles. For environments that require separation of duties and least-privilege access, manually create separate application users. Then, specify these users for <code>&lt;domain&gt;.DbUser</code>, <code>&lt;domain&gt;.DbRuntimeUser</code>, and <code>&lt;domain&gt;.DBA.DbUser&gt;</code> in your Helm values.yaml file and database configuration.</li>
+<li>The Oracle schema users (domain names) are always separate and own the actual tables, but they are not used as connection credentials.</li>
+</ul>
+</div>
+<p>The following table shows how Oracle users map to Helm properties. You may use the same user for all roles, or specify different users for each:</p>
+<table>
+<thead>
+<tr>
+<th>Helm property</th>
+<th>Oracle user placeholder</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;domain&gt;.DbUser</code></td>
+<td><code>&lt;replace-with-dbuser&gt;</code></td>
+<td>Configuration user — used during database transfer and schema setup. Granted <code>WP_*_CONFIG_USERS</code> role.</td>
+</tr>
+<tr>
+<td><code>&lt;domain&gt;.DbRuntimeUser</code></td>
+<td><code>&lt;replace-with-runtime-user&gt;</code></td>
+<td>Runtime user — used during day-to-day portal operations. Granted <code>WP_*_RUNTIME_USERS</code> role.</td>
+</tr>
+<tr>
+<td><code>&lt;domain&gt;.DBA.DbUser</code></td>
+<td><code>&lt;replace-with-dba-user&gt;</code></td>
+<td>Privileged DBA user — used for tablespace and advanced DDL operations.</td>
+</tr>
+<tr>
+<td><code>&lt;domain&gt;.DbSchema</code></td>
+<td><code>release</code>, <code>community</code>, <code>customization</code>, <code>jcr</code>, <code>feedback</code>, <code>likeminds</code></td>
+<td>The Oracle schema user that owns the tables for each domain.</td>
 </tr>
 </tbody>
 </table>
@@ -2285,7 +2507,7 @@ kubectl<span class="w"> </span>create<span class="w"> </span>secret<span class="
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 3, 2026 13:30:56 UTC">March 3, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 24, 2026 11:03:54 UTC">March 24, 2026</span>
   </span>
 
     
