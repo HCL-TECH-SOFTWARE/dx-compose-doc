@@ -26,6 +26,6 @@ This article describes how to add generic JVM arguments to the HCL DX Compose We
     environment:
       pod:
         webEngine:
-        -name: JVM_ARGS
-        value: "-Djavax.net.debug=all"
+          - name: JVM_ARGS
+            value: "-Djavax.net.debug=all"
     ```
