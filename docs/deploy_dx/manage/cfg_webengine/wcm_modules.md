@@ -1,81 +1,89 @@
 # WCM modules
 
-This topic explains how to start Web Content Manager (WCM) modules and import or export WCM libraries in DX Compose.
+This topic explains how to start Web Content Manager (WCM) modules and import or export WCM libraries in Digital Experience (DX) Compose.
 
-Use a file transfer utility endpoint to upload and download WCM library files in dynamic subdirectories under a specified root directory on the server. For examples of how to use `dxFileTransfer`, see the export and import sections.
+Use a file transfer utility endpoint to upload and download WCM library files in dynamic subdirectories under a specified root directory on the server.
 
-## Exporting WCM Libraries
+## Starting WCM modules
 
-When running Digital Experience (DX) Core on WebSphere Application Server (WAS), WCM modules such as workflow checker, importing or exporting libraries, member fixer, and others         are triggered through the ConfigEngine as documented in [Exporting and importing web content libraries](https://opensource.hcltechsw.com/digital-experience/latest/manage_content/wcm_configuration/wcm_adm_tools/wcmlibrary_export/index.html){target="_blank"}.
+When you run DX Core on WebSphere Application Server (WAS), When you run DX Core on WebSphere Application Server (WAS), WCM modules such as the workflow checker, library import and export, and the member fixer [trigger through the ConfigEngine](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_configuration/wcm_adm_tools/wcmlibrary_export/){target="_blank"}.
 
-In DX Compose, you can start WCM modules using HTTP through a browser, Postman, or other tools. For example, the previous command in Core on     Core on WebSphere Application Server (WAS) was:
+In DX Compose, you can start WCM modules using HTTP through a browser, Postman, or other tools. For example, the previous WAS command in Core was:
 
-```
+```bash
 ./ConfigEngine.sh export-wcm-data -DWasPassword=password -DPortalAdminPwd=password -Dexport.directory=/opt/HCL/wp_profile/export -Dexport.libraryname="Web Content"
 ```
 
-For DX Compose, use the following steps to export a WCM library:
+## Exporting WCM libraries
 
-1. Use the `dxFileTransfer` endpoint to create a subdirectory on the server to store the exported WCM library files. The `dxFileTransfer` endpoint uses the following base root transfer directory: `/opt/openliberty/wlp/usr/servers/defaultServer/dxFileTransfers/`
+To export a WCM library in DX Compose, follow these steps:
 
-	Format:
-	```  
-	curl -u <admin>:<password> -X POST "https://<hostname:port>/<context-root>/dxFileTransfer/dft?action=createDir&subDirectory=<subdirectory-under-the-root-xfer-dir>"
-	```
+1. Use the `dxFileTransfer` endpoint to create a subdirectory on the server to store the exported WCM library files. The `dxFileTransfer` endpoint uses `/opt/openliberty/wlp/usr/servers/defaultServer/dxFileTransfers/` as the base root transfer directory.
 
-	Example:  
-	```
-	curl -u myAdmin:myPassword -X POST "https://myserver.hcl.com:443/wps/dxFileTransfer/dft?action=createDir&subDirectory=library_export"
-	```
+    - **Syntax:**
 
-2. Run the WCM data module export URL. You must first sign in to HCL DX or WCM in the same browser before running the command.
+        ```bash
+        curl -u <admin>:<password> -X POST "https://<hostname:port>/<context-root>/dxFileTransfer/dft?action=createDir&subDirectory=<subdirectory-under-the-root-xfer-dir>"
+        ```
 
- 	```
-	 https://myserver.hcl.com/wps/wcm/myconnect?MOD=data&processLibraries=false&taskType=export&exportLibrary=Web+Content&output.dir=/opt/openliberty/wlp/usr/servers/defaultServer/dxFileTransfers/library_export
-	```
+    - **Example:**
 
-	The browser request might time out for long-running calls. It is recommended that you connect to the container and run `wget` or `curl` with the URL after signing in.
+        ```bash
+        curl -u myAdmin:myPassword -X POST "https://myserver.hcl.com:443/wps/dxFileTransfer/dft?action=createDir&subDirectory=library_export"
+        ```
+
+2. Sign in to HCL DX or WCM in your browser, and then run the WCM data module export URL.
+
+    ```http
+    https://myserver.hcl.com/wps/wcm/myconnect?MOD=data&processLibraries=false&taskType=export&exportLibrary=Web+Content&output.dir=/opt/openliberty/wlp/usr/servers/defaultServer/dxFileTransfers/library_export
+    ```
+
+    If the browser request times out during a long-running call, sign in and then connect to the container to run `wget` or `curl` with the URL.
 
 3. Use the `dxFileTransfer` endpoint to download the exported WCM library files as a ZIP archive.
 
-	Format:
-	``` 
-	curl -u <admin>:<password> -o ./<filename>.zip "https://<hostname:port>/<context-root>/dxFileTransfer/dft?action=download&subDirectory=<subdirectory-under-the-root-xfer-dir>&file="
-	```
+    - **Syntax:**
 
-	Example:
-	``` 
-	curl -u myAdmin:myPassword -o ./wcm_library_export.zip "https://myserver.hcl.com:443/wps/dxFileTransfer/dft?action=download&subDirectory=library_export&file="
-	```
+        ```bash
+        curl -u <admin>:<password> -o ./<filename>.zip "https://<hostname:port>/<context-root>/dxFileTransfer/dft?action=download&subDirectory=<subdirectory-under-the-root-xfer-dir>&file="
+        ```
 
-!!! note
-	When `action=download` is used with an empty `file` parameter, `dxFileTransfer` zips the entire subdirectory and returns it as a download.
+    - **Example:**
+
+        ```bash
+        curl -u myAdmin:myPassword -o ./wcm_library_export.zip "https://myserver.hcl.com:443/wps/dxFileTransfer/dft?action=download&subDirectory=library_export&file="
+        ```
+
+    !!! note
+        When you use `action=download` with an empty file parameter, `dxFileTransfer` compresses the entire subdirectory into a ZIP archive and downloads it. <!--confirm accuracy-->
 
 ## Importing WCM libraries
 
-Use the following steps to import a WCM library:
+To import a WCM library, follow these steps:
 
-1. Use the `dxFileTransfer` endpoint to upload the WCM library export ZIP file to the server and extract it into an import subdirectory.
+1. Use the `dxFileTransfer` endpoint to upload the expoted WCM library ZIP file to the server and extract it into an import subdirectory.
 
-	The `dxFileTransfer` endpoint uses the following base root transfer directory: `/opt/openliberty/wlp/usr/servers/defaultServer/dxFileTransfers/`
+    The `dxFileTransfer` endpoint uses the following base root transfer directory: `/opt/openliberty/wlp/usr/servers/defaultServer/dxFileTransfers/`
 
-	Format:
-	``` 
-	curl -u <admin>:<password> -X POST -F "file=@/<zip-file-path>" "https://<hostname:port>/<context-root>/dxFileTransfer/dft?action=upload&unzip=true&deleteZip=true&subDirectory=<subdirectory-under-the-root-xfer-dir>&file=<zip-file-name>"
-	```
+    - **Syntax:**
 
-	Example:
-	``` 
-	curl -u myAdmin:myPassword -X POST -F "file=@/local/path/testLibrary.zip" "https://myserver.hcl.com:443/wps/dxFileTransfer/dft?action=upload&unzip=true&deleteZip=true&subDirectory=library_import&file=/local/path/testLibrary.zip"
-	```
+        ```bash
+        curl -u <admin>:<password> -X POST -F "file=@/<zip-file-path>" "https://<hostname:port>/<context-root>/dxFileTransfer/dft?action=upload&unzip=true&deleteZip=true&subDirectory=<subdirectory-under-the-root-xfer-dir>&file=<zip-file-name>"
+        ```
 
-	When `unzip=true` is used, `dxFileTransfer` extracts the uploaded ZIP file into a directory named after the ZIP file without the `.zip` extension. In this example, the extracted directory is `/opt/openliberty/wlp/usr/servers/defaultServer/dxFileTransfers/library_import/testLibrary`.
+    - **Example:**
+
+        ```bash
+        curl -u myAdmin:myPassword -X POST -F "file=@/local/path/testLibrary.zip" "https://myserver.hcl.com:443/wps/dxFileTransfer/dft?action=upload&unzip=true&deleteZip=true&subDirectory=library_import&file=/local/path/testLibrary.zip"
+        ```
+
+    When you set `unzip=true`, `dxFileTransfer` extracts the uploaded ZIP file into a directory named after the ZIP file (without the `.zip` extension). In this example, the extracted directory is `/opt/openliberty/wlp/usr/servers/defaultServer/dxFileTransfers/library_import/testLibrary`.
 
 2. Run the WCM data module import URL using the extracted directory path.
 
-	```
-	https://myserver.hcl.com/wps/wcm/myconnect?MOD=data&processLibraries=false&taskType=import&input.dir=/opt/openliberty/wlp/usr/servers/defaultServer/dxFileTransfers/library_import/testLibrary
-	```
+    ```http
+    https://myserver.hcl.com/wps/wcm/myconnect?MOD=data&processLibraries=false&taskType=import&input.dir=/opt/openliberty/wlp/usr/servers/defaultServer/dxFileTransfers/library_import/testLibrary
+    ```
 
 !!! note
-	You must log in first to HCL DX or WCM in the same browser before running the command.
+    Sign in to HCL DX or WCM in your browser before you run the command.
