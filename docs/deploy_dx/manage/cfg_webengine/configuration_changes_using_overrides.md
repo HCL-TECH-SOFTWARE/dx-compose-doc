@@ -77,7 +77,8 @@ The following is a sample snippet that shows how to configure the DX Compose ser
 
 - For predefined LDAP types supported by OpenLiberty, use the corresponding filters tags (for example, `idsFilters`, `activedFilters`, `domino50Filters`, `edirectoryFilter`s, `iplanetFilters`, `netscapeFilters`, and `securewayFilters`).
 - For custom LDAP types, use `customFilters` to define your own search filters for users and groups.  
-- If your LDAP directory uses nested groups or hierarchical structures, consider enabling `recursiveSearch` to ensure all relevant entries are retrieved.
+- By default, `recursiveSearch` is set to `false`. If your users belong to nested LDAP groups and the expected group memberships are not found, set `recursiveSearch="true"` and test again to confirm nested group search works.
+- Nested group membership is supported either when your LDAP server supports recursive server-side group search, or when `recursiveSearch` is enabled in Liberty.
 
 For more information, refer to the [Open Liberty LDAP Registry documentation](https://openliberty.io/docs/latest/reference/config/ldapRegistry.html){target="_blank"}.
 
@@ -85,6 +86,8 @@ The `attributeConfiguration` element in the LDAP registry configuration allows y
 
 - `name`: The name of the attribute in the LDAP directory
 - `propertyName`: The name of the attribute to be mapped to. In the following example, the LDAP `mail` attribute is mapped to `ibm-primaryEmail`, which is the attribute used to display the email address of a user. The LDAP `title` attribute is mapped to `ibm-jobTitle`, which is the attribute used to display job title of a user.
+
+The `sslEnabled` attribute controls whether the connection to the LDAP server is made over SSL/TLS. Set it to `true` when your LDAP server requires a secure connection. When `sslEnabled` is `true`, ensure that the LDAP server certificate is trusted by the Liberty keystore, or configure `trustDefaultCerts` as described in [Configuring SSL](#configuring-ssl).
 
 ```xml
 configOverrideFiles:
@@ -95,6 +98,7 @@ configOverrideFiles:
         baseDN="dc=dx,dc=com"
         ldapType="Custom"
         sslEnabled="false"
+        recursiveSearch="false"
         bindDN="cn=dx_user,dc=dx,dc=com"
         bindPassword="p0rtal4u">
           <customFilters
@@ -139,6 +143,7 @@ To set up a custom LDAP server in Liberty, see [Configuring LDAP with Liberty](l
             baseDN='dc=dx,dc=com'
             ldapType='IBM Tivoli Directory Server'
             sslEnabled='false'
+            recursiveSearch='false'
             bindDN='${LDAP_BIND_USER}'
             bindPassword='${LDAP_BIND_PASSWORD}'>
             <idsFilters
