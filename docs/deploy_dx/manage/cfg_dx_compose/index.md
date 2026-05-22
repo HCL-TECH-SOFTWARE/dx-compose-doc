@@ -14,6 +14,8 @@ Learn how to integrate WAB with DX Compose.
 Learn how to enable and disable People Service.
 -   **[Enabling Search V2](./enable_search.md)**  
 Learn how to enable and disable Search V2.
+-   **[Enabling and disabling IQ](./enable_iq.md)**  
+Learn how to enable and disable IQ, the AI-powered intelligent assistant.
 -   **[Integrating Digital Data Connector in DX Compose](./integrate_ddc/index.md)**  
 Learn how to integrate DDC in DX Compose.
 -   **[Installing Content as a Service](./setup_cntnt_serv_pgs.md)**  
