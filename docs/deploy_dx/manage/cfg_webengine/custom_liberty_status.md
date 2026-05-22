@@ -50,7 +50,7 @@ All custom keys are automatically prefixed with `cust_` to prevent access to sys
 
 ### Deploying the script
 
-To deploy the script, place it in your custom plugin directory (for example, `/opt/openliberty/wlp/usr/svrcfg/bin/customer/`) and make sure it is executable. When calling the script from custom startup scripts, use the documented `safe_source` pattern and follow the guidelines described in the [Script guidelines and restrictions](./customize_webengine_image.md#script-guidelines-and-restrictions).
+To deploy the script, place it in your custom plugin directory (for example, `/opt/openliberty/wlp/usr/svrcfg/bin/customer/`) and make sure it is executable. When calling the script from custom startup scripts, follow the guidelines described in the [Script guidelines and restrictions](./customize_webengine_image.md#script-guidelines-and-restrictions).
 
 !!!note
     For step-by-step instructions on adding these scripts to a custom WebEngine image, refer to [Customizing the HCL DX Compose WebEngine image with custom scripts](./customize_webengine_image.md). This topic explains how to copy your startup or update scripts into the image and make them executable so they run automatically at container startup or during Cumulative Fix (CF) updates.
