@@ -4,8 +4,13 @@ This page summarizes Helm values updates across DX Compose releases. Each table 
 
 ### CF236
 
-| Key | Default Value |
-|-----|---------------|
+**Deprecated Keys:**
+
+| Key | Default Value |Removed in|
+|-----|---------------|----------|
+|`enableRootCollectionSort`|<!--insert default value-->|CF237|
+|`enableSoftDelete`|<!--insert default value-->|CF237|
+|`renderNewUI`|<!--insert default value-->|CF237|
 
 ### CF235
 
