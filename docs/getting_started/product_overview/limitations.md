@@ -3,6 +3,7 @@
 ## Limitations
 
 Know the existing limitations of Digital Experience (DX) Compose.
+
 ## Deployment
 
 - You cannot deploy the Core container used in DX offerings and the DX Compose WebEngine Core container together in the same deployment.
