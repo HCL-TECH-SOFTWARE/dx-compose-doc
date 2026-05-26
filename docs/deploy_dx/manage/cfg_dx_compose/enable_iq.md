@@ -12,8 +12,7 @@ Before enabling IQ in DX Compose, ensure the following:
 
 ## IQ configuration
 
-!!! note
-    Determine the Kubernetes service name for your IQ integrator deployment. This is typically `{{ .Release.Name }}-integrator` if deployed using the `hcl-dx-iq` Helm chart. For example, if your `hcl-dx-iq` chart release name is `dx-iq`, it will be `dx-iq-integrator`.
+The Kubernetes service name for your IQ integrator deployment is typically `<release-name>-integrator` based on your `hcl-dx-iq` Helm chart release. For example, if your release name is `dx-iq`, the service name is `dx-iq-integrator`.
 
 Refer to the following sample snippet for configuring the DX Compose server to enable IQ:
 
