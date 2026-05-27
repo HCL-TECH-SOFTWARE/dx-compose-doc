@@ -3,6 +3,7 @@
 ## Limitations
 
 Know the existing limitations of Digital Experience (DX) Compose.
+
 ## Deployment
 
 - You cannot deploy the Core container used in DX offerings and the DX Compose WebEngine Core container together in the same deployment.
@@ -21,7 +22,7 @@ Know the existing limitations of Digital Experience (DX) Compose.
 
 ## Applications and extensions
 
-- You can deploy custom portlets if you purchase the Java Transition Module for DX Compose capabilities. Refer to the Java Transition Module documentation, available to entitled customers in MHS downloads for HCL Java Transition Module for DX Compose, for steps to deploy portlets.
+- You cannot deploy custom portlets unless you have purchased the Java Transition Module for DX Compose. Refer to the Java Transition Module documentation, available to entitled customers in their MHS downloads for the HCL Java Transition Module for DX Compose, for the steps to deploy portlets.
 - Only JSR 168 and JSR 286 portlets are supported.
 - DX Compose runs on different Java and Java EE levels than DX Core on WAS. Your portlets may need to be updated for compatibility with Java 21 and Java EE 8.
 - JavaServer Faces (JSF) portlets are supported for non-production use if you purchase the Java Transition Module for DX Compose capabilities.
