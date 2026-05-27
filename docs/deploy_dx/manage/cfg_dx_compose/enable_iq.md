@@ -6,13 +6,13 @@
 
 Before enabling IQ in DX Compose, ensure the following:
 
-- The IQ backend service (`hcl-dx-iq` Helm chart) is deployed in your Kubernetes cluster and the `dx-iq-integrator` service is running. Contact your HCL DX deployment team or HCL Support for assistance with obtaining and deploying the IQ Helm chart.
+- The IQ backend service (`hcl-dx-iq` Helm chart) is deployed in your Kubernetes cluster and the `dx-iq-integrator` service is running. Contact your HCL DX deployment team or [HCL Support](https://support.hcl-software.com/csm){target="_blank"} for assistance with obtaining and deploying the IQ Helm chart.
 - Network connectivity is available between DX Compose (WebEngine) pods and the IQ backend service.
 - WebSocket connections are not blocked by firewalls or proxies.
 
 ## IQ configuration
 
-The Kubernetes service name for your IQ integrator deployment is typically `<release-name>-integrator` based on your `hcl-dx-iq` Helm chart release. For example, if your release name is `dx-iq`, the service name is `dx-iq-integrator`.
+IQ is deployed using a dedicated Helm chart (`hcl-dx-iq`), separate from the main DX Helm chart (`hcl-dx-deployment`). The Kubernetes service name for your IQ integrator deployment typically follows the `<release-name>-integrator`. For example, if your release name is `dx-iq`, the service name is `dx-iq-integrator`.
 
 Refer to the following sample snippet for configuring the DX Compose server to enable IQ:
 
@@ -22,7 +22,7 @@ networking:
   dxIqService: "dx-iq-integrator"
 ```
 
-Set the value of the key `dxIqService` to the Kubernetes service name of your IQ integrator deployment to enable IQ. To disable IQ, set the value to an empty string (`""`):
+Set the value of the key `dxIqService` to the Kubernetes service name of your IQ integrator deployment to enable IQ. Set the value to an empty string (`""`) to disable IQ:
 
 ```yaml
 networking:
@@ -38,13 +38,13 @@ After updating the `values.yaml` file, perform the following actions:
 
 ## Access
 
-Once IQ is enabled, you will see the following options in the DX user interface:
+Once IQ is enabled, access it using one of the following options:
 
-- A **Sparkle icon** in the toolbar on pages where the Panel view is compatible with the page layout.
+- **In the DX Compose toolbar:** Select the **Open IQ chat** sparkle button in the top toolbar on standard DX pages to open the panel view sidebar.
 
     ![IQ Side Panel Opens](../../../assets/HCL_IQ_Side_Panel_Initial_View.png "IQ side panel opens"){: style="display: block; margin: 0 auto;"}
 
-- A **Floating Action Button (FAB)** on pages where the Panel view would affect the page layout.
+- **In Site Templates pages:** Select the **Open IQ chat** floating sparkle button to open the compact view chat window.
 
     ![IQ Compact view Opens](../../../assets/HCL_IQ_Compact_Chat_Initial_View.png "IQ Compact view opens"){: style="display: block; margin: 0 auto;"}
 
