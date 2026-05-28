@@ -4,8 +4,13 @@ This page summarizes Helm values updates across DX Compose releases. Each table 
 
 ### CF236
 
-| Key | Default Value |
-|-----|---------------|
+**Deprecated Keys:**
+
+| Key | Default Value |Removed in|
+|-----|---------------|----------|
+|`incubator.configuration.digitalAssetManagement.enableRootCollectionSort`|<!--insert default value-->|CF237|
+|`incubator.configuration.digitalAssetManagement.enableSoftDelete`|<!--insert default value-->|CF237|
+|`incubator.configuration.digitalAssetManagement.renderNewUI`|<!--insert default value-->|CF237|
 
 ### CF235
 
