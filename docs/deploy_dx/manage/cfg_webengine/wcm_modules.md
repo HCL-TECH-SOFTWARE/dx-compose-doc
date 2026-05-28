@@ -1,14 +1,14 @@
 # WCM modules
 
-This topic explains how to start Web Content Manager (WCM) modules and import or export WCM libraries in Digital Experience (DX) Compose.
+This topic explains how to use Web Content Manager (WCM) modules and import or export WCM libraries in Digital Experience (DX) Compose.
 
 Use a file transfer utility endpoint to upload and download WCM library files in dynamic subdirectories under a specified root directory on the server.
 
-## Starting WCM modules
+## Using WCM modules
 
 When you run DX Core on WebSphere Application Server (WAS), WCM modules such as the workflow checker, library import and export, and the member fixer [trigger through the ConfigEngine](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_configuration/wcm_adm_tools/wcmlibrary_export/){target="_blank"}.
 
-In DX Compose, you can start WCM modules using HTTP through a browser, Postman, or other tools. For example, the previous WAS command in Core was:
+In DX Compose, you can use WCM modules using HTTP through a browser, Postman, or other tools. For example, the previous WAS command in Core was:
 
 ```bash
 ./ConfigEngine.sh export-wcm-data -DWasPassword=password -DPortalAdminPwd=password -Dexport.directory=/opt/HCL/wp_profile/export -Dexport.libraryname="Web Content"
