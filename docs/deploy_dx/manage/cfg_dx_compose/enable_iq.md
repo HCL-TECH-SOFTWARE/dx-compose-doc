@@ -1,6 +1,6 @@
 # Enabling and disabling IQ
 
-[IQ](https://help.hcl-software.com/digital-experience/9.5/latest/build_sites/iq/){target="_blank"} is an AI-powered intelligent assistant integrated into HCL Digital Experience (DX) that provides real-time, context-aware assistance through a conversational interface. IQ is powered by the Model Context Protocol (MCP) and communicates with the backend service over WebSocket (JSON-RPC 2.0). To enable IQ in DX Compose, you must configure the `networking.dxIqService` parameter in the HCL DX Deployment Helm chart.
+[IQ](https://help.hcl-software.com/digital-experience/9.5/latest/build_sites/iq/){target="_blank"} is an AI-powered assistant integrated into HCL Digital Experience (DX) that provides real-time, context-aware assistance through a conversational interface. IQ is powered by the Model Context Protocol (MCP) and communicates with the backend service over WebSocket (JSON-RPC 2.0). To enable IQ in DX Compose, you must configure the `networking.dxIqService` parameter in the HCL DX Deployment Helm chart.
 
 ## Prerequisites
 
