@@ -6,13 +6,13 @@
 
 Before enabling IQ in DX Compose, ensure the following:
 
-- The IQ backend service (`hcl-dx-iq` Helm chart) is deployed in your Kubernetes cluster and the `dx-iq-integrator` service is running. Contact your HCL DX deployment team or [HCL Support](https://support.hcl-software.com/csm){target="_blank"} for assistance with obtaining and deploying the IQ Helm chart.
+- The IQ backend service (`hcl-dx-iq` Helm chart) is deployed in your Kubernetes cluster and the `dx-iq-integrator` service is running. For more information, refer to [Installing IQ backend services](https://help.hcl-software.com/digital-experience/9.5/latest/build_sites/iq/installation/backend/){target="_blank"}.
 - Network connectivity is available between DX Compose (WebEngine) pods and the IQ backend service.
 - WebSocket connections are not blocked by firewalls or proxies.
 
 ## IQ configuration
 
-IQ is deployed using a dedicated Helm chart (`hcl-dx-iq`), separate from the main DX Helm chart (`hcl-dx-deployment`). The Kubernetes service name for your IQ integrator deployment typically follows the `<release-name>-integrator`. For example, if your release name is `dx-iq`, the service name is `dx-iq-integrator`.
+IQ is deployed using a dedicated Helm chart (`hcl-dx-iq`), separate from the main DX Helm chart (`hcl-dx-deployment`). The IQ backend services run independently as Kubernetes microservices and integrate with DX through service networking and HAProxy routing. The Kubernetes service name for your IQ integrator deployment typically follows the `<release-name>-integrator` format. For example, if your release name is `dx-iq`, the service name is `dx-iq-integrator`.
 
 Refer to the following sample snippet for configuring the DX Compose server to enable IQ:
 
