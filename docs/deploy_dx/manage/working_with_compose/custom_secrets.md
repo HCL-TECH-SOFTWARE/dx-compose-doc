@@ -118,3 +118,19 @@ configuration:
 ```
 
 Perform a [Helm upgrade](../working_with_compose/helm_upgrade_values.md) to apply the changes.
+
+## Advanced configuration of custom secrets
+
+By default the secrets are both, injected as environment variables and mounted as files. You can configure this behavior by using the following syntax in the `values.yaml` file:
+
+```yaml
+configuration: 
+  webEngine:
+    customSecrets: 
+      ldap-credentials: 
+        secretName: my-custom-ldap-credential
+        environmentVariable: true
+        file: true
+```
+
+By setting `environmentVariable` to `false`, the environment variables are not injected into the Pod. By setting `file` to `false`, the files are not mounted in the Pod. You can set either or both of these values to `false` depending on your use case. For example, if you only want to mount the files and not inject environment variables, set `environmentVariable` to `false` and `file` to `true`. The default values for both `environmentVariable` and `file` are `true`.
