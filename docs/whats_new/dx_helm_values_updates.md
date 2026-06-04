@@ -1,6 +1,6 @@
-# DX Compose Helm values updates
+# DX Helm values updates
 
-This page summarizes Helm values updates across DX Compose releases. Each table below details changes introduced in a specific release, including added properties, removed properties, and properties with changed defaults. Use this as a reference when upgrading to ensure compatibility and to guide configuration updates.
+This page summarizes Helm values updates across DX releases. Each table below details changes introduced in a specific release, including added properties, removed properties, and properties with changed defaults. Use this as a reference when upgrading to ensure compatibility and to guide configuration updates.
 
 ### CF236
 
