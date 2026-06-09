@@ -74,7 +74,7 @@ helm upgrade -n <namespace> <release-name> -f custom-values.yaml ./hcl-dx-deploy
 # NOTES:
 # Installation of HCL DX 95_CF224 done.
 
-# See https://opensource.hcltechsw.com/digital-experience/latest/platform/kubernetes/overview/ for further information.
+# See https://help.hcl-software.com/digital-experience/9.5/CF235/get_started/plan_deployment/container_deployment/ for further information.
 # ATTENTION: Maintenance mode is enabled for Pods: webEngine
 ```
 

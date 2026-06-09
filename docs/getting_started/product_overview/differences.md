@@ -1,6 +1,6 @@
 # Differences between DX Compose and DX Core
 
-This topic provides more information about the differences of the Digital Experience (DX) Compose WebEngine container from the [DX Offerings Core container](https://opensource.hcltechsw.com/digital-experience/latest/deployment/install/container/overview/){target="_blank"}.
+This topic provides more information about the differences of the Digital Experience (DX) Compose WebEngine container from the [DX Offerings Core container](https://help.hcl-software.com/digital-experience/9.5/latest/deployment/install/container/overview/){target="_blank"}.
 
 ## Java
 

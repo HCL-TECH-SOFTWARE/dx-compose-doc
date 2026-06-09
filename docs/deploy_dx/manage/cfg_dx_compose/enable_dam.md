@@ -14,7 +14,7 @@ applications:
 Set the value of the key `digitalAssetManagement` to `true` to enable or `false` to disable DAM.
 
 !!!note
-    By default, [DX Picker](https://opensource.hcltechsw.com/digital-experience/latest/manage_content/wcm_authoring/dx_picker/){target="_blank"} is enabled when you enable DAM. When you disable DAM, DX Picker is disabled as well.
+    By default, [DX Picker](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_authoring/dx_picker/){target="_blank"} is enabled when you enable DAM. When you disable DAM, DX Picker is disabled as well.
 
 ## Validation
 
