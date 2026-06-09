@@ -2,7 +2,7 @@
 
 To run HCL Digital Experience Compose 9.5 Container deployments in your Kubernetes or OpenShift cluster, you need to set up PersistentVolumes (PVs) on your cluster and configure the Helm Chart to create the appropriate PersistentVolumeClaims (PVCs).
 
-Before you proceed, review the [Persistent Volumes and related operations considerations](https://opensource.hcltechsw.com/digital-experience/latest/get_started/plan_deployment/container_deployment/persistent_volumes/){target="blank"} topic in the DX Help Center.
+Before you proceed, review the [Persistent Volumes and related operations considerations](https://help.hcl-software.com/digital-experience/9.5/latest/get_started/plan_deployment/container_deployment/persistent_volumes/){target="blank"} topic in the DX Help Center.
 
 !!! note
     The provisioning of PersistentVolumes (PVs) may differ based on your cluster configuration and your cloud provider. Please reference the documentation of your cloud provider for additional information.
