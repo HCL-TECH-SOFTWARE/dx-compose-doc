@@ -96,6 +96,6 @@ hide:
 
     ---
 
-    [:octicons-arrow-right-24: Go to DX 9.5 Help Center](https://opensource.hcltechsw.com/digital-experience/latest/){target="_blank"}
+    [:octicons-arrow-right-24: Go to DX 9.5 Help Center](https://help.hcl-software.com/digital-experience/9.5/latest/){target="_blank"}
 
 </div>

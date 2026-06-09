@@ -39,7 +39,7 @@ Since there are many values that can be configured in the HCL Digital Experience
 
 HCL DX Compose 9.5 Helm Chart provides a default values.yaml, which contains all possible configuration parameters.
 
-To access this file, you may use the following command when you have the HCL DX Compose 9.5 [Helm Chart tar.gz](https://opensource.hcltechsw.com/digital-experience/latest/get_started/plan_deployment/container_deployment#helm-chart-contents){target="blank"} file on hand:
+To access this file, you may use the following command when you have the HCL DX Compose 9.5 [Helm Chart tar.gz](https://help.hcl-software.com/digital-experience/9.5/latest/get_started/plan_deployment/container_deployment/#helm-chart-contents){target="blank"} file on hand:
 
 ``` sh
 # Command to extract values.ymal from Helm Chart

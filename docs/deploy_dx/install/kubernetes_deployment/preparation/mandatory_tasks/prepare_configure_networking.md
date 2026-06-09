@@ -63,7 +63,7 @@ HAProxy is deployed with a `LoadBalancer` type service to handle the incoming tr
 |`strictTransportSecurity.maxAge`|This value is used to set for how long the browser should remember the HSTS rule | Number |`31536000`|
 |`strictTransportSecurity.includeSubDomains`|If this optional parameter is specified, this rule applies to all of the site's subdomains as well. | Boolean |`false`|
 |`strictTransportSecurity.preload`|See [Preloading Strict Transport Security](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security#preloading_strict_transport_security){target="blank"} for details. When using preload, the max-age directive must be at least 31536000 (1 year), and the includeSubDomains directive must be present. This parameter is not part of the HSTS specification. For more information, see [Strict-Transport-Security HTTP Response Header Field](https://www.rfc-editor.org/rfc/rfc6797#section-6.1){target="blank"}. | Boolean |`false`|
-|`sessionCookieName`|This parameter does not directly change the cookie name. Instead, you must set this value if the cookie name is changed in the [console](https://opensource.hcltechsw.com/digital-experience/latest/deployment/manage/config_portal_behavior/http_sessn_cookie){target="blank"}.| String |`JSESSIONID`|
+|`sessionCookieName`|This parameter does not directly change the cookie name. Instead, you must set this value if the cookie name is changed in the [console](https://help.hcl-software.com/digital-experience/9.5/latest/deployment/manage/config_portal_behavior/http_sessn_cookie/){target="blank"}.| String |`JSESSIONID`|
 
 !!!note
     If `ssl` is set to `true`, HAProxy will use the certificate that is supplied as a secret in `networking.tlsCertSecret`.
