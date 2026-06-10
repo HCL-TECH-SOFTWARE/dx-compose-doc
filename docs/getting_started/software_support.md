@@ -25,7 +25,7 @@ For support purposes, we define three categories of configuration:
 
 - **Unsupported Configurations**
 
-    An “Unsupported Configuration” is a combination of HCL Programs and Third Party Software (usually at a specified version, release, fix or specification level) that is known to not work with HCL DX Compose and is therefore not supported.  
+    An “Unsupported Configuration” is a combination of HCL Programs and Third Party Software (usually at a specified version, release, fix or specification level) that is known to not work with HCL DX Compose and is therefore not supported. Unsupported configurations are detailed on the [HCL DX Compose Limitations](./product_overview/limitations.md) page in the DX Compose Help Center.
 
     HCL does not provide support for Unsupported Configurations. Resolutions to deficiencies or incompatibilities found in Unsupported Configurations are not generally available.  
 
