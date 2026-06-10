@@ -73,7 +73,7 @@ You can download multiple files at the same time. Select the files you want to d
 
 ![Download manager](../kubernetes_deployment/images/downloadfiles.png)
 
-If you encounter issues with finding software or downloading files, refer to the [Customer Support FAQ](https://help.hcl-software.com/digital-experience/9.5/latest/guide_me/tutorials/access-software/support-faqs/) section for support.
+If you encounter issues with finding software or downloading files, refer to the [Customer Support FAQ](https://help.hcl-software.com/digital-experience/9.5/latest/get_started/access-software/support-faqs/) section for support.
 
 ## For HCL Business Partners
 
