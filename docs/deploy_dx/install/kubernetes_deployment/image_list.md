@@ -50,6 +50,14 @@ hcl-dx-search-v2.33.0_20260430-1406.tgz
 hcl-dx-webengine-image-CF235_20260429-2302.tar.gz
 ```
 
+### HCL DX Compose UBI levels
+
+This section presents the latest Red Hat Universal Base Image (UBI) level for HCL DX Compose images.
+
+|Image scope|UBI level|
+|-----------|---------|
+|All component images|9.7-1776104705|
+
 <!--
 ## HCL DX 9.5 Compose CF234
 
