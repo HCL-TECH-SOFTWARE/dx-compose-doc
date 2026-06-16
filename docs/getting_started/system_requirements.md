@@ -27,7 +27,7 @@ HCL DX Compose v9.5 requires the following capabilities and products to provide 
 
 |Prerequisite|Minimum and supported versions|
 |------------|------------------------------|
-|Java Runtime Environment IBM Semeru Runtime Open Edition|21.0.10.0.0.7-1 and later maintenance releases|
+|Java Runtime Environment IBM Semeru Runtime Open Edition|21.0.11.0.0.10-LTS and later maintenance releases|
 
 ## Databases
 
