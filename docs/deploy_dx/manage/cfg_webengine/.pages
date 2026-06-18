@@ -7,7 +7,7 @@ nav:
   - Configuring the default basic registry: default_basic_registry_configuration.md
   - Configuring the administrator user and group: configure_default_admin_user.md
   - Database Management: external_db_database_transfer.md
-  - Enabling support for DB2HADR COPY: webengine_db2_hadr.md
+  - Enabling support for DB2HADR: webengine_db2_hadr.md
   - Updating DX properties using Helm values: update_properties_with_helm.md
   - Updating the default administrator password: update_wpsadmin_password.md
   - WCM modules: wcm_modules.md
