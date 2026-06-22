@@ -17,17 +17,17 @@ HCL DX Compose v9.5 is designed to run on any [Certified Kubernetes platform](ht
 
 HCL DX Compose v9.5 requires the following capabilities and products to provide those capabilities:
 
-### OpenLiberty <!--update values-->
+### OpenLiberty
 
 |Prerequisite|Minimum and supported versions|
 |------------|------------------------------|
 |OpenLiberty|26.0.0.3 and later maintenance releases|
 
-### Java Runtime Environment <!--update values-->
+### Java Runtime Environment
 
 |Prerequisite|Minimum and supported versions|
 |------------|------------------------------|
-|Java Runtime Environment IBM Semeru Runtime Open Edition|21.0.11.0.0.10-LTS and later maintenance releases|
+|Java Runtime Environment IBM Semeru Runtime Open Edition|21.0.9+10-LTS and later maintenance releases|
 
 ## Databases
 
