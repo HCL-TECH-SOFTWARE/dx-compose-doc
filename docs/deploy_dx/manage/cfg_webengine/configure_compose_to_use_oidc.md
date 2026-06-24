@@ -57,7 +57,7 @@ Refer to the following steps to enable OIDC authentication in DX Compose:
 
     - If your DX Compose environment uses a different context root, add additional `urlPattern` entries to the `authFilter` for your custom context root. 
 
-    - The `excludeSiteBuilderResource` exclusion shown above is required for Site Builder because `SiteBuilderPortlet` starts a background `SiteCreationTask` that makes an internal server-to-server call back to the portal. If OIDC intercepts this programmatic call, Liberty redirects it to the identity provider, but the background task has no browser context to follow the OIDC redirect, so the call fails and site creation fails.
+    - The `excludeSiteBuilderResource` exclusion shown above is required for Site Builder because `SiteBuilderPortlet` starts a background `SiteCreationTask` that makes an internal server-to-server call. If OIDC intercepts this programmatic call, OpenLiberty redirects it to the identity provider, but the background task has no browser context with which to follow the OIDC redirect. Thus the call fails and so does the site creation.
 
         !!!note
             You must always keep the default `/wps/config` entry, because the server initially starts with the default `/wps` context root and XMLAccess runs before the custom context root is applied.
