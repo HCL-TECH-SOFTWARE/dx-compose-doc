@@ -7,101 +7,138 @@ title: Enabling support for DB2 high availability data replication
 
 Optional: To prevent data loss on DB2, modify the JCR schema to support high availability data replication (HADR) on WebEngine.
 
-Before you enable HADR, use the Database Transfer option in your configuration values configuration templates to transfer your data from Apache Derby to DB2®.
+Before you enable HADR, use the Database Transfer option in your configuration values templates to transfer your data from Apache Derby to DB2®.
 
-!!! tip "Architectural Design and Compliance Guardrails"
-    Read the following tips before you enable support for high availability data replication within your WebEngine containers:
-    -   Do NOT attempt to declare or inject legacy WebSphere-specific properties such as `<transaction>` timeout boundaries (`totalTranLifetimeTimeout`) into your Open Liberty XML DOM templates. Liberty handles timeout isolation contexts cleanly using standalone `<connectionManager>` elements.
-    -   Do NOT set the custom property **enableClientAffinitiesList** to true. It is not necessary with newer DB2 versions. Setting this value to true means that ONLY servers that are listed in the alternative server names list are used for connecting to the database.
-    -   The db2inst1 and lcuser values need to be the same passwords on both DB2 servers.
 
----
+## Database Tier Setup and HADR Provisioning
 
-## Phase 1: Database Tier Schema and Replication Configuration
+To set up an architecture that aligns perfectly with WebEngine connection pooling, both the Primary and Standby host machines must execute DB2 workloads inside Docker containers using host networking modes to avoid NAT-driven log-shipping interference.
 
-1.  **Back up the active JCR database repository schema.** The HADR initialization processes permanently alter the schema layout.
+### Prepare the Host Environments (Both Primary and Standby Nodes)
 
-2.  **Execute JCR wide-table LOB column logging migration.** DB2 HADR setups strictly require all wide-table Large Objects (LOBs) to be logged for standby replication purposes. Unlogged BLOB structures are silently excluded from transaction streams, leading to data corruption on failover.
-    * In a Helm-managed orchestration, your deployment container will automatically identify if `db2HadrEnabled` is flagged true.
-    * On initial primary container cold boot, the startup sequence triggers `reconfigure_jcr_for_hadr.sh` to safely transform column data from `NOT LOGGED BLOB` to `BLOB(1G) LOGGED` inside the `ICMUTMWIDE0` table definitions.
-    * For clustered environments, run this task only from one node to avoid concurrent DDL database modifications.
+On both target database server host machines, run the following commands to install Docker, prepare persistent data mounts, and load the DB2 container image:
 
-3.  **Establish High Availability Ports on the Primary Database Node:**
-    Open an administrative shell terminal on your primary database system and ensure the replication communication parameters match your environment's `/etc/services` routing records:
-    ```text
-    db2c_db2inst1     50000/tcp
-    DB2_HADR_JCR_1    50005/tcp
-    DB2_HADR_JCR_2    50006/tcp
-    DB2_HADR_REL_1    50011/tcp
-    DB2_HADR_REL_2    50012/tcp
-    ```
+1. Create the persistent database storage directory structures:
+   ```bash
+    sudo mkdir -p /opt/Docker/archive
+    sudo mkdir -p /opt/Docker/backup
+   ```
 
-4.  **Configure Database Archiving and HADR Parameters on the Primary Node:**
-    Execute the following command sequence to put the primary instances into an appropriate backup state and provision replication paths:
-    ```bash
-    db2 update db cfg for WPJCR using LOGARCHMETH1 LOGRETAIN
-    db2 "backup database WPJCR"
+    Launch the DB2 container engine on both machines. You must specify the `--network=host` flag so that the HADR high-availability log shipping engine operates directly on the host network interfaces without translation conflicts:
     
-    db2 update db cfg for WPJCR using HADR_LOCAL_HOST IP_ADDRESS_OF_PRIMARY
-    db2 update db cfg for WPJCR using HADR_LOCAL_SVC 50005
-    db2 update db cfg for WPJCR using HADR_REMOTE_HOST IP_ADDRESS_OF_STNDBY
-    db2 update db cfg for WPJCR using HADR_REMOTE_SVC 50006
-    db2 update db cfg for WPJCR using HADR_REMOTE_INST db2inst1
-    db2 update db cfg for WPJCR using HADR_TIMEOUT 120
-    db2 update db cfg for WPJCR using HADR_SYNCMODE NEARSYNC
-    db2 update db cfg for WPJCR using LOGINDEXBUILD ON
-    ```
-
-5.  **Provision the Alternate Client Reroute Map on the Primary Server:**
-    Inform the native database catalog layer about the fallback standby server node route:
-    ```bash
-    db2 UPDATE ALTERNATE SERVER FOR DATABASE WPJCR USING HOSTNAME IP_ADDRESS_OF_STNDBY PORT 50000
-    db2 "backup database WPJCR"
-    ```
-
-6.  **Synchronize and Initialize the Standby Database Node:**
-    Copy the primary database offline backup image parameters over to your fallback node and restore the structure:
-    ```bash
-    db2 "restore database WPJCR"
+        docker run \
+          -h db2server \
+          --name db2server \
+          --restart=always \
+          --detach \
+          --privileged \
+          --network=host \
+          -e DB2INST1_PASSWORD="your_db2inst1_password" \
+          -v /opt/Docker:/database \
+          [quintana-docker.artifactory.cwp.pnp-hcl.com/dx-db2:v11.5](https://quintana-docker.artifactory.cwp.pnp-hcl.com/dx-db2:v11.5)
     
-    db2 update db cfg for WPJCR using HADR_LOCAL_HOST IP_ADDRESS_OF_STNDBY
-    db2 update db cfg for WPJCR using HADR_LOCAL_SVC 50006
-    db2 update db cfg for WPJCR using HADR_REMOTE_HOST IP_ADDRESS_OF_PRIMARY
-    db2 update db cfg for WPJCR using HADR_REMOTE_SVC 50005
-    db2 update db cfg for WPJCR using HADR_REMOTE_INST db2inst1
-    db2 update db cfg for WPJCR using HADR_TIMEOUT 120
-    db2 update db cfg for WPJCR using HADR_SYNCMODE NEARSYNC
-    db2 update db cfg for WPJCR using LOGINDEXBUILD ON
+    (Ensure you replace the image reference with your authorized registry tag path).
     
-    db2 UPDATE ALTERNATE SERVER FOR DATABASE WPJCR USING HOSTNAME IP_ADDRESS_OF_PRIMARY PORT 50000
+
+2. Configure Archive Logging and Base Backups on the Primary Node
+
+    HADR is fundamentally incompatible with standard circular logging modes. You must toggle each of your standalone Portal databases over to archive logging sequentially.
+
+    Log into your Primary Node container shell environment as the database instance owner:
+    ```
+    docker exec -it db2server su - db2inst1
     ```
 
-7.  **Activate High Availability Replication:**
-    Start the engine targets in order, initiating the standby tracking state before starting the primary database node:
-    * **On the Standby System:**
-        ```bash
-        db2 start hadr on database WPJCR as standby
-        ```
-    * **On the Primary System:**
-        ```bash
-        db2 activate database WPJCR
-        db2 start hadr on database WPJCR as primary
-        ```
+    Run the following command series for each target database instance (e.g., WPREL, WPCOMM, WPCUST, WPFDBK, WPLM, WPJCR) to provision local log mounts, activate archive logging, and build the mandatory baseline images:
+    ```
+    # Create matching archive and backup subdirectories
+    mkdir -p /database/archive/WPREL /database/backup/WPREL
 
-8.  **Validate Replication Synchronization:**
-    Verify your cluster state maps correctly using the database utility engine:
-    ```bash
-    db2pd -db WPJCR -hadr
+    # Deactivate the instance to toggle modes offline
+    db2 deactivate db WPREL
+
+    # Explicitly direct transaction log archiving to your persistent mount
+    db2 "UPDATE DB CFG FOR WPREL USING LOGARCHMETH1 'DISK:/database/archive/WPREL/'"
+
+    # Enforce mandatory high availability log tracking constraints
+    db2 "UPDATE DB CFG FOR WPREL USING LOGINDEXBUILD ON BLOCKNONLOGGED YES"
+
+    # Take the foundational full offline backup
+    db2 "backup db WPREL to /database/backup/WPREL/"
+    ```
+    Note the 14-digit backup timestamp generated by the success output string (e.g., 20260423150000).
+
+3. Synchronize and Initialize the Standby Node
+
+    Copy the contents of the /opt/Docker/backup/ and /opt/Docker/archive/ folders from your Primary host machine directly over to the matching paths on the Standby host machine filesystem.
+
+    Log into your Standby Node container shell environment:
+
+    ```
+    docker exec -it db2server su - db2inst1
     ```
 
----
+    Drop any auto-generated default local databases to ensure a clean slate, and restore the primary backup files:
+    ```
+    # Drop conflicting target database if present
+    db2 drop db WPREL
 
-## Phase 2: WebEngine Container Deployment Configuration
+    # Execute plain restore using the exact 14-digit timestamp from the Primary backup
+    db2 "RESTORE DB WPREL FROM /database/backup/WPREL/ TAKEN AT 20260423150000"
+    ```
+
+    CRITICAL RULE: Do not append INTO, REDIRECT, or WITHOUT ROLLING FORWARD syntax elements. This plain restore keeps the standby database in the mandatory roll-forward pending state that HADR requires to accept log synchronization.
+
+4. Map HADR Configuration Parameters
+
+    Each database must have its own unique replication port sequence so that separate internal DB2 listeners can bind cleanly. Increment your base port parameter (e.g., 3700) sequentially for each subsequent database element.
+
+    On the Primary Node (Exec as db2inst1), apply your networking topology parameters:
+    ```
+    db2 "UPDATE DB CFG FOR WPREL USING \
+    HADR_LOCAL_HOST  <PRIMARY_PRIVATE_IP> \
+    HADR_LOCAL_SVC   3700 \
+    HADR_REMOTE_HOST <STANDBY_PRIVATE_IP> \
+    HADR_REMOTE_SVC  3700 \
+    HADR_REMOTE_INST db2inst1 \
+    HADR_SYNCMODE    NEARSYNC"
+    ```
+
+    On the Standby Node (Exec as db2inst1), apply the configuration with the network connection values reversed:
+    ```
+    db2 "UPDATE DB CFG FOR WPREL USING \
+    HADR_LOCAL_HOST  <STANDBY_PRIVATE_IP> \
+    HADR_LOCAL_SVC   3700 \
+    HADR_REMOTE_HOST <PRIMARY_PRIVATE_IP> \
+    HADR_REMOTE_SVC  3700 \
+    HADR_REMOTE_INST db2inst1 \
+    HADR_SYNCMODE    NEARSYNC"
+
+5. Start Replication Linkage (Standby First)
+
+    To avoid disconnection errors, you must activate the engine targets in order, initiating the standby listener before connecting from the primary node.
+
+    On the Standby Node container shell, enter:
+    ```
+    db2 "START HADR ON DB WPREL AS STANDBY"
+    ```
+    On the Primary Node container shell, enter:
+    ```
+    db2 "START HADR ON DB WPREL AS PRIMARY"
+    ```
+
+    Verify Synchronicity: Run this check within your primary shell to ensure that the replication state successfully reaches peer status:
+    ```
+    db2pd -db WPREL -hadr
+    ```
+    Confirm that HADR_STATE = PEER is displayed before connecting the application layer.
+
+## WebEngine Container Deployment Configuration
 
 To wire your containerized Open Liberty application nodes to the newly established database cluster, you must pass high availability parameters directly into your chart attributes.
 
-1.  Open your deployment manifest file (`values.yaml`).
-2.  Locate the `configuration.webEngine` block and update the attributes to enable dynamic client-side failover tracking:
+1. Open your deployment manifest file (`values.yaml`).
+2. Locate the `configuration.webEngine` block and update the attributes to enable dynamic client-side failover tracking:
     ```yaml
     configuration:
       webEngine:
@@ -112,26 +149,24 @@ To wire your containerized Open Liberty application nodes to the newly establish
         db2HadrEnabled: true
         
         # Step C: Supply the alternate target host name mapping records
-        db2HadrStandbyHost: "standby-db2-hadr2.team-q-dev.com"
+        db2HadrStandbyHost: "db2_standy_host"
         db2HadrStandbyPort: "50000"
         
         # Step D: Configure dynamic client re-route parameters
         db2HadrMaxRetries: "20"
         db2HadrRetryInterval: "5"
     ```
-3.  Apply and deploy the configuration parameters upgrade directly to your Kubernetes layout cluster using standard Helm commands:
+3. Apply and deploy the configuration parameters upgrade directly to your Kubernetes layout cluster using standard Helm commands:
     ```bash
     helm upgrade <release-name> hcl-dx/dx-deployment -f values.yaml
     ```
 
----
-
-## Phase 3: On-The-Fly Failover Execution Flow
+## On-The-Fly Failover Execution Flow
 
 Once applied, the application tier automatically handles forward database takeovers and backward recovery switches seamlessly on the fly with zero manual container restarts, pipeline automation steps, or pod deletions.
 
 ### Under-the-Hood Self-Healing Architecture
-1.  **Automatic Client Reroute (ACR):** When an explicit `TAKEOVER HADR` command switches the roles of your databases, the underlying DB2 JCC driver leverages the alternates map generated by `UpdateServerXML.java` to dynamically redirect physical network traffic to the alternate host.
-2.  **Foreground Log Supervisor Monitoring:** To safely evict lingering in-memory lockouts, stale connection handles, and cached blacklists, a non-intrusive foreground supervisor loop runs inside `entryPoint.sh`. It continuously inspects the active application log stream (`SystemOut.log`) for the signature DB2 standby error string (`-1776` or `-1,776`).
-3.  **Graceful Application Termination:** The moment a transaction exception occurs, the supervisor intercepts the log footprint, executes a graceful Open Liberty server stop command (`$SERVER_CMD stop $SERVER`), and exits the script natively using an exit code of `0`.
-4.  **Zero-Downtime Clean State Restoration:** Because the main script runs as PID 1 inside the container, calling `exit 0` terminates the container naturally. Kubernetes instantly captures this termination, pulls down the degraded environment, and spins up a brand-new Pod instance. During this fresh initialization phase, the application establishes clean connection pools directly tied to your newly promoted active primary DB2 node without human intervention.
+1. **Automatic Client Reroute (ACR):** When an explicit `TAKEOVER HADR` command switches the roles of your databases, the underlying DB2 JCC driver leverages the internal database alternates map to dynamically redirect physical network traffic to the alternate host.
+2. **Foreground Log Supervisor Monitoring:** To safely evict lingering in-memory lockouts, stale connection handles, and cached blacklists, a non-intrusive foreground supervisor process monitors the container runtime. It continuously inspects the active application log stream  `(SystemOut.log)` for the signature DB2 standby error string (-1776 or -1,776).
+3. **Graceful Application Termination:** The moment a transaction exception occurs, the supervisor intercepts the log footprint, executes a graceful application server stop command, and exits the runtime process natively using a standard success exit code `(0)`.
+4. **Zero-Downtime Clean State Restoration:** Because the primary application script manages the container lifecycle, exiting cleanly terminates the container naturally. Kubernetes instantly captures this termination, pulls down the degraded environment, and spins up a brand-new Pod instance. During this fresh initialization phase, the application establishes clean connection pools directly tied to your newly promoted active primary DB2 node without human intervention.
