@@ -55,7 +55,7 @@ Refer to the following steps to enable OIDC authentication in DX Compose:
             <openidConnectClient id="client01" authFilterRef="oidcAuthFilter"
             ```
 
-        The `excludeSiteBuilderResource` exclusion is required for Site Builder. The `SiteBuilderPortlet` initiates a background `SiteCreationTask` that makes an internal server-to-server call. When OIDC intercepts this programmatic call, Open Liberty redirects the request to the identity provider. The background task lacks the browser context to follow this redirect, causing the internal call to fail and preventing successful site creation.
+        The `excludeSiteBuilderResource` exclusion is required for Site Builder. The `SiteBuilderPortlet` initiates a background `SiteCreationTask` that makes an internal server-to-server call. When OIDC intercepts this programmatic call, Open Liberty redirects the request to the identity provider, but the background task lacks the browser context to follow this redirect, causing the internal call to fail and preventing successful site creation.
 
     - If your DX Compose environment uses a different context root, add additional `urlPattern` entries to the `authFilter` for your custom context root.
 
