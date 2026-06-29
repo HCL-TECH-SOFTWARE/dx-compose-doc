@@ -206,19 +206,22 @@ When `db2HadrEnabled: true` is set, WebEngine's startup routine injects DB2 Auto
 For each domain, the generated `<properties.db2.jcc>` element receives:
 
 ```xml
-<dataSource id="jcr" type="javax.sql.XADataSource" ...>
-  <jdbcDriver libraryRef="global"
-              javax.sql.XADataSource="com.ibm.db2.jcc.DB2XADataSource" />
+<dataSource id="jcr" isolationLevel="TRANSACTION_READ_COMMITTED" jndiName="jdbc/jcrdbDS"
+            statementCacheSize="10" type="javax.sql.XADataSource">
+  <jdbcDriver javax.sql.XADataSource="com.ibm.db2.jcc.DB2XADataSource" libraryRef="global"/>
   <properties.db2.jcc
-    serverName="db2_primary_host"
+    serverName="<primary_host>"
     portNumber="50000"
     databaseName="WPJCR"
-    clientRerouteAlternateServerName="&lt;standby_host&gt;"
+    driverType="4"
+    clientRerouteAlternateServerName="<standby_host>"
     clientRerouteAlternatePortNumber="50000"
     maxRetriesForClientReroute="20"
     retryIntervalForClientReroute="5"
-    ... />
-  <connectionManager maxPoolSize="100" minPoolSize="10" ... />
+    user="db2inst1"
+    password="{xor}..."/>
+  <connectionManager agedTimeout="7200" connectionTimeout="180" maxIdleTime="1800"
+                     maxPoolSize="100" minPoolSize="10" purgePolicy="EntirePool" reapTime="180"/>
 </dataSource>
 ```
 
