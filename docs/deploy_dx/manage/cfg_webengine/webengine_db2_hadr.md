@@ -42,7 +42,7 @@ If you operate your database tier inside a containerized ecosystem, perform the 
       --network=host \
       -e DB2INST1_PASSWORD="your_db2inst1_password" \
       -v /opt/Docker:/database \
-      quintana-docker.artifactory.cwp.pnp-hcl.com/dx-db2:v11.5
+      <your-authorized-registry>/dx-db2:<version>
     ```
 
     (Ensure you replace the image reference with your authorized registry tag path).
@@ -199,12 +199,59 @@ To wire your containerized Open Liberty application nodes to the newly establish
     helm upgrade <release-name> hcl-dx/dx-deployment -f values.yaml
     ```
 
+### Liberty server.xml: Automatic Client Reroute Attributes
+
+When `db2HadrEnabled: true` is set, WebEngine's startup routine injects DB2 Automatic Client Reroute (ACR) attributes into every DB2 datasource element in `server.xml` before Liberty starts. This applies to all domains whose `DbType` is `db2` — `release`, `jcr`, `community`, `customization`, `feedback`, and `likeminds`.
+
+For each domain, the generated `<properties.db2.jcc>` element receives:
+
+```xml
+<dataSource id="jcr" type="javax.sql.XADataSource" ...>
+  <jdbcDriver libraryRef="global"
+              javax.sql.XADataSource="com.ibm.db2.jcc.DB2XADataSource" />
+  <properties.db2.jcc
+    serverName="db2_primary_host"
+    portNumber="50000"
+    databaseName="WPJCR"
+    clientRerouteAlternateServerName="&lt;standby_host&gt;"
+    clientRerouteAlternatePortNumber="50000"
+    maxRetriesForClientReroute="20"
+    retryIntervalForClientReroute="5"
+    ... />
+  <connectionManager maxPoolSize="100" minPoolSize="10" ... />
+</dataSource>
+```
+
+The values for `clientRerouteAlternateServerName`, `clientRerouteAlternatePortNumber`, `maxRetriesForClientReroute`, and `retryIntervalForClientReroute` are sourced from the Helm values (`db2HadrStandbyHost`, `db2HadrStandbyPort`, `db2HadrMaxRetries`, `db2HadrRetryInterval`) applied at container startup.
+
+**Important:** `enableClientAffinitiesList` and `enableSeamlessFailover` are intentionally **not** set. Liberty uses `DB2XADataSource` (XA/global transactions) for all DB2 datasources. Those properties trigger standby role-probing at XA connection creation time, causing `SQL1776N` errors on the standby. Plain ACR with retry counts is sufficient: after primary failure the DB2 JCC driver retries the alternate host, which by that point has completed HADR takeover and accepts connections as the new primary.
+
 ## On-The-Fly Failover Execution Flow
 
 Once applied, the application tier automatically handles forward database takeovers and backward recovery switches seamlessly on the fly with zero manual container restarts, pipeline automation steps, or pod deletions.
 
 ### Under-the-Hood Self-Healing Architecture
 1. **Automatic Client Reroute (ACR):** When an explicit `TAKEOVER HADR` command switches the roles of your databases, the underlying DB2 JCC driver leverages the internal database alternates map to dynamically redirect physical network traffic to the alternate host.
-2. **Foreground Log Supervisor Monitoring:** To safely evict lingering in-memory lockouts, stale connection handles, and cached blacklists, a non-intrusive foreground supervisor process monitors the container runtime. It continuously inspects the active application log stream  `(SystemOut.log)` for the signature DB2 standby error string (-1776 or -1,776).
+2. **Foreground Log Supervisor Monitoring:** To safely evict lingering in-memory lockouts, stale connection handles, and cached blacklists, a non-intrusive foreground supervisor process monitors the container runtime. It continuously inspects the active application log stream `(SystemOut.log)` for the signature DB2 standby error string (`-1776` or `-1,776`).
 3. **Graceful Application Termination:** The moment a transaction exception occurs, the supervisor intercepts the log footprint, executes a graceful application server stop command, and exits the runtime process natively using a standard success exit code `(0)`.
 4. **Zero-Downtime Clean State Restoration:** Because the primary application script manages the container lifecycle, exiting cleanly terminates the container naturally. Kubernetes instantly captures this termination, pulls down the degraded environment, and spins up a brand-new Pod instance. During this fresh initialization phase, the application establishes clean connection pools directly tied to your newly promoted active primary DB2 node without human intervention.
+
+### Liberty Behavior When Standby Becomes Primary
+
+When HADR takeover completes and the standby node is promoted to primary, the following sequence occurs on the Liberty/WebEngine side:
+
+1. **In-flight transactions fail with `SQL1776N`:** Any active DB2 XA transaction that was routed to the old primary receives `SQLCODE -1776` — the DB2 error indicating a command was issued on a standby database. Liberty surfaces this in `SystemOut.log` as a datasource connection or transaction error.
+
+2. **ACR retry loop activates:** For new connection requests, the DB2 JCC driver reads `clientRerouteAlternateServerName` and `clientRerouteAlternatePortNumber` from the datasource config in `server.xml` and begins retrying against the standby's address (now the new primary). It retries up to `maxRetriesForClientReroute` times, waiting `retryIntervalForClientReroute` seconds between attempts.
+
+3. **Foreground supervisor detects `-1776`:** A foreground supervisor process monitors `SystemOut.log` and matches the `-1776` error pattern. Once detected, it triggers a clean Liberty server shutdown and exits with code `0`.
+
+4. **Kubernetes restarts the pod:** The clean exit triggers Kubernetes to pull the terminated pod and schedule a fresh replacement. On pod startup, `server.xml` rebuilds with the same ACR attributes pointing to the promoted node. Liberty initialises clean connection pools against the new primary and resumes normal operation.
+
+5. **No manual intervention required:** The `server.xml` datasource configuration does not change between restarts — `clientRerouteAlternateServerName` continues pointing to the original standby host address, which now acts as the new primary. No Helm upgrade or config change is needed.
+
+## Further Reference
+
+For full details on Open Liberty datasource configuration and DB2 JCC client reroute properties, see the Open Liberty documentation:
+
+- [Open Liberty `dataSource` configuration reference](https://openliberty.io/docs/latest/reference/config/dataSource.html#dataSource/properties.db2.jcc) — covers `clientRerouteAlternateServerName`, `clientRerouteAlternatePortNumber`, `maxRetriesForClientReroute`, and `retryIntervalForClientReroute` attributes on `properties.db2.jcc`.
