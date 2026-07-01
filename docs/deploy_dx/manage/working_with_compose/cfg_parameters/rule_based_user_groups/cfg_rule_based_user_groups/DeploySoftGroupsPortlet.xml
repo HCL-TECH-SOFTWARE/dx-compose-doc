@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	=================================================================
+	* Licensed Materials - Property of HCL Technologies
+	* (c) Copyright HCL Technologies 2026.  All rights reserved.
+	=================================================================
+-->
+<request xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="PortalConfig_8.0.0.xsd"
+         type="update" create-oids="true">
+
+    <portal action="locate">
+
+        <web-app action="update" uid="wp.portlets.softgroups.war" active="true" predeployed="true">
+
+            <url>file://$server_root$/servers/defaultServer/resources/portlets/wp.portlets.softgroups.war</url>
+
+            <context-root>/wps/PA_Softgroups</context-root>
+
+            <display-name>softgroups.portlet</display-name>
+
+            <portlet-app action="update" active="true" name="softgroups.portlet" uid="softgroups.portlet">
+                <portlet action="update" active="true" name="softgroups.portlet"/>
+            </portlet-app>
+        </web-app>
+    </portal>
+</request>
