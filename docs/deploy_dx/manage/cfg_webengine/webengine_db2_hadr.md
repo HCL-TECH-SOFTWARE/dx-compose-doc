@@ -250,11 +250,11 @@ The configuration maps the Helm values to the XML attributes at container startu
 
 During a DB2 HADR takeover, the application tier automatically manages failover and recovery without manual configuration updates or pod deletions.
 
-1. Active DB2 XA transactions routed to the original primary node return error `SQL1776N` (command issued on a standby database). Open Liberty logs this error in the `SystemOut.log` file.
-2. For new connection requests, the DB2 JCC driver reads the alternate server attributes (`clientRerouteAlternateServerName` and `clientRerouteAlternatePortNumber`) from the `server.xml` file and retries the connection against the standby node address up to the limit specified in the `maxRetriesForClientReroute` attribute.
-3. A supervisor process monitors the `SystemOut.log` file. When it detects the `-1776` error string, it stops the Liberty server gracefully and exits the container with code `0`.
-4. Kubernetes detects the container exit and automatically replaces the pod.
-5. On startup, the new pod creates new connection pools, and the DB2 JCC driver connects directly to the new primary DB2 node without requiring configuration changes or a Helm upgrade.
+1. Active DB2 XA transactions on the original primary node drop and return a `SQL1776N` error, which Open Liberty records in `SystemOut.log` as `-1776` or `-1,776`.
+2. For new connection requests, the DB2 JCC driver reads the alternate server attributes (`clientRerouteAlternateServerName` and `clientRerouteAlternatePortNumber`) from `server.xml` and retries the connection against the standby node address. The driver retries up to the limit specified in `maxRetriesForClientReroute`, waiting the number of seconds defined in `retryIntervalForClientReroute` between attempts to allow the takeover to finish.
+3. To safely evict stale connection handles, cached blacklists, and lingering in-memory lockouts that the driver-level reroute cannot clear, a supervisor process monitors `SystemOut.log`. When it matches the `-1776` or `-1,776` error string, it triggers a graceful Liberty server shutdown and exits the container with code `0`.
+4. Kubernetes detects the container termination and automatically replaces the pod.
+5. On pod startup, `server.xml` rebuilds with the original configuration attributes. The DB2 JCC driver attempts to connect to the old primary address, then reroutes initialization traffic to the alternate address (the new primary). This establishes clean connection pools without requiring configuration changes or a Helm upgrade.
 
 ???+ info "Related information"
     - [Open Liberty `dataSource` configuration reference](https://openliberty.io/docs/latest/reference/config/dataSource.html#dataSource/properties.db2.jcc){target="_blank"}
