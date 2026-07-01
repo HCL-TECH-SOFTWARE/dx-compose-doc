@@ -11,7 +11,7 @@ Add or update the following section in your `custom-values.yaml` file:
 softGroups:
   # If softgroups enabled for this server: true or false
   enabled: true
-  # If enabled, the JNDI name of the DB
+  # If enabled, the JNDI name of the DB datasource
   dbJndi: "jdbc/sgdbDS"
   # If enabled, the schema containing the SoftGroup table
   dbSchema: "SoftGroups"
