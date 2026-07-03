@@ -82,9 +82,6 @@ Refer to the following steps to stage your solutions from the source system to t
 
 9. Transfer the WebDAV themes from the source system to the target system.
 
-    !!!note
-        WebEngine currently does not support deployment of custom EAR files that persist. Only WebDAV-based themes are supported.
-
     1. Locate your custom themes on the source system using the Theme Manager in WebEngine. Take note of the names you have assigned to the themes.
 
     2. Using [a WebDAV client](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_delivery/webdav/){target="_blank"} on your local operating system, create an archive using the TAR utility or compress the files in ZIP format for the custom themes from the WebDAV file system.
