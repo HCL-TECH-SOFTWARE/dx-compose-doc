@@ -22,12 +22,6 @@ If you are deploying the HCL DX 9.5 Compose CF236 release, the following softwar
 - HCL Leap 9.3.x for use with DX Compose
 - HCL Volt Foundry 9.5.x for use with DX Compose
 
-### HCL Java Transition Module for DX Compose
-
-```
-HCL Java Transition Module for DX Compose_CF236.pdf
-```
-
 ### hcl-compose-kubernetes-CF236.zip
 
 ```shell
