@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Put resource info to add here -->
+<!-- 1 [language 1I_0000000000000000000000K010] -->
+<!-- 2 [markup L_00000000000000000000008010] -->
+<!-- 3 [client M_0000000000000000000000C010] -->
+<request require-defined-oids="true" type="update" version="8.5.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="PortalConfig_8.5.0.xsd">
+    <portal action="locate">
+<!-- Put resource to add in here -->
+        <language action="update" bidi="false" domain="rel" locale="en" objectid="1I_0000000000000000000000K010">
+            <localedata locale="ar">
+                <title>English</title>
+            </localedata>
+            <localedata locale="ca">
+                <title>English</title>
+            </localedata>
+            <localedata locale="cs">
+                <title>English</title>
+            </localedata>
+            <localedata locale="da">
+                <title>English</title>
+            </localedata>
+            <localedata locale="de">
+                <title>English</title>
+            </localedata>
+            <localedata locale="el">
+                <title>English</title>
+            </localedata>
+            <localedata locale="en">
+                <title>English</title>
+            </localedata>
+            <localedata locale="es">
+                <title>English</title>
+            </localedata>
+            <localedata locale="fi">
+                <title>English</title>
+            </localedata>
+            <localedata locale="fr">
+                <title>English</title>
+            </localedata>
+            <localedata locale="hr">
+                <title>English</title>
+            </localedata>
+            <localedata locale="hu">
+                <title>English</title>
+            </localedata>
+            <localedata locale="it">
+                <title>English</title>
+            </localedata>
+            <localedata locale="iw">
+                <title>English</title>
+            </localedata>
+            <localedata locale="ja">
+                <title>English</title>
+            </localedata>
+            <localedata locale="ko">
+                <title>English</title>
+            </localedata>
+            <localedata locale="nl">
+                <title>English</title>
+            </localedata>
+            <localedata locale="no">
+                <title>English</title>
+            </localedata>
+            <localedata locale="pl">
+                <title>English</title>
+            </localedata>
+            <localedata locale="pt">
+                <title>English</title>
+            </localedata>
+            <localedata locale="pt_BR">
+                <title>English</title>
+            </localedata>
+            <localedata locale="ro">
+                <title>English</title>
+            </localedata>
+            <localedata locale="ru">
+                <title>English</title>
+            </localedata>
+            <localedata locale="sk">
+                <title>English</title>
+            </localedata>
+            <localedata locale="sl">
+                <title>English</title>
+            </localedata>
+            <localedata locale="sv">
+                <title>English</title>
+            </localedata>
+            <localedata locale="th">
+                <title>English</title>
+            </localedata>
+            <localedata locale="tr">
+                <title>English</title>
+            </localedata>
+            <localedata locale="uk">
+                <title>English</title>
+            </localedata>
+            <localedata locale="zh">
+                <title>English</title>
+            </localedata>
+            <localedata locale="zh_TW">
+                <title>English</title>
+            </localedata>
+        </language>
+        <markup action="update" active="true" default-charset="UTF-8" domain="rel" mimetype="text/html" name="html" objectid="L_00000000000000000000008010">
+            <localedata charset="UTF-8" locale="ar">
+                <title>HTML</title>
+            </localedata>
+            <localedata charset="UTF-8" locale="ca">
+                <title>HTML</title>
+            </localedata>
+            <localedata charset="UTF-8" locale="cs">
+                <title>HTML</title>
+            </localedata>
+            <localedata charset="UTF-8" locale="da">
+                <title>HTML</title>
+            </localedata>
+            <localedata charset="UTF-8" locale="de">
+                <title>HTML</title>
+            </localedata>
+            <localedata charset="UTF-8" locale="el">
+                <title>HTML</title>
+            </localedata>
+            <localedata charset="UTF-8" locale="en">
+                <title>HTML</title>
+            </localedata>
+            <localedata charset="UTF-8" locale="es">
+                <title>HTML</title>
+            </localedata>
+            <localedata charset="UTF-8" locale="fi">
+                <title>HTML</title>
+            </localedata>
+            <localedata charset="UTF-8" locale="fr">
+                <title>HTML</title>
+            </localedata>
+            <localedata charset="UTF-8" locale="hr">
+                <title>HTML</title>
+            </localedata>
+            <localedata charset="UTF-8" locale="hu">
+                <title>HTML</title>
+            </localedata>
+            <localedata charset="UTF-8" locale="it">
+                <title>HTML</title>
+            </localedata>
+            <localedata charset="UTF-8" locale="iw">
+                <title>HTML</title>
+            </localedata>
+            <localedata charset="UTF-8" locale="ja">
+                <title>HTML</title>
+            </localedata>
+            <localedata charset="UTF-8" locale="ko">
+                <title>HTML</title>
+            </localedata>
+            <localedata charset="UTF-8" locale="nl">
+                <title>HTML</title>
+            </localedata>
+            <localedata charset="UTF-8" locale="no">
+                <title>HTML</title>
+            </localedata>
+            <localedata charset="UTF-8" locale="pl">
+                <title>HTML</title>
+            </localedata>
+            <localedata charset="UTF-8" locale="pt">
+                <title>HTML</title>
+            </localedata>
+            <localedata charset="UTF-8" locale="pt_BR">
+                <title>HTML</title>
+            </localedata>
+            <localedata charset="UTF-8" locale="ro">
+                <title>HTML</title>
+            </localedata>
+            <localedata charset="UTF-8" locale="ru">
+                <title>HTML</title>
+            </localedata>
+            <localedata charset="UTF-8" locale="sk">
+                <title>HTML</title>
+            </localedata>
+            <localedata charset="UTF-8" locale="sl">
+                <title>HTML</title>
+            </localedata>
+            <localedata charset="UTF-8" locale="sv">
+                <title>HTML</title>
+            </localedata>
+            <localedata charset="UTF-8" locale="th">
+                <title>HTML</title>
+            </localedata>
+            <localedata charset="UTF-8" locale="tr">
+                <title>HTML</title>
+            </localedata>
+            <localedata charset="UTF-8" locale="uk">
+                <title>HTML</title>
+            </localedata>
+            <localedata charset="UTF-8" locale="zh">
+                <title>HTML</title>
+            </localedata>
+            <localedata charset="UTF-8" locale="zh_TW">
+                <title>HTML</title>
+            </localedata>
+        </markup>
+        <client action="update" domain="rel" markup="html" name="Default HTML Client" objectid="M_0000000000000000000000C010" ordinal="1">
+            <useragent-pattern>.*</useragent-pattern>
+        </client>
+    </portal>
+</request>
