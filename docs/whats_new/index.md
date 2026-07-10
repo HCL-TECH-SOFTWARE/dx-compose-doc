@@ -2,6 +2,7 @@
 
 Find out the latest features, enhancements, and fixes included in the most recent Cumulative Fix (CF) of HCL Digital Experience (DX) Compose.
 
+- **[What's new in CF236](cf236.md)**
 - **[What's new in CF235](cf235.md)**
 - **[What's new in CF234](cf234.md)**
 - **[What's new in CF233](cf233.md)**
@@ -15,7 +16,7 @@ Find out the latest features, enhancements, and fixes included in the most recen
 - **[What's new in CF225](cf225.md)**  
 - **[Features available with DX Compose V9.5 CF224](cf224.md)**
 
-For more information on Helm values that were added, removed, or updated for each DX Compose release, refer to [DX Compose Helm values updates](dx_compose_helm_values_updates.md).
+For more information on Helm values that were added, removed, or updated for each DX Compose release, refer to [DX Compose Helm values updates](dx_helm_values_updates.md).
 
 ## Access the latest HCL Digital Experience 9.5 Education Materials on HCLSoftware U
 

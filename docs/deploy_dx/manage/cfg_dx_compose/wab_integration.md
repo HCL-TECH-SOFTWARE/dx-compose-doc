@@ -69,13 +69,13 @@ After enabling WAB and performing a Helm upgrade, the portal administrator shoul
 
 3. Click **Content Provider Profiles > Create Content Provider Profiles**.
 
-4. Create the content provider profiles. For more information, see [Content provider profiles](https://opensource.hcltechsw.com/digital-experience/latest/extend_dx/integration/wab/wab/h_wab_provider/){target="_blank"}.
+4. Create the content provider profiles. For more information, see [Content provider profiles](https://help.hcl-software.com/digital-experience/9.5/latest/extend_dx/integration/wab/wab/h_wab_provider/){target="_blank"}.
 
 5. Go to the profile you created and create a policy by clicking **Add policy**. Create at least one policy for the content provider profile.
 
 6. Click **Web Dock Applications > Create Web Dock Applications**.
 
-7. Create the web dock applications. For more information, see [Web dock applications](https://opensource.hcltechsw.com/digital-experience/latest/extend_dx/integration/wab/wab/h_wab_dock/){target="_blank"}.
+7. Create the web dock applications. For more information, see [Web dock applications](https://help.hcl-software.com/digital-experience/9.5/latest/extend_dx/integration/wab/wab/h_wab_dock/){target="_blank"}.
 
 8. Go to the web dock application you created and select one of the following tabs:
 
