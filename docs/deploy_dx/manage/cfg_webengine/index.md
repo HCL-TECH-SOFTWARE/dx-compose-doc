@@ -6,7 +6,7 @@ In this topic, you will learn how to configure the different features and servic
 Learn about the directory structure and know the different configurations used in WebEngine.
 - **[WebEngine server configuration](server_configuration.md)**  
 Learn about the WebEngine server configuration and understand the different features, services, and libraries configured to run applications.
-- **[DX Compose WebEngine configuration changes using overrides](configuration_changes_using_overrides.md)**  
+- **[DX WebEngine configuration changes using overrides](configuration_changes_using_overrides.md)**  
 Learn how to update the `server.xml` properties and how to configure the DX Compose WebEngine server using `configOverrideFiles`.
 - **[Using an external database and database transfer](external_db_database_transfer.md)**  
 Learn how to connect to an external database and transfer the content of the Derby database to the external database.
@@ -18,6 +18,8 @@ Learn how to use the Helm chart's `values.yaml` file to add, update, or delete D
 Learn how to update the default `wpsadmin` password.
 - **[WCM modules](wcm_modules.md)**  
 Learn how to trigger WCM modules and import WCM libraries.
+- **[Exporting and importing a web content library copy](wcmlibrary_exportcopy.md)**  
+Learn how to export and import WCM library copies.
 - **[Tuning the initial DX Compose performance](tune_initial_portal_performance.md)**  
 Learn how to perform initial tuning on DX Compose before load testing.
 - **[Configuring DX Compose to use OpenID Connect (OIDC) identity provider](configure_compose_to_use_oidc.md)**  

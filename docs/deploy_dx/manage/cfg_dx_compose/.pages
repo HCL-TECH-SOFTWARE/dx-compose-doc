@@ -1,12 +1,14 @@
+title: Configuring DX Compose
 nav:
-  - index.md
-  - enable_cc.md
-  - enable_dam.md
-  - enable_content_ai.md
-  - wab_integration.md
-  - enable_people_service.md
-  - enable_search.md
-  - optional_install_new_search.md
-  - integrate_ddc
-  - setup_cntnt_serv_pgs.md
-  - configure_sso
+    - index.md
+    - enable_cc.md
+    - enable_dam.md
+    - enable_content_ai.md
+    - wab_integration.md
+    - enable_people_service.md
+    - enable_search.md
+    - enable_iq.md
+    - optional_install_new_search.md
+    - integrate_ddc
+    - setup_cntnt_serv_pgs.md
+    - configure_sso
