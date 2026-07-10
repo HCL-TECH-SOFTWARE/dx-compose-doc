@@ -473,6 +473,8 @@ function OptanonWrapper() { }
       
         
       
+        
+      
     
     
       
@@ -519,6 +521,8 @@ function OptanonWrapper() { }
       
         
           
+        
+      
         
       
         
@@ -761,6 +765,8 @@ function OptanonWrapper() { }
       
         
           
+        
+      
         
       
         
@@ -1624,7 +1630,7 @@ function OptanonWrapper() { }
 </div>
 </li>
 <li>
-<p>Configure the XMLAccess and Search Authentication Filter (<code>authFilter</code>) to prevent XMLAccess configuration scripts and Search V2 endpoints from being redirected to the OIDC provider. This filter excludes XMLAccess and seedlist endpoints from OIDC authentication.</p>
+<p>Configure the XMLAccess and Search Authentication Filter (<code>authFilter</code>) to prevent XMLAccess configuration scripts, Search V2 endpoints, and Site Builder background task URLs from being redirected to the OIDC provider.</p>
 <ul>
 <li>
 <p>If your <code>oidc.yaml</code> does not have the <code>authFilter</code>:</p>
@@ -1634,6 +1640,7 @@ function OptanonWrapper() { }
 <div class="language-xml highlight"><pre><span></span><code><span class="nt">&lt;authFilter</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;oidcAuthFilter&quot;</span><span class="nt">&gt;</span>
 <span class="w">    </span><span class="nt">&lt;requestUrl</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;excludeXMLAccess&quot;</span><span class="w"> </span><span class="na">urlPattern=</span><span class="s">&quot;/wps/config&quot;</span><span class="w"> </span><span class="na">matchType=</span><span class="s">&quot;notContain&quot;</span><span class="nt">/&gt;</span>
 <span class="w">    </span><span class="nt">&lt;requestUrl</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;excludeSeedlist&quot;</span><span class="w"> </span><span class="na">urlPattern=</span><span class="s">&quot;/wps/seedlist/myserver&quot;</span><span class="w"> </span><span class="na">matchType=</span><span class="s">&quot;notContain&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;requestUrl</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;excludeSiteBuilderResource&quot;</span><span class="w"> </span><span class="na">urlPattern=</span><span class="s">&quot;TASK_CREATE_SITE=&quot;</span><span class="w"> </span><span class="na">matchType=</span><span class="s">&quot;notContain&quot;</span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/authFilter&gt;</span>
 </code></pre></div>
 </li>
@@ -1643,12 +1650,13 @@ function OptanonWrapper() { }
 </code></pre></div>
 </li>
 </ol>
+<p>The <code>excludeSiteBuilderResource</code> exclusion is required for Site Builder. The <code>SiteBuilderPortlet</code> initiates a background <code>SiteCreationTask</code> that makes an internal server-to-server call. When OIDC intercepts this programmatic call, Open Liberty redirects the request to the identity provider, but the background task lacks the browser context to follow this redirect, causing the internal call to fail and preventing successful site creation.</p>
 </li>
 <li>
-<p>If your DX Compose environment uses a different context root, add additional <code>urlPattern</code> entries to the <code>authFilter</code> for your custom context root. </p>
+<p>If your DX Compose environment uses a different context root, add additional <code>urlPattern</code> entries to the <code>authFilter</code> for your custom context root.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>You must always keep the default <code>/wps/config</code> entry, because the server initially starts with the default <code>/wps</code> context root and XMLAccess runs before the custom context root is applied.</p>
+<p>Always retain the default <code>/wps/config</code> entry. The server initially starts with the default <code>/wps</code> context root, and XMLAccess runs before the system applies the custom context root.</p>
 </div>
 <ul>
 <li>Default (<code>wps</code>): <ul>
@@ -1717,7 +1725,7 @@ function OptanonWrapper() { }
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="February 19, 2026 12:51:11 UTC">February 19, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 26, 2026 17:43:30 UTC">June 26, 2026</span>
   </span>
 
     

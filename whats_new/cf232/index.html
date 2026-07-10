@@ -475,6 +475,8 @@ function OptanonWrapper() { }
       
         
       
+        
+      
     
     
       
@@ -519,6 +521,27 @@ function OptanonWrapper() { }
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cf236/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    What's new in CF236
+  </span>
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -684,18 +707,18 @@ function OptanonWrapper() { }
 </li>
       
         <li class="md-nav__item">
-  <a href="#presentation-designer-direction-specific-styling-for-bidirectional-text-layouts" class="md-nav__link">
+  <a href="#openliberty-and-jre-versions" class="md-nav__link">
     <span class="md-ellipsis">
-      Presentation Designer - Direction-specific styling for bidirectional text layouts
+      OpenLiberty and JRE versions
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#openliberty-and-jre-versions" class="md-nav__link">
+  <a href="#presentation-designer-direction-specific-styling-for-bidirectional-text-layouts" class="md-nav__link">
     <span class="md-ellipsis">
-      OpenLiberty and JRE versions
+      Presentation Designer - Direction-specific styling for bidirectional text layouts
     </span>
   </a>
   
@@ -894,11 +917,11 @@ function OptanonWrapper() { }
   
   
     <li class="md-nav__item">
-      <a href="../dx_compose_helm_values_updates/" class="md-nav__link">
+      <a href="../dx_helm_values_updates/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    DX Compose Helm values updates
+    DX Helm values updates
   </span>
   
 
@@ -926,6 +949,8 @@ function OptanonWrapper() { }
       
         
           
+        
+      
         
       
         
@@ -1155,18 +1180,18 @@ function OptanonWrapper() { }
 </li>
       
         <li class="md-nav__item">
-  <a href="#presentation-designer-direction-specific-styling-for-bidirectional-text-layouts" class="md-nav__link">
+  <a href="#openliberty-and-jre-versions" class="md-nav__link">
     <span class="md-ellipsis">
-      Presentation Designer - Direction-specific styling for bidirectional text layouts
+      OpenLiberty and JRE versions
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#openliberty-and-jre-versions" class="md-nav__link">
+  <a href="#presentation-designer-direction-specific-styling-for-bidirectional-text-layouts" class="md-nav__link">
     <span class="md-ellipsis">
-      OpenLiberty and JRE versions
+      Presentation Designer - Direction-specific styling for bidirectional text layouts
     </span>
   </a>
   
@@ -1212,8 +1237,8 @@ function OptanonWrapper() { }
 <li>DX Picker - Configuring dialog size and persisting last known location</li>
 <li>Dynacache invalidation domain configuration</li>
 <li>HAProxy custom headers now available</li>
-<li>Presentation Designer - Direction-specific styling for bidirectional text layouts</li>
 <li>OpenLiberty and JRE versions</li>
+<li>Presentation Designer - Direction-specific styling for bidirectional text layouts</li>
 </ul>
 <h2 id="abort_container-function-for-critical-failures-in-custom-scripts-now-available"><code>abort_container</code> function for critical failures in custom scripts now available</h2>
 <p>You can now use the <code>abort_container</code> function in custom scripts to stop container startup when a critical failure is detected. For example, your script can invoke this function when it identifies missing required configuration, unavailable external dependencies, or failed validation checks. For more information, refer to <a href="../../deploy_dx/manage/cfg_webengine/customize_webengine_image/#using-the-abort_container-function-for-critical-failures">Using the <code>abort_container</code> function for critical failures</a>.</p>
@@ -1231,14 +1256,15 @@ function OptanonWrapper() { }
 <p>You can now change the domain or schema used for the dynacache invalidation table in DX Compose. This table synchronizes dynacache updates across pods. By default, the <code>INVALIDATION_TABLE</code> is created in the <code>RELEASE</code> domain. To specify a different domain (such as <code>JCR</code>, <code>COMMUNITY</code>, or <code>CUSTOMIZATION</code>), override the <code>db.cache.invalidation.domain</code> property in the <code>ConfigService.properties</code> file. For more information, refer to <a href="../../deploy_dx/manage/working_with_compose/cfg_parameters/update_invalidation_domain/">Changing the domain or schema for the dynacache invalidation table in the database</a>.</p>
 <h2 id="haproxy-custom-headers-now-available">HAProxy custom headers now available</h2>
 <p>You can now configure custom HTTP headers in the HAProxy configuration through the HCL DX 9.5 Helm chart. You can add new headers and remove existing headers from responses generated by HAProxy. For more information refer to <a href="../../deploy_dx/install/kubernetes_deployment/preparation/mandatory_tasks/prepare_configure_networking/#haproxy-custom-headers">Configure Networking - HAProxy custom headers</a>.</p>
-<h2 id="presentation-designer-direction-specific-styling-for-bidirectional-text-layouts">Presentation Designer - Direction-specific styling for bidirectional text layouts</h2>
-<p>Override styles now support direction-specific styling for bidirectional text layouts through the <strong>Canvas direction toggle</strong> in the Presentation Designer header. This allows you to create distinct styles for RTL (Right-to-Left) and LTR (Left-to-Right) text directions. For more information, refer to <a href="https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_authoring/presentation_designer/usage/default_and_override_stylesheet/#override-stylesheet" target="_blank">Override stylesheet</a>.</p>
 <h2 id="openliberty-and-jre-versions">OpenLiberty and JRE versions</h2>
 <p>HCL DX Compose 9.5 CF232 contains the following:</p>
 <ul>
-<li>OpenLiberty 25.0.0.10</li>
-<li>Java Runtime Environment IBM Semeru Runtime Open Edition 21.0.8.0 (build 21.0.8+9-LTS)</li>
+<li><a href="../../getting_started/system_requirements/#openliberty">OpenLiberty 25.0.0.10</a></li>
+<li><a href="../../getting_started/system_requirements/#java-runtime-environment">Java Runtime Environment (JRE) IBM Semeru Runtime Open Edition 21.0.8.0 (build 21.0.8+9-LTS)</a></li>
 </ul>
+<p>For more information, refer to <a href="../../deploy_dx/install/kubernetes_deployment/kubernetes_runtime/#openliberty-jre-and-ubi-versions">OpenLiberty, JRE, and UBI versions</a>.</p>
+<h2 id="presentation-designer-direction-specific-styling-for-bidirectional-text-layouts">Presentation Designer - Direction-specific styling for bidirectional text layouts</h2>
+<p>Override styles now support direction-specific styling for bidirectional text layouts through the <strong>Canvas direction toggle</strong> in the Presentation Designer header. This allows you to create distinct styles for RTL (Right-to-Left) and LTR (Left-to-Right) text directions. For more information, refer to <a href="https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_authoring/presentation_designer/usage/default_and_override_stylesheet/#override-stylesheet" target="_blank">Override stylesheet</a>.</p>
 <h2 id="access-the-latest-hcl-digital-experience-95-education-materials-on-hclsoftware-u">Access the latest HCL Digital Experience 9.5 Education Materials on HCLSoftware U</h2>
 <p>The HCLSoftware U offers technical education for the HCL Software portfolio of products, organized by practitioner role. See the <a href="https://hclsoftwareu.hcl-software.com/hcl-dx" target="_blank">HCL Digital Experience</a> section of HCLSoftware U and the <a href="https://hclsoftwareu.hcl-software.com/courses?search=eyJjYXQiOiI1NSIsInRpdGxlIjoiIiwiZmlsdGVyIjoiIn0=" target="_blank">What’s New for Digital Experience</a> section for more information.</p>
 
@@ -1261,7 +1287,7 @@ function OptanonWrapper() { }
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 30, 2026 14:37:32 UTC">January 30, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 23, 2026 15:34:09 UTC">June 23, 2026</span>
   </span>
 
     

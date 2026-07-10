@@ -473,6 +473,8 @@ function OptanonWrapper() { }
       
         
       
+        
+      
     
     
       
@@ -519,6 +521,8 @@ function OptanonWrapper() { }
       
         
           
+        
+      
         
       
         
@@ -761,6 +765,8 @@ function OptanonWrapper() { }
       
         
           
+        
+      
         
       
         
@@ -1745,8 +1751,7 @@ function OptanonWrapper() { }
 <span class="w">              </span><span class="na">bindPassword=</span><span class="s">&quot;adminpassword&quot;</span>
 <span class="w">              </span><span class="na">ldapType=</span><span class="s">&quot;Custom&quot;</span>
 <span class="w">              </span><span class="na">ignoreCase=</span><span class="s">&quot;true&quot;</span>
-<span class="w">              </span><span class="na">recursiveSearch=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
-
+<span class="w">              </span><span class="na">recursiveSearch=</span><span class="s">&quot;false&quot;</span><span class="nt">&gt;</span>
 <span class="nt">&lt;/ldapRegistry&gt;</span>
 </code></pre></div>
 <p>Replace the placeholder values with the actual details of your LDAP server:</p>
@@ -1760,7 +1765,8 @@ function OptanonWrapper() { }
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If the LDAP server does not support recursive server-side searches, you can set the value of <code>recursiveSearch</code> to <code>true</code> to allow recursive searches for users.</p>
+<p>By default, <code>recursiveSearch</code> is set to <code>false</code>. If your users belong to nested LDAP groups and the expected group memberships are not found, set <code>recursiveSearch="true"</code> and test again to confirm nested group search works.
+Nested group membership is supported either when your LDAP server supports recursive server-side group search, or when <code>recursiveSearch</code> is enabled in Liberty.</p>
 </div>
 <p>For more information about using additional properties, see the <a href="https://openliberty.io/docs/latest/reference/feature/ldapRegistry-3.0.html" target="_blank">LDAP User Registry</a> feature.</p>
 <h3 id="configuring-federated-user-registry">Configuring federated user registry</h3>
@@ -1832,13 +1838,11 @@ function OptanonWrapper() { }
 <ul>
 <li>Write operations such as creating, updating, and deleting users and groups are currently not supported in DX Compose.</li>
 <li>You cannot assign attribute definitions to a user or group in a basic user registry.</li>
-<li>Nested group search is not supported.</li>
 </ul>
 <p>More complex or less common scenarios that are supported in the WebSphere Application Server (WAS) have not been thoroughly tested with DX Compose and are not supported at this time. These include the following:</p>
 <ul>
 <li>Lookaside database</li>
 <li>Application groups</li>
-<li>Transient users</li>
 </ul>
 
 
@@ -1860,7 +1864,7 @@ function OptanonWrapper() { }
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 23, 2026 08:42:55 UTC">January 23, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="May 5, 2026 18:38:52 UTC">May 5, 2026</span>
   </span>
 
     
