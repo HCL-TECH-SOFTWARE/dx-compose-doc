@@ -86,6 +86,15 @@ The following configuration specifies the sample basic and LDAP registries to be
 </federatedRepository>
 ```
 
+### Configuring user registry limits
+
+By default, DX Compose limits user registry searches to 500 users.
+To change this limit, update the following property in `PumaStoreService.properties`:
+
+```
+store.puma_default.userRegistryLimit=500
+```
+
 ## Viewing users and groups
 
 After the registry is configured, you can view users and groups through the Manage Users and Groups portlet.

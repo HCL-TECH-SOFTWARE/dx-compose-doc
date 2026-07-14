@@ -55,6 +55,22 @@ When you define or modify a rule base user group, the rule-based user groups ada
     If an invalid attribute name is contained in a rule, the group membership determination for rule-based user groups does not work and logs an error. Existing rules might break if your attribute configuration in the system changes, for example, when an attribute is removed or renamed.
 
 
+## Attribute mapping
+
+Some LDAP server configurations use default attribute mappings where `mail` maps to `ibm-primaryEmail` and `title` maps to `ibm-jobTitle`.
+
+When defining rules, use the mapped attribute names (`ibm-primaryEmail` and `ibm-jobTitle`) instead of the original names (`mail` and `title`) so matches are found.
+
+For example:
+
+-   **`(ibm-primaryEmail=User0000@dx.com)`**
+
+## Wildcards and the NOT operator
+
+Use caution when writing rules that use wildcards or the NOT operator, because both can match a large number of users. This can increase processing time and memory usage.
+
+Use rules with the NOT operator only when the total number of users is below the configured user registry search limit.
+
 ???+ info "Related information"
     - [RFC2254 - The String Representation of LDAP Search Filters](http://www.faqs.org/rfcs/rfc2254.html)
 
