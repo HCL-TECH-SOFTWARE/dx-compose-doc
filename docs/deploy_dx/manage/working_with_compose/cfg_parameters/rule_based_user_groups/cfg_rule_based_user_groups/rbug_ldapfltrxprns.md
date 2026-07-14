@@ -69,6 +69,8 @@ For example:
 
 Use caution when writing rules that use wildcards or the NOT operator, because both can match a large number of users. This can increase processing time and memory usage.
 
+In many cases, you can use the User Search feature in the **Manage Users and Groups** portlet to estimate how many users a potential rule matches for a given attribute.
+
 Use rules with the NOT operator only when the total number of users is below the configured user registry search limit.
 
 ???+ info "Related information"
