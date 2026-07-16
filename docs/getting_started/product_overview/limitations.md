@@ -37,6 +37,7 @@ Know the existing limitations of Digital Experience (DX) Compose.
 
 - Lookaside databases, application groups, and custom user registries are not supported.
 - User profile editing is not supported. To hide the profile page, refer to [Disabling Edit My Profile](../../deploy_dx/manage/working_with_compose/cfg_parameters/manage_users_groups_liberty.md#disabling-edit-my-profile).
+- The Users and Groups management UI does not display child groups within nested groups. However, these child groups remain active and can be located by searching the root level of the directory.
 
 ## Authentication
 
