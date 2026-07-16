@@ -38,7 +38,7 @@ If you run the DB2 instance inside a Docker container, perform the following ste
         <your-authorized-registry>/dx-db2:<version>
     ```
 
-Ensure you replace the image reference (`<your-authorized-registry>/dx-db2:<version>`) with your authorized registry tag path.
+    Ensure you replace the image reference (`<your-authorized-registry>/dx-db2:<version>`) with your authorized registry tag path.
 
 ### Deploying DB2 natively
 
