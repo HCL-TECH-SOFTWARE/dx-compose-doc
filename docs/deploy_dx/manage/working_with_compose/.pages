@@ -13,3 +13,4 @@ nav:
  - Using custom certificates in WebEngine: custom_certificates.md
  - Viewing WebEngine server logs: logging_webengine.md
  - Managing WebEngine SSL database connections: db_over_ssl.md
+ - Managing Global Settings: manage_global_settings.md
