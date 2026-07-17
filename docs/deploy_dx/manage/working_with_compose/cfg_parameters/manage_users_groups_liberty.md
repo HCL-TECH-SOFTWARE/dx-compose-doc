@@ -95,6 +95,16 @@ To change this limit, update the following property in `PumaStoreService.propert
 store.puma_default.userRegistryLimit=500
 ```
 
+You can configure this setting in the Helm `values.yaml` file. For example:
+
+```yaml
+configuration:
+  webEngine:
+    propertiesFilesOverrides: 
+      PumaStoreService.properties:
+        store.puma_default.userRegistryLimit: "4500"
+```
+
 ## Viewing users and groups
 
 After the registry is configured, you can view users and groups through the Manage Users and Groups portlet.
