@@ -4,7 +4,7 @@ You must create the database table manually before you can use rule based user g
 
 The rule-based user groups feature stores the definitions of the rule-based user groups in a database table. This includes the name, rule, and description of the group. Use one of the following SQL statements to create the table, using a database and schema of your choice. Replace schema\_name in the scripts with the schema name of your choice.
 
--   **Syntax for DB2 databases:**
+-   **Syntax for DB2, Derby databases:**
 
     ```
     CREATE TABLE schema\_name.SOFTGROUPS
@@ -72,5 +72,5 @@ The rule-based user groups feature stores the definitions of the rule-based user
 
 
 !!!note
-    For Compose, the rule-based groups feature is not supported when using Apache Derby. You must use one of the database types listed above.
+    For Compose, the rule-based groups feature is not supported when using Apache Derby if there is more than one pod of WebEngine running.
 
