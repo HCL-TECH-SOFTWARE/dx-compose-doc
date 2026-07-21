@@ -93,4 +93,4 @@ configuration:
 ```
 
 !!!important
-    The Search box feature is available in default DX Compose themes. To use custom themes, include the `<portal:find>` tag in your custom theme code.
+    The Search box feature is available in default DX Compose themes. To use it in custom themes, include the `<portal:find>` tag in your custom theme code.
