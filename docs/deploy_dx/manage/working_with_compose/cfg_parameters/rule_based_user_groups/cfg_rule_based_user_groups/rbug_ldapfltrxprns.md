@@ -67,11 +67,17 @@ For example:
 
 ## Wildcards and the NOT operator
 
-Use caution when writing rules that use wildcards or the NOT operator, because both can match a large number of users. This can increase processing time and memory usage.
+The primary use case for rule-based groups is membership evaluation during user login, for example to determine whether a user belongs to a group that grants access rights.
 
-In many cases, you can use the User Search feature in the **Manage Users and Groups** portlet to estimate how many users a potential rule matches for a given attribute.
+This path is optimized to evaluate membership for the single user being authenticated. It does not attempt to retrieve all members of the group to verify membership.
 
-Use rules with the NOT operator only when the total number of users is below the configured user registry search limit.
+Because of this optimization, rule-based groups can have large memberships without affecting the primary membership check flow.
+
+The guidance in this section mainly applies to secondary scenarios, such as selecting a rule-based group in the **Manage Users and Groups** portlet to display group members.
+
+In those UI-driven scenarios, wildcard and NOT-based rules can still match many users. Group member display can be constrained by configured user registry search limits, so not all members might be shown when a group is very large.
+
+To estimate potential match volume before using such rules in UI listing scenarios, use the User Search feature in the **Manage Users and Groups** portlet.
 
 ???+ info "Related information"
     - [RFC2254 - The String Representation of LDAP Search Filters](http://www.faqs.org/rfcs/rfc2254.html)
