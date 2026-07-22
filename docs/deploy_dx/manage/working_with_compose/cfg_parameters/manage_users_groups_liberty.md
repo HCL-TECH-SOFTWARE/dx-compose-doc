@@ -5,7 +5,7 @@ title: Managing users and groups in DX Compose
 
 This guide provides instructions for configuring user registries and viewing users and groups in Digital Experience (DX) Compose. This covers how to define `basicRegistry` and `ldapRegistry` in the `server.xml` file, and how to view users and groups after the registry is configured.
 
-!!!note 
+!!!note
     Creating, updating, and deleting users and groups are currently not supported.
 
 ## Configuring user and group management
@@ -88,14 +88,7 @@ The following configuration specifies the sample basic and LDAP registries to be
 
 ### Configuring user registry limits
 
-By default, DX Compose limits user registry searches to 500 users.
-To change this limit, update the following property in `PumaStoreService.properties`:
-
-```
-store.puma_default.userRegistryLimit=500
-```
-
-You can configure this setting in the Helm `values.yaml` file. For example:
+By default, DX Compose limits user registry searches to 500 users. To change this limit, update the `store.puma_default.userRegistryLimit` under `PumaStoreService.properties` in your `values.yaml` file. For example:
 
 ```yaml
 configuration:

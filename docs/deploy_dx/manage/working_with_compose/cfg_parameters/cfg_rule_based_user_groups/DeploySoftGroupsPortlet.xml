@@ -15,7 +15,7 @@
 
             <url>file://$server_root$/servers/defaultServer/resources/portlets/wp.portlets.softgroups.war</url>
 
-            <context-root>/wps/PA_Softgroups</context-root>
+            <context-root>/wps/PA_SoftGroups</context-root>
 
             <display-name>softgroups.portlet</display-name>
 
