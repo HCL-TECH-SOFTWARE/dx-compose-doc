@@ -112,7 +112,7 @@ To verify that the Oracle server is listening for SSL connections (for example, 
 Once the Oracle server is listening on the SSL port (2484), you can configure the WebEngine server to connect to Oracle over SSL.
 
 #### Database / Security Upgrade (CF237)
-Oracle 21c database connections over TCPS/SSL require modern cipher suite capability starting CF237 due to strict [JVM 21 security upgrades](https://www.oracle.com/java/technologies/javase/21-0-10-relnotes.html#JDK-8245545){target="_blank"}. Ensure that the following `CIPHER_SUITES` are appended to `SQLNET.CIPHER_SUITE` and are active on the database before initiating a WebEngine migration or upgrade.
+Oracle 21c database connections over TCPS/SSL require modern cipher suite capability starting CF237 due to strict [JVM 21 security upgrades](https://www.oracle.com/java/technologies/javase/21-0-10-relnotes.html#JDK-8245545){target="_blank"}. Ensure that the following `CIPHER_SUITES` are appended to `SQLNET.CIPHER_SUITE` and are active on the database before initiating a WebEngine upgrade to CF237 or later.
 ```sql
 TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
 ```
