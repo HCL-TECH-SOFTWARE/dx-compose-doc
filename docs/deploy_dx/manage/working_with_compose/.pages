@@ -1,6 +1,7 @@
 nav:
  - index.md
  - Changing the WebEngine context root or home URI: change_context_root_or_home.md #This document does not have helm information ... only manual steps
+ - Managing global settings: manage_global_settings
  - Managing outbound connections (Ajax Proxy): manage_outbound_connections.md
  - Managing users and groups: cfg_parameters
  - Monitoring the DX Compose deployment: monitor_metrics.md
@@ -13,3 +14,4 @@ nav:
  - Using custom certificates in WebEngine: custom_certificates.md
  - Viewing WebEngine server logs: logging_webengine.md
  - Managing WebEngine SSL database connections: db_over_ssl.md
+ - Managing Global Settings: manage_global_settings.md
