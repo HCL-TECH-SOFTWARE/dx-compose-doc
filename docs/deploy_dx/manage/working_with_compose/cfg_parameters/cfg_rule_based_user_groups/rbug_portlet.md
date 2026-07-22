@@ -27,7 +27,7 @@ After deploying the portlet, create an Admin page to define the rule-based group
 6. Locate **SoftGroups Admin** row in the list of pages.
 7. Select the **Edit Page Layout** pencil icon.
 8. Select **Add portlets**.
-9. Search for **softgroups.portlet**, and select its checkbox. <!--I could not find the Portlet Title in the test site, can we use that instead of the unique name (softgroups.portlet)?-->
+9. Search for **softgroups.portlet** and select its checkbox.
 10. Select **OK > Done**.
 
 ## Managing the SoftGroups Admin page permissions
@@ -35,18 +35,20 @@ After deploying the portlet, create an Admin page to define the rule-based group
 Configure access permissions on the page to restrict administrative rights to authorized users:
 
 1. Navigate to **Home** section, under **Manage Pages** and locate the newly added SoftGroups admin page.
-2. Select the key icon. <!--What is the UI name for the key icon?-->
+2. Select the **Set Page Permission** key icon.
 3. Under **Allow Inheritance**, uncheck the boxes for **Privileged User** and **User**.
 4. Select **Apply > Done**.
 
-## Defining and verifying rule-based user groups <!--I'm unable to verify this section, can you show a screenshot of how steps 2-4 look like for my reference?-->
+## Defining and verifying rule-based user groups
 
 Define dynamic group rules and confirm membership evaluation in the user registry:
 
-1. Navigate to `https://&lt;HOSTNAME&gt;/wps/myportal/Home/softgroups` and ensure you are logged in with the administrator credentials.
-2. Under the **Create** section, provide a name for your group (for example, `softgrouptest`).
-3. Add an optional description for the group.
-4. Under the rule, add a specific rule for defining its membership criteria (for example, `(uid=tuser1)`).
-5. Navigate to **Administration > Security > Users and Groups**.
-6. Verify that you can locate the user-based group by doing a **cn** search using the group name.
-7. Confirm that the users that match the rule are visible.
+1. Navigate to `https://<hostname>/wps/myportal/Home/softgroups` and ensure you are logged in with administrator credentials.
+2. Under **Create**, enter the following group details:
+     - In **Name**, enter the group name (for example, `softgrouptest`).
+     - In **Description**, enter an optional description.
+     - In **Rule**, enter a rule for defining membership criteria (for example, `(uid=tuser1)`).
+3. Select **Create**.
+4. Navigate to **Administration > Security > Users and Groups > All Portal User Groups**.
+5. In the **Search by** drop-down list, select **cn**, and search for your group name.
+6. Confirm that the users who match the rule are visible.
