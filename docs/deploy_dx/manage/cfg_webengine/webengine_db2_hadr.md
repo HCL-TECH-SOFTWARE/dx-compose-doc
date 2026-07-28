@@ -251,40 +251,31 @@ The configuration maps the Helm values to the XML attributes at container startu
 During a DB2 HADR takeover, the application tier automatically manages failover and recovery without manual configuration updates or pod deletions.
 
 1. Active DB2 XA transactions on the original primary node drop and return a `SQL1776N` error, which Open Liberty records in `SystemOut.log` as `-1776` or `-1,776`.
-2. For new connection requests, the DB2 JCC driver reads the alternate server attributes (`clientRerouteAlternateServerName` and `clientRerouteAlternatePortNumber`) from `server.xml` and retries the connection against the standby node address. The driver retries up to the limit specified in `maxRetriesForClientReroute`, waiting the number of seconds defined in `retryIntervalForClientReroute` between attempts to allow the takeover to finish.
-3. A background supervisor process monitors `SystemOut.log`. When specific error patterns are matched, it triggers a graceful Liberty shutdown and exits the container with code `0`.
+2. For new connection requests, the DB2 JCC driver reads the following configuration attributes from `server.xml` and retries the connection against the standby node address:
+    - `clientRerouteAlternateServerName` and `clientRerouteAlternatePortNumber` specify the standby target address and port.
+    - `maxRetriesForClientReroute` specifies the connection retry limit.
+    - `retryIntervalForClientReroute` specifies the wait time in seconds between attempts to allow takeover completion.
+3. A background supervisor process monitors `SystemOut.log` for specific error patterns to trigger a graceful Liberty shutdown and exit the container with code `0`:
+
+    | Error classification | Error code | Description |
+    | --- | --- | --- |
+    | Hard error | `-1776` or `SQL1776N` | Command rejected on standby database |
+    | Hard error | `-30108` or `SQL30108N` | Connection failure due to takeover in progress |
+    | Soft error | `-4470` | Closed statement or dead pool connection handle |
+    | Soft error | `-30081` or `SQL30081N` | TCP/IP communication error |
+    | Soft error | `-4498` or `SQL4498N` | Lost connection to DB2 server |
+    | Soft error | `-4499` or `SQL4499N` | Non-transient connection failure |
+
+    !!!note
+        - Hard errors trigger an immediate automated container restart.
+        - Soft errors trigger an automated container restart when three occurrences are detected within a 60-second window.
+
 4. Kubernetes detects the container termination and automatically replaces the pod.
-5. On pod startup, `server.xml` rebuilds with the original configuration attributes. The DB2 JCC driver attempts to connect to the old primary address, then reroutes initialization traffic to the alternate address (the new primary). This establishes clean connection pools without requiring configuration changes or a Helm upgrade.
+5. On pod startup, `server.xml` is rebuilt with the original configuration attributes. The DB2 JCC driver attempts to connect to the old primary address, then reroutes initialization traffic to the alternate address (the new primary) to establish clean connection pools without requiring configuration changes or a Helm upgrade. During this startup initialization window, incoming client requests receive 503 Service Unavailable responses until health checks pass and the server fully initializes.
 
-## Limitations and Operational Notes
+### Recovering user sessions
 
-When running DB2 HADR with WebEngine deployments, consider the following runtime limitations and operational details:
-
-### Monitored Error Codes & Automated Handling
-The background HADR supervisor continuously monitors `SystemOut.log` and actively detects and handles DB2 errors by categorizing them into two distinct operational conditions to ensure clean connection pool recovery:
-
-- **Hard Errors (Immediate Automated Pod Restart)**: The supervisor immediately detects these errors, initiates a graceful application shutdown, and triggers a container restart to recover connection state:
-    - `-1776` / `SQL1776N` (Command rejected on standby database)
-    - `-30108` / `SQL30108N` (Connection failure due to takeover in progress)
-
-- **Soft Errors (Threshold-Based Automated Pod Restart)**: The supervisor tracks transient connection issues and automatically recycles the pod only if 3 occurrences are detected within a 60-second window:
-    - `-4470` (Closed statement / dead pool connection handle)
-    - `-30081` / `SQL30081N` (TCP/IP communication error)
-    - `-4498` / `SQL4498N` (Lost connection to DB2 server)
-    - `-4499` / `SQL4499N` (Non-transient connection failure)
-
-### Application Recovery & Downtime Window
-- **Pod Restart Time**: Upon process termination, Kubernetes rapidly recreates the container instance.
-
-- **Startup Initialization Window**: Complete application boot and connection pool initialization proceed through the standard application initialization window.
-
-- **Expected Service Interruption**: During this temporary startup service window, incoming client requests will receive 503 Internal Server Error (Service Unavailable) responses until health checks pass and the server fully initializes.
-
-### Post-Switchover User Sessions
-- Following a database switchover, active user browser sessions may render incompletely, display missing portlets, or fail to load UI elements properly due to invalidated state handles or stale connection contexts.
-
-**Required User Action**: 
-If users encounter unrendered pages, missing components, or navigation anomalies after a database switchover, they must log out and log back in to establish a fresh session state against the active database node.
+After a database switchover, stale connection contexts or invalidated state handles can cause missing portlets and broken UI elements in active user sessions. Notify users to log out and log back in to clear stale session states.
 
 ???+ info "Related information"
     - [Open Liberty `dataSource` configuration reference](https://openliberty.io/docs/latest/reference/config/dataSource.html#dataSource/properties.db2.jcc){target="_blank"}
