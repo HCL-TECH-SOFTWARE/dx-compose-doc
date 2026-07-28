@@ -116,8 +116,7 @@ Once the Oracle server is listening on the SSL port (2484), you can configure th
 Starting in CF237, Oracle 21c database connections over TCPS require modern cipher suite capability due to strict [JVM 21 security upgrades](https://www.oracle.com/java/technologies/javase/21-0-10-relnotes.html#JDK-8245545){target="_blank"}. Ensure that the following `CIPHER_SUITES` are appended to `SQLNET.CIPHER_SUITE` and are active on the database before initiating a WebEngine upgrade to CF237 or later:
 
 ```sql
-TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
 ```
 
 !!! note
