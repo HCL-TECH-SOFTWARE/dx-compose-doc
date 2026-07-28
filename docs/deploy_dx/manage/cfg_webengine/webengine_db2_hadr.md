@@ -251,10 +251,31 @@ The configuration maps the Helm values to the XML attributes at container startu
 During a DB2 HADR takeover, the application tier automatically manages failover and recovery without manual configuration updates or pod deletions.
 
 1. Active DB2 XA transactions on the original primary node drop and return a `SQL1776N` error, which Open Liberty records in `SystemOut.log` as `-1776` or `-1,776`.
-2. For new connection requests, the DB2 JCC driver reads the alternate server attributes (`clientRerouteAlternateServerName` and `clientRerouteAlternatePortNumber`) from `server.xml` and retries the connection against the standby node address. The driver retries up to the limit specified in `maxRetriesForClientReroute`, waiting the number of seconds defined in `retryIntervalForClientReroute` between attempts to allow the takeover to finish.
-3. To safely evict stale connection handles, cached blacklists, and lingering in-memory lockouts that the driver-level reroute cannot clear, a supervisor process monitors `SystemOut.log`. When it matches the `-1776` or `-1,776` error string, it triggers a graceful Liberty server shutdown and exits the container with code `0`.
+2. For new connection requests, the DB2 JCC driver reads the following configuration attributes from `server.xml` and retries the connection against the standby node address:
+    - `clientRerouteAlternateServerName` and `clientRerouteAlternatePortNumber` specify the standby target address and port.
+    - `maxRetriesForClientReroute` specifies the connection retry limit.
+    - `retryIntervalForClientReroute` specifies the wait time in seconds between attempts to allow takeover completion.
+3. A background supervisor process monitors `SystemOut.log` for specific error patterns to trigger a graceful Liberty shutdown and exit the container with code `0`:
+
+    | Error classification | Error code | Description |
+    | --- | --- | --- |
+    | Hard error | `-1776` or `SQL1776N` | Command rejected on standby database |
+    | Hard error | `-30108` or `SQL30108N` | Connection failure due to takeover in progress |
+    | Soft error | `-4470` | Closed statement or dead pool connection handle |
+    | Soft error | `-30081` or `SQL30081N` | TCP/IP communication error |
+    | Soft error | `-4498` or `SQL4498N` | Lost connection to DB2 server |
+    | Soft error | `-4499` or `SQL4499N` | Non-transient connection failure |
+
+    !!!note
+        - Hard errors trigger an immediate automated container restart.
+        - Soft errors trigger an automated container restart when three occurrences are detected within a 60-second window.
+
 4. Kubernetes detects the container termination and automatically replaces the pod.
-5. On pod startup, `server.xml` rebuilds with the original configuration attributes. The DB2 JCC driver attempts to connect to the old primary address, then reroutes initialization traffic to the alternate address (the new primary). This establishes clean connection pools without requiring configuration changes or a Helm upgrade.
+5. On pod startup, `server.xml` is rebuilt with the original configuration attributes. The DB2 JCC driver attempts to connect to the old primary address, then reroutes initialization traffic to the alternate address (the new primary) to establish clean connection pools without requiring configuration changes or a Helm upgrade. During this startup initialization window, incoming client requests receive 503 Service Unavailable responses until health checks pass and the server fully initializes.
+
+### Recovering user sessions
+
+After a database switchover, stale connection contexts or invalidated state handles can cause missing portlets and broken UI elements in active user sessions. Notify users to log out and log back in to clear stale session states.
 
 ???+ info "Related information"
     - [Open Liberty `dataSource` configuration reference](https://openliberty.io/docs/latest/reference/config/dataSource.html#dataSource/properties.db2.jcc){target="_blank"}
