@@ -1,10 +1,6 @@
-# Configure Networking
+# Configuring networking
 
-This section explains what must be configured from a networking perspective to get HCL Digital Experience (DX) Compose 9.5 running in your Kubernetes or OpenShift cluster, and to provide accessibility to your deployment from outside the Cluster.
-
-## Full Kubernetes or OpenShift deployment
-
-If you deploy WebEngine and all other applications inside OpenShift or Kubernetes, this section shows you what needs to be configured.
+To run HCL Digital Experience (DX) Compose 9.5, including WebEngine and all associated applications, and enable external access to your Kubernetes or Red Hat OpenShift cluster, configure the required networking settings.
 
 ## WebEngine host
 
@@ -25,9 +21,9 @@ networking:
 
 If you do not know the hostname beforehand, you can leave it blank and run an additional step later in the installation, which would retrieve the assigned hostname from HAProxy and configure all applications accordingly.
 
-## Configure Cross Origin Resource Sharing (CORS)
+## Configuring Cross Origin Resource Sharing (CORS)
 
-The HCL DX Compose 9.5 Helm chart allows you to configure CORS configuration for all the `addon` to WebEngine applications such as Digital Asset Management or Ring API. This allows you to access the APIs provided by those applications in other applications with ease.
+The HCL DX Compose 9.5 Helm chart allows you to configure CORS configuration for all the `addon` to WebEngine applications such as Digital Asset Management (DAM) or Ring API. This allows you to access the APIs provided by those applications in other applications with ease.
 
 You can define a list of allowed hosts for a specific application using the following syntax in your `custom-values.yaml`:
 
@@ -45,13 +41,51 @@ networking:
 
 Refer to the HCL DX Compose 9.5 `values.yaml` detail for all possible applications that can be configured.
 
-## Configure HAProxy certificate
+## Configuring HAProxy certificate
 
-For HAProxy to allow forward requests to your applications, you must provide it with a TLS Certificate. This certificate is used for incoming/outgoing traffic from the outside of the Kubernetes or OpenShift cluster to your applications. HAProxy performs TLS offloading.
+For HAProxy to allow forward requests to your applications, you must provide it with a Transport Layer Security (TLS) certificate. This certificate is used for incoming or outgoing traffic from the outside of the Kubernetes or OpenShift cluster to your applications. HAProxy performs the TLS offloading.
 
-## Configure HAProxy networking
+1. Create a self-signed certificate:
 
-HAProxy is deployed with a `LoadBalancer` type service to handle the incoming traffic as well as the SSL offloading for HCL DX. In addition, the Helm deployment offers adjustability for HAProxy and its services to allow for more flexible deployment and use of custom `Ingress Controllers`.
+    !!!note
+        It is recommended to use a Certificate Authority (CA)-signed certificate for HAProxy in production environments. However, you can create and use a self-signed certificate for staging or testing environments.
+
+    ```sh
+    # Create a private key.
+    openssl genrsa -out my-key.pem 2048
+                      
+    # Create a certificate signed by the previously created private key.
+    openssl req -x509 -key my-key.pem -out my-cert.pem -days 365 -subj '/CN=my-cert'
+    ```
+
+    These commands generate a key and certificate file that you can use in the next step to create the secret for your deployment.
+
+2. Store the certificate as a secret in your Kubernetes or Red Hat OpenShift cluster:
+
+    !!!note
+        Choose any secret name (for example, `dx-tls-cert`), and reference it in the next configuration step. Specify the Kubernetes namespace where you deploy HCL DX Compose 9.5 (for example `digital-experience-compose`).
+
+    ```sh
+    # Create a secret named "dx-tls-cert" in the "digital-experience-compose" namespace
+    # Reference a previously created certificate and key file, or a CA-signed certificate.
+    kubectl create secret tls dx-tls-cert --cert=my-cert.pem --key=my-key.pem -n digital-experience-compose
+    ```
+
+3. Update your `custom-values.yaml` file to set `tlsCertSecret` to your secret name so HAProxy can process HTTPS requests (default: `dx-tls-cert`):
+
+    ```yaml
+    # Networking specific configuration
+    networking:
+      # TLS Certificate secret used for haproxy
+      tlsCertSecret: "dx-tls-cert"
+    ```
+
+    !!! note
+        Verify you have entered the correct name.
+
+## Configuring HAProxy networking
+
+HAProxy is deployed with a `LoadBalancer` type service to handle the incoming traffic as well as the SSL offloading for HCL DX. Additionally, the Helm deployment offers adjustability for HAProxy and its services to allow for more flexible deployment and use of custom Ingress controllers.
 
 |Parameter|Description| Type | Default value|
 |---------|-----------|-------------|------|
@@ -66,7 +100,7 @@ HAProxy is deployed with a `LoadBalancer` type service to handle the incoming tr
 |`sessionCookieName`|This parameter does not directly change the cookie name. Instead, you must set this value if the cookie name is changed in the [console](https://help.hcl-software.com/digital-experience/9.5/latest/deployment/manage/config_portal_behavior/http_sessn_cookie/){target="blank"}.| String |`JSESSIONID`|
 
 !!!note
-    If `ssl` is set to `true`, HAProxy will use the certificate that is supplied as a secret in `networking.tlsCertSecret`.
+    If `ssl` is set to `true`, HAProxy uses the certificate that is supplied as a secret in `networking.tlsCertSecret`.
 
 ```yaml
 networking:
@@ -90,7 +124,7 @@ networking:
     sessionCookieName: "JSESSIONID"
 ```
   
-This configuration is helpful for those who want to use a custom `Ingress Controller` to expose the service in a compatible way. Even then, HAProxy will still be active. The `Ingress Controller` will handle the incoming traffic and then route them to the HAProxy service.
+This configuration is helpful if you want to use a custom Ingress controller to expose the service. HAProxy remains active to receive traffic routed from the Ingress controller.
 
 ## Using annotations to control the HAProxy service behavior for different cloud providers
 
@@ -102,66 +136,16 @@ Examples for such annotations are in an non-exhaustive list. Refer to the docume
 - [Google Kubernetes Engine - LoadBalancer Service parameters](https://cloud.google.com/kubernetes-engine/docs/concepts/service-load-balancer-parameters){target="_blank"}
 - [Azure Kubernetes Service - LoadBalancer annotations](https://cloud-provider-azure.sigs.k8s.io/topics/loadbalancer/#loadbalancer-annotations){target="_blank"}
 
-## Generate self-signed certificate
-
-**It is recommended that you use a properly signed certificate for HAProxy**. However, it is also possible to create and use a self-signed certificate, for example, for staging or testing environment.
-
-Creation of that certificate can be achieved using the following commands for OpenSSL:
-
-```sh
-# Creation of a private key
-openssl genrsa -out my-key.pem 2048
-                  
-# Creation of a certificate signed by the private key created before
-openssl req -x509 -key my-key.pem -out my-cert.pem -days 365 -subj '/CN=my-cert'
-```
-
-This provides you with a key and cert file that can be used in the next step, creation of the certificate to your deployment.
-
-## Use certificate
-
-**Create secret**
-
-To have your deployment and HAProxy to use the certificate, you must store it in the Kubernetes or OpenShift cluster as a secret.
-
-The secret can be created using the following commands:
-
-!!!note
-    The secret name can be chosen by you and must be referenced in the next configuration step (the following example uses `dx-tls-cert`). The namespace is the Kubernetes namespace where you want to deploy HCL DX Compose 9.5 to (the example uses `digital-experience-compose`).
-
-```sh
-# Create secret with the name "dx-tls-cert"
-# Secret will be created in the namespace "digital-experience-compose"
-# You can either reference the cert and key file created before, or a proper signed certificate e.g. from your CA
-kubectl create secret tls dx-tls-cert --cert=my-cert.pem --key=my-key.pem -n digital-experience-compose
-```
-
-## Configure secret in deployment
-
-You need to make sure that the reference to the secret is set up correctly in your `custom-values.yaml`. Otherwise, HAProxy cannot answer HTTPS requests due to a missing certificate.
-
-You can set the name of the certificate used with the following syntax, the default value is `dx-tls-cert`:
-
-```yaml
-# Networking specific configuration
-networking:
-  # TLS Certificate secret used for haproxy
-  tlsCertSecret: "dx-tls-cert"
-```
-
-!!! note
-    Verify you have entered the correct name.
-
 ### OpenShift Passthrough
 
 A `Route` resource must be created manually when required as part of a deployment to OpenShift.
 
-#### Create the route resource manually
+#### Creating the route resource manually
 
 If you want to deploy OpenShift manually using `Routes`, you need to create a `.yaml` file like below and any changes required can be made in that. To apply those changes in the OpenShift cluster, you can run `kubectl apply` and specify its namespace and location.
 For more information, refer to the [OpenShift Route Configuration](https://docs.openshift.com/container-platform/latest/networking/routes/route-configuration.html){target="blank"} documentation.
 
-In some versions of OpenShift, by default, sticky sessions for passthrough `Routes` are enabled in OpenShift using the source (IP) as identifier. To make sure traffic gets forwarded to all DX Compose HAProxy Pods even when another proxy is used in front of it, the `Route` should be annotated as shown in the example below. Refer to the [OpenShift documentation](https://docs.openshift.com/container-platform/latest/networking/routes/route-configuration.html){target="blank"} to select the appropriate value for your deployment. 
+In some versions of OpenShift, sticky sessions for passthrough `Routes` are enabled in OpenShift using the source (IP) as identifier by default. To make sure traffic gets forwarded to all DX Compose HAProxy Pods even when another proxy is used in front of it, the `Route` should be annotated as shown in the example below. Refer to the [OpenShift documentation](https://docs.openshift.com/container-platform/latest/networking/routes/route-configuration.html){target="blank"} to select the appropriate value for your deployment.
 
 ```yaml
 apiVersion: "route.openshift.io/v1"
@@ -187,9 +171,9 @@ spec:
 
 `<helm-deployment-name>` must be replaced with the name of the deployed Helm release.
 
-## Configuring Content-Security-Policy Frame Options
+## Configuring Content-Security-Policy frame options
 
-The HCL DX Compose 9.5 Helm chart allows you to configure **[Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/frame-ancestors){target="blank"}: frame-ancestors** for DX WebEngine and all other components, such as Digital Asset Management, Ring API, etc.
+The HCL DX Compose 9.5 Helm chart allows you to configure **[Content-Security-Policy: frame-ancestors](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/frame-ancestors){target="blank"}** for DX WebEngine and all other components, such as DAM or Ring API.
 
 Setting `cspFrameAncestorsEnabled` to true adds `content-security-policy: frame-ancestor 'self'` headers to the responses, enabling you to frame DX and other add-on applications.
 
@@ -216,7 +200,7 @@ networking:
       cspFrameAncestorsAllowedSourceURLs: []        
 ```
 
-Refer to the HCL DX Compose 9.5 `values.yaml` detail for all possible applications that can be configured.
+Refer to the HCL DX Compose 9.5 `values.yaml` detail for all possible applications that you can configure.
 
 ## Configuring SameSite Cookie Attribute
 
