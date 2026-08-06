@@ -80,9 +80,6 @@ To allow HAProxy to forward requests to your applications, you must provide a Tr
       tlsCertSecret: "dx-tls-cert"
     ```
 
-    !!! note
-        Verify you have entered the correct name.
-
 ## Configuring HAProxy networking
 
 HAProxy is deployed with a `LoadBalancer` type service to handle the incoming traffic as well as the SSL offloading for HCL DX. Additionally, the Helm deployment offers adjustability for HAProxy and its services to allow for more flexible deployment and use of custom Ingress controllers.
