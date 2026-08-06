@@ -43,7 +43,7 @@ Refer to the HCL DX Compose 9.5 `values.yaml` detail for all possible applicatio
 
 ## Configuring HAProxy certificate
 
-For HAProxy to allow forward requests to your applications, you must provide it with a Transport Layer Security (TLS) certificate. This certificate is used for incoming or outgoing traffic from the outside of the Kubernetes or OpenShift cluster to your applications. HAProxy performs the TLS offloading.
+To allow HAProxy to forward requests to your applications, you must provide a Transport Layer Security (TLS) certificate. HAProxy uses this certificate to terminate TLS connections for traffic entering the Kubernetes or OpenShift cluster from external clients. After terminating the TLS connection, HAProxy forwards the requests to your applications.
 
 1. Create a self-signed certificate:
 
