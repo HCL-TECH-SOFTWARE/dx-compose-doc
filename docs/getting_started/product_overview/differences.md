@@ -32,7 +32,7 @@ HCL DX offerings utilize the IBM WebSphere Application Server (WAS) as the base 
 
 ## Deployment
 
-- DX Compose is available for Kubernetes-based deployments and Docker Compose for developers. It ships out-of-the-box with Derby and can be transitioned to other databases for production. Currently, the supported database is IBM DB2.
+- DX Compose is available for Kubernetes-based deployments and Docker Compose for developers. It ships out of the box with Derby and can be transitioned to other databases for production. For the list of supported databases, refer to [Databases](../system_requirements.md#databases).
 - The configuration is consolidated in the Helm chart. ConfigEngine, Configuration Wizard, and wsadmin are no longer required.
 
 ## Search
