@@ -4,7 +4,7 @@
 
 ## Prerequisites
 
-Ensure that the Search V2 backend is installed before proceeding with the configuration. For detailed instructions, refer to [Installing the Search V2 backend](./optional_install_new_search.md).
+Ensure that the Search V2 backend is installed before proceeding with the configuration. For detailed instructions, refer to [Installing the Search V2 backend](https://help.hcl-software.com/digital-experience/9.5/latest/deployment/install/container/helm_deployment/preparation/optional_tasks/optional_install_new_search/){target="_blank"}.
 
 ## Search configuration
 
