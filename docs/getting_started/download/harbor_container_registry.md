@@ -41,21 +41,22 @@ Using OCI commands requires an initial login before you can run the pull command
 
 Refer to the following list of Helm chart versions and their corresponding Cumulative Fix (CF) versions for HCL DX Compose.
 
-| HCL DX Deployment version | HCL DX Search version | HCL DX IQ version | CF version |
-| :------------------------ | :-------------------- | :---------------- |------------|
-| 2.47.0                    | 2.34.0                | 1.0.0             | CF236      |
-| 2.46.0                    | 2.33.0                |                   | CF235      |
-| 2.45.0                    | 2.32.0                |                   | CF234      |
-| 2.44.0                    | 2.31.0                |                   | CF233      |
-| 2.43.0                    | 2.30.0                |                   | CF232      |
-| 2.42.1                    | 2.29.0                |                   | CF231      |
-| 2.41.0                    | 2.28.0                |                   | CF230      |
-| 2.40.0                    | 2.27.0                |                   | CF229      |
-| 2.37.3                    | 2.26.0                |                   | CF228      |
-| 2.36.0                    | 2.25.0                |                   | CF227      |
-| 2.35.0                    | 2.24.0                |                   | CF226      |
-| 2.34.0                    | 2.23.0                |                   | CF225      |
-| 2.33.0                    |                       |                   | CF224      |
+| CF version | HCL DX Deployment version | HCL DX Search version | HCL DX IQ version |
+| :--------- | :------------------------ | :-------------------- | :---------------- |
+| CF237      | 2.48.0                    | 2.35.0                | 1.0.1             |
+| CF236      | 2.47.0                    | 2.34.0                | 1.0.0             |
+| CF235      | 2.46.0                    | 2.33.0                |                   |
+| CF234      | 2.45.0                    | 2.32.0                |                   |
+| CF233      | 2.44.0                    | 2.31.0                |                   |
+| CF232      | 2.43.0                    | 2.30.0                |                   |
+| CF231      | 2.42.1                    | 2.29.0                |                   |
+| CF230      | 2.41.0                    | 2.28.0                |                   |
+| CF229      | 2.40.0                    | 2.27.0                |                   |
+| CF228      | 2.37.3                    | 2.26.0                |                   |
+| CF227      | 2.36.0                    | 2.25.0                |                   |
+| CF226      | 2.35.0                    | 2.24.0                |                   |
+| CF225      | 2.34.0                    | 2.23.0                |                   |
+| CF224      | 2.33.0                    |                       |                   |
 
 You downloaded your DX Compose 9.5 Container Update Helm chart from the HCL repository on Harbor and can continue with your deployment.
 
