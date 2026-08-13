@@ -2,15 +2,55 @@
 
 This page summarizes Helm values updates across DX releases. Each table below details changes introduced in a specific release, including added properties, removed properties, and properties with changed defaults. Use this as a reference when upgrading to ensure compatibility and to guide configuration updates.
 
+### CF237
+
+**Added Keys:**
+
+| Key | Default Value |
+|-----|---------------|
+| automountServiceAccountToken.contentComposer | null | <!-- Commit: 2256b471, Author: chestlynne-macabale, Date: 2026-06-30 -->
+| automountServiceAccountToken.core | null | <!-- Commit: 2256b471, Author: chestlynne-macabale, Date: 2026-06-30 -->
+| automountServiceAccountToken.damPluginGoogleVision | null | <!-- Commit: 2256b471, Author: chestlynne-macabale, Date: 2026-06-30 -->
+| automountServiceAccountToken.digitalAssetManagement | null | <!-- Commit: 2256b471, Author: chestlynne-macabale, Date: 2026-06-30 -->
+| automountServiceAccountToken.imageProcessor | null | <!-- Commit: 2256b471, Author: chestlynne-macabale, Date: 2026-06-30 -->
+| automountServiceAccountToken.openLdap | null | <!-- Commit: 2256b471, Author: chestlynne-macabale, Date: 2026-06-30 -->
+| automountServiceAccountToken.persistenceConnectionPool | null | <!-- Commit: 2256b471, Author: chestlynne-macabale, Date: 2026-06-30 -->
+| automountServiceAccountToken.persistenceNode | null | <!-- Commit: 2256b471, Author: chestlynne-macabale, Date: 2026-06-30 -->
+| automountServiceAccountToken.remoteSearch | null | <!-- Commit: 2256b471, Author: chestlynne-macabale, Date: 2026-06-30 -->
+| automountServiceAccountToken.ringApi | null | <!-- Commit: 2256b471, Author: chestlynne-macabale, Date: 2026-06-30 -->
+| automountServiceAccountToken.runtimeController | null | <!-- Commit: 2256b471, Author: chestlynne-macabale, Date: 2026-06-30 -->
+| automountServiceAccountToken.haproxy | null | <!-- Commit: 2256b471, Author: chestlynne-macabale, Date: 2026-06-30 -->
+| automountServiceAccountToken.licenseManager | null | <!-- Commit: 2256b471, Author: chestlynne-macabale, Date: 2026-06-30 -->
+| automountServiceAccountToken.damPluginKaltura | null | <!-- Commit: 2256b471, Author: chestlynne-macabale, Date: 2026-06-30 -->
+| automountServiceAccountToken.webEngine | null | <!-- Commit: 2256b471, Author: chestlynne-macabale, Date: 2026-06-30 -->
+| configuration.runtimeController.projectedServiceAccountToken.enabled | false | <!-- Commit: 2256b471, Author: chestlynne-macabale, Date: 2026-06-30 -->
+| configuration.runtimeController.projectedServiceAccountToken.audience | "" | <!-- Commit: 2256b471, Author: chestlynne-macabale, Date: 2026-06-30 -->
+| configuration.runtimeController.projectedServiceAccountToken.expirationSeconds | 3600 | <!-- Commit: 2256b471, Author: chestlynne-macabale, Date: 2026-06-30 -->
+| configuration.searchMiddleware.searchReleaseName | dx-search | <!-- Commit: 39eab526, Author: Priyanshu Dubey, Date: 2026-07-07 -->
+| configuration.webEngine.db2HadrMaxRetries | 20 | <!-- Commit: 1d0d37ed, Author: Priyanka Priya, Date: 2026-05-14 -->
+| configuration.webEngine.db2HadrRetryInterval | 5 | <!-- Commit: 1d0d37ed, Author: Priyanka Priya, Date: 2026-05-14 -->
+| incubator.configuration.webEngine.wcmApiV3Enabled | false | <!-- Commit: f3b480ca, Author: Neelkanth Patel, Date: 2026-07-23 -->
+
+**Removed Keys:**
+
+| Key |
+|-----|
+| networking.dxIqIntegratorMaxReplicas | 
+| incubator.configuration.digitalAssetManagement.renderNewUI | 
+| incubator.configuration.digitalAssetManagement.enableRootCollectionSort | 
+| incubator.configuration.digitalAssetManagement.enableSoftDelete | 
+
+**Changed Values:**
+
+| Key | Old Value | New Value |
+|-----|-----------|-----------|
+| security.digitalAssetManagement.dbPassword | d1gitalExperience | "" | <!-- Commit: 71dcec8c, Author: rakeshbutham5, Date: 2026-06-22 -->
+| security.digitalAssetManagement.replicationPassword | d1gitalExperience | "" | <!-- Commit: 71dcec8c, Author: rakeshbutham5, Date: 2026-06-22 -->
+| security.digitalAssetManagement.damPassword | 1234 | "" | <!-- Commit: 71dcec8c, Author: rakeshbutham5, Date: 2026-06-22 -->
+| security.persistence.connectionPoolPassword | adminpassword | "" | <!-- Commit: 71dcec8c, Author: rakeshbutham5, Date: 2026-06-22 -->
+| configuration.searchMiddleware.pushAdminPassword | adminpush | "" | <!-- Commit: 64d9e83b, Author: Priyanshu Dubey, Date: 2026-06-21 -->
+
 ### CF236
-
-**Deprecated Keys:**
-
-| Key | Default Value |Removed in|
-|-----|---------------|----------|
-|[`incubator.configuration.digitalAssetManagement.enableRootCollectionSort`](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/digital_assets/usage/managing_dam/upload_rich_media_assets/#sorting-root-and-nested-collections){target="_blank"}|<!--insert default value-->|CF237|
-|[`incubator.configuration.digitalAssetManagement.enableSoftDelete`](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/digital_assets/usage/managing_dam/dam_soft_delete/){target="_blank"}|<!--insert default value-->|CF237|
-|[`incubator.configuration.digitalAssetManagement.renderNewUI`](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/digital_assets/){target="_blank"}|<!--insert default value-->|CF237|
 
 **Added Keys:**
 
