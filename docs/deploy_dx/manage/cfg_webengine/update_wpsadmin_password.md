@@ -5,19 +5,23 @@ title: Updating the default administrator password
 This topic provides the steps for updating the default administrator password.
 
 !!!note
-    To change the administrator username, see [Changing the default administrator user](configure_default_admin_user.md).
+    To change the administrator username, refer to [Changing the default administrator user](configure_default_admin_user.md).
 
 To update the default administrator password, refer to the following steps:
 
 1. Create a secret with the new administrator password using the following command:
 
     ```sh
-    kubectl create secret generic CUSTOM_SECRET_NAME --from-literal=username=wpsadmin --from-literal=password=CUSTOM_ADMIN_PASSWORD --namespace=<NAMESPACE>
+    kubectl create secret generic custom-secret-name --from-literal=username=wpsadmin --from-literal=password=CUSTOM_ADMIN_PASSWORD --namespace=<NAMESPACE>
     ```
 
-    Replace the values for the following: 
-    - `CUSTOM_SECRET_NAME` with the name of the secret.
+    Replace the values for the following:
+
+    - `custom-secret-name` with the name of the secret.
     - `CUSTOM_ADMIN_PASSWORD` with the new administrator password.
+
+    !!!important
+        Your `custom-secret-name` must be in lowercase. Kubernetes Secret names are validated against RFC 1123 DNS subdomain rules, which strictly enforce lowercase alphanumeric characters, hyphens (`-`), or dots (`.`).
 
 2. Update the `values.yaml` file with the secret name. See the following sample:
 
@@ -26,17 +30,17 @@ To update the default administrator password, refer to the following steps:
       webEngine:
         webEngineUser: "wpsadmin"
         webEnginePassword: "WEB_ENGINE_PASSWORD"
-        customWebEngineSecret: "CUSTOM_SECRET_NAME"
+        customWebEngineSecret: "custom-secret-name"
     ```
 
-    - Replace `CUSTOM_SECRET_NAME` with the name of the secret created in Step 1.
+    - Replace `custom-secret-name` with the name of the secret created in Step 1.
 
     - Replace `WEB_ENGINE_PASSWORD` with the new administrator password.
 
     - Make sure to either provide a `customWebEngineSecret` or a `webEngineUser` and `webEnginePassword`.
 
-3. Do a [Helm upgrade](../working_with_compose/helm_upgrade_values.md).
+3. Perform a [Helm upgrade](../working_with_compose/helm_upgrade_values.md).
 
 4. [Restart the server](../working_with_compose/restart_webengine_server.md) to apply the updated password.
 
-For adding other administrators and users with no administrator access, see [configOverrideFiles](configuration_changes_using_overrides.md#configuring-users-or-user-groups).
+For adding other administrators and users with no administrator access, refer to [Configuring users or user groups](configuration_changes_using_overrides.md#configuring-users-or-user-groups).
