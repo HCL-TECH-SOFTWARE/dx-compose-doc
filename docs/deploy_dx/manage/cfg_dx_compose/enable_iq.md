@@ -6,7 +6,7 @@
 
 Before enabling IQ in DX Compose, ensure the following:
 
-- The IQ backend service (`hcl-dx-iq` Helm chart) is deployed in your Kubernetes cluster and the `dx-iq-integrator` service is running. For more information, refer to [Installing IQ backend services](https://help.hcl-software.com/digital-experience/9.5/latest/build_sites/iq/installation/backend/){target="_blank"}.
+- The IQ backend service (`hcl-dx-iq` Helm chart) is deployed in your Kubernetes cluster and the `dx-iq-integrator` service is running. For more information, refer to [Installing IQ](https://help.hcl-software.com/digital-experience/9.5/latest/build_sites/iq/installation/){target="_blank"}.
 - Network connectivity is available between DX Compose (WebEngine) pods and the IQ backend service.
 - WebSocket connections are not blocked by firewalls or proxies.
 
@@ -31,10 +31,10 @@ networking:
 
 ## Validation
 
-After updating the `values.yaml` file, perform the following actions:
+After updating the `values.yaml` file:
 
-- If running the server for the first time, refer to [Installing WebEngine](../../install/kubernetes_deployment/install.md).
-- If upgrading previous configurations, refer to [Upgrading the Helm deployment](../working_with_compose/helm_upgrade_values.md).
+- If you are running the server for the first time, refer to [Installing WebEngine](../../install/kubernetes_deployment/install.md).
+- If you are upgrading previous configurations, refer to [Upgrading the Helm deployment](../working_with_compose/helm_upgrade_values.md).
 
 ## Access
 
