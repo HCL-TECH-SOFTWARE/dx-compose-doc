@@ -73,7 +73,7 @@ The name of the customization in the example (`sslOverride`) can be any string. 
 
 ## Configuring LDAP
 
-The following is a sample snippet that shows how to configure the DX Compose server to use an OpenLDAP server. Replace the values for `baseDN`, `bindDN`, `bindPassword`, and `host` with the proper values.
+The following is a sample snippet that shows how to configure the DX Compose server to use an OpenLDAP server. Replace the values for `baseDN`, `bindDN`, `bindPassword`, `host`, and `port` with the proper values.
 
 - For predefined LDAP types supported by OpenLiberty, use the corresponding filters tags (for example, `idsFilters`, `activedFilters`, `domino50Filters`, `edirectoryFilters`, `iplanetFilters`, `netscapeFilters`, and `securewayFilters`).
 - For custom LDAP types, use `customFilters` to define your own search filters for users and groups.  
@@ -126,7 +126,7 @@ To set up a custom LDAP server in Liberty, see [Configuring LDAP with Liberty](l
 
 ## Configuring LDAP settings for virtual portal realm support
 
-The following is a sample snippet that shows how to configure the DX Compose server to use multiple OpenLDAP servers with their own realms. These realms are then used  to specify access to the set of users that belong to the realm when creating a virtual portal. The realm value chosen in the Virtual Portal administration portlet also restricts the list of possible groups for the initial admin groups. Replace the values for `baseDN`, `bindDN`, `bindPassword`, and `host` with the proper values.
+The following is a sample snippet that shows how to configure the DX Compose server to use multiple OpenLDAP servers with their own realms. These realms are then used  to specify access to the set of users that belong to the realm when creating a virtual portal. The realm value chosen in the Virtual Portal administration portlet also restricts the list of possible groups for the initial admin groups. Replace the values for `baseDN`, `bindDN`, `bindPassword`, `host`, and `port` with the proper values.
 
 ```xml
 configOverrideFiles:
