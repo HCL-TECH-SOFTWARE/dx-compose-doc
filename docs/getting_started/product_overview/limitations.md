@@ -29,6 +29,7 @@ Know the existing limitations of Digital Experience (DX) Compose.
 - Because DX Compose runs on Java EE 8, the supported JSF version is 2.3 (compared to 2.2 for DX Core on WebSphere Application Server).
 - Social Media Publisher, Content Template Catalog (CTC), and other WCM extensions are not supported, except for Multilingual Solution.
 - No command-line interface is available for exporting or importing Personalization rules.
+- Custom [Work Manager applications](https://www.ibm.com/docs/en/was/9.0.5?topic=concurrency-configuring-work-managers){target="_blank"} developed to operate on IBM WebSphere Application server-based platforms will not operate on DX Compose - Open Liberty. Documentation is provided by IBM to convert those applications to use Jakarta Concurrency. For more information, refer to the IBM documentation: [Migrating applications that use concurrency and asynchronous programming models to Liberty](https://www.ibm.com/docs/en/was-liberty/nd?topic=mal-migrating-applications-that-use-concurrency-asynchronous-programming-models-liberty){target="_blank"}.
 
 ## User and group management
 
@@ -36,6 +37,7 @@ Know the existing limitations of Digital Experience (DX) Compose.
 
 - Lookaside databases, application groups, and custom user registries are not supported.
 - User profile editing is not supported. To hide the profile page, refer to [Disabling Edit My Profile](../../deploy_dx/manage/working_with_compose/cfg_parameters/manage_users_groups_liberty.md#disabling-edit-my-profile).
+- The Users and Groups management UI does not display child groups within nested groups. However, these child groups remain active and can be located by searching the root level of the directory.
 
 ## Authentication
 

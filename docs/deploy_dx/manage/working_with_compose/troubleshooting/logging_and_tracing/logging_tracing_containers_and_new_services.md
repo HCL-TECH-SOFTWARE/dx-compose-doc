@@ -1,6 +1,6 @@
 # Logging and tracing for containers and new services
 
-Log levels and trace strings are set in your `custom-values.yaml` file. [Configure and Access Logs](https://opensource.hcltechsw.com/digital-experience/latest/deployment/manage/container_configuration/troubleshooting/configure_access_helm_logs/){target="_blank"} provides more detail on how to configure logging in Helm amd how to access Kubernetes container logs. 
+Log levels and trace strings are set in your `custom-values.yaml` file. [Configure and Access Logs](https://help.hcl-software.com/digital-experience/9.5/latest/deployment/manage/container_configuration/troubleshooting/configure_access_helm_logs/){target="_blank"} provides more detail on how to configure logging in Helm amd how to access Kubernetes container logs.
 
 ## Prerequisite
 
@@ -96,4 +96,4 @@ You can view the client logs using the developer tools in the web browser. The f
     Open Liberty consolidates the trace strings list by removing strings that are logically contained within others. For example, if you have a string `x.y.z.*=all` in the list, it disappears when you add `x.y.*=all`
 
 ???+ info "Related information"  
-    -   [Troubleshooting your Helm deployment](https://opensource.hcltechsw.com/digital-experience/latest/deployment/manage/container_configuration/troubleshooting/helm_troubleshooting/){target="_blank"} 
+    -   [Troubleshooting your Helm deployment](https://help.hcl-software.com/digital-experience/9.5/latest/deployment/manage/container_configuration/troubleshooting/helm_troubleshooting/){target="_blank"}

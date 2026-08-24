@@ -1,6 +1,6 @@
 # Differences between DX Compose and DX Core
 
-This topic provides more information about the differences of the Digital Experience (DX) Compose WebEngine container from the [DX Offerings Core container](https://opensource.hcltechsw.com/digital-experience/latest/deployment/install/container/overview/){target="_blank"}.
+This topic provides more information about the differences of the Digital Experience (DX) Compose WebEngine container from the [DX Offerings Core container](https://help.hcl-software.com/digital-experience/9.5/latest/deployment/install/container/overview/){target="_blank"}.
 
 ## Java
 
@@ -32,7 +32,7 @@ HCL DX offerings utilize the IBM WebSphere Application Server (WAS) as the base 
 
 ## Deployment
 
-- DX Compose is available for Kubernetes-based deployments and Docker Compose for developers. It ships out-of-the-box with Derby and can be transitioned to other databases for production. Currently, the supported database is IBM DB2.
+- DX Compose is available for Kubernetes-based deployments and Docker Compose for developers. It ships out of the box with Derby and can be transitioned to other databases for production. For the list of supported databases, refer to [Databases](../system_requirements.md#databases).
 - The configuration is consolidated in the Helm chart. ConfigEngine, Configuration Wizard, and wsadmin are no longer required.
 
 ## Search

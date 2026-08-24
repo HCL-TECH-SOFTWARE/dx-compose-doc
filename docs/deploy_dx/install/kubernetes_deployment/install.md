@@ -48,7 +48,7 @@ Use the following default URL to access HCL Digital Experience Compose (WebEngin
 
 ## (Optional) Automated host extraction
 
-As described in the [Configure networking](../kubernetes_deployment/preparation/mandatory_tasks/prepare_configure_networking.md) topic, there are instances wherein you do not know the resulting external IP or FQDN for your deployment and the host value is empty. In that case, run a Helm upgrade command, and it automatically polls HAProxy and extracts the IP or FQDN values. The Helm Chart logic then populates all application configurations with the correct settings.
+As described in the [Configuring networking](../kubernetes_deployment/preparation/mandatory_tasks/prepare_configure_networking.md) topic, there are instances wherein you do not know the resulting external IP or FQDN for your deployment and the host value is empty. In that case, run a Helm upgrade command, and it automatically polls HAProxy and extracts the IP or FQDN values. The Helm Chart logic then populates all application configurations with the correct settings.
 
 An example is provided below. You may use the following Helm upgrade command to trigger the automated host extraction:
 
