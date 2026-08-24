@@ -42,9 +42,9 @@ configuration:
 
 This results in:
 
-- The environment variables `LDAP_USERNAME` and `LDAP_PASSWORD` being injected into the Pod.
+- The environment variables `LDAP_USERNAME` and `LDAP_PASSWORD` being injected into the pod.
 
-- The files `LDAP_USERNAME` and `LDAP_PASSWORD` being mounted in `/mnt/customSecrets/ldap-credentials` inside the webEngine Pod, each containing the values specified in the secret.
+- The files `LDAP_USERNAME` and `LDAP_PASSWORD` being mounted in `/mnt/customSecrets/ldap-credentials` inside the `webEngine` pod, each containing the values specified in the secret.
 
 You can then reference the environment variables in any of the server configurations. For example, `configOverrideFiles` for LDAP:
 
@@ -99,9 +99,8 @@ configuration:
 
 This results in:
 
-- The environment variables `ltpa.keys` being injected into the Pod.
-
-- The file `ltpa.keys` being mounted in `/mnt/customSecrets/ltpa-key` inside the Pod containing the same content as the input file.
+- The environment variables `ltpa.keys` being injected into the pod.
+- The file `ltpa.keys` being mounted in `/mnt/customSecrets/ltpa-key` inside the pod containing the same content as the input file.
 
 You can then reference the file in any of the server configurations. For example, to use the LTPA key for the server:
 
@@ -118,3 +117,23 @@ configuration:
 ```
 
 Perform a [Helm upgrade](../working_with_compose/helm_upgrade_values.md) to apply the changes.
+
+## Configuring file mounting and environment variables
+
+By default, secrets are injected as environment variables and mounted as files. You can configure this behavior using the following syntax in the `values.yaml` file:
+
+```yaml
+configuration: 
+  webEngine:
+    customSecrets: 
+      ldap-credentials: 
+        secretName: my-custom-ldap-credential
+        environmentVariable: true
+        file: true
+```
+
+- `environmentVariable`: Controls whether secret values are injected as environment variables into the pod. Set to `false` to disable environment variable injection (default: `true`).
+- `file`: Controls whether secret values are created as files under `/mnt/customSecrets/<secret-key>` inside the pod. Set to `false` to disable file mounting (default: `true`).
+
+!!!note
+    Set either or both values to `false` based on application requirements. For example, to mount files without injecting environment variables, set `environmentVariable` to `false` and `file` to `true`.
