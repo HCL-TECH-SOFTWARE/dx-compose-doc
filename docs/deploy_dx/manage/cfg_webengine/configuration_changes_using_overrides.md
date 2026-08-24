@@ -132,16 +132,6 @@ The following is a sample snippet that shows how to configure the DX Compose ser
 configOverrideFiles:
   ldap-overrides.xml: | 
     <server description="DX Web Engine server"> 
-      <basicRegistry id="basic" realm="defaultWIMFileBasedRealm"> 
-        <user name="wpsadmin" password="newPass" />
-        <user name="newuser1" password="password" />
-        <group name="wpsadmins" id="cn=wpsadmins,o=defaultWIMFileBasedRealm">
-          <member name="wpsadmin" />
-        </group>
-        <group name="nonadmins" id="cn=nonadmins,o=defaultWIMFileBasedRealm">
-          <member name="newuser1" />
-        </group>
-      </basicRegistry> 
       <ldapRegistry id="toyldap" realm="ldapToyRealm"
         host="127.0.0.1" port="1389" ignoreCase="true"
         baseDN="ou=ToyCompany,dc=dx,dc=com"
