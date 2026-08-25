@@ -126,7 +126,7 @@ To set up a custom LDAP server in Liberty, see [Configuring LDAP with Liberty](l
 
 ## Configuring LDAP settings for virtual portal realm support
 
-The following is a sample snippet that shows how to configure the DX Compose server to use multiple OpenLDAP servers with their own realms. These realms are then used  to specify access to the set of users that belong to the realm when creating a virtual portal. The realm value chosen in the Virtual Portal administration portlet also restricts the list of possible groups for the initial admin groups. Replace the values for `baseDN`, `bindDN`, `bindPassword`, `host`, and `port` with the proper values.
+The following is a sample snippet that shows how to configure the DX Compose server to use multiple OpenLDAP servers with their own realms. These realms define user access when you create a virtual portal. The realm value selected in the Virtual Portal administration portlet restricts the available groups for initial administration. Replace `baseDN`, `bindDN`, `bindPassword`, `host`, and `port` with your environment values.
 
 ```xml
 configOverrideFiles:
@@ -182,12 +182,11 @@ configOverrideFiles:
     </server>
 ```
 
-With this configuration, an administrator can now create a virtual portal for two different companies - a toy company and a boat company. The baseDN values specify the users that belong to the respective organizational units - `ou=ToyCompany,dc=dx,dc=com` and `ou=BoatCompany,dc=dx,dc=com`. The matching realm values will now appear in the Virtual Portal administration portlet as choices on the creation screen. When the admin chooses `ldapToyRealm` for the new toy company virtual portal, only the users belonging to that organization will be allowed to login.
+This configuration enables creating virtual portals for separate organizations, such as a toy company and a boat company shown in the sample configuration. The `baseDN` values specify the users that belong to the respective organizational units: `ou=ToyCompany,dc=dx,dc=com` and `ou=BoatCompany,dc=dx,dc=com`. Matching realm values appear as options in the Virtual Portal administration portlet during creation. Selecting `ldapToyRealm` for the toy company virtual portal restricts log in access to users in that organization.
 
 ### Combining realms for virtual portals
 
-Using the `federatedRealms` extension, the administrator can combine multiple realms under a parent realm. If this parent realm is chosen when creating the new virtual portal, then all of the child realm entries are combined to determine the set of users that can then access that VP. Selecting a parent realm grants access to users resolved from all listed child realms. Continuing with our above example:
-
+You can combine multiple realms under a parent realm by using the `federatedRealms` extension. Selecting this parent realm during virtual portal creation combines all child realm entries to define user access. Selecting a parent realm grants access to users resolved from all listed child realms. For example:
 
 ```xml
       ...
@@ -211,10 +210,12 @@ Using the `federatedRealms` extension, the administrator can combine multiple re
       </federatedRealms>      
     </server>
 ```
-With this configuration, an administrator can now create a virtual portal that has multiple realms combined into one. If the admin chooses `BoatRealm` when creating the new virtual portal, then all users that belong to the `ldapBoatRealm` along with all of the server's default file based users defined in `basicRegistry` will have access.
 
+This configuration enables creating a virtual portal with multiple combined realms. Selecting `BoatRealm` during virtual portal creation grants access to all users in `ldapBoatRealm` and the default file-based users defined in `basicRegistry`.
 
 ## Additional LDAP configuration samples
+
+Use the following LDAP configuration samples based on your server type:
 
 - [IBM Directory Server](#ibm-directory-server)
 - [Microsoft Active Directory Server](#microsoft-active-directory-server)
