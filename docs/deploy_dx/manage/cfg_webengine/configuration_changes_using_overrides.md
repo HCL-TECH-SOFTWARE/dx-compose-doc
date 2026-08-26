@@ -73,7 +73,7 @@ The name of the customization in the example (`sslOverride`) can be any string. 
 
 ## Configuring LDAP
 
-The following is a sample snippet that shows how to configure the DX Compose server to use an OpenLDAP server. Replace the values for `baseDN`, `bindDN`, `bindPassword`, and `host` with the proper values.
+The following is a sample snippet that shows how to configure the DX Compose server to use an OpenLDAP server. Replace the values for `baseDN`, `bindDN`, `bindPassword`, `host`, and `port` with the proper values.
 
 - For predefined LDAP types supported by OpenLiberty, use the corresponding filters tags (for example, `idsFilters`, `activedFilters`, `domino50Filters`, `edirectoryFilters`, `iplanetFilters`, `netscapeFilters`, and `securewayFilters`).
 - For custom LDAP types, use `customFilters` to define your own search filters for users and groups.  
@@ -124,7 +124,98 @@ configOverrideFiles:
 
 To set up a custom LDAP server in Liberty, see [Configuring LDAP with Liberty](ldap_configuration.md).
 
+## Configuring LDAP settings for virtual portal realm support
+
+The following is a sample snippet that shows how to configure the DX Compose server to use multiple OpenLDAP servers with their own realms. These realms define user access when you create a virtual portal. The realm value selected in the Virtual Portal administration portlet restricts the available groups for initial administration. Replace `baseDN`, `bindDN`, `bindPassword`, `host`, and `port` with your environment values.
+
+```xml
+configOverrideFiles:
+  ldap-overrides.xml: | 
+    <server description="DX Web Engine server"> 
+      <ldapRegistry id="toyldap" realm="ldapToyRealm"
+        host="127.0.0.1" port="1389" ignoreCase="true"
+        baseDN="ou=ToyCompany,dc=dx,dc=com"
+        ldapType="Custom"
+        sslEnabled="false"
+        recursiveSearch="false"
+        bindDN="cn=dx_user,dc=dx,dc=com"
+        bindPassword="passw0rd">
+          <customFilters
+            userFilter="(&amp;(uid=%v)(objectclass=inetOrgPerson))"
+            groupFilter="(&amp;(cn=%v)(objectclass=groupOfUniqueNames))"
+            userIdMap="*:uid"
+            groupIdMap="*:cn"
+            groupMemberIdMap="groupOfUniqueNames:uniqueMember">
+          </customFilters>
+          <attributeConfiguration>
+            <attribute name="mail" propertyName="ibm-primaryEmail" entityType="PersonAccount"/>
+            <attribute name="title" propertyName="ibm-jobTitle" entityType="PersonAccount"/>
+          </attributeConfiguration>
+      </ldapRegistry>
+      <ldapRegistry id="boatldap" realm="ldapBoatRealm"
+        host="127.0.0.1" port="1389" ignoreCase="true"
+        baseDN="ou=BoatCompany,dc=dx,dc=com"
+        ldapType="Custom"
+        sslEnabled="false"
+        recursiveSearch="false"
+        bindDN="cn=dx_user,dc=dx,dc=com"
+        bindPassword="passw0rd">
+          <customFilters
+            userFilter="(&amp;(uid=%v)(objectclass=inetOrgPerson))"
+            groupFilter="(&amp;(cn=%v)(objectclass=groupOfUniqueNames))"
+            userIdMap="*:uid"
+            groupIdMap="*:cn"
+            groupMemberIdMap="groupOfUniqueNames:uniqueMember">
+          </customFilters>
+          <attributeConfiguration>
+            <attribute name="mail" propertyName="ibm-primaryEmail" entityType="PersonAccount"/>
+            <attribute name="title" propertyName="ibm-jobTitle" entityType="PersonAccount"/>
+          </attributeConfiguration>
+      </ldapRegistry>
+      <federatedRepository>
+        <primaryRealm name="FederatedRealm" allowOpIfRepoDown="true">
+          <participatingBaseEntry name="o=defaultWIMFileBasedRealm"/>
+          <participatingBaseEntry name="ou=ToyCompany,dc=dx,dc=com"/>
+          <participatingBaseEntry name="ou=BoatCompany,dc=dx,dc=com"/>
+        </primaryRealm>
+      </federatedRepository>
+    </server>
+```
+
+This configuration enables creating virtual portals for separate organizations, such as a toy company and a boat company shown in the sample configuration. The `baseDN` values specify the users that belong to the respective organizational units: `ou=ToyCompany,dc=dx,dc=com` and `ou=BoatCompany,dc=dx,dc=com`. Matching realm values appear as options in the Virtual Portal administration portlet during creation. Selecting `ldapToyRealm` for the toy company virtual portal restricts log in access to users in that organization.
+
+### Combining realms for virtual portals
+
+You can combine multiple realms under a parent realm by using the `federatedRealms` extension. Selecting this parent realm during virtual portal creation combines all child realm entries to define user access. Selecting a parent realm grants access to users resolved from all listed child realms. For example:
+
+```xml
+      ...
+      </ldapRegistry>
+      <federatedRepository>
+        <primaryRealm name="FederatedRealm" allowOpIfRepoDown="true">
+          <participatingBaseEntry name="o=defaultWIMFileBasedRealm"/>
+          <participatingBaseEntry name="ou=ToyCompany,dc=dx,dc=com"/>
+          <participatingBaseEntry name="ou=BoatCompany,dc=dx,dc=com"/>
+        </primaryRealm>
+      </federatedRepository>
+      <federatedRealms>
+        <parentRealm name="ToyRealm">
+          <realmEntry name="ldapToyRealm"/>
+          <realmEntry name="defaultWIMFileBasedRealm"/>
+        </parentRealm>
+        <parentRealm name="BoatRealm">
+          <realmEntry name="ldapBoatRealm"/>
+          <realmEntry name="defaultWIMFileBasedRealm"/>
+        </parentRealm>
+      </federatedRealms>      
+    </server>
+```
+
+This configuration enables creating a virtual portal with multiple combined realms. Selecting `BoatRealm` during virtual portal creation grants access to all users in `ldapBoatRealm` and the default file-based users defined in `basicRegistry`.
+
 ## Additional LDAP configuration samples
+
+Use the following LDAP configuration samples based on your server type:
 
 - [IBM Directory Server](#ibm-directory-server)
 - [Microsoft Active Directory Server](#microsoft-active-directory-server)
