@@ -8,12 +8,12 @@ WCM API v3 is a modern REST API that provides streamlined access to WCM content,
 
 ## Prerequisites
 
-- HCL DX Compose CF224 or later
+- HCL DX Compose CF238 or later
 - Helm-based deployment on Kubernetes
 - Access to modify Helm values
 - WebEngine container running
 
-## Enabling via Helm
+## Enabling / disabling via Helm
 
 ### Option 1: Using values.yaml
 
@@ -34,7 +34,7 @@ helm upgrade dx-deployment hcl/hcl-dx-deployment \
   --namespace dx
 ```
 
-### Option 2: Using --set Flag
+### Option 2: Using --set flag
 
 Enable WCM API v3 directly via the command line during Helm install or upgrade:
 
@@ -44,7 +44,7 @@ helm upgrade dx-deployment hcl/hcl-dx-deployment \
   --namespace dx
 ```
 
-### Option 3: Combining with Existing Configuration
+### Option 3: Combining with existing configuration
 
 If you have other configuration values, combine them:
 
@@ -232,11 +232,11 @@ All WCM API v3 endpoints will return `503 Service Unavailable` after the WebEngi
 
 ## Next Steps
 
-- Review [Getting started with WCM API v3](../wcm_rest_v3/wcm_rest_v3_starting.md) for usage examples
+- Review [Getting started with WCM API v3](../wcm_rest_v3/wcm_rest_v3_starting.md) for usage examples and API reference
 - Explore the [API Explorer](https://your-dx-host/dx/api/wcm/v3/explorer/) for interactive testing
 
 ## Related Information
 
 - [REST service for Web Content Manager v3](../wcm_rest_v3/index.md)
 - [Helm deployment configuration](../../install/kubernetes_deployment/preparation/mandatory_tasks/prepare_configuration.md)
-- [WebEngine configuration](./index.md)
+- [Configuring DX Compose](./index.md)

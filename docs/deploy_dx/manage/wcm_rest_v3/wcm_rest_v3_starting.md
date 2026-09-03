@@ -13,28 +13,9 @@ WCM REST v3 APIs are built on JAX-RS 2.1 and OpenAPI 3.0 standards, providing a 
 
 ## Enabling WCM API v3
 
-WCM API v3 is controlled by a feature toggle in DX Compose deployments.
+WCM API v3 is controlled by a feature toggle in DX Compose deployments. To enable it, set the Helm value `incubator.configuration.webEngine.wcmApiV3Enabled` to `true`.
 
-### Helm Configuration
-
-To enable WCM API v3 in your Helm deployment, set the following value in your `values.yaml` or via the `--set` flag:
-
-```yaml
-incubator:
-  configuration:
-    webEngine:
-      wcmApiV3Enabled: true
-```
-
-Or via command line during Helm install/upgrade:
-
-```bash
-helm upgrade dx-deployment hcl/hcl-dx-deployment \
-  --set incubator.configuration.webEngine.wcmApiV3Enabled=true \
-  --namespace dx
-```
-
-For detailed deployment instructions, see [How to enable WCM API v3](../cfg_webengine/enable_wcm_api_v3.md).
+For complete enablement instructions, see [How to enable WCM API v3](../cfg_dx_compose/enable_wcm_api_v3.md).
 
 ## Verifying the Installation
 
@@ -304,7 +285,7 @@ Common HTTP status codes:
 ## Next Steps
 
 - Explore the [API Explorer](https://your-dx-host/dx/api/wcm/v3/explorer/) for complete endpoint documentation
-- Learn about [enabling WCM API v3](../cfg_webengine/enable_wcm_api_v3.md) in your deployment
+- Learn about [enabling WCM API v3](../cfg_dx_compose/enable_wcm_api_v3.md) in your deployment
 
 ## Related Information
 
