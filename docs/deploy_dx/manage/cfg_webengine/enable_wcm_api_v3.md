@@ -73,36 +73,8 @@ Expected output:
 dx-deployment-webengine-0   1/1   Running   0   5m
 ```
 
-### 2. Check Health Endpoint
 
-Test the health endpoint:
-
-```bash
-# Get the service URL
-DX_HOST=$(kubectl get svc -n dx dx-deployment-webengine -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')
-
-# Check health
-curl -k https://$DX_HOST/dx/api/wcm/v3/health
-```
-
-Expected response:
-```json
-{
-  "status": "UP",
-  "checks": [
-    {
-      "name": "wcm-connectivity",
-      "status": "UP"
-    },
-    {
-      "name": "feature-toggle",
-      "status": "UP"
-    }
-  }
-}
-```
-
-### 3. Access API Explorer
+### 2. Access API Explorer
 
 Open your browser and navigate to the API Explorer:
 
@@ -110,14 +82,9 @@ Open your browser and navigate to the API Explorer:
 https://your-dx-host/dx/api/wcm/v3/explorer/
 ```
 
-For local development:
-```
-https://localhost:9443/dx/api/wcm/v3/explorer/
-```
-
 You should see the Swagger UI interface with all available WCM v3 endpoints.
 
-### 4. Test a Simple Request
+### 3. Test a Simple Request
 
 List all libraries:
 
@@ -157,7 +124,6 @@ https://your-dx-host/dx/api/wcm/v3
 
 | Resource | Endpoint | Description |
 |----------|----------|-------------|
-| Health | `/health` | API health status |
 | Categories | `/categories` | Manage WCM categories |
 | Contents | `/contents` | Manage content items |
 | Libraries | `/libraries` | Manage WCM libraries |
@@ -238,33 +204,16 @@ kubectl logs -n dx dx-deployment-webengine-0 | grep "wcm.api.v3"
 
 Look for startup messages indicating WCM API v3 is loaded.
 
-### Health Endpoint Returns Connection Refused
-
-**Cause**: WebEngine service is not accessible.
-
-**Solution**: Verify the service is running:
-
-```bash
-kubectl get svc -n dx | grep webengine
-kubectl describe svc dx-deployment-webengine -n dx
-```
-
-Check that the service has endpoints:
-
-```bash
-kubectl get endpoints dx-deployment-webengine -n dx
-```
-
 ### Authentication Fails with 401
 
 **Cause**: Invalid credentials or authentication not configured.
 
-**Solution**: Verify credentials:
+**Solution**: Verify credentials by testing with a simple API call:
 
 ```bash
 # Test with default admin credentials
 curl -k -u wpsadmin:wpsadmin \
-  https://your-dx-host/dx/api/wcm/v3/health
+  https://your-dx-host/dx/api/wcm/v3/libraries?limit=1
 ```
 
 If using custom credentials, ensure they are configured correctly in the WebEngine.
@@ -285,7 +234,6 @@ All WCM API v3 endpoints will return `503 Service Unavailable` after the WebEngi
 
 - Review [Getting started with WCM API v3](../wcm_rest_v3/wcm_rest_v3_starting.md) for usage examples
 - Explore the [API Explorer](https://your-dx-host/dx/api/wcm/v3/explorer/) for interactive testing
-- Compare [API versions](../wcm_rest_v3/wcm_rest_v3_comparison.md) to understand differences
 
 ## Related Information
 

@@ -40,44 +40,16 @@ For detailed deployment instructions, see [How to enable WCM API v3](../cfg_webe
 
 After enabling the feature, verify that WCM API v3 is running:
 
-### 1. Check Health Endpoint
-
-```bash
-curl -k https://your-dx-host/dx/api/wcm/v3/health
-```
-
-Expected response:
-```json
-{
-  "status": "UP",
-  "checks": [
-    {
-      "name": "wcm-connectivity",
-      "status": "UP"
-    },
-    {
-      "name": "feature-toggle",
-      "status": "UP"
-    }
-  ]
-}
-```
-
-### 2. Access API Explorer
+### Access API Explorer
 
 Open your browser and navigate to:
 ```
 https://your-dx-host/dx/api/wcm/v3/explorer/
 ```
 
-For local development:
-```
-https://localhost:9443/dx/api/wcm/v3/explorer/
-```
-
 The Swagger UI interface should load, showing all available endpoints with interactive testing capabilities.
 
-### 3. View OpenAPI Specification
+### View OpenAPI Specification
 
 ```bash
 # JSON format
@@ -121,7 +93,6 @@ https://your-dx-host/dx/api/wcm/v3
 
 | Resource | Endpoint | Description |
 |----------|----------|-------------|
-| Health | `/health` | API health status |
 | Categories | `/categories` | Manage WCM categories |
 | Contents | `/contents` | Manage content items |
 | Libraries | `/libraries` | Manage WCM libraries |
@@ -332,7 +303,6 @@ Common HTTP status codes:
 
 ## Next Steps
 
-- Review the [API version comparison](wcm_rest_v3_comparison.md) to understand differences between v1, v2, and v3
 - Explore the [API Explorer](https://your-dx-host/dx/api/wcm/v3/explorer/) for complete endpoint documentation
 - Learn about [enabling WCM API v3](../cfg_webengine/enable_wcm_api_v3.md) in your deployment
 

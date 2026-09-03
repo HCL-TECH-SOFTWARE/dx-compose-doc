@@ -32,11 +32,6 @@ Access the interactive API Explorer (Swagger UI) at:
 https://your-dx-host/dx/api/wcm/v3/explorer/
 ```
 
-For local development:
-```
-https://localhost:9443/dx/api/wcm/v3/explorer/
-```
-
 The API Explorer provides:
 - Interactive testing of all endpoints
 - Auto-generated documentation from OpenAPI annotations
@@ -47,9 +42,6 @@ The API Explorer provides:
 
 - **[Getting started with the REST service for Web Content Manager v3](wcm_rest_v3_starting.md)**  
   Learn how to enable, configure, and start using the WCM REST v3 APIs, including authentication methods and basic usage examples.
-
-- **[Differences between v1, v2, and v3 APIs](wcm_rest_v3_comparison.md)**  
-  Compare the three versions of WCM REST APIs to understand the improvements and decide which version to use for your integration.
 
 ## Related Information
 
