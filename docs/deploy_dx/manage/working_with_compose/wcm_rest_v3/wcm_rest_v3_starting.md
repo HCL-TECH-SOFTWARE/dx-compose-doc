@@ -99,62 +99,9 @@ All WCM API v3 list endpoints support standard query parameters:
 | `includeMetadata` | boolean | Include full metadata (creator, workflow, etc.) | `?includeMetadata=true` |
 | `libraryId` | string | Filter by library (for contents, site areas, etc.) | `?libraryId=lib-001` |
 
-## Basic Usage Examples
+## Usage Examples
 
-### List All Libraries
-
-```bash
-curl -k -u wpsadmin:password \
-  "https://your-dx-host/dx/api/wcm/v3/libraries?limit=10"
-```
-
-### Get a Specific Library
-
-```bash
-curl -k -u user:password \
-  https://your-dx-host/dx/api/wcm/v3/libraries/{library-id}
-```
-
-### Create a New Library
-
-```bash
-curl -k -u wpsadmin:password \
-  -X POST \
-  -H "Content-Type: application/json" \
-  -d '{
-    "name": "my-library",
-    "title": "My Library",
-    "description": "A new WCM library"
-  }' \
-  https://your-dx-host/dx/api/wcm/v3/libraries
-```
-
-### Update a Library (Partial Update with PATCH)
-
-```bash
-# First, get the ETag
-ETAG=$(curl -s -I -k -u wpsadmin:password \
-  https://your-dx-host/dx/api/wcm/v3/libraries/{library-id} | \
-  grep -i etag | cut -d' ' -f2)
-
-# Then update with PATCH
-curl -k -u wpsadmin:password \
-  -X PATCH \
-  -H "Content-Type: application/merge-patch+json" \
-  -H "If-Match: $ETAG" \
-  -d '{
-    "description": "Updated description"
-  }' \
-  https://your-dx-host/dx/api/wcm/v3/libraries/{library-id}
-```
-
-### Delete a Library
-
-```bash
-curl -k -u wpsadmin:password \
-  -X DELETE \
-  https://your-dx-host/dx/api/wcm/v3/libraries/{library-id}
-```
+For practical examples of using the WCM REST API v3, including CRUD operations, query parameters, and best practices, see [WCM REST API v3 Usage Examples](wcm_rest_v3_usage_examples.md).
 
 ## Virtual Portal Support
 
@@ -257,7 +204,8 @@ Common HTTP status codes:
 
 ## Next Steps
 
-- Explore the [API Explorer](https://your-dx-host/dx/api/wcm/v3/explorer/) for complete endpoint documentation
+- Try the [WCM REST API v3 Usage Examples](wcm_rest_v3_usage_examples.md) for hands-on examples
+- Explore the `API Explorer` for complete endpoint documentation
 - Learn about [Enabling and disabling WCM API v3](../../cfg_dx_compose/enable_wcm_api_v3.md) if you need to disable or re-enable it
 
 ## Related Information

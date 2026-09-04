@@ -3,3 +3,4 @@ title: REST service for Web Content Manager v3
 nav:
     - index.md
     - wcm_rest_v3_starting.md
+    - wcm_rest_v3_usage_examples.md
