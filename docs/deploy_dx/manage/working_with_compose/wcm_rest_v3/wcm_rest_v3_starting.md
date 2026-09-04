@@ -13,7 +13,7 @@ WCM REST v3 APIs are built on JAX-RS 2.1 and OpenAPI 3.0 standards, providing a 
 
 ## Prerequisites
 
-Before using WCM API v3, ensure it is enabled in your DX Compose deployment. For enablement instructions, see [Enabling and disabling WCM API v3](../cfg_dx_compose/enable_wcm_api_v3.md).
+WCM API v3 is enabled by default in DX Compose CF238 and later. If you need to disable or re-enable it, see [Enabling and disabling WCM API v3](../../cfg_dx_compose/enable_wcm_api_v3.md).
 
 ## Authentication
 
@@ -24,7 +24,7 @@ WCM API v3 supports two authentication methods:
 For REST clients (curl, Postman, etc.):
 
 ```bash
-curl -k -u wpsadmin:password \
+curl -k -u user:password \
   https://your-dx-host/dx/api/wcm/v3/libraries
 ```
 
@@ -111,7 +111,7 @@ curl -k -u wpsadmin:password \
 ### Get a Specific Library
 
 ```bash
-curl -k -u wpsadmin:password \
+curl -k -u user:password \
   https://your-dx-host/dx/api/wcm/v3/libraries/{library-id}
 ```
 
@@ -258,7 +258,7 @@ Common HTTP status codes:
 ## Next Steps
 
 - Explore the [API Explorer](https://your-dx-host/dx/api/wcm/v3/explorer/) for complete endpoint documentation
-- Learn about [Enabling and disabling WCM API v3](../cfg_dx_compose/enable_wcm_api_v3.md) in your deployment
+- Learn about [Enabling and disabling WCM API v3](../../cfg_dx_compose/enable_wcm_api_v3.md) if you need to disable or re-enable it
 
 ## Related Information
 
