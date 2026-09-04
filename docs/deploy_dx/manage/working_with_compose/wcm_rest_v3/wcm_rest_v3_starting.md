@@ -124,17 +124,15 @@ All WCM API v3 responses follow a consistent structure:
 
 ```json
 {
-  "id": "wcm:oid:lib-001",
-  "name": "web-content",
+  "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "name": "web content",
   "title": "Web Content",
-  "description": "Main web content library",
-  "created": "2026-01-15T10:00:00Z",
-  "lastModified": "2026-08-31T14:30:00Z",
-  "_links": {
-    "self": {
-      "href": "/dx/api/wcm/v3/libraries/wcm:oid:lib-001"
-    }
-  }
+  "titleTextProviderName": "com.ibm.wps.plugins.WebResourcesTextProvider",
+  "titleTextProviderKey": "OOB_WEB_CONTENT_LIBRARY",
+  "type": "Library",
+  "enabled": true,
+  "allowDeletion": true,
+  "lastModified": "Wed, 26 Aug 2026 16:44:07.820Z"
 }
 ```
 
@@ -142,20 +140,37 @@ All WCM API v3 responses follow a consistent structure:
 
 ```json
 {
-  "items": [
-    { "id": "lib-001", "name": "web-content", "title": "Web Content" },
-    { "id": "lib-002", "name": "marketing", "title": "Marketing" }
-  ],
   "pagination": {
     "offset": 0,
     "limit": 10,
-    "total": 25,
-    "hasMore": true
+    "total": 25
   },
-  "_links": {
-    "self": { "href": "/dx/api/wcm/v3/libraries?offset=0&limit=10" },
-    "next": { "href": "/dx/api/wcm/v3/libraries?offset=10&limit=10" }
-  }
+  "links": {
+    "self": "/dx/api/wcm/v3/libraries?offset=0&limit=10",
+    "first": "/dx/api/wcm/v3/libraries?offset=0&limit=10",
+    "last": "/dx/api/wcm/v3/libraries?offset=20&limit=10",
+    "next": "/dx/api/wcm/v3/libraries?offset=10&limit=10"
+  },
+  "items": [
+    {
+      "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "web content",
+      "title": "Web Content",
+      "type": "Library",
+      "enabled": true,
+      "allowDeletion": true,
+      "lastModified": "Wed, 26 Aug 2026 16:44:07.820Z"
+    },
+    {
+      "id": "yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy",
+      "name": "marketing",
+      "title": "Marketing",
+      "type": "Library",
+      "enabled": true,
+      "allowDeletion": true,
+      "lastModified": "Wed, 26 Aug 2026 15:30:00.000Z"
+    }
+  ]
 }
 ```
 

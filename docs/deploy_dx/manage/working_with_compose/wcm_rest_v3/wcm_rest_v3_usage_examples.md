@@ -24,20 +24,29 @@ curl -k -u user:password \
 **Response**:
 ```json
 {
-  "items": [
-    {
-      "id": "wcm:oid:lib-001",
-      "name": "web-content",
-      "title": "Web Content",
-      "description": "Main web content library"
-    }
-  ],
   "pagination": {
     "offset": 0,
     "limit": 10,
-    "total": 5,
-    "hasMore": false
-  }
+    "total": 5
+  },
+  "links": {
+    "self": "/dx/api/wcm/v3/libraries?offset=0&limit=10",
+    "first": "/dx/api/wcm/v3/libraries?offset=0&limit=10",
+    "last": "/dx/api/wcm/v3/libraries?offset=0&limit=10"
+  },
+  "items": [
+    {
+      "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "web content",
+      "title": "Web Content",
+      "titleTextProviderName": "com.ibm.wps.plugins.WebResourcesTextProvider",
+      "titleTextProviderKey": "OOB_WEB_CONTENT_LIBRARY",
+      "type": "Library",
+      "enabled": true,
+      "allowDeletion": true,
+      "lastModified": "Wed, 26 Aug 2026 16:44:07.820Z"
+    }
+  ]
 }
 ```
 
@@ -53,17 +62,15 @@ curl -k -u user:password \
 **Response**:
 ```json
 {
-  "id": "wcm:oid:lib-001",
-  "name": "web-content",
+  "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "name": "web content",
   "title": "Web Content",
-  "description": "Main web content library",
-  "created": "2026-01-15T10:00:00Z",
-  "lastModified": "2026-08-31T14:30:00Z",
-  "_links": {
-    "self": {
-      "href": "/dx/api/wcm/v3/libraries/wcm:oid:lib-001"
-    }
-  }
+  "titleTextProviderName": "com.ibm.wps.plugins.WebResourcesTextProvider",
+  "titleTextProviderKey": "OOB_WEB_CONTENT_LIBRARY",
+  "type": "Library",
+  "enabled": true,
+  "allowDeletion": true,
+  "lastModified": "Wed, 26 Aug 2026 16:44:07.820Z"
 }
 ```
 
@@ -86,17 +93,14 @@ curl -k -u user:password \
 **Response** (201 Created):
 ```json
 {
-  "id": "wcm:oid:lib-002",
+  "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "name": "my-library",
   "title": "My Library",
   "description": "A new WCM library",
-  "created": "2026-09-04T15:30:00Z",
-  "lastModified": "2026-09-04T15:30:00Z",
-  "_links": {
-    "self": {
-      "href": "/dx/api/wcm/v3/libraries/wcm:oid:lib-002"
-    }
-  }
+  "type": "Library",
+  "enabled": true,
+  "allowDeletion": true,
+  "lastModified": "Wed, 04 Sep 2026 15:30:00.000Z"
 }
 ```
 
@@ -124,17 +128,14 @@ curl -k -u user:password \
 **Response** (200 OK):
 ```json
 {
-  "id": "wcm:oid:lib-002",
+  "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "name": "my-library",
   "title": "My Library",
   "description": "Updated description",
-  "created": "2026-09-04T15:30:00Z",
-  "lastModified": "2026-09-04T15:35:00Z",
-  "_links": {
-    "self": {
-      "href": "/dx/api/wcm/v3/libraries/wcm:oid:lib-002"
-    }
-  }
+  "type": "Library",
+  "enabled": true,
+  "allowDeletion": true,
+  "lastModified": "Wed, 04 Sep 2026 15:35:00.000Z"
 }
 ```
 
@@ -242,11 +243,20 @@ curl -k -u user:password \
 **Response**:
 ```json
 {
+  "pagination": {
+    "offset": 0,
+    "limit": 50,
+    "total": 5
+  },
+  "links": {
+    "self": "/dx/api/wcm/v3/libraries?fields=id,name&offset=0&limit=50",
+    "first": "/dx/api/wcm/v3/libraries?fields=id,name&offset=0&limit=50",
+    "last": "/dx/api/wcm/v3/libraries?fields=id,name&offset=0&limit=50"
+  },
   "items": [
     {
-      "id": "wcm:oid:lib-001",
-      "name": "web-content",
-      "title": "Web Content"
+      "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "web content"
     }
   ]
 }
