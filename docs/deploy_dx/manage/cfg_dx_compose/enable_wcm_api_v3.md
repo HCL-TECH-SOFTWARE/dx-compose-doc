@@ -1,6 +1,6 @@
-# How to enable WCM API v3
+# Enabling and disabling WCM API v3
 
-This guide explains how to enable the Web Content Manager (WCM) REST API v3 in your HCL Digital Experience Compose deployment.
+This guide explains how to enable and disable the Web Content Manager (WCM) REST API v3 in your HCL Digital Experience Compose deployment.
 
 ## Overview
 
@@ -60,7 +60,7 @@ helm upgrade dx-deployment hcl/hcl-dx-deployment \
 
 After enabling WCM API v3, verify that it is running correctly.
 
-### 1. Check Pod Status
+### Check Pod Status
 
 Ensure the WebEngine pod is running:
 
@@ -73,8 +73,7 @@ Expected output:
 dx-deployment-webengine-0   1/1   Running   0   5m
 ```
 
-
-### 2. Access API Explorer
+### Access API Explorer
 
 Open your browser and navigate to the API Explorer:
 
@@ -84,7 +83,7 @@ https://your-dx-host/dx/api/wcm/v3/explorer/
 
 You should see the Swagger UI interface with all available WCM v3 endpoints.
 
-### 3. Test a Simple Request
+### Test a Simple Request
 
 List all libraries:
 
@@ -112,64 +111,7 @@ When `wcmApiV3Enabled` is set to:
 
 The feature toggle is read at runtime. However, for the Helm change to take effect, the WebEngine pod will be restarted automatically by Kubernetes.
 
-## Accessing the API
 
-Once enabled, the WCM API v3 is accessible at:
-
-```
-https://your-dx-host/dx/api/wcm/v3
-```
-
-### Available Endpoints
-
-| Resource | Endpoint | Description |
-|----------|----------|-------------|
-| Categories | `/categories` | Manage WCM categories |
-| Contents | `/contents` | Manage content items |
-| Libraries | `/libraries` | Manage WCM libraries |
-| Presentation Templates | `/presentation-templates` | Manage presentation templates |
-| Search | `/search` | Search across WCM resources |
-| Site Areas | `/site-areas` | Manage site areas |
-| Taxonomies | `/taxonomies` | Manage taxonomies |
-
-### API Explorer
-
-Interactive Swagger UI:
-```
-https://your-dx-host/dx/api/wcm/v3/explorer/
-```
-
-### OpenAPI Specification
-
-View the OpenAPI spec:
-```bash
-# JSON format
-curl -k -H "Accept: application/json" \
-  https://your-dx-host/dx/api/wcm/v3/openapi
-
-# YAML format
-curl -k -H "Accept: application/yaml" \
-  https://your-dx-host/dx/api/wcm/v3/openapi
-```
-
-## Authentication
-
-WCM API v3 supports two authentication methods:
-
-### HTTP Basic Authentication
-
-For REST clients:
-```bash
-curl -k -u wpsadmin:password \
-  https://your-dx-host/dx/api/wcm/v3/libraries
-```
-
-### SSO (LTPA Token)
-
-For browser-based access:
-1. Log in to DX Portal first
-2. The LTPA cookie will be used for authentication
-3. Useful when accessing the API Explorer
 
 ## Troubleshooting
 
@@ -230,13 +172,12 @@ helm upgrade dx-deployment hcl/hcl-dx-deployment \
 
 All WCM API v3 endpoints will return `503 Service Unavailable` after the WebEngine pod restarts.
 
-## Next Steps
+## Using the API
 
-- Review [Getting started with WCM API v3](../wcm_rest_v3/wcm_rest_v3_starting.md) for usage examples and API reference
-- Explore the [API Explorer](https://your-dx-host/dx/api/wcm/v3/explorer/) for interactive testing
+Once WCM API v3 is enabled, you can start using it. For detailed information on authentication, endpoints, usage examples, and best practices, see [Getting started with the REST service for Web Content Manager v3](../working_with_compose/wcm_rest_v3/wcm_rest_v3_starting.md).
 
 ## Related Information
 
-- [REST service for Web Content Manager v3](../wcm_rest_v3/index.md)
+- [REST service for Web Content Manager v3](../working_with_compose/wcm_rest_v3/index.md)
 - [Helm deployment configuration](../../install/kubernetes_deployment/preparation/mandatory_tasks/prepare_configuration.md)
 - [Configuring DX Compose](./index.md)

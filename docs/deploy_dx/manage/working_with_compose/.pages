@@ -6,6 +6,7 @@ nav:
  - Managing users and groups: cfg_parameters
  - Monitoring the DX Compose deployment: monitor_metrics.md
  - Restarting the WebEngine server: restart_webengine_server.md
+ - wcm_rest_v3
  - Staging to production: staging_to_production.md
  - Supported DXClient operations: dxclient.md
  - Troubleshooting: troubleshooting

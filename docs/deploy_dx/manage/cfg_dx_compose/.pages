@@ -11,4 +11,4 @@ nav:
     - integrate_ddc
     - setup_cntnt_serv_pgs.md
     - configure_sso
-    - enable_wcm_api_v3.md
+    - Enabling and disabling WCM API v3: enable_wcm_api_v3.md

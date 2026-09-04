@@ -13,7 +13,7 @@ WCM REST v3 APIs are built on JAX-RS 2.1 and OpenAPI 3.0 standards, providing a 
 
 ## Prerequisites
 
-Before using WCM API v3, ensure it is enabled in your DX Compose deployment. For enablement instructions, see [How to enable WCM API v3](../cfg_dx_compose/enable_wcm_api_v3.md).
+Before using WCM API v3, ensure it is enabled in your DX Compose deployment. For enablement instructions, see [Enabling and disabling WCM API v3](../cfg_dx_compose/enable_wcm_api_v3.md).
 
 ## Authentication
 
@@ -258,7 +258,7 @@ Common HTTP status codes:
 ## Next Steps
 
 - Explore the [API Explorer](https://your-dx-host/dx/api/wcm/v3/explorer/) for complete endpoint documentation
-- Learn about [enabling WCM API v3](../cfg_dx_compose/enable_wcm_api_v3.md) in your deployment
+- Learn about [Enabling and disabling WCM API v3](../cfg_dx_compose/enable_wcm_api_v3.md) in your deployment
 
 ## Related Information
 

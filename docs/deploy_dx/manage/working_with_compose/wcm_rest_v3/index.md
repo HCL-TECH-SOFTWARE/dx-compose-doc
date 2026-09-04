@@ -33,6 +33,7 @@ https://your-dx-host/dx/api/wcm/v3/explorer/
 ```
 
 The API Explorer provides:
+
 - Interactive testing of all endpoints
 - Auto-generated documentation from OpenAPI annotations
 - Request/response examples
