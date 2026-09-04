@@ -26,11 +26,7 @@ The WCM API v3 provides REST endpoints for managing:
 
 ## API Explorer
 
-Access the interactive API Explorer (Swagger UI) at:
-
-```
-https://your-dx-host/dx/api/wcm/v3/explorer/
-```
+Access the interactive API Explorer (Swagger UI) at `/dx/api/wcm/v3/explorer/` on your DX host.
 
 The API Explorer provides:
 

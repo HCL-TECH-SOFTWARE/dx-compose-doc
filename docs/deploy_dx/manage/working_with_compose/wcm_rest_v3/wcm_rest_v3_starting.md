@@ -108,10 +108,7 @@ WCM API v3 automatically detects Virtual Portal (VP) context from the request:
 - **Context-based**: `https://example.com/wps/myconnect/dx/api/wcm/v3/libraries`
 - **Base portal**: `https://example.com/dx/api/wcm/v3/libraries`
 
-For the API Explorer, you can specify a virtual portal using a query parameter:
-```
-https://your-dx-host/dx/api/wcm/v3/explorer/?virtualPortal=myVP
-```
+For the API Explorer, you can specify a virtual portal using a query parameter: `/dx/api/wcm/v3/explorer/?virtualPortal=myVP`
 
 ## Response format
 
