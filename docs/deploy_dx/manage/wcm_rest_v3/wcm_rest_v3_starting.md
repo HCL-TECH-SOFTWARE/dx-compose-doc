@@ -11,36 +11,9 @@ WCM REST v3 APIs are built on JAX-RS 2.1 and OpenAPI 3.0 standards, providing a 
 - Interactive API Explorer with Swagger UI
 - Comprehensive OpenAPI 3.0 specification
 
-## Enabling WCM API v3
+## Prerequisites
 
-WCM API v3 is controlled by a feature toggle in DX Compose deployments. To enable it, set the Helm value `incubator.configuration.webEngine.wcmApiV3Enabled` to `true`.
-
-For complete enablement instructions, see [How to enable WCM API v3](../cfg_dx_compose/enable_wcm_api_v3.md).
-
-## Verifying the Installation
-
-After enabling the feature, verify that WCM API v3 is running:
-
-### Access API Explorer
-
-Open your browser and navigate to:
-```
-https://your-dx-host/dx/api/wcm/v3/explorer/
-```
-
-The Swagger UI interface should load, showing all available endpoints with interactive testing capabilities.
-
-### View OpenAPI Specification
-
-```bash
-# JSON format
-curl -k -H "Accept: application/json" \
-  https://your-dx-host/dx/api/wcm/v3/openapi
-
-# YAML format
-curl -k -H "Accept: application/yaml" \
-  https://your-dx-host/dx/api/wcm/v3/openapi
-```
+Before using WCM API v3, ensure it is enabled in your DX Compose deployment. For enablement instructions, see [How to enable WCM API v3](../cfg_dx_compose/enable_wcm_api_v3.md).
 
 ## Authentication
 
