@@ -10,9 +10,9 @@ This guide provides practical examples for using the WCM REST API v3 to manage W
 
 For authentication and endpoint details, see [Getting started with WCM REST API v3](wcm_rest_v3_starting.md).
 
-## Basic Usage Examples
+## Basic usage examples
 
-### List All Libraries
+### List all libraries
 
 Retrieve a list of all WCM libraries:
 
@@ -50,7 +50,7 @@ curl -k -u user:password \
 }
 ```
 
-### Get a Specific Library
+### Get a specific library
 
 Retrieve details of a specific library by ID:
 
@@ -74,7 +74,7 @@ curl -k -u user:password \
 }
 ```
 
-### Create a New Library
+### Create a new library
 
 Create a new WCM library:
 
@@ -104,7 +104,7 @@ curl -k -u user:password \
 }
 ```
 
-### Update a Library (Partial Update with PATCH)
+### Update a library (partial update with PATCH)
 
 Update specific fields of a library using PATCH:
 
@@ -139,7 +139,7 @@ curl -k -u user:password \
 }
 ```
 
-### Delete a Library
+### Delete a library
 
 Delete a library:
 
@@ -151,9 +151,9 @@ curl -k -u user:password \
 
 **Response**: 204 No Content (successful deletion)
 
-## Working with Content
+## Working with content
 
-### List Content Items
+### List content items
 
 Retrieve content items from a specific library:
 
@@ -162,7 +162,7 @@ curl -k -u user:password \
   "https://your-dx-host/dx/api/wcm/v3/contents?libraryId=wcm:oid:lib-001&limit=10"
 ```
 
-### Get Specific Content
+### Get specific content
 
 Retrieve a specific content item:
 
@@ -171,7 +171,7 @@ curl -k -u user:password \
   https://your-dx-host/dx/api/wcm/v3/contents/wcm:oid:content-001
 ```
 
-### Create Content
+### Create content
 
 Create a new content item:
 
@@ -188,9 +188,9 @@ curl -k -u user:password \
   https://your-dx-host/dx/api/wcm/v3/contents
 ```
 
-## Working with Site Areas
+## Working with site areas
 
-### List Site Areas
+### List site areas
 
 Retrieve site areas from a library:
 
@@ -199,7 +199,7 @@ curl -k -u user:password \
   "https://your-dx-host/dx/api/wcm/v3/site-areas?libraryId=wcm:oid:lib-001"
 ```
 
-### Create a Site Area
+### Create a site area
 
 Create a new site area:
 
@@ -215,7 +215,7 @@ curl -k -u user:password \
   https://your-dx-host/dx/api/wcm/v3/site-areas
 ```
 
-## Using Query Parameters
+## Using query parameters
 
 ### Pagination
 
@@ -231,7 +231,7 @@ curl -k -u user:password \
   "https://your-dx-host/dx/api/wcm/v3/contents?offset=20&limit=20"
 ```
 
-### Sparse Fieldsets
+### Sparse fieldsets
 
 Request only specific fields to reduce payload size:
 
@@ -262,7 +262,7 @@ curl -k -u user:password \
 }
 ```
 
-### Include Metadata
+### Include metadata
 
 Request full metadata (creator, workflow, etc.):
 
@@ -271,9 +271,9 @@ curl -k -u user:password \
   "https://your-dx-host/dx/api/wcm/v3/contents/wcm:oid:content-001?includeMetadata=true"
 ```
 
-## Search Examples
+## Search examples
 
-### Search Across Resources
+### Search across resources
 
 Search for content across all resources:
 
@@ -282,7 +282,7 @@ curl -k -u user:password \
   "https://your-dx-host/dx/api/wcm/v3/search?q=welcome&limit=10"
 ```
 
-### Filter by Library
+### Filter by library
 
 Search within a specific library:
 
@@ -291,9 +291,9 @@ curl -k -u user:password \
   "https://your-dx-host/dx/api/wcm/v3/search?q=article&libraryId=wcm:oid:lib-001"
 ```
 
-## Error Handling Examples
+## Error handling examples
 
-### Handle 404 Not Found
+### Handle 404 not found
 
 ```bash
 curl -k -u user:password \
@@ -311,7 +311,7 @@ curl -k -u user:password \
 }
 ```
 
-### Handle 412 Precondition Failed (ETag Mismatch)
+### Handle 412 precondition failed (ETag mismatch)
 
 ```bash
 curl -k -u user:password \
@@ -333,9 +333,9 @@ curl -k -u user:password \
 }
 ```
 
-## Best Practices
+## Best practices
 
-### Always Use ETags for Updates
+### Always use ETags for updates
 
 ```bash
 # Good: Get ETag first
@@ -351,7 +351,7 @@ curl -k -u user:password \
   https://your-dx-host/dx/api/wcm/v3/libraries/wcm:oid:lib-001
 ```
 
-### Use PATCH for Partial Updates
+### Use PATCH for partial updates
 
 ```bash
 # Good: PATCH for partial update
@@ -365,7 +365,7 @@ curl -k -u user:password \
 # Avoid: PUT requires full resource representation
 ```
 
-### Request Only Needed Fields
+### Request only needed fields
 
 ```bash
 # Good: Request only what you need
@@ -375,7 +375,7 @@ curl -k -u user:password \
 # Avoid: Requesting all fields when you only need a few
 ```
 
-### Implement Pagination
+### Implement pagination
 
 ```bash
 # Good: Use pagination for large datasets
@@ -385,7 +385,7 @@ curl -k -u user:password \
 # Avoid: Requesting all items at once
 ```
 
-## Related Information
+## Related information
 
 - [Getting started with WCM REST API v3](wcm_rest_v3_starting.md)
 - [REST service for Web Content Manager v3](index.md)

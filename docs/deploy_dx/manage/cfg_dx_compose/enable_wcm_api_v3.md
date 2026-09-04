@@ -41,7 +41,7 @@ To re-enable WCM API v3 after disabling it, set `wcmApiV3Enabled: true` in your 
 
 ## Troubleshooting
 
-### API Returns 503 Service Unavailable
+### API returns 503 service unavailable
 
 **Cause**: The WCM API v3 feature toggle has been explicitly disabled.
 
@@ -59,7 +59,7 @@ helm upgrade dx-deployment hcl/hcl-dx-deployment \
   --namespace dx
 ```
 
-### API Explorer Shows 404 Not Found
+### API explorer shows 404 not found
 
 **Cause**: WebEngine pod is not running or the API is not deployed.
 
@@ -72,7 +72,7 @@ kubectl logs -n dx dx-deployment-webengine-0 | grep "wcm.api.v3"
 
 Look for startup messages indicating WCM API v3 is loaded.
 
-### Authentication Fails with 401
+### Authentication fails with 401
 
 **Cause**: Invalid credentials or authentication not configured.
 
@@ -92,7 +92,7 @@ Ensure your credentials are valid and have the necessary permissions to access W
 
 Once WCM API v3 is enabled, you can start using it. For detailed information on authentication, endpoints, usage examples, and best practices, see [Getting started with the REST service for Web Content Manager v3](../working_with_compose/wcm_rest_v3/wcm_rest_v3_starting.md).
 
-## Related Information
+## Related information
 
 - [REST service for Web Content Manager v3](../working_with_compose/wcm_rest_v3/index.md)
 - [Helm deployment configuration](../../install/kubernetes_deployment/preparation/mandatory_tasks/prepare_configuration.md)

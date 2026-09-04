@@ -43,7 +43,7 @@ The base URL for all WCM API v3 endpoints is:
 https://your-dx-host/dx/api/wcm/v3
 ```
 
-### Available Endpoints
+### Available endpoints
 
 | Resource | Endpoint | Description |
 |----------|----------|-------------|
@@ -55,20 +55,17 @@ https://your-dx-host/dx/api/wcm/v3
 | Site Areas | `/site-areas` | Manage site areas |
 | Taxonomies | `/taxonomies` | Manage taxonomies |
 
-For complete endpoint documentation, see the [API Explorer](https://your-dx-host/dx/api/wcm/v3/explorer/).
+For complete endpoint documentation, see the `API Explorer`.
 
 ## Using the API Explorer
 
 The WCM API v3 includes a built-in Swagger UI-based API Explorer for interactive testing and documentation.
 
-### Accessing the Explorer
+### Accessing the explorer
 
-Navigate to:
-```
-https://your-dx-host/dx/api/wcm/v3/explorer/
-```
+The API Explorer is available at `/dx/api/wcm/v3/explorer/` on your DX host.
 
-### Testing an Endpoint
+### Testing an endpoint
 
 1. Click "Authorize" and enter your DX credentials
 2. Browse to an endpoint (e.g., Libraries > GET /libraries)
@@ -77,7 +74,7 @@ https://your-dx-host/dx/api/wcm/v3/explorer/
 5. Click "Execute"
 6. View the response with actual data
 
-### Example: Listing Libraries
+### Example: Listing libraries
 
 1. Navigate to the API Explorer
 2. Expand the "Libraries" section
@@ -87,7 +84,7 @@ https://your-dx-host/dx/api/wcm/v3/explorer/
 6. Click "Execute"
 7. View the response showing your WCM libraries
 
-## Common Query Parameters
+## Common query parameters
 
 All WCM API v3 list endpoints support standard query parameters:
 
@@ -99,11 +96,11 @@ All WCM API v3 list endpoints support standard query parameters:
 | `includeMetadata` | boolean | Include full metadata (creator, workflow, etc.) | `?includeMetadata=true` |
 | `libraryId` | string | Filter by library (for contents, site areas, etc.) | `?libraryId=lib-001` |
 
-## Usage Examples
+## Usage examples
 
 For practical examples of using the WCM REST API v3, including CRUD operations, query parameters, and best practices, see [WCM REST API v3 Usage Examples](wcm_rest_v3_usage_examples.md).
 
-## Virtual Portal Support
+## Virtual portal support
 
 WCM API v3 automatically detects Virtual Portal (VP) context from the request:
 
@@ -116,11 +113,11 @@ For the API Explorer, you can specify a virtual portal using a query parameter:
 https://your-dx-host/dx/api/wcm/v3/explorer/?virtualPortal=myVP
 ```
 
-## Response Format
+## Response format
 
 All WCM API v3 responses follow a consistent structure:
 
-### Single Resource Response
+### Single resource response
 
 ```json
 {
@@ -136,7 +133,7 @@ All WCM API v3 responses follow a consistent structure:
 }
 ```
 
-### Collection Response
+### Collection response
 
 ```json
 {
@@ -174,7 +171,7 @@ All WCM API v3 responses follow a consistent structure:
 }
 ```
 
-## Error Handling
+## Error handling
 
 WCM API v3 returns RFC 7807 Problem Details for errors:
 
@@ -203,7 +200,7 @@ Common HTTP status codes:
 | 428 | Precondition Required (If-Match header missing) |
 | 503 | Service Unavailable (API disabled) |
 
-## Best Practices
+## Best practices
 
 1. **Use PATCH for Partial Updates**: When updating only a few fields, use PATCH instead of PUT to avoid accidental overwrites and reduce payload size.
 
@@ -217,13 +214,13 @@ Common HTTP status codes:
 
 6. **Use the API Explorer**: Leverage the built-in Swagger UI for interactive testing and documentation discovery.
 
-## Next Steps
+## Next steps
 
 - Try the [WCM REST API v3 Usage Examples](wcm_rest_v3_usage_examples.md) for hands-on examples
 - Explore the `API Explorer` for complete endpoint documentation
 - Learn about [Enabling and disabling WCM API v3](../../cfg_dx_compose/enable_wcm_api_v3.md) if you need to disable or re-enable it
 
-## Related Information
+## Related information
 
 - [REST service for Web Content Manager v2](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_development/wcm_rest_v2/){target="_blank"}
 - [HCL Experience API](https://help.hcl-software.com/digital-experience/9.5/latest/extend_dx/apis/hcl_experience_api/){target="_blank"}

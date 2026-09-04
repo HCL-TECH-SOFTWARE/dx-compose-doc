@@ -4,7 +4,7 @@ This section discusses how to use the Web Content Manager REST version 3 APIs.
 
 The HCL Digital Experience (DX) Web Content Manager (WCM) API v3 is a modern REST API that provides streamlined access to WCM content, libraries, site areas, categories, taxonomies, and presentation templates. Built on JAX-RS 2.1 and OpenAPI 3.0 standards, it offers a cleaner, more efficient alternative to previous API versions.
 
-## Key Features
+## Key features
 
 - **Modern Architecture**: JAX-RS 2.1 compliant REST API built on Java EE 8
 - **OpenAPI 3.0 Integration**: Auto-generated API documentation with interactive Swagger UI
@@ -12,7 +12,7 @@ The HCL Digital Experience (DX) Web Content Manager (WCM) API v3 is a modern RES
 - **Advanced HTTP Features**: ETag support, JSON Merge Patch (RFC 7396), sparse fieldsets
 - **Built-in API Explorer**: Interactive Swagger UI at `/dx/api/wcm/v3/explorer/` for live API testing
 
-## Available Resources
+## Available resources
 
 The WCM API v3 provides REST endpoints for managing:
 
@@ -44,7 +44,7 @@ The API Explorer provides:
 - **[Getting started with the REST service for Web Content Manager v3](wcm_rest_v3_starting.md)**  
   Learn how to enable, configure, and start using the WCM REST v3 APIs, including authentication methods and basic usage examples.
 
-## Related Information
+## Related information
 
 - [REST service for Web Content Manager v2](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_development/wcm_rest_v2/){target="_blank"}
 - [REST service for Web Content Manager v1](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_development/wcm_rest/){target="_blank"}
