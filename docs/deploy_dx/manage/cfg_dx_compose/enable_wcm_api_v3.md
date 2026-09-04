@@ -33,78 +33,9 @@ helm upgrade dx-deployment hcl/hcl-dx-deployment \
   --namespace dx
 ```
 
-## Re-enabling WCM API v3
+To re-enable WCM API v3 after disabling it, set `wcmApiV3Enabled: true` in your `values.yaml` and run the same `helm upgrade` command.
 
-If you previously disabled WCM API v3 and want to re-enable it, set the value to `true`:
 
-```yaml
-configuration:
-  webEngine:
-    wcmApiV3Enabled: true
-```
-
-Then apply the changes:
-
-```bash
-helm upgrade dx-deployment hcl/hcl-dx-deployment \
-  -f values.yaml \
-  --namespace dx
-```
-
-## Verifying the Installation
-
-After enabling WCM API v3, verify that it is running correctly.
-
-### Check Pod Status
-
-Ensure the WebEngine pod is running:
-
-```bash
-kubectl get pods -n dx | grep webengine
-```
-
-Expected output:
-```
-dx-deployment-webengine-0   1/1   Running   0   5m
-```
-
-### Access API Explorer
-
-Open your browser and navigate to the API Explorer:
-
-```
-https://your-dx-host/dx/api/wcm/v3/explorer/
-```
-
-You should see the Swagger UI interface with all available WCM v3 endpoints.
-
-### Test a Simple Request
-
-List all libraries:
-
-```bash
-curl -k -u user:password \
-  https://your-dx-host/dx/api/wcm/v3/libraries?limit=5
-```
-
-## Configuration Details
-
-### Helm Value Reference
-
-| Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
-| `configuration.webEngine.wcmApiV3Enabled` | boolean | `true` | Feature toggle for WCM API v3 (enabled by default in CF238+) |
-
-### Runtime Behavior
-
-When `wcmApiV3Enabled` is set to:
-
-- **`true`** (default): WCM API v3 is enabled and all endpoints are accessible
-- **`false`**: WCM API v3 is disabled and all endpoints return `503 Service Unavailable`
-
-### No Server Restart Required
-
-The feature toggle is read at runtime. However, for the Helm change to take effect, the WebEngine pod will be restarted automatically by Kubernetes.
 
 
 
