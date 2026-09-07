@@ -282,9 +282,11 @@ To change the database configuration, update the custom `values.yaml` file or th
 
 ## Using the external database and triggering the database transfer
 
-The external database is used by setting the `configuration.webEngine.useExternalDatabase` property to `true` in the custom `values.yaml` file and doing a  `helm upgrade`. This triggers a database transfer when enabled for the first time. The database transfer is a one-time operation that copies the content of the Derby database to the external database.
+To enable the external database for WebEngine, set `configuration.webEngine.useExternalDatabase` to `true` and run a `helm upgrade`. This triggers a one-time data migration from the embedded Derby database to the external database. WebEngine records when this transfer completes, ensuring that subsequent pod restarts or Helm upgrades bypass the migration and connect directly to the newly populated external database.
 
-To drop and recreate all existing WebEngine tables in the external database when transferring the Derby data, set the `configuration.webEngine.dropDatabaseTables` property to `true` in the custom `values.yaml` file when doing the `helm upgrade` for the database transfer. WebEngine data that may exist in the external database will be lost. If you change the `configuration.webEngine.dropDatabaseTables` property to `true`, it is recommended to immediately reset it to `false` after your `helm upgrade`.  Failure to do so could lead to unexpected loss of data.
+During this initial transfer, you can configure WebEngine to drop and recreate existing tables in the external database by setting `configuration.webEngine.dropDatabaseTables` to `true` for that same upgrade. This is an action that will permanently delete any WebEngine data is already present in the external database. This drop action only occurs during the initial migration. Once the transfer completes successfully, WebEngine ignores the flag and will not repeat the transfer or the drop step during future restarts or upgrades, even if the parameter remains set to true.
+
+While the drop action is limited to the initial transfer, leaving  `dropDatabaseTables` set to `true` introduces a severe risk of unintended data loss. If a future recovery or system reset inadvertently forces the database transfer to execute again, your existing tables will be wiped. As a necessary safeguard against this scenario, you should immediately reset `configuration.webEngine.dropDatabaseTables` to `false` and apply the change with another `helm upgrade` as soon as the initial migration finishes.
 
 ## dbDomainProperties
 
