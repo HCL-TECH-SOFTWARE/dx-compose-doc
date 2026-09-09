@@ -7,7 +7,7 @@ This topic provides steps on how to add or define custom attributes in Digital E
 
 ## Overview
 
-You can add a single attribute or multiple custom attributes simultaneously by including them in the `server.xml` file. In the `server.xml` file, the `<wplc-add-property>` tag is used to define custom attributes, and it contains one or more `<resource>` tags. Each `<resource>` tag includes attributes that are specific to the property: `propertyName`, `dataType`, `entityType`, and `multiValued`.
+You can add a single attribute or multiple custom attributes simultaneously by providing a Liberty configuration override file through the Helm `configOverrideFiles` parameter. The `<wplc-add-property>` tag is used to define custom attributes, and it contains one or more `<resource>` tags. Each `<resource>` tag includes attributes that are specific to the property: `propertyName`, `dataType`, `entityTypes`, and `multiValued`.
 
 ## Attribute description
 
@@ -34,34 +34,28 @@ The following list provides the description of each attribute:
 
 - `multiValued`: This defines whether the property can contain multiple values or not.
 
-## Liberty `server.xml` updates
+## Configure custom attributes with Helm
 
-To define the custom attributes, you must adjust the Liberty server configuration by adding the custom attributes in the following format:
+To define custom attributes in Kubernetes deployments, add a Liberty configuration override file by using the `configOverrideFiles` parameter in your Helm values file. The override file is mounted into the Liberty `configDropins/overrides` directory.
 
-```xml
-<wplc-add-property>
-    <resource propertyName="xxx" dataType="xxx" entityTypes="xxx" multiValued="xxx" />
-</wplc-add-property>
-```
-
-1. Locate the `server.xml` file inside your Liberty container:
+1. Export the current Helm values:
 
     ```sh
-    cd /opt/openliberty/wlp/usr/servers/defaultServer
-    vi server.xml
+    helm get values dx-deployment -n dxns -o yaml -a > custom-values-all.yaml
     ```
 
+2. Add the custom attribute configuration to `custom-values-all.yaml`:
 
-2. In the `server.xml` file, define the custom attributes.
-
-    See the following sample to add three custom attributes:
-
-    ```xml
-    <wplc-add-property>
-        <resource propertyName="attribute_name_1" dataType="Int" entityTypes="Group" multiValued="true" />
-        <resource propertyName="attribute_name_2" dataType="String" entityTypes="PersonAccount" multiValued="true" />
-        <resource propertyName="attribute_name_3" dataType="Base64Binary" entityTypes="Group,PersonAccount" multiValued="false" />
-    </wplc-add-property>
+    ```yaml
+    configOverrideFiles:
+      custom-attributes.xml: |
+        <server description="DX Web Engine server">
+          <wplc-add-property>
+            <resource propertyName="attribute_name_1" dataType="Int" entityTypes="Group" multiValued="true" />
+            <resource propertyName="attribute_name_2" dataType="String" entityTypes="PersonAccount" multiValued="true" />
+            <resource propertyName="attribute_name_3" dataType="Base64Binary" entityTypes="Group,PersonAccount" multiValued="false" />
+          </wplc-add-property>
+        </server>
     ```
 
     - Replace the `propertyName` value with the actual name of the attributes you want to add.
@@ -69,6 +63,18 @@ To define the custom attributes, you must adjust the Liberty server configuratio
     - `entityTypes` should be the entities that can have this attribute.
     - `multiValued` attribute should be set to `true` if an entity can have multiple instances of this attribute, and `false` if otherwise.
 
-3. After making these changes, stop and restart the Liberty server to apply the changes. 
+3. Apply the updated values:
 
-The custom attributes should be successfully added and reflected in the API response.
+    ```sh
+    helm -n dxns upgrade dx-deployment ./install-hcl-dx-deployment/ -f install-deploy-values.yaml -f custom-values-all.yaml
+    ```
+
+4. Restart the DX WebEngine or Core pod to apply the custom attributes.
+
+    !!!note
+        Updating the Helm values and mounted configuration file does not automatically reload the custom attribute definitions. The custom attributes are read and cached during runtime initialization, so a Liberty JVM restart is required.
+
+The custom attributes should be successfully added and reflected in the API response after the restart.
+
+!!!note
+    If the same custom attribute is defined in both the default Liberty configuration and a file in `configDropins/overrides`, the definition from the override file takes precedence.
