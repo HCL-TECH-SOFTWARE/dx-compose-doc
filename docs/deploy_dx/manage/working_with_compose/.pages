@@ -1,18 +1,17 @@
 nav:
- - index.md
- - Changing the WebEngine context root or home URI: change_context_root_or_home.md #This document does not have helm information ... only manual steps
- - Managing global settings: manage_global_settings
- - Managing outbound connections (Ajax Proxy): manage_outbound_connections.md
- - Managing users and groups: cfg_parameters
- - Monitoring the DX Compose deployment: monitor_metrics.md
- - Restarting the WebEngine server: restart_webengine_server.md
- - wcm_rest_v3
- - Staging to production: staging_to_production.md
- - Supported DXClient operations: dxclient.md
- - Troubleshooting: troubleshooting
- - Upgrading the Helm deployment: helm_upgrade_values.md
- - Using custom secrets in WebEngine: custom_secrets.md
- - Using custom certificates in WebEngine: custom_certificates.md
- - Viewing WebEngine server logs: logging_webengine.md
- - Managing WebEngine SSL database connections: db_over_ssl.md
- - Managing Global Settings: manage_global_settings.md
+    - index.md
+    - Changing the WebEngine context root or home URI: change_context_root_or_home.md #This document does not have helm information ... only manual steps
+    - Managing global settings: manage_global_settings.md
+    - Managing outbound connections (Ajax Proxy): manage_outbound_connections.md
+    - Managing users and groups: cfg_parameters
+    - Managing Web Content Manager REST API v3: wcm_rest_v3
+    - Managing WebEngine SSL database connections: db_over_ssl.md
+    - Monitoring the DX Compose deployment: monitor_metrics.md
+    - Restarting the WebEngine server: restart_webengine_server.md
+    - Staging to production: staging_to_production.md
+    - Supported DXClient operations: dxclient.md
+    - Troubleshooting: troubleshooting
+    - Upgrading the Helm deployment: helm_upgrade_values.md
+    - Using custom secrets in WebEngine: custom_secrets.md
+    - Using custom certificates in WebEngine: custom_certificates.md
+    - Viewing WebEngine server logs: logging_webengine.md

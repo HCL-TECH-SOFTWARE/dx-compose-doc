@@ -1,99 +1,94 @@
-# Enabling and disabling WCM API v3
+# Enabling and disabling the Web Content Manager REST API v3 service
 
-This guide explains how to enable and disable the Web Content Manager (WCM) REST API v3 in your HCL Digital Experience Compose deployment.
+This guide explains how to enable and disable the Web Content Manager (WCM) REST API v3 service in an HCL Digital Experience (DX) Compose deployment.
 
 ## Overview
 
-WCM API v3 is a modern REST API that provides streamlined access to WCM content, libraries, site areas, and other resources. **Starting with CF238, WCM API v3 is enabled by default.** You can disable it if needed using Helm configuration.
+The WCM REST API v3 service provides REST API endpoints for accessing WCM content, libraries, site areas, and related resources. Enabling or disabling this configuration toggles request routing for the API endpoints within the WebEngine runtime without stopping the underlying WebEngine container service.
 
 ## Prerequisites
 
-- HCL DX Compose CF238 or later
-- Helm-based deployment on Kubernetes
-- Access to modify Helm values
-- WebEngine container running
+- HCL DX Compose CF238 or a later version is installed in the target environment.
+- A Kubernetes cluster is running an active Helm deployment.
+- Administrative access is available to edit and apply the Helm values.yaml configuration file.
+- The WebEngine container service is running and operational.
 
-## Disabling WCM API v3
+## Enabling or disabling WCM API v3
 
-WCM API v3 is enabled by default in CF238 and later. If you need to disable it, update your `values.yaml` file:
+WCM API v3 is enabled by default. To change its state:
 
-```yaml
-configuration:
-  webEngine:
-    # WCM API v3 is enabled by default. Set to false to disable it
-    # (all /dx/api/wcm/v3 endpoints return 503 until re-enabled).
-    wcmApiV3Enabled: false
-```
+1. Update `values.yaml` with the target boolean value:
 
-Then apply the changes:
+    ```yaml
+    configuration:
+      webEngine:
+        # WCM API v3 is enabled by default. Set to false to disable it
+        # (all /dx/api/wcm/v3 endpoints return 503 until re-enabled).
+        wcmApiV3Enabled: false
+    ```
 
-```bash
-helm upgrade dx-deployment hcl/hcl-dx-deployment \
-  -f values.yaml \
-  --namespace dx
-```
+2. Apply the changes:
 
-To re-enable WCM API v3 after disabling it, set `wcmApiV3Enabled: true` in your `values.yaml` and run the same `helm upgrade` command.
-
-
-
-
+    ```bash
+    helm upgrade dx-deployment hcl/hcl-dx-deployment \
+      -f values.yaml \
+      --namespace dx
+    ```
 
 ## Troubleshooting
 
-### API returns 503 service unavailable
+Refer to the troubleshooting steps for the following scenarios:
 
-**Cause**: The WCM API v3 feature toggle has been explicitly disabled.
+**API returns a 503 Service Unavailable error**
 
-**Solution**: Verify the Helm configuration:
+If the WCM API v3 feature toggle is explicitly disabled:
 
-```bash
-helm get values dx-deployment -n dx | grep wcmApiV3Enabled
-```
+1. Check the current Helm configuration value:
 
-If set to `false`, re-enable it by setting it to `true` (or removing the override to use the default):
+    ```bash
+    helm get values dx-deployment -n dx | grep wcmApiV3Enabled
+    ```
 
-```bash
-helm upgrade dx-deployment hcl/hcl-dx-deployment \
-  --set configuration.webEngine.wcmApiV3Enabled=true \
-  --namespace dx
-```
+2. Re-enable the feature toggle:
 
-### API explorer shows 404 not found
+    ```bash
+    helm upgrade dx-deployment hcl/hcl-dx-deployment \
+      --set configuration.webEngine.wcmApiV3Enabled=true \
+      --namespace dx
+    ```
 
-**Cause**: WebEngine pod is not running or the API is not deployed.
+**API Explorer displays a 404 Not Found error**
 
-**Solution**: Check pod status:
+If the WebEngine pod is not running or the API is not deployed:
 
-```bash
-kubectl get pods -n dx | grep webengine
-kubectl logs -n dx dx-deployment-webengine-0 | grep "wcm.api.v3"
-```
+1. Check the pod status and the startup logs:
 
-Look for startup messages indicating WCM API v3 is loaded.
+    ```bash
+    kubectl get pods -n dx | grep webengine
+    kubectl logs -n dx dx-deployment-webengine-0 | grep "wcm.api.v3"
+    ```
 
-### Authentication fails with 401
+2. Confirm that the startup logs show that WCM API v3 loaded successfully.
 
-**Cause**: Invalid credentials or authentication not configured.
+**Authentication fails with a 401 Unauthorized error**
 
-**Solution**: Verify credentials by testing with a simple API call:
+If credentials are invalid or authentication is not configured:
 
-```bash
-# Test with your admin credentials
-curl -k -u user:password \
-  https://your-dx-host/dx/api/wcm/v3/libraries?limit=1
-```
+1. Test the credentials against the service:
 
-Ensure your credentials are valid and have the necessary permissions to access WCM content.
+    ```bash
+    # Test with your admin credentials
+    curl -k -u user:password \
+      https://your-dx-host/dx/api/wcm/v3/libraries?limit=1
+    ```
 
+2. Confirm that the credentials are valid and have the necessary permissions to access the WCM content.
 
+## Next step
 
-## Using the API
+Once the WCM API v3 service is enabled, you can start using it. For detailed information on authentication, endpoints, usage examples, and best practices, refer to [Configuring Web Content Manager REST API v3](../working_with_compose/wcm_rest_v3/configure_wcm_rest_v3.md).
 
-Once WCM API v3 is enabled, you can start using it. For detailed information on authentication, endpoints, usage examples, and best practices, see [Getting started with the REST service for Web Content Manager v3](../working_with_compose/wcm_rest_v3/wcm_rest_v3_starting.md).
-
-## Related information
-
-- [REST service for Web Content Manager v3](../working_with_compose/wcm_rest_v3/index.md)
-- [Helm deployment configuration](../../install/kubernetes_deployment/preparation/mandatory_tasks/prepare_configuration.md)
-- [Configuring DX Compose](./index.md)
+???+ info "Related information"
+    - [Configuring Web Content Manager REST API v3](../working_with_compose/wcm_rest_v3/configure_wcm_rest_v3.md)
+    - [REST service for Web Content Manager v3](../working_with_compose/wcm_rest_v3/index.md)
+    - [Helm deployment configuration](../../install/kubernetes_deployment/preparation/mandatory_tasks/prepare_configuration.md)

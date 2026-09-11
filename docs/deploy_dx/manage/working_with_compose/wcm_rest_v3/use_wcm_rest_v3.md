@@ -1,27 +1,28 @@
-# WCM REST API v3 Usage Examples
+# Using Web Content Manager REST API v3
 
-This guide provides practical examples for using the WCM REST API v3 to manage Web Content Manager resources.
+This guide provides practical examples for using the WCM REST API v3 to manage Web Content Manager (WCM) resources.
 
 ## Prerequisites
 
-- WCM API v3 is enabled (default in CF238+)
-- Valid DX credentials
-- Basic understanding of REST APIs and HTTP methods
+- Web Content Management (WCM) API v3 is enabled (enabled by default in Cumulative Fix (CF) 238 or a later version).
+- Valid HCL DX credentials are available.
+- A basic understanding of REST APIs and HTTP methods is required.
 
-For authentication and endpoint details, see [Getting started with WCM REST API v3](wcm_rest_v3_starting.md).
+For authentication and endpoint details, refer to [Configuring Web Content Manager REST API v3](configure_wcm_rest_v3.md).
 
-## Basic usage examples
+## Libraries
 
-### List all libraries
+### Listing all libraries
 
-Retrieve a list of all WCM libraries:
+To retrieve a list of all WCM libraries:
 
 ```bash
 curl -k -u user:password \
   "https://your-dx-host/dx/api/wcm/v3/libraries?limit=10"
 ```
 
-**Response**:
+Response:
+
 ```json
 {
   "pagination": {
@@ -50,16 +51,17 @@ curl -k -u user:password \
 }
 ```
 
-### Get a specific library
+### Retrieving a specific library
 
-Retrieve details of a specific library by ID:
+To retrieve details of a specific library by ID:
 
 ```bash
 curl -k -u user:password \
   https://your-dx-host/dx/api/wcm/v3/libraries/wcm:oid:lib-001
 ```
 
-**Response**:
+Response:
+
 ```json
 {
   "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
@@ -74,9 +76,9 @@ curl -k -u user:password \
 }
 ```
 
-### Create a new library
+### Creating a new library
 
-Create a new WCM library:
+To create a new WCM library:
 
 ```bash
 curl -k -u user:password \
@@ -90,7 +92,8 @@ curl -k -u user:password \
   https://your-dx-host/dx/api/wcm/v3/libraries
 ```
 
-**Response** (201 Created):
+Response (201 created):
+
 ```json
 {
   "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
@@ -104,9 +107,9 @@ curl -k -u user:password \
 }
 ```
 
-### Update a library (partial update with PATCH)
+### Updating a library
 
-Update specific fields of a library using PATCH:
+To update specific fields of a library using `PATCH`:
 
 ```bash
 # First, get the ETag
@@ -125,7 +128,8 @@ curl -k -u user:password \
   https://your-dx-host/dx/api/wcm/v3/libraries/wcm:oid:lib-002
 ```
 
-**Response** (200 OK):
+Response (200 OK):
+
 ```json
 {
   "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
@@ -139,9 +143,9 @@ curl -k -u user:password \
 }
 ```
 
-### Delete a library
+### Deleting a library
 
-Delete a library:
+To delete a library:
 
 ```bash
 curl -k -u user:password \
@@ -149,31 +153,31 @@ curl -k -u user:password \
   https://your-dx-host/dx/api/wcm/v3/libraries/wcm:oid:lib-002
 ```
 
-**Response**: 204 No Content (successful deletion)
+Response: (204 No Content)
 
-## Working with content
+## Content
 
-### List content items
+### Listing content items
 
-Retrieve content items from a specific library:
+To retrieve a list of content items from a specific library:
 
 ```bash
 curl -k -u user:password \
   "https://your-dx-host/dx/api/wcm/v3/contents?libraryId=wcm:oid:lib-001&limit=10"
 ```
 
-### Get specific content
+### Retrieving specific content
 
-Retrieve a specific content item:
+To retrieve a specific content item:
 
 ```bash
 curl -k -u user:password \
   https://your-dx-host/dx/api/wcm/v3/contents/wcm:oid:content-001
 ```
 
-### Create content
+### Creating content
 
-Create a new content item:
+To create a new content item:
 
 ```bash
 curl -k -u user:password \
@@ -188,20 +192,20 @@ curl -k -u user:password \
   https://your-dx-host/dx/api/wcm/v3/contents
 ```
 
-## Working with site areas
+## Site Areas
 
-### List site areas
+### Listing site areas
 
-Retrieve site areas from a library:
+To retrieve a list of site areas from a library:
 
 ```bash
 curl -k -u user:password \
   "https://your-dx-host/dx/api/wcm/v3/site-areas?libraryId=wcm:oid:lib-001"
 ```
 
-### Create a site area
+### Creating a site area
 
-Create a new site area:
+To create a new site area:
 
 ```bash
 curl -k -u user:password \
@@ -217,9 +221,9 @@ curl -k -u user:password \
 
 ## Using query parameters
 
-### Pagination
+### Paging through results
 
-Paginate through large result sets:
+To page through large result sets:
 
 ```bash
 # First page
@@ -231,16 +235,17 @@ curl -k -u user:password \
   "https://your-dx-host/dx/api/wcm/v3/contents?offset=20&limit=20"
 ```
 
-### Sparse fieldsets
+### Requesting specific fields
 
-Request only specific fields to reduce payload size:
+To request only specific fields to reduce payload size:
 
 ```bash
 curl -k -u user:password \
   "https://your-dx-host/dx/api/wcm/v3/libraries?fields=id,name,title"
 ```
 
-**Response**:
+Response:
+
 ```json
 {
   "pagination": {
@@ -262,29 +267,29 @@ curl -k -u user:password \
 }
 ```
 
-### Include metadata
+### Including metadata
 
-Request full metadata (creator, workflow, etc.):
+To request metadata, such as creator and workflow details:
 
 ```bash
 curl -k -u user:password \
   "https://your-dx-host/dx/api/wcm/v3/contents/wcm:oid:content-001?includeMetadata=true"
 ```
 
-## Search examples
+## Search
 
-### Search across resources
+### Searching across resources
 
-Search for content across all resources:
+To search for content across all resources:
 
 ```bash
 curl -k -u user:password \
   "https://your-dx-host/dx/api/wcm/v3/search?q=welcome&limit=10"
 ```
 
-### Filter by library
+### Filtering by library
 
-Search within a specific library:
+To search within a specific library:
 
 ```bash
 curl -k -u user:password \
@@ -300,7 +305,8 @@ curl -k -u user:password \
   https://your-dx-host/dx/api/wcm/v3/libraries/wcm:oid:invalid-id
 ```
 
-**Response** (404):
+Response (404):
+
 ```json
 {
   "type": "https://api.hcl.com/problems/not-found",
@@ -322,7 +328,8 @@ curl -k -u user:password \
   https://your-dx-host/dx/api/wcm/v3/libraries/wcm:oid:lib-001
 ```
 
-**Response** (412):
+Response (412):
+
 ```json
 {
   "type": "https://api.hcl.com/problems/precondition-failed",
@@ -385,8 +392,7 @@ curl -k -u user:password \
 # Avoid: Requesting all items at once
 ```
 
-## Related information
-
-- [Getting started with WCM REST API v3](wcm_rest_v3_starting.md)
-- [REST service for Web Content Manager v3](index.md)
-- [Enabling and disabling WCM API v3](../../cfg_dx_compose/enable_wcm_api_v3.md)
+???+ info "Related information"
+    - [REST service for Web Content Manager v3](index.md)
+    - [Enabling and disabling WCM API v3](../../cfg_dx_compose/enable_wcm_api_v3.md)
+    - [Configuring WCM REST API v3](configure_wcm_rest_v3.md)
