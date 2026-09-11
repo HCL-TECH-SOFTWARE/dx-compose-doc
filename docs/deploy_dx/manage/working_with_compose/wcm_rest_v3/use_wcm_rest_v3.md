@@ -298,7 +298,7 @@ curl -k -u user:password \
 
 ## Error handling examples
 
-### Handle 404 not found
+### 404 Not Found
 
 ```bash
 curl -k -u user:password \
@@ -317,7 +317,7 @@ Response (404):
 }
 ```
 
-### Handle 412 precondition failed (ETag mismatch)
+### 412 Precondition Failed (`ETAG` mismatch)
 
 ```bash
 curl -k -u user:password \
@@ -342,55 +342,55 @@ Response (412):
 
 ## Best practices
 
-### Always use ETags for updates
+- Always use `ETAG` for updates
 
-```bash
-# Good: Get ETag first
-ETAG=$(curl -s -I -k -u user:password \
-  https://your-dx-host/dx/api/wcm/v3/libraries/wcm:oid:lib-001 | \
-  grep -i etag | cut -d' ' -f2 | tr -d '\r')
+    ```bash
+    # Good: Get ETag first
+    ETAG=$(curl -s -I -k -u user:password \
+      https://your-dx-host/dx/api/wcm/v3/libraries/wcm:oid:lib-001 | \
+      grep -i etag | cut -d' ' -f2 | tr -d '\r')
 
-curl -k -u user:password \
-  -X PATCH \
-  -H "If-Match: $ETAG" \
-  -H "Content-Type: application/merge-patch+json" \
-  -d '{"description": "Updated"}' \
-  https://your-dx-host/dx/api/wcm/v3/libraries/wcm:oid:lib-001
-```
+    curl -k -u user:password \
+      -X PATCH \
+      -H "If-Match: $ETAG" \
+      -H "Content-Type: application/merge-patch+json" \
+      -d '{"description": "Updated"}' \
+      https://your-dx-host/dx/api/wcm/v3/libraries/wcm:oid:lib-001
+    ```
 
-### Use PATCH for partial updates
+- Use `PATCH` for partial updates
 
-```bash
-# Good: PATCH for partial update
-curl -k -u user:password \
-  -X PATCH \
-  -H "Content-Type: application/merge-patch+json" \
-  -H "If-Match: $ETAG" \
-  -d '{"description": "New description"}' \
-  https://your-dx-host/dx/api/wcm/v3/libraries/wcm:oid:lib-001
+    ```bash
+    # Good: PATCH for partial update
+    curl -k -u user:password \
+      -X PATCH \
+      -H "Content-Type: application/merge-patch+json" \
+      -H "If-Match: $ETAG" \
+      -d '{"description": "New description"}' \
+      https://your-dx-host/dx/api/wcm/v3/libraries/wcm:oid:lib-001
 
-# Avoid: PUT requires full resource representation
-```
+    # Avoid: PUT requires full resource representation
+    ```
 
-### Request only needed fields
+- Only request the required fields
 
-```bash
-# Good: Request only what you need
-curl -k -u user:password \
-  "https://your-dx-host/dx/api/wcm/v3/libraries?fields=id,name"
+    ```bash
+    # Good: Request only what you need
+    curl -k -u user:password \
+      "https://your-dx-host/dx/api/wcm/v3/libraries?fields=id,name"
 
-# Avoid: Requesting all fields when you only need a few
-```
+    # Avoid: Requesting all fields when you only need a few
+    ```
 
-### Implement pagination
+- Implement pagination
 
-```bash
-# Good: Use pagination for large datasets
-curl -k -u user:password \
-  "https://your-dx-host/dx/api/wcm/v3/contents?offset=0&limit=50"
+    ```bash
+    # Good: Use pagination for large datasets
+    curl -k -u user:password \
+      "https://your-dx-host/dx/api/wcm/v3/contents?offset=0&limit=50"
 
-# Avoid: Requesting all items at once
-```
+    # Avoid: Requesting all items at once
+    ```
 
 ???+ info "Related information"
     - [REST service for Web Content Manager v3](index.md)

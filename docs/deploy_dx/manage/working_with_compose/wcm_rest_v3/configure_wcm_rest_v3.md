@@ -190,31 +190,31 @@ Common HTTP status codes:
 
 | Status | Meaning |
 |--------|---------|
-| 200 | Success (GET, PUT, PATCH) |
-| 201 | Created (POST) |
-| 204 | No Content (DELETE) |
+| 200 | Success (`GET`, `PUT`, `PATCH`) |
+| 201 | Created (`POST`) |
+| 204 | No Content (`DELETE`) |
 | 400 | Bad Request (validation error) |
 | 401 | Unauthorized (authentication required) |
 | 403 | Forbidden (insufficient permissions) |
 | 404 | Not Found |
-| 412 | Precondition Failed (ETag mismatch) |
-| 428 | Precondition Required (If-Match header missing) |
+| 412 | Precondition Failed (`ETAG` mismatch) |
+| 428 | Precondition Required (`If-Match` header missing) |
 | 503 | Service Unavailable (API disabled) |
 
 ## Best practices
 
-1. **Use PATCH for Partial Updates**: When updating only a few fields, use PATCH instead of PUT to avoid accidental overwrites and reduce payload size.
-2. **Leverage ETags**: Always use the `If-Match` header with PUT and PATCH operations to prevent concurrent update conflicts.
-3. **Request Only Needed Fields**: Use the `?fields=` parameter to reduce response payload size and improve performance.
-4. **Implement Pagination**: For large datasets, use `offset` and `limit` parameters to paginate through results.
-5. **Handle Errors Properly**: Parse RFC 7807 Problem Details for comprehensive error information.
-6. **Use the API Explorer**: Leverage the built-in Swagger UI for interactive testing and documentation discovery.
+1. For partial updates, use `PATCH` instead of `PUT` to avoid accidental overwrites and reduce payload size.
+2. Always use the `If-Match` header with `PUT` and `PATCH` operations to prevent concurrent update conflicts.
+3. Use the `?fields=` parameter to reduce response payload size and improve performance.
+4. For large datasets, use `offset` and `limit` parameters to paginate through results.
+5. Parse `RFC 7807 Problem Details` for comprehensive error information.
+6. Leverage the built-in Swagger UI for interactive testing and documentation discovery.
 
 ## Next steps
 
-- Try the [WCM REST API v3 Usage Examples](use_wcm_rest_v3.md) for hands-on examples
-- Explore the `API Explorer` for complete endpoint documentation
-- Learn about [Enabling and disabling WCM API v3](../../cfg_dx_compose/enable_wcm_api_v3.md) if you need to disable or re-enable it
+- See [Using Web Content Manager REST API v3](use_wcm_rest_v3.md) for hands-on examples.
+- Try the API Explorer for the complete endpoint documentation.
+- Learn about [Enabling and disabling WCM API v3](../../cfg_dx_compose/enable_wcm_api_v3.md) if you need to disable or re-enable it.
 
 ???+ info "Related information"
     - [REST service for Web Content Manager v2](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_development/wcm_rest_v2/){target="_blank"}
