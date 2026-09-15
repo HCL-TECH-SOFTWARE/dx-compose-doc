@@ -43,5 +43,9 @@ helm upgrade -n your-namespace -f path/to/your/custom-values.yaml your-release-n
 -   The `-f path/to/your/custom-values.yaml` parameter must point to the `custom-values.yaml` you have updated.
 -   The `path/to/hcl-dx-deployment-vX.X.X\_XXXXXXXX-XXXX.tar.gz` is the HCL DX Compose Helm Chart that you extracted in [Preparation before installing HCL DX Compose using Helm](../kubernetes_deployment/preparation/index.md).
 
+## HCLSoftware U learning materials
+
+For an introduction and a demo on how to upgrade your HCL Digital Experience deployment to the latest Cumulative Fix, go to [Upgrade the HCL Digital Experience software](https://hclsoftwareu.hcl-software.com/component/axs/?view=sso_config&id=4&forward=https%3A%2F%2Fhclsoftwareu.hcl-software.com%2Fcourses%2Flesson%2F%3Fid%3D1461){target="_blank"}.
+
 
 
