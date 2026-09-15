@@ -164,3 +164,7 @@ Refer to the following steps to stage your solutions from the source system to t
 21. After syndication has completed its initial run, set up the library permissions.
 
     Library permissions are not syndicated. For more information, refer to [Set up access to libraries](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_authoring/authoring_portlet/web_content_libraries/oob_content_accesslib/){target="_blank"}.
+
+## HCLSoftware U learning materials
+
+For an introduction and a demo on how to upgrade your HCL Digital Experience deployment to the latest Cumulative Fix, go to [Upgrade the HCL Digital Experience software](https://hclsoftwareu.hcl-software.com/component/axs/?view=sso_config&id=4&forward=https%3A%2F%2Fhclsoftwareu.hcl-software.com%2Fcourses%2Flesson%2F%3Fid%3D1461){target="_blank"}.
