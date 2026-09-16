@@ -15,4 +15,8 @@ Learn how to manage DX Compose deployments.
 
 ## HCLSoftware U learning materials
 
+!!!note
+	Access HCLSoftware U resources for free. [Log in](https://hclsoftwareu.hcl-software.com/login-page){target="_blank"} or [Sign up](https://hclsoftwareu.hcl-software.com/hclsoftwareu-signup){target="_blank"} to get started. If you have further questions, [Contact us](https://hclsoftwareu.hcl-software.com/contactus){target="_blank"} or check the [FAQ](https://hclsoftwareu.hcl-software.com/frequently-asked-questions){target="_blank"}.
+
+
 Learn how to manage your HCL DX environment using the Beginner, Intermediate, and Advanced [HCL DX for Administrator courses](https://hclsoftwareu.hcl-software.com/component/axs/?view=sso_config&id=4&forward=https%3A%2F%2Fhclsoftwareu.hcl-software.com%2Fcourses%3Fsearch%3DeyJjYXQiOiIyMSIsInRpdGxlIjoiIiwiZmlsdGVyIjoiIn0%3D){target="_blank"}.
