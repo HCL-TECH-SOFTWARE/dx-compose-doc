@@ -151,7 +151,7 @@ Here's a list of the required credential attributes for each application:
 |-----------------------------------------------|--------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|-------------------|
 | WebEngine Credential secret | `security.webEngine.customWebEngineSecret` | `username`  <br> `password` | WebEngine |
 | WebEngine LDAP Credential secret | `configuration.webEngine.ldap.customLdapSecret` | `bindUser` <br> `bindPassword` | WebEngine |
-| WebEngine LTPA Credential secret | `configuration.webEngine.ltpa.customLtpaSecret` | `ltpa.version` <br> `ltpa.realm` <br> `ltpa.desKey` <br> `ltpa.privateKey` <br> `ltpa.publicKey` <br> `ltpa.password` | WebEngine |
+| [WebEngine LTPA Credential secret](./optional_configure_ltpa_key.md) | `configuration.webEngine.ltpa.customLtpaSecret` | `ltpa.version` <br> `ltpa.realm` <br> `ltpa.desKey` <br> `ltpa.privateKey` <br> `ltpa.publicKey` <br> `ltpa.password` | WebEngine |
 | WebEngine Content AI Secret | `security.webEngine.customWebEngineContentAISecret` | `apiKey` | WebEngine |
 | DAM Plugin Google Vision Credential secret | `security.damPluginGoogleVision.customDamGoogleVisionSecret` | `authenticationKey` <br> `apiKey` | DAM Google Vision |
 | DAM Plugin Kaltura Credential secret | `security.damPluginKaltura.customDamKalturaSecret` | `authenticationKey` <br> `secretKey` | DAM Kaltura |

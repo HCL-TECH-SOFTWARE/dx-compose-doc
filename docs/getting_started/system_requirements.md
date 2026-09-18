@@ -13,26 +13,36 @@ HCL DX Compose v9.5 is designed to run on any [Certified Kubernetes platform](ht
 - The Kubernetes platform must be hosted on x86-64 hardware.
 - The Kubernetes platform must be officially supported by Helm. For more information, see [Kubernetes Distribution Guide](https://helm.sh/docs/topics/kubernetes_distros){target="_blank"}.
 
-## Java SDK
+## Prerequisites
 
-DX Compose requires JDK 11.0 or later for installation.
+HCL DX Compose v9.5 requires the following capabilities and products to provide those capabilities:
 
-|Prerequisite|Prerequisite minimum and supported versions|Product minimum|
-|----------|----------|-----|
-|Apache Termurin, Java Technology Edition|11.0 and later maintenance releases|9.5|
+### OpenLiberty
+
+|Prerequisite|Minimum and supported versions|
+|------------|------------------------------|
+|OpenLiberty|26.0.0.3 and later maintenance releases|
+
+### Java Runtime Environment
+
+|Prerequisite|Minimum and supported versions|
+|------------|------------------------------|
+|Java Runtime Environment IBM Semeru Runtime Open Edition|21.0.9+10-LTS and later maintenance releases|
 
 ## Databases
 
 |Supported software|Supported software minimum|Product minimum
 |-----------|------------------|-----|
+|Amazon Relational Database Service|SQL Server version 2022|9.5|
 |Apache Derby|10.11*<br/>|9.5|
 |IBM DB2 Standard and Advanced Edition|11.5** and later maintenance releases (acquired separately)|9.5|
-|Oracle Database 19c|19c and later maintenance (acquired separately)|9.5|
-|Oracle Database 21c|21c and later maintenance (acquired separately)|9.5|
-|Oracle on Amazon Relational Database Service|19c and later maintenance (acquired separately)|9.5|
+|Oracle Database 19c|19c and later maintenance releases (acquired separately)|9.5|
+|Oracle Database 21c|21c and later maintenance releases (acquired separately)|9.5|
+|Oracle on Amazon Relational Database Service|19c and later maintenance releases (acquired separately)|9.5|
 |Oracle on Amazon Relational Database Service|21c and later maintenance releases (acquired separately)|9.5|
 
-\* Apache Derby is not supported in a product environment.  
+
+\* Apache Derby is not supported in a production environment.  
 \** DB2 includes support for the DB2 pureScale component.  
 
 ## LDAP servers

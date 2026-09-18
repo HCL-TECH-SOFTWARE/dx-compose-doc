@@ -18,7 +18,7 @@ Make sure that you have completed the following steps:
     - If WebEngine properties are updated, make sure the updated values are correct in the `custom-values.yaml`. For more information, see [Updating DX Compose WebEngine properties using Helm values](../../manage/cfg_webengine/update_properties_with_helm.md).
     - If the WebEngine administrator password is updated in the environment, make sure the Kubernetes secret is up-to-date and the correct values are in the `custom-values.yaml` file. For more information, see [Updating the default administrator password](../../manage/cfg_webengine/update_wpsadmin_password.md).
     - If configuration changes are made to the deployment using configuration override files, make sure the values are correct in the `custom-values.yaml` file. For more information, see [Configuration changes using overrides](../../manage/cfg_webengine/configuration_changes_using_overrides.md) and [Upgrading the Helm deployment](../../manage/working_with_compose/helm_upgrade_values.md).
-    - If the WebEngine URL was changed from the default, make sure the values are correct in the `custom-values.yaml` file. For more information, see [Changing the WebEngine URL](../../manage/working_with_compose/change_context_root_or_home.md#changing-the-context-root-using-helm) and [Upgrading the Helm deployment](../../manage/working_with_compose/helm_upgrade_values.md).
+    - If the WebEngine URL was changed from the default, make sure the values are correct in the `custom-values.yaml` file. For more information, see [Changing the WebEngine URL](../../manage/working_with_compose/change_context_root_or_home.md#changing-the-url-context-root-using-helm) and [Upgrading the Helm deployment](../../manage/working_with_compose/helm_upgrade_values.md).
     - If custom PVCs are used in your deployment, make sure the values are correct in your `custom-values.yaml` file.  For more information, see [PersistentVolumeClaims](../kubernetes_deployment/preparation/mandatory_tasks/prepare_persistent_volume_claims.md#configuring-additional-webengine-persistent-volumes).
 
 ## Recommended actions before a CF upgrade
@@ -42,6 +42,14 @@ helm upgrade -n your-namespace -f path/to/your/custom-values.yaml your-release-n
 -   The `your-namespace` is the namespace in which your HCL DX Compose 9.5 deployment is installed and `your-release-name` is the Helm release name you used when installing.
 -   The `-f path/to/your/custom-values.yaml` parameter must point to the `custom-values.yaml` you have updated.
 -   The `path/to/hcl-dx-deployment-vX.X.X\_XXXXXXXX-XXXX.tar.gz` is the HCL DX Compose Helm Chart that you extracted in [Preparation before installing HCL DX Compose using Helm](../kubernetes_deployment/preparation/index.md).
+
+## HCLSoftware U learning materials
+
+!!!note
+	Access HCLSoftware U resources for free. [Log in](https://hclsoftwareu.hcl-software.com/login-page){target="_blank"} or [Sign up](https://hclsoftwareu.hcl-software.com/hclsoftwareu-signup){target="_blank"} to get started. If you have further questions, [Contact us](https://hclsoftwareu.hcl-software.com/contactus){target="_blank"} or check the [FAQ](https://hclsoftwareu.hcl-software.com/frequently-asked-questions){target="_blank"}.
+
+
+For an introduction and a demo on how to upgrade your HCL Digital Experience deployment to the latest Cumulative Fix, go to [Upgrade the HCL Digital Experience software](https://hclsoftwareu.hcl-software.com/component/axs/?view=sso_config&id=4&forward=https%3A%2F%2Fhclsoftwareu.hcl-software.com%2Fcourses%2Flesson%2F%3Fid%3D1461){target="_blank"}.
 
 
 

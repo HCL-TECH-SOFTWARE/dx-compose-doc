@@ -3,7 +3,7 @@ id: web-engine-configuration-changes-using-overrides
 title: DX WebEngine configuration changes using overrides
 ---
 
-This guide provides detailed steps for updating the `server.xml` properties and for configuring the Digital Experience (DX) Compose server using `configOverrideFiles`.
+This guide provides detailed steps for updating the `server.xml` properties and for configuring the Digital Experience (DX) Compose server using `configuration.webEngine.configOverrideFiles`.
 
 The snippets are merged into the Open Liberty `server.xml` file. After making changes to the respective `values.yaml` file, apply them by using the `helm upgrade` command. Open Liberty picks up and applies changes at runtime; this does not require a restart.
 
@@ -73,24 +73,32 @@ The name of the customization in the example (`sslOverride`) can be any string. 
 
 ## Configuring LDAP
 
-The following is a sample snippet that shows how to configure the DX Compose server to use an OpenLDAP server. Replace the values for `baseDN`, `bindDN`, `bindPassword`, and `host` with the proper values.
+The following is a sample snippet that shows how to configure the DX Compose server to use an OpenLDAP server. Replace the values for `baseDN`, `bindDN`, `bindPassword`, `host`, and `port` with the proper values.
 
-For custom LDAP types, use `customFilters` to define your own search filters for users and groups. For predefined LDAP types supported by Open Liberty, use `idsFilters`. If your LDAP directory uses nested groups or hierarchical structures, consider enabling `recursiveSearch` to ensure all relevant entries are retrieved. For more information, refer to the [Open Liberty LDAP Registry documentation](https://openliberty.io/docs/latest/reference/config/ldapRegistry.html){target="_blank"}.
+- For predefined LDAP types supported by OpenLiberty, use the corresponding filters tags (for example, `idsFilters`, `activedFilters`, `domino50Filters`, `edirectoryFilters`, `iplanetFilters`, `netscapeFilters`, and `securewayFilters`).
+- For custom LDAP types, use `customFilters` to define your own search filters for users and groups.  
+- By default, `recursiveSearch` is set to `false`. If your users belong to nested LDAP groups and the expected group memberships are not found, set `recursiveSearch="true"` and test again to confirm nested group search works.
+- Nested group membership is supported either when your LDAP server supports recursive server-side group search, or when `recursiveSearch` is enabled in Liberty.
+
+For more information, refer to the [Open Liberty LDAP Registry documentation](https://openliberty.io/docs/latest/reference/config/ldapRegistry.html){target="_blank"}.
 
 The `attributeConfiguration` element in the LDAP registry configuration allows you to map LDAP attributes to user registry attributes. This is useful when the attribute names in your LDAP directory do not match the expected attribute names. Each `attribute` element specifies a mapping:
 
-- `name` - The name of the attribute in the LDAP directory
-- `propertyName` - The name of the attribute to be mapped to. In the following example, the LDAP `mail` attribute is mapped to `ibm-primaryEmail`, which is the attribute used to display the email address of a user. The LDAP `title` attribute is mapped to `ibm-jobTitle`, which is the attribute used to display job title of a user.
+- `name`: The name of the attribute in the LDAP directory
+- `propertyName`: The name of the attribute to be mapped to. In the following example, the LDAP `mail` attribute is mapped to `ibm-primaryEmail`, which is the attribute used to display the email address of a user. The LDAP `title` attribute is mapped to `ibm-jobTitle`, which is the attribute used to display job title of a user.
 
-```yaml
+The `sslEnabled` attribute controls whether the connection to the LDAP server is made over SSL/TLS. Set it to `true` when your LDAP server requires a secure connection. When `sslEnabled` is `true`, ensure that the LDAP server certificate is trusted by the Liberty keystore, or configure `trustDefaultCerts` as described in [Configuring SSL](#configuring-ssl).
+
+```xml
 configOverrideFiles:
   ldapOverride.xml: | 
     <server description="DX Web Engine server"> 
-      <ldapRegistry id="ldap" realm="SampleLdapIDSRealm"
+      <ldapRegistry id="ldap" realm="SampleLdapCustomRealm"
         host="127.0.0.1" port="1389" ignoreCase="true"
         baseDN="dc=dx,dc=com"
         ldapType="Custom"
         sslEnabled="false"
+        recursiveSearch="false"
         bindDN="cn=dx_user,dc=dx,dc=com"
         bindPassword="p0rtal4u">
           <customFilters
@@ -115,6 +123,286 @@ configOverrideFiles:
 ```
 
 To set up a custom LDAP server in Liberty, see [Configuring LDAP with Liberty](ldap_configuration.md).
+
+## Configuring LDAP settings for virtual portal realm support
+
+The following is a sample snippet that shows how to configure the DX Compose server to use multiple OpenLDAP servers with their own realms. These realms define user access when you create a virtual portal. The realm value selected in the Virtual Portal administration portlet restricts the available groups for initial administration. Replace `baseDN`, `bindDN`, `bindPassword`, `host`, and `port` with your environment values.
+
+```xml
+configOverrideFiles:
+  ldap-overrides.xml: | 
+    <server description="DX Web Engine server"> 
+      <ldapRegistry id="toyldap" realm="ldapToyRealm"
+        host="127.0.0.1" port="1389" ignoreCase="true"
+        baseDN="ou=ToyCompany,dc=dx,dc=com"
+        ldapType="Custom"
+        sslEnabled="false"
+        recursiveSearch="false"
+        bindDN="cn=dx_user,dc=dx,dc=com"
+        bindPassword="passw0rd">
+          <customFilters
+            userFilter="(&amp;(uid=%v)(objectclass=inetOrgPerson))"
+            groupFilter="(&amp;(cn=%v)(objectclass=groupOfUniqueNames))"
+            userIdMap="*:uid"
+            groupIdMap="*:cn"
+            groupMemberIdMap="groupOfUniqueNames:uniqueMember">
+          </customFilters>
+          <attributeConfiguration>
+            <attribute name="mail" propertyName="ibm-primaryEmail" entityType="PersonAccount"/>
+            <attribute name="title" propertyName="ibm-jobTitle" entityType="PersonAccount"/>
+          </attributeConfiguration>
+      </ldapRegistry>
+      <ldapRegistry id="boatldap" realm="ldapBoatRealm"
+        host="127.0.0.1" port="1389" ignoreCase="true"
+        baseDN="ou=BoatCompany,dc=dx,dc=com"
+        ldapType="Custom"
+        sslEnabled="false"
+        recursiveSearch="false"
+        bindDN="cn=dx_user,dc=dx,dc=com"
+        bindPassword="passw0rd">
+          <customFilters
+            userFilter="(&amp;(uid=%v)(objectclass=inetOrgPerson))"
+            groupFilter="(&amp;(cn=%v)(objectclass=groupOfUniqueNames))"
+            userIdMap="*:uid"
+            groupIdMap="*:cn"
+            groupMemberIdMap="groupOfUniqueNames:uniqueMember">
+          </customFilters>
+          <attributeConfiguration>
+            <attribute name="mail" propertyName="ibm-primaryEmail" entityType="PersonAccount"/>
+            <attribute name="title" propertyName="ibm-jobTitle" entityType="PersonAccount"/>
+          </attributeConfiguration>
+      </ldapRegistry>
+      <federatedRepository>
+        <primaryRealm name="FederatedRealm" allowOpIfRepoDown="true">
+          <participatingBaseEntry name="o=defaultWIMFileBasedRealm"/>
+          <participatingBaseEntry name="ou=ToyCompany,dc=dx,dc=com"/>
+          <participatingBaseEntry name="ou=BoatCompany,dc=dx,dc=com"/>
+        </primaryRealm>
+      </federatedRepository>
+    </server>
+```
+
+This configuration enables creating virtual portals for separate organizations, such as a toy company and a boat company shown in the sample configuration. The `baseDN` values specify the users that belong to the respective organizational units: `ou=ToyCompany,dc=dx,dc=com` and `ou=BoatCompany,dc=dx,dc=com`. Matching realm values appear as options in the Virtual Portal administration portlet during creation. Selecting `ldapToyRealm` for the toy company virtual portal restricts log in access to users in that organization.
+
+### Combining realms for virtual portals
+
+You can combine multiple realms under a parent realm by using the `federatedRealms` extension. Selecting this parent realm during virtual portal creation combines all child realm entries to define user access. Selecting a parent realm grants access to users resolved from all listed child realms. For example:
+
+```xml
+      ...
+      </ldapRegistry>
+      <federatedRepository>
+        <primaryRealm name="FederatedRealm" allowOpIfRepoDown="true">
+          <participatingBaseEntry name="o=defaultWIMFileBasedRealm"/>
+          <participatingBaseEntry name="ou=ToyCompany,dc=dx,dc=com"/>
+          <participatingBaseEntry name="ou=BoatCompany,dc=dx,dc=com"/>
+        </primaryRealm>
+      </federatedRepository>
+      <federatedRealms>
+        <parentRealm name="ToyRealm">
+          <realmEntry name="ldapToyRealm"/>
+          <realmEntry name="defaultWIMFileBasedRealm"/>
+        </parentRealm>
+        <parentRealm name="BoatRealm">
+          <realmEntry name="ldapBoatRealm"/>
+          <realmEntry name="defaultWIMFileBasedRealm"/>
+        </parentRealm>
+      </federatedRealms>      
+    </server>
+```
+
+This configuration enables creating a virtual portal with multiple combined realms. Selecting `BoatRealm` during virtual portal creation grants access to all users in `ldapBoatRealm` and the default file-based users defined in `basicRegistry`.
+
+## Additional LDAP configuration samples
+
+Use the following LDAP configuration samples based on your server type:
+
+- [IBM Directory Server](#ibm-directory-server)
+- [Microsoft Active Directory Server](#microsoft-active-directory-server)
+- [Microsoft Active Directory Server using SSL](#microsoft-active-directory-server-using-ssl)
+
+### IBM Directory Server
+
+```xml
+    configOverrideFiles:
+      myCustomOverride.xml: |
+        <?xml version="1.0" encoding="UTF-8"?> 
+        <server description="DX Web Engine server">
+          <ldapRegistry id="ldap" realm="SampleLdapIDSRealm"
+            host='your_LDAP_Server_HostName'
+            port='1389' ignoreCase="true"
+            baseDN='dc=dx,dc=com'
+            ldapType='IBM Tivoli Directory Server'
+            sslEnabled='false'
+            recursiveSearch='false'
+            bindDN='${LDAP_BIND_USER}'
+            bindPassword='${LDAP_BIND_PASSWORD}'>
+            <idsFilters
+              userFilter="(&amp;(uid=%v)(objectclass=inetOrgPerson))"
+              groupFilter="(&amp;(cn=%v)(objectclass=groupOfUniqueNames))"
+              userIdMap="*:uid"
+              groupIdMap="*:cn"
+              groupMemberIdMap="groupOfUniqueNames:uniqueMember">
+            </idsFilters>
+            <ldapCache>
+              <attributesCache size="4000" sizeLimit="4000" timeout="2400s" />
+              <searchResultsCache resultsSizeLimit="4000" size="4000" timeout="2400s" />
+            </ldapCache>
+            <contextPool preferredSize="20"/>
+            <attributeConfiguration>
+              <attribute name="mail" propertyName="ibm-primaryEmail" entityType="PersonAccount"/>
+              <attribute name="title" propertyName="ibm-jobTitle" entityType="PersonAccount"/>
+            </attributeConfiguration>
+          </ldapRegistry>
+          <federatedRepository>
+            <primaryRealm name="FederatedRealm" allowOpIfRepoDown="true">
+              <participatingBaseEntry name="o=defaultWIMFileBasedRealm"/>
+              <participatingBaseEntry name='dc=dx,dc=com' />
+              <uniqueUserIdMapping inputProperty="uniqueName" outputProperty="uniqueName"/>  
+              <userSecurityNameMapping inputProperty="principalName" outputProperty="principalName"/>  
+              <userDisplayNameMapping inputProperty="principalName" outputProperty="principalName"/>  
+              <uniqueGroupIdMapping inputProperty="uniqueName" outputProperty="uniqueName"/>      
+              <groupSecurityNameMapping inputProperty="cn" outputProperty="cn"/>  
+              <groupDisplayNameMapping inputProperty="cn" outputProperty="cn"/>                
+            </primaryRealm>
+          </federatedRepository>   
+          <basicRegistry id="basic" realm="defaultWIMFileBasedRealm">
+              <user name="${DX_ADMIN}" password="${DX_PASSWORD}" id="uid=wpsadmin,o=defaultWIMFileBasedRealm"/>
+              <user name="nonadmin" password="nonadminpwd" id="uid=nonadmin,o=defaultWIMFileBasedRealm"/>
+              <user name="admin1" password="admin1pwd" id="uid=admin1,o=defaultWIMFileBasedRealm"/>
+              <group name="wpsadmins" id="cn=wpsadmins,o=defaultWIMFileBasedRealm">
+                  <member name="${DX_ADMIN}" />
+                  <member name="admin1" />
+                  <member  name="tuser1"/>
+              </group>
+              <group name="nonadmins" id="cn=nonadmins,o=defaultWIMFileBasedRealm">
+                  <member name="nonadmin" />
+              </group>
+          </basicRegistry>          
+        </server>
+```
+
+### Microsoft Active Directory Server
+
+```xml
+    configOverrideFiles:
+      myCustomOverride.xml: |
+        <?xml version="1.0" encoding="UTF-8"?>  
+        <server description="DX Web Engine server">  
+                <ldapRegistry  
+                  id="ldap"  
+                  realm="SampleLdapADRealm"  
+                  host="your_LDAP_Server_HostName"  
+                  port="389"  
+                  ignoreCase="true"  
+                  baseDN="DC=ad,DC=test,DC=com"  
+                  bindDN="CN=Administrator,CN=Users,DC=ad,DC=test,DC=com"  
+                  bindPassword="your_password"  
+                  ldapType="Microsoft Active Directory"  
+                  sslEnabled="false"  
+                  referral="ignore"  
+                  recursiveSearch="true"  
+                  bindAuthMechanism="simple"  
+                  returnToPrimaryServer="true">  
+                    <activedFilters 
+                    userFilter="(&amp;(sAMAccountName=%v)(objectcategory=user)" 
+                    groupFilter="(&amp;(cn=%v)(objectcategory=group))" 
+                    userIdMap="user:sAMAccountName" 
+                    groupIdMap="*:cn" 
+                    groupMemberIdMap="memberOf:member">  
+                    </activedFilters>  
+                    <ldapEntityType name="PersonAccount">  
+                      <objectClass>user</objectClass>  
+                    </ldapEntityType>  
+                    <ldapEntityType name="Group">  
+                      <objectClass>group</objectClass>  
+                  </ldapEntityType>  
+                  <groupProperties>  
+                      <memberAttribute name="member" scope="direct" objectClass="group"/>  
+                      <membershipAttribute name="memberOf" scope="direct"/>  
+                  </groupProperties>  
+                  <loginProperty name="uid">uid</loginProperty>  
+                  <ldapCache>
+                    <attributesCache size="4000" timeout="1200s" enabled="true" sizeLimit="2000"/>
+                    <searchResultsCache size="2000" timeout="1200s" enabled="true" resultsSizeLimit="1000"/>
+                  </ldapCache>
+                </ldapRegistry>  
+                  <federatedRepository>  
+                    <primaryRealm name="FederatedRealm" allowOpIfRepoDown="true" delimiter="/">  
+                      <participatingBaseEntry name="o=defaultWIMFileBasedRealm" id="FileBasedEntry"/>  
+                      <participatingBaseEntry name="DC=ad,DC=test,DC=com" id="LDAPEntry"/>  
+                      <uniqueUserIdMapping inputProperty="uniqueName" outputProperty="uniqueName"/>  
+                      <userSecurityNameMapping inputProperty="principalName" outputProperty="principalName"/>  
+                      <userDisplayNameMapping inputProperty="principalName" outputProperty="principalName"/>  
+                      <uniqueGroupIdMapping inputProperty="uniqueName" outputProperty="uniqueName"/>      
+                      <groupSecurityNameMapping inputProperty="cn" outputProperty="cn"/>  
+                      <groupDisplayNameMapping inputProperty="cn" outputProperty="cn"/>         
+                    </primaryRealm>  
+                  </federatedRepository>  
+        </server>  
+```
+
+### Microsoft Active Directory Server using SSL
+
+```xml
+    configOverrideFiles:
+      myCustomOverride.xml: |
+        <?xml version="1.0" encoding="UTF-8"?>  
+        <server description="DX Web Engine server">  
+                <ldapRegistry  
+                  id="ldap"  
+                  realm="SampleLdapADRealm"  
+                  host="your_LDAP_Server_HostName"  
+                  port="636"  
+                  ignoreCase="true"  
+                  baseDN="DC=ad,DC=test,DC=com"  
+                  bindDN="CN=Administrator,CN=Users,DC=ad,DC=test,DC=com"  
+                  bindPassword="your_password"  
+                  ldapType="Microsoft Active Directory"  
+                  sslEnabled="true"
+                  sslRef="customSSLConfig"
+                  referral="ignore"  
+                  recursiveSearch="true"  
+                  bindAuthMechanism="simple"  
+                  returnToPrimaryServer="true">  
+                    <activedFilters 
+                    userFilter="(&amp;(sAMAccountName=%v)(objectcategory=user)" 
+                    groupFilter="(&amp;(cn=%v)(objectcategory=group))" 
+                    userIdMap="user:sAMAccountName" 
+                    groupIdMap="*:cn" 
+                    groupMemberIdMap="memberOf:member">  
+                    </activedFilters>  
+                    <ldapEntityType name="PersonAccount">  
+                      <objectClass>user</objectClass>  
+                    </ldapEntityType>  
+                    <ldapEntityType name="Group">  
+                      <objectClass>group</objectClass>  
+                  </ldapEntityType>  
+                  <groupProperties>  
+                      <memberAttribute name="member" scope="direct" objectClass="group"/>  
+                      <membershipAttribute name="memberOf" scope="direct"/>  
+                  </groupProperties>
+                  <attributeConfiguration>
+                    <attribute name="sAMAccountName" propertyName="uid" entityType="PersonAccount"/>
+                    <attribute name="mail" propertyName="ibm-primaryEmail" entityType="PersonAccount"/>
+                    <attribute name="title" propertyName="ibm-jobTitle" entityType="PersonAccount"/>                    
+                  </attributeConfiguration>
+                  <loginProperty name="uid">uid</loginProperty>  
+                </ldapRegistry>  
+                  <federatedRepository>  
+                    <primaryRealm name="FederatedRealm" allowOpIfRepoDown="true" delimiter="/">  
+                      <participatingBaseEntry name="o=defaultWIMFileBasedRealm" id="FileBasedEntry"/>  
+                      <participatingBaseEntry name="DC=ad,DC=test,DC=com" id="LDAPEntry"/>  
+                      <uniqueUserIdMapping inputProperty="uniqueName" outputProperty="uniqueName"/>  
+                      <userSecurityNameMapping inputProperty="principalName" outputProperty="principalName"/>  
+                      <userDisplayNameMapping inputProperty="principalName" outputProperty="principalName"/>  
+                      <uniqueGroupIdMapping inputProperty="uniqueName" outputProperty="uniqueName"/>      
+                      <groupSecurityNameMapping inputProperty="cn" outputProperty="cn"/>  
+                      <groupDisplayNameMapping inputProperty="cn" outputProperty="cn"/>         
+                    </primaryRealm>  
+                  </federatedRepository>  
+        </server>  
+```
 
 ## Security hardening
 
@@ -174,25 +462,12 @@ You can use virtual hosts to limit the domains the server responds to. In the fo
     <hostAlias>sample.hcl.com:443</hostAlias>
 </virtualHost>
 ```
-
-## Disabling Authentication Cache for Impersonation
-
-To ensure the impersonation feature works in HCL DX Compose, you must disable the authentication cache. By default, the authentication cache is enabled. Disabling the cache ensures that the impersonated user is not prompted to authenticate again.
+## HCLSoftware U learning materials
 
 !!!note
-    Disabling the authentication cache might affect performance.
+	Access HCLSoftware U resources for free. [Log in](https://hclsoftwareu.hcl-software.com/login-page){target="_blank"} or [Sign up](https://hclsoftwareu.hcl-software.com/hclsoftwareu-signup){target="_blank"} to get started. If you have further questions, [Contact us](https://hclsoftwareu.hcl-software.com/contactus){target="_blank"} or check the [FAQ](https://hclsoftwareu.hcl-software.com/frequently-asked-questions){target="_blank"}.
 
-To disable the authentication cache, use the following configuration snippet in your `values.yaml` file:
 
-```yaml
-configOverrideFiles:
-  authOverride.xml: | 
-    <server description="DX Web Engine server">
-      <authentication cacheEnabled="false" />
-    </server>
-```
+For an introduction and a demo on how to upgrade your HCL Digital Experience deployment to the latest Cumulative Fix, go to [Upgrade the HCL Digital Experience software](https://hclsoftwareu.hcl-software.com/component/axs/?view=sso_config&id=4&forward=https%3A%2F%2Fhclsoftwareu.hcl-software.com%2Fcourses%2Flesson%2F%3Fid%3D1461){target="_blank"}.
 
-The name of the customization in the example (`authOverride`) can be any unique string. However, it is recommended that you use a name that describes the change it applies.
-
-???+ info "Related information"
-    - [Update custom values.yaml with configOverrideFiles using HELM upgrade](../working_with_compose/helm_upgrade_values.md).
+To learn how to do a traditional installation, go to [Deployment for Intermediate Users](https://hclsoftwareu.hcl-software.com/component/axs/?view=sso_config&id=4&forward=https%3A%2F%2Fhclsoftwareu.hcl-software.com%2Fcourses%2Flesson%2F%3Fid%3D3086){target="_blank"}. In this course, you will also learn about additional installation tasks that apply to both container-based and traditional deployments using the Configuration Wizard, DXClient, ConfigEngine, and more. You can try it out using the [Deployment Lab](https://hclsoftwareu.hcl-software.com/images/Lc4sMQCcN5uxXmL13gSlsxClNTU3Mjc3NTc4MTc2/DS_Academy/DX/Administrator/HDX-ADM-200_Deployment_Lab.pdf){target="_blank"} and corresponding [Deployment Lab Resources](https://hclsoftwareu.hcl-software.com/images/Lc4sMQCcN5uxXmL13gSlsxClNTU3Mjc3NTc4MTc2/DS_Academy/DX/Administrator/HDX-ADM-200_Deployment_Lab_Resources.zip){target="_blank"}.

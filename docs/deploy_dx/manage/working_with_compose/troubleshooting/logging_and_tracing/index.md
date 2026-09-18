@@ -17,7 +17,7 @@ You can use the information gathered to help solve problems or to report an issu
 
 -   **How do I turn on HCL Digital Experience Compose trace logging?**
 
-    See [Trace logging](adsyslog.md#tra_log) for information.
+    See [Trace logging](adsyslog.md#trace-logging) for information.
 
 
 -   **What are the different trace settings and where are they logged?**

@@ -13,7 +13,7 @@ It is assumed that you have a repository configured and running, and is technica
 
 ## Retrieving container images
 
-[Download the HCL Digital Experience Compose 9.5 package](https://support.hcl-software.com/csm?id=kb_article&sysparm_article=KB0073344){target="blank"}, unpack it locally and load the images into your container registry. You can load the images to your own container registry for others in your organization to access.
+[Download the HCL Digital Experience Compose 9.5 package](https://support.hcl-software.com/csm?id=kb_article&sysparm_article=KB0120373){target="blank"} from your entitlements on the My HCLSoftware (MHS) portal, unpack it locally and load the images into your container registry. You can load the images to your own container registry for others in your organization to access.
 <!--
 You can either directly pull the HCL DX Compose images from the HCL Harbor container image registry, or download the HCL Digital Experience Compose 9.5 package, unpack it locally and load the images into your container registry. In both cases, you can load the images to your own container registry for others in your organization to access.
 -->

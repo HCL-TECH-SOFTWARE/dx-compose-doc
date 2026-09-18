@@ -6,3 +6,5 @@ nav:
   ##  - Content management: content.md
   ##  - Digital Asset Management: dam.md
   - Features: features.md
+  - Limitations: limitations.md
+  - Differences between DX Compose and DX Core: differences.md

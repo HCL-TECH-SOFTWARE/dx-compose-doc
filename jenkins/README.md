@@ -19,7 +19,7 @@ The pipeline will push the documentation build into the `gh-pages` branch of thi
 
 This pipeline is very simple:
 
-- Launching a container using Docker that will use the UBI base image and keeps running until stopped (container name is `doc-builder`)
+- Launching a container using Docker that will use the UBI base image and keeps running until stopped (container name is `doc-builder-compose`)
 - Copy over SSH key and helper scripts into the running container
 - Execute the main script `01-publish-doc.sh` inside the container
   - The script will install python, git and mkdocs and perform a checkout of the `default` branch of this repository. Then it will use `mkdocs` to build the `gh-pages`

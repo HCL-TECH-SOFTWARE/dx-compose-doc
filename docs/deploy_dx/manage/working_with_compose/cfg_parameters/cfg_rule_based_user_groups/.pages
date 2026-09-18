@@ -1,0 +1,8 @@
+title: Configuring rule-based user groups
+nav:
+    - index.md
+    - rbug_db_setup.md
+    - rbug_dsrc_cfg.md
+    - rbug_setup_softgroups_helm.md
+    - rbug_portlet.md
+    - rbug_ldapfltrxprns.md

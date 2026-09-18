@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<request require-defined-oids="true" type="update" version="8.5.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="PortalConfig_8.5.0.xsd">
+    
+    <!-- Overrides the default behavior of Portal to force a cleanup of deleted resources -->
+    <portal action="locate">
+        <task action="create" bean="ejb/wpsSchedulerTask"/>
+    </portal>
+</request>

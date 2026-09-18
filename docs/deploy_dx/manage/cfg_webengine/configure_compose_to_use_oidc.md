@@ -21,30 +21,89 @@ A DX Compose system administrator must create an account in the identity provide
 
 After securing the required information from the OpenID Connect identity provider, the administrator must make these parameters available to DX Compose.
 
-During DX Compose installation, there is a file named `oidc.yaml` located in the `charts/hcl-dx-deployment/oidc` subdirectory of the Kubernetes node where you ran `helm install`. An administrator must fill out the `oidc.yaml` file and use this file during a `helm upgrade` operation to integrate DX Compose to the external identity provider.
+During DX Compose installation, there is a file named `oidc.yaml` located in the `install-hcl-dx-deployment/oidc` subdirectory of the Kubernetes node where you ran `helm install`. An administrator must fill out the `oidc.yaml` file and use this file during a `helm upgrade` operation to integrate DX Compose to the external identity provider.
 
 Refer to the following steps to enable OIDC authentication in DX Compose:
 
 1. Edit the `oidc.yaml` file and enter the following required parameters from the identity provider:
+    - id (see Important below)
     - clientID
     - clientSecret
     - hostname (for the discovery endpoint URL and jwt URL)
     - userIdentifier
 
-2. In the `oidc.yaml` file, configure the following properties under `ConfigService.properties`:
-    
+    !!!important
+        The openIdConnectClient redirects to `https://<your-domain>/oidcclient/redirect/<id>` after authentication. Make sure that your valid redirect URIs includes an entry that matches this.
+
+2. Configure the XMLAccess and Search Authentication Filter (`authFilter`) to prevent XMLAccess configuration scripts, Search V2 endpoints, and Site Builder background task URLs from being redirected to the OIDC provider.
+
+    - If your `oidc.yaml` does not have the `authFilter`:
+
+        1. Add the following before the `<openidConnectClient>` element:
+
+            ```xml
+            <authFilter id="oidcAuthFilter">
+                <requestUrl id="excludeXMLAccess" urlPattern="/wps/config" matchType="notContain"/>
+                <requestUrl id="excludeSeedlist" urlPattern="/wps/seedlist/myserver" matchType="notContain"/>
+                <requestUrl id="excludeSiteBuilderResource" urlPattern="TASK_CREATE_SITE=" matchType="notContain"/>
+            </authFilter>
+            ```
+
+        2. Add `authFilterRef="oidcAuthFilter"` to the `<openidConnectClient>` element:
+
+            ```xml
+            <openidConnectClient id="client01" authFilterRef="oidcAuthFilter"
+            ```
+
+        The `excludeSiteBuilderResource` exclusion is required for Site Builder. The `SiteBuilderPortlet` initiates a background `SiteCreationTask` that makes an internal server-to-server call. When OIDC intercepts this programmatic call, Open Liberty redirects the request to the identity provider, but the background task lacks the browser context to follow this redirect, causing the internal call to fail and preventing successful site creation.
+
+    - If your DX Compose environment uses a different context root, add additional `urlPattern` entries to the `authFilter` for your custom context root.
+
+        !!!note
+            Always retain the default `/wps/config` entry. The server initially starts with the default `/wps` context root, and XMLAccess runs before the system applies the custom context root.
+
+        - Default (`wps`): 
+            - `urlPattern="/wps/config"` (already configured)
+            - `urlPattern="/wps/seedlist/myserver"` (already configured)
+        - No context root: 
+            - `urlPattern="/wps/config"` (must keep)
+            - `urlPattern="/config"`
+            - `urlPattern="/seedlist/myserver"`
+        - Custom (`custom`): 
+            - `urlPattern="/wps/config"` (must keep)
+            - `urlPattern="/custom/config"`
+            - `urlPattern="/custom/seedlist/myserver"`
+
+        The context root is configured in your Helm values.
+
+3. In the `oidc.yaml` file, configure the following properties under `ConfigService.properties`:
+
     - `redirect.logout` to `true`
     - `redirect.logout.ssl` to `true`
     - `redirect.logout.url` to the URL to be shown to the user after logout
 
     This configuration forces the logout screen to the identity provider instead of the default DX Compose logout screen. This also ensures that any relevant HTTP cookies are cleared and the user is actually logged out.
 
-3. Run `helm upgrade` to apply the changes to DX Compose.
+4. Run `helm upgrade` to apply the changes to DX Compose.
 
-    Note that you must specify two file (`-f`) parameters in the `helm upgrade` command. The first `-f` is the YAML file with all DX Compose values apart from OIDC. The second `-f` is the `oidc.yaml` file. See the following sample command:
+    You must specify two file (`-f`) parameters in the `helm upgrade` command. The first `-f` is the YAML file with all DX Compose values apart from OIDC. The second `-f` is the `oidc.yaml` file. See the following sample command:
 
     ```sh
     helm upgrade -n dxns -f install-deploy-values.yaml -f ./install-hcl-dx-deployment/oidc/oidc.yaml dx-deployment ./install-hcl-dx-deployment
     ```
 
     For more information, see [Upgrading the Helm deployment](../working_with_compose/helm_upgrade_values.md).
+
+    If you need to bypass OIDC authentication (for example, when authenticating as an LDAP user), you can access the portal login page directly by appending the following path to your base portal URL:
+
+    ```
+    /poc?uri=nm:oid:wps.Login
+    ```
+
+    For example:
+
+    ```
+    https://example.com/wps/poc?uri=nm:oid:wps.Login
+    ```
+
+    Alternatively, you can use a friendly URL configured for your portal login page.

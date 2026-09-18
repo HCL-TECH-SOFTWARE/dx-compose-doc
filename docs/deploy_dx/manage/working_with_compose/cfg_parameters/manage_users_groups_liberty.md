@@ -5,7 +5,7 @@ title: Managing users and groups in DX Compose
 
 This guide provides instructions for configuring user registries and viewing users and groups in Digital Experience (DX) Compose. This covers how to define `basicRegistry` and `ldapRegistry` in the `server.xml` file, and how to view users and groups after the registry is configured.
 
-!!!note 
+!!!note
     Creating, updating, and deleting users and groups are currently not supported.
 
 ## Configuring user and group management
@@ -50,8 +50,7 @@ Add the following configuration to define the `ldapRegistry`:
               bindPassword="adminpassword"
               ldapType="Custom"
               ignoreCase="true"
-              recursiveSearch="true">
-
+              recursiveSearch="false">
 </ldapRegistry>
 ```
 
@@ -65,12 +64,12 @@ Replace the placeholder values with the actual details of your LDAP server:
 - `ldapType`: Type of LDAP server (for example, Custom, AD)
 
 !!!note
-    If the LDAP server does not support recursive server-side searches, you can set the value of `recursiveSearch` to `true` to allow recursive searches for users.
+    By default, `recursiveSearch` is set to `false`. If your users belong to nested LDAP groups and the expected group memberships are not found, set `recursiveSearch="true"` and test again to confirm nested group search works.
+    Nested group membership is supported either when your LDAP server supports recursive server-side group search, or when `recursiveSearch` is enabled in Liberty.
 
 For more information about using additional properties, see the [LDAP User Registry](https://openliberty.io/docs/latest/reference/feature/ldapRegistry-3.0.html){target="_blank"} feature.
 
-
-### Configuring Federated User Registry
+### Configuring federated user registry
 
 When user and group data reside in various registries, DX Compose offers the capability to consolidate this dispersed information into a single, cohesive registry. This unified registry integrates data from different sources, including LDAP, basic, and custom user registries, into one centralized repository.
 
@@ -87,11 +86,23 @@ The following configuration specifies the sample basic and LDAP registries to be
 </federatedRepository>
 ```
 
+### Configuring user registry limits
+
+By default, DX Compose limits user registry searches to 500 users. To change this limit, update the `store.puma_default.userRegistryLimit` under `PumaStoreService.properties` in your `values.yaml` file. For example:
+
+```yaml
+configuration:
+  webEngine:
+    propertiesFilesOverrides: 
+      PumaStoreService.properties:
+        store.puma_default.userRegistryLimit: "4500"
+```
+
 ## Viewing users and groups
 
 After the registry is configured, you can view users and groups through the Manage Users and Groups portlet.
 
-1. Log in to HCL Digital Experience as an administrator.
+1. Log in to DX Compose as an administrator.
 
 2. Click the **Administration menu** icon. Then, click **Access > Users and Groups**.
 
@@ -104,6 +115,27 @@ To view detailed information about users, such as passwords, User IDs, first nam
 !!!note
     Editing user profile information is currently not supported.
 
+## Disabling Edit My Profile
+
+DX Compose does not support saving changes to user profiles. To prevent users from attempting to update their information, hide the **Edit My Profile** page.
+
+1. Sign in to DX Compose as an administrator.
+
+2. Select **Open applications menu**, and then go to **Administration > Site Management > Pages**.
+
+3. Select **Content Root > Hidden Pages**.
+
+4. Find **Edit My Profile**.
+
+5. In the **Status** column, select **Active**.
+
+6. In the confirmation dialog box, select **OK**. The status changes to **Inactive**.
+
+7. Sign out, and then sign in with a user ID to verify the profile settings.
+
+!!!note
+    To re-enable the profile view when the feature is available, follow these steps and change the status of the **Edit My Profile** page to **Active**.
+
 ## Defining custom attributes
 
 You can add multiple custom attributes at once or individually by specifying them in the `server.xml` file. For more information, refer to [Defining Custom Attributes](adding_custom_attributes.md).
@@ -112,10 +144,8 @@ You can add multiple custom attributes at once or individually by specifying the
 
 - Write operations such as creating, updating, and deleting users and groups are currently not supported in DX Compose.
 - You cannot assign attribute definitions to a user or group in a basic user registry.
-- Nested group search is not supported.
 
 More complex or less common scenarios that are supported in the WebSphere Application Server (WAS) have not been thoroughly tested with DX Compose and are not supported at this time. These include the following:
 
 - Lookaside database
 - Application groups
-- Transient users

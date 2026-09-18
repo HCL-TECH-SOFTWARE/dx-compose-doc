@@ -73,7 +73,7 @@ You can download multiple files at the same time. Select the files you want to d
 
 ![Download manager](../kubernetes_deployment/images/downloadfiles.png)
 
-If you encounter issues with finding  software or downloading files, refer to the [Customer Support FAQ](https://opensource.hcltechsw.com/digital-experience/latest/guide_me/tutorials/access-software/support-faqs/) section for support.
+If you encounter issues with finding software or downloading files, refer to the [Customer Support FAQ](https://help.hcl-software.com/digital-experience/9.5/latest/get_started/access-software/support-faqs/) section for support.
 
 ## For HCL Business Partners
 
@@ -123,4 +123,4 @@ If you encounter issues with finding software or downloading files, refer to the
 
 <!-- Add Compose to ....GitHub/dx-mkdocs/docs/get_started/download/software_licensing_portal/index.md ???-->
 ???+ info "Related information"
-    - [Download and Install from the Software Licensing Portal](https://opensource.hcltechsw.com/digital-experience/latest/get_started/download/software_licensing_portal)
+    - [Download and Install from the Software Licensing Portal](https://help.hcl-software.com/digital-experience/9.5/latest/get_started/download/software_licensing_portal/)

@@ -3,13 +3,11 @@ id: ldap-configuration
 title: Configuring LDAP
 ---
 
-## Introduction
-
 This guide provides instructions for configuring an (Lightweight Directory Access Protocol) LDAP registry in HCL Digital Experience (DX) Compose. This covers how to integrate an LDAP server with the WebEngine container using Helm.
 
-### LDAP configuration in the `values.yaml`
+## LDAP configuration in the `values.yaml`
 
-Refer to the following sample snippet to configure the DX WebEngine server to use an LDAP server.
+Refer to the following sample snippet to configure the DX WebEngine server to use an LDAP server with basic configuration settings.
 
 ```yaml
 configuration:
@@ -38,29 +36,18 @@ Replace the values for the following parameters with the values of the LDAP serv
 
 In the [sample configuration](#ldap-configuration-in-the-valuesyaml), the following parameters are used:
 
-- `host`: The LDAP server hostname. Only used if LDAP type is `other`.
-
-- `port`: The LDAP server port. Only used if LDAP type is `other`.
-
-- `suffix`: Base Distinguished Name for LDAP searches (also known as `baseDN`).
-
-- `serverType`: The type of LDAP server. Accepts `Custom`.<!--, TODO: add more types.-->
-
-- `id`: The LDAP configuration ID. Only used if LDAP type is `other`.
-
-- `type`: The type determines which type of LDAP to use. Accepts `none`, `dx`, or `other`.
-
-  - `none`: No LDAP configuration.
-
-  - `dx`: For OpenLDAP server. You can also adjust the image version with `images > tags > openLdap`.
-
-  - `other`: For other LDAP servers.
-
-- `bindUser`: User used to connect to LDAP. Only used if LDAP type is `other`.
-
-- `bindPassword`: Password used to connect to LDAP. Only used if LDAP type is `other`.
-
-- `customLdapSecret`: The name of the secret that contains the bind user and password. This is used to store the bind user and password in a secret. Only used if LDAP type is `other`.
+- `host`: The LDAP server hostname. Only used if LDAP type is `other`.  
+- `port`: The LDAP server port. Only used if LDAP type is `other`.  
+- `suffix`: Base Distinguished Name for LDAP searches (also known as `baseDN`).  
+- `serverType`: The type of LDAP server. Accepts `Custom`.<!--, TODO: add more types.-->  
+- `id`: The LDAP configuration ID. Only used if LDAP type is `other`.  
+- `type`: The type determines which type of LDAP to use. Accepts `none`, `dx`, or `other`.  
+  - `none`: No LDAP configuration.  
+  - `dx`: For OpenLDAP server. You can also adjust the image version with `images > tags > openLdap`.  
+  - `other`: For other LDAP servers.  
+- `bindUser`: User used to connect to LDAP. Only used if LDAP type is `other`.  
+- `bindPassword`: Password used to connect to LDAP. Only used if LDAP type is `other`.  
+- `customLdapSecret`: The name of the secret that contains the bind user and password. This is used to store the bind user and password in a secret. Only used if LDAP type is `other`.  
 
 !!!note
     Provide either `customLdapSecret` or `bindUser` and `bindPassword`. If both are provided, the LDAP Bind User and Password from the secret will be used.
@@ -81,6 +68,14 @@ For example:
 kubectl create secret generic custom-web-engine-secret --from-literal=bindUser=dx_user --from-literal=bindPassword=p0rtal4u --namespace=dxns
 ```
 
-## LDAP configuration using overrides
+## LDAP configuration using overrides (advanced configuration)
 
-For information on how to configure LDAP using configuration overrides, refer to [DX Compose configuration changes using overrides](configuration_changes_using_overrides.md).
+Advanced configuration settings for LDAP can be done using configuration overrides. For information on how to configure LDAP using configuration overrides, refer to [DX Compose configuration changes using overrides](configuration_changes_using_overrides.md#configuring-ldap).  
+
+## HCLSoftware U learning materials
+
+!!!note
+	Access HCLSoftware U resources for free. [Log in](https://hclsoftwareu.hcl-software.com/login-page){target="_blank"} or [Sign up](https://hclsoftwareu.hcl-software.com/hclsoftwareu-signup){target="_blank"} to get started. If you have further questions, [Contact us](https://hclsoftwareu.hcl-software.com/contactus){target="_blank"} or check the [FAQ](https://hclsoftwareu.hcl-software.com/frequently-asked-questions){target="_blank"}.
+
+
+To learn how to do a traditional installation, go to [Deployment for Intermediate Users](https://hclsoftwareu.hcl-software.com/component/axs/?view=sso_config&id=4&forward=https%3A%2F%2Fhclsoftwareu.hcl-software.com%2Fcourses%2Flesson%2F%3Fid%3D3086){target="_blank"}. In this course, you will also learn about additional installation tasks that apply to both container-based and traditional deployments using the Configuration Wizard, DXClient, ConfigEngine, and more. You can try it out using the [Deployment Lab](https://hclsoftwareu.hcl-software.com/images/Lc4sMQCcN5uxXmL13gSlsxClNTU3Mjc3NTc4MTc2/DS_Academy/DX/Administrator/HDX-ADM-200_Deployment_Lab.pdf){target="_blank"} and corresponding [Deployment Lab Resources](https://hclsoftwareu.hcl-software.com/images/Lc4sMQCcN5uxXmL13gSlsxClNTU3Mjc3NTc4MTc2/DS_Academy/DX/Administrator/HDX-ADM-200_Deployment_Lab_Resources.zip){target="_blank"}.

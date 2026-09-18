@@ -1,6 +1,6 @@
 # Adding additional CA to the DAM trust store
 
-Implementing a custom plugin for the [Digital Asset Management extensibility](https://opensource.hcltechsw.com/digital-experience/latest/manage_content/digital_assets/configuration/dam_extensibility/dam_extensibility/){target="blank"} is by default limited to publicly trusted certificates. If the plugin is signed with a self-signed or otherwise untrusted certificate authority (CA), the trust store of DAM can be extended. You can add additional certificate authorities to the trust store.
+Implementing a custom plugin for the [Digital Asset Management extensibility](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/digital_assets/configuration/dam_extensibility/dam_extensibility/){target="blank"} is by default limited to publicly trusted certificates. If the plugin is signed with a self-signed or otherwise untrusted certificate authority (CA), the trust store of DAM can be extended. You can add additional certificate authorities to the trust store.
 
 ## Prerequisites
 

@@ -1,39 +1,45 @@
 # Setting up Content as a Service
 
-To be able to work with Content as a Service (CaaS) pages in HCL Digital Experience (DX) Compose, you must enable it using the steps listed in this topic. The setup for CaaS is comprised of resources that are shared across virtual portals and virtual portal scoped resources.
+To work with Content as a Service (CaaS) pages in HCL Digital Experience (DX) Compose, you must enable it by following the steps listed in this topic. The setup for CaaS is comprised of resources that are shared across virtual portals and resources scoped to virtual portals. Setting up CaaS requires using the `xmlaccess` function of DXClient. For more information on installing and using DXClient, refer to [DXClient](https://help.hcl-software.com/digital-experience/9.5/latest/extend_dx/development_tools/dxclient/){target="_blank"}.
 
 Refer to the following steps to install and configure CaaS:
 
-1. On a Kubernetes deployment, change the directory to `/home/centos/native-kube` on the main Kubernetes node.
-
-2. Run the following command to make the CaaS theme available to DX Compose.
+1. Run the following command to make the CaaS theme available to DX Compose. This command applies configuration changes that affect the `server.xml` for the DX Compose image.
 
     ```
     helm upgrade -n dxns -f install-deploy-values.yaml -f ./install-hcl-dx-deployment/caas/install-caas.yaml dx-deployment ./install-hcl-dx-deployment
     ```
 
-3. Run the following command to enter a bash shell on the DX Compose WebEngine pod.
+2. Run the following command to register the CaaS theme. This command enables the theme for all the virtual portals in DX Compose.
 
     ```
-    kubectl exec -it dx-deployment-web-engine-0 bash -n dxns
-    ```
-
-4. Run the following command to register the CaaS theme to all the virtual portals in DX Compose.
+    dxclient xmlaccess -xmlFile deployCaaSTheme.xml
 
     ```
-    /opt/openliberty/wlp/usr/svrcfg/scripts/xmlaccess/xmlaccess.sh -d /opt/openliberty/wlp/usr/servers/defaultServer -url http://localhost:9080/wps/config -in /opt/openliberty/wlp/usr/svrcfg/templates/caas/deployCaaSTheme.xml -out /tmp/deployCaaSTheme.xml.out -user "your Portal Admin userid" -password "your password"
-    ```
 
-5. Run the following command to register the CaaS Page and Portlet in each virtual portal, including the main virtual portal.
+    The input for this command is an XMLAccess script to deploy the CaaS theme, located at [CaasTheme](./deployCaaSTheme.xml).
 
-    ```
-    /opt/openliberty/wlp/usr/svrcfg/scripts/xmlaccess/xmlaccess.sh -d /opt/openliberty/wlp/usr/servers/defaultServer -url http://localhost:9080/wps/config -in /opt/openliberty/wlp/usr/svrcfg/templates/caas/deployCaaSPages.xml -out /tmp/deployCaaSPages.xml.out -user "your Portal Admin userid" -password "your password"
-    ```
+    !!!warning
+        Do not modify the URLs in the XML file that refer to National Language Support (NLS) properties. These URLs refer to files in the DX Compose image itself.
 
-    If you are installing the CaaS pages into a virtual portal apart from the main virtual portal, run the following command. This command includes the `VP Context` in the `url` parameter.
+3. Run the following command to register the CaaS pages and portlet in each virtual portal, including the main virtual portal.
 
     ```
-    /opt/openliberty/wlp/usr/svrcfg/scripts/xmlaccess/xmlaccess.sh -d /opt/openliberty/wlp/usr/servers/defaultServer -url http://localhost:9080/wps/config/"VP Context" -in /opt/openliberty/wlp/usr/svrcfg/templates/caas/deployCaaSPages.xml -out /tmp/deployCaaSPages.xml.out -user "your Portal Admin userid" -password "your password"
+    dxclient xmlaccess -xmlFile deployCaaSPages.xml
+
     ```
 
-6. Restart your HCL DX Compose server.
+    The input for this command is an XMLAccess script that deploys the CaaS pages and references the CaaS theme, located at [CaasPages](./deployCaaSPages.xml).
+
+    !!!warning
+        Do not modify the URLs in the XML file that refer to NLS properties. These URLs refer to files in the DX Compose image itself.
+
+    If you are installing the CaaS pages into a virtual portal instead of the base portal, run the same `dxclient` command with the `vp Context` included in the `url` parameter. For example, you would specify the following parameter:
+
+    ```
+    -xmlConfigPath /wps/config/{vp context root}
+    ```
+
+    Run this command for all the virtual portals where you want to run CaaS.
+
+4. Restart your HCL DX Compose server.

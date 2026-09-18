@@ -3,3 +3,4 @@ order: desc
 nav:
     - index.md
     - ...
+    - dx_helm_values_updates.md

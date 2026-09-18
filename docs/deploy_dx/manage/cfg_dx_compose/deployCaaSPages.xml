@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<request require-defined-oids="true" type="update" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="PortalConfig_8.5.0.xsd">
+    <portal action="locate">
+		<theme action="locate" domain="rel" objectid="ibm.portal.theme.caas" uniquename="wp.theme.caas"/>
+        
+        <web-app action="locate" domain="rel" uid="ilwwcm-localrenderingportlet-jsr.war.webmod">
+			<servlet action="locate" domain="rel" name="Web Content Viewer (JSR 286)" />
+			<portlet-app action="locate" domain="rel" name="ilwwcm-localrenderingportlet-jsr.war" uid="ilwwcm-localrenderingportlet-jsr.war">
+				<portlet action="locate" domain="rel" name="Web Content Viewer (JSR 286)" objectid="ibm.portal.Web.Content.Viewer.Jsr286" />
+			</portlet-app>
+		</web-app>
+		
+        <content-node action="locate" domain="rel" objectid="contentroot" uniquename="wps.content.root"/>   
+        
+        <!-- 
+        	create rendering page 
+        -->
+        <content-node content-parentref="contentroot" uniquename="ibm.portal.caas.page" themeref="ibm.portal.theme.caas" objectid="Z6_00000000000000AIPRNM2B1084" create-type="explicit" domain="rel" ordinal="200" type="page" action="update" active="true" allportletsallowed="true" >
+            <supported-markup markup="html" update="set"/>
+			<localedata locale="ar" prefix="ibm.portal.caas.page">
+				<url>file://$server_root$/svrcfg/templates/caas/deployCaaSPages_ar.properties</url>
+			</localedata>
+			<localedata locale="cs" prefix="ibm.portal.caas.page">
+				<url>file://$server_root$//svrcfg/templates/caas/deployCaaSPages_cs.properties</url>
+			</localedata>
+			<localedata locale="da" prefix="ibm.portal.caas.page">
+				<url>file://$server_root$//svrcfg/templates/caas/deployCaaSPages_da.properties</url>
+			</localedata>
+			<localedata locale="de" prefix="ibm.portal.caas.page">
+				<url>file://$server_root$//svrcfg/templates/caas/deployCaaSPages_de.properties</url>
+			</localedata>
+			<localedata locale="el" prefix="ibm.portal.caas.page">
+				<url>file://$server_root$//svrcfg/templates/caas/deployCaaSPages_el.properties</url>
+			</localedata>
+			<localedata locale="en" prefix="ibm.portal.caas.page">
+				<url>file://$server_root$//svrcfg/templates/caas/deployCaaSPages_en.properties</url>
+			</localedata>
+			<localedata locale="es" prefix="ibm.portal.caas.page">
+				<url>file://$server_root$//svrcfg/templates/caas/deployCaaSPages_es.properties</url>
+			</localedata>
+			<localedata locale="fi" prefix="ibm.portal.caas.page">
+				<url>file://$server_root$//svrcfg/templates/caas/deployCaaSPages_fi.properties</url>
+			</localedata>
+			<localedata locale="fr" prefix="ibm.portal.caas.page">
+				<url>file://$server_root$//svrcfg/templates/caas/deployCaaSPages_fr.properties</url>
+			</localedata>
+			<localedata locale="hr" prefix="ibm.portal.caas.page">
+				<url>file://$server_root$//svrcfg/templates/caas/deployCaaSPages_hr.properties</url>
+			</localedata>
+			<localedata locale="hu" prefix="ibm.portal.caas.page">
+				<url>file://$server_root$//svrcfg/templates/caas/deployCaaSPages_hu.properties</url>
+			</localedata>
+			<localedata locale="it" prefix="ibm.portal.caas.page">
+				<url>file://$server_root$//svrcfg/templates/caas/deployCaaSPages_it.properties</url>
+			</localedata>
+			<localedata locale="iw" prefix="ibm.portal.caas.page">
+				<url>file://$server_root$//svrcfg/templates/caas/deployCaaSPages_iw.properties</url>
+			</localedata>
+			<localedata locale="ja" prefix="ibm.portal.caas.page">
+				<url>file://$server_root$//svrcfg/templates/caas/deployCaaSPages_ja.properties</url>
+			</localedata>
+			<localedata locale="kk" prefix="ibm.portal.caas.page">
+				<url>file://$server_root$//svrcfg/templates/caas/deployCaaSPages_kk.properties</url>
+			</localedata>
+			<localedata locale="ko" prefix="ibm.portal.caas.page">
+				<url>file://$server_root$//svrcfg/templates/caas/deployCaaSPages_ko.properties</url>
+			</localedata>
+			<localedata locale="nl" prefix="ibm.portal.caas.page">
+				<url>file://$server_root$//svrcfg/templates/caas/deployCaaSPages_nl.properties</url>
+			</localedata>
+			<localedata locale="no" prefix="ibm.portal.caas.page">
+				<url>file://$server_root$//svrcfg/templates/caas/deployCaaSPages_no.properties</url>
+			</localedata>
+			<localedata locale="pl" prefix="ibm.portal.caas.page">
+				<url>file://$server_root$//svrcfg/templates/caas/deployCaaSPages_pl.properties</url>
+			</localedata>
+			<localedata locale="pt_BR" prefix="ibm.portal.caas.page">
+				<url>file://$server_root$//svrcfg/templates/caas/deployCaaSPages_pt_BR.properties</url>
+			</localedata>
+			<localedata locale="pt" prefix="ibm.portal.caas.page">
+				<url>file://$server_root$//svrcfg/templates/caas/deployCaaSPages_pt.properties</url>
+			</localedata>
+			<localedata locale="ro" prefix="ibm.portal.caas.page">
+				<url>file://$server_root$//svrcfg/templates/caas/deployCaaSPages_ro.properties</url>
+			</localedata>
+			<localedata locale="ru" prefix="ibm.portal.caas.page">
+				<url>file://$server_root$//svrcfg/templates/caas/deployCaaSPages_ru.properties</url>
+			</localedata>
+			<localedata locale="sk" prefix="ibm.portal.caas.page">
+				<url>file://$server_root$//svrcfg/templates/caas/deployCaaSPages_sk.properties</url>
+			</localedata>
+			<localedata locale="sl" prefix="ibm.portal.caas.page">
+				<url>file://$server_root$//svrcfg/templates/caas/deployCaaSPages_sl.properties</url>
+			</localedata>
+			<localedata locale="sv" prefix="ibm.portal.caas.page">
+				<url>file://$server_root$//svrcfg/templates/caas/deployCaaSPages_sv.properties</url>
+			</localedata>
+			<localedata locale="th" prefix="ibm.portal.caas.page">
+				<url>file://$server_root$//svrcfg/templates/caas/deployCaaSPages_th.properties</url>
+			</localedata>
+			<localedata locale="tr" prefix="ibm.portal.caas.page">
+				<url>file://$server_root$//svrcfg/templates/caas/deployCaaSPages_tr.properties</url>
+			</localedata>
+			<localedata locale="uk" prefix="ibm.portal.caas.page">
+				<url>file://$server_root$//svrcfg/templates/caas/deployCaaSPages_uk.properties</url>
+			</localedata>
+			<localedata locale="zh_TW" prefix="ibm.portal.caas.page">
+				<url>file://$server_root$//svrcfg/templates/caas/deployCaaSPages_zh_TW.properties</url>
+			</localedata>
+			<localedata locale="zh" prefix="ibm.portal.caas.page">
+				<url>file://$server_root$//svrcfg/templates/caas/deployCaaSPages_zh.properties</url>
+			</localedata>
+            <parameter name="com.ibm.portal.IgnoreAccessControlInCaches" type="string" update="set"><![CDATA[false]]></parameter>
+            <parameter name="com.ibm.portal.bookmarkable" type="string" update="set"><![CDATA[no]]></parameter>
+            <parameter name="com.ibm.portal.remote-cache-expiry" type="string" update="set"><![CDATA[2627511]]></parameter>
+            <parameter name="com.ibm.portal.remote-cache-scope" type="string" update="set"><![CDATA[NON-SHARED]]></parameter>
+            <parameter name="com.ibm.portal.friendly.name" type="string" update="set"><![CDATA[caas]]></parameter>
+			<parameter name="com.ibm.portal.Hidden" type="string" update="set"><![CDATA[true]]></parameter>
+            <parameter name="param.sharing.scope" type="string" update="set"><![CDATA[ibm.portal.sharing.scope.page]]></parameter>   
+			<parameter name="ibm.portal.caas.page" type="string" update="set"><![CDATA[true]]></parameter>
+            <component action="update" active="true" deletable="undefined" domain="rel" objectid="Z7_00000000000000AIPRNM2B1082" modifiable="undefined" ordinal="100" orientation="H" skinref="undefined" type="container" width="undefined">
+                <component action="update" active="true" deletable="undefined" domain="rel" objectid="Z7_00000000000000AIPRNM2B1086" modifiable="undefined" ordinal="100" orientation="V" skinref="undefined" type="container" width="30%">
+                    <component action="update" active="true" deletable="undefined" domain="rel" objectid="Z7_00000000000000AIPRNM2B1081" modifiable="undefined" ordinal="100" skinref="undefined" type="control" width="undefined">
+                        <portletinstance action="update" domain="rel" objectid="Z5_00000000000000AIPRNM2B1087" portletref="ibm.portal.Web.Content.Viewer.Jsr286">
+                            <preferences name="INCLUDE_IN_SEARCH_INDEX" update="set">
+                                <value><![CDATA[false]]></value>
+                            </preferences>
+                            <preferences name="AUTHORINGTEMPLATE_OVERRIDE" update="set">
+                                <value/>
+                            </preferences>
+                            <preferences name="CATEGORY_OVERRIDE" update="set">
+                                <value/>
+                            </preferences>
+                            <preferences name="ContextProcessorClass" update="set">
+                                <value/>
+                            </preferences>
+                            <preferences name="LOCATION_OVERRIDE" update="set">
+                                <value/>
+                            </preferences>
+                            <preferences name="SECTION_STATES" update="set">
+                                <value><![CDATA[true]]></value>
+                                <value><![CDATA[true]]></value>
+                                <value><![CDATA[true]]></value>
+                                <value><![CDATA[true]]></value>
+                            </preferences>
+                            <preferences name="SITEAREA_OVERRIDE" update="set">
+                                <value/>
+                            </preferences>
+                            <preferences name="WCM_ASYNC_RENDERING_ENABLED" update="set">
+                                <value><![CDATA[false]]></value>
+                            </preferences>
+                            <preferences name="WCM_BROADCASTS_TO" update="set">
+                                <value><![CDATA[WCM_LINKING_NONE]]></value>
+                            </preferences>
+                            <preferences name="WCM_CONTENT_CONTEXT_BEHAVIOUR" update="set">
+                                <value/>
+                            </preferences>
+                            <preferences name="WCM_CONTENT_CONTEXT_IDR" update="set">
+                                <value/>
+                            </preferences>
+                            <preferences name="WCM_CONTENT_CONTEXT_IS_REL_PATH" update="set">
+                                <value><![CDATA[false]]></value>
+                            </preferences>
+                            <preferences name="WCM_CONTENT_CONTEXT_TYPE" update="set">
+                                <value><![CDATA[content]]></value>
+                            </preferences>
+                            <preferences name="WCM_CONTENT_TYPE" update="set">
+                                <value><![CDATA[CONTENT]]></value>
+                            </preferences>
+                            <preferences name="WCM_ENABLE_ASA_TAGS" update="set">
+                                <value><![CDATA[false]]></value>
+                            </preferences>
+                            <preferences name="WCM_LISTENS_TO" update="set">
+                                <value><![CDATA[WCM_LINKING_OTHER]]></value>
+                            </preferences>
+                            <preferences name="WCM_PAGE_TITLE_TYPE" update="set">
+                                <value><![CDATA[WCM_PAGE_TITLE_TYPE_DEFAULT]]></value>
+                            </preferences>
+                            <preferences name="WCM_PORTLET_TITLE_TYPE" update="set">
+                                <value><![CDATA[WCM_PORTLET_TITLE_TYPE_DEFAULT]]></value>
+                            </preferences>
+                            <preferences name="WCM_TAGGING_CATEGORIES_BROADCAST" update="set">
+                                <value/>
+                            </preferences>
+                            <preferences name="com.ibm.portal.wcm.copy.contents" update="set">
+                                <value><![CDATA[false]]></value>
+                            </preferences>
+                            <preferences name="com.ibm.wps.pe.portlet.fragment.cache.expires" update="set">
+                                <value><![CDATA[0]]></value>
+                            </preferences>
+                            <preferences name="com.ibm.wps.pe.portlet.fragment.cache.public" update="set">
+                                <value><![CDATA[false]]></value>
+                            </preferences>
+                        	<preferences name="ibm.portal.wcm.render.mode" update="set">
+	               				<value><![CDATA[data]]></value>
+	               			</preferences>
+                        </portletinstance>
+                    </component>
+                </component>
+            </component>
+        </content-node>
+    </portal>
+</request>
