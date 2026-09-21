@@ -447,13 +447,31 @@ db2.JdbcProviderName=wpdbJDBC_db2
 
 ### Changing the database configuration
 
-To change the database configuration, update the custom `values.yaml` file or the custom secrets file with the new values and do a `helm upgrade`. When the database configuration is changed, a Pod restart is triggered automatically. This also applies when a new secret is created and referenced in the custom `values.yaml` file. If an existing secret is updated, you must restart the Pods manually after the secret is updated for the changes to take effect.
+To change the database configuration:
+
+1. Update the custom `values.yaml` file or the custom secrets file with the new values.
+2. Run a `helm upgrade` to apply the changes.
+
+When the database configuration is changed, a Pod restart is triggered automatically. This also applies when a new secret is created and referenced in the custom `values.yaml` file. If an existing secret is updated, you must restart the Pods manually after the secret is updated for the changes to take effect.
 
 ## Using the external database and triggering the database transfer
 
-The external database is used by setting the `configuration.webEngine.useExternalDatabase` property to `true` in the custom `values.yaml` file and doing a  `helm upgrade`. This triggers a database transfer when enabled for the first time. The database transfer is a one-time operation that copies the content of the Derby database to the external database.
+To enable the external database for WebEngine:
 
-To drop and recreate all existing WebEngine tables in the external database when transferring the Derby data, set the `configuration.webEngine.dropDatabaseTables` property to `true` in the custom `values.yaml` file when doing the `helm upgrade` for the database transfer. WebEngine data that may exist in the external database will be lost. If you change the `configuration.webEngine.dropDatabaseTables` property to `true`, it is recommended to immediately reset it to `false` after your `helm upgrade`.  Failure to do so could lead to unexpected loss of data.
+1. In your custom `values.yaml` file, set `configuration.webEngine.useExternalDatabase` to `true`.
+
+    This action triggers a one-time data migration from the embedded Derby database to the external database. WebEngine records when this transfer completes, ensuring that subsequent pod restarts or Helm upgrades bypass the migration and connect directly to the newly populated external database.
+
+2. (Optional) To configure WebEngine to drop and recreate existing tables in the external database, set `configuration.webEngine.dropDatabaseTables` to `true`.
+
+    This action permanently deletes any WebEngine data that is already present in the external database. This drop action only occurs during the initial migration. After the transfer successfully completes, WebEngine ignores the flag and will not repeat the transfer or the drop step during future restarts or upgrades, even if the parameter remains set to `true`.
+
+3. Run a `helm upgrade` to apply the changes.
+
+4. After the initial migration finishes, reset `configuration.webEngine.dropDatabaseTables` to `false` in your custom `values.yaml` file and run a `helm upgrade` again.
+
+    !!! warning
+        While the drop action is limited to the initial transfer, leaving `dropDatabaseTables` set to `true` creates a risk of data loss if a future system reset forces the database transfer to run again. Resetting this parameter prevents existing tables from being overwritten during subsequent operations.
 
 ## dbDomainProperties
 
@@ -496,3 +514,10 @@ Refer to the following table for more information about the properties you can u
 
 !!! Limitation
     Simultaneous execution of WebEngine pod scaling and external database transfer is not supported. To avoid any unexpected behavior, complete the database transfer before scaling the environment.
+
+## HCLSoftware U learning materials
+
+!!!note
+	  Access HCLSoftware U resources for free. [Log in](https://hclsoftwareu.hcl-software.com/login-page){target="_blank"} or [Sign up](https://hclsoftwareu.hcl-software.com/hclsoftwareu-signup){target="_blank"} to get started. If you have further questions, [Contact us](https://hclsoftwareu.hcl-software.com/contactus){target="_blank"} or check the [FAQ](https://hclsoftwareu.hcl-software.com/frequently-asked-questions){target="_blank"}.
+
+To learn how to do a traditional installation, go to [Deployment for Intermediate Users](https://hclsoftwareu.hcl-software.com/component/axs/?view=sso_config&id=4&forward=https%3A%2F%2Fhclsoftwareu.hcl-software.com%2Fcourses%2Flesson%2F%3Fid%3D3086){target="_blank"}. In this course, you will also learn about additional installation tasks that apply to both container-based and traditional deployments using the Configuration Wizard, DXClient, ConfigEngine, and more. You can try it out using the [Deployment Lab](https://hclsoftwareu.hcl-software.com/images/Lc4sMQCcN5uxXmL13gSlsxClNTU3Mjc3NTc4MTc2/DS_Academy/DX/Administrator/HDX-ADM-200_Deployment_Lab.pdf){target="_blank"} and corresponding [Deployment Lab Resources](https://hclsoftwareu.hcl-software.com/images/Lc4sMQCcN5uxXmL13gSlsxClNTU3Mjc3NTc4MTc2/DS_Academy/DX/Administrator/HDX-ADM-200_Deployment_Lab_Resources.zip){target="_blank"}.

@@ -2,6 +2,31 @@
 
 This page summarizes Helm values updates across DX releases. Each table below details changes introduced in a specific release, including added properties, removed properties, and properties with changed defaults. Use this as a reference when upgrading to ensure compatibility and to guide configuration updates.
 
+### CF238
+
+**Added Keys:**
+
+| Key | Default Value |
+|-----|---------------|
+| configuration.digitalAssetManagement.defaultView | grid | <!-- Commit: 38c9c781, Author: ANANDVARDHANCHILUMULA, Date: 2026-07-20 -->
+| configuration.digitalAssetManagement.verifySubscriberHeartbeatIntervalTimeInMinutes | 10 | <!-- Commit: b451e054, Author: rakeshbutham5, Date: 2026-08-20 -->
+| configuration.webEngine.wcmApiV3Enabled | true | <!-- Commit: 50f79f88, Author: Neelkanth Patel, Date: 2026-08-17 -->
+| incubator.configuration.coreEditor.enabled | true | <!-- Commit: 367d0028, Author: Cedric Jastine Marcelino, Date: 2026-08-04 -->
+| incubator.configuration.coreEditor.default | false | <!-- Commit: 1b03ca76, Author: Cedric Jastine Marcelino, Date: 2026-08-17 -->
+| incubator.configuration.searchMiddleware.adminUI.enabled | false | <!-- Commit: aaa90b04, Author: Kristine Gazeline Apalla, Date: 2026-07-17 -->
+
+**Removed Keys:**
+
+| Key |
+|-----|
+| incubator.configuration.webEngine.wcmApiV3Enabled | 
+
+**Changed Values:**
+
+| Key | Old Value | New Value |
+|-----|-----------|-----------|
+| security.openLdap.ldapPassword | p0rtal4u | "" | <!-- Commit: 3db4dd0a, Author: Mary Dooley, Date: 2026-07-13 -->
+
 ### CF237
 
 **Added Keys:**
@@ -823,3 +848,11 @@ None
 | configuration.searchMiddleware.pushAdminUser | pushAdmin | pushadmin |
 | configuration.searchMiddleware.pushAdminPassword | adminPush | adminpush |
 | incubator.configuration.digitalAssetManagement.renderNewUI | false | true |
+
+## HCLSoftware U learning materials
+
+!!!note
+	Access HCLSoftware U resources for free. [Log in](https://hclsoftwareu.hcl-software.com/login-page){target="_blank"} or [Sign up](https://hclsoftwareu.hcl-software.com/hclsoftwareu-signup){target="_blank"} to get started. If you have further questions, [Contact us](https://hclsoftwareu.hcl-software.com/contactus){target="_blank"} or check the [FAQ](https://hclsoftwareu.hcl-software.com/frequently-asked-questions){target="_blank"}.
+
+
+For an introduction and a demo on how to upgrade your HCL Digital Experience deployment to the latest Cumulative Fix, go to [Upgrade the HCL Digital Experience software](https://hclsoftwareu.hcl-software.com/component/axs/?view=sso_config&id=4&forward=https%3A%2F%2Fhclsoftwareu.hcl-software.com%2Fcourses%2Flesson%2F%3Fid%3D1461){target="_blank"}.

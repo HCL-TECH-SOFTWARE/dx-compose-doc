@@ -2,6 +2,7 @@
 
 Find out the latest features, enhancements, and fixes included in the most recent Cumulative Fix (CF) of HCL Digital Experience (DX) Compose.
 
+- **[What's new in CF238](cf238.md)**
 - **[What's new in CF237](cf237.md)**
 - **[What's new in CF236](cf236.md)**
 - **[What's new in CF235](cf235.md)**
@@ -21,4 +22,4 @@ For more information on Helm values that were added, removed, or updated for eac
 
 ## Access the latest HCL Digital Experience 9.5 Education Materials on HCLSoftware U
 
-The HCLSoftware U offers technical education for the HCL Software portfolio of products, organized by practitioner role. See the [HCL Digital Experience](https://hclsoftwareu.hcltechsw.com/hcl-dx){target="_blank"} section of HCLSoftware U and the [What’s New for Digital Experience](https://hclsoftwareu.hcltechsw.com/courses?search=eyJjYXQiOiI1NSIsInRpdGxlIjoiIiwiZmlsdGVyIjoiIn0=){target="_blank"} section for more information.
+The HCLSoftware U offers technical education for the HCL Software portfolio of products, organized by practitioner role. See the [HCL Digital Experience](https://hclsoftwareu.hcl-software.com/hcl-dx){target="_blank"} section of HCLSoftware U and the [What’s New for Digital Experience](https://hclsoftwareu.hcl-software.com/courses?search=eyJjYXQiOiI1NSIsInRpdGxlIjoiIiwiZmlsdGVyIjoiIn0=){target="_blank"} section for more information.

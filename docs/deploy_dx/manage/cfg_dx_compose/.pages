@@ -1,13 +1,12 @@
 title: Configuring DX Compose
 nav:
-    - index.md
     - enable_cc.md
     - enable_dam.md
-    - enable_content_ai.md
-    - wab_integration.md
-    - enable_people_service.md
-    - enable_search.md
     - enable_iq.md
-    - integrate_ddc
+    - enable_people_service.md
+    - enable_content_ai.md
+    - Enabling and disabling the WCM REST API v3 service: enable_wcm_api_v3.md
+    - enable_search.md
+    - Integrating Digital Data Connector in DX Compose: integrate_ddc/index.md
+    - wab_integration.md
     - setup_cntnt_serv_pgs.md
-    - configure_sso

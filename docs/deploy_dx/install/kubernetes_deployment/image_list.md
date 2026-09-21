@@ -13,6 +13,56 @@ In future continuous delivery updates, entitled customers can obtain the HCL DX 
 
 Video: [How to upload HCL DX 9.5 container images to a private repository](https://youtu.be/XJONRdpgCuo)
 
+## HCL DX 9.5 Compose CF238
+
+If you are deploying the HCL DX 9.5 Compose CF238 release, the following software packages are available in your MHS portal HCL DX Compose v9.5 entitlements:
+
+- HCL DX Compose v9.5
+- HCL DXClient
+- HCL Leap 9.3.x for use with DX Compose
+- HCL Volt Foundry 9.5.x for use with DX Compose
+
+### hcl-compose-kubernetes-CF238.zip
+
+```shell
+HCL DX Compose notices CF238.txt
+hcl-dx-content-composer-image-v1.51.0_20260915-2014.tar.gz
+hcl-dx-dam-plugin-google-vision-image-v1.0.0_20260915-2024.tar.gz
+hcl-dx-dam-plugin-kaltura-image-v1.0.0_20260915-2023.tar.gz
+hcl-dx-deployment-v2.49.0_20260917-1304.tgz
+hcl-dx-digital-asset-manager-image-v1.50.0_20260915-2020.tar.gz
+hcl-dx-file-processor-image-v2.0.0_20260915-2017.tar.gz
+hcl-dx-haproxy-image-v1.34.0_20260915-2015.tar.gz
+hcl-dx-image-processor-image-v1.51.0_20260915-2026.tar.gz
+hcl-dx-iq-integration-image-v1.0.2_20260916-0154.tar.gz
+hcl-dx-iq-v1.0.2_20260917-1304.tgz
+hcl-dx-license-manager-image-v95_CF238_20260915-2013.tar.gz
+hcl-dx-logging-sidecar-image-v1.0.0_20260915-2017.tar.gz
+hcl-dx-mcp-service-image-v1.0.2_20260915-2011.tar.gz
+hcl-dx-openldap-image-v2.6.8_20260915-2011.tar.gz
+hcl-dx-opensearch-image-v2.0.0_20260915-2023.tar.gz
+hcl-dx-people-service-image-v1.0.0_20260915-2011.tar.gz
+hcl-dx-persistence-connection-pool-image-v1.48.0_20260915-2026.tar.gz
+hcl-dx-persistence-metrics-exporter-image-v1.46.0_20260915-2026.tar.gz
+hcl-dx-persistence-node-image-v1.38_20260915-2026.tar.gz
+hcl-dx-prereqs-checker-image-v1.0.0_20260915-2022.tar.gz
+hcl-dx-ringapi-image-v1.51.0_20260915-2011.tar.gz
+hcl-dx-runtime-controller-image-v95_CF238_20260915-2023.tar.gz
+hcl-dx-search-middleware-image-v2.0.0_20260915-2017.tar.gz
+hcl-dx-search-v2.36.0_20260917-1304.tgz
+hcl-dx-webengine-image-CF238_20260915-2226.tar.gz
+```
+
+### HCL DX Compose UBI levels
+
+This section presents the latest Red Hat Universal Base Image (UBI) level for HCL DX Compose images.
+
+|Image scope|UBI level|
+|-----------|---------|
+|All component images|9.8-1788166357|
+
+<!--
+
 ## HCL DX 9.5 Compose CF237
 
 If you are deploying the HCL DX 9.5 Compose CF237 release, the following software packages are available in your MHS portal HCL DX Compose v9.5 entitlements:
@@ -59,9 +109,7 @@ This section presents the latest Red Hat Universal Base Image (UBI) level for HC
 
 |Image scope|UBI level|
 |-----------|---------|
-|All component images|9.8-1780378819|
-
-<!--
+|All component images|9.8-1786380870|
 
 ## HCL DX 9.5 Compose CF236
 
