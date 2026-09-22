@@ -69,10 +69,10 @@ To define custom attributes in Kubernetes deployments, add a Liberty configurati
     helm -n dxns upgrade dx-deployment ./install-hcl-dx-deployment/ -f install-deploy-values.yaml -f custom-values-all.yaml
     ```
 
-4. Restart the DX WebEngine or Core pod to apply the custom attributes.
+4. If the pod does not restart automatically after the Helm upgrade, [restart the server](../restart_webengine_server.md) manually to apply the custom attributes.
 
     !!!note
-        Updating the Helm values and mounted configuration file does not automatically reload the custom attribute definitions. The custom attributes are read and cached during runtime initialization, so a Liberty JVM restart is required.
+  Custom attribute definitions are read and cached during runtime initialization. Restarting the server reloads the custom attribute definitions.
 
 The custom attributes should be successfully added and reflected in the API response after the restart.
 
