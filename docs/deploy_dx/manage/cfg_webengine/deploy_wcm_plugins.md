@@ -7,7 +7,7 @@ This topic provides the steps to deploy and configure customer-built Web Content
 
 ## Customizing the HCL DX Compose WebEngine image
 
-1. Create a Dockerfile that uses an official HCL DX Compose WebEngine image as a parent image. Beginning with DX Compose CF230, the image includes a `resources/customApplications` directory in the server configuration location to hold custom enterprise (EAR) and web (WAR) applications.
+1. Create a Dockerfile that uses an official HCL DX Compose WebEngine image as a parent image. Beginning with DX Compose CF230, the image includes a `resources/customApplications` directory in the server configuration location to hold custom enterprise (EAR) applications.
 
     <pre>
         ```
