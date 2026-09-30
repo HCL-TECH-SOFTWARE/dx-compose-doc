@@ -77,8 +77,9 @@ The following is a sample snippet that shows how to configure the DX Compose ser
 
 - For predefined LDAP types supported by OpenLiberty, use the corresponding filters tags (for example, `idsFilters`, `activedFilters`, `domino50Filters`, `edirectoryFilters`, `iplanetFilters`, `netscapeFilters`, and `securewayFilters`).
 - For custom LDAP types, use `customFilters` to define your own search filters for users and groups.  
-- By default, `recursiveSearch` is set to `false`. If your users belong to nested LDAP groups and the expected group memberships are not found, set `recursiveSearch="true"` and test again to confirm nested group search works.
-- Nested group membership is supported either when your LDAP server supports recursive server-side group search, or when `recursiveSearch` is enabled in Liberty.
+- By default, `recursiveSearch` is set to `false`. Keep this default setting for most deployments. DX Compose resolves nested group membership for authentication and access control even when `recursiveSearch` is `false`, and the Users and Groups management UI displays child groups so that you can navigate the full group hierarchy.
+- Set `recursiveSearch="true"` only if your LDAP server does not return nested group membership and the expected memberships are still not found after testing with the default setting. When `recursiveSearch` is `true`, the Users and Groups management UI shows a flat list of all users from the group and its child groups, without indicating which child group each user belongs to.
+- For more information about how nested groups are resolved, refer to [Working with nested LDAP groups](../working_with_compose/cfg_parameters/manage_users_groups_liberty.md#working-with-nested-ldap-groups).
 
 For more information, refer to the [Open Liberty LDAP Registry documentation](https://openliberty.io/docs/latest/reference/config/ldapRegistry.html){target="_blank"}.
 
@@ -301,7 +302,7 @@ Use the following LDAP configuration samples based on your server type:
                   ldapType="Microsoft Active Directory"  
                   sslEnabled="false"  
                   referral="ignore"  
-                  recursiveSearch="true"  
+                  recursiveSearch="false"  
                   bindAuthMechanism="simple"  
                   returnToPrimaryServer="true">  
                     <activedFilters 
@@ -362,7 +363,7 @@ Use the following LDAP configuration samples based on your server type:
                   sslEnabled="true"
                   sslRef="customSSLConfig"
                   referral="ignore"  
-                  recursiveSearch="true"  
+                  recursiveSearch="false"  
                   bindAuthMechanism="simple"  
                   returnToPrimaryServer="true">  
                     <activedFilters 

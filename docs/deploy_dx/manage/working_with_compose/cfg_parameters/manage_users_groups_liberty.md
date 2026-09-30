@@ -64,10 +64,30 @@ Replace the placeholder values with the actual details of your LDAP server:
 - `ldapType`: Type of LDAP server (for example, Custom, AD)
 
 !!!note
-    By default, `recursiveSearch` is set to `false`. If your users belong to nested LDAP groups and the expected group memberships are not found, set `recursiveSearch="true"` and test again to confirm nested group search works.
-    Nested group membership is supported either when your LDAP server supports recursive server-side group search, or when `recursiveSearch` is enabled in Liberty.
+    By default, `recursiveSearch` is set to `false`. Keep this default setting for most deployments. For more information, refer to [Working with nested LDAP groups](#working-with-nested-ldap-groups).
 
 For more information about using additional properties, see the [LDAP User Registry](https://openliberty.io/docs/latest/reference/feature/ldapRegistry-3.0.html){target="_blank"} feature.
+
+### Working with nested LDAP groups
+
+A nested group is an LDAP group that is a member of another group. The `recursiveSearch` attribute of the `ldapRegistry` element controls whether Open Liberty expands these nested groups when it queries the LDAP server.
+
+#### Using the default setting (recommended)
+
+Leave `recursiveSearch` set to `false`. With this setting:
+
+- The Users and Groups management UI lists the direct members of a group, including any child groups. You can select a child group to navigate down the hierarchy and view the members of each group in the correct group tree.
+- DX Compose resolves the complete set of parent groups that a user belongs to when the user logs in, so inherited permissions are applied correctly for authentication and access control.
+
+#### Setting recursiveSearch to true
+
+Set `recursiveSearch="true"` only if your directory requires it, for example if the expected group memberships are still not resolved with the default setting. With this setting:
+
+- Open Liberty expands nested groups, and the Users and Groups management UI shows a single flat list that contains the members of the group and the users of all its child groups. The list does not indicate which child group each user belongs to.
+
+Nested group membership is also resolved when your LDAP server supports recursive server-side group search.
+
+After you change `recursiveSearch`, restart the DX Compose server and verify that users receive the expected access.
 
 ### Configuring federated user registry
 
@@ -105,7 +125,7 @@ After the registry is configured, you can view users and groups through the Mana
 1. Log in to DX Compose as an administrator.
 
 2. Click the **Administration menu** icon. Then, click **Access > Users and Groups**.
-
+The portlet lists the direct members of the selected group, including any child groups. Select a child group to view its members and continue navigating the nested group hierarchy. If `recursiveSearch` is set to `true` in your LDAP registry, the members of all child groups are instead shown as a single flat list. For more information, refer to [Working with nested LDAP groups](#working-with-nested-ldap-groups).
 To view detailed information about users, such as passwords, User IDs, first names, last names, email addresses, or preferred languages:
 
 1. Use the search function to locate a specific user, or click the **All Authenticated Portal Users** link to see a comprehensive list of users.
