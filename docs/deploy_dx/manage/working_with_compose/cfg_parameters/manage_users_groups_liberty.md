@@ -125,7 +125,7 @@ After the registry is configured, you can view users and groups through the Mana
 1. Log in to DX Compose as an administrator.
 
 2. Click the **Administration menu** icon. Then, click **Access > Users and Groups**.
-The portlet lists the direct members of the selected group, including any child groups. Select a child group to view its members and continue navigating the nested group hierarchy. If `recursiveSearch` is set to `true` in your LDAP registry, the members of all child groups are instead shown as a single flat list. For more information, refer to [Working with nested LDAP groups](#working-with-nested-ldap-groups).
+The portlet lists the direct members of the selected group, including any child groups. Select a child group to view its members and continue navigating the nested group hierarchy. If `recursiveSearch` is set to `true` in your LDAP registry, the users of all child groups are instead shown as a single flat list. For more information, refer to [Working with nested LDAP groups](#working-with-nested-ldap-groups).
 To view detailed information about users, such as passwords, User IDs, first names, last names, email addresses, or preferred languages:
 
 1. Use the search function to locate a specific user, or click the **All Authenticated Portal Users** link to see a comprehensive list of users.
