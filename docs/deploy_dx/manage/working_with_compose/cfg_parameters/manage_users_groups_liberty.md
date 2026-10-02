@@ -85,8 +85,6 @@ Set `recursiveSearch="true"` only if your directory requires it, for example if 
 
 - Open Liberty expands nested groups, and the Users and Groups management UI shows a single flat list that contains the members of the group and the users of all its child groups. The list does not indicate which child group each user belongs to.
 
-Nested group membership is also resolved when your LDAP server supports recursive server-side group search.
-
 After you change `recursiveSearch`, restart the DX Compose server and verify that users receive the expected access.
 
 ### Configuring federated user registry
