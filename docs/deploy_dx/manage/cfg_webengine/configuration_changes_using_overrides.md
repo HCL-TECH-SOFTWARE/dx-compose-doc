@@ -83,6 +83,10 @@ The following is a sample snippet that shows how to configure the DX Compose ser
 
 For more information, refer to the [Open Liberty LDAP Registry documentation](https://openliberty.io/docs/latest/reference/config/ldapRegistry.html){target="_blank"}.
 
+#### Mapping user IDs when group membership uses distinguished names
+
+Set `userIdMap` to match the attribute used in the relative distinguished name (RDN) of the user DN stored in the group's membership attribute. For example, if `uniqueMember` contains a DN such as `cn=Gene Hayes,ou=internal,ou=users,ou=dxdemo,dc=dx,dc=com`, use `userIdMap="*:cn"`. If the DN instead starts with `uid=...`, use `userIdMap="*:uid"`. The mapping must match the user's LDAP entry; choose the value that matches your directory rather than copying the example unchanged.
+
 The `attributeConfiguration` element in the LDAP registry configuration allows you to map LDAP attributes to user registry attributes. This is useful when the attribute names in your LDAP directory do not match the expected attribute names. Each `attribute` element specifies a mapping:
 
 - `name`: The name of the attribute in the LDAP directory
