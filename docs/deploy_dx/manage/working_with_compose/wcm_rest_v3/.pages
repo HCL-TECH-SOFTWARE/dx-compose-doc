@@ -1,0 +1,5 @@
+nav:
+    - index.md
+    - Enabling and disabling Web Content Manager REST API v3: deploy_dx/manage/cfg_dx_compose/enable_wcm_api_v3/
+    - configure_wcm_rest_v3.md
+    - use_wcm_rest_v3.md

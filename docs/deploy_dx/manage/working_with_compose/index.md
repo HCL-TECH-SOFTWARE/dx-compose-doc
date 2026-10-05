@@ -10,6 +10,8 @@ Learn how to configure global settings in DX Compose, including default language
 Learn a different technique that you should use to manage outbound connections with WebEngine.
 - **[Managing users and groups](cfg_parameters/index.md)**  
 Learn how to configure users and groups in DX Compose.
+- **[Managing the REST service for Web Content Manager v3](wcm_rest_v3/index.md)**
+Learn how to configure service parameters and access control for the WCM REST API v3.
 - **[Managing WebEngine SSL database connections](db_over_ssl.md)**  
 Learn how to configure SSL connections in WebEngine for different databases.
 - **[Monitoring the WebEngine Deployment](monitor_metrics.md)**  
