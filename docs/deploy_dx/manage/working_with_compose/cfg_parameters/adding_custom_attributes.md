@@ -3,7 +3,7 @@ id: adding-custom-attributes
 title: Adding custom attributes in DX Compose
 ---
 
-This topic provides steps on how to add or define custom attributes in Digital Experience (DX) Compose.
+This topic provides steps on how to add or define custom attributes in HCL Digital Experience (DX) Compose.
 
 ## Overview
 
@@ -14,10 +14,8 @@ You can add a single attribute or multiple custom attributes simultaneously by p
 The following list provides the description of each attribute:
 
 - `propertyName`: The name of the property you are adding.
-
-- `entityTypes`: This value is a list of entity types to which the new property applies. If you need to enter multiple values, separate each value with a comma (for example "value1,value2"). Valid values are `Group` and `PersonAccount`.
-
-- `dataType`: This defines the type of data stored in the attribute being created. If this attribute is mapped to LDAP, this data type must match the corresponding attribute type in LDAP. Consult your LDAP administrator if you are unsure of the data types. Refer to the following list for the valid values for this attribute:
+- `entityTypes`: A list of entity types to which the new property applies. If you need to enter multiple values, separate each value with a comma (for example, `"value1,value2"`). Valid values are `Group` and `PersonAccount`.
+- `dataType`: The type of data stored in the attribute being created. If this attribute is mapped to LDAP, this data type must match the corresponding attribute type in LDAP. Consult your LDAP administrator if you are unsure of the data types. Refer to the following list for the valid values for this attribute:
 
     - `String`
     - `Int`
@@ -34,7 +32,7 @@ The following list provides the description of each attribute:
 
 - `multiValued`: This defines whether the property can contain multiple values or not.
 
-## Configure custom attributes with Helm
+## Configuring custom attributes with Helm
 
 To define custom attributes in Kubernetes deployments, add a Liberty configuration override file by using the `configOverrideFiles` parameter in your Helm values file. The override file is mounted into the Liberty `configDropins/overrides` directory.
 
@@ -58,10 +56,10 @@ To define custom attributes in Kubernetes deployments, add a Liberty configurati
         </server>
     ```
 
-    - Replace the `propertyName` value with the actual name of the attributes you want to add.
-    - `dataType` should be the type of the data you want to store in the attribute.
-    - `entityTypes` should be the entities that can have this attribute.
-    - `multiValued` attribute should be set to `true` if an entity can have multiple instances of this attribute, and `false` if otherwise.
+    - `propertyName`: The name of the attribute.
+    - `dataType`: The type of data stored in the attribute.
+    - `entityTypes`: The entities that can have this attribute.
+    - `multiValued`: A boolean flag indicating whether an entity can have multiple instances of this attribute.
 
 3. Apply the updated values:
 
@@ -69,10 +67,7 @@ To define custom attributes in Kubernetes deployments, add a Liberty configurati
     helm -n dxns upgrade dx-deployment ./install-hcl-dx-deployment/ -f install-deploy-values.yaml -f custom-values-all.yaml
     ```
 
-4. If the pod does not restart automatically after the Helm upgrade, [restart the server](../restart_webengine_server.md) manually to apply the custom attributes.
-
-    !!!note
-  Custom attribute definitions are read and cached during runtime initialization. Restarting the server reloads the custom attribute definitions.
+4. If the pod does not restart automatically after the Helm upgrade, [restart the server](../restart_webengine_server.md) manually to apply the custom attributes. Custom attribute definitions are read and cached during runtime initialization. Restarting the server reloads the custom attribute definitions.
 
 The custom attributes should be successfully added and reflected in the API response after the restart.
 
