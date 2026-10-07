@@ -1,10 +1,10 @@
 # Providing access to HCL Content Composer for non-Administrator users
 
-This section provides the steps to configure access to HCL Digital Experience 9.5 Content Composer for non-Administrator users.
+This section provides the steps to configure access to HCL Digital Experience Compose 9.5 Content Composer for non-Administrator users.
 
 ## Configure access for non-Administrator users
 
-Follow these steps to configure access to HCL Digital Experience 9.5 Content Composer.
+Follow these steps to configure access to HCL Digital Experience Compose 9.5 Content Composer.
 
 1. Click the **Applications** menu icon. Then click **Administration > Security > Resource Permissions**.
 
