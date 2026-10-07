@@ -64,7 +64,7 @@ Select the button on the canvas to edit text inline. You can also configure the 
 
 ## Image
 
-Static images (for example, ```<img src="image-url.jpg" alt="Description"/>```) are used to render visuals from various sources. You can add images in Presentation Designer using a URL, or using the Digital Asset Management (DAM) feature of HCL DX Compose:
+Static images (for example, ```<img src="image-url.jpg" alt="Description"/>```) are used to render visuals from various sources. You can add images in Presentation Designer using a URL, or using the Digital Asset Management (DAM) feature of HCL Digital Experience (DX) Compose:
 
 1. Drag an **Image** element onto the canvas.
 2. Select **Configure** on the element toolbar.
