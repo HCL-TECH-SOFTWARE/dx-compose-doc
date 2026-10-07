@@ -12,7 +12,7 @@ This section provides a high-level overview of the architecture and the steps to
 
 ## Prerequisite
 
-DX Administrators can choose to install the DX Core containers then proceed to install Content Composer and Digital Asset Management containers to the supported Kubernetes container platforms as outlined in the following steps. See the [Deployment image files](../../../../deployment/install/container/image_list.md) section for the latest DX Compose 9.5 container file listings.
+DX Administrators can choose to install the DX Core containers then proceed to install Content Composer and Digital Asset Management containers to the supported Kubernetes container platforms as outlined in the following steps. See the [Deployment image files](../../../../deployment/install/container/image_list.md) section for the latest DX 9.5 container file listings.
 
 Deploying the HCL Digital Asset Management or Content Composer components is supported on Kubernetes or OpenShift platforms and is not supported for deployment to Docker platforms. See the [System requirements](../../../../get_started/system_requirements/kubernetes/kubernetes-runtime.md) section for more information and the latest updates.
 
@@ -49,9 +49,7 @@ If installing to an existing HCL DX 9.5 CF181 or higher Kubernetes environment:
         -   **HCL Content Composer (Docker image)** - `hcl-dx-content-composer-image-v1.0.0_xxxxxxxx-xxxx.tar.gz`
 
 3. Extract the images to the local file system.
-
 4. Open a terminal window and change to the root directory of the extracted package images.
-
 5. Load the images into your Docker environment.
 
     Example:
@@ -84,7 +82,6 @@ If installing to an existing HCL DX 9.5 CF181 or higher Kubernetes environment:
         Either **`-i`** or **`<`** works for the load command. In case you encounter an error when using one, try running the command using the other.
 
 6. Get the Docker images in your local Docker repository to your target Kubernetes system by tagging and pushing them appropriately. If you used `docker load` to get your images on the target environment, proceed to the next step.
-
 7. Install the HCL DX 9.5 CF181 or higher Experience API, Content Composer, and Digital Asset Management components by using the following steps. Container Update CF182 or higher is required if deploying to Microsoft Azure Kubernetes Service (AKS).
 
     !!! notes
@@ -235,7 +232,7 @@ If installing to an existing HCL DX 9.5 CF181 or higher Kubernetes environment:
         If you are adding components for HCL Content Composer, HCL Digital Asset Management, and HCL Experience API to an existing HCL Digital Experience Compose 9.5 environment (must be at level 9.5 CF181 or higher) deployment, you must stop the deployment and restart it with one (1) replica. Once it is fully started, you can safely scale it to `N` instances.
 
     !!! note "Reminder"
-         As outlined in this section, adding new components to a production deployment requires an outage and some setup time. It is advisable to plan carefully if you are currently running an HCL DX container deployment in a supported Kubernetes environment.
+        As outlined in this section, adding new components to a production deployment requires an outage and some setup time. It is advisable to plan carefully if you are currently running an HCL DX Compose container deployment in a supported Kubernetes environment.
 
 14. Change to the extracted hcl-dx-cloud-scripts directory.
 
@@ -290,7 +287,7 @@ If installing to an existing HCL DX 9.5 CF181 or higher Kubernetes environment:
         You must restart the deployment with one (1) replica. Once it is fully started, you can safely scale it to `N` instances.
 
     !!!reminder
-        As outlined in this section, adding new components to a production deployment requires an outage and some setup time. It is advisable to plan carefully if you are currently running an HCL DX container deployment in a supported Kubernetes environment.
+        As outlined in this section, adding new components to a production deployment requires an outage and some setup time. It is advisable to plan carefully if you are currently running an HCL DX Compose container deployment in a supported Kubernetes environment.
 
 20. Access the HCL Content Composer and HCL Digital Asset Management components by navigating to **Practitioner Studio > Web Content > Content**, or **Practitioner Studio > Digital Assets**.
 

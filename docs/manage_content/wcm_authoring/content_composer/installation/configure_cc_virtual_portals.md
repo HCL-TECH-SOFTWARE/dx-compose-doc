@@ -7,7 +7,7 @@ By default, this feature is not enabled on HCL Digital Experience (DX) Compose 9
 !!! note
     While there are also HCL DX 8.5 and 9.0 CF17 images, the one you need to enable this HCL Content Composer feature is the 9.5 Docker image.
 
-You can only enable Content Composer features in a Virtual Portal deployment pattern when Practitioner Studio is available (for HCL DX Compose Compose 9.5 and later releases). Refer to the [Practitioner Studio](../../../../build_sites/practitioner_studio/index.md) documentation topic for guidance on themes and page creation.
+You can only enable Content Composer features in a Virtual Portal deployment pattern when Practitioner Studio is available (for HCL DX Compose 9.5 and later releases). Refer to the [Practitioner Studio](../../../../build_sites/practitioner_studio/index.md) documentation topic for guidance on themes and page creation.
 
 Follow these steps below to enable this support in your deployment:
 
