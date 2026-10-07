@@ -1,6 +1,6 @@
 # Performing a bulk update in Content Reporting
 
-Currently, Content Reporting Bulk Update feature supports the following actions: 
+Currently, Content Reporting Bulk Update feature supports the following actions:
 
 - Update expiration date
 - Add an owner or author
@@ -15,19 +15,17 @@ Starting CF220, you have the option to select all items or manually pick items t
 
 ## Prerequisite
 
-Beginning with HCL Digital Experience Compose 9.5 release update CF214, Content Reporting is enabled by default. For HCL Digital Experience Compose 9.5 release update CF213, Content Reporting should be installed and configured. For instructions on installing Content Reporting on supported environments, see the [Install HCL Digital Experience Compose 9.5 Content Reporting](../installation/index.md) topic.
+Beginning with HCL Digital Experience (DX) 9.5 release update CF214, Content Reporting is enabled by default. For HCL DX 9.5 release update CF213, Content Reporting should be installed and configured. For instructions on installing Content Reporting on supported environments, see the [Install HCL Digital Experience 9.5 Content Reporting](../installation/index.md) topic.
 
-To update items in bulk, you must have edit access to the content items selected. If you kick off the bulk update operation without having the required access to the items, the update will fail with the error message `Unauthorized access`. 
+To update items in bulk, you must have edit access to the content items selected. If you kick off the bulk update operation without having the required access to the items, the update will fail with the error message `Unauthorized access`.
 
 ## Using the Content Reporting Bulk Update feature
 
-1.  Log in to your HCL Digital Experience Compose 9.5 platform and select **Web Content**. Select **Content Reporting** from the Practitioner Studio navigator. The following image shows the Content Reporting landing page.
+1. Log in to your HCL DX Compose 9.5 platform and select **Web Content**. Select **Content Reporting** from the Practitioner Studio navigator. The following image shows the Content Reporting landing page.
 
     ![](../../../../assets/HCL_Content_Reporting_Landing_Page.png)
 
 2. Generate a report on items you want to update. See [Generating a content report](../usage/generate_content_report.md) for instructions.
-
-
 3. Execute one of the following supported bulk update operations: [UpdateExpiry](#updating-the-expiration-date-using-content-reporting) or [Update Owners/Authors](#updating-the-owners-or-authors-using-content-reporting).
 
 ## Updating the expiration date using Content Reporting
@@ -42,11 +40,11 @@ Content managers can trigger bulk updates to update the expiration dates of all 
     ![](../../../../assets/HCL_Content_Reporting_Cherry_Picking_button.png)
 
 2. In the **Update items** dialog box, there are two fields: **Property**, and **Change to**. In the **Property** field, choose **Expiry date**. In the **Change to** field, enter the new expiry date of the selected items. After entering the date, the **View item list** button is enabled. Click the **View item list** button.
-    
+
     ![](../../../../assets/HCL_Content_Reporting_Cherry_Picking_action.png)
 
     To close the dialog box, click **Cancel**.
-    
+
 3. In the list, select all items or choose only the items you want to update.
 
     - To manually pick items you want to update, hover over an item you want to select and check the box that appears.
@@ -90,7 +88,6 @@ Content managers can trigger bulk updates to update the owners and/or authors of
     - You can also select a **Group attribute** to enable the **Groups** field. In the **Groups** field, enter a corresponding value for the selected attribute. For example, if you selected the **Display Name** attribute, enter a display name in the **Groups** field and all groups with that display name appear in the dropdown. Note that this field is a type-ahead input field that displays a list of suggested groups according to the input and selected group attribute. Only suggested groups are valid.
 
 3. After filling out the fields, click the **View item list** button.
-
 4. In the list, select all items or choose only the items you want to update.
 
     - To manually pick the items you want to update, hover over an item you want to select and check the box that appears.
@@ -160,10 +157,10 @@ The snackbar that appears when a bulk update is triggered tracks up to five bulk
    This is the snackbar if all items were not updated.
    ![](../../../../assets/HCL_Content_Reporting_Snackbar_Error.png)
 
-1. On the snackbar, there is an option to view the items processed only when the bulk update process is complete. Click **View items** to check the details of each item that has been processed. 
+1. On the snackbar, there is an option to view the items processed only when the bulk update process is complete. Click **View items** to check the details of each item that has been processed.
 
     ![](../../../../assets/HCL_Content_Reporting_Cherry_Picking_author_snackbar.png)
-    
+
     A dialog box for the reports appears.
 
 2. In the header of the dialog box, you can see the total number of updated items and the number of failed items. There are four columns on the dialog box:
