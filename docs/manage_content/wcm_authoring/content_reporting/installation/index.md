@@ -1,6 +1,6 @@
 # Installing and Deploying Content Reporting
 
-This document contains instructions on how to install and deploy the Content Reporting application manually. Note that beginning with HCL Digital Experience 9.5 CF214, Content Reporting is installed and deployed by default as part of the CF update process.
+This document contains instructions on how to install and deploy the Content Reporting application manually. Note that beginning with HCL Digital Experience Compose 9.5 CF214, Content Reporting is installed and deployed by default as part of the CF update process.
 
 ## Packaging, installing, and deploying design
 
@@ -10,7 +10,7 @@ Content Reporting is an instance of a react integration portlet configured to po
 
 This section describes how to enable and disable Content Reporting manually.
 
-Beginning with HCL Digital Experience 9.5 CF214, Content Reporting is installed and deployed as part of the CF update process. The **enable-content-reporting** config task is automatically executed. However, you can still manually enable Content Reporting by running the **enable-content-reporting** config task if the feature was disabled previously. Note that you cannot enable Content Reporting in a Virtual Portal.
+Beginning with HCL Digital Experience Compose 9.5 CF214, Content Reporting is installed and deployed as part of the CF update process. The **enable-content-reporting** config task is automatically executed. However, you can still manually enable Content Reporting by running the **enable-content-reporting** config task if the feature was disabled previously. Note that you cannot enable Content Reporting in a Virtual Portal.
 
 !!! important
     Before manually enabling Content Reporting, it is required to enable Practitioner Studio. For more information on how to enable Practitioner Studio, refer to [Enabling Practitioner Studio](../../../../build_sites/practitioner_studio/working_with_ps/enable_prac_studio.md). After enabling Content Reporting, it can then be used with other themes.

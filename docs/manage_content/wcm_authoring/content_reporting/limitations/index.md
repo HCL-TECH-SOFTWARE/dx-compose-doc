@@ -16,7 +16,7 @@ Take note of the following limitations when using HCL Content Reporting:
 ## Using the Bulk Updates feature
 
 -   The bulk updates feature has been tested to work with a maximum of 5000 items. Working with items more than this amount might lead to performance issues. It is recommended to avoid using the Derby database when working with more than 500 items because it may lead to performance degradation.
--   The bulk updates feature does not have project scope (HCL Digital Experience Projects) capabilities.
+-   The bulk updates feature does not have project scope (HCL Digital Experience Compose Projects) capabilities.
 -   Only the following actions are currently available:
     - Update the expiration date of content items
     - Add, remove, and replace owners and authors of content items

@@ -4,7 +4,7 @@ This section details how to generate a content report in HCL Content Reporting.
 
 ## Prerequisites
 
-- Beginning with HCL Digital Experience 9.5 release update CF214, Content Reporting is enabled by default. For HCL Digital Experience 9.5 release update CF213, Content Reporting should be installed and configured. For instructions on installing Content Reporting manually on supported environments, see the [Installing HCL Digital Experience 9.5 Content Reporting](../installation/index.md) topic.
+- Beginning with HCL Digital Experience Compose 9.5 release update CF214, Content Reporting is enabled by default. For HCL Digital Experience Compose 9.5 release update CF213, Content Reporting should be installed and configured. For instructions on installing Content Reporting manually on supported environments, see the [Installing HCL Digital Experience Compose 9.5 Content Reporting](../installation/index.md) topic.
 
 - Configure a JCR search collection to get valid search results. When you create a content item and then try to generate a report using the **Phrase** or **Word** criterion without running the seedlist crawler manually or waiting for its next scheduled crawl, the generated report will not include the item you created. Refer to [Setting up a JCR search collection](../../../../build_sites/search/portal_search/administer_portal_search/setup_search_collections/jcr_search_collections/index.md) for more information.
 
@@ -12,7 +12,7 @@ This section details how to generate a content report in HCL Content Reporting.
 
 A report is a list of items that matches a combination of criteria. Content managers generate reports of content items that they are planning to analyze or update. They have a set of criteria that the content items have to match. In this feature, content managers can combine the required criteria into a single report to get the list of items that need updating.
 
-1.  Log in to your HCL Digital Experience 9.5 platform and select **Web Content**, then select **Content Reporting** from the Practitioner Studio navigator.
+1.  Log in to your HCL Digital Experience Compose 9.5 platform and select **Web Content**, then select **Content Reporting** from the Practitioner Studio navigator.
 
 2.  Collapse the side navigation panel. On the **Search Criteria** section, select the appropriate criteria to generate a report of matching contents.
     ![](../../../../assets/HCL_Content_Reporting_Criteria_Dropdown.png)
