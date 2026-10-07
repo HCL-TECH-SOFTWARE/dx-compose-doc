@@ -12,9 +12,9 @@ HCL Content Composer 9.5 CF192 and later releases now has a Version Comparison f
 
 ## Prerequisite
 
-Content Composer should be installed and configured to HCL Digital Experience Compose 9.5 container release update CF181 or higher. See instructions to install to supported container environments in the [Install HCL Digital Experience Compose 9.5 Components](../installation/install_config_cc_dam.md) topic.
+Content Composer should be installed and configured to HCL Digital Experience 9.5 container release update CF181 or higher. See instructions to install to supported container environments in the [Install HCL Digital Experience 9.5 Components](../installation/install_config_cc_dam.md) topic.
 
-Content Composer is accessible from the Practitioner Studio interface (after image configuration to your HCL Digital Experience Compose 9.5 CF181 and higher deployment).
+Content Composer is accessible from the Practitioner Studio interface (after image configuration to your HCL Digital Experience 9.5 CF181 and higher deployment).
 
 ## Version Comparison
 

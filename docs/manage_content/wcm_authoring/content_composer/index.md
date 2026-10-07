@@ -1,6 +1,6 @@
 # HCL Content Composer
 
-The HCL Content Composer delivers simplified processes for creating and managing Digital Experience site content.
+The HCL Content Composer delivers simplified processes for creating and managing Digital Experience Compose site content.
 
 Users can access the Content Composer features in HCL Digital Experience Compose 9.5 Container Update CF181 and higher releases.
 

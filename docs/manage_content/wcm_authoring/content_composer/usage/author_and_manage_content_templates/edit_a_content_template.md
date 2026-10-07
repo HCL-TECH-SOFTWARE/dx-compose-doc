@@ -38,7 +38,7 @@ The Content Composer Web Content workflow selections can be accessed from the HC
 
     ![](../../../../../assets/Complete_content_template_details.HCL_Content_Composer.png "Complete new Content Template fields")
 
-4. Select the location of your Digital Experience content structure where you will place the Content Template. Use the type-ahead feature available from the Content Template location drop down list to easily find and select the desired content structure location to place the new content template.
+4. Select the location of your Digital Experience Compose content structure where you will place the Content Template. Use the type-ahead feature available from the Content Template location drop down list to easily find and select the desired content structure location to place the new content template.
 
     ![](../../../../../assets/Select_content_template_location_HCL_Content_Composer.png "Setting the location of the Content Template")
 
@@ -61,19 +61,19 @@ The Content Composer Web Content workflow selections can be accessed from the HC
 
 8. Select the **Read Only** selector to **Edit Mode**. Proceed to the Default Content area of the Content Template options and select **Workflow** on the right side of the interface.
 
-9. Select **See All Workflows** and proceed to the Web Content location of the Digital Experience content structure to view the available workflows for selection to add the Content Template.
+9. Select **See All Workflows** and proceed to the Web Content location of the Digital Experience Compose content structure to view the available workflows for selection to add the Content Template.
 
     In this example, the **Three Stage Workflow** option is selected.
 
     ![](../../../../../assets/Select_workflow_options_new_content_template_HCL_Content_Composer.png "Selecting Workflow options to manage web content")
 
-10. Select **See All Workflows** and proceed to the Web Content location of the Digital Experience content structure to view the available workflows for selection to add the Content Template. When done, select **Save** to save your settings and create your new content template, or **Save and Close**.
+10. Select **See All Workflows** and proceed to the Web Content location of the Digital Experience Compose content structure to view the available workflows for selection to add the Content Template. When done, select **Save** to save your settings and create your new content template, or **Save and Close**.
 
 11. Select **Create Content** from the Content Composer menu. Select the **Content Template with Workflow** from the Web Content location.
 
 12. Open the Content Template and place in Edit mode by moving the selector.
 
-13. Add a **Content Display Title** and text in the **Rich Text** element field. Select the **Location** of the Digital Experience site area to place the content for display.
+13. Add a **Content Display Title** and text in the **Rich Text** element field. Select the **Location** of the Digital Experience Compose site area to place the content for display.
 
     ![](../../../../../assets/Working_with_content_items_in_the_selected_Content_Template.png "Working with content items in the selected Content
                                     Template")

@@ -4,9 +4,9 @@ This section provides the steps on how to manage content items using the HCL Con
 
 ## Prerequisites
 
-Content Composer should be installed and configured to HCL Digital Experience Compose 9.5 container release update CF181 or higher. See instructions to install to supported container environments in the [Install HCL Digital Experience Compose 9.5 Components](../../installation/install_config_cc_dam.md) topic.
+Content Composer should be installed and configured to HCL Digital Experience 9.5 container release update CF181 or higher. See instructions to install to supported container environments in the [Install HCL Digital Experience Compose 9.5 Components](../../installation/install_config_cc_dam.md) topic.
 
-Content Composer is accessible from the Practitioner Studio interface (after image configuration to your HCL Digital Experience Compose 9.5 CF181 and higher deployment).
+Content Composer is accessible from the Practitioner Studio interface (after image configuration to your HCL Digital Experience 9.5 CF181 and higher deployment).
 
 Before you can use AI-assistance features for sentiment analysis of content, keyword extraction from content, and auto summarization of content element in Content Composer, refer to the following steps to enable AI Analysis:
 
