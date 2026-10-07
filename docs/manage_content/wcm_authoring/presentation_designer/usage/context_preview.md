@@ -1,6 +1,6 @@
 # Canvas Context Preview
 
-The Canvas Context Preview feature in HCL Digital Experience (DX) Presentation Designer lets you preview how presentation templates render with Web Content Manager (WCM) content items. Visualizing templates with real data helps you verify layouts and data mapping across different device views before publishing. This feature allows you to:
+The Canvas Context Preview feature in HCL Digital Experience (DX) Compose Presentation Designer lets you preview how presentation templates render with Web Content Manager (WCM) content items. Visualizing templates with real data helps you verify layouts and data mapping across different device views before publishing. This feature allows you to:
 
 - Preview template changes in real time as you map content elements and tags.
 - Map content elements and property tags directly to the template structure.
@@ -117,7 +117,7 @@ Canvas context preview saves settings in the local storage of your browser to ma
 The system saves the content item ID, metadata, name, display title, path, and type. It also saves canvas dimensions, zoom levels, and the text direction mode (RTL or LTR).
 
 - Settings are restored when you open a template, navigate from WCM, or refresh the browser.
-- Settings are cleared when you select **Back to authoring**, select **Cancel**, or log out of HCL DX.
+- Settings are cleared when you select **Back to authoring**, select **Cancel**, or log out of HCL DX Compose.
 
 To retrieve settings for a specific template, use the following command in the browser console:
 

@@ -67,9 +67,9 @@ Refer to [Working with resource permissions](../../../deployment/manage/security
 
 To access the Presentation Designer, follow these steps:
 
-1. Log in to your HCL Digital Experience 9.5 platform, and select **Web Content** from the Practitioner Studio navigator.
+1. Log in to your HCL DX 9.5 platform, and select **Web Content** from the Practitioner Studio navigator.
 
-    ![](../../../assets/HCL_DX_95_Practitioner_Studio_interface.png "Log in to HCL Digital Experience 9.5")
+    ![](../../../assets/HCL_DX_95_Practitioner_Studio_interface.png "Log in to HCL DX 9.5")
 
 2. In the **Web Content** menu, select **Authoring**.
 
