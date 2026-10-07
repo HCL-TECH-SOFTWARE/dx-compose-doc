@@ -10,7 +10,7 @@ This guide provides instructions for configuring user registries and viewing use
 
 ## Configuring user and group management
 
-To view users and groups, you must first configure your `server.xml` to include either a basic or LDAP registry. This configuration allows DX Compose to interact with the specified user information sources.
+To view users and groups, you must first configure your `server.xml` to include either a basic or Lightweight Directory Access Protocol (LDAP) registry. This configuration allows DX Compose to interact with the specified user information sources.
 
 ### Configuring basic registry
 
@@ -37,7 +37,7 @@ The following configuration defines a `basicRegistry` with a user and a group. T
 
 LDAP is a widely recognized protocol that facilitates authentication and authorization services by defining how application servers should interact with LDAP directories. These directories hold crucial security data, including usernames, passwords, and group memberships. While a basic user registry may be adequate for the initial stages of application development and testing, transitioning to an LDAP user registry is advisable for enhanced security in production environments.
 
-To enable DX Compose to handle authentication through an LDAP directory, it is necessary to incorporate both the Application Security and LDAP User Registry features into your `server.xml` configuration. Additionally, if your application needs to communicate securely with an LDAP server that uses TLS, you must include the Transport Security feature in your configuration featureManager.
+To enable DX Compose to handle authentication through a Lightweight Directory Access Protocol (LDAP) directory, add the Application Security and LDAP User Registry features to your `server.xml`. If the application communicates securely with an LDAP server using TLS, add the Transport Security feature to `featureManager`. <!--Is this sentence relevant to this section? I'm not sure where featureManager is-->
 
 Add the following configuration to define the `ldapRegistry`:
 
@@ -56,18 +56,26 @@ Add the following configuration to define the `ldapRegistry`:
 
 Replace the placeholder values with the actual details of your LDAP server:
 
-- `host`: LDAP server hostname
-- `port`: LDAP server port
-- `baseDN`: Base Distinguished Name for LDAP searches
-- `bindDN`: Distinguished Name to bind to the LDAP server
-- `bindPassword`: Password for the bind DN
-- `ldapType`: Type of LDAP server (for example, Custom, AD)
+- `host`: Specifies the LDAP server hostname.
+- `port`: Specifies the connection port number for the LDAP server.
+- `baseDN`: Specifies the starting point in the LDAP directory tree for search queries.
+- `bindDN`: Specifies the distinguished name (DN) of the service account used to authenticate with the LDAP server.
+- `bindPassword`: Specifies the password for the bind DN.
+- `ldapType`: Specifies the LDAP server vendor type (for example, `Custom` or `AD`).
+- `recursiveSearch`: Specifies whether Open Liberty expands nested groups (default: `false`). For more information, refer to [Configuring nested LDAP groups](#configuring-nested-ldap-groups).
 
-!!!note
-    By default, `recursiveSearch` is set to `false`. If your users belong to nested LDAP groups and the expected group memberships are not found, set `recursiveSearch="true"` and test again to confirm nested group search works.
-    Nested group membership is supported either when your LDAP server supports recursive server-side group search, or when `recursiveSearch` is enabled in Liberty.
+For more information about using additional properties, refer to [LDAP User Registry 3.0](https://openliberty.io/docs/latest/reference/feature/ldapRegistry-3.0.html){target="_blank"}.
 
-For more information about using additional properties, see the [LDAP User Registry](https://openliberty.io/docs/latest/reference/feature/ldapRegistry-3.0.html){target="_blank"} feature.
+### Configuring nested LDAP groups
+
+A nested LDAP group is an LDAP group entry that contains another group as a member rather than individual user accounts. Privileges and access permissions assigned to the parent group automatically inherit down to all members of the contained child groups. This hierarchical structure allows administrators to manage access for entire teams or departments by adjusting group memberships instead of editing individual user entries.
+
+The `recursiveSearch` attribute of the `ldapRegistry` element in your `server.xml` file controls whether Open Liberty expands these nested groups when it queries the LDAP server.
+
+- Set to `false` to display direct members and child entries in the Users and Groups UI, allowing navigation down the directory tree. DX Compose resolves parent memberships during login to apply inherited permissions. Use this default setting for most deployments.
+- Set to `true` to expand nested memberships through the directory server and display a flat list of users in the Users and Groups UI without showing hierarchy. Use this setting only if required by your directory.
+
+After you change `recursiveSearch`, restart the DX Compose server and verify user access.
 
 ### Configuring federated user registry
 
@@ -103,13 +111,12 @@ configuration:
 After the registry is configured, you can view users and groups through the Manage Users and Groups portlet.
 
 1. Log in to DX Compose as an administrator.
-
 2. Click the **Administration menu** icon. Then, click **Access > Users and Groups**.
+The portlet lists the direct members of the selected group, including any child groups. Select a child group to view its members and continue navigating the nested group hierarchy. If `recursiveSearch` is set to `true` in your LDAP registry, the users of all child groups are instead shown as a single flat list. For more information, refer to [Configuring nested LDAP groups](#configuring-nested-ldap-groups).
 
 To view detailed information about users, such as passwords, User IDs, first names, last names, email addresses, or preferred languages:
 
 1. Use the search function to locate a specific user, or click the **All Authenticated Portal Users** link to see a comprehensive list of users.
-
 2. Next to the user's name, click the pencil icon to view the user's detailed information.
 
 !!!note
@@ -120,17 +127,11 @@ To view detailed information about users, such as passwords, User IDs, first nam
 DX Compose does not support saving changes to user profiles. To prevent users from attempting to update their information, hide the **Edit My Profile** page.
 
 1. Sign in to DX Compose as an administrator.
-
 2. Select **Open applications menu**, and then go to **Administration > Site Management > Pages**.
-
 3. Select **Content Root > Hidden Pages**.
-
 4. Find **Edit My Profile**.
-
 5. In the **Status** column, select **Active**.
-
 6. In the confirmation dialog box, select **OK**. The status changes to **Inactive**.
-
 7. Sign out, and then sign in with a user ID to verify the profile settings.
 
 !!!note
