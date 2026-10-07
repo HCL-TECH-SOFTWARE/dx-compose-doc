@@ -4,22 +4,21 @@ This section provides the steps on how to access HCL Content Composer and use it
 
 ## Prerequisite
 
-Content Composer should be installed and configured to HCL Digital Experience Compose 9.5 container release update CF181 or higher. See instructions to install to supported container environments in the [Install HCL Digital Experience Compose 9.5 Components](../installation/install_config_cc_dam.md) topic.
+Content Composer should be installed and configured to HCL Digital Experience (DX) 9.5 container release update CF181 or higher. See instructions to install to supported container environments in the [Install HCL Digital Experience 9.5 Components](../installation/install_config_cc_dam.md) topic.
 
-Content Composer is accessible from the Practitioner Studio interface (after image configuration to your HCL Digital Experience Compose 9.5 CF181 and higher deployment).
+Content Composer is accessible from the Practitioner Studio interface (after image configuration to your HCL DX 9.5 CF181 and higher deployment).
 
 ## Access content and content templates with Content Composer
 
-Follow the instructions below to access content with the HCL Digital Experience Compose 9.5 Content Composer from the Practitioner Studio.
+Follow the instructions below to access content with the HCL DX 9.5 Content Composer from the Practitioner Studio.
 
-1. Log in to your HCL Digital Experience Compose 9.5 platform, and select **Web Content** from the Practitioner Studio navigator.
+1. Log in to your HCL DX 9.5 platform, and select **Web Content** from the Practitioner Studio navigator.
 
-    ![](../../../../assets/HCL_DX_95_Practitioner_Studio_interface.png "Log in to HCL Digital Experience Compose 9.5")
+    ![](../../../../assets/HCL_DX_95_Practitioner_Studio_interface.png "Log in to HCL Digital Experience 9.5")
 
-2. Select **Content Composer** from the **Web Content** menu to access the HCL Digital Experience Compose 9.5 Content Composer user interface (Dashboard).
+2. Select **Content Composer** from the **Web Content** menu to access the HCL DX Compose 9.5 Content Composer user interface (Dashboard).
 
     ![](../../../../images/HCL%20Content%20Composer%20dashboard.png "HCL Content Composer Dashboard")
-
 
 See the [Access control levels for Content Composer authors and editors](../configuration/access_control_levels_author_editor.md) topic for more information about user role-based abilities to manage specific content create, edit, update, and delete tasks in HCL Content Composer.
 
@@ -55,9 +54,9 @@ The HCL Content Composer Dashboard has the following components:
 
 ## Search content and content templates with Content Composer
 
-Follow the instructions below to search for content with the HCL Digital Experience Compose 9.5 Content Composer from the Practitioner Studio.
+Follow the instructions below to search for content with the HCL DX Compose 9.5 Content Composer from the Practitioner Studio.
 
-1. Log in to your HCL Digital Experience Compose 9.5 platform and select **Web Content > Content Composer** from the Practitioner Studio navigator.
+1. Log in to your HCL DX Compose 9.5 platform and select **Web Content > Content Composer** from the Practitioner Studio navigator.
 
 2. From **Content Composer**, type in and enter the content you are looking for on the Search Bar to view. Content Composer will display all search results related to the keyword or keywords you entered.
 
