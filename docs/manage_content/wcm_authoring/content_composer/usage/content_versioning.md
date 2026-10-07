@@ -12,15 +12,15 @@ HCL Content Composer 9.5 CF192 and later releases now has a Version Comparison f
 
 ## Prerequisite
 
-Content Composer should be installed and configured to HCL Digital Experience 9.5 container release update CF181 or higher. See instructions to install to supported container environments in the [Install HCL Digital Experience 9.5 Components](../installation/install_config_cc_dam.md) topic.
+Content Composer should be installed and configured to HCL Digital Experience Compose 9.5 container release update CF181 or higher. See instructions to install to supported container environments in the [Install HCL Digital Experience Compose 9.5 Components](../installation/install_config_cc_dam.md) topic.
 
-Content Composer is accessible from the Practitioner Studio interface (after image configuration to your HCL Digital Experience 9.5 CF181 and higher deployment).
+Content Composer is accessible from the Practitioner Studio interface (after image configuration to your HCL Digital Experience Compose 9.5 CF181 and higher deployment).
 
 ## Version Comparison
 
 Content authors can view and compare current to previous versions of a selected content that is in **Published** or **Expired** workflow state.
 
-1. Log in to your HCL Digital Experience 9.5 platform and select **Web Content** from the Practitioner Studio navigator.
+1. Log in to your HCL Digital Experience Compose 9.5 platform and select **Web Content** from the Practitioner Studio navigator.
 
     ![](../../../../assets/HCL_DX_95_Practitioner_Studio_interface.png)
 
@@ -54,7 +54,7 @@ Content authors can view and compare current to previous versions of a selected 
 
 ## Restore, Compare and Merge a Content Version
 
-1. Log in to your HCL Digital Experience 9.5 platform and select **Web Content** to edit from the Practitioner Studio navigator.
+1. Log in to your HCL Digital Experience Compose 9.5 platform and select **Web Content** to edit from the Practitioner Studio navigator.
 2. On the content, click the **Versions** icon, then hover to click to open the context menu (three dot icon) on the version you wish to edit.
 3. **To restore to an older version**, select **Make Current**. In the example below, if Version 2 is selected from previous versions to be the current version, a new version will be created (Version 4).
 

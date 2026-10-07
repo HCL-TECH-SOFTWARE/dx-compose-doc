@@ -4,15 +4,15 @@ This section provides the steps on how to edit a content template using HCL Cont
 
 ## Prerequisite
 
-Content Composer should be installed and configured to HCL Digital Experience 9.5 container release update CF181 or higher. See instructions to install to supported container environments in the [Install HCL Digital Experience 9.5 Components](../../installation/install_config_cc_dam.md) topic.
+Content Composer should be installed and configured to HCL Digital Experience Compose 9.5 container release update CF181 or higher. See instructions to install to supported container environments in the [Install HCL Digital Experience Compose 9.5 Components](../../installation/install_config_cc_dam.md) topic.
 
-Content Composer is accessible from the Practitioner Studio interface (after image configuration to your HCL Digital Experience 9.5 CF181 and higher deployment).
+Content Composer is accessible from the Practitioner Studio interface (after image configuration to your HCL Digital Experience Compose 9.5 CF181 and higher deployment).
 
 ## Set start and end of date range for Date and Time element
 
 Users can set start and end of date range for the Date and Time element of a newly-created or saved content template.
 
-1. From your HCL Digital Experience 9.5 Practitioner Studio interface, select **Web Content > Content Composer** from the navigator, and click **Create > Content Template** to create a new content template, or choose and click **Open Content Template** on a saved content template.
+1. From your HCL Digital Experience Compose 9.5 Practitioner Studio interface, select **Web Content > Content Composer** from the navigator, and click **Create > Content Template** to create a new content template, or choose and click **Open Content Template** on a saved content template.
 
 2. On the content element interface, make sure that you are in **Edit mode**. Select the **Date and Time** element and complete the fields.
 
@@ -24,13 +24,13 @@ Users can set start and end of date range for the Date and Time element of a new
 
 Web Content workflow selections can be accessed from HCL Content Composer. Content authors can apply predefined workflow steps to manage the creation, modification, and publication of web and associated digital asset management content using approval processes.
 
-The Content Composer Web Content workflow selections can be accessed from the HCL Digital Experience 9.5 Content Composer release, as shown in the following steps.
+The Content Composer Web Content workflow selections can be accessed from the HCL Digital Experience Compose 9.5 Content Composer release, as shown in the following steps.
 
-1. Log in to your HCL Digital Experience 9.5 platform, and select **Web Content** from the Practitioner Studio navigator.
+1. Log in to your HCL Digital Experience Compose 9.5 platform, and select **Web Content** from the Practitioner Studio navigator.
 
-    ![](../../../../../assets/HCL_DX_95_Practitioner_Studio_interface.png "Log in to HCL Digital Experience 9.5")
+    ![](../../../../../assets/HCL_DX_95_Practitioner_Studio_interface.png "Log in to HCL Digital Experience Compose 9.5")
 
-2. From the HCL Digital Experience 9.5 Content Composer, select **Create Content Template** to create a Content Template that will enable a workflow for use by content authors.
+2. From the HCL Digital Experience Compose 9.5 Content Composer, select **Create Content Template** to create a Content Template that will enable a workflow for use by content authors.
 
     ![](../../../../../assets/Select_new_content_template_HCL_Content_Composer.png "Create Content Template")
 

@@ -4,9 +4,9 @@ This section provides the steps on how to author a content template using HCL Co
 
 ## Prerequisite
 
-Content Composer should be installed and configured to HCL Digital Experience 9.5 container release update CF181 or higher. See instructions to install to supported container environments in the [Install HCL Digital Experience 9.5 Components](../../installation/install_config_cc_dam.md) topic.
+Content Composer should be installed and configured to HCL Digital Experience Compose 9.5 container release update CF181 or higher. See instructions to install to supported container environments in the [Install HCL Digital Experience Compose 9.5 Components](../../installation/install_config_cc_dam.md) topic.
 
-Content Composer is accessible from the Practitioner Studio interface (after image configuration to your HCL Digital Experience 9.5 CF181 and higher deployment).
+Content Composer is accessible from the Practitioner Studio interface (after image configuration to your HCL Digital Experience Compose 9.5 CF181 and higher deployment).
 
 ## Create a content template using Content Composer
 
@@ -14,7 +14,7 @@ Content authors can create repeatable template patterns used to model the conten
 
 Follow these steps to create a new content template using Content Composer:
 
-1. From the HCL Digital Experience 9.5 Content Composer interface, click the drop-down arrow of the **Create** button to select the **Create Content Template** option.
+1. From the HCL Digital Experience Compose 9.5 Content Composer interface, click the drop-down arrow of the **Create** button to select the **Create Content Template** option.
 
     ![](../../../../../assets/Select_new_content_template_HCL_Content_Composer.png "Create Content Template")
 
@@ -30,7 +30,7 @@ Follow these steps to create a new content template using Content Composer:
 
     ![](../../../../../assets/Add_Element_new_content_template_HCL_Content_Composer.png "Add content elements to the new Content Template")
 
-    **Note:** As per HCL Digital Experience 9.5 CF184, the HTML and JSP elements are not accessible via HCL Content Composer. However, you can add the two elements via Web Content Manager.
+    **Note:** As per HCL Digital Experience Compose 9.5 CF184, the HTML and JSP elements are not accessible via HCL Content Composer. However, you can add the two elements via Web Content Manager.
 
 5. Click **Properties** to define the properties for the Image element type selected such as *Required Field*, and *Maximum size of image*, *Hide Field* when working with the content Image element. Select **Apply** when completed.
 6. Select **Default Content** tab to set default content values for title, elements, information, or workflow.
@@ -91,7 +91,7 @@ Follow these steps to create a new content template using Content Composer:
 
 Follow the steps to create a new content template with auto-populated location from the Dashboard view:
 
-1. From the HCL Digital Experience 9.5 Content Composer Dashboard, select a Content Library or a Content Folder.
+1. From the HCL Digital Experience Compose 9.5 Content Composer Dashboard, select a Content Library or a Content Folder.
 2. Click **Create** then select **Content Template**.
 
     ![](../../../../../assets/HCL_Content_Composer_create_new_content_template_auto_locate.png)
