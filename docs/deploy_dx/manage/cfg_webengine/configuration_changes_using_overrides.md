@@ -1,6 +1,6 @@
 ---
 id: web-engine-configuration-changes-using-overrides
-title: DX WebEngine configuration changes using overrides
+title: Configuration changes using overrides
 ---
 
 This guide provides detailed steps for updating the `server.xml` properties and for configuring the Digital Experience (DX) Compose server using `configuration.webEngine.configOverrideFiles`.
@@ -73,26 +73,7 @@ The name of the customization in the example (`sslOverride`) can be any string. 
 
 ## Configuring LDAP
 
-The following is a sample snippet that shows how to configure the DX Compose server to use an OpenLDAP server. Replace the values for `baseDN`, `bindDN`, `bindPassword`, `host`, and `port` with the proper values.
-
-- For predefined LDAP types supported by OpenLiberty, use the corresponding filters tags (for example, `idsFilters`, `activedFilters`, `domino50Filters`, `edirectoryFilters`, `iplanetFilters`, `netscapeFilters`, and `securewayFilters`).
-- For custom LDAP types, use `customFilters` to define your own search filters for users and groups.  
-- By default, `recursiveSearch` is set to `false`. Keep this default setting for most deployments. DX Compose resolves nested group membership for authentication and access control even when `recursiveSearch` is `false`, and the Users and Groups management UI displays child groups so that you can navigate the full group hierarchy.
-- Set `recursiveSearch="true"` only if your LDAP server does not return nested group membership and the expected memberships are still not found after testing with the default setting. When `recursiveSearch` is `true`, the Users and Groups management UI shows a flat list of all users from the group and its child groups, without indicating which child group each user belongs to.
-- For more information about how nested groups are resolved, refer to [Working with nested LDAP groups](../working_with_compose/cfg_parameters/manage_users_groups_liberty.md#working-with-nested-ldap-groups).
-
-For more information, refer to the [Open Liberty LDAP Registry documentation](https://openliberty.io/docs/latest/reference/config/ldapRegistry.html){target="_blank"}.
-
-#### Mapping user IDs when group membership uses distinguished names
-
-Set `userIdMap` to match the attribute used in the relative distinguished name (RDN) of the user DN stored in the group's membership attribute. For example, if `uniqueMember` contains a DN such as `cn=Gene Hayes,ou=internal,ou=users,ou=dxdemo,dc=dx,dc=com`, use `userIdMap="*:cn"`. If the DN instead starts with `uid=...`, use `userIdMap="*:uid"`. The mapping must match the user's LDAP entry; choose the value that matches your directory rather than copying the example unchanged.
-
-The `attributeConfiguration` element in the LDAP registry configuration allows you to map LDAP attributes to user registry attributes. This is useful when the attribute names in your LDAP directory do not match the expected attribute names. Each `attribute` element specifies a mapping:
-
-- `name`: The name of the attribute in the LDAP directory
-- `propertyName`: The name of the attribute to be mapped to. In the following example, the LDAP `mail` attribute is mapped to `ibm-primaryEmail`, which is the attribute used to display the email address of a user. The LDAP `title` attribute is mapped to `ibm-jobTitle`, which is the attribute used to display job title of a user.
-
-The `sslEnabled` attribute controls whether the connection to the LDAP server is made over SSL/TLS. Set it to `true` when your LDAP server requires a secure connection. When `sslEnabled` is `true`, ensure that the LDAP server certificate is trusted by the Liberty keystore, or configure `trustDefaultCerts` as described in [Configuring SSL](#configuring-ssl).
+The following sample snippet shows how to configure the DX Compose server to use a Lightweight Directory Access Protocol (LDAP) server, such as OpenLDAP.
 
 ```xml
 configOverrideFiles:
@@ -127,7 +108,37 @@ configOverrideFiles:
     </server>
 ```
 
-To set up a custom LDAP server in Liberty, see [Configuring LDAP with Liberty](ldap_configuration.md).
+- `host`: Specifies the domain name or IP address of the target LDAP server.
+- `port`: Specifies the connection port number for the LDAP server.
+- `baseDN`: Specifies the starting point in the LDAP directory tree for search queries.
+- `ldapType`: Specifies the LDAP server vendor type.
+
+    - For predefined LDAP types supported by OpenLiberty, use the corresponding filters tags (for example, `idsFilters`, `activedFilters`, `domino50Filters`, `edirectoryFilters`, `iplanetFilters`, `netscapeFilters`, and `securewayFilters`).
+    - For custom LDAP types, use `customFilters` to define search filters for users and groups.
+
+- `sslEnabled`: Controls whether the connection to the LDAP server uses SSL/TLS. Set to `true` when your LDAP server requires a secure connection, and ensure that the LDAP server certificate is trusted by the Liberty keystore, or configure `trustDefaultCerts` as described in [Configuring SSL](#configuring-ssl).
+- `recursiveSearch`: Specifies whether to perform recursive searches for nested groups (default: `false`).
+
+    - Set to `false` to resolve nested group membership internally in DX Compose for authentication and access control while preserving group hierarchy in the UI. Use this default setting for most deployments.
+    - Set to `true` to resolve nested group membership through the LDAP server and display a flat list of users in the UI without group hierarchy. Use only if user access fails under the default setting.
+
+- `bindDN`: Specifies the distinguished name (DN) of the LDAP service account used to authenticate with the LDAP server.
+- `bindPassword`: Specifies the password associated with the `bindDN` user account.
+
+For more information, refer to [Configuring nested LDAP groups](../working_with_compose/cfg_parameters/manage_users_groups_liberty.md#configuring-nested-ldap-groups) and [LDAP User Registry (ldapRegistry)](https://openliberty.io/docs/latest/reference/config/ldapRegistry.html){target="_blank"}.
+
+### Mapping user IDs when group membership uses DNs
+
+When group membership attributes store members as DNs, set `userIdMap` to match the attribute used in the relative distinguished name (RDN) of the user DN stored in the group membership attribute. For example, if `uniqueMember` contains a DN such as `cn=Gene Hayes,ou=internal,ou=users,ou=dxdemo,dc=dx,dc=com`, use `userIdMap="*:cn"`. If the DN starts with `uid=...`, use `userIdMap="*:uid"`. Choose the value that matches your LDAP directory.
+
+### Mapping LDAP attributes
+
+The `attributeConfiguration` element in the LDAP registry configuration allows you to map LDAP attributes to user registry attributes. This is useful when the attribute names in your LDAP directory do not match the expected attribute names. Each `attribute` element specifies a mapping:
+
+- `name`: The name of the attribute in the LDAP directory
+- `propertyName`: The name of the attribute to be mapped to. In the following example, the LDAP `mail` attribute is mapped to `ibm-primaryEmail`, which is the attribute used to display the email address of a user. The LDAP `title` attribute is mapped to `ibm-jobTitle`, which is the attribute used to display job title of a user.
+
+To set up a custom LDAP server in Liberty, refer to [Configuring LDAP](ldap_configuration.md).
 
 ## Configuring LDAP settings for virtual portal realm support
 
