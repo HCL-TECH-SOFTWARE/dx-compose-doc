@@ -1,6 +1,6 @@
-# Troubleshooting DX Compose Picker
+# Troubleshooting DX Picker
 
-HCL Digital Experience Compose log files record application events used for troubleshooting. The following section describes how you can enable logging and tracing for DX Compose Picker to capture detailed information.
+HCL Digital Experience (DX) Compose log files record application events used for troubleshooting. The following section describes how you can enable logging and tracing for DX Picker to capture detailed information.
 
 ## Client-side tracing
 
@@ -15,7 +15,7 @@ You can enable logging through client-side tracing using your browser's develope
     |Type of logging|Key|Value|
     |---|---|---|
     |Full logging|`debug`|`DEBUG:client:*`|
-    |Logging main components in DX Compose Picker only|`debug`|`DEBUG:client:dx-picker:*`|
+    |Logging main components in DX Picker only|`debug`|`DEBUG:client:dx-picker:*`|
     |Logging all search V2 components only|`debug`|`DEBUG:client:ui:*`|
     |Logging all AC web components only*|`debug`|`DEBUG:client:web-components-lib:*`|
 

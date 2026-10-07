@@ -1,24 +1,24 @@
-# Using DX Compose Picker
+# Using DX Picker
 
-This section describes how to use the HCL Digital Experience Compose Picker feature.
+This section describes how to use the HCL Digital Experience (DX) Picker feature.
 
 !!! note
-    You must have at least User access to use DX Compose Picker. You must also have access to the content source to display items, unless it has anonymous access. For more information, refer to [Working with resource permissions](../../../deployment/manage/security/people/authorization/controlling_access/working_with_resource_permission/index.md).
+    You must have at least User access to use DX Picker. You must also have access to the content source to display items, unless it has anonymous access. For more information, refer to [Working with resource permissions](../../../deployment/manage/security/people/authorization/controlling_access/working_with_resource_permission/index.md).
 
-The following content sources are available for DX Compose Picker:
+The following content sources are available for DX Picker:
 
 - [Digital Asset Management (DAM)](../../digital_assets/index.md)
 - [Java Content Repository (JCR)](../../../build_sites/search/cfg_dx_search/search_service_params/jcr_srrcfgsrvc.md)
 - [Web Content Manager (WCM)](../../../manage_content/wcm_authoring/authoring_portlet/index.md)
 
-When DX Compose Picker is opened for the first time using the default content source, the list of root collections from the DAM is displayed.
+When DX Picker is opened for the first time using the default content source, the list of root collections from the DAM is displayed.
 
 !!! note
-    To understand how DX Compose Picker opens with a default content source after an item has been selected, refer to [Selecting an item](#selecting-an-item).
+    To understand how DX Picker opens with a default content source after an item has been selected, refer to [Selecting an item](#selecting-an-item).
 
   ![](../../../assets/HCL_DX_Picker_DAM_Initial_View.png)
 
-When you open DX Compose Picker with a different content source type, the list of objects from the content source is displayed.
+When you open DX Picker with a different content source type, the list of objects from the content source is displayed.
 
   ![](../../../assets/HCL_DX_Picker_Configure_Source_Initial_View.png)
 

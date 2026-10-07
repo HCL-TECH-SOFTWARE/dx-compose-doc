@@ -1,9 +1,9 @@
-# Limitations of DX Compose Picker
+# Limitations of DX Picker
 
-Refer to the following limitations when using HCL DX Compose Picker:
+Refer to the following limitations when using HCL Digital Experience (DX) Picker:
 
 - Only one content source can be used at a time.
-- Updates on items in the content sources are not reflected immediately in DX Compose Picker.
+- Updates on items in the content sources are not reflected immediately in DX Picker.
     - DAM updates near real-time.
     - Other content sources update after crawler finishes running.
 - You can only select one item at a time.

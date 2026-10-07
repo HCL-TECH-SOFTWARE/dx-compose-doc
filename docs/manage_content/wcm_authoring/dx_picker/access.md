@@ -1,15 +1,15 @@
-# Accessing DX Compose Picker
+# Accessing DX Picker
 
-This section provides steps on how to access the HCL Digital Experience Compose Picker feature in a custom web application.
+This section provides steps on how to access the HCL Digital Experience (DX) Picker feature in a custom web application.
 
 !!! note
-    - You must have at least User access to use DX Compose Picker. You must also have access to the content source to display items, unless it has anonymous access. For more information, refer to [Working with resource permissions](../../../deployment/manage/security/people/authorization/controlling_access/working_with_resource_permission/index.md).
-    - To use the DX Compose Picker, you must have the DX Compose Picker web component imported in your HTML page.
+    - You must have at least User access to use DX Picker. You must also have access to the content source to display items, unless it has anonymous access. For more information, refer to [Working with resource permissions](../../../deployment/manage/security/people/authorization/controlling_access/working_with_resource_permission/index.md).
+    - To use the DX Picker, you must have the DX Picker web component imported in your HTML page.
 
-1. Add the DX Compose Picker script as one of the dependencies in your HTML page using the following script:
+1. Add the DX Picker script as one of the dependencies in your HTML page using the following script:
 
     !!! note
-        The `src url` is now different from the previous version of DX Compose Picker.
+        The `src url` is now different from the previous version of DX Picker.
 
     ```html
       <html>
@@ -35,7 +35,7 @@ This section provides steps on how to access the HCL Digital Experience Compose 
       </html>
     ```
 
-3. Insert the `toggleDialog` function to open DX Compose Picker.
+3. Insert the `toggleDialog` function to open DX Picker.
 
     You can assign an id to the `dx-picker` tag and add an onclick handler button that calls the `toggleDialog` function. For example:
 
@@ -65,7 +65,7 @@ This section provides steps on how to access the HCL Digital Experience Compose 
 4. Add the `source` attribute to `dx-picker` to change the content source type. Available source types are `dam`, `wcm`, or `jcr`.
 
     !!! note
-        Only one content source can be configured to DX Compose Picker. If no source attribute is provided, `dam` is the default content source type.
+        Only one content source can be configured to DX Picker. If no source attribute is provided, `dam` is the default content source type.
 
     ```html
       <html>
@@ -122,9 +122,9 @@ This section provides steps on how to access the HCL Digital Experience Compose 
       </html>
     ```
 
-## DX Compose Picker events
+## DX Picker events
 
-Interacting with the DX Compose Picker triggers events which you can access by listening to the `message` event and inspecting the `data` object using the following code:
+Interacting with the DX Picker triggers events which you can access by listening to the `message` event and inspecting the `data` object using the following code:
 
 ```js
 window.addEventListener('message', (event) => {
@@ -144,7 +144,7 @@ window.addEventListener('message', (event) => {
 
 ```
 
-There are three events available in the DX Compose Picker:
+There are three events available in the DX Picker:
 
 - `HCL-DX-PICKER-SELECT`: Triggered when selecting an item.
 - `HCL-DX-PICKER-PREVIEW-SELECT`: Triggered when selecting an item from **Preview**.
@@ -152,7 +152,7 @@ There are three events available in the DX Compose Picker:
     These events contain the following object:
 
     !!! note
-        This is the updated object that will be received from DX Compose Picker. The `documentObject` varies depending on the content source used. For more information about the `documentObject` parameter, see [Indexed documents](../../../deployment/manage/container_configuration/configure_opensearch/architectural_overview.md#indexed-documents).
+        This is the updated object that will be received from DX Picker. The `documentObject` varies depending on the content source used. For more information about the `documentObject` parameter, see [Indexed documents](../../../deployment/manage/container_configuration/configure_opensearch/architectural_overview.md#indexed-documents).
 
     ```json
     {
