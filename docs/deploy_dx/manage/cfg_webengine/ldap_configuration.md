@@ -3,7 +3,7 @@ id: ldap-configuration
 title: Configuring LDAP
 ---
 
-This guide provides instructions for configuring an (Lightweight Directory Access Protocol) LDAP registry in HCL Digital Experience (DX) Compose. This covers how to integrate an LDAP server with the WebEngine container using Helm.
+This guide provides instructions for configuring a Lightweight Directory Access Protocol (LDAP) registry in HCL Digital Experience (DX) Compose. This covers how to integrate an LDAP server with the WebEngine container using Helm.
 
 ## LDAP configuration in the `values.yaml`
 
