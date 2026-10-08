@@ -617,7 +617,6 @@ None
 | configuration.webEngine.configOverrideFiles | {} |
 | configuration.webEngine.debug | false |
 | configuration.webEngine.propertiesFilesOverrides | {} |
-| configuration.webEngine.propertiesFilesAdditions | {} |
 | configuration.webEngine.propertiesDisable | {} |
 | configuration.webEngine.useExternalDatabase | false |
 | configuration.webEngine.dropDatabaseTables | false |
