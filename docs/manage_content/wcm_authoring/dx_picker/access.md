@@ -3,7 +3,7 @@
 This section provides steps on how to access the HCL Digital Experience (DX) Picker feature in a custom web application.
 
 !!! note
-    - You must have at least User access to use DX Picker. You must also have access to the content source to display items, unless it has anonymous access. For more information, refer to [Working with resource permissions](../../../deployment/manage/security/people/authorization/controlling_access/working_with_resource_permission/index.md).
+    - You must have at least User access to use DX Picker. You must also have access to the content source to display items, unless it has anonymous access. For more information, refer to [Working with resource permissions](https://help.hcl-software.com/digital-experience/9.5/latest/deployment/manage/security/people/authorization/controlling_access/working_with_resource_permission/){target="_blank"}.
     - To use the DX Picker, you must have the DX Picker web component imported in your HTML page.
 
 1. Add the DX Picker script as one of the dependencies in your HTML page using the following script:
@@ -152,7 +152,7 @@ There are three events available in the DX Picker:
     These events contain the following object:
 
     !!! note
-        This is the updated object that will be received from DX Picker. The `documentObject` varies depending on the content source used. For more information about the `documentObject` parameter, see [Indexed documents](../../../deployment/manage/container_configuration/configure_opensearch/architectural_overview.md#indexed-documents).
+        This is the updated object that will be received from DX Picker. The `documentObject` varies depending on the content source used. For more information about the `documentObject` parameter, see [Indexed documents](https://help.hcl-software.com/digital-experience/9.5/latest/deployment/manage/container_configuration/configure_opensearch/architectural_overview/#indexed-documents){target="_blank"}.
 
     ```json
     {

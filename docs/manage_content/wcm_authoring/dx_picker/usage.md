@@ -3,13 +3,13 @@
 This section describes how to use the HCL Digital Experience (DX) Picker feature.
 
 !!! note
-    You must have at least User access to use DX Picker. You must also have access to the content source to display items, unless it has anonymous access. For more information, refer to [Working with resource permissions](../../../deployment/manage/security/people/authorization/controlling_access/working_with_resource_permission/index.md).
+    You must have at least User access to use DX Picker. You must also have access to the content source to display items, unless it has anonymous access. For more information, refer to [Working with resource permissions](https://help.hcl-software.com/digital-experience/9.5/latest/deployment/manage/security/people/authorization/controlling_access/working_with_resource_permission/){target="_blank"}.
 
 The following content sources are available for DX Picker:
 
-- [Digital Asset Management (DAM)](../../digital_assets/index.md)
-- [Java Content Repository (JCR)](../../../build_sites/search/cfg_dx_search/search_service_params/jcr_srrcfgsrvc.md)
-- [Web Content Manager (WCM)](../../../manage_content/wcm_authoring/authoring_portlet/index.md)
+- [Digital Asset Management (DAM)](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/digital_assets/){target="_blank"}
+- [Java Content Repository (JCR)](https://help.hcl-software.com/digital-experience/9.5/latest/build_sites/search/cfg_dx_search/search_service_params/jcr_srrcfgsrvc/){target="_blank"}
+- [Web Content Manager (WCM)](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_authoring/authoring_portlet/){target="_blank"}
 
 When DX Picker is opened for the first time using the default content source, the list of root collections from the DAM is displayed.
 
@@ -81,7 +81,7 @@ You can perform the following actions in Preview mode:
 
   ![](../../../assets/HCL_DX_Picker_Asset_Preview_Component.png)
 
-1. To choose the rendition of the image you want to view, click the dropdown and select the specific rendition. For more information on renditions, refer to [Renditions](../renditions/index.md).
+1. To choose the rendition of the image you want to view, click the dropdown and select the specific rendition. For more information on renditions, refer to [Renditions](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_authoring/renditions/){target="_blank"}.
 
 2. To download the previewed item, click the **Download** icon. For images with renditions, only the selected rendition is downloaded.
 
