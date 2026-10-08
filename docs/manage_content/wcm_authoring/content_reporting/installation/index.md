@@ -13,7 +13,7 @@ This section describes how to enable and disable Content Reporting manually.
 Beginning with HCL Digital Experience (DX) 9.5 CF214, Content Reporting is installed and deployed as part of the CF update process. The **enable-content-reporting** config task is automatically executed. However, you can still manually enable Content Reporting by running the **enable-content-reporting** config task if the feature was disabled previously. Note that you cannot enable Content Reporting in a Virtual Portal.
 
 !!! important
-    Before manually enabling Content Reporting, it is required to enable Practitioner Studio. For more information on how to enable Practitioner Studio, refer to [Enabling Practitioner Studio](../../../../build_sites/practitioner_studio/working_with_ps/enable_prac_studio.md). After enabling Content Reporting, it can then be used with other themes.
+    Before manually enabling Content Reporting, it is required to enable Practitioner Studio. For more information on how to enable Practitioner Studio, refer to [Enabling Practitioner Studio](https://help.hcl-software.com/digital-experience/9.5/latest/build_sites/practitioner_studio/working_with_ps/enable_prac_studio/). After enabling Content Reporting, it can then be used with other themes.
 
 ### Enabling Content Reporting
 
@@ -26,7 +26,7 @@ To enable Content Reporting manually, run the **enable-content-reporting** confi
 !!! important
         For the **contentreporting.static.ui.url** parameter value, a slash is required in the end.
 
-For information on how to run the ConfigEngine tasks on container deployments, see [Running DX Core configuration tasks](../../../../deployment/manage/container_configuration/run_core_config_engine.md).
+For information on how to run the ConfigEngine tasks on container deployments, see [Running DX Core configuration tasks](https://help.hcl-software.com/digital-experience/9.5/latest/deployment/manage/container_configuration/run_core_config_engine/).
 
 !!! note
         If using a webserver, it is required to [map the Content Reporting application to the server](https://www.ibm.com/docs/en/was/9.0.5?topic=files-mapping-modules-servers) in addition to the DX server or cluster. Regenerate and propagate the plugin-cfg.xml file.
@@ -39,6 +39,6 @@ To disable Content Reporting, run the **disable-content-reporting** config task.
 - Linux: `./ConfigEngine.sh disable-content-reporting -DWasPassword=<WAS admin password> -DPortalAdminPwd=<Portal admin password>`
 - Windows: `ConfigEngine.bat disable-content-reporting -DWasPassword=<WAS admin password> -DPortalAdminPwd=<Portal admin password>`
 
-For information on how to run the ConfigEngine tasks on container deployments, refer to [Running DX Core configuration tasks](../../../../deployment/manage/container_configuration/run_core_config_engine.md).
+For information on how to run the ConfigEngine tasks on container deployments, refer to [Running DX Core configuration tasks](https://help.hcl-software.com/digital-experience/9.5/latest/deployment/manage/container_configuration/run_core_config_engine/).
 
 After Content Reporting is disabled by running the **disable-content-reporting** config task, the Content Reporting page is removed. To enable Content Reporting again, the **enable-content-reporting** config task must be executed manually.
