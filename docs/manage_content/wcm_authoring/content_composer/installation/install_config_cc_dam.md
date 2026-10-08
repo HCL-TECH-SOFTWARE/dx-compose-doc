@@ -12,9 +12,9 @@ This section provides a high-level overview of the architecture and the steps to
 
 ## Prerequisite
 
-DX Administrators can choose to install the DX Core containers then proceed to install Content Composer and Digital Asset Management containers to the supported Kubernetes container platforms as outlined in the following steps. See the [Deployment image files](../../../../deployment/install/container/image_list.md) section for the latest DX 9.5 container file listings.
+DX Administrators can choose to install the DX Core containers then proceed to install Content Composer and Digital Asset Management containers to the supported Kubernetes container platforms as outlined in the following steps. See the [Deployment image files](https://help.hcl-software.com/digital-experience/9.5/latest/deployment/install/container/image_list/) section for the latest DX 9.5 container file listings.
 
-Deploying the HCL Digital Asset Management or Content Composer components is supported on Kubernetes or OpenShift platforms and is not supported for deployment to Docker platforms. See the [System requirements](../../../../get_started/system_requirements/kubernetes/kubernetes-runtime.md) section for more information and the latest updates.
+Deploying the HCL Digital Asset Management or Content Composer components is supported on Kubernetes or OpenShift platforms and is not supported for deployment to Docker platforms. See the [System requirements](https://help.hcl-software.com/digital-experience/9.5/latest/get_started/system_requirements/kubernetes/kubernetes-runtime/) section for more information and the latest updates.
 
 !!! note
     For initial deployments, it is recommended to install the HCL DX Compose 9.5 components (Experience API, Content Composer, and Digital Asset Management) to a non-production (test) HCL DXCompose 9.5 environment.
@@ -25,11 +25,11 @@ Follow these steps to install your HCL DX Compose 9.5 components (Experience API
 
 **Asset Management components**
 
-If installing in conjunction with HCL DX 9.5 CF181 or higher, follow the instructions in the [Container Deployment](../../../../deployment/install/container/helm_deployment/overview.md) topic. This page lists the latest HCL DX 9.5 CF181 or higher product images available and how to obtain and load the images into your Docker repository before continuing with these instructions.
+If installing in conjunction with HCL DX 9.5 CF181 or higher, follow the instructions in the [Container Deployment](https://help.hcl-software.com/digital-experience/9.5/latest/deployment/install/container/helm_deployment/overview/) topic. This page lists the latest HCL DX 9.5 CF181 or higher product images available and how to obtain and load the images into your Docker repository before continuing with these instructions.
 
 If installing to an existing HCL DX 9.5 CF181 or higher Kubernetes environment:
 
-1. Verify that you can access the HCL DX 9.5 CF181 or higher Practitioner Studio by logging in to your HCL DX Compose 9.5 Practitioner Studio interface. See the [HCL Digital Experience 9.5 Practitioner Studio](../../../../build_sites/practitioner_studio/index.md) topic for information.
+1. Verify that you can access the HCL DX 9.5 CF181 or higher Practitioner Studio by logging in to your HCL DX Compose 9.5 Practitioner Studio interface. See the [HCL Digital Experience 9.5 Practitioner Studio](https://help.hcl-software.com/digital-experience/9.5/latest/build_sites/practitioner_studio/) topic for information.
 
 2. Download and extract the HCL DX Compose 9.5 components from your Digital Experience entitlements from the [My HCLSoftware (MHS) portal](https://my.hcltechsw.com/){target="_blank"} to the local file system.
 
@@ -185,7 +185,7 @@ If installing to an existing HCL DX 9.5 CF181 or higher Kubernetes environment:
 
             A `dx.dam.config.cors` config map setting is auto-generated and provides the ability for Cross Origin Resource Sharing across Content Composer and Digital Asset Management resources.
 
-            In the HCL DX 9.5 core deployment, the `dx.config.cors` setting is set in the DX configuration map. Reference the [Kubernetes Deployment](../../../../deployment/install/container/index.md) pages for additional details.
+            In the HCL DX 9.5 core deployment, the `dx.config.cors` setting is set in the DX configuration map. Reference the [Kubernetes Deployment](https://help.hcl-software.com/digital-experience/9.5/latest/deployment/install/container/) pages for additional details.
 
             An additional self-provisioning volume is created for each of the HCL Digital Asset Management Persistence (Postgres) pods. The access mode of these self-provisioning persistent volumes must include `ReadWriteOnce`. If this volume is not present the images are lost and shows blank if/when the HCL Digital Asset Management library is restarted.
 
@@ -316,7 +316,7 @@ If installing to an existing HCL DX 9.5 CF181 or higher Kubernetes environment:
 If you are using a content delivery network (CDN) such as [Akamai](https://www.akamai.com/our-thinking/cdn/what-is-a-cdn){:target="_blank"}, using `Vary: Origin` may prevent you from caching content. To bypass this limitation, your CDN configuration must strip the `Vary` header on the way in, to reinstate your ability to cache content. On the way out, you can append the `Origin` parameter to the `Vary` header when serving a response using **'Modify Outgoing Response Header'**.
 
 ???+ info "Related information"  
-    - [HCL Digital Asset Management](../../../digital_assets/index.md)
-    - [Enabling Practitioner Studio](../../../../build_sites/practitioner_studio/working_with_ps/enable_prac_studio.md)
-    - [Docker image deployment](../../../../deployment/install/container/helm_deployment/overview.md)
-    - [Digital Asset Management persistence architecture](../../../../get_started/plan_deployment/container_deployment/dam_persistence_architecture.md)
+    - [HCL Digital Asset Management](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/digital_assets/)
+    - [Enabling Practitioner Studio](https://help.hcl-software.com/digital-experience/9.5/latest/build_sites/practitioner_studio/working_with_ps/enable_prac_studio/)
+    - [Docker image deployment](https://help.hcl-software.com/digital-experience/9.5/latest/deployment/install/container/helm_deployment/overview/)
+    - [Digital Asset Management persistence architecture](https://help.hcl-software.com/digital-experience/9.5/latest/get_started/plan_deployment/container_deployment/dam_persistence_architecture/)
