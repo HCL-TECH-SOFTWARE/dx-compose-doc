@@ -11,6 +11,7 @@ nav:
   - Updating DX properties using Helm values: update_properties_with_helm.md
   - Updating the default administrator password: update_wpsadmin_password.md
   - WCM modules: wcm_modules.md
+  - Importing personalization rules programmatically: pzn_import.md
   - Tuning the initial DX Compose performance: tune_initial_portal_performance.md
   - Configuring DX Compose to use an OIDC identity provider: configure_compose_to_use_oidc.md
   - Configuring transient users in DX Compose with OpenID Connect: configure_transient_users.md
