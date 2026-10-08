@@ -24,4 +24,4 @@ See the markup generated after saving:
 
 ![](../../../../../assets/HCL_Presentation_Designer_Generic_Element_Tags_Text_Type_Markup.png)
 
-For more information on element tags in the Authoring portlet, refer to [Element tag](../../../../../manage_content/wcm_authoring/authoring_portlet/content_management_artifacts/tags/creating_web_content_tags/wcm_dev_referencing_elements.md).
+For more information on element tags in the Authoring portlet, refer to [Element tag](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_authoring/authoring_portlet/content_management_artifacts/tags/creating_web_content_tags/wcm_dev_referencing_elements/).

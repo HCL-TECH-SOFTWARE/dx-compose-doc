@@ -61,7 +61,7 @@ To set the **Privileged User** role:
 2. Go to **Security** > **Resource Permissions** > **Pages** > **Content Root** > **Practitioner Studio** > **Web Content** > **Authoring**.
 3. Click the **Assign Access** icon to set the **Privileged User** role.
 
-Refer to [Working with resource permissions](../../../deployment/manage/security/people/authorization/controlling_access/working_with_resource_permission/index.md) for more information.
+Refer to [Working with resource permissions](https://help.hcl-software.com/digital-experience/9.5/latest/deployment/manage/security/people/authorization/controlling_access/working_with_resource_permission/) for more information.
 
 ## Accessing the interface
 

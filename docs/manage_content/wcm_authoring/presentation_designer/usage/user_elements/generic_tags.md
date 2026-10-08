@@ -8,4 +8,4 @@ When editing a presentation template that has a generic tag in Presentation Desi
 
 ![](../../../../../assets/HCL_Presentation_Designer_Generic_Tags_Canvas.png)
 
-For more information on web content tags in the Authoring portlet, refer to [Creating web content tags](../../../../../manage_content/wcm_authoring/authoring_portlet/content_management_artifacts/tags/creating_web_content_tags/index.md).
+For more information on web content tags in the Authoring portlet, refer to [Creating web content tags](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_authoring/authoring_portlet/content_management_artifacts/tags/creating_web_content_tags/).

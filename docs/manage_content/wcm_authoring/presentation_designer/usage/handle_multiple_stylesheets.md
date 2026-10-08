@@ -12,7 +12,7 @@ To learn about Default stylesheet and Override stylesheet in Presentation Design
 
        ![](../../../../assets/HCL_Presentation_Designer_sample_stylesheet.png)
 
-2. Create a **stylesheet component** in Authoring and upload the custom CSS file. It should be located in the same library as the presentation template. For more information on stylesheet component, see [Using a style sheet element](../../../../manage_content/wcm_authoring/authoring_portlet/content_management_artifacts/elements/stylesheet_element/index.md).
+2. Create a **stylesheet component** in Authoring and upload the custom CSS file. It should be located in the same library as the presentation template. For more information on stylesheet component, see [Using a style sheet element](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_authoring/authoring_portlet/content_management_artifacts/elements/stylesheet_element/).
 
     Sample stylesheet component:
 

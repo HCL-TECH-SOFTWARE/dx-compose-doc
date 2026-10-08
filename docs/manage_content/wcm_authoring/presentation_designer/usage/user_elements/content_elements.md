@@ -31,7 +31,7 @@ In Presentation Designer, the ```<p></p>``` tag wrapper for the element tag is a
 
 ![](../../../../../assets/HCL_Presentation_Designer_Content_Elements_Markup.png)
 
-For more information on element tags in the Authoring portlet, refer to [Element tag](../../../../../manage_content/wcm_authoring/authoring_portlet/content_management_artifacts/tags/creating_web_content_tags/wcm_dev_referencing_elements.md).
+For more information on element tags in the Authoring portlet, refer to [Element tag](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_authoring/authoring_portlet/content_management_artifacts/tags/creating_web_content_tags/wcm_dev_referencing_elements/).
 
 ## Supported elements
 
