@@ -1,9 +1,9 @@
 ---
 id: update-properties-additions-with-helm
-title: Appending DX Compose WebEngine properties file entries using Helm values
+title: "Appending entries to WebEngine `.properties` files using Helm values"
 ---
 
-You can use the Helm chart `values.yaml` file to append lines to WebEngine properties in HCL Digital Experience (DX) Compose. Use this capability when you need to add entries that must remain raw lines instead of key-value properties, such as `MemberFixerModule.properties` mappings.
+Use the `propertiesFilesAdditions` section in your HCL Digital Experience (DX) Compose Helm chart `values.yaml` file to append entries to WebEngine `.properties` files. Use this capability when you need to add entries that must remain raw lines instead of key-value properties, such as `MemberFixerModule.properties` mappings.
 
 1. Add the `propertiesFilesAdditions` section under `configuration.webEngine` in your custom Helm values file using the following format:
 
@@ -15,10 +15,10 @@ You can use the Helm chart `values.yaml` file to append lines to WebEngine prope
             - "<lineToAppend1>"
             - "<lineToAppend2>"
     ```
-    
-    - `propertiesFileName`: The name of the properties file that you want to update.
-    - `lineToAppend`: The complete line that is appended as-is to the end of the target file.
-    
+
+    - `propertiesFileName`: The name of the `.properties` file you want to update.
+    - `lineToAppend1`, `lineToAppend2`: The complete line you want to append as-is to the end of the target file.
+
     For example:
 
     ```yaml
@@ -37,8 +37,8 @@ You can use the Helm chart `values.yaml` file to append lines to WebEngine prope
 
 ## Restarting the server
 
-The server restarts automatically to apply properties file changes.
+The server restarts automatically to apply `.properties` file changes.
 
 !!!important
-    - This capability appends lines only to properties files stored in the WebEngine `services` folder. 
+    - This capability appends lines only to `.properties` files stored in the WebEngine `services` folder.
     - Appended lines do not persist if you remove them from the `propertiesFilesAdditions` section of the `values.yaml` file.
