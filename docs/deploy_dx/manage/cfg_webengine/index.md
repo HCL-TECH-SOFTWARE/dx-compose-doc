@@ -20,6 +20,8 @@ Learn how to update the default `wpsadmin` password.
 Learn how to trigger WCM modules and import WCM libraries.
 - **[Exporting and importing a web content library copy](wcmlibrary_exportcopy.md)**  
 Learn how to export and import WCM library copies.
+- **[Importing personalization rules programmatically](pzn_import.md)**  
+Learn how to import personalization rules without using the user interface.
 - **[Tuning the initial DX Compose performance](tune_initial_portal_performance.md)**  
 Learn how to perform initial tuning on DX Compose before load testing.
 - **[Configuring DX Compose to use OpenID Connect (OIDC) identity provider](configure_compose_to_use_oidc.md)**  
