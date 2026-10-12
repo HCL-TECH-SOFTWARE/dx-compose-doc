@@ -10,14 +10,22 @@ Learn about the WebEngine server configuration and understand the different feat
 Learn how to update the `server.xml` properties and how to configure the DX Compose WebEngine server using `configOverrideFiles`.
 - **[Using an external database and database transfer](external_db_database_transfer.md)**  
 Learn how to connect to an external database and transfer the content of the Derby database to the external database.
+- **[Enabling HADR support for DB2](webengine_db2_hadr.md)**  
+Learn how to enable High Availability Disaster Recovery (HADR) support for IBM DB2 in WebEngine.
 - **[Configuring LDAP](ldap_configuration.md)**  
 Learn how to configure a Lightweight Directory Access Protocol (LDAP) registry in HCL DX Compose.
+- **[Configuring the default basic registry](default_basic_registry_configuration.md)**  
+Learn how to configure the default basic user registry in HCL DX Compose.
+- **[Configuring the administrator user and group](configure_default_admin_user.md)**  
+Learn how to configure the default administrator user and group settings in HCL DX Compose.
 - **[Updating DX properties using Helm values](update_properties_with_helm.md)**  
 Learn how to use the Helm chart's `values.yaml` file to add, update, or delete DX Compose properties.
+- **[Appending entries to WebEngine properties files using Helm values](update_properties_additions_with_helm.md)**  
+Learn how to append custom entries and raw text lines to WebEngine .properties files using Helm values.
 - **[Updating the default administrator password](update_wpsadmin_password.md)**  
 Learn how to update the default `wpsadmin` password.
 - **[WCM modules](wcm_modules.md)**  
-Learn how to trigger WCM modules and import WCM libraries.
+Learn how to trigger Web Content Manager (WCM) modules and import WCM libraries.
 - **[Exporting and importing a web content library copy](wcmlibrary_exportcopy.md)**  
 Learn how to export and import WCM library copies.
 - **[Importing personalization rules programmatically](pzn_import.md)**  
@@ -37,7 +45,7 @@ Learn how to deploy and configure customer-built EAR-based themes for use in HCL
 - **[Deploying and configuring WCM plugins](./deploy_wcm_plugins.md)**  
 Learn how to deploy and configure customer-built WCM plugins for use in HCL DX Compose deployments.
 - **[Importing the Site Builder Template library onto a new virtual portal](./import_site_builder_library.md)**  
-Learn how to use the Web Content Manager (WCM) Module utility to export and import WCM libraries such as the Site Builder Template library onto a new virtual portal.
+Learn how to use the WCM Module utility to export and import WCM libraries such as the Site Builder Template library onto a new virtual portal.
 - **[Managing the Liberty Status table in custom scripts](custom_liberty_status.md)**  
 Learn how to manage customer entries (create, read, update, delete) in the `LIBERTY_STATUS` table using the `custom_liberty_status.sh` helper, and how to call this helper function from customer startup or update scripts.
 - **[Configuring generic JVM arguments in the DX Compose WebEngine container](../../../guide_me/howto/configuration/settingGenericJVMArgs.md)**  
@@ -47,7 +55,6 @@ Learn how to configure additional JVM settings for the HCL DX Compose WebEngine 
 
 !!!note
 	Access HCLSoftware U resources for free. [Log in](https://hclsoftwareu.hcl-software.com/login-page){target="_blank"} or [Sign up](https://hclsoftwareu.hcl-software.com/hclsoftwareu-signup){target="_blank"} to get started. If you have further questions, [Contact us](https://hclsoftwareu.hcl-software.com/contactus){target="_blank"} or check the [FAQ](https://hclsoftwareu.hcl-software.com/frequently-asked-questions){target="_blank"}.
-
 
 For an introduction and a demo on DX deployment, go to [Deployment for Beginners](https://hclsoftwareu.hcl-software.com/component/axs/?view=sso_config&id=4&forward=https%3A%2F%2Fhclsoftwareu.hcl-software.com%2Fcourses%2Flesson%2F%3Fid%3D1479){target="_blank"}. Several deployment options are provided in the course.
 
