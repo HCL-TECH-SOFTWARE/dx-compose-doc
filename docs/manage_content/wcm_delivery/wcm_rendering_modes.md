@@ -6,11 +6,11 @@ Different presentation templates are created to render web content in different 
 
 These modes are supported when web content is rendered. You can create separate presentation templates for each type and select them when you create a site area template or content template:
 
--   **Default Presentation Template**: This presentation template is used to render an item within a Web Content Viewer portlet.
--   **Summary Presentation Template**: This presentation template is used when the summary render mode is used to render an item.
--   **JSON Record Presentation Template**: This presentation template is used when the JSON render mode is used to render an item on mobile devices.
--   **XML Document Presentation Template**: This presentation template is used when the XML render mode is used to render an item on mobile devices.
--   **HTML Document Presentation Template**: This presentation template is used when the HTML render mode is used to render an item as a complete web page.
+- **Default Presentation Template**: This presentation template is used to render an item within a Web Content Viewer portlet.
+- **Summary Presentation Template**: This presentation template is used when the summary render mode is used to render an item.
+- **JSON Record Presentation Template**: This presentation template is used when the JSON render mode is used to render an item on mobile devices.
+- **XML Document Presentation Template**: This presentation template is used when the XML render mode is used to render an item on mobile devices.
+- **HTML Document Presentation Template**: This presentation template is used when the HTML render mode is used to render an item as a complete web page.
 
 You then select a different presentation template for each rendering mode by clicking **Select Presentation Template** in the **Item Properties** section when you create a site area template or content template.
 
@@ -18,7 +18,7 @@ You then select a different presentation template for each rendering mode by cli
 
 You can specify a rendering mode in a URL by adding this parameter to the URL: `renderMode=mode`
 
-These render modes are predefined: summary, json, xml, html, default. You can use the Web Content Manager API to define further render modes.
+These render modes are predefined: summary, json, xml, html, default. You can use the Web Content Manager (WCM) API to define further render modes.
 
 For example, to specify the URL to use the JSON rendering mode, you might use a URL like the following example:
 
