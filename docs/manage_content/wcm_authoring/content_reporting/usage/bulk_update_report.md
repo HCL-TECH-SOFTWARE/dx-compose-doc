@@ -9,14 +9,6 @@ Currently, Content Reporting Bulk Update feature supports the following actions:
 
 You can execute these actions on content items returned in a report generated through HCL Content Reporting search.
 
-Starting CF218, if a bulk update process is running and the server restarts, the system pauses the update process. When the server is available again, you can resume the paused bulk update process through the **Update history** page. For more information, see [Resuming a paused bulk update process](#resuming-a-paused-bulk-update-process).
-
-Starting CF220, you have the option to select all items or manually pick items that you want to update for your bulk update operation.
-
-## Prerequisite
-
-Beginning with HCL Digital Experience (DX) 9.5 release update CF214, Content Reporting is enabled by default. For HCL DX 9.5 release update CF213, Content Reporting should be installed and configured. For instructions on installing Content Reporting on supported environments, see the [Install HCL Digital Experience 9.5 Content Reporting](../installation/index.md) topic.
-
 To update items in bulk, you must have edit access to the content items selected. If you kick off the bulk update operation without having the required access to the items, the update will fail with the error message `Unauthorized access`.
 
 ## Using the Content Reporting Bulk Update feature
@@ -54,10 +46,7 @@ Content managers can trigger bulk updates to update the expiration dates of all 
     - To update all items on all pages, check the **Select items from all pages** checkbox in the main header to select all items from all pages.
         ![](../../../../assets/HCL_Content_Reporting_Cherry_Picking_select_all_pages.png)
 
-4. Click the **Apply updates** button.
-
-    A confirmation dialog box appears.
-
+4. Click the **Apply updates** button. A confirmation dialog box appears.
 5. In the confirmation dialog box, verify the number of items you want to update and if you entered the correct expiration date. If the values are correct, click the **Update** button to start the bulk update operation.
 
     ![](../../../../assets/HCL_Content_Reporting_Cherry_Picking_confirmation.png)
@@ -97,10 +86,7 @@ Content managers can trigger bulk updates to update the owners and/or authors of
     - To update all items on all pages, check the **Select items from all pages** checkbox in the main header to select all items from all pages.
         ![](../../../../assets/HCL_Content_Reporting_Cherry_Picking_select_all_pages_authors.png)
 
-5. Click the **Apply updates** button.
-
-    A confirmation dialog box appears.
-
+5. Click the **Apply updates** button. A confirmation dialog box appears.
 6. Note the number of items to be affected by the update and check if you entered the correct values for properties to update. If the values are correct, click the **Update** button. Otherwise, you can click **Cancel** and return to the previous dialog box where you can change the incorrect values.
 
     ![](../../../../assets/HCL_Content_Reporting_Cherry_Picking_confirm_author.png)
@@ -123,14 +109,8 @@ After kicking off a previous update operation, (for example, [updating the expir
 
     ![](../../../../assets/HCL_Content_Reporting_Cherry_Picking_action.png)
 
-3. Select the items you want to update.
-
-    If there are no valid items, the page displays the message "No items were found".
-
-4. Click the **Apply updates** button.
-
-    A confirmation dialog box appears.
-
+3. Select the items you want to update. If there are no valid items, the page displays the message "No items were found".
+4. Click the **Apply updates** button. A confirmation dialog box appears.
 5. In the dialog box, confirm the values for the properties you want to update. Click **Update**.
 
 ## Tracking bulk updates and viewing bulk update results
@@ -215,7 +195,6 @@ If a bulk update process is running and the server restarts, the system pauses t
 To continue a paused bulk update process, refer to the following steps:
 
 1. Access the **Update history** page through the button on the application header. Click the **Update history** button to go to the **Update history** page.
-
 2. In the **Update history** page table, hover over a row of a paused update process to display the resume update button. Click this button to display the confirmation dialog box to resume the bulk update process.
 
     ![](../../../../assets/HCL_Content_Reporting_Updates_Resume_Update_Button.png)

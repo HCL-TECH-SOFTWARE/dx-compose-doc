@@ -1,7 +1,6 @@
 title: Content Reporting
 nav:
     - index.md
-    - Installation: installation
-    - Access Content Reporting: access
+    - Access: access.md
     - Usage: usage
-    - Limitations: limitations
+    - Limitations: limitations.md
