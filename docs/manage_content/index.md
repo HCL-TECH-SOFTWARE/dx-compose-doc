@@ -10,7 +10,7 @@ Web content and digital assets are critical components of a digital experience. 
 
 HCL web content management and digital asset management facilities are primarily aimed at non-technical users who are responsible for creation and management of content. This could be people specifically responsible for content editing, or users for whom content creation is a secondary responsibility.
 
-Web developers can also use the features of HCL DX Compose to extend content and asset management capabilities, or to access content and assets via the product APIs. Development of sites on HCL DX Compose is covered in the [Building Sites](../build_sites/index.md) section.
+Web developers can also use the features of HCL DX Compose to extend content and asset management capabilities, or to access content and assets through the product APIs. Development of sites on HCL DX Compose is covered in the [Building Sites](../build_sites/index.md) section.
 
 - **[Author Web Content](wcm_authoring/index.md)**  
 Learn how to use HCL DX Compose to create web content.
