@@ -67,7 +67,7 @@ Refer to [Working with resource permissions](https://help.hcl-software.com/digit
 
 To access the Presentation Designer, follow these steps:
 
-1. Log in to your HCL Digital Experience (DX) 9.5 platform, and select **Web Content** from the Practitioner Studio navigator.
+1. Log in to your HCL Digital Experience (DX) Compose 9.5 platform, and select **Web Content** from the Practitioner Studio navigator.
 
     ![](../../../assets/HCL_DX_95_Practitioner_Studio_interface.png "Log in to HCL DX 9.5")
 

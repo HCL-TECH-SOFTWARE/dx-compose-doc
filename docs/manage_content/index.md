@@ -54,7 +54,7 @@ Web Content Manager is a comprehensive solution for creating, managing, and deli
 You can manage and store content in Web Content Manager, using an external content management system, or both.
 
 -   Set up libraries to manage and store content in Web Content Manager.
--   Use IBM® Web Content Integrator to import content in RSS feed format.
+-   Use Web Content Integrator to import content in RSS feed format.
 -   Integrate and link directly to external content management systems using CMIS support included with Web Content Manager.
 -   Use WebDAV to import content from a file system.
 -   Wikis and blogs are immediately available for you to add to pages in your site.
@@ -73,6 +73,6 @@ In addition to the authoring home pages, authors can edit content in context on 
 
 ## Multilingual websites
 
-The HCL Web Content Manager Multilingual Solution download, available on the solution catalog, provides a reference implementation for a multilingual website. It includes a set of extension plugins that you can use to configure and deliver a multilingual site.
+The HCL Web Content Manager Multilingual Solution provides a reference implementation for a multilingual website. It includes a set of extension plugins that you can use to configure and deliver a multilingual site.
 
 -->
