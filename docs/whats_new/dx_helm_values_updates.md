@@ -4,6 +4,12 @@ This page summarizes Helm values updates across DX releases. Each table below de
 
 ### CF239
 
+**Added Keys:**
+
+| Key | Default Value |
+|-----|---------------|
+| configuration.webEngine.propertiesFilesAdditions | {} |
+
 ### CF238
 
 **Added Keys:**

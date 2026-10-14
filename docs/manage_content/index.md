@@ -1,29 +1,29 @@
 # Manage Content and Assets
 
-HCL DX provides web content and digital asset management capabilities that allow you to create, manage and deliver content both headlessly and to websites delivered by HCL DX itself. HCL DX provides features to enable the management of both web content and digital assets such as lifecycle management, organization and editing capabilities, publication, versioning and other management capabilities. HCL DX also provides a built-in personalization engine, as well as the ability to integrate with other personalization engines such as HCL Unica.
+HCL Digital Experience (DX) Compose provides web content and digital asset management capabilities that allow you to create, manage and deliver content both headlessly and to websites delivered by HCL DX Compose itself. HCL DX Compose provides features to enable the management of both web content and digital assets such as lifecycle management, organization and editing capabilities, publication, versioning and other management capabilities. HCL DX Compose also provides a built-in personalization engine, as well as the ability to integrate with other personalization engines such as HCL Unica.
 
 ## What is it For?
 
-Web content and digital assets are critical components of a digital experience. You should use HCL Digital Experience (DX) to manage web content that you plan to either integrate into websites delivered by DX or access from remote, headless clients such as mobile apps. You should use HCL DX to manage web-ready digital assets, either for direct integration into your applications or for use in web content.
+Web content and digital assets are critical components of a digital experience. You should use HCL DX Compose to manage web content that you plan to either integrate into websites delivered by DX or access from remote, headless clients such as mobile apps. You should use HCL DX Compose to manage web-ready digital assets, either for direct integration into your applications or for use in web content.
 
 ## Who Should Use It?
 
 HCL web content management and digital asset management facilities are primarily aimed at non-technical users who are responsible for creation and management of content. This could be people specifically responsible for content editing, or users for whom content creation is a secondary responsibility.
 
-Web developers can also use the features of HCL DX to extend content and asset management capabilities, or to access content and assets via the product APIs. Development of sites on HCL DX is covered in the [Building Sites](../build_sites/index.md) section.
+Web developers can also use the features of HCL DX Compose to extend content and asset management capabilities, or to access content and assets via the product APIs. Development of sites on HCL DX Compose is covered in the [Building Sites](../build_sites/index.md) section.
 
 - **[Author Web Content](wcm_authoring/index.md)**  
-Learn how to use HCL DX to create web content.
+Learn how to use HCL DX Compose to create web content.
 - **[Deliver Web Content](wcm_delivery/index.md)**  
-Learn how to use HCL DX to deliver web content.
+Learn how to use HCL DX Compose to deliver web content.
 - **[Configure Web Content Manager](wcm_configuration/index.md)**  
-Learn how to configure HCL DX content management services,
+Learn how to configure HCL DX Compose content management services,
 - **[Extend Web Content Manager](wcm_development/index.md)**  
 Learn how to extend content management capabilities, for example by developing templates and plugins
 - **[Digital Asset Management](digital_assets/index.md)**  
 Learn about the features and capabilities of HCL Digital Asset Management (DAM).
 - **[Personalization](pzn/index.md)**  
-Learn about the features and capabilities of the built-in Personalization system in HCL DX.
+Learn about the features and capabilities of the built-in Personalization system in HCL DX Compose.
 
 ## HCLSoftware U learning materials
 
@@ -36,9 +36,9 @@ For an introduction and a demo on how to use Web Content Workflow, go to [Web Co
 
 For an introduction and a demo on how to manage multilingual sites as a business user, go to [Multilingual for Business Users](https://hclsoftwareu.hcl-software.com/component/axs/?view=sso_config&id=4&forward=https%3A%2F%2Fhclsoftwareu.hcl-software.com%2Fcourses%2Flesson%2F%3Fid%3D2792){target="_blank"}. You can try it out using the [Multilingual Lab for Business Users](https://hclsoftwareu.hcl-software.com/images/Lc4sMQCcN5uxXmL13gSlsxClNTU3Mjc3NTc4MTc2/DS_Academy/DX/Business_User/HDX-BU-200_Multilingual_Lab.pdf){target="_blank"} and corresponding [Multilingual Lab Resources](https://hclsoftwareu.hcl-software.com/images/Lc4sMQCcN5uxXmL13gSlsxClNTU3Mjc3NTc4MTc2/DS_Academy/DX/Business_User/HDX-BU-200_Multilingual_Lab_Resources.zip).
 
-To learn how to get started with the development aspects of HCL Digital Experience (DX) Web Content, go to the [Web Content Development lesson in the HCL Digital Experience for Developers (Beginners)](https://hclsoftwareu.hcl-software.com/component/axs/?view=sso_config&id=4&forward=https%3A%2F%2Fhclsoftwareu.hcl-software.com%2Fcourses%2Flesson%2F%3Fid%3D414 ){target="_blank"} course. You can try it out using the [Web Content Development Lab](https://hclsoftwareu.hcl-software.com/images/Lc4sMQCcN5uxXmL13gSlsxClNTU3Mjc3NTc4MTc2/DS_Academy/DX/Developer/HDX-DEV-100_Web_Content_Development.pdf){target="_blank"} and corresponding [Web Content Development Lab Resources](https://hclsoftwareu.hcl-software.com/images/Lc4sMQCcN5uxXmL13gSlsxClNTU3Mjc3NTc4MTc2/DS_Academy/DX/Developer/HDX-DEV-100_Web_Content_Development_Lab_Resources.zip){target="_blank"}.
+To learn how to get started with the development aspects of HCL DX Web Content, go to the [Web Content Development lesson in the HCL Digital Experience for Developers (Beginners)](https://hclsoftwareu.hcl-software.com/component/axs/?view=sso_config&id=4&forward=https%3A%2F%2Fhclsoftwareu.hcl-software.com%2Fcourses%2Flesson%2F%3Fid%3D414 ){target="_blank"} course. You can try it out using the [Web Content Development Lab](https://hclsoftwareu.hcl-software.com/images/Lc4sMQCcN5uxXmL13gSlsxClNTU3Mjc3NTc4MTc2/DS_Academy/DX/Developer/HDX-DEV-100_Web_Content_Development.pdf){target="_blank"} and corresponding [Web Content Development Lab Resources](https://hclsoftwareu.hcl-software.com/images/Lc4sMQCcN5uxXmL13gSlsxClNTU3Mjc3NTc4MTc2/DS_Academy/DX/Developer/HDX-DEV-100_Web_Content_Development_Lab_Resources.zip){target="_blank"}.
 
-To learn more details on how to develop with HCL Digital Experience (DX) Web Content, go to the [Web Content Development lesson in the HCL Digital Experience for Developers (Intermediate)](https://hclsoftwareu.hcl-software.com/component/axs/?view=sso_config&id=4&forward=https%3A%2F%2Fhclsoftwareu.hcl-software.com%2Fcourses%2Flesson%2F%3Fid%3D3500){target="_blank"} course. You can try it out using the [Web Content Development Lab](https://hclsoftwareu.hcl-software.com/images/Lc4sMQCcN5uxXmL13gSlsxClNTU3Mjc3NTc4MTc2/DS_Academy/DX/Developer/HDX-DEV-200_Web_Content_Development.pdf){target="_blank"} and corresponding [Web Content Development Lab Resources](https://hclsoftwareu.hcl-software.com/images/Lc4sMQCcN5uxXmL13gSlsxClNTU3Mjc3NTc4MTc2/DS_Academy/DX/Developer/HDX-DEV-200_Web_Content_Development_Lab_Resources.zip){target="_blank"}.
+To learn more details on how to develop with HCL DX Web Content, go to the [Web Content Development lesson in the HCL Digital Experience for Developers (Intermediate)](https://hclsoftwareu.hcl-software.com/component/axs/?view=sso_config&id=4&forward=https%3A%2F%2Fhclsoftwareu.hcl-software.com%2Fcourses%2Flesson%2F%3Fid%3D3500){target="_blank"} course. You can try it out using the [Web Content Development Lab](https://hclsoftwareu.hcl-software.com/images/Lc4sMQCcN5uxXmL13gSlsxClNTU3Mjc3NTc4MTc2/DS_Academy/DX/Developer/HDX-DEV-200_Web_Content_Development.pdf){target="_blank"} and corresponding [Web Content Development Lab Resources](https://hclsoftwareu.hcl-software.com/images/Lc4sMQCcN5uxXmL13gSlsxClNTU3Mjc3NTc4MTc2/DS_Academy/DX/Developer/HDX-DEV-200_Web_Content_Development_Lab_Resources.zip){target="_blank"}.
 
 <!--
 Web Content Manager is a comprehensive solution for creating, managing, and delivering content on your website.
