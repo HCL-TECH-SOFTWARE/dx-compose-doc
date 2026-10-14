@@ -4,9 +4,9 @@ This section provides the steps on how to delete a content item using the HCL Co
 
 ## Prerequisite
 
-Content Composer should be installed and configured to HCL Digital Experience (DX) 9.5 container release update CF181 or higher. See instructions to install to supported container environments in the [Install HCL Digital Experience 9.5 Components](../../installation/install_config_cc_dam.md) topic.
+Content Composer should be installed and configured to HCL Digital Experience (DX) Compose 9.5. See instructions to install to supported container environments in the [Install HCL Digital Experience 9.5 Components](../../installation/install_config_cc_dam.md) topic.
 
-Content Composer is accessible from the Practitioner Studio interface (after image configuration to your HCL DX 9.5 CF181 and higher deployment).
+Content Composer is accessible from the Practitioner Studio interface (after image configuration to your HCL DX Compose 9.5 deployment).
 
 ## Delete a content item
 

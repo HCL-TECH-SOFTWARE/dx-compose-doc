@@ -4,9 +4,9 @@ This section provides the steps on how to author a web content item using HCL Co
 
 ## Prerequisites
 
-Content Composer should be installed and configured to HCL Digital Experience (DX) 9.5 container release update CF181 or higher. See instructions to install to supported container environments in the [Install HCL Digital Experience 9.5 Components](../../installation/install_config_cc_dam.md) topic.
+Content Composer should be installed and configured to HCL Digital Experience (DX) Compose 9.5. See instructions to install to supported container environments in the [Install HCL Digital Experience 9.5 Components](../../installation/install_config_cc_dam.md) topic.
 
-Content Composer is accessible from the Practitioner Studio interface (after image configuration to your HCL DX 9.5 CF181 and higher deployment).
+Content Composer is accessible from the Practitioner Studio interface (after image configuration to your HCL DX Compose 9.5 deployment).
 
 Before you can use AI-assistance features for sentiment analysis of content, keyword extraction from content, and auto summarization of content element in Content Composer, refer to the following steps to enable AI Analysis:
 
@@ -55,7 +55,7 @@ Follow the steps below to create new content with the HCL DX Compose 9.5 Content
 
 ## Creating new content from a content template in Search Results view
 
-Users can also create new content via the Search Results view.
+Users can also create new content using the Search Results view.
 
 1. From the HCL DX Compose 9.5 Content Composer user interface, enter a search term in the search box located in the upper right corner as shown in the following example:
 
@@ -102,7 +102,7 @@ The **Dashboard** view allows users to perform the following content authoring a
 - Ticking the checkbox (beside the **Content Title**) presented in the **Content Collections** column also enables context-specific **Edit**, **Delete**, **Move**, **Copy**, and **Duplicate** options for the content item.
     ![Authoring actions on HCL Content Composer Dashboard](../../../../../assets/Authoring_actions_single_select_via_HCL_CC_Dashboard.png)
 
-- Starting in CF211, while hovering over the content item, an overflow menu button is displayed on the right of the content item's title. Clicking on that button opens a menu which displays the **Edit**, **Overview**, **Move**, **Copy**, **Duplicate**, and **Delete** options.
+- While hovering over the content item, an overflow menu button is displayed on the right of the content item's title. Clicking on that button opens a menu which displays the **Edit**, **Overview**, **Move**, **Copy**, **Duplicate**, and **Delete** options.
     ![Authoring actions on HCL Content Composer Dashboard Overflow Menu](../../../../../assets/Content_authoring_actions_in_dashboard_overflow_menu.png)
 
 ## Creating new content and adding/removing keywords

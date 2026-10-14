@@ -2,10 +2,6 @@
 
 The HCL Content Composer delivers simplified processes for creating and managing HCL Digital Experience (DX) Compose site content.
 
-Users can access the Content Composer features in HCL DX 9.5 Container Update CF181 and higher releases.
-
-Follow the instructions below to install, configure, and use the HCL Content Composer.
-
 - **[Install HCL Content Composer components](../content_composer/installation/index.md)**  
 This section provides a high-level overview of the architecture and the steps to install, enable and update the HCL Content Composer.
 - **[Configure HCL Content Composer](../content_composer/configuration/index.md)**  

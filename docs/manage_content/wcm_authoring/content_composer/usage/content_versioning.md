@@ -2,7 +2,7 @@
 
 This section details how to manage versioning of content in HCL Content Composer.
 
-HCL Content Composer 9.5 CF192 and later releases now has a Version Comparison feature, which allows content authors to:
+The Version Comparison feature allows content authors to:
 
 - Compare versions of a specific content or content item.
 - Create a new version of content from old versions of a specific content or content item.
@@ -12,9 +12,9 @@ HCL Content Composer 9.5 CF192 and later releases now has a Version Comparison f
 
 ## Prerequisite
 
-Content Composer should be installed and configured to HCL Digital Experience (DX) 9.5 container release update CF181 or higher. See instructions to install to supported container environments in the [Install HCL Digital Experience 9.5 Components](../installation/install_config_cc_dam.md) topic.
+Content Composer should be installed and configured to HCL Digital Experience Compose (DX) 9.5. See instructions to install to supported container environments in the [Install HCL Digital Experience 9.5 Components](../installation/install_config_cc_dam.md) topic.
 
-Content Composer is accessible from the Practitioner Studio interface (after image configuration to your HCL DX 9.5 CF181 and higher deployment).
+Content Composer is accessible from the Practitioner Studio interface (after image configuration to your HCL DX Compose 9.5 deployment).
 
 ## Version Comparison
 

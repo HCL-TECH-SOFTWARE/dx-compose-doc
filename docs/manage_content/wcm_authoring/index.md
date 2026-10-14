@@ -1,6 +1,6 @@
 # Authoring Content
 
-This section describes the content authoring features of HCL Digital Experience (DX) Compose. These include features for creating authoring templates, managing reusable content components, creating content itself and managing change via workflow and projects. We provide two primary interfaces for authoring content - the WCM Authoring Portlet is a fully featured application for managing all aspects of content. Content Composer is a modern UI targeted at content and template management only, for example in the context of headless content usage.
+This section describes the content authoring features of HCL Digital Experience (DX) Compose. These include features for creating authoring templates, managing reusable content components, creating content itself and managing change using workflow and projects. We provide two primary interfaces for authoring content - the WCM Authoring Portlet is a fully featured application for managing all aspects of content. Content Composer is a modern UI targeted at content and template management only, for example in the context of headless content usage.
 
 ## What is it For?
 
@@ -8,7 +8,7 @@ The purpose of this capability is to allow users of HCL DX Compose to create and
 
 ## Who Should Use It?
 
-This information is primarily aimed at non-technical users who are responsible for organizing and managing content. Content strategists can use the organizational features of HCL DX Compose to structure web content and organize templates and reusable components of various types. Content authors can use the content editing capabilities to create and manage individual content items. Both may interact with people who are not regular users of DX Compose for publication approvals, via workflow and projects.
+This information is primarily aimed at non-technical users who are responsible for organizing and managing content. Content strategists can use the organizational features of HCL DX Compose to structure web content and organize templates and reusable components of various types. Content authors can use the content editing capabilities to create and manage individual content items. Both may interact with people who are not regular users of DX Compose for publication approvals, using workflow and projects.
 
 - **[Site Manager](./inline_editing/index.md)**  
 Site Manager provides you with common content authoring tools and shows a complete view of the site navigation.

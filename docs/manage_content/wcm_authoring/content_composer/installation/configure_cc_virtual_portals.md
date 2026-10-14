@@ -1,11 +1,6 @@
 # Enable or Disable Content Composer in Virtual Portals
 
-The use of Content Composer features in a Virtual Portal deployment pattern is supported for HCL Content Composer beginning with Container Update 9.5 CF192.
-
 By default, this feature is not enabled on HCL Digital Experience (DX) Compose 9.5. Get the [latest Docker image](https://help.hcl-software.com/digital-experience/9.5/latest/deployment/install/container/image_list/) before you proceed with the following steps.
-
-!!! note
-    While there are also HCL DX 8.5 and 9.0 CF17 images, the one you need to enable this HCL Content Composer feature is the 9.5 Docker image.
 
 You can only enable Content Composer features in a Virtual Portal deployment pattern when Practitioner Studio is available (for HCL DX Compose 9.5 and later releases). Refer to the [Practitioner Studio](https://help.hcl-software.com/digital-experience/9.5/latest/build_sites/practitioner_studio/) documentation topic for guidance on themes and page creation.
 
@@ -13,7 +8,7 @@ Follow these steps below to enable this support in your deployment:
 
 1. [Create a Virtual Portal](https://help.hcl-software.com/digital-experience/9.5/latest/build_sites/virtual_portal/adm_vp_task/vp_adm_task/create_vp/).
 2. [Enable Practitioner Studio in the Virtual Portal](https://help.hcl-software.com/digital-experience/9.5/latest/build_sites/practitioner_studio/working_with_ps/enable_prac_studio/).
-3. In the Virtual Portal, enable rendering of content supported by DX Compose APIs, for example, via Content Composer interfaces.
+3. In the Virtual Portal, enable rendering of content supported by DX Compose APIs, for example, using Content Composer interfaces.
 
 ## Enable and install content rendering in the base Portal
 
@@ -35,7 +30,7 @@ To enable content rendering in the base Portal:
     Sample:
 
     ```
-    /opt/HCL/wp_profile/ConfigEngine/ConfigEngine.sh enable-headless-content -Dstatic.ui.url=http://us-latest.team-q-dev.com:5000/DX Compose/ui/content/static -DWasPassword=wpsadmin -DPortalAdminPwd=wpsadmin
+    /opt/HCL/wp_profile/ConfigEngine/ConfigEngine.sh enable-headless-content -Dstatic.ui.url=http://us-latest.team-q-dev.com:5000/DX/ui/content/static -DWasPassword=wpsadmin -DPortalAdminPwd=wpsadmin
     ```
 
 Next, install content rendering in the virtual Portal by following the steps below:
@@ -49,7 +44,7 @@ Next, install content rendering in the virtual Portal by following the steps bel
     Sample:
 
     ```
-    /opt/HCL/wp_profile/ConfigEngine/ConfigEngine.sh enable-headless-content-vp -Dstatic.ui.url=http://us-latest.team-q-dev.com:5000/DX Compose/ui/content/static -DVirtualPortalContext=demo -DWasPassword=wpsadmin -DPortalAdminPwd=wpsadmin
+    /opt/HCL/wp_profile/ConfigEngine/ConfigEngine.sh enable-headless-content-vp -Dstatic.ui.url=http://us-latest.team-q-dev.com:5000/DX/ui/content/static -DVirtualPortalContext=demo -DWasPassword=wpsadmin -DPortalAdminPwd=wpsadmin
     ```
 
 ## Remove and disable content rendering from the virtual Portal

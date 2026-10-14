@@ -4,15 +4,15 @@ This section provides the steps on how to access HCL Content Composer and use it
 
 ## Prerequisite
 
-Content Composer should be installed and configured to HCL Digital Experience (DX) 9.5 container release update CF181 or higher. See instructions to install to supported container environments in the [Install HCL Digital Experience 9.5 Components](../installation/install_config_cc_dam.md) topic.
+Content Composer should be installed and configured to HCL Digital Experience Compose (DX) 9.5. See instructions to install to supported container environments in the [Install HCL Digital Experience 9.5 Components](../installation/install_config_cc_dam.md) topic.
 
-Content Composer is accessible from the Practitioner Studio interface (after image configuration to your HCL DX 9.5 CF181 and higher deployment).
+Content Composer is accessible from the Practitioner Studio interface (after image configuration to your HCL DX Compose 9.5 deployment).
 
 ## Access content and content templates with Content Composer
 
 Follow the instructions below to access content with the HCL DX 9.5 Content Composer from the Practitioner Studio.
 
-1. Log in to your HCL DX 9.5 platform, and select **Web Content** from the Practitioner Studio navigator.
+1. Log in to your HCL DX Compose 9.5 platform, and select **Web Content** from the Practitioner Studio navigator.
 
     ![](../../../../assets/HCL_DX_95_Practitioner_Studio_interface.png "Log in to HCL Digital Experience 9.5")
 

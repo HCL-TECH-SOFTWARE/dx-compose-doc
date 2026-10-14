@@ -21,5 +21,3 @@ The following table presents access control levels and capabilities supported fo
 |Privileged User|No|No|No|No|No|No|No|
 |Mark Up Editor|No|No|No|No|No|No|No|
 |Owner|No|Yes|Yes|Yes|Yes|Yes, if created|No|
-
-
