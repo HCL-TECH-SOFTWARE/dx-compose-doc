@@ -1,4 +1,5 @@
 title: Deliver Web Content
 nav:
     - index.md
+    - wcm_rendering_modes.md
     - wcm_config_delivery_servlet.md
