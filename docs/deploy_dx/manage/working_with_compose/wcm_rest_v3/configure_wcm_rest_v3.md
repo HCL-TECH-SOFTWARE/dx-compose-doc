@@ -11,9 +11,11 @@ WCM API v3 supports two authentication methods:
 Use HTTP basic authentication for programmatic access through REST clients, command-line tools, or automated scripts. Pass standard user credentials in the request header. For example, to retrieve a list of WCM libraries using `curl`:
 
 ```bash
-curl -k -u user:password \
+curl -u user:password \
   https://your-dx-host/dx/api/wcm/v3/libraries
 ```
+
+Use `-k` only when testing against a development host with an untrusted TLS certificate. Do not disable certificate verification in production.
 
 ### Single Sign-On
 
@@ -49,6 +51,8 @@ For details on how to view complete list of endpoints, refer to [Testing an endp
 
 The WCM API v3 includes a built-in Swagger UI-based API Explorer for interactive testing and documentation. Access the interactive API Explorer at `/dx/api/wcm/v3/explorer/` on the DX host to test endpoints and inspect OpenAPI specifications directly in the browser. Use the interface to perform the following tasks:
 
+The canonical OpenAPI document served by the same host is `/dx/api/wcm/v3/specs/openapi.json`. Use it for endpoint-specific parameter descriptions and request/response schemas.
+
 - Execute live HTTP requests against server endpoints.
 - Inspect auto-generated OpenAPI 3.0 schemas and data models.
 - Review request parameters, header requirements, and payload structures.
@@ -56,12 +60,20 @@ The WCM API v3 includes a built-in Swagger UI-based API Explorer for interactive
 
 ### Testing an endpoint
 
-1. Select **Authorize** and enter your DX credentials.
+1. Sign in to the DX server's web UI in the same browser to use your session cookie, or select **Authorize** and enter DX credentials for HTTP Basic authentication.
 2. Browse to an endpoint (for example **Libraries > GET /libraries**).
 3. Select **Try it out**.
 4. Set parameters (for example `limit=10`).
 5. Select **Execute**.
 6. View the response with actual data.
+
+Explorer-generated cURL reflects the values selected in the Explorer, so its query can differ from the examples in this guide. For example, `fields=name,title,published` is included when those fields are selected, while the guide's content-list example adds `libraryId` and `limit` as filters. Explorer may also include declared defaults such as `offset=0`, `limit=100`, `page=0`, `pageSize=0`, and `includeMetadata=false`; these do not all need to be supplied. Use either `offset`/`limit` (zero-based offset) or positive `page`/`pageSize` values, not both; positive `page`/`pageSize` values override `offset`/`limit`.
+
+Explorer-generated cURL also includes `-X GET` and `Accept: application/json` to make the method and response format explicit. The examples omit these because cURL defaults to GET for requests without a body, and the API returns JSON.
+
+Explorer requests use a browser session cookie or **Authorize** credentials. A copied cURL command may not include a browser-session cookie, so add `-u user:password` (or an appropriate cookie) before running it outside the browser. The examples in this guide use HTTP Basic credentials explicitly.
+
+Explorer-generated cURL includes `-X GET` explicitly and `Accept: application/json`; these examples omit them because cURL uses GET by default, while the `Accept` header makes the requested JSON response explicit.
 
 For example to show a list of libraries:
 
@@ -81,9 +93,11 @@ All WCM API v3 list endpoints support standard query parameters:
 |-----------|------|-------------|---------|
 | `offset` | int | Zero-based starting index for pagination | `?offset=0` |
 | `limit` | int | Maximum items per page (`1` to `1000`, default `100`) | `?limit=50` |
-| `fields` | string | Comma-separated list of fields to include | `?fields=id,title,status` |
+| `fields` | string | Comma-separated resource-specific fields; see the OpenAPI parameter for each endpoint | `?fields=id,name,title` (libraries) |
 | `includeMetadata` | boolean | Include full metadata (creator, workflow, etc.) | `?includeMetadata=true` |
-| `libraryId` | string | Filter by library (for contents, site areas, etc.) | `?libraryId=lib-001` |
+| `libraryId` | string | Filter by library (for contents, site areas, etc.) | `?libraryId=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` |
+
+UUIDs shown as `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` in the examples are placeholders, not real IDs. Replace them with IDs from your DX environment.
 
 ## Usage examples
 
@@ -134,7 +148,7 @@ Single resource response:
 }
 ```
 
-Collection response:
+Collection response (two items shown from a 10-item page):
 
 ```json
 {
@@ -160,7 +174,7 @@ Collection response:
       "lastModified": "Wed, 26 Aug 2026 16:44:07.820Z"
     },
     {
-      "id": "yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy",
+      "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "name": "marketing",
       "title": "Marketing",
       "type": "Library",
@@ -181,8 +195,8 @@ WCM API v3 returns RFC 7807 Problem Details for errors:
   "type": "https://api.hcl.com/problems/not-found",
   "title": "Library not found",
   "status": 404,
-  "detail": "Library with id 'wcm:oid:lib-999' not found",
-  "instance": "a1b2c3d4-5e6f-7g8h-9i0j-k1l2m3n4o5p6"
+  "detail": "Library with id 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx' not found",
+  "instance": "/dx/api/wcm/v3/libraries/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 }
 ```
 
