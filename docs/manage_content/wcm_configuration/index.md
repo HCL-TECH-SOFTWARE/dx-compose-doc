@@ -1,6 +1,6 @@
 # Configure Web Content Manager
 
-HCL DX has many features for configuring how the content management system works for all users. This includes configuring how the authoring environment works, how delivery operates and administering the service.
+HCL Digital Experience (DX) Compose has many features for configuring how the content management system works for all users. This includes configuring how the authoring environment works, how delivery operates and administering the service.
 
 ## What is it For?
 
@@ -21,7 +21,7 @@ With custom caching, you can overrule the default caching parameters of a site b
 - **[Web Content Manager configuration](wcm_svc_cfg/index.md)**  
 Configuration services for HCL WCM contain settings for the general operation of the web content system such as messaging, pre-rendering, and searching.
 - **[Cleaning up WCM items](./cleanup_wcm.md)**  
-Clean up old Web Content Manager (WCM) items to improve system performance.
+Clean up old WCM items to improve system performance.
 
 ## HCLSoftware U learning materials
 
