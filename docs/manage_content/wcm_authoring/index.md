@@ -8,7 +8,7 @@ The purpose of this capability is to allow users of HCL DX Compose to create and
 
 ## Who Should Use It?
 
-This information is primarily aimed at non-technical users who are responsible for organizing and managing content. Content strategists can use the organizational features of HCL DX Compose to structure web content and organize templates and reusable components of various types. Content authors can use the content editing capabilities to create and manage individual content items. Both may interact with people who are not regular users of DX for publication approvals, using workflow and projects.
+This information is primarily aimed at non-technical users who are responsible for organizing and managing content. Content strategists can use the organizational features of HCL DX Compose to structure web content and organize templates and reusable components of various types. Content authors can use the content editing capabilities to create and manage individual content items. Both may interact with people who are not regular users of HCL DX Compose for publication approvals, via workflow and projects.
 
 - **[Site Manager](./inline_editing/index.md)**  
 Site Manager provides you with common content authoring tools and shows a complete view of the site navigation.
