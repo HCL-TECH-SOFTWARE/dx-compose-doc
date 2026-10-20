@@ -4,15 +4,13 @@ Renditions are different versions of an image component or element. Renditions c
 
 Renditions make it easy to reformat an image for publishing different sizes on different platforms. Users can choose the size of image they want with the user interface.
 
-The image rendition exists in addition to the original image that is stored in the image component or element as binary code. The image rendition is part of the encapsulating image, which has the same UUID, but can be addressed by a unique URL.
+The image rendition exists in addition to the original image that is stored in the image component or element as binary code. The image rendition is part of the encapsulating image, which has the same universally unique identifier (UUID), but can be addressed by a unique URL.
 
 The user interface supports uploading three renditions in addition to the original image. The renditions are named `Desktop`, `Tablet`, and `Smartphone`. You can expose the renditions through the user interface, or through a public API.
 
--   **[Setting rendition properties on images](../renditions/rend_images.md)**  
-Renditions automatically render a version of your image that is best suited for the device connecting to the site.
--   **[Disabling renditions](../renditions/rend_disable.md)**  
-Renditions are enabled by default. If you want to disable them, you must run a ConfigEngine task.
--   **[Enabling renditions](../renditions/rend_enable.md)**  
-Renditions are enabled by default. If you disable them, you must run a ConfigEngine task to enable them.
-
-
+- **[Configuring renditions](rend_configure.md)**  
+Enable or disable renditions by specifying property overrides in your Helm chart.
+- **[Setting rendition properties on images](rend_images.md)**  
+Specify rendition properties to automatically render the image version best suited for the device connecting to the site.
+- **[Video start and end points](rend_cue_points.md)**  
+Set start and end points for HTML5 videos and retrieve video thumbnails.
