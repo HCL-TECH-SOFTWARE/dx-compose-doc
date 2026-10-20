@@ -4,21 +4,21 @@ HCL Digital Experience (DX) Compose Web Content Manager (WCM) offers several fac
 
 ## What is it For?
 
-APIs provided by HCL DX Compose enable developers to access most of the web content features of HCL DX Compose. This means that they can write applications to manage content from outside of DX Compose, or they can integrate content into their applications. An example of this would be a mobile application built with Volt MX that uses HCL DX  Compose web content so that non-technical users can update the content without recompiling the app.
+APIs provided by HCL DX Compose enable developers to access most of the web content features of HCL DX Compose. This means that they can write applications to manage content from outside of DX Compose, or they can integrate content into their applications. An example of this would be a mobile application built with Volt MX that uses HCL DX Compose web content so that non-technical users can update the content without recompiling the app.
 
-Additionally, developers can extend the capability of HCL DX Compose. Some information about that is given in this section, but other extension points such as [Web Content Manager (WCM) tags](../wcm_authoring/authoring_portlet/content_management_artifacts/tags/index.md) and [custom workflow actions](../wcm_authoring/authoring_portlet/change_management/workflow/workflow_stages_actions/index.md) are described elsewhere.
+Additionally, developers can extend the capability of HCL DX Compose. Some information about that is given in this section, but other extension points such as [WCM tags](../wcm_authoring/authoring_portlet/content_management_artifacts/tags/index.md) and [custom workflow actions](../wcm_authoring/authoring_portlet/change_management/workflow/workflow_stages_actions/index.md) are described elsewhere.
 
 ## Who Should Use It?
 
 This information is primarily aimed at developers who either want to integrate web content or web content capabilities into their applications, or who want to extend HCL DX Compose.
 
-- **[HCL Web Content Manager API](./wcm_dev_api/index.md)**  
+- **[HCL WCM API](./wcm_dev_api/index.md)**  
 Using the WCM API to create, delete, move, copy, retrieve, search, and approve items.
 - **[Creating custom plug-ins](./wcm_custom_plugin/index.md)**  
 A custom plug-in allows you to run tasks. For example, you can create plug-ins to run when a page is rendered, store multi-locale text strings, and run when a file is uploaded.
-- **[REST service for Web Content Manager](./wcm_rest/index.md)**  
+- **[REST service for WCM](./wcm_rest/index.md)**  
 Application developers can use Representational State Transfer (REST) services to work with WCM.
-- **[REST service for Web Content Manager v2](./wcm_rest_v2/index.md)**  
+- **[REST service for WCM v2](./wcm_rest_v2/index.md)**  
 Starting from CF217, you can run V2 APIs for WCM content and artifacts.
 - **[Determining the current web content context](./wcm_dev_context.md)**  
 Using the WCM Page Content Service, you can determine the current web content context of a portal page or Web Content Viewer portlet.
