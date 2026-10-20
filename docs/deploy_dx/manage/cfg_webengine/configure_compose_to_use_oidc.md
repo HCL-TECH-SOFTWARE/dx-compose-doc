@@ -32,17 +32,22 @@ Refer to the following steps to enable OIDC authentication in DX Compose:
     !!!important
         The openIdConnectClient redirects to `https://<your-domain>/oidcclient/redirect/<id>` after authentication. Make sure that your valid redirect URIs includes an entry that matches this.
 
-2. Configure the XMLAccess and Search Authentication Filter (`authFilter`) to prevent XMLAccess configuration scripts, Search V2 endpoints, and Site Builder background task URLs from being redirected to the OIDC provider.
+2. Configure the authentication filter (`authFilter`) to prevent XMLAccess configuration scripts, Search V2 endpoints, Site Builder background tasks, upgrade and blueprint library update requests, and WCM syndication requests from being redirected to the OIDC provider.
 
     - If your `oidc.yaml` does not have the `authFilter`:
 
-        1. Add the following before the `<openidConnectClient>` element:
+        1. Add the following `requestUrl` exclusions before the `<openidConnectClient>` element:
 
             ```xml
             <authFilter id="oidcAuthFilter">
                 <requestUrl id="excludeXMLAccess" urlPattern="/wps/config" matchType="notContain"/>
                 <requestUrl id="excludeSeedlist" urlPattern="/wps/seedlist/myserver" matchType="notContain"/>
                 <requestUrl id="excludeSiteBuilderResource" urlPattern="TASK_CREATE_SITE=" matchType="notContain"/>
+                <requestUrl id="excludeWcmLogin" urlPattern="/wps/wcm/login" matchType="notContain"/>
+                <requestUrl id="excludeWebDav" urlPattern="/wps/webdav" matchType="notContain"/>
+                <requestUrl id="excludeSyndication" urlPattern="/wcm/basicauth/SyndicationServlet" matchType="notContain"/>
+                <requestUrl id="excludeWcmConnect" urlPattern="/wcm/connect" matchType="notContain"/>
+                <requestUrl id="excludeWcmMyConnect" urlPattern="/wcm/myconnect" matchType="notContain"/>
             </authFilter>
             ```
 
@@ -54,6 +59,7 @@ Refer to the following steps to enable OIDC authentication in DX Compose:
 
         The `excludeSiteBuilderResource` exclusion is required for Site Builder. The `SiteBuilderPortlet` initiates a background `SiteCreationTask` that makes an internal server-to-server call. When OIDC intercepts this programmatic call, Open Liberty redirects the request to the identity provider, but the background task lacks the browser context to follow this redirect, causing the internal call to fail and preventing successful site creation.
 
+    - If your `oidc.yaml` already has an `authFilter`, add any missing `requestUrl` exclusions to the existing filter.
     - If your DX Compose environment uses a different context root, add additional `urlPattern` entries to the `authFilter` for your custom context root.
 
         !!!note
