@@ -1,0 +1,316 @@
+# Install the HCL DX Compose 9.5 components
+
+This section provides a high-level overview of the architecture and the steps to install, configure, and update the HCL Digital Experience (DX) Compose 9.5 components: Experience API, Content Composer, and Digital Asset Management (DAM).
+
+**Video**: [Install HCL Digital Experience Compose components \(Experience API, Content Composer, and Digital Asset Management\) on Red Hat OpenShift](https://youtu.be/Hhop8M89SVA){:target="_blank"}
+
+## Prerequisite
+
+DX Administrators can choose to install the DX Compose containers then proceed to install Content Composer and DAM containers to the supported Kubernetes container platforms as outlined in the following steps. See the [Deployment image files](https://help.hcl-software.com/digital-experience/9.5/latest/deployment/install/container/image_list/) section for the latest DX Compose 9.5 container file listings.
+
+Deploying the HCL DAM or Content Composer components is supported on Kubernetes or OpenShift platforms and is not supported for deployment to Docker platforms. See the [System requirements](https://help.hcl-software.com/digital-experience/9.5/latest/get_started/system_requirements/kubernetes/kubernetes-runtime/) section for more information and the latest updates.
+
+!!! note
+    For initial deployments, it is recommended to install the HCL DX Compose 9.5 components (Experience API, Content Composer, and DAM) to a non-production (test) HCL DX Compose 9.5 environment.
+
+## Installing the HCL DX Compose 9.5 Container components
+
+Follow these steps to install your HCL DX Compose 9.5 components (Experience API, Content Composer, and DAM):
+
+**Asset Management components**
+
+If installing in conjunction with HCL DX Compose 9.5, follow the instructions in the [Container Deployment](https://help.hcl-software.com/digital-experience/9.5/latest/deployment/install/container/helm_deployment/overview/) topic. This page lists the latest HCL DX Compose 9.5 product images available and how to obtain and load the images into your Docker repository before continuing with these instructions.
+
+If installing to an existing HCL DX Compose 9.5 Kubernetes environment:
+
+1. Verify that you can access the HCL DX Compose 9.5 Practitioner Studio by logging in to your HCL DX Compose 9.5 Practitioner Studio interface. See the [HCL Digital Experience 9.5 Practitioner Studio](https://help.hcl-software.com/digital-experience/9.5/latest/build_sites/practitioner_studio/) topic for information.
+
+2. Download and extract the HCL DX Compose 9.5 components from your Digital Experience entitlements from the [My HCLSoftware (MHS) portal](https://my.hcltechsw.com/){target="_blank"} to the local file system.
+
+    **Sample download package name**: `hcl-dx-kubernetes-v95-CF181-other.zip` or higher, depending on the DX Compose 9.5 Container Update version you are installing.
+
+    **Example**:
+
+    ```
+    **hcl-dx-kubernetes-v95-CF181-other.zip:**
+    ```
+
+        -   **HCL Experience API (Docker image)** - `hcl-dx-ringapi-image-v1.0.0_xxxxxxxx-xxxx.tar.gz`
+        -   **Postgres** - `hcl-dx-postgres-image-v1.0.0_xxxxxxxx-xxxx.tar.gz`
+        -   **HCL Digital Asset Management (Operator)** - `hcl-dx-medialibrary-operator-image-v95_CF181_xxxxxxxx-xxxx.tar.gz`
+        -   **HCL Digital Asset Management (Image processor)** - `hcl-dx-image-processor-image-v1.0.0_xxxxxxxx-xxxx.tar.gz`
+        -   **HCL Digital Asset Management (Docker image)** - `hcl-dx-digital-asset-manager-image-v1.0.0_xxxxxxxx-xxxx.tar.gz`
+        -   **HCL Content Composer (Docker image)** - `hcl-dx-content-composer-image-v1.0.0_xxxxxxxx-xxxx.tar.gz`
+
+3. Extract the images to the local file system.
+4. Open a terminal window and change to the root directory of the extracted package images.
+5. Load the images into your Docker environment.
+
+    Example:
+
+    ```
+    Docker load < hcl-dx-ringapi-image-v1.0.0_xxxxxxxx-xxxx.tar.gz
+    ```
+
+    ```
+    Docker load < hcl-dx-medialibrary-operator-image-v95_CF181_xxxxxxxx-xxxx.tar.gz
+    ```
+
+    ```
+    Docker load < hcl-dx-digital-asset-manager-image-v1.0.0_xxxxxxxx-xxxx.tar.gz
+    ```
+
+    ```
+    Docker load < hcl-dx-content-composer-image-v1.0.0_xxxxxxxx-xxxx.tar.gz
+    ```
+
+    ```
+    Docker load < hcl-dx-image-processor-image-v1.0.0_xxxxxxxx-xxxx.tar.gz
+    ```
+
+    ```
+    Docker load < hcl-dx-postgres-image-v1.0.0_xxxxxxxx-xxxx.tar.gz
+    ```
+
+    !!! note
+        Either **`-i`** or **`<`** works for the load command. In case you encounter an error when using one, try running the command using the other.
+
+6. Get the Docker images in your local Docker repository to your target Kubernetes system by tagging and pushing them appropriately. If you used `docker load` to get your images on the target environment, proceed to the next step.
+7. Install the HCL DX Compose 9.5 Experience API, Content Composer, and DAM components by using the following steps.
+
+    !!! notes
+        -   The config map name value used must be the same as the HCL DX Compose 9.5 deployment. By default, the config map deployment name value is dx-deployment.
+        -   The HCL Experience API must be installed to access and use the HCL Content Composer and the HCL DAM features.
+        
+    !!! note "Reminder"
+        If you are currently running an HCL DX Compose 9.5 Kubernetes deployment in production, adding new components requires an outage and setup time so plan it carefully.
+
+    If you are creating the dx-deployment config map, you can use the following content (adjusting the image tag values to match your environment) to create a YAML file and use a command line client to create the config map which is used to deploy the HCL Experience API, HCL Content Composer, and HCL DAM components.
+
+    !!! note
+        It is possible to deploy the services for the HCL Experience API and HCL Content Composer and DAM, if either of those combinations is preferred, by removing either the HCL Content Composer or HCL DAM service lines from the YAML file.
+
+8. Confirm your HCL DX Compose 9.5 container instance is up and running on Amazon EKS, Microsoft Azure, or Red Hat OpenShift platform.
+
+    !!! note
+        If you are adding components for HCL Content Composer, HCL DAM, and HCL Experience API to an existing HCL DX Compose 9.5 environment deployment, you must stop the deployment and restart it with one (1) replica.
+
+    !!!reminder
+         For an initial deployment, it is not advisable to deploy these components to a production HCL DX Compose 9.5 deployment.
+
+9. Update the HCL DX Compose 9.5 container deployment configuration map to deploy the HCL Experience API, HCL Content Composer, and HCL DAM components.
+
+    !!! note
+        The config map name value used to support the components must be the same as the HCL DX Compose 9.5 deployment. By default, the config map deployment name value is `dx-deployment`.
+
+10. Create a YAML file with the following config map settings:
+
+    ```
+    kind: `ConfigMap`
+    ```
+
+    ```
+    metadata:
+      name: dx-deployment
+    ```
+
+11. Use the following example YAML (`dx-deploy-config-map.yaml`) to deploy the HCL Experience API, HCL Content Composer, and HCL DAM components. If deploying HCL Content Composer and HCL DAM components, replace their file names in the sample YAML file services lines used.
+
+    !!! note
+        It is possible to deploy the services for the HCL Experience API and HCL Content Composer and DAM by removing either the HCL Content Composer or HCL DAM service lines from the YAML file.
+
+    ```
+    kind: ConfigMap
+    metadata:
+      name: dx-deployment
+    data:
+      dx.deploy.dam.persistence.tag: v1.0.0_20200622-1806
+      dx.deploy.dam.persistence.image: portal/persistence/postgres
+      dx.deploy.dam.volume: volume name
+      dx.deploy.dam.imgprocessor.tag:  v95_CF181_20200622-1550
+      dx.deploy.remotesearch.tag: v95_CF181_20200622-1550
+      dx.deploy.dam.imgprocessor.image: portal/image-processor
+      dx.deploy.dam.storageclass: dx-deploy-stg
+      dx.deploy.remotesearch.image: dxrs
+      dx.deploy.openldap.tag: v1.0.0-release_20200622_1592846796
+      dx.deploy.openldap.image: dx-openldap
+      dx.deploy.contentui.tag: v1.0.0_20200622-1709
+      dx.deploy.contentui.image: portal/content-ui
+      dx.deploy.remotesearch.enabled: 'true'
+      dx.deploy.dam.tag: v1.0.0_20200622-1718
+      dx.deploy.experienceapi.tag: v1.0.0_20200622-1719
+      dx.deploy.experienceapi.image: portal/api/ringapi
+      dx.deploy.dam.image: portal/media-library
+      dx.deploy.openldap.enabled: 'true'
+      dx.deploy.contentui.enabled: 'true'
+      dx.deploy.experienceapi.enabled: 'true'
+      dx.deploy.dam.enabled: 'true'
+      dx.deploy.dam.operator.tag: v95_CF181_20200622-1756
+      dx.deploy.dam.operator.image: hcl-medialibrary-operator
+      dx.deploy.remotesearch.volume.storageclass: gp2
+    
+    ```
+
+    !!!notes
+        -   The deployment of HCL Content Composer and HCL Experience API components create:
+
+            -   The `dx.deploy.contentui.enabled` and `dx.deploy.experienceapi.enabled` configurations tell the operator to deploy HCL Content Composer and HCL Experience API components. This defaults to using the same repository as the HCL DX Compose 9.5 container core deployment.
+
+            -   Services `dx-deployment-service-content-ui` and `dx-deployment-service-ring-api`, and a route for each.
+                
+        -   Administrators can override the repository by adding the following to the config map entries:
+
+            ```
+            dx.deploy.contentui.repository
+            ```
+
+        -   The `dx.deploy.dam.enabled` tells the operator to deploy the HCL DAM component. Note that there are 4 required sets of image/tag parameters:
+
+            -   The HCL DAM operator component uses `prefixdx.deploy.dam.operator`.
+            -   The Postgres datastore component uses `dx.deploy.dam.persistence`.
+            -   The HCL DAM library services use `dx.deploy.dam`.
+            -   The Image processor uses `dx.deploy.dam.persistence`.
+
+            To override the repository values for the components above, use `dx.deploy.COMPONENT.repository`
+
+            The last two parameters in the example YAML file provide the storage class and volume (must be **ReadWriteMany**) for the HCL DAM component. This is where the persistence layer maintains the datastore layer.
+
+            The `dx.deploy.dam.volume: volume name` setting is optional if the storage class used/specified by `dx.deploy.dam.storageclass` is self-provisioning.
+
+            A `dx.dam.config.cors` config map setting is auto-generated and provides the ability for Cross Origin Resource Sharing across Content Composer and DAM resources.
+
+            In the HCL DX Compose 9.5 core deployment, the `dx.config.cors` setting is set in the DX configuration map. Reference the [Kubernetes Deployment](https://help.hcl-software.com/digital-experience/9.5/latest/deployment/install/container/) pages for additional details.
+
+            An additional self-provisioning volume is created for each of the HCL DAM Persistence (Postgres) pods. The access mode of these self-provisioning persistent volumes must include `ReadWriteOnce`. If this volume is not present the images are lost and shows blank if/when the HCL DAM library is restarted.
+
+            Administrators can override the repository by adding to:
+
+            ```
+            dx.deploy.contentui.repository
+            ```
+
+            In addition, the following default settings are configurable:
+
+            -   `dx.deploy.contentui.resources.cpurequest`, the default is 1.
+            -   `dx.deploy.contentui.resources.cpulimit`, the default is 3.
+            -   `dx.deploy.contentui.resources.memoryrequest`, the default is 2G.
+            -   `dx.deploy.contentui.resources.memorylimit`, the default is 4G.
+            -   `dx.deploy.experienceapi.resources.cpurequest`, the default is 1.
+            -   `dx.deploy.experienceapi.resources.cpulimit`, the default is 3.
+            -   `dx.deploy.experienceapi.resources.memoryrequest`, the default is 2G.
+            -   `dx.deploy.experienceapi.resources.memorylimit`, the default is 4G.
+            
+            Additional configuration options are currently not supported.
+
+12. Deploy the YAML (`dx-deploy-config-map.yaml`) by issuing the following:
+
+    - Kubernetes command:
+        ```
+        kubectl apply -f dx-deploy-config-map.yaml -n your-namespace
+        ```
+
+    - OpenShift command:
+        ```
+        oc project your-namespace
+        ```
+
+        followed by:
+
+        ```
+        oc apply -f dx-deploy-config-map.yaml
+        ```
+
+13. Stop and restart the HCL DX Compose 9.5 container deployment.
+
+    !!! note
+        If you are adding components for HCL Content Composer, HCL DAM, and HCL Experience API to an existing HCL Digital Experience Compose 9.5 deployment, you must stop the deployment and restart it with one (1) replica. Once it is fully started, you can safely scale it to `N` instances.
+
+    !!! note "Reminder"
+        As outlined in this section, adding new components to a production deployment requires an outage and some setup time. It is advisable to plan carefully if you are currently running an HCL DX Compose container deployment in a supported Kubernetes environment.
+
+14. Change to the extracted hcl-dx-cloud-scripts directory.
+
+    ```
+    ./scripts/removeDx.sh NAMESPACE
+    ```
+
+    !!! note 
+        This script removes resources from the existing deployment \(pods, statefulsets, etc\) but does not remove persisted data or existing configmaps.
+
+15. Remove the `claimRef` from the PersistedVolume.
+
+16. Open the persistent volume in a visual editor (vi) using the Kubernetes or OpenShift command line client command:
+
+    ```
+    kubectl edit pv <pv name>
+    ```
+
+    or
+
+    ```
+    oc edit pv <pv name>
+    ```
+
+17. Remove the `claimRef` section:
+
+    ```
+    claimRef:
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+    name: dx-deploy-pvc
+    namespace: awseks-demo
+    resourceVersion: "488931120"
+    uid: ebd58361-0e2a-11ea-b02e-02f8fe687954
+    ```
+
+18. Ensure you get the '`persistentvolume/your_namespace edited`' message.
+
+19. Change to the extracted hcl-dx-cloud-scripts directory.
+
+    ```
+    ./scripts/deployDx.sh NAMESPACE REPLICAS REPOSITORY IMAGENAME IMAGETAG VOLUMENAME STORAGECLASS DBTYPE
+    ```
+
+    or
+
+    ```
+    ./scripts/deployDx.sh NAMESPACE REPLICAS REPOSITORY IMAGENAME IMAGETAG VOLUMENAME STORAGECLASS DBTYPE INGRESSIMAGE INGRESSTAG
+    ```
+
+    !!! note
+        You must restart the deployment with one (1) replica. Once it is fully started, you can safely scale it to `N` instances.
+
+    !!!reminder
+        As outlined in this section, adding new components to a production deployment requires an outage and some setup time. It is advisable to plan carefully if you are currently running an HCL DX Compose container deployment in a supported Kubernetes environment.
+
+20. Access the HCL Content Composer and HCL DAM components by navigating to **Practitioner Studio > Web Content > Content**, or **Practitioner Studio > Digital Assets**.
+
+    ```
+    https://your-portal.net/wps/myportal/Practitioner/Web Content/Content Library
+    ```
+
+    ```
+    https://your-portal.net/wps/myportal/Practitioner/Digital Assets
+    ```
+
+21. Access the HCL Experience API Explorer at the following URL:
+
+    ```
+    http://<HOST>:<PORT>dx/api/core/v1/explorer
+    ```
+
+    For example,
+
+    ```
+    http://127.0.0.1:3000/dx/api/core/v1/explorer
+    ```
+
+## (Optional) Configure DAM with a CDN
+
+If you are using a content delivery network (CDN) such as [Akamai](https://www.akamai.com/our-thinking/cdn/what-is-a-cdn){:target="_blank"}, using `Vary: Origin` may prevent you from caching content. To bypass this limitation, your CDN configuration must strip the `Vary` header on the way in, to reinstate your ability to cache content. On the way out, you can append the `Origin` parameter to the `Vary` header when serving a response using **'Modify Outgoing Response Header'**.
+
+???+ info "Related information"  
+    - [HCL Digital Asset Management](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/digital_assets/)
+    - [Enabling Practitioner Studio](https://help.hcl-software.com/digital-experience/9.5/latest/build_sites/practitioner_studio/working_with_ps/enable_prac_studio/)
+    - [Docker image deployment](https://help.hcl-software.com/digital-experience/9.5/latest/deployment/install/container/helm_deployment/overview/)
+    - [Digital Asset Management persistence architecture](https://help.hcl-software.com/digital-experience/9.5/latest/get_started/plan_deployment/container_deployment/dam_persistence_architecture/)

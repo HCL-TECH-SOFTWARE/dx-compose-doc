@@ -26,6 +26,17 @@ Learn how to enable, configure, and start using the WCM REST v3 APIs, including 
 - **[Using Web Content Manager REST API v3](use_wcm_rest_v3.md)**  
 Learn how to interact with WCM resources, execute queries, and apply best practices when using WCM REST API v3 endpoints.
 
+## See it in action
+
+<div style="position: relative; padding-bottom: calc(56.885% + 41px); height: 0px; width: 100%;"><iframe src="https://demo.arcade.software/j90iWMzIAniKgYgMXAyY?embed&embed_mobile=tab&embed_desktop=inline&show_copy_link=true" title="Discover HCL DX WCM V3 APIs" frameborder="0" loading="lazy" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="clipboard-write; autoplay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; color-scheme: light;" ></iframe></div>
+
+## HCLSoftware U learning materials
+
+!!!note
+    Access HCLSoftware U resources for free. [Log in](https://hclsoftwareu.hcl-software.com/login-page){target="_blank"} or [Sign up](https://hclsoftwareu.hcl-software.com/hclsoftwareu-signup){target="_blank"} to get started. If you have further questions, [Contact us](https://hclsoftwareu.hcl-software.com/contactus){target="_blank"} or check the [FAQ](https://hclsoftwareu.hcl-software.com/frequently-asked-questions){target="_blank"}.
+
+For an introduction to the WCM V3 API, go to the [What’s New in DX CF238 interactive lesson](https://hclsoftwareu.hcl-software.com/component/axs/?view=sso_config&id=4&forward=https%3A%2F%2Fhclsoftwareu.hcl-software.com%2Fcourses%2Flesson%2F%3Fid%3D4727){target="_blank"}.
+
 ???+ info "Related information"
     - [REST service for Web Content Manager v2](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_development/wcm_rest_v2/){target="_blank"}
     - [REST service for Web Content Manager v1](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_development/wcm_rest/){target="_blank"}
