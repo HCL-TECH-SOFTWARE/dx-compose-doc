@@ -1,19 +1,19 @@
 ---
-title: Getting started with the REST service for Web Content Manager V2
+title: Getting started with the REST service for WCM V2
 ---
 
-# Getting started with the REST service for Web Content Manager V2
+# Getting started with the REST service for WCM V2
 
 This topic provides information about the new APIs available from CF217 and higher.
 
-These V2 APIs are created to complete the available actions for content and other WCM artifacts. They are either developed from scratch or created to bring their corresponding [REST service for Web Content Manager V1 APIs](../wcm_rest/index.md) to the V2 Swagger interface. You can find detailed information about V2 APIs at [WCM REST V2 API documentation](https://opensource.hcltechsw.com/experience-api-documentation/wcm-api/). For a comparison of V1 and V2 APIs, see [Differences between V1 and V2 APIs](comparison_v1_v2.md).
+These V2 APIs are created to complete the available actions for content and other Web Content Manager (WCM) artifacts. They are either developed from scratch or created to bring their corresponding [REST service for WCM V1 APIs](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_development/wcm_rest/) to the V2 Swagger interface. You can find detailed information about V2 APIs at [WCM REST V2 API documentation](https://opensource.hcltechsw.com/experience-api-documentation/wcm-api/). For a comparison of V1 and V2 APIs, see [Differences between V1 and V2 APIs](comparison_v1_v2.md).
 
 If you are working with WCM via REST, it is recommended to use the WCM REST V2 API.
 
 !!! note
     Most of the APIs introduced in the WCM REST V2 API explorer adhere to the same API path or URI fragment structure as the WCM V1 APIs.
 
-For the WCM REST V1 version of the APIs, refer to **[How to manage web content items by using REST](../wcm_rest/wcm_rest_mng_content/index.md)**.
+For the WCM REST V1 version of the APIs, refer to **[How to manage web content items by using REST](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_development/wcm_rest/wcm_rest_mng_content/)**.
 
 ## APIs added or modified in CF217
 
@@ -84,7 +84,7 @@ Go to **Resources** > **Resource Environment** > **Resource Environment Provider
 
 ???+ info "Related information"
     - [WCM REST V2 API documentation](https://opensource.hcltechsw.com/experience-api-documentation/wcm-api/)
-    - [REST API Explorers](../../../extend_dx/apis/hcl_experience_api/api_explorers.md)
-    - [HCL Experience API](../../../extend_dx/apis/hcl_experience_api/index.md)
+    - [REST API Explorers](https://help.hcl-software.com/digital-experience/9.5/latest/extend_dx/apis/hcl_experience_api/api_explorers/)
+    - [HCL Experience API](https://help.hcl-software.com/digital-experience/9.5/latest/extend_dx/apis/hcl_experience_api/)
 
 
