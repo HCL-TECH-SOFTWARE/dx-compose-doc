@@ -9,6 +9,6 @@ Renditions automatically render a version of your image that is best suited for 
 5. When you are finished, click **Place Rendition**.
 
 !!!note
-    - For component and element tags that reference an image, the attribute `rendition="auto"` renders the rendition based on the current device class, such as tablet. If that rendition is empty it renders the default rendition desktop per default, which is defined with `default.rendition.name` in the Web Content Manager Config Service Resource Environment Provider. If that is empty, it renders the main image.
+    - For component and element tags that reference an image, the attribute `rendition="auto"` renders the rendition based on the current device class, such as tablet. If that rendition is empty it renders the default rendition desktop per default, which is defined with `default.rendition.name` in the WCM Config Service Resource Environment Provider. If that is empty, it renders the main image.
     - For component and element tags that reference an image with the rendition attribute set to either **desktop**, **tablet**, or **smartphone**, the specified rendition is rendered and no fallback is performed. Specifying `rendition="none"` renders the main image.
     - If you do not specify the rendition attribute, the main image renders and `rendition="auto"` is the default.
