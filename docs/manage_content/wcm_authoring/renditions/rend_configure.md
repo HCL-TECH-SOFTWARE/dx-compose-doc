@@ -9,9 +9,9 @@ Renditions are enabled by default. You can enable or disable renditions by speci
 
     ```yaml
     configuration:
-    webEngine:
+      webEngine:
         propertiesFilesOverrides:
-        WCMConfigService.properties: 
+          WCMConfigService.properties: 
             renditions.enabled: "true"
     ```
 
