@@ -23,7 +23,7 @@ Use Single Sign-On (SSO) for interactive API testing in the API Explorer or cust
 
 To authenticate using SSO:
 
-1. Sign in to your HCL DX environment in a web browser.
+1. Sign in to your HCL Digital Experience (DX) Compose environment in a web browser.
 2. Open the API Explorer in the same browser session.
 
 ## Endpoints
@@ -49,7 +49,7 @@ For details on how to view complete list of endpoints, refer to [Testing an endp
 
 ## API Explorer
 
-The WCM API v3 includes a built-in Swagger UI-based API Explorer for interactive testing and documentation. Access the interactive API Explorer at `/dx/api/wcm/v3/explorer/` on the DX host to test endpoints and inspect OpenAPI specifications directly in the browser. Use the interface to perform the following tasks:
+The WCM API v3 includes a built-in Swagger UI-based API Explorer for interactive testing and documentation. Access the interactive API Explorer at `/dx/api/wcm/v3/explorer/` on the DX Compose host to test endpoints and inspect OpenAPI specifications directly in the browser. Use the interface to perform the following tasks:
 
 The canonical OpenAPI document served by the same host is `/dx/api/wcm/v3/specs/openapi.json`. Use it for endpoint-specific parameter descriptions and request/response schemas.
 
@@ -60,22 +60,22 @@ The canonical OpenAPI document served by the same host is `/dx/api/wcm/v3/specs/
 
 ### Testing an endpoint
 
-1. Sign in to the DX server's web UI in the same browser to use your session cookie, or select **Authorize** and enter DX credentials for HTTP Basic authentication.
+1. Sign in to the DX Compose server's web UI in the same browser to use your session cookie, or select **Authorize** and enter DX Compose credentials for HTTP Basic authentication.
 2. Browse to an endpoint (for example **Libraries > GET /libraries**).
 3. Select **Try it out**.
 4. Set parameters (for example `limit=10`).
 5. Select **Execute**.
 6. View the response with actual data.
 
-Explorer-generated cURL reflects the values selected in the Explorer, so its query can differ from the examples in this guide. For example, `fields=name,title,published` is included when those fields are selected, while the guide's content-list example adds `libraryId` and `limit` as filters. Explorer may also include declared defaults such as `offset=0`, `limit=100`, `page=0`, `pageSize=0`, and `includeMetadata=false`; these do not all need to be supplied. Use either `offset`/`limit` (zero-based offset) or positive `page`/`pageSize` values, not both; positive `page`/`pageSize` values override `offset`/`limit`.
+Explorer-generated `curl` reflects the values selected in the Explorer, so its query can differ from the examples in this guide:
 
-Explorer-generated cURL also includes `-X GET` and `Accept: application/json` to make the method and response format explicit. The examples omit these because cURL defaults to GET for requests without a body, and the API returns JSON.
+- Explorer includes `fields=name,title,published` when you select those fields, while the guide's content-list example adds `libraryId` and `limit` as filters. Explorer can also include declared defaults such as `offset=0`, `limit=100`, `page=0`, `pageSize=0`, and `includeMetadata=false`. You do not need to supply all of them. Use either zero-based `offset` and `limit` values or positive `page` and `pageSize` values, not both. Positive `page` and `pageSize` values override `offset` and `limit`.
 
-Explorer requests use a browser session cookie or **Authorize** credentials. A copied cURL command may not include a browser-session cookie, so add `-u user:password` (or an appropriate cookie) before running it outside the browser. The examples in this guide use HTTP Basic credentials explicitly.
+- Explorer includes `-X GET` and `Accept: application/json` to make the method and response format explicit. The examples omit these options because `curl` defaults to `GET` for requests without a body, and the API returns JSON.
 
-Explorer-generated cURL includes `-X GET` explicitly and `Accept: application/json`; these examples omit them because cURL uses GET by default, while the `Accept` header makes the requested JSON response explicit.
+- Explorer requests use a browser session cookie or **Authorize** credentials. A copied `curl` command might not include a browser session cookie, so add `-u user:password` or an appropriate cookie before running the command outside the browser. The examples in this guide use HTTP Basic credentials explicitly.
 
-For example to show a list of libraries:
+For example, to show a list of libraries:
 
 1. Navigate to the API Explorer.
 2. Expand the **Libraries** section.
@@ -91,13 +91,11 @@ All WCM API v3 list endpoints support standard query parameters:
 
 | Parameter | Type | Description | Example |
 |-----------|------|-------------|---------|
-| `offset` | int | Zero-based starting index for pagination | `?offset=0` |
-| `limit` | int | Maximum items per page (`1` to `1000`, default `100`) | `?limit=50` |
-| `fields` | string | Comma-separated resource-specific fields; see the OpenAPI parameter for each endpoint | `?fields=id,name,title` (libraries) |
-| `includeMetadata` | boolean | Include full metadata (creator, workflow, etc.) | `?includeMetadata=true` |
-| `libraryId` | string | Filter by library (for contents, site areas, etc.) | `?libraryId=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` |
-
-UUIDs shown as `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` in the examples are placeholders, not real IDs. Replace them with IDs from your DX environment.
+| `offset` | int | Zero-based starting index for pagination. | `?offset=0` |
+| `limit` | int | Maximum number of items per page. Allowed values are `1` to `1000`, and the default is `100`. | `?limit=50` |
+| `fields` | string | Comma-separated list of resource-specific fields. Refer to the OpenAPI parameter for each endpoint. | `?fields=id,name,title` (libraries) |
+| `includeMetadata` | boolean | Specifies whether to include full metadata, such as creator and workflow details. | `?includeMetadata=true` |
+| `libraryId` | string | Filters results by library for resources such as content items and site areas. Replace `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` with universally unique identifiers (UUIDs) from your DX Compose environment. | `?libraryId=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` |
 
 ## Usage examples
 
@@ -130,9 +128,9 @@ WCM API v3 automatically detects Virtual Portal (VP) context from the request:
 
 ## Response format
 
-All WCM API v3 responses follow a consistent structure:
+WCM API v3 responses use a consistent structure.
 
-Single resource response:
+The following example shows a single-resource response, where `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` represents a UUID from your DX Compose environment:
 
 ```json
 {
@@ -148,7 +146,7 @@ Single resource response:
 }
 ```
 
-Collection response (two items shown from a 10-item page):
+The following example shows a collection response with two items from a 10-item page:
 
 ```json
 {
