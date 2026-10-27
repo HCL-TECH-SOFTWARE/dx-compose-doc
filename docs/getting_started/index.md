@@ -4,6 +4,10 @@ Digital Experience (DX) Compose is a cloud-native platform for delivering conten
 
 DX Compose is released under the HCLSoftware Continuous Delivery Support Policy, and will be releasing incremental and cumulative updates to progressively provide new features and fixes.
 
+<div style="position: relative; padding-bottom: calc(56.885% + 41px); height: 0px; width: 100%;"><iframe src="https://demo.arcade.software/I4tcGeWFA6xl37SU7Rdb?embed&embed_mobile=tab&embed_desktop=inline&show_copy_link=true" title="HCL Digital Experience Introduction for Business Users" frameborder="0" loading="lazy" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="clipboard-write; autoplay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; color-scheme: light;" ></iframe></div>
+
+DX Compose builds on the DX Core container architecture and introduces the WebEngine container. The following topics describe the platform, how it differs from DX Core, its requirements and limitations, and where to download the software.
+
 - **[Product overview](product_overview/index.md)**  
 Review the core features and capabilities of DX Compose.
 - **[HCL DX offerings](offerings.md)**  
@@ -20,10 +24,6 @@ Download HCL DX Compose from the [My HCLSoftware (MHS)](https://my.hcltechsw.com
 Know the differences of WebEngine from the DX Core container.
 - **[DX Compose limitations](./product_overview/limitations.md)**  
 Review the current system limitations and unsupported capabilities in DX Compose.
-
-## See it in action
-
-<div style="position: relative; padding-bottom: calc(56.885% + 41px); height: 0px; width: 100%;"><iframe src="https://demo.arcade.software/I4tcGeWFA6xl37SU7Rdb?embed&embed_mobile=tab&embed_desktop=inline&show_copy_link=true" title="HCL Digital Experience Introduction for Business Users" frameborder="0" loading="lazy" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="clipboard-write; autoplay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; color-scheme: light;" ></iframe></div>
 
 ## HCLSoftware U learning materials
 
