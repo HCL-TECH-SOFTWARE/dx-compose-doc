@@ -75,6 +75,7 @@ Refer to the following list of Helm chart versions and their corresponding Cumul
 
 | CF version | HCL DX Deployment version | HCL DX Search version | HCL DX IQ version |
 | :--------- | :------------------------ | :-------------------- | :---------------- |
+| CF239      | 2.50.0                    | 2.37.0                | 1.0.3             |
 | CF238      | 2.49.0                    | 2.36.0                | 1.0.2             |
 | CF237      | 2.48.0                    | 2.35.0                | 1.0.1             |
 | CF236      | 2.47.0                    | 2.34.0                | 1.0.0             |
