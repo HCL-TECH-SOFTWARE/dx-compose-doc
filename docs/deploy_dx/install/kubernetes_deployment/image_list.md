@@ -59,7 +59,7 @@ This section presents the latest Red Hat Universal Base Image (UBI) level for HC
 
 |Image scope|UBI level|
 |-----------|---------|
-|All component images|9.8-1792742827|
+|All component images|9.8-1792742033|
 
 <!--
 
