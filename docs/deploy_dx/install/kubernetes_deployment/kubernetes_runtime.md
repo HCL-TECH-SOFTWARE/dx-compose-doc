@@ -50,7 +50,7 @@ This table provides information about the OpenLiberty, Java Runtime Environment 
 
 |CF Level|OpenLiberty|JRE|UBI|
 |--------|-----------|---|---|
-|CF239|26.0.0.8|21.0.12.0 (build 21.0.12+x-LTS)|9.8-1792742827|
+|CF239|26.0.0.9|21.0.12.1 (build 21.0.12+x-LTS)|9.8-1792742033|
 |CF238|26.0.0.8|21.0.12.0 (build 21.0.12+x-LTS)|9.8-1788166357|
 |CF237|26.0.0.3|21.0.9.0 (build 21.0.9+10-LTS)|9.8-1780378819|
 |CF236|26.0.0.3|21.0.9.0 (build 21.0.9+10-LTS)|9.7-1776104705|
