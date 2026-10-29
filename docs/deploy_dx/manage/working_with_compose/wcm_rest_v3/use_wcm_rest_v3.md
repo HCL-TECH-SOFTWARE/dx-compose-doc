@@ -4,11 +4,24 @@ This guide provides practical examples for using the WCM REST API v3 to manage W
 
 ## Prerequisites
 
-- Web Content Management (WCM) API v3 is enabled (enabled by default in Cumulative Fix (CF) 238 or a later version).
+- Web Content Management (WCM) API v3 is enabled. WCM API v3 is enabled by default in Cumulative Fix (CF) 238 and later versions.
 - Valid HCL DX credentials are available.
 - A basic understanding of REST APIs and HTTP methods is required.
 
 For authentication and endpoint details, refer to [Configuring Web Content Manager REST API v3](configure_wcm_rest_v3.md).
+
+## API Explorer and `curl` requests
+
+The API Explorer (`https://your-dx-host/dx/api/wcm/v3/explorer/`) loads the canonical OpenAPI specification (`https://your-dx-host/dx/api/wcm/v3/specs/openapi.json`). Replace `your-dx-host` with your DX host. The examples in this guide are standalone `curl` requests using HTTP Basic credentials (`-u`).
+
+Explorer-generated `curl` reflects the values selected in the Explorer, so its query can differ from the following examples:
+
+- Explorer includes `fields=name,title,published` when you select those fields, while the guide's content-list example adds `libraryId` and `limit` as filters. Explorer can also include declared defaults such as `offset=0`, `limit=100`, `page=0`, `pageSize=0`, and `includeMetadata=false`. You do not need to supply all of them. Use either zero-based `offset` and `limit` values or positive `page` and `pageSize` values, not both. Positive `page` and `pageSize` values override `offset` and `limit`.
+- Explorer includes `-X GET` and `Accept: application/json` to make the method and response format explicit. The examples omit these options because `curl` defaults to `GET` for requests without a body, and the API returns JSON.
+- Explorer requests use a browser session cookie or **Authorize** credentials. A copied `curl` command might not include a browser session cookie, so add `-u user:password` or an appropriate cookie before running the command outside the browser. The examples in this guide use HTTP Basic credentials explicitly.
+
+!!!note
+    Replace the `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` placeholders in this guide with IDs from your DX Compose environment. Use IDs returned by create requests in subsequent calls.
 
 ## Libraries
 
@@ -28,7 +41,7 @@ Response:
   "pagination": {
     "offset": 0,
     "limit": 10,
-    "total": 5
+    "total": 1
   },
   "links": {
     "self": "/dx/api/wcm/v3/libraries?offset=0&limit=10",
@@ -57,7 +70,7 @@ To retrieve details of a specific library by ID:
 
 ```bash
 curl -k -u user:password \
-  https://your-dx-host/dx/api/wcm/v3/libraries/wcm:oid:lib-001
+  https://your-dx-host/dx/api/wcm/v3/libraries/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
 Response:
@@ -114,7 +127,7 @@ To update specific fields of a library using `PATCH`:
 ```bash
 # First, get the ETag
 ETAG=$(curl -s -I -k -u user:password \
-  https://your-dx-host/dx/api/wcm/v3/libraries/wcm:oid:lib-002 | \
+  https://your-dx-host/dx/api/wcm/v3/libraries/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | \
   grep -i etag | cut -d' ' -f2 | tr -d '\r')
 
 # Then update with PATCH
@@ -125,7 +138,7 @@ curl -k -u user:password \
   -d '{
     "description": "Updated description"
   }' \
-  https://your-dx-host/dx/api/wcm/v3/libraries/wcm:oid:lib-002
+  https://your-dx-host/dx/api/wcm/v3/libraries/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
 Response (200 OK):
@@ -150,7 +163,7 @@ To delete a library:
 ```bash
 curl -k -u user:password \
   -X DELETE \
-  https://your-dx-host/dx/api/wcm/v3/libraries/wcm:oid:lib-002
+  https://your-dx-host/dx/api/wcm/v3/libraries/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
 Response: (204 No Content)
@@ -163,7 +176,7 @@ To retrieve a list of content items from a specific library:
 
 ```bash
 curl -k -u user:password \
-  "https://your-dx-host/dx/api/wcm/v3/contents?libraryId=wcm:oid:lib-001&limit=10"
+  "https://your-dx-host/dx/api/wcm/v3/contents?libraryId=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&limit=10"
 ```
 
 ### Retrieving specific content
@@ -172,7 +185,7 @@ To retrieve a specific content item:
 
 ```bash
 curl -k -u user:password \
-  https://your-dx-host/dx/api/wcm/v3/contents/wcm:oid:content-001
+  https://your-dx-host/dx/api/wcm/v3/contents/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
 ### Creating content
@@ -186,8 +199,8 @@ curl -k -u user:password \
   -d '{
     "name": "welcome-article",
     "title": "Welcome Article",
-    "libraryId": "wcm:oid:lib-001",
-    "siteAreaId": "wcm:oid:sa-001"
+    "libraryId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "siteAreaId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
   }' \
   https://your-dx-host/dx/api/wcm/v3/contents
 ```
@@ -200,7 +213,7 @@ To retrieve a list of site areas from a library:
 
 ```bash
 curl -k -u user:password \
-  "https://your-dx-host/dx/api/wcm/v3/site-areas?libraryId=wcm:oid:lib-001"
+  "https://your-dx-host/dx/api/wcm/v3/site-areas?libraryId=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 ```
 
 ### Creating a site area
@@ -214,7 +227,7 @@ curl -k -u user:password \
   -d '{
     "name": "articles",
     "title": "Articles",
-    "libraryId": "wcm:oid:lib-001"
+    "libraryId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
   }' \
   https://your-dx-host/dx/api/wcm/v3/site-areas
 ```
@@ -237,11 +250,11 @@ curl -k -u user:password \
 
 ### Requesting specific fields
 
-To request only specific fields to reduce payload size:
+To request only specific fields to reduce payload size, use names valid for that resource. For example, libraries accept `id,name,title,description,type,enabled,allowDeletion,created,lastModified` and full-response fields such as `creator,lastModifier,links`; contents accept `id,name,title,status,libraryId,siteAreaId,contentType` and full-response fields such as `elements,workflow,links`. These are examples, not exhaustive lists. The `fields` parameter description for each endpoint in the [OpenAPI specification](`https://your-dx-host/dx/api/wcm/v3/specs/openapi.json`) lists its supported fields. Resource field selection uses top-level names; search additionally supports nested paths such as `data.Body` and `workflow.publishDate`.
 
 ```bash
 curl -k -u user:password \
-  "https://your-dx-host/dx/api/wcm/v3/libraries?fields=id,name,title"
+  "https://your-dx-host/dx/api/wcm/v3/libraries?fields=id,name,title&limit=50"
 ```
 
 Response:
@@ -251,17 +264,18 @@ Response:
   "pagination": {
     "offset": 0,
     "limit": 50,
-    "total": 5
+    "total": 1
   },
   "links": {
-    "self": "/dx/api/wcm/v3/libraries?fields=id,name&offset=0&limit=50",
-    "first": "/dx/api/wcm/v3/libraries?fields=id,name&offset=0&limit=50",
-    "last": "/dx/api/wcm/v3/libraries?fields=id,name&offset=0&limit=50"
+    "self": "/dx/api/wcm/v3/libraries?fields=id,name,title&offset=0&limit=50",
+    "first": "/dx/api/wcm/v3/libraries?fields=id,name,title&offset=0&limit=50",
+    "last": "/dx/api/wcm/v3/libraries?fields=id,name,title&offset=0&limit=50"
   },
   "items": [
     {
       "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-      "name": "web content"
+      "name": "web content",
+      "title": "Web Content"
     }
   ]
 }
@@ -273,7 +287,7 @@ To request metadata, such as creator and workflow details:
 
 ```bash
 curl -k -u user:password \
-  "https://your-dx-host/dx/api/wcm/v3/contents/wcm:oid:content-001?includeMetadata=true"
+  "https://your-dx-host/dx/api/wcm/v3/contents/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx?includeMetadata=true"
 ```
 
 ## Search
@@ -293,16 +307,16 @@ To search within a specific library:
 
 ```bash
 curl -k -u user:password \
-  "https://your-dx-host/dx/api/wcm/v3/search?q=article&libraryId=wcm:oid:lib-001"
+  "https://your-dx-host/dx/api/wcm/v3/search?q=article&libraryId=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 ```
 
-## Error handling examples
+## Troubleshooting
 
 ### 404 Not Found
 
 ```bash
 curl -k -u user:password \
-  https://your-dx-host/dx/api/wcm/v3/libraries/wcm:oid:invalid-id
+  https://your-dx-host/dx/api/wcm/v3/libraries/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
 Response (404):
@@ -312,8 +326,8 @@ Response (404):
   "type": "https://api.hcl.com/problems/not-found",
   "title": "Library not found",
   "status": 404,
-  "detail": "Library with id 'wcm:oid:invalid-id' not found",
-  "instance": "a1b2c3d4-5e6f-7g8h-9i0j-k1l2m3n4o5p6"
+  "detail": "Library with id 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx' not found",
+  "instance": "/dx/api/wcm/v3/libraries/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 }
 ```
 
@@ -325,7 +339,7 @@ curl -k -u user:password \
   -H "Content-Type: application/merge-patch+json" \
   -H "If-Match: \"wrong-etag\"" \
   -d '{"description": "Updated"}' \
-  https://your-dx-host/dx/api/wcm/v3/libraries/wcm:oid:lib-001
+  https://your-dx-host/dx/api/wcm/v3/libraries/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
 Response (412):
@@ -336,7 +350,7 @@ Response (412):
   "title": "Precondition Failed",
   "status": 412,
   "detail": "The resource has been modified since the ETag was generated",
-  "instance": "b2c3d4e5-6f7g-8h9i-0j1k-l2m3n4o5p6q7"
+  "instance": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 }
 ```
 
@@ -347,7 +361,7 @@ Response (412):
     ```bash
     # Good: Get ETag first
     ETAG=$(curl -s -I -k -u user:password \
-      https://your-dx-host/dx/api/wcm/v3/libraries/wcm:oid:lib-001 | \
+      https://your-dx-host/dx/api/wcm/v3/libraries/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | \
       grep -i etag | cut -d' ' -f2 | tr -d '\r')
 
     curl -k -u user:password \
@@ -355,7 +369,7 @@ Response (412):
       -H "If-Match: $ETAG" \
       -H "Content-Type: application/merge-patch+json" \
       -d '{"description": "Updated"}' \
-      https://your-dx-host/dx/api/wcm/v3/libraries/wcm:oid:lib-001
+      https://your-dx-host/dx/api/wcm/v3/libraries/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
     ```
 
 - Use `PATCH` for partial updates
@@ -367,7 +381,7 @@ Response (412):
       -H "Content-Type: application/merge-patch+json" \
       -H "If-Match: $ETAG" \
       -d '{"description": "New description"}' \
-      https://your-dx-host/dx/api/wcm/v3/libraries/wcm:oid:lib-001
+      https://your-dx-host/dx/api/wcm/v3/libraries/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 
     # Avoid: PUT requires full resource representation
     ```
