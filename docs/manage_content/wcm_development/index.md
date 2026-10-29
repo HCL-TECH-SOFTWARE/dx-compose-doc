@@ -19,7 +19,7 @@ A custom plug-in allows you to run tasks. For example, you can create plug-ins t
 - **[REST service for WCM](./wcm_rest/index.md)**  
 Application developers can use Representational State Transfer (REST) services to work with WCM.
 - **[REST service for WCM v2](./wcm_rest_v2/index.md)**  
-Starting from CF217, you can run V2 APIs for WCM content and artifacts.
+You can run V2 APIs for WCM content and artifacts.
 - **[Determining the current web content context](./wcm_dev_context.md)**  
 Using the WCM Page Content Service, you can determine the current web content context of a portal page or Web Content Viewer portlet.
 - **[Creating a custom HTML editor integration](./wcm_dev_custom_html_editor.md)**  
@@ -37,7 +37,7 @@ Translated text can be stored in a content item or site area. The translated tex
 - **[Java messaging services for web content](./wcm_jms_enable.md)**  
 WCM supports event notifications such as item state changes, or services starting and stopping. These notifications can be delivered as messages to the Java messaging service.  
 - **[AI analyzer API for content](./wcm_rest_v2_ai_analysis/index.md)**  
-Starting from CF213, a new WCM REST v2 API is available for sentiment analysis of content, keyword extraction from content, and auto summarization of content element.
+A new WCM REST v2 API is available for sentiment analysis of content, keyword extraction from content, and auto summarization of content element.
 
 ## HCLSoftware U learning materials
 
