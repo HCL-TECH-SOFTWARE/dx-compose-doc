@@ -1,75 +1,81 @@
 # Access web content by using a servlet
 
-Users can access content that is displayed by using the Web Content Manager (WCM) servlet by connecting to a URL. A servlet delivered website is used when you don't need to use any HCL Portal based features such as authoring tools.
+You can access content displayed by the Web Content Manager (WCM) servlet by connecting to a URL. Use a servlet-delivered website when you do not need HCL Digital Experience (DX) Compose features, such as authoring tools.
 
 ## Accessing a web page by using a servlet
 
-The following URL structure is used to connect to a web page:
+Use the following URL structure to connect to a web page:
 
+```url
+http(s)://[HOST]:[PORT]/wps/wcm/connect/[PATH]?srv=
 ```
-http://[HOST]:[PORT]/wps/wcm/connect/[PATH]?srv=
-```
 
-**Non-ascii characters:**
+Do not use non-ASCII characters in the query string section of URLs or in WCM item names that you plan to call through URLs.
 
-Non-ascii characters cannot be used in the query string section of URLs. For this reason, it is best not to name WCM items using Non-ASCII characters if you plan to use URLs to call WCM items.
+- `[PATH]`: Specifies the path to a site area or content item. Enter this setting for all types of content, including components. For components, enter the path to the site area or content item where the component appears.
+- `srv=`: Specifies the service type to invoke:
+    - `srv=cmpnt`: Retrieves a component from a component library, site area, or content item. Include the following parameters:
+        - `source=`: Specifies the component source location (`library`, `sitearea`, or `content`).
+        - `cmpntname=<componentname>`: Specifies the name of the component to retrieve.
+    - `srv=page`: Retrieves a content item. Because `srv=page` is the default value, you can omit it from the URL.
+        - `presentationtemplate=<library>/<presentationtemplatename>`: Specifies the presentation template used to display the content.
 
-- \[PATH\] can be the path to a site area or content item. This setting must be entered for all types of content, including components. In the case of components, this is the path to the site area or content item that the component is displayed with.
-- srv= is either cmpnt or page.
+## Servlet URL examples
 
-|Service option|Details|
-|--------------|-------|
-|`srv=cmpnt`|This option retrieves a component either from the component library or from a site area or content item. You must also specify the following:-  <br> **`source=`** <br> This determines where the component is being sourced from. This is either: <br>-   library <br>-   sitearea <br>-   content <br> **`cmpntname=`componentname** <br>This is the name of the component being retrieved.|
-|`srv=page`|This retrieves a content item. As srv=page is returned as default, this can be omitted from the URL.The presentation template to use when displaying this content is specified by adding: <br> \``` <br> presentationtemplate=library/presentationtemplatename <br>\ ```|
+- Connect to content by using the base URL structure:
 
-## Examples
+    ```url
+    # Syntax
+    http(s)://[HOST]:[PORT]/wps/wcm/connect/[PATH]
 
-- **URL to content:**
-
+    # Example
+    https://host/wps/wcm/connect/sitearea/content
     ```
-    http://[HOST]:[PORT]/wps/wcm/connect/[PATH]
-    ```
 
-    Example: `http://host:10039/wps/wcm/connect/sitearea/content`
+- Define a presentation template in the query string to display content:
 
-- **URL to content with a presentation template defined:**
-
-    ```
-    http://[HOST]:[PORT]/wps/wcm/connect/[PATH]
+    ```url
+    # Syntax
+    http(s)://[HOST]:[PORT]/wps/wcm/connect/[PATH]
     ?presentationtemplate=[libraryname/presentationtemplatename]
+
+    # Example
+    https://host/wps/wcm/connect/sitearea/content?presentationtemplate=library/presentationtemplate
     ```
 
-    Example: `http://host:10039/wps/wcm/connect/sitearea/content?presentationtemplate=library/presentationtemplate`
+- Retrieve a component stored in a library:
 
-- **URL to a library component:**
-
-    ```
-    http://[HOST]:[PORT]/wps/wcm/connect/[PATH]
+    ```url
+    # Syntax
+    http(s)://[HOST]:[PORT]/wps/wcm/connect/[PATH]
     ?srv=cmpnt&source=library&cmpntname=[componentname]
+
+    # Example
+    https://host/wps/wcm/connect/sitearea/content?srv=cmpnt&source=library&cmpntname=component
     ```
 
-    Example: `http://host:10039/wps/wcm/connect/sitearea/content?srv=cmpnt&source=library&cmpntname=component`
+- Retrieve a component associated with a content item:
 
-- **URL to a content component:**
-
-    ```
-    http://[HOST]:[PORT]/wps/wcm/connect/[PATH]
+    ```url
+    # Syntax
+    http(s)://[HOST]:[PORT]/wps/wcm/connect/[PATH]
     ?srv=cmpnt&source=content&cmpntname=[componentname]
+
+    # Example
+    https://host/wps/wcm/connect/sitearea/content?srv=cmpnt&source=content&cmpntname=component
     ```
 
-    Example: `http://host:10039/wps/wcm/connect/sitearea/content?srv=cmpnt&source=content&cmpntname=component`
+## Applying custom caching and expiration parameters
 
-## Applying Custom Caching and Expiring Parameters
+Like any other URL request made to a WCM server, you can add custom caching and expiration parameters to a request.
 
-Like any other URL request that is made to a WCM Server, Custom Caching and Expiring parameters can be added to a request. See the topic, "Using Custom Caching" for further information.
+For example:
 
-- **Example:**
+```url
+http(s)://[HOST]:[PORT]/wps/wcm/connect/[PATH]?CACHE=SITE&EXPIRES=REL+9000s
+```
 
-    ```
-    http://[HOST]:[PORT]/wps/wcm/connect/[PATH]?CACHE=SITE&EXPIRES=REL+9000s
-    ```
-
-    In this example, the content being retrieved by this URL is saved in the Basic Site Cache, and expired after 9000 seconds \(two and half hours\).
+In this configuration, the content retrieved by this URL is saved in the basic site cache and expires after 9,000 seconds (two and a half hours).
 
 ## HCLSoftware U learning materials
 
