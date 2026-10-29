@@ -4,9 +4,7 @@ The amount of Web Content Manager (WCM) items grows over time. To maintain good 
 
 The following are examples of items which you can clean up:
 
-- Drafts
 - Versions
-- Expired content
 - Published projects
 - References to users and groups that no longer exist 
 - Item history
@@ -15,26 +13,11 @@ The following are examples of items which you can clean up:
 
 The following sections provide information on how to deal with each of these items.
 
-!!!note "Disclaimer of warranties"
-    The files in the [`wcm_maintenance.zip`](https://git.cwp.pnp-hcl.com/CWPdoc/dx-mkdocs/files/1822/wcm_maintenance.zip) file are sample codes. The code is provided "AS IS", without warranty of any kind. HCL shall not be liable for any damages arising out of your use of the sample code, even if you have been advised of the possibility of such damages.
-
-## Drafts
-
-Draft items that are not published can accumulate over time. Use the following sample JSP file to clean up drafts that are no longer needed. You can adjust the file to go against different libraries and to have a "last changed" check.
-
-Download the file [`wcm_maintenance.zip`](https://git.cwp.pnp-hcl.com/CWPdoc/dx-mkdocs/files/1822/wcm_maintenance.zip). The sample JSP file is `purgeDrafts.jsp` located in the wcm_maintenance folder.
-
 ## Versions
 
 Use the clear versions tool to eliminate versions. For more information, see [Clearing version history](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_configuration/wcm_adm_tools/wcm_admin_clear_versions/).
 
 With the clear versions tool, you can specify how many versions you want to keep or the timestamp before which all versions should be deleted. It is also recommended to change the default policy in WCMConfigService to not create versions automatically but to set it to manual to let the user decide which versions to keep.
-
-## Expired content
-
-When content expires as part of a workflow, an additional action in the workflow can trigger a deletion of the content as well. If the additional action was not done and a lot of expired content still exists, they can accumulate. Use the following sample JSP file to clean up expired contents that are no longer needed. You can adjust the file to go against different libraries and to modify how recent content is deleted.
-
-Download the file [`wcm_maintenance.zip`](https://git.cwp.pnp-hcl.com/CWPdoc/dx-mkdocs/files/1822/wcm_maintenance.zip). The sample JSP file is `purgeExpiredData.jsp` located in the wcm_maintenance folder.
 
 ## Published projects
 
@@ -64,8 +47,6 @@ Administrators can use the clear history tool to clear the history of an item. F
 ## Deleted items
 
 When items are deleted, they are not completely removed to give users the chance to undo a deletion. These "deleted" items grow over time. To finally delete an item, WCM offers the Purge command. You can trigger the Purge through the user interface or API.
-
-Use the following sample JSP file to clean up drafts that are no longer needed. You can adjust the file to go against different libraries and to have a "last changed" check. Download the file [`wcm_maintenance.zip`](https://git.cwp.pnp-hcl.com/CWPdoc/dx-mkdocs/files/1822/wcm_maintenance.zip). The sample JSP file is `purgeContent.jsp` located in the wcm_maintenance folder.
 
 You can also configure a utility to run in the background to delete published projects. For more information, see [Configuring Web content cleanup tasks](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_configuration/wcm_adm_tools/wcm_config_clean_tasks/).
 
