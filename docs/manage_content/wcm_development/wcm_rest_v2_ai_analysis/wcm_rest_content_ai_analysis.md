@@ -19,7 +19,7 @@ http or https://host:port/dx/api/wcm/v2/explorer/
 !!!example
 
     ```
-    https://localhost:10039/dx/api/wcm/v2/explorer/
+    https://host:10039/dx/api/wcm/v2/explorer/
     ```
 
 For more information about the WCM REST V2 API Explorer, see [HCL Experience API](https://help.hcl-software.com/digital-experience/9.5/latest/extend_dx/apis/hcl_experience_api/).
@@ -33,7 +33,7 @@ Using the WCM REST V2 API explorer, access the following AI analyzer API endpoin
 - POST request to:
 
     ```
-    https://localhost:10039/wps/mycontenthandler/wcmrest-v2/contents/analysis
+    https://host:10039/wps/mycontenthandler/wcmrest-v2/contents/analysis
     ```
 
 ### Current API capabilities and limitations
