@@ -13,7 +13,7 @@ You can clean up the following item types:
 
 ## Versions
 
-Use the clear versions tool to eliminate versions. With this tool, you can specify how many versions to keep or specify a timestamp before which to delete all versions. You can also configure the default policy in `WCMConfigService` to manual instead of automatic so users choose which versions to create. <!--Should this be the `WCMConfigService.properties` file?-->
+Use the clear versions tool to eliminate versions. With this tool, you can specify how many versions to keep or specify a timestamp before which to delete all versions. You can also configure the default policy in the `WCMConfigService.properties` file to manual instead of automatic so users choose which versions to create.
 
 For more information, refer to [Clearing version history](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_configuration/wcm_adm_tools/wcm_admin_clear_versions/).
 
@@ -21,7 +21,7 @@ For more information, refer to [Clearing version history](https://help.hcl-softw
 
 To delete published projects, use one of the following methods:
 
-- Use the WCM API to delete the projects programmatically. <!--The previous link here was broken: [WCM API](https://help.hcl-software.com/digital-experience/8.5/dev/javadoc/vrm/850/api_docs/com/ibm/workplace/wcm/api/Workspace.html){target="_blank"} -->
+- Use the [WCM API](https://help.hcl-software.com/digital-experience/9.5/dev/javadoc/vrm/850/api_docs/com/ibm/workplace/wcm/api/Workspace.html){target="_blank"} to delete the projects programmatically.
 - Delete the projects through the WCM Authoring portlet:
 
     1. Select **Project > Published**.
@@ -65,8 +65,8 @@ Unused content also accumulates over time. Cleaning up unused items saves storag
 To manage and remove unused content, use one of the following methods:
 
 - Manage old content by using policies (for example, enforce content expiration after one year).
-- Query, delete, and purge content and other WCM items by using the WCM API. <!--The previous link here was broken: [WCM API](https://help.hcl-software.com/digital-experience/8.5/dev/javadoc/vrm/850/api_docs/com/ibm/workplace/wcm/api/Workspace.html){target="_blank"} -->
-- Locate content that has not been updated recently by using the `findContentModifiedBetween` method in the WCM API. This method returns only content modified between specific dates (for example, run a query from 1970 through 2016 to find content that has not been modified since 2016). For more information, refer to the [WCM API documentation](https://help.hcl-software.com/digital-experience/8.5/dev/javadoc/vrm/850/api_docs/com/ibm/workplace/wcm/api/Workspace.html#findContentModifiedBetween(java.util.Date,%20java.util.Date)){target="_blank"}. <!--This link is broken-->
+- Query, delete, and purge content and other WCM items by using the [WCM API](https://help.hcl-software.com/digital-experience/9.5/dev/javadoc/vrm/850/api_docs/com/ibm/workplace/wcm/api/Workspace.html){target="_blank"}.
+- Locate content that has not been updated recently by using the `findContentModifiedBetween` method in the WCM API. This method returns only content modified between specific dates (for example, run a query from 1970 through 2016 to find content that has not been modified since 2016). For more information, refer to [`findContentModifiedBetween`](https://help.hcl-software.com/digital-experience/9.5/dev/javadoc/vrm/850/api_docs/com/ibm/workplace/wcm/api/Workspace.html#findContentModifiedBetween(java.util.Date,%20java.util.Date)){target="_blank"}.
 
 ## Querying version nodes
 
