@@ -4,7 +4,7 @@ title: Getting started with the REST service for WCM V2
 
 # Getting started with the REST service for WCM V2
 
-This topic provides information about the new APIs available from CF217 and higher.
+This topic provides information about the new APIs available.
 
 These V2 APIs are created to complete the available actions for content and other Web Content Manager (WCM) artifacts. They are either developed from scratch or created to bring their corresponding [REST service for WCM V1 APIs](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_development/wcm_rest/) to the V2 Swagger interface. You can find detailed information about V2 APIs at [WCM REST V2 API documentation](https://opensource.hcltechsw.com/experience-api-documentation/wcm-api/). For a comparison of V1 and V2 APIs, see [Differences between V1 and V2 APIs](comparison_v1_v2.md).
 
@@ -14,49 +14,6 @@ If you are working with WCM via REST, it is recommended to use the WCM REST V2 A
     Most of the APIs introduced in the WCM REST V2 API explorer adhere to the same API path or URI fragment structure as the WCM V1 APIs.
 
 For the WCM REST V1 version of the APIs, refer to **[How to manage web content items by using REST](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_development/wcm_rest/wcm_rest_mng_content/)**.
-
-## APIs added or modified in CF217
-
-Starting CF217, the WCM REST V2 Swagger API Explorer has new API additions and modifications and is also out of beta state.
-
-WCM REST V2 Swagger API Explorer introduces new APIs corresponding to the following WCM V1 API functionalities:
-
-- Components like LibraryDateComponent, LibraryFileComponent, LibraryHTMLComponent, LibraryJSPComponent, LibraryLinkComponent, LibraryNumericComponent, LibraryPageNavigationComponent, LibraryTextComponent, LibraryUserNameComponent, LibraryUserSelectionComponent
-- Managed Pages
-- Projects
-- Site Area Templates
-- Workflow
-- Workflow Actions
-- Workflow Operations
-
-## APIs added or modified in CF218
-
-Starting CF218, WCM REST V2 Swagger API Explorer introduces additional APIs. Some of these APIs are newly created while some APIs correspond to the following WCM V1 API functionalities:
-
-- Components like LibraryAuthoringToolsComponent, LibraryListPresentationComponent
-- Custom Workflow Actions Factory 
-- Item Version Update and Restore 
-- Syndication
-- Presentation Template 
-- Favorite Items 
-- Recent Items
-- Apply Content Templates 
-- Page References 
-- Rendering Content
-
-## APIs added or modified in CF220
-
-Starting CF220, WCM REST V2 Swagger API Explorer introduces additional APIs:
-
-- Search for items with no owner or no author
-- Specify item options for search results
-
-## APIs added or modified in CF221
-
-Starting CF221, WCM REST V2 Swagger API Explorer introduces additional APIs:
-
-- Retrieve multiple content items in one REST call through a list of Universally Unique Identifiers (UUIDs)
-- Set cache header for WCM GET REST APIs
 
 ## WCM REST V2 API explorer
 
@@ -71,16 +28,14 @@ http or https://host:port/dx/api/wcm/v2/explorer/
 !!! example
 
     ```
-    https://localhost:10039/dx/api/wcm/v2/explorer/
+    https://host:10039/dx/api/wcm/v2/explorer/
     ```
 
 ## Cache headers for WCM REST V2
 
-Starting CF221, you can configure a cache header for GET requests for unauthenticated users. Configuring cache headers results in better performance and cachability. To enable this feature, set the property to a value for expiry: ```public.rest.cache.expiry=86400s```. "86400s" is an example representing 24 hours.
+You can configure a cache header for GET requests for unauthenticated users. Configuring cache headers results in better performance and cachability. To enable this feature, set the property to a value for expiry: ```public.rest.cache.expiry=86400s```. "86400s" is an example representing 24 hours.
 
-Define and manage the cache options in the `WCM WCMConfigService` service by using the WebSphere® Integrated Solutions Console.
-Go to **Resources** > **Resource Environment** > **Resource Environment Providers** > **WCM WCMConfigService** > **Custom Properties**.
-
+Define and manage the cache options by adding or updating properties in the `WCM WCMConfigService.properties` file using the Helm chart, as described in [Updating DX Compose WebEngine properties using Helm values](../../../../../docs/deploy_dx/manage/cfg_webengine/update_properties_with_helm.md).
 
 ???+ info "Related information"
     - [WCM REST V2 API documentation](https://opensource.hcltechsw.com/experience-api-documentation/wcm-api/)

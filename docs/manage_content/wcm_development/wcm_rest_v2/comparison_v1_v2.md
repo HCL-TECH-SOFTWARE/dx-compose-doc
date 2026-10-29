@@ -42,7 +42,7 @@ The following list provides more information about the differences between V1 an
         !!!example
 
             ```
-            https://localhost:10039/dx/api/wcm/v2/explorer/
+            https://host/dx/api/wcm/v2/explorer/
             ```
     
     2. Go to the endpoint you want to test and select **Try it out**. 
