@@ -1,41 +1,29 @@
 # Determining the current web content context
 
-To determine the current web content context of a portal page or Web Content Viewer portlet, you can use the Web Content Manager Page Context Service. This service provides the ID of the currently rendered item of a page or portlet.
-
-To obtain an instance of the service, you can use one of the following home interfaces:
-
-- **PortalWcmPageContextServiceHome**
-
-    Use this home interface if the calling code has access to the `HTTPServletRequest`, for example, if the theme calls it.
-
-- **PortletWcmPageContextServiceProvider**
-
-    Use this home interface if the calling code has access to a `PortletRequest`, for example, if a portlet calls it.
-
-- **CorWcmPageContextServiceHome**
-
-    Use this home interface if the calling code has access to a `com.ibm.content.operations.registry.api.Context`, for example, if a resolver calls it.
-
+To determine the current web content context of a portal page or Web Content Viewer portlet, use the Web Content Manager (WCM) Page Context Service. This service provides the ID of the item currently rendered on a page or portlet.
 
 The `WCMPageContextService` provides the following two methods:
 
-- **getWcmPageContext**
+- Use `getWcmPageContext` to return the ID of the current web content context. Depending on the parameters passed, the method returns the context of a page or a Web Content Viewer portlet.
 
-    This method returns the ID of the current web content context. Depending on the parameters that you pass in, it is the context of a page or Web Content Viewer portlet. The service evaluates the following conditions in the order given here:
+    The service evaluates conditions in the following order until it finds a valid context, stopping evaluation after finding a match:
 
-    1. Private render parameter. This condition is available only for Web Content Viewer portlets and not for pages.
-    2. `path-info` parameter.
-    3. Public render parameter.
-    4. Portlet configuration setting for the web content viewer. This condition is available only for Web Content Viewer portlets and not for pages.
-    5. Web content association that is defined for the page.
-    The service evaluates these conditions one by one until it finds a valid context. As soon as the service finds a valid context, it does not evaluate the remaining conditions.
+    1. Private render parameter (available only for Web Content Viewer portlets)
+    2. `path-info` parameter
+    3. Public render parameter
+    4. Portlet configuration setting for the Web Content Viewer (Web Content Viewer portlets only)
+    5. Web content association defined for the page
 
-    The context can be a content item or site area. If the context is a site area, you can use the method `getWcmDefaultContent` to determine the default content of the site area.
+    The context can be a content item or site area.
 
-- **getWcmDefaultContent**
+- Use `getWcmDefaultContent` to return the default content of a site area. This method is useful if the current web content context is a site area and you must determine which content item is rendered.
 
-    This method returns the default content of a site area. This method is useful if the current web content context is a site area and you need to determine the content item that is actually rendered.
+Both methods return the document ID of the current context or default content. If necessary, us `getPathById` in the WCM workspace to convert the ID to the corresponding content path. For more information, read the API documentation. <!--Link for this?-->
 
-Both methods return the document ID of the current context or default content. If necessary, you can use method `getPathById` of the HCL WCM workspace to transform the ID to the corresponding content path. For more information, read the API documentation.
+## Obtaining an instance of the service
 
+To obtain an instance of the service, use one of the following home interfaces:
 
+- Use `PortalWcmPageContextServiceHome` if the calling code has access to `HttpServletRequest` (for example, if a theme calls the service).
+- Use `PortletWcmPageContextServiceProvider` if the calling code has access to `PortletRequest` (for example, if a portlet calls the service).
+- Use `CorWcmPageContextServiceHome` if the calling code has access to `com.ibm.content.operations.registry.api.Context` (for example, if a resolver calls the service).
