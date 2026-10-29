@@ -1,68 +1,87 @@
 # Cleaning up WCM items
 
-The amount of Web Content Manager (WCM) items grows over time. To maintain good system performance, it is recommended to clean up old items that are no longer needed. With regular cleanup, content authors can perform their tasks better and migrating from an earlier release can take less time.
+The amount of Web Content Manager (WCM) items grows over time. To maintain good system performance, clean up old items that you no longer need. Regular cleanup improves authoring performance and shortens migration time when upgrading from an earlier release.
 
-The following are examples of items which you can clean up:
+You can clean up the following item types:
 
 - Versions
 - Published projects
-- References to users and groups that no longer exist 
+- References to users and groups that no longer exist
 - Item history
 - Deleted items
 - Unused items
 
-The following sections provide information on how to deal with each of these items.
-
 ## Versions
 
-Use the clear versions tool to eliminate versions. For more information, see [Clearing version history](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_configuration/wcm_adm_tools/wcm_admin_clear_versions/).
+Use the clear versions tool to eliminate versions. With this tool, you can specify how many versions to keep or specify a timestamp before which to delete all versions. You can also configure the default policy in `WCMConfigService` to manual instead of automatic so users choose which versions to create. <!--Should this be the `WCMConfigService.properties` file?-->
 
-With the clear versions tool, you can specify how many versions you want to keep or the timestamp before which all versions should be deleted. It is also recommended to change the default policy in WCMConfigService to not create versions automatically but to set it to manual to let the user decide which versions to keep.
+For more information, refer to [Clearing version history](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_configuration/wcm_adm_tools/wcm_admin_clear_versions/).
 
 ## Published projects
 
-While there is no out-of-the-box tool to delete published projects, you can use [WCM API](https://help.hcl-software.com/digital-experience/8.5/dev/javadoc/vrm/850/api_docs/com/ibm/workplace/wcm/api/Workspace.html){target="_blank"} to delete published projects. 
+To delete published projects, use one of the following methods:
 
-Another option is to delete them through the WCM Authoring portlet. Go to **Project > Published** to display all published projects. Select the projects for deletion and click **Delete Project**.
+- Use the WCM API to delete the projects programmatically. <!--The previous link here was broken: [WCM API](https://help.hcl-software.com/digital-experience/8.5/dev/javadoc/vrm/850/api_docs/com/ibm/workplace/wcm/api/Workspace.html){target="_blank"} -->
+- Delete the projects through the WCM Authoring portlet:
 
-You can also configure a utility to run in the background to delete published projects. For more information, see [Configuring Web content cleanup tasks](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_configuration/wcm_adm_tools/wcm_config_clean_tasks/).
+    1. Select **Project > Published**.
+    2. Select the target projects.
+    3. Select **Delete Project**.
+
+- Configure a background task to delete the projects automatically. For more information, refer to [Configuring Web content cleanup tasks](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_configuration/wcm_adm_tools/wcm_config_clean_tasks/).
 
 ## References to users and groups that no longer exist
 
-Users and groups are referenced in WCM items to ensure that only authorized users can access the items. It is common for user names or group names to change over time.
+WCM items reference users and groups to ensure that only authorized users can access content. User names and group names frequently change over time in situations such as the following:
 
-Sample scenarios:
+- A user changes their legal name.
+- A user transfers to another department (for example, from Human Resources to Finance), which changes their distinguished name from `CN=<firstname lastname>,OU=HR,O=<companyname>` to `CN=<firstname lastname>,OU=Finance,O=<companyname>`.
 
-- A user name can change due to a change in their marital status.
-- A user can move from one department to another within the organization (for example, from Human Resources to Finance) which would change the fully qualified distinguished name from **CN=<firstname lastname>,OU=HR,O=<companyname>** to **CN=<firstname lastname>,OU=Finance,O=<companyname>**.
+To update or remove invalid user or group references, use one of the following methods:
 
-In such cases, you should change the user or group references made in an item to refer to the new user or group.
+- Update references manually in the affected item to point to the new user or group.
+- Run the member fixer task to check and repair references across an entire library. When run in report mode, the task lists all member references. When run in fix mode, it repairs references by replacing them with existing members or removing them.
 
-Administrators can also use the member fixer task to check whether any users or groups referenced in the WCM items were renamed or deleted, and fix these references. The member fixer task checks all of the items in a specified library for references to users and groups that no longer exist in the current user repository. When run in report mode, it reports all the references to members. When run in fix mode, these references can be fixed, either by replacing them with references to members that exist, or by removing the references. For more information, see [How to use the member fixer task](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_configuration/wcm_adm_tools/wcm_member_fixer/wcm_admin_member-fixer/)
+For more information, refer to [Using the member fixer task](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_configuration/wcm_adm_tools/wcm_member_fixer/wcm_admin_member-fixer/).
 
 ## Item history
 
-Administrators can use the clear history tool to clear the history of an item. For more information, see [Clearing item history](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_configuration/wcm_adm_tools/wcm_admin_clear_history/).
+Use the clear history tool to clear the history of an item. For more information, refer to [Clearing item history](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_configuration/wcm_adm_tools/wcm_admin_clear_history/).
 
 ## Deleted items
 
-When items are deleted, they are not completely removed to give users the chance to undo a deletion. These "deleted" items grow over time. To finally delete an item, WCM offers the Purge command. You can trigger the Purge through the user interface or API.
+When you delete items, WCM does not permanently remove them so that you can undo deletions. These deleted items accumulate over time.
 
-You can also configure a utility to run in the background to delete published projects. For more information, see [Configuring Web content cleanup tasks](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_configuration/wcm_adm_tools/wcm_config_clean_tasks/).
+To permanently delete items, use one of the following methods:
+
+- Purge items through the user interface.
+- Purge items programmatically by using the WCM API.
+- Configure a background task to purge deleted items automatically. For more information, refer to [Configuring Web content cleanup tasks](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_configuration/wcm_adm_tools/wcm_config_clean_tasks/).
 
 ## Unused items
 
-Content that is no longer used but is still around can also accumulate. Cleaning unused items saves space and improves performance, syndication, or other staging activities. You can use [WCM API](https://help.hcl-software.com/digital-experience/8.5/dev/javadoc/vrm/850/api_docs/com/ibm/workplace/wcm/api/Workspace.html){target="_blank"} to query, delete, and purge content and other WCM items.
+Unused content also accumulates over time. Cleaning up unused items saves storage space and improves performance during syndication and other staging activities. In addition to the items in the cleanup list, unexpired content that is no longer needed can increase system load.
 
-In addition to the WCM items mentioned in the cleanup list, a frequent item that increases the load is old content that is not expired but is no longer needed. It is recommended to manage old content using policies (for example, enforcing an expiration of content every 1 year).
+To manage and remove unused content, use one of the following methods:
 
-You can also use WCM APIs to find content that has not been updated in a while. The findContentModifiedBetween API only returns content modified between a certain date (for example, to find content not modified since 2016, you can run a query from 1970 to 2016). For more information, see the [WCM API documentation](https://help.hcl-software.com/digital-experience/8.5/dev/javadoc/vrm/850/api_docs/com/ibm/workplace/wcm/api/Workspace.html#findContentModifiedBetween(java.util.Date,%20java.util.Date)).
+- Manage old content by using policies (for example, enforce content expiration after one year).
+- Query, delete, and purge content and other WCM items by using the WCM API. <!--The previous link here was broken: [WCM API](https://help.hcl-software.com/digital-experience/8.5/dev/javadoc/vrm/850/api_docs/com/ibm/workplace/wcm/api/Workspace.html){target="_blank"} -->
+- Locate content that has not been updated recently by using the `findContentModifiedBetween` method in the WCM API. This method returns only content modified between specific dates (for example, run a query from 1970 through 2016 to find content that has not been modified since 2016). For more information, refer to the [WCM API documentation](https://help.hcl-software.com/digital-experience/8.5/dev/javadoc/vrm/850/api_docs/com/ibm/workplace/wcm/api/Workspace.html#findContentModifiedBetween(java.util.Date,%20java.util.Date)){target="_blank"}. <!--This link is broken-->
 
 ## Querying version nodes
 
-To determine which JCR nodes are versions, refer to the following queries:
+To determine which JCR nodes are versions, run the following queries:
 
-- To find the nodes per workspace: SELECT COUNT(1) AS NODE_COUNT, WSID FROM <schema>.ICMUTSWIDE0 WHERE WSID > 0 GROUP BY WSID
-- To find the workspaces: SELECT WSID, WSNAME FROM JCR.ICMSTJCRWS WHERE WSID > 0 ORDER BY WSID
+- To find the nodes per workspace:
+
+    ```sql
+    SELECT COUNT(1) AS NODE_COUNT, WSID FROM <schema>.ICMUTSWIDE0 WHERE WSID > 0 GROUP BY WSID
+    ```
+
+- To find the workspaces:
+
+    ```sql
+    SELECT WSID, WSNAME FROM JCR.ICMSTJCRWS WHERE WSID > 0 ORDER BY WSID
+    ```
   
-The nodes in jcr:versioning and any _v workspace for virtual portals represent the version nodes.
+Nodes in `jcr:versioning` and any `_v` workspace for virtual portals represent the version nodes.
