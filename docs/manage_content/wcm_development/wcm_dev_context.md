@@ -18,7 +18,7 @@ The `WCMPageContextService` provides the following two methods:
 
 - Use `getWcmDefaultContent` to return the default content of a site area. This method is useful if the current web content context is a site area and you must determine which content item is rendered.
 
-Both methods return the document ID of the current context or default content. If necessary, us `getPathById` in the WCM workspace to convert the ID to the corresponding content path. For more information, read the API documentation. <!--Link for this?-->
+Both methods return the document ID of the current context or default content. If necessary, us `getPathById` in the WCM workspace to convert the ID to the corresponding content path. For more information, refer to [`getPathById`](https://help.hcl-software.com/digital-experience/9.5/dev/javadoc/vrm/850/api_docs/com/ibm/workplace/wcm/api/Workspace.html#getPathById(com.ibm.workplace.wcm.api.DocumentId,%20boolean,%20boolean)){target="_blank"}.
 
 ## Obtaining an instance of the service
 
