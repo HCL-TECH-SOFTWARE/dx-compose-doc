@@ -1,4 +1,5 @@
 title: Extend Web Content Manager
 nav:
-    - index.md 
+    - index.md
+    - wcm_dev_context.md
     - wcm_dev_profiling_taxonomy_planning.md

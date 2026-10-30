@@ -1,8 +1,40 @@
 # Downloading and deploying DX Compose from a Harbor repository
 
-Customers with entitlements to HCL Digital Experience (DX) Compose 9.5 may access the DX Compose container images and Helm charts from the [HCL Harbor container repository](https://hclcr.io/){:target="_blank"}. Customers with credentials to access entitled software on the [My HCLSoftware (MHS) portal](https://my.hcltechsw.com/){target="blank"} can apply those credentials to optionally access these components of DX Compose v9.5.
+Customers with entitlements to HCL Digital Experience (DX) Compose 9.5 may access the DX Compose container images and Helm charts from the [HCL Harbor container repository](https://hclcr.io/){target="_blank"}. Customers with credentials to access entitled software on the [My HCLSoftware (MHS) portal](https://my.hcltechsw.com/){target="blank"} can apply those credentials to optionally access these components.
 
-The Harbor repository provides a registry based on Open Container Initiative (OCI). The Helm chart command is updated to be OCI-compliant.
+The Harbor repository provides an Open Container Initiative (OCI)-compliant registry for downloading Docker container images and Helm charts. This article explains how to download and deploy HCL DX Compose assets from a Harbor repository.
+
+## Pulling container images using Docker commands
+
+Container images for HCL DX Compose components are hosted in the HCL Harbor container repository. Pulling these images with Docker allows to download required component runtime packages directly to the host machine or deployment environment for local execution, retagging, or relocation to private enterprise registries.
+
+1. Log in to the HCL Harbor container repository by running the following command:
+
+    ```sh
+    docker login hclcr.io -u <YOUR_HARBOR_USERNAME> -p <YOUR_HARBOR_CLI_SECRET>
+    ```
+
+2. Run the `docker pull` command to retrieve the target container image:
+
+    ```sh
+    docker pull hclcr.io/dx-compose/<IMAGE_NAME>:<TAG>
+    ```
+    
+    !!!note
+
+        For example, the following command pulls the `webengine` image:
+
+        ```sh
+        docker pull hclcr.io/dx-compose/webengine:CF235_20260429-2302
+        ```
+
+3. Verify the image was successfully downloaded to your local machine:
+
+    ```sh
+    docker image ls hclcr.io/dx-compose/webengine
+    ```
+    
+    The command output displays details such as repository, tag, image ID, and size upon a successful download.
 
 ## Pulling Helm charts using OCI commands
 
@@ -27,7 +59,7 @@ Using OCI commands requires an initial login before you can run the pull command
     !!!note
         Running the pull command without the version parameter downloads the latest Helm chart version. To see the available Helm chart versions, refer to [Helm chart and CF versions](#helm-chart-and-cf-versions).
 
-3. After you run the pull command, you can check whether the Helm Chart was downloaded to your local computer:
+3. Verify the Helm chart was downloaded to your local computer by running the following command:
 
     ```sh
     # List directory content to check successful pull
@@ -59,9 +91,9 @@ Refer to the following list of Helm chart versions and their corresponding Cumul
 | CF225      | 2.34.0                    | 2.23.0                |                   |
 | CF224      | 2.33.0                    |                       |                   |
 
-You downloaded your DX Compose 9.5 Container Update Helm chart from the HCL repository on Harbor and can continue with your deployment.
+Now that you have downloaded your DX Compose 9.5 Container Update Helm chart from the HCL Harbor repository, you can continue with your deployment.
 
-After the Helm charts are downloaded, the next step is [Retagging images](../../deploy_dx/install/kubernetes_deployment/preparation/get_the_code/prepare_load_images.md#re-tag-images).
+After you download the Helm charts, the next step is to [Retag images](../../deploy_dx/install/kubernetes_deployment/preparation/get_the_code/prepare_load_images.md#re-tag-images).
 
 ???+ info "Related information"
-    -   [Deploying container platforms using Helm](../../deploy_dx/install/kubernetes_deployment/overview.md)
+    -   [Deploying using Helm](../../deploy_dx/install/kubernetes_deployment/overview.md)
