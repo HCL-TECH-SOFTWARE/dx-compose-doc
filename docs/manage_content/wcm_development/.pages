@@ -3,4 +3,5 @@ nav:
     - index.md
     - wcm_rest_v2.md
     - wcm_dev_context.md
+    - wcm_dev_profiling_taxonomy_planning.md
     - wcm_dev_remoteactions.md
