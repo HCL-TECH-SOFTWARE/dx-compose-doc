@@ -1,41 +1,33 @@
 # Taxonomies, categories, and keywords
 
-The combination of taxonomy and categories enables control what displays in menus.
+Taxonomies, categories, and keywords classify content items and determine how menu components display content in HCL Digital Experience (DX) Compose.
 
-- **Taxonomies and categories**
+## Taxonomies
 
-    A Category refers to the subject matter of your content item. For example, your content item might be of the category New Products or Latest News. Sets of categories are grouped within different top-level taxonomies. List of links to content items that use the same category are displayed by using a menu component.
+A taxonomy is the highest-level organizing structure for content classification. It functions as a root container that groups related sets of categories together under a broad domain or subject area. Content items are not assigned directly to a taxonomy. Instead, they are assigned to categories that reside within that taxonomy.
 
-- **Keywords**
+For example, an organization can create a taxonomy named Financial to house all categories related to banking, accounting, and investments.
 
-    Use Keywords to profile content. Unlike categories, which are chosen from a predefined list, you can enter any keywords that you like when you create content items. List of links to content items that use the same keyword are displayed by using a menu component.
+## Categories
 
+Categories classify content items by subject matter within a taxonomy. They form parent-child hierarchies that determine how menu components display content.
 
-## Taxonomy example
+The following hierarchy shows how categories branch under a taxonomy root:
 
-In the example:
-
-- "Financial" is the ancestor of "Interest Rates", "Personal", "Business", "Corporate" and "Banking Solutions".
-- "Personal", "Business" and "Corporate" are the descendants of "Interest Rates" and "Financial".
-
-
-- Financial
+- Financial (Taxonomy)
     - Banking Solutions
     - Interest Rates
         - Personal
         - Business
         - Corporate
-- News
 
-## Category scenarios
-
-When building a hierarchy of taxonomies and categories, it is important to consider how a menu uses your categories in a search, because menus search both upwards and downwards within groups of categories.
+Menu components evaluate category relationships by searching upward toward ancestor categories and downward toward descendant categories. Where a category sits in the hierarchy determines which items appear in the navigation. The following scenarios use the Financial hierarchy example to show how menu components return content based on the selected category level.
 
 |Scenario|Example|
 |--------|-------|
-|If you base a menu on a top-level category, all content that is profiled with categories that belong to that top-level category and their descendants appear in the menu.|In the previous example, a menu based on Financial displays content that is profiled with any of the following: <br> - Financial <br>  - Banking Solutions <br> - Interest Rates <br>   - Personal <br>  - Business <br> - Corporate|
-|If you base a menu on a mid-level category, all content that is profiled with the mid-level category or its descendants or its ancestors appear in the menu.|A menu based on Interest Rates displays content that is profiled with any of the following: <br> - Financial <br>    - Interest Rates <br>        - Personal <br>        - Business <br>        - Corporate|
-|If you base a menu on a bottom-level category, all content that is profiled with the bottom-level category or its ancestors are returned by the menu.|A menu based on Business displays content that is profiled with any of the following: <br> - Financial <br>    - Interest Rates <br>        - Business|
+|Menus based on a top-level category display content tagged with that category or any of its descendants.|A menu based on Financial displays content tagged with Financial, Banking Solutions, Interest Rates, Personal, Business, or Corporate.|
+|Menus based on a mid-level category display content tagged with that category, its descendants, or its ancestors.|A menu based on Interest Rates displays content tagged with Financial, Interest Rates, Personal, Business, or Corporate.|
+|If you base a menu on a bottom-level category, all content that is profiled with the bottom-level category or its ancestors are returned by the menu.|A menu based on Business displays content tagged with Financial, Interest Rates, or Business.|
 
 ## HCLSoftware U learning materials
 
