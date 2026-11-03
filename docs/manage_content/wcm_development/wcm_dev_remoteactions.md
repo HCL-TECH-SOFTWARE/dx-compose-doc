@@ -1,104 +1,116 @@
 # Using remote actions
 
-Remote actions are used to trigger actions from the HCL Web Content Manager application.
+Use remote actions to trigger actions in HCL Web Content Manager (WCM).
 
-You can reference remote actions by using plug-in tags by using the following format:
+## Plug-in tags
 
-```
+You can reference remote actions in plug-in tags with the following syntax:
+
+```text
 [plugin:RemoteAction action=" " docid=" " 
 dialog=" " dialogSize=" " dialogTitle=" " useCurrentContext=" " showInfoMsg=" " ]
 ```
 
-- `action`: The remote action to perform.
-- `docid`: The document ID of the item to run the remote action against.
-- `useCurrentContext`: If set to true, then the document ID is obtained from the rendering context instead of the docid attribute.
-- `dialog`: If set to true, when rendered within a Web Content Viewer portlet, the remote action is rendered as a URL that redirects the user to a hidden portal page that is used by the Web Content Viewer portlet for inline editing.
-- `dialogSize`: This optional setting defines the size of the dialog executing the remote action. The value must be in the format "width,height". For example, `dialogSize="200,300"` for a dialog of width 200 pixel and a height of 300 pixel. If omitted, the dialog size is calculated from the content that is displayed in the dialog. This setting is only used if `dialog="true"`.
-- `dialogTitle`: This optional setting sets the title of the dialog executing the remote action. If omitted, the action name is used instead. This setting is only used if `dialog="true"`.
-- `showInfoMsg`: Set this to true to display success status and other information messages after the remote action has finished. If omitted, this parameter is set to false and only warning and error status messages are displayed. This setting can only be used if `dialog="true"`.
+- `action`: Specifies the remote action to perform.
+- `docid`: Specifies the document ID of the target item.
+- `useCurrentContext`: Set to `true` to obtain the document ID from the rendering context instead of the `docid` attribute.
+- `dialog`: Set to `true` to render the remote action as a URL that redirects the user to a hidden portal page used for inline editing in the Web Content Viewer portlet. When set to true, configure the following nested dialog parameters:
+    - `dialogSize`: Defines the width and height of the dialog executing the remote action in the format `width,height`. For example, `dialogSize="200,300"` sets a width of 200 pixels and a height of 300 pixels. If omitted, the dialog calculates its dimensions from the displayed content.
+    - `dialogTitle`: Sets the title of the dialog executing the remote action. If omitted, the dialog uses the action name.
+    - `showInfoMsg`: Set to `true` to display success and informational messages after the remote action completes. If omitted, defaults to `false` and displays only warning and error messages.
 
-Remote actions can also be appended to the URL of an authoring portlet. For example:
+## Portlet URLs
 
-```
+You can append remote actions to the URL of an authoring portlet:
+
+```url
 http://[host]/wps/myportal/wcmAuthoring?wcmAuthoringAction=action
 ```
 
-You can also append remote actions to the URL of a local web Content Viewer portlet. This can be useful in sites that feature inline editing of content items.
+To support inline editing of content items, append remote actions to the URL of a local Web Content Viewer portlet.
 
-**Custom authoring interfaces**: Remote actions are not intended to be used to create a custom authoring interface. There are limitations to the functions delivered using remote actions. For example, remote actions only support plain text. You cannot use remote actions to add markup into elements such as HTML elements. You instead use the Web Content Manager API to create custom authoring interfaces.
+## Custom authoring interfaces
+
+Remote actions do not support building custom authoring interfaces. Remote actions deliver limited functionality and support only plain text without markup in HTML elements. Use the WCM API to build custom authoring interfaces.
 
 !!!note
-    Each web content item can be identified by a DocumentId. The `docid` can be retrieved by using the web content API. In the following examples, the value of the `docid` parameter should be the DocumentId as retrieved by using the `DocumentID.getID()` API method. A document ID consists of a document type and a unique ID. The "docid" values that are provided in the examples are placeholders for real document IDs. For example, `com.ibm.workplace.wcm.api.WCM_Content/ID1`
+    A DocumentId identifies each web content item. Retrieve the `docid` value using the `DocumentID.getID()` web content API method. A document ID consists of a document type and a unique ID. Document IDs in the examples represent placeholders, such as `com.ibm.workplace.wcm.api.WCM_Content/ID1`.
 
 ## Remote action types
 
-- `new`: Used to open a new item form. You must also specify a `type` parameter as shown in the following example:
+- `new`: Opens a new item form.
 
-    ```
+    ```text
     [plugin:RemoteAction action="new" type="com.ibm.workplace.wcm.api.WCM_Content" ]
     ```
-    
-    The following `type` parameters can be used:
 
-    - `com.ibm.workplace.wcm.api.WCM_AuthoringTemplate`
-    - `com.ibm.workplace.wcm.api.WCM_Category`
-    - `com.ibm.workplace.wcm.api.WCM_Content`
-    - `com.ibm.workplace.wcm.api.WCM_DateComponent`
-    - `com.ibm.workplace.wcm.api.WCM_FileComponent`
-    - `com.ibm.workplace.wcm.api.WCM_HTMLComponent`
-    - `com.ibm.workplace.wcm.api.WCM_ImageComponent`
-    - `com.ibm.workplace.wcm.api.WCM_NumericComponent`
-    - `com.ibm.workplace.wcm.api.WCM_PresentationTemplate`
-    - `com.ibm.workplace.wcm.api.WCM_RichTextComponent`
-    - `com.ibm.workplace.wcm.api.WCM_ShortTextComponent`
-    - `com.ibm.workplace.wcm.api.WCM_SiteArea`
-    - `com.ibm.workplace.wcm.api.WCM_Taxonomy`
-    - `com.ibm.workplace.wcm.api.WCM_TextComponent`
-    - `com.ibm.workplace.wcm.api.WCM_Workflow`
-    - `com.ibm.workplace.wcm.api.WCM_WorkflowStage`
+    Use the following parameters with this action:
 
-    When creating a new content item, you can specify a default authoring template by providing the document ID of the authoring template in the `atid` parameter:
+    - `type`: Specifies the item type to create. Supported values include:
 
-    ```
-    [plugin:RemoteAction action="new" type="com.ibm.workplace.wcm.api.WCM_Content" atid="com.ibm.workplace.wcm.api.WCM_AuthoringTemplate/ID1"]
-    ```
+        - `com.ibm.workplace.wcm.api.WCM_AuthoringTemplate`
+        - `com.ibm.workplace.wcm.api.WCM_Category`
+        - `com.ibm.workplace.wcm.api.WCM_Content`
+        - `com.ibm.workplace.wcm.api.WCM_DateComponent`
+        - `com.ibm.workplace.wcm.api.WCM_FileComponent`
+        - `com.ibm.workplace.wcm.api.WCM_HTMLComponent`
+        - `com.ibm.workplace.wcm.api.WCM_ImageComponent`
+        - `com.ibm.workplace.wcm.api.WCM_NumericComponent`
+        - `com.ibm.workplace.wcm.api.WCM_PresentationTemplate`
+        - `com.ibm.workplace.wcm.api.WCM_RichTextComponent`
+        - `com.ibm.workplace.wcm.api.WCM_ShortTextComponent`
+        - `com.ibm.workplace.wcm.api.WCM_SiteArea`
+        - `com.ibm.workplace.wcm.api.WCM_Taxonomy`
+        - `com.ibm.workplace.wcm.api.WCM_TextComponent`
+        - `com.ibm.workplace.wcm.api.WCM_Workflow`
+        - `com.ibm.workplace.wcm.api.WCM_WorkflowStage`
 
-    When creating site areas, content items and categories, you can specify the document ID of the parent item to save the new item under. Specify this ID in the `pid` parameter:
+    - `atid`: Supplies the document ID of the authoring template to use as the default template when creating a content item.
 
-    - `[plugin:RemoteAction action="new" type="com.ibm.workplace.wcm.api.WCM_Content" pid="com.ibm.workplace.wcm.api.WCM_SiteArea/ID"]`
-    - `[plugin:RemoteAction action="new" type="com.ibm.workplace.wcm.api.WCM_SiteArea" pid="com.ibm.workplace.wcm.api.WCM_SiteArea/ID"]`
-    - `[plugin:RemoteAction action="new" type="com.ibm.workplace.wcm.api.WCM_Category" pid="com.ibm.workplace.wcm.api.WCM_Taxonomy/ID"]`
+        ```text
+        [plugin:RemoteAction action="new" type="com.ibm.workplace.wcm.api.WCM_Content" atid="com.ibm.workplace.wcm.api.WCM_AuthoringTemplate/ID1"]
+        ```
 
-    When creating site areas, you can specify the position of the new site area by using a position parameter. You can specify to save the new site area at the start or end relative to any existing site areas. If not specified, the new site area is saved at the start relative to any existing site areas:
+    - `pid`: Specifies the document ID of the parent item when creating site areas, content items, or categories.
 
-    - `[plugin:RemoteAction action="new" type="com.ibm.workplace.wcm.api.WCM_Content" position="start"]`
-    - `[plugin:RemoteAction action="new" type="com.ibm.workplace.wcm.api.WCM_SiteArea" position="end"]`
+        ```text
+        [plugin:RemoteAction action="new" type="com.ibm.workplace.wcm.api.WCM_Content" pid="com.ibm.workplace.wcm.api.WCM_SiteArea/ID"]
+        [plugin:RemoteAction action="new" type="com.ibm.workplace.wcm.api.WCM_SiteArea" pid="com.ibm.workplace.wcm.api.WCM_SiteArea/ID"]
+        [plugin:RemoteAction action="new" type="com.ibm.workplace.wcm.api.WCM_Category" pid="com.ibm.workplace.wcm.api.WCM_Taxonomy/ID"]
+        ```
 
-- `delete`: This is used to delete an item. You must also specify the `docid` of the item as shown in the following example:
+    - `position`: Positions a new site area relative to existing site areas. Set to `start` to place the item at the beginning, or `end` to place it at the end. If omitted, the parameter defaults to `start`.
 
-    ```
+        ```text
+        [plugin:RemoteAction action="new" type="com.ibm.workplace.wcm.api.WCM_Content" position="start"]
+        [plugin:RemoteAction action="new" type="com.ibm.workplace.wcm.api.WCM_SiteArea" position="end"]
+        ```
+
+- `delete`: Deletes the item specified by `docid`.
+
+    ```text
     [plugin:RemoteAction action="delete" docid="com.ibm.workplace.wcm.api.WCM_Content/ID1"]
     ```
 
-- `edit`: This is used to open an item form in edit mode. You must also specify the `docid` of the item as shown in the following example:
+- `edit`: Opens the item specified by `docid` in edit mode.
 
-    ```
+    ```text
     [plugin:RemoteAction action="edit" docid="com.ibm.workplace.wcm.api.WCM_Content/ID1"]
     ```
 
-- `read`: This is used to open an item form in read-only mode. You must also specify the `docid` of the item as shown in the following example:
+- `read`: Opens the item specified by `docid` in read-only mode.
 
-    ```
+    ```text
     [plugin:RemoteAction action="read" docid="com.ibm.workplace.wcm.api.WCM_Content/ID1"]
     ```
 
-- `openmainview`: This is used to open a view within an authoring portlet. You must also specify a `view` parameter as shown in the following example:
+- `openmainview`: Opens a view within an authoring portlet specified by `view`.
 
-    ```
+    ```text
     [plugin:RemoteAction action="openmainview" view="contentbysitearea"]
     ```
 
-    The following `view` parameters can be used:
+    The `view` parameter supports the following values:
 
     - `contentbysitearea`
     - `contentbytitle`
@@ -114,106 +126,110 @@ You can also append remote actions to the URL of a local web Content Viewer port
     - `alldeleteditems`
     - `componentsbytype`
 
-- `move`: This is used to move a site area or content item.
+- `move`: Moves the site area or content item specified by `docid` into the parent item specified by `pid`. Specifying only `docid` opens the move dialog in the user interface.
 
-    To open the move dialog for a content item or site area, check the following example:
-
-    ```
+    ```text
     [plugin:RemoteAction action="move" docid="com.ibm.workplace.wcm.api.WCM_Content/ID1"]
     ```
 
-    To move a content item up one position, a move direction is specified as "1" for up and "-1" for down as shown in the following example:
+    - `moveDirection`: Moves a content item up or down one position within the parent specified by `pid`. Set to `1` to move the item up or `-1` to move the item down.
 
-    ```
-    [plugin:RemoteAction action="move" docid="com.ibm.workplace.wcm.api.WCM_Content/ID1" pid="com.ibm.workplace.wcm.api.WCM_SiteArea/ID1" moveDirection="1"]
-    ```
+        ```text
+        [plugin:RemoteAction action="move" docid="com.ibm.workplace.wcm.api.WCM_Content/ID1" pid="com.ibm.workplace.wcm.api.WCM_SiteArea/ID1" moveDirection="1"]
+        ```
 
-- `link`: This will link a content item to a site area as shown in the following example:
+- `link`: Links the content item specified by `docid` to the parent site area specified by `pid`.
 
-    ```
+    ```text
     [plugin:RemoteAction action="link" docid="com.ibm.workplace.wcm.api.WCM_Content/ID1" pid="com.ibm.workplace.wcm.api.WCM_SiteArea/ID2"]
     ```
 
-    When linking items, you can specify the path to the parent item by using the `ppath` parameter instead of the `pid` parameter:
+    - `ppath`: Specifies the path to the parent item instead of using `pid` to maintain references across environments with differing document IDs or to specify a path hierarchy for automatic creation.
 
-    ```
-    [plugin:RemoteAction action="link" docid="com.ibm.workplace.wcm.api.WCM_Content/ID1" ppath="library1/sitearea1/sitearea2"]
-    ```
+        ```text
+        [plugin:RemoteAction action="link" docid="com.ibm.workplace.wcm.api.WCM_Content/ID1" ppath="library1/sitearea1/sitearea2"]
+        ```
 
-    When linking items, you can create a new parent item by using the `autoCreateParent` parameter. You must also specify the library where the item being linked is located by using the `slibrary` parameter. The `ppath` parameter is used to specify the existing parent that the new parent item is created under:
+    - `autoCreateParent`: Set to `true` to create a parent item automatically. When using this parameter, identify the target parent in `ppath` and specify the source item library in `slibrary`.
 
-    ```
-    [plugin:RemoteAction action="link" docid="com.ibm.workplace.wcm.api.WCM_Content/ID1" autoCreateParent="true" slibrary="libraryname" ppath="library1/sitearea1/sitearea2"]
-    ```
+        ```text
+        [plugin:RemoteAction action="link" docid="com.ibm.workplace.wcm.api.WCM_Content/ID1" autoCreateParent="true" slibrary="libraryname" ppath="library1/sitearea1/sitearea2"]
+        ```
 
-- `copy`: This is used to make a copy of an item.
+    - `slibrary`: Specifies the library that contains the source item. Use this parameter with `autoCreateParent`.
 
-    To copy a content item to a new site area, use the following example:
+- `copy`: Creates a copy of the item specified by `docid` in the parent item specified by `pid`.
 
-    ```
+    ```text
     [plugin:RemoteAction action="copy" docid="com.ibm.workplace.wcm.api.WCM_Content/ID1" pid="com.ibm.workplace.wcm.api.WCM_SiteArea/ID2"]
     ```
 
-    You can use the following extra parameters when copying:
+    Use the following parameters with this action:
 
-    - `copyAsDraft="true"`: This will restart the workflow of the copy being creating. In most cases this would result in the copy being created with a status of draft.
+    - `ppath`: Specifies the path to the parent item instead of using `pid` to maintain references across environments with differing document IDs or to specify a path hierarchy for automatic creation.
 
-    - `wid="com.ibm.workplace.wcm.api.WCM_Workflow/ID1"`: Use to specify a different workflow to use when creating the copy. This will also restart the workflow of the copy being creating. In most cases this would result in the copy being created with a status of draft.
+        ```text
+        [plugin:RemoteAction action="copy" docid="com.ibm.workplace.wcm.api.WCM_Content/ID1" ppath="library1/sitearea1/sitearea2"]
+        ```
 
-    - `position="start"`: Creates the copy as the first item under the specified parent item. If not specified the item is copied as the last child of the specified parent item.
+    - `autoCreateParent`: Set to `true` to create a new parent item automatically. When using this parameter, specify the existing parent to create the new parent item under in `ppath`, and specify the library that contains the item you are copying in `slibrary`.
 
-    When copying items you can specify the path to the parent item by using the `ppath` parameter instead of the `pid` parameter:
+        ```text
+        [plugin:RemoteAction action="copy" docid="com.ibm.workplace.wcm.api.WCM_Content/ID1" autoCreateParent="true" slibrary="libraryname" ppath="library1/sitearea1/sitearea2"]
+        ```
 
-    - `[plugin:RemoteAction action="copy" docid="com.ibm.workplace.wcm.api.WCM_Content/ID1" ppath="library1/sitearea1/sitearea2"]`
-    
-    When copying items you can create a new parent item by using the `autoCreateParent` parameter. You must also specify the library where the item being copied is located by using the `slibrary` parameter. The `ppath` parameter is used to specify the existing parent that the new parent item is created under:
+    - `slibrary`: Specifies the library that contains the item you are copying. Use this parameter with `autoCreateParent`.
+    - `copyAsDraft`: Set to `true` to restart the workflow on the copy, which defaults the status to draft.
+    - `wid`: Specifies the document ID of the workflow to assign to the copy. Assigning a workflow restarts the workflow and sets the item status to draft.
 
-    - `[plugin:RemoteAction action="copy" docid="com.ibm.workplace.wcm.api.WCM_Content/ID1" autoCreateParent="true" slibrary="libraryname" ppath="library1/sitearea1/sitearea2"]`
+        ```text
+        [plugin:RemoteAction action="copy" docid="com.ibm.workplace.wcm.api.WCM_Content/ID1" pid="com.ibm.workplace.wcm.api.WCM_SiteArea/ID2" wid="com.ibm.workplace.wcm.api.WCM_Workflow/ID1"]
+        ```
 
-- `approve`: This is used to approve an item in a workflow. You must also specify the `docid` of the item as shown in the following example:
+    - `position`: Set to `start` to place the copy as the first child item under the specified parent. If omitted, the parameter defaults to the last child.
 
-    ```
+- `approve`: Approves the item specified by `docid` in a workflow.
+
+    ```text
     [plugin:RemoteAction action="approve" docid="com.ibm.workplace.wcm.api.WCM_Content/ID1"]
     ```
 
-- `decline`: This is used to decline an item in a workflow. You must also specify the `docid` of the item as shown in the following example:
+- `decline`: Declines the item specified by `docid` in a workflow.
 
-    ```
+    ```text
     [plugin:RemoteAction action="decline" docid="com.ibm.workplace.wcm.api.WCM_Content/ID1"]
     ```
 
-- `saveandapprove`: This is used to approve an item in a workflow where that item is open in edit mode within the same session. You must also specify the `docid` of the item as shown in the following examples:
+- `saveandapprove`: Approves the item specified by `docid` in a workflow when the item is open in edit mode within the same session.
 
-    - `[plugin:RemoteAction action="saveandapprove" docid="com.ibm.workplace.wcm.api.WCM_Content/ID1"]`
-    - `[plugin:RemoteAction action="saveandapprove" docid="com.ibm.workplace.wcm.api.WCM_Content/ID1" isdraft="true"]`
-
-- `previousstage`: This is used to move an item to the previous stage in a workflow. You must also specify the `docid` of the item as shown in the following example:
-
+    ```text
+    [plugin:RemoteAction action="saveandapprove" docid="com.ibm.workplace.wcm.api.WCM_Content/ID1"]
+    [plugin:RemoteAction action="saveandapprove" docid="com.ibm.workplace.wcm.api.WCM_Content/ID1" isdraft="true"]
     ```
+
+- `previousstage`: Moves the item specified by `docid` to the previous stage in a workflow.
+
+    ```text
     [plugin:RemoteAction action="previousstage" docid="com.ibm.workplace.wcm.api.WCM_Content/ID1"]
     ```
 
-- `viewversions`: This is used to open the versions dialog for an item. You must also specify the `docid` of the item as shown in the following example:
+- `viewversions`: Opens the versions dialog for the item specified by `docid`.
 
-    ```
+    ```text
     [plugin:RemoteAction action="viewversions" docid="com.ibm.workplace.wcm.api.WCM_Content/ID1"]
     ```
 
-- `viewhistory`: This is used to open the history dialog for an item. You must also specify the `docid` of the item as shown in the following example:
+- `viewhistory`: Opens the history dialog for the item specified by `docid`.
 
-    ```
+    ```text
     [plugin:RemoteAction action="viewhistory" docid="com.ibm.workplace.wcm.api.WCM_Content/ID1"]
     ```
 
 ## Populating fields when creating or editing content
 
-When using the "new" or "edit" parameters with content items, you can also add data to different fields in the content item using a URL.
+When you use the `new` or `edit` action with content items, you can add data to fields in the content item by using parameters in the tag or URL.
 
-For example, to add "newcontent" as the name of the content item, you would use this URL:
-
-- `[plugin:RemoteAction action="new" type="com.ibm.workplace.wcm.api.WCM_Content" wcmfield.content.name="newcontent"]`
-
-The following parameters can be used to populate fields when creating or editing content:
+You can use the following parameters to populate fields when you create or edit content:
 
 - `wcmfield.content.name=`
 - `wcmfield.content.title=`
@@ -224,219 +240,209 @@ The following parameters can be used to populate fields when creating or editing
 - `wcmfield.content.expiryDate=`
 - `wcmfield.content.generalDateOne=`
 - `wcmfield.content.generalDateTwo=`
-- `wcmfield.content.workflow=` \(This can only be used when creating content.\)
+- `wcmfield.content.workflow=`
 - `wcmfield.content.categories=`
 - `wcmfield.content.keywords=`
 - `wcmfield.element.elementname=`
 
-    !!! note
-        You replace `elementname` with the name of the element you are populating. The element parameter can only be used with the following element types:
+!!! note
+    - Use `wcmfield.content.workflow=` only when creating content.
+    - Replace `elementname` with the name of the element you are populating. The element parameter can only be used with the following element types: text, HTML, rich text, option selection, user selection, date and time, number, JSP, link, and component reference.
 
-    - Text
-    - Html
-    - Rich text
-    - Option Selection
-    - User Selection
-    - Date and time
-    - Number
-    - JSP
-    - Link
-    - Component Reference
+### Populating user fields
 
-When populating fields with user IDs, you must use this format:
+When you populate fields with user IDs, use the following format:
 
-```
+```text
 [plugin:RemoteAction action="new" type="com.ibm.workplace.wcm.api.WCM_Content" wcmfield.content.authors="uid=usera,cn=cn-name,dc=dc-name"]
 ```
 
-When populating workflow and category fields, you must use the document IDs as their values:
+### Populating workflow and category fields
 
-- `[plugin:RemoteAction action="new" type="com.ibm.workplace.wcm.api.WCM_Content" wcmfield.content.workflow="ID1"]`
-- `[plugin:RemoteAction action="new" type="com.ibm.workplace.wcm.api.WCM_Content" wcmfield.content.categories="ID1"]`
+When you populate workflow and category fields, use the document IDs as the values:
 
-When populating date fields, the date format must be US English. Either a date and time, or just a date can be specified. If only a date is specified, the time used will be 12:00:00 AM. For example:
-
-- `[plugin:RemoteAction action="new" type="com.ibm.workplace.wcm.api.WCM_Content" wcmfield.content.generalDateOne="Feb 14, 2008 12:53:03 PM"]`
-- `[plugin:RemoteAction action="new" type="com.ibm.workplace.wcm.api.WCM_Content" wcmfield.content.generalDateOne="Feb 14, 2008"]`
-
-The date and time set here are based on the server's timezone, not the timezone of the user's computer.
-
-When populating a JSP element, you need to specify the path to the JSP file:
-
+```text
+[plugin:RemoteAction action="new" type="com.ibm.workplace.wcm.api.WCM_Content" wcmfield.content.workflow="ID1"]
+[plugin:RemoteAction action="new" type="com.ibm.workplace.wcm.api.WCM_Content" wcmfield.content.categories="ID1"]
 ```
+
+### Populating date fields
+
+When you populate date fields, use the US English date format. You can specify a date and time, or only a date. If you specify only a date, the time defaults to 12:00:00 AM.
+
+```text
+[plugin:RemoteAction action="new" type="com.ibm.workplace.wcm.api.WCM_Content" wcmfield.content.generalDateOne="Feb 14, 2008 12:53:03 PM"]
+[plugin:RemoteAction action="new" type="com.ibm.workplace.wcm.api.WCM_Content" wcmfield.content.generalDateOne="Feb 14, 2008"]
+```
+
+The date and time use the server time zone, not the time zone of the user's computer.
+
+### Populating JSP elements
+
+When you populate a JSP element, specify the path to the JSP file:
+
+```text
 [plugin:RemoteAction action="new" type="com.ibm.workplace.wcm.api.WCM_Content" wcmfield.element.jspelementname="/wps/wcm/jsp/html/example.jsp"]
 ```
 
-When populating a component reference element, you specify the component to reference. For example:
+### Populating component reference elements
 
-```
+When you populate a component reference element, specify the component to reference:
+
+```text
 [plugin:RemoteAction action="new" type="com.ibm.workplace.wcm.api.WCM_Content" wcmfield.element.mycompref.type="com.aptrix.pluto.cmpnt.NavigatorCmpnt" wcmfield.element.mycompref.id="e4bdf10042d0769698ccbeb0e25cc973"]
 ```
 
-When populating an option selection element, you specify each selection option. For example:
+### Populating option selection elements
 
-```
+When you populate an option selection element, specify each selection option:
+
+```text
 [plugin:RemoteAction action="new" type="com.ibm.workplace.wcm.api.WCM_Content" wcmfield.element.elementname="AA" wcmfield.element.elementname="BB"]
 ```
 
-When populating a user selection element, you specify each user. For example:
+### Populating user selection elements
 
-```
+When you populate a user selection element, specify each user:
+
+```text
 [plugin:RemoteAction action="new" type="com.ibm.workplace.wcm.api.WCM_Content" wcmfield.element.elementname="uid=wpsadmin,o=defaultWimFileBasedRealm" wcmfield.element.elementname="uid=wpsadmin2,o=defaultWimFileBasedRealm"]
 ```
 
+### Populating link elements
 
-When populating a Link element, you can specify the following parameters:
+When you populate a link element, you can use the following parameters:
 
-- **Adding a link to a content item:**
+- `wcmfield.element.elementname.type`: Specifies the type of item to link to. Supported values are `content`, `link`, `resource`, and `external`.
+- `wcmfield.element.elementname.id`: Specifies the ID of the item to link to.
+- `wcmfield.element.elementname.externalReference`: Specifies the URL to link to when `type` is `external`.
+- `wcmfield.element.elementname.useReferenceLinkText`: Set to `true` to use the name of the linked item as the link text.
+- `wcmfield.element.elementname.linkImage`: Specifies the ID of the image component to display as the link.
+- `wcmfield.element.elementname.linkText`: Specifies the text of the link.
+- `wcmfield.element.elementname.linkDescription`: Specifies the description of the link.
+- `wcmfield.element.elementname.linkTarget`: Specifies the target of the link. Supported values include `_blank`, `_parent`, `_self`, `_top`, and `targetname`.
 
-    ```
-    [plugin:RemoteAction action="new" type="com.ibm.workplace.wcm.api.WCM_Content" wcmfield.element.elementname.type="content" wcmfield.element.elementname.id="contentID"]
-    ```
+The following examples show how to link to each type of item:
 
-- **Adding a link to a link component:**
+- Link to a content item:
 
-    ```
+```text
+[plugin:RemoteAction action="new" type="com.ibm.workplace.wcm.api.WCM_Content" wcmfield.element.elementname.type="content" wcmfield.element.elementname.id="contentID"]
+```
+
+- Link to a link component:
+
+    ```text
     [plugin:RemoteAction action="new" type="com.ibm.workplace.wcm.api.WCM_Content" wcmfield.element.elementname.type="link" wcmfield.element.elementname.id="linkcomponentID"]
     ```
 
-- **Adding a link to an image or file resource component:**
+- Link to an image or file resource component:
 
-    ```
+    ```text
     [plugin:RemoteAction action="new" type="com.ibm.workplace.wcm.api.WCM_Content" wcmfield.element.elementname.type="resource" wcmfield.element.elementname.id="componentID"]
     ```
 
-- **Adding a link to a URL:**
+- Link to a URL:
 
-    ```
+    ```text
     [plugin:RemoteAction action="new" type="com.ibm.workplace.wcm.api.WCM_Content" wcmfield.element.elementname.type="external" wcmfield.element.elementname.externalReference="myurl"]
     ```
 
-- **To specify whether to use the name of the item you are linking to as the link text, add this to the tag:**
+## Saving content
 
-    ```
-    wcmfield.element.elementname.useReferenceLinkText="true"
-    ```
+You can add the following save parameters to a remote action tag:
 
-- **When specifying an image to display as the link, add this to the tag:**
+- `wcmfield.autosave`: Set to `true` to save the item in the background without displaying it to users.
 
-    ```
-    wcmfield.element.elementname.linkImage="imagecomponentID"
+    ```text
+    wcmfield.autosave="true"
     ```
 
-- **When specifying the text of the link, add this to the URL:**
+- `wcmfield.saveValidate`: Set to `true` to display warning and error messages that result from the autosave. Set to `false` to suppress the messages. If omitted this parameter defaults to `true`.
 
+    ```text
+    wcmfield.saveValidate="false"
     ```
-    wcmfield.element.elementname.linkText="text"
-    ```
-
-- **When specifying the description of the link, add this to the URL:**
-
-    ```
-    wcmfield.element.elementname.linkDescription="text"
-    ```
-
-- **When specifying a link target, add this to the URL:**
-
-    ```
-    wcmfield.element.elementname.linkTarget=
-    ```
-
-    - `_blank`
-    - `_parent`
-    - `_self`
-    - `_top`
-    - `targetname`
-
-## Save parameters
-
-You can add the following "save" parameters to a remote action tag.
-
-- **`autoSave`**
-
-    This is used to save a controllable. This happens in the background and is not displayed to users.
-
-    For example:
-
-    - `wcmfield.autosave="true"`
-    
-- **`saveValidate`**
-
-    This parameter determines if warning and error messages resulting from the autosave is displayed to the user. If set to "true", warning and error messages are displayed to the user. If set to false, messages are suppressed. The default is `true`.
-
-    For example:
-
-    - `&wcmfield.saveValidate="false"`
 
 ## Adding comments to the item history
 
-When creating items that use a workflow with "Enter comment on approval" set to `true`, you can add a comment to the item history by adding `comment="comment text"` to the URL as seen in the following example:
+When creating items that use a workflow with "Enter comment on approval" set to `true`, you can add a comment to the item history by adding `comment="comment text"` to the tag or URL. For example:
 
-```
-`[plugin:RemoteAction action="edit" docid="com.ibm.workplace.wcm.api.WCM_Content/ID1" 
-createDraft="true" comment="comment text"]`
+```text
+[plugin:RemoteAction action="edit" docid="com.ibm.workplace.wcm.api.WCM_Content/ID1" createDraft="true" comment="comment text"]
 ```
 
 ## Examples
 
-Open the versions view for an item:
+Each example shows the remote action as a plug-in tag and as a URL.
+
+### Opening item views
+
+To open the versions view for an item:
 
 - Tag: `[plugin:RemoteAction action="viewversions" docid="com.ibm.workplace.wcm.api.WCM_Content/ID1"]`
-- Url: `http://<host>/wps/myportal/wcmAuthoring?wcmAuthoringAction=viewversions&docid=com.ibm.workplace.wcm.api.WCM_Content/ID1`
+- URL: `http://<host>/wps/myportal/wcmAuthoring?wcmAuthoringAction=viewversions&docid=com.ibm.workplace.wcm.api.WCM_Content/ID1`
 
-Open the history view for an item:
+To open the history view for an item:
 
 - Tag: `[plugin:RemoteAction action="viewhistory" docid="com.ibm.workplace.wcm.api.WCM_Content/ID1"]`
-- Url: `http://<host>/wps/myportal/wcmAuthoring?wcmAuthoringAction=viewhistory&docid=com.ibm.workplace.wcm.api.WCM_Content/ID1`
+- URL: `http://<host>/wps/myportal/wcmAuthoring?wcmAuthoringAction=viewhistory&docid=com.ibm.workplace.wcm.api.WCM_Content/ID1`
 
-Open a content item in read mode:
+To open a content item in read mode:
 
 - Tag: `[plugin:RemoteAction action="read" docid="com.ibm.workplace.wcm.api.WCM_Content/ID1"]`
-- Url: `http://<host>/wps/myportal/wcmAuthoring?wcmAuthoringAction=read&docid=com.ibm.workplace.wcm.api.WCM_Content/ID1`
+- URL: `http://<host>/wps/myportal/wcmAuthoring?wcmAuthoringAction=read&docid=com.ibm.workplace.wcm.api.WCM_Content/ID1`
 
-Open a content item in edit mode:
+To open a content item in edit mode:
 
 - Tag: `[plugin:RemoteAction action="edit" &docid=com.ibm.workplace.wcm.api.WCM_Content/ID1]`
-- Url: `http://<host>/wps/myportal/wcmAuthoring?wcmAuthoringAction=edit&docid=com.ibm.workplace.wcm.api.WCM_Content/ID1`
+- URL: `http://<host>/wps/myportal/wcmAuthoring?wcmAuthoringAction=edit&docid=com.ibm.workplace.wcm.api.WCM_Content/ID1`
 
-Move a content item up:
+### Moving items
+
+To move a content item up:
 
 - Tag: `[plugin:RemoteAction action="move" docid="com.ibm.workplace.wcm.api.WCM_Content/ID1" moveDirection="1" pid="com.ibm.workplace.wcm.api.WCM_SiteArea/ID1"]`
-- Url: `http://<host>/wps/myportal/wcmAuthoring?wcmAuthoringAction=move&docid=com.ibm.workplace.wcm.api.WCM_Content/ID1&moveDirection=1&pid=com.ibm.workplace.wcm.api.WCM_SiteArea/ID1`
+- URL: `http://<host>/wps/myportal/wcmAuthoring?wcmAuthoringAction=move&docid=com.ibm.workplace.wcm.api.WCM_Content/ID1&moveDirection=1&pid=com.ibm.workplace.wcm.api.WCM_SiteArea/ID1`
 
-Move a site area down:
+To move a site area down:
 
 - Tag: `[plugin:RemoteAction action="move" docid="com.ibm.workplace.wcm.api.WCM_SiteArea/ID1" "moveDirection="-1" pid="com.ibm.workplace.wcm.api.WCM_SiteArea/ID1"]`
-- Url: `http://<host>/wps/myportal/wcmAuthoring?wcmAuthoringAction=move&docid=com.ibm.workplace.wcm.api.WCM_SiteArea/ID1&moveDirection=-1&pid=com.ibm.workplace.wcm.api.WCM_SiteArea/ID1`
+- URL: `http://<host>/wps/myportal/wcmAuthoring?wcmAuthoringAction=move&docid=com.ibm.workplace.wcm.api.WCM_SiteArea/ID1&moveDirection=-1&pid=com.ibm.workplace.wcm.api.WCM_SiteArea/ID1`
 
-Create a new content item with title of 'newcontent':
+### Creating items
+
+To create a content item with the title `newcontent`:
 
 - Tag: `[plugin:RemoteAction action="new" type="com.ibm.workplace.wcm.api.WCM_Content" wcmfield.content.title="newcontent"]`
-- Url: `http://<host>/wps/myportal/wcmAuthoring?wcmAuthoringAction=new&type=com.ibm.workplace.wcm.api.WCM_Content&wcmfield.content.title=newcontent`
+- URL: `http://<host>/wps/myportal/wcmAuthoring?wcmAuthoringAction=new&type=com.ibm.workplace.wcm.api.WCM_Content&wcmfield.content.title=newcontent`
 
-To open a content item in edit mode and automatically change keywords:
+To create a content item, set the name, and use autosave to save the content (no dialog opens):
 
-- Tag: `[plugin:RemoteAction action="edit" docid="com.ibm.workplace.wcm.api.WCM_Content/ID1" wcmfield.content.keywords="keyword1" wcmfield.content.keywords="keyword2"]`
-- Url: `http://<host>/wps/myportal/wcmAuthoring?wcmAuthoringAction=edit&docid=com.ibm.workplace.wcm.api.WCM_Content/ID1&wcmfield.content.keywords=keyword1&wcmfield.content.keywords=keyword2`
-
-To edit a content item, automatically change the keywords and use autosave to automatically save the content \(no dialog opens\):
-
-- Tag: `[plugin:RemoteAction action="edit" docid="com.ibm.workplace.wcm.api.WCM_Content/ID1" wcmfield.content.keywords="keyword1" wcmfield.content.keywords="keyword2" wcmfield.autosave="true"]`
-- Url: `http://<host>/wps/myportal/wcmAuthoring?wcmAuthoringAction=edit&docid=com.ibm.workplace.wcm.api.WCM_Content/ID1&wcmfield.content.keywords=keyword1&wcmfield.content.keywords=keyword2&wcmfield.autosave=true`
-
-To edit a content item, automatically save the item and prevent any validation exception from being displayed, use autosave with saveValidate=false:
-
-- Tag: `[plugin:RemoteAction action="edit" docid="com.ibm.workplace.wcm.api.WCM_Content/ID1" wcmfield.content.keywords="keyword1" wcmfield.autosave="true" wcmfield.saveValidate="false"]`
-- Url: `http://<host>/wps/myportal/wcmAuthoring?wcmAuthoringAction=edit&docid=com.ibm.workplace.wcm.api.WCM_Content/ID1&wcmfield.content.keywords=keyword1&wcmfield.autosave=true&wcmfield.saveValidate=false`
-
-To create a content item, set the name and use autosave to automatically save the content \(no dialog opens\). The authoring template that is used by the content item must have a workflow pre-selected:
+!!!note
+    The authoring template that the content item uses must have a workflow preselected.
 
 - Tag: `[plugin:RemoteAction action="new" type="com.ibm.workplace.wcm.api.WCM_Content" atid="com.ibm.workplace.wcm.api.WCM_AuthoringTemplate/ID1" pid="com.ibm.workplace.wcm.api.WCM_SiteArea/ID2" wcmfield.content.name="newcontent" wcmfield.autosave="true" wcmfield.saveValidate="true"]`
-- Url: `http://<host>/wps/myportal/wcmAuthoring?wcmAuthoringAction=new&type=com.ibm.workplace.wcm.api.WCM_Content&atid=com.ibm.workplace.wcm.api.WCM_AuthoringTemplate/ID1&pid=com.ibm.workplace.wcm.api.WCM_SiteArea/ID2&wcmfield.content.name=newcontent&wcmfield.autosave=true&wcmfield.saveValidate=true`
+- URL: `http://<host>/wps/myportal/wcmAuthoring?wcmAuthoringAction=new&type=com.ibm.workplace.wcm.api.WCM_Content&atid=com.ibm.workplace.wcm.api.WCM_AuthoringTemplate/ID1&pid=com.ibm.workplace.wcm.api.WCM_SiteArea/ID2&wcmfield.content.name=newcontent&wcmfield.autosave=true&wcmfield.saveValidate=true`
 
-To edit a content item and create a draft on the edit and set the history log comment:
+### Editing items
+
+To open a content item in edit mode and change the keywords automatically:
+
+- Tag: `[plugin:RemoteAction action="edit" docid="com.ibm.workplace.wcm.api.WCM_Content/ID1" wcmfield.content.keywords="keyword1" wcmfield.content.keywords="keyword2"]`
+- URL: `http://<host>/wps/myportal/wcmAuthoring?wcmAuthoringAction=edit&docid=com.ibm.workplace.wcm.api.WCM_Content/ID1&wcmfield.content.keywords=keyword1&wcmfield.content.keywords=keyword2`
+
+To edit a content item, change the keywords, and use autosave to save the content (no dialog opens):
+
+- Tag: `[plugin:RemoteAction action="edit" docid="com.ibm.workplace.wcm.api.WCM_Content/ID1" wcmfield.content.keywords="keyword1" wcmfield.content.keywords="keyword2" wcmfield.autosave="true"]`
+- URL: `http://<host>/wps/myportal/wcmAuthoring?wcmAuthoringAction=edit&docid=com.ibm.workplace.wcm.api.WCM_Content/ID1&wcmfield.content.keywords=keyword1&wcmfield.content.keywords=keyword2&wcmfield.autosave=true`
+
+To edit a content item, save it automatically, and suppress validation messages:
+
+- Tag: `[plugin:RemoteAction action="edit" docid="com.ibm.workplace.wcm.api.WCM_Content/ID1" wcmfield.content.keywords="keyword1" wcmfield.autosave="true" wcmfield.saveValidate="false"]`
+- URL: `http://<host>/wps/myportal/wcmAuthoring?wcmAuthoringAction=edit&docid=com.ibm.workplace.wcm.api.WCM_Content/ID1&wcmfield.content.keywords=keyword1&wcmfield.autosave=true&wcmfield.saveValidate=false`
+
+To edit a content item, create a draft, and set the history log comment:
 
 - Tag: `[plugin:RemoteAction action="edit" docid="com.ibm.workplace.wcm.api.WCM_Content/ID1" createDraft="true" comment="comment"]`
-- Url: `http://<host>/wps/myportal/wcmAuthoring?wcmAuthoringAction=edit&docid=com.ibm.workplace.wcm.api.WCM_Content/ID1&createDraft=true&comment=comment`
-
-
+- URL: `http://<host>/wps/myportal/wcmAuthoring?wcmAuthoringAction=edit&docid=com.ibm.workplace.wcm.api.WCM_Content/ID1&createDraft=true&comment=comment`
