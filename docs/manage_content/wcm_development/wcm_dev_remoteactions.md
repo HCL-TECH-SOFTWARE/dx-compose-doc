@@ -34,7 +34,7 @@ To support inline editing of content items, append remote actions to the URL of 
 Remote actions do not support building custom authoring interfaces. Remote actions deliver limited functionality and support only plain text without markup in HTML elements. Use the WCM API to build custom authoring interfaces.
 
 !!!note
-    A DocumentId identifies each web content item. Retrieve the `docid` value using the `DocumentID.getID()` web content API method. A document ID consists of a document type and a unique ID. Document IDs in the examples represent placeholders, such as `com.ibm.workplace.wcm.api.WCM_Content/ID1`.
+    A DocumentId identifies each web content item. Retrieve the `docid` value using the `DocumentID.getID()` web content API method. A document ID consists of a document type and a unique ID. Document IDs in the examples, such as `com.ibm.workplace.wcm.api.WCM_Content/ID1`, are placeholders for real IDs.
 
 ## Remote action types
 
