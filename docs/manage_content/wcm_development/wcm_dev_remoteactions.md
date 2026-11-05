@@ -247,7 +247,7 @@ You can use the following parameters to populate fields when you create or edit 
 
 !!! note
     - Use `wcmfield.content.workflow=` only when creating content.
-    - Replace `elementname` with the name of the element you are populating. The element parameter can only be used with the following element types: text, HTML, rich text, option selection, user selection, date and time, number, JSP, link, and component reference.
+    - Replace `elementname` with the name of the element you are populating. The element parameter can only be used with the following element types: text, HTML, Rich Text, Option Selection, User Selection, Date and Time, Number, JSP, Link, and Component Reference.
 
 ### Populating user fields
 
