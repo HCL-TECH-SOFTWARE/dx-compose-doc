@@ -1,6 +1,5 @@
 title: Extend Web Content Manager
 nav:
-    - index.md 
     - index.md
     - wcm_rest_v2.md
     - wcm_dev_context.md
