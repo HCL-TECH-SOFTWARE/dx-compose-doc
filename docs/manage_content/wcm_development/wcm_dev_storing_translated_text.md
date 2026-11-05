@@ -8,7 +8,7 @@ To configure a content item or site area as a text provider:
 
 1. Create a content item or site area.
 2. In the profile settings of the content item or site area, add `ibm.wcm.TextProvider` as a keyword.
-3. For each language that your site uses, create a set of text elements. Enter the language code for the language in the name field of each text element. For a list of codes, refer to [Supported languages](https://help.hcl-software.com/digital-experience/9.5/latest/deployment/manage/portal_admin_tools/language_support/).
+3. For each language that your site uses, create a text element. Enter the language code for the language in the name field of each text element. For a list of codes, refer to [Supported languages](https://help.hcl-software.com/digital-experience/9.5/latest/deployment/manage/portal_admin_tools/language_support/).
 
     !!!note
         When rendering, if the requested language doesn't exist in the list of elements, the first element is used as the default language.
@@ -43,7 +43,7 @@ Use the `Localize` plug-in tag to render translated text:
 ```
 
 - `key`: Specifies the name of the key to display.
-- `provider`: Specifies the name path to the content item or site area that stores the translated text. For example: `[Plugin:Localize key="keyname2" provider="library/sitearea/contentitem"]`.
+- `provider`: Specifies the name path or item ID to the content item or site area that stores the translated text. For example: `[Plugin:Localize key="keyname2" provider="library/sitearea/contentitem"]`.
 
 If you move or rename a content item, site area, or parent item, name path references break. To prevent broken references, specify the item ID instead of the name path:
 
@@ -63,7 +63,7 @@ If you use the `Localize` plug-in tag more than once with the same localized ite
 
 `defaultProvider`: Specifies the name path to the localized item to use when a tag omits the `provider` parameter.
 
-In the tags that follow the default provider tag, you can omit the `defaultProvider` parameter:
+In the tags that follow the default provider tag, you can omit the `provider` parameter:
 
 ```text
 [Plugin:Localize defaultProvider="library/sitearea/contentitem"]
@@ -85,7 +85,7 @@ To remove the default provider, set `defaultProvider` to an empty value:
 
 Use the `param.n` parameter in the `Localize` plug-in tag to specify the value that replaces placeholder `{n}` in translated text, where `n` is the zero-based numeric index of the placeholder.
 
-For example, a content item at `library/sitearea/contentitem` contains the following key with placeholders:
+For example, if a content item at `library/sitearea/contentitem` contains the following key with placeholders:
 
 ```text
 keyname_with_replacement=Welcome {0} to the website of {1}
