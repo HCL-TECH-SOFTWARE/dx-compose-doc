@@ -4,7 +4,7 @@ HCL Digital Experience (DX) Compose provides web content and digital asset manag
 
 ## What is it For?
 
-Web content and digital assets are critical components of a digital experience. You should use HCL DX Compose to manage web content that you plan to either integrate into websites delivered by DX or access from remote, headless clients such as mobile apps. You should use HCL DX Compose to manage web-ready digital assets, either for direct integration into your applications or for use in web content.
+Web content and digital assets are critical components of a digital experience. You should use HCL DX Compose to manage web content that you plan to either integrate into websites delivered by HCL DX Compose or access from remote, headless clients such as mobile apps. You should use HCL DX Compose to manage web-ready digital assets, either for direct integration into your applications or for use in web content.
 
 ## Who Should Use It?
 
