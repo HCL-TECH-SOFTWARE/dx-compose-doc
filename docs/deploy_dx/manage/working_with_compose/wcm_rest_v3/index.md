@@ -2,6 +2,8 @@
 
 The HCL Digital Experience (DX) Web Content Manager (WCM) API v3 provides REST access to WCM content, libraries, site areas, categories, taxonomies, and presentation templates. Built on Java API for RESTful Web Services (JAX-RS) 2.1 and Java Platform, Enterprise Edition (Java EE) 8 standards, it offers simplified JSON payloads and standard HTTP operations.
 
+<div style="position: relative; padding-bottom: calc(56.885% + 41px); height: 0px; width: 100%;"><iframe src="https://demo.arcade.software/j90iWMzIAniKgYgMXAyY?embed&embed_mobile=tab&embed_desktop=inline&show_copy_link=true" title="Discover HCL DX WCM V3 APIs" frameborder="0" loading="lazy" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="clipboard-write; autoplay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; color-scheme: light;" ></iframe></div>
+
 ## Features
 
 - Deploy REST APIs compliant with JAX-RS 2.1 and Java EE 8.
@@ -25,10 +27,6 @@ Learn how to enable and disable the WCM REST API v3.
 Learn how to enable, configure, and start using the WCM REST v3 APIs, including authentication methods and basic usage examples.
 - **[Using Web Content Manager REST API v3](use_wcm_rest_v3.md)**  
 Learn how to interact with WCM resources, execute queries, and apply best practices when using WCM REST API v3 endpoints.
-
-## See it in action
-
-<div style="position: relative; padding-bottom: calc(56.885% + 41px); height: 0px; width: 100%;"><iframe src="https://demo.arcade.software/j90iWMzIAniKgYgMXAyY?embed&embed_mobile=tab&embed_desktop=inline&show_copy_link=true" title="Discover HCL DX WCM V3 APIs" frameborder="0" loading="lazy" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="clipboard-write; autoplay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; color-scheme: light;" ></iframe></div>
 
 ## HCLSoftware U learning materials
 
