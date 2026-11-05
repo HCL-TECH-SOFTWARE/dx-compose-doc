@@ -28,4 +28,4 @@ https://host/wps/mycontenthandler/wcmrest-v2/contents/analysis
 For more information about API request and response details, refer to the `POST /contents/analysis` endpoint in the Swagger REST API documentation.
 
 !!!note
-    Before calling the content AI analyzer API of any content AI Provider, configure them in your HCL DX Compose deployment. For instructions on how to enable AI analysis for Kubernetes deployment, refer to [Web content AI analysis in Kubernetes Deployment](https://help.hcl-software.com/digital-experience/9.5/latest/get_started/plan_deployment/container_deployment/wcm_content_ai_analysis/).
+    Before calling the content AI analyzer API of any content AI Provider, configure them in your HCL DX Compose deployment. For instructions on how to enable AI analysis for Kubernetes deployment, refer to [Enabling and disabling WCM content AI analysis](../../deploy_dx/manage/cfg_dx_compose/enable_content_ai.md).
