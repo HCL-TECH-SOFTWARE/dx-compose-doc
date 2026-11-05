@@ -4,7 +4,7 @@ In this topic, you can find the main scenarios supported by Digital Experience (
 
 - Apply custom branding using an HTML theme
 - Create a website and manage it with [Site Manager](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_authoring/inline_editing/){target="_blank"}
-- Create and manage content with [Web Content Manager](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_authoring/){target="_blank"} (WCM) and [Content Composer](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_authoring/content_composer/){target="_blank"}
+- Create and manage content with [Web Content Manager](../../manage_content/wcm_authoring/index.md){target="_blank"} (WCM) and [Content Composer](../../manage_content/wcm_authoring/content_composer/index.md){target="_blank"}
 - Manage multilingual content with [Multilingual Solution](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_authoring/multi_lingual/){target="_blank"}
 - Create [Personalization](https://help.hcl-software.com/digital-experience/9.5/latest/build_sites/practitioner_studio/personalization/){target="_blank"} rules and use them to target content
 - [Syndicate content](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_delivery/syndication/){target="_blank"} from server to server

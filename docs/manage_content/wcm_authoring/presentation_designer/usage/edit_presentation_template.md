@@ -6,13 +6,13 @@ To provide a comprehensive example, the goal is to have a **Content Section** pr
 
 ## Prerequisites
 
-- Create a **content template** with image, text, and rich text elements. The image element is for the Project Image, the text element is for the Project Title, and the rich text element is for the Project Description. For more information on how to create a content template, see [Author Content Templates](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_authoring/content_composer/usage/author_and_manage_content_templates/author_content_templates/).
+- Create a **content template** with image, text, and rich text elements. The image element is for the Project Image, the text element is for the Project Title, and the rich text element is for the Project Description. For more information on how to create a content template, see [Author Content Templates](../../content_composer/usage/author_and_manage_content_templates/author_content_templates.md).
 
       See the following sample content template:
 
        ![](../../../../assets/HCL_Presentation_Designer_Edit_PT_Sample_Content_Template.png)
 
-- Create two or more **content items** using the created content template and add different content to the image, text, and rich text elements for each content item. For more information on how to create a content item, see [Author Content Items](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_authoring/content_composer/usage/author_and_manage_content_items/author_content_items/).
+- Create two or more **content items** using the created content template and add different content to the image, text, and rich text elements for each content item. For more information on how to create a content item, see [Author Content Items](../../content_composer/usage/author_and_manage_content_items/author_content_items.md).
 
       See the following sample content item:
         

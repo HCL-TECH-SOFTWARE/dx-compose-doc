@@ -36,6 +36,6 @@ Learn how to interact with WCM resources, execute queries, and apply best practi
 For an introduction to the WCM V3 API, go to the [What’s New in DX CF238 interactive lesson](https://hclsoftwareu.hcl-software.com/component/axs/?view=sso_config&id=4&forward=https%3A%2F%2Fhclsoftwareu.hcl-software.com%2Fcourses%2Flesson%2F%3Fid%3D4727){target="_blank"}.
 
 ???+ info "Related information"
-    - [REST service for Web Content Manager v2](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_development/wcm_rest_v2/){target="_blank"}
+    - [REST service for Web Content Manager v2](../../../../manage_content/wcm_development/wcm_rest_v2.md){target="_blank"}
     - [REST service for Web Content Manager v1](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_development/wcm_rest/){target="_blank"}
     - [HCL Experience API](https://help.hcl-software.com/digital-experience/9.5/latest/extend_dx/apis/hcl_experience_api/){target="_blank"}

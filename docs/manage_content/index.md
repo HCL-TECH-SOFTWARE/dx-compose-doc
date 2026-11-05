@@ -20,9 +20,9 @@ Learn how to use HCL DX Compose to deliver web content.
 Learn how to configure HCL DX Compose content management services,
 - **[Extend Web Content Manager](wcm_development/index.md)**  
 Learn how to extend content management capabilities, for example by developing templates and plugins
-- **[Digital Asset Management](digital_assets/index.md)**  
+- **[Digital Asset Management](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/digital_assets/)**  
 Learn about the features and capabilities of HCL Digital Asset Management (DAM).
-- **[Personalization](pzn/index.md)**  
+- **[Personalization](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/pzn/)**  
 Learn about the features and capabilities of the built-in Personalization system in HCL DX Compose.
 
 ## HCLSoftware U learning materials

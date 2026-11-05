@@ -10,13 +10,13 @@ The purpose of this capability is to allow users of HCL DX Compose to create and
 
 This information is primarily aimed at non-technical users who are responsible for organizing and managing content. Content strategists can use the organizational features of HCL DX Compose to structure web content and organize templates and reusable components of various types. Content authors can use the content editing capabilities to create and manage individual content items. Both may interact with people who are not regular users of HCL DX Compose for publication approvals, via workflow and projects.
 
-- **[Site Manager](./inline_editing/index.md)**  
+- **[Site Manager](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_authoring/inline_editing/)**  
 Site Manager provides you with common content authoring tools and shows a complete view of the site navigation.
 - **[Content Composer](./content_composer/index.md)**  
 The HCL Content Composer delivers simplified processes for creating and managing HCL DX Compose site content.
 - **[Presentation Designer](./presentation_designer/index.md)**  
 Using Presentation Designer, you can edit presentation templates through a drag-and-drop interface, following a low-code or no-code approach. You can style and configure elements with a real-time visual editing experience, where changes are instantly reflected on the canvas.
-- **[Authoring Portlet](./authoring_portlet/index.md)**  
+- **[Authoring Portlet](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_authoring/authoring_portlet/)**  
 The Web Content Manager (WCM) Authoring Portlet provides a comprehensive management user interface for all artifacts managed by HCL DX Compose WCM.
 - **[Content Reporting](./content_reporting/index.md)**  
 HCL Content Reporting allows content managers to generate reports and make updates on the reported items in bulk.
@@ -24,7 +24,7 @@ HCL Content Reporting allows content managers to generate reports and make updat
 The DX Picker is a web component that allows users to view and select an asset from Digital Asset Management (DAM) and use it in their custom web application.
 - **[Renditions](./renditions/index.md)**  
 Renditions allow you to easily reformat an image for publishing in various sizes on different platforms.
-- **[Web Content Integrator](./wci/index.md)**  
+- **[Web Content Integrator](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_authoring/wci/)**  
 Web Content Integrator allows you to integrate externally managed web content with HCL DX Compose.
 
 ## HCLSoftware U learning materials
