@@ -1,64 +1,71 @@
 # Storing translated text in a content item or site area
 
-Translated text can be stored in a content item or site area. The translated text can then be referenced in web content tags, or as localized text in web content authoring portlet forms.
+You can store translated text in a content item or site area and reference it in web content tags or as localized text in web content authoring portlet forms.
 
 ## Creating the content item or site area to store the translated text
 
-- Create a content item or site area.
-- Add `ibm.wcm.TextProvider` as a keyword in the content item or site area's profile settings.
-- Create a set of text elements for each language that is used by your site. Each text element must be named entering a language code for the language in the name field. Refer to [Supported languages](https://help.hcl-software.com/digital-experience/9.5/latest/deployment/manage/portal_admin_tools/language_support/) for a list of codes. At render time, if the requested language does not exist in the list of elements, the first element is used as the default language.
-- Type the translated text in each field by using this format: `keyname=translated-text`. You can add as many key names as you need into each text element. For example:
+To configure a content item or site area as a text provider:
 
-    ```
+1. Create a content item or site area.
+2. In the profile settings of the content item or site area, add `ibm.wcm.TextProvider` as a keyword.
+3. For each language that your site uses, create a set of text elements. Enter the language code for the language in the name field of each text element. For a list of codes, refer to [Supported languages](https://help.hcl-software.com/digital-experience/9.5/latest/deployment/manage/portal_admin_tools/language_support/).
+
+    !!!note
+        When rendering, if the requested language doesn't exist in the list of elements, the first element is used as the default language.
+
+4. In each text element, enter the translated text in the format `keyname=translated-text`. You can add as many key names as you need to each text element. For example:
+
+    ```text
     keyname1=translated text
     keyname2=translated text
     keyname3=translated text
-    
     ```
 
-- The key names must be consistent for each language.
-- The list of key names and translated text uses the [Java Properties File Format](https://docs.oracle.com/javase/7/docs/api/java/util/Properties.html#load%28java.io.Reader%29).
+    - Use the same key names for each language.
+    - The list of key names and translated text uses the [Java Properties File Format](https://docs.oracle.com/javase/7/docs/api/java/util/Properties.html#load%28java.io.Reader%29){target="_blank"}.
 
 ## Selecting the translated text in a web content authoring portlet form
 
-Fields that support localized text have a **Localizations** link next to the field title. Click Localizations to select the content item or site area where your translated text is stored, and then select a key name.
+In the authoring portlet, you can reference stored keys to populate form fields with localized text. Fields that support localized text display a **Localizations** link next to the field title.
 
-## Selecting the translated text in a web content tag
+To select translated text for a field:
 
-You can render translated text by using a plug-in tag:
+1. Select **Localizations**.
+2. Select the content item or site area that stores your translated text.
+3. Select a key name.
 
-```
+## Rendering translated text in a web content tag
+
+Use the `Localize` plug-in tag to render translated text:
+
+```text
 [Plugin:Localize key="" provider=""]
 ```
 
-You specify the name path to the content item or site area in the `provider` parameter, and the name of the key to display in the `key` parameter. For example:
+- `key`: Specifies the name of the key to display.
+- `provider`: Specifies the name path to the content item or site area that stores the translated text. For example: `[Plugin:Localize key="keyname2" provider="library/sitearea/contentitem"]`.
 
-```
-[Plugin:Localize key="keyname2" provider="library/sitearea/contentitem"]
-```
+If you move or rename a content item, site area, or parent item, name path references break. To prevent broken references, specify the item ID instead of the name path:
 
-!!!note
-    If you move or rename a content item or site area that is used to store localized text, or its parent, you will break the localized reference that is specified in a tag. To avoid this issue, you can instead specify the item ID instead of the name path.
-
-For example:
-
-```
+```text
 [Plugin:Localize provider="[Element key='Text Provider Name' format='id']" key="keyname2"]
 ```
 
-Refer to [Content plug-ins](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_authoring/authoring_portlet/content_management_artifacts/tags/creating_plugin_tag/content_plugins/) for information about the localized plug-in within the text provider plug-in tag section.
+For more information about the `Localize` plug-in, refer to **Text Provider plug-in** in [Content plug-ins](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_authoring/authoring_portlet/content_management_artifacts/tags/creating_plugin_tag/content_plugins/).
 
 ## Setting a default localized item in a web content tag
 
-If you intend to use the Localize plug-in tag more than once in a component design or presentation template design using the same the localized item, you can specify the default localized item name path in one tag:
+If you use the `Localize` plug-in tag more than once with the same localized item in a component design or presentation template design, specify the name path to the default localized item in one tag:
 
-```
+```text
 [Plugin:Localize defaultProvider="library/sitearea/contentitem"]
 ```
 
-You can then leave out the provider parameter in the tags that follow the default provider tag:
+`defaultProvider`: Specifies the name path to the localized item to use when a tag omits the `provider` parameter.
 
-```
+In the tags that follow the default provider tag, you can omit the `defaultProvider` parameter:
+
+```text
 [Plugin:Localize defaultProvider="library/sitearea/contentitem"]
 [Plugin:Localize key="key1"]
 [Plugin:Localize key="key2"]
@@ -66,32 +73,38 @@ You can then leave out the provider parameter in the tags that follow the defaul
 
 ```
 
-The default provider is applied in all presentation template designs and component designs, including component designs that are included by using the tags, such as a component tag.
+The default provider applies in all presentation template designs and component designs, including component designs that you include by using tags, such as a component tag.
 
-To remove the default provider, use:
+To remove the default provider, set `defaultProvider` to an empty value:
 
-```
+```text
 [Plugin:Localize defaultProvider=""]
 ```
 
-## How to use replacement characters
+## Replacing placeholder values in translated text
 
-You can use replacement characters with the localized plug-in tag.
+Use the `param.n` parameter in the `Localize` plug-in tag to specify the value that replaces placeholder `{n}` in translated text, where `n` is the zero-based numeric index of the placeholder.
 
-For example, to use `keyname_with_replacement=Welcome {0} to the website of {1}` in the content item that is located at `library/sitearea/contentitem`, use:
+For example, a content item at `library/sitearea/contentitem` contains the following key with placeholders:
 
+```text
+keyname_with_replacement=Welcome {0} to the website of {1}
 ```
+
+The following tag specifies replacement values for `{0}` and `{1}`:
+
+```text
 [Plugin:Localize key="keyname_with_replacement" provider="library/sitearea/contentitem" param.0="Fred" param.1="Mary"]
 ```
 
-This is rendered as:
+The tag renders the following text:
 
-```
+```text
 Welcome Fred to the web site of Mary
 ```
 
-## Hiding a localized item from the web content authoring interface
+## Hiding a localized item from the authoring interface
 
-If you don't want a localized item to appear in the list of localized items in the web content authoring interface, add a text element with the name of `isShownInAuthoringUI`. Then, type the word false in the text element field. You can still reference this localized item in a plugin tag even though it is now hidden from the list of localized items in the web content authoring interface.
+To hide a localized item from the Localizations list in the authoring interface, add a text element named `isShownInAuthoringUI` and set its value to `false`.
 
-
+You can still reference the hidden item in plug-in tags.
