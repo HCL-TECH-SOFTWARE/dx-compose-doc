@@ -12,23 +12,23 @@ This information is primarily aimed at system administrators and application dev
 
 - **[Rendering modes for web content](./wcm_rendering_modes.md)**  
 Different presentation templates are created to render web content in different modes to display content in different contexts, such as a web content viewer portlet, or mobile devices.
-- **[Delivering web content on a DX Compose page](../wcm_delivery/deliver_webcontent_on_dx/index.md)**  
+- **[Delivering web content on a DX Compose page](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_delivery/deliver_webcontent_on_dx/)**  
 Using tools like Web Content Viewer Portlets, content associations, and web content page templates, you can build portal pages and display web content. You can also combine web content with other portlet-based content. Content associations tie viewers and portal pages to the site structure of your web content libraries.
 - **[Access web content by using a servlet](./wcm_config_delivery_servlet.md)**  
 Users can access content displayed using the Web Content Manager (WCM) servlet by connecting to a URL. A servlet-delivered website is used when you do not need to use any HCL DX Compose based features such as authoring tools.
-- **[Content as a Service pages](./content_as_a_service/index.md)**  
+- **[Content as a Service pages](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_delivery/content_as_a_service/)**  
 You can use Content as a Service (CaaS) pages in HCL DX Compose to render content managed by your HCL WCM in different data formats such as JSON or XML. CaaS pages also allows the content in your website to be accessed by other data clients in raw data formats.
-- **[Pre-rendered delivery](../wcm_delivery/pre-rendered_delivery/index.md)**  
+- **[Pre-rendered delivery](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_delivery/pre-rendered_delivery/)**  
 You can pre-render a complete HCL WCM site into HTML and save it to disk. The pre-rendered site can then be used as your live site and displayed to users that use WCM or a web server. You deploy a pre-rendered site when you are not using any HCL DX Compose features and your content is static and only updated periodically.
-- **[WebDAV](./webdav/index.md)**  
+- **[WebDAV](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_delivery/webdav/)**  
 Using WebDAV, you can use standard operating system tools to create, modify, and delete web content rather than using the standard authoring portlet.
-- **[Social Media Publisher](./socialmedia_publisher/index.md)**  
+- **[Social Media Publisher](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_delivery/socialmedia_publisher/)**  
 Using Social Media Publisher for HCL WCM, businesses can promote their web content on social networks and provide basic statistics about the promoted content.
-- **[Previewing as another user](./preview_another_user/index.md)**  
+- **[Previewing as another user](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_delivery/preview_another_user/)**  
 Using the preview capability, you can quickly check changes to your website without having to log in and out as another user. You can view specific changes to users with varying access levels, including unauthenticated users.
-- **[Vanity URLs](./vanity_url/index.md)**  
+- **[Vanity URLs](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_delivery/vanity_url/)**  
 You can use Vanity URLs, also known as marketing URLs, to create shorter URLs that people can easily type and remember.
-- **[Syndication](./syndication/index.md)**  
+- **[Syndication](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_delivery/syndication/)**  
 You can use syndication to replicate web content library data from one server to another. Syndication is based on a syndicator and subscriber relationship, where the syndicator has the current data and the subscriber receives the data.
 
 ## HCLSoftware U learning materials

@@ -81,7 +81,7 @@ You can perform the following actions in Preview mode:
 
   ![](../../../assets/HCL_DX_Picker_Asset_Preview_Component.png)
 
-1. To choose the rendition of the image you want to view, click the dropdown and select the specific rendition. For more information on renditions, refer to [Renditions](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_authoring/renditions/){target="_blank"}.
+1. To choose the rendition of the image you want to view, click the dropdown and select the specific rendition. For more information on renditions, refer to [Renditions](../renditions/index.md){target="_blank"}.
 
 2. To download the previewed item, click the **Download** icon. For images with renditions, only the selected rendition is downloaded.
 

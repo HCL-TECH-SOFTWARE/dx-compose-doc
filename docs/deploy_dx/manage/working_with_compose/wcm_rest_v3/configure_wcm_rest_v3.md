@@ -229,6 +229,6 @@ Common HTTP status codes:
 - Learn about [Enabling and disabling WCM API v3](../../cfg_dx_compose/enable_wcm_api_v3.md) if you need to disable or re-enable it.
 
 ???+ info "Related information"
-    - [REST service for Web Content Manager v2](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_development/wcm_rest_v2/){target="_blank"}
+    - [REST service for Web Content Manager v2](../../../../manage_content/wcm_development/wcm_rest_v2.md){target="_blank"}
     - [HCL Experience API](https://help.hcl-software.com/digital-experience/9.5/latest/extend_dx/apis/hcl_experience_api/){target="_blank"}
     - [REST API Explorers](https://help.hcl-software.com/digital-experience/9.5/latest/extend_dx/apis/hcl_experience_api/api_explorers/){target="_blank"}

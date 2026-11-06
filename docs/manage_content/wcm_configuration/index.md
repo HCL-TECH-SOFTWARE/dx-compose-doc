@@ -10,15 +10,15 @@ Configuring the content management system enables you to tailor it to your needs
 
 This information is primarily aimed at system administrators.
 
-- **[Web content administration tools](wcm_adm_tools/index.md)**  
+- **[Web content administration tools](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_configuration/wcm_adm_tools/)**  
 HCL Web Content Manager (WCM) includes tasks and tools to help maintain your content management system such as the member fixer task and the workflow checker and updater tools.
-- **[Configuring your web authoring environment](cfg_webcontent_auth_env/index.md)**  
+- **[Configuring your web authoring environment](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_configuration/cfg_webcontent_auth_env/)**  
 Set up the authoring environment by installing the authoring portlet and enabling other features that are required to support the authoring environment.
-- **[Configuring your web content delivery environment](cfg_webcontent_delivery_env/index.md)**  
+- **[Configuring your web content delivery environment](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_configuration/cfg_webcontent_delivery_env/)**  
 Set up your delivery environment by installing web content viewers and enabling other required features.
-- **[Custom Caching](custom_caching/index.md)**  
+- **[Custom Caching](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_configuration/custom_caching/)**  
 With custom caching, you can overrule the default caching parameters of a site by using the `cache` and `expire` parameters in URLs and HCL WCM tags.
-- **[Web Content Manager configuration](wcm_svc_cfg/index.md)**  
+- **[Web Content Manager configuration](https://help.hcl-software.com/digital-experience/9.5/latest/manage_content/wcm_configuration/wcm_svc_cfg/)**  
 Configuration services for HCL WCM contain settings for the general operation of the web content system such as messaging, pre-rendering, and searching.
 - **[Cleaning up WCM items](./cleanup_wcm.md)**  
 Clean up old WCM items to improve system performance.
